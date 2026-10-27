@@ -37,7 +37,7 @@ class AssetsHmrTest extends TestCase {
 		parent::set_up();
 
 		// Unique per test (parallel-safe); start with no file so defaults apply.
-		$this->env_file = tempnam( sys_get_temp_dir(), 'elementary-hmr-env-' );
+		$this->env_file = tempnam( sys_get_temp_dir(), 'imet-hmr-env-' );
 		$this->clear_env();
 	}
 

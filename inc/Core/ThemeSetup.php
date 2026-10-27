@@ -46,7 +46,7 @@ class ThemeSetup implements Registrable {
 	 * @since 1.0.0
 	 */
 	public function register_image_sizes(): void {
-		add_image_size( 'elementary-featured', 1200, 630, true );
+		add_image_size( 'imet-featured', 1200, 630, true );
 	}
 
 	/**

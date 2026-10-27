@@ -77,10 +77,10 @@ class ThemeSetupTest extends TestCase {
 		$this->instance->register_image_sizes();
 
 		$sizes = wp_get_additional_image_sizes();
-		$this->assertArrayHasKey( 'elementary-featured', $sizes );
-		$this->assertSame( 1200, $sizes['elementary-featured']['width'] );
-		$this->assertSame( 630, $sizes['elementary-featured']['height'] );
-		$this->assertTrue( $sizes['elementary-featured']['crop'] );
+		$this->assertArrayHasKey( 'imet-featured', $sizes );
+		$this->assertSame( 1200, $sizes['imet-featured']['width'] );
+		$this->assertSame( 630, $sizes['imet-featured']['height'] );
+		$this->assertTrue( $sizes['imet-featured']['crop'] );
 	}
 
 	/**

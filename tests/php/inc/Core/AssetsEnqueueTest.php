@@ -53,7 +53,7 @@ class AssetsEnqueueTest extends TestCase {
 		$GLOBALS['wp_scripts']  = new WP_Scripts();
 		$GLOBALS['wp_styles']   = new WP_Styles();
 
-		$this->env_file = (string) tempnam( sys_get_temp_dir(), 'elementary-assets-env-' );
+		$this->env_file = (string) tempnam( sys_get_temp_dir(), 'imet-assets-env-' );
 	}
 
 	/**

@@ -29,7 +29,7 @@ final class Templates extends TemplateLoader implements Shareable {
 	/**
 	 * Hook prefix for this loader's filters and actions.
 	 */
-	private const HOOK_PREFIX = 'elementary';
+	private const HOOK_PREFIX = 'imet';
 
 	/**
 	 * Template-parts directory, under both the theme root and child-theme override.

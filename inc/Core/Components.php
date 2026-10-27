@@ -29,7 +29,7 @@ class Components extends ComponentLoader implements Shareable {
 	 * Context slug used to namespace the theme's component asset handles.
 	 */
 	protected function get_context(): string {
-		return 'elementary';
+		return 'imet';
 	}
 
 	/**
