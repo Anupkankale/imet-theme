@@ -2,18 +2,18 @@
 /**
  * Test the Composer autoloader guard.
  *
- * @package rtCamp\Theme\Elementary
+ * @package IMET\Theme
  */
 
 declare( strict_types = 1 );
 
-use rtCamp\Theme\Elementary\Autoloader;
-use rtCamp\Theme\Elementary\Tests\TestCase;
+use IMET\Theme\Autoloader;
+use IMET\Theme\Tests\TestCase;
 
 /**
  * Class AutoloaderTest
  *
- * The missing-autoloader branch needs ELEMENTARY_THEME_PATH to point at a
+ * The missing-autoloader branch needs IMET_PATH to point at a
  * directory without vendor/, which a constant cannot do inside one process,
  * so only the installed path is covered here.
  *
@@ -26,7 +26,7 @@ class AutoloaderTest extends TestCase {
 	 * without raising the missing-autoloader notice.
 	 */
 	public function test_autoload_succeeds_when_vendor_is_installed(): void {
-		$this->assertFileIsReadable( ELEMENTARY_THEME_PATH . '/vendor/autoload.php' );
+		$this->assertFileIsReadable( IMET_PATH . '/vendor/autoload.php' );
 
 		$this->assertTrue( Autoloader::autoload() );
 		$this->assertFalse( $this->has_missing_autoloader_notice() );

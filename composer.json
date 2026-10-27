@@ -1,5 +1,5 @@
 {
-	"name": "rtcamp/theme-elementary",
+	"name": "rtcamp/imet-theme",
 	"description": "A starter theme that facilitates a quick head start for developing new block-based themes along with a bunch of developer-friendly features.",
 	"type": "wordpress-theme",
 	"homepage": "https://rtcamp.com/",
@@ -33,12 +33,12 @@
 	},
 	"autoload": {
 		"psr-4": {
-			"rtCamp\\Theme\\Elementary\\": "inc/"
+			"IMET\\Theme\\": "inc/"
 		}
 	},
 	"autoload-dev": {
 		"psr-4": {
-			"rtCamp\\Theme\\Elementary\\Tests\\": "tests/php/"
+			"IMET\\Theme\\Tests\\": "tests/php/"
 		}
 	},
 	"scripts": {
@@ -48,7 +48,7 @@
 		"post-install-cmd": [
 			"npm i"
 		],
-		"pot": "wp i18n make-pot . ./languages/elementary-theme.pot --domain=elementary-theme --include=\"inc,patterns,assets/build/js\""
+		"pot": "wp i18n make-pot . ./languages/imet-theme.pot --domain=imet-theme --include=\"inc,patterns,assets/build/js\""
 	},
 	"extra": {
 		"phpstan/extension-installer": {

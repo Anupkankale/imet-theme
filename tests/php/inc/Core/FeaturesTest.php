@@ -2,15 +2,15 @@
 /**
  * Test Features service.
  *
- * @package rtCamp\Theme\Elementary
+ * @package IMET\Theme
  */
 
 declare( strict_types = 1 );
 
-use rtCamp\Theme\Elementary\Core\FeatureRegistry;
-use rtCamp\Theme\Elementary\Helpers\Util;
-use rtCamp\Theme\Elementary\Main;
-use rtCamp\Theme\Elementary\Tests\TestCase;
+use IMET\Theme\Core\FeatureRegistry;
+use IMET\Theme\Helpers\Util;
+use IMET\Theme\Main;
+use IMET\Theme\Tests\TestCase;
 use rtCamp\WPPrimitives\Contracts\Interfaces\Shareable;
 use rtCamp\WPPrimitives\Utils\FeatureSelector;
 

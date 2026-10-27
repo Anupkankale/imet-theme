@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: Footer
- * Slug: elementary-theme/footer
+ * Slug: imet-theme/footer
  * Description: Footer pattern.
  * Categories: footer
  * Keywords: footer
@@ -26,8 +26,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<?php
 			printf(
 				/* Translators: WordPress link. */
-				esc_html__( 'Proudly powered by %s', 'elementary-theme' ),
-				'<a href="' . esc_url( __( 'https://wordpress.org/', 'elementary-theme' ) ) . '">WordPress</a>'
+				esc_html__( 'Proudly powered by %s', 'imet-theme' ),
+				'<a href="' . esc_url( __( 'https://wordpress.org/', 'imet-theme' ) ) . '">WordPress</a>'
 			);
 			?>
 		</p><!-- /wp:paragraph -->

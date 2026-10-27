@@ -21,7 +21,7 @@ The review rules ARE the coding rules: the same files Copilot reviews against. F
 
 ## Structure
 
-`inc/` (PSR-4 `rtCamp\Theme\Elementary\`): `Main.php` (boot), `Core/` (`ThemeSetup`/`Menu`/`Assets`, implement `Registrable`), `Modules/`. `Main::CLASSES` lists classes directly (no `AbstractModule` grouping yet). Block config in `theme.json`, `templates/`, `parts/`, `patterns/`, `styles/`. Text domain `elementary-theme`. `tests/php/` mirrors `inc/`; `inc/Modules/` classes are scaffolding; delete unused.
+`inc/` (PSR-4 `IMET\Theme\`): `Main.php` (boot), `Core/` (`ThemeSetup`/`Menu`/`Assets`, implement `Registrable`), `Modules/`. `Main::CLASSES` lists classes directly (no `AbstractModule` grouping yet). Block config in `theme.json`, `templates/`, `parts/`, `patterns/`, `styles/`. Text domain `imet`. `tests/php/` mirrors `inc/`; `inc/Modules/` classes are scaffolding; delete unused.
 
 To add a feature: write the test, implement `Registrable` (or extend an abstract), add its `::class` to `Main::CLASSES`.
 

@@ -2,7 +2,7 @@
 /**
  * PHPUnit bootstrap file
  *
- * @package rtCamp\Theme\Elementary
+ * @package IMET\Theme
  */
 
 declare( strict_types = 1 );

@@ -2,15 +2,15 @@
 /**
  * Theme feature base class.
  *
- * @package rtCamp\Theme\Elementary\Abstracts
+ * @package IMET\Theme\Abstracts
  */
 
 declare( strict_types = 1 );
 
-namespace rtCamp\Theme\Elementary\Abstracts;
+namespace IMET\Theme\Abstracts;
 
-use rtCamp\Theme\Elementary\Core\FeatureRegistry;
-use rtCamp\Theme\Elementary\Main;
+use IMET\Theme\Core\FeatureRegistry;
+use IMET\Theme\Main;
 use rtCamp\WPPrimitives\Contracts\Abstracts\AbstractFeature;
 use rtCamp\WPPrimitives\Utils\FeatureSelector;
 

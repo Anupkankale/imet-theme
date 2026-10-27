@@ -2,12 +2,12 @@
 /**
  * Theme template loader.
  *
- * @package rtCamp\Theme\Elementary
+ * @package IMET\Theme
  */
 
 declare( strict_types = 1 );
 
-namespace rtCamp\Theme\Elementary\Core;
+namespace IMET\Theme\Core;
 
 use rtCamp\WPPrimitives\Contracts\Interfaces\Shareable;
 use rtCamp\WPPrimitives\TemplateLoader;
@@ -42,7 +42,7 @@ final class Templates extends TemplateLoader implements Shareable {
 	public function __construct() {
 		parent::__construct(
 			self::HOOK_PREFIX,
-			ELEMENTARY_THEME_PATH . '/' . self::TEMPLATE_DIR,
+			IMET_PATH . '/' . self::TEMPLATE_DIR,
 			self::TEMPLATE_DIR
 		);
 	}

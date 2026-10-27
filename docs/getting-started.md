@@ -17,7 +17,7 @@ An existing local WordPress installation can replace `wp-env`; Docker is still n
 For a standalone project, run this from the directory that will contain it. Composer gives you a copy without the starter's Git history and installs its dependencies, so you can skip step 2:
 
 ```bash
-composer create-project rtcamp/theme-elementary acme-blog
+composer create-project rtcamp/imet acme-blog
 cd acme-blog
 git init
 git add .

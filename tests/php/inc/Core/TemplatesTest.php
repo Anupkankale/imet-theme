@@ -2,14 +2,14 @@
 /**
  * Test Templates loader.
  *
- * @package rtCamp\Theme\Elementary
+ * @package IMET\Theme
  */
 
 declare( strict_types = 1 );
 
-use rtCamp\Theme\Elementary\Core\Templates;
-use rtCamp\Theme\Elementary\Main;
-use rtCamp\Theme\Elementary\Tests\TestCase;
+use IMET\Theme\Core\Templates;
+use IMET\Theme\Main;
+use IMET\Theme\Tests\TestCase;
 
 /**
  * Class TemplatesTest

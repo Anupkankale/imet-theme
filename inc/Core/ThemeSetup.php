@@ -2,12 +2,12 @@
 /**
  * Theme setup configuration.
  *
- * @package rtCamp\Theme\Elementary
+ * @package IMET\Theme
  */
 
 declare( strict_types = 1 );
 
-namespace rtCamp\Theme\Elementary\Core;
+namespace IMET\Theme\Core;
 
 use rtCamp\WPPrimitives\Contracts\Interfaces\Registrable;
 
@@ -58,7 +58,7 @@ class ThemeSetup implements Registrable {
 	 */
 	public function load_textdomain(): void {
 		load_theme_textdomain(
-			'elementary-theme',
+			'imet-theme',
 			get_template_directory() . '/languages'
 		);
 	}

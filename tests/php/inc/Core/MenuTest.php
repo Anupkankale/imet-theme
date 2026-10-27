@@ -2,13 +2,13 @@
 /**
  * Test Menu class.
  *
- * @package rtCamp\Theme\Elementary
+ * @package IMET\Theme
  */
 
 declare( strict_types = 1 );
 
-use rtCamp\Theme\Elementary\Core\Menu;
-use rtCamp\Theme\Elementary\Tests\TestCase;
+use IMET\Theme\Core\Menu;
+use IMET\Theme\Tests\TestCase;
 
 /**
  * Class MenuTest

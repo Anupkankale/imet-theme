@@ -2,12 +2,12 @@
 /**
  * Menu registration.
  *
- * @package rtCamp\Theme\Elementary
+ * @package IMET\Theme
  */
 
 declare( strict_types = 1 );
 
-namespace rtCamp\Theme\Elementary\Core;
+namespace IMET\Theme\Core;
 
 use rtCamp\WPPrimitives\Contracts\Interfaces\Registrable;
 
@@ -35,8 +35,8 @@ class Menu implements Registrable {
 	public function register_menus(): void {
 		register_nav_menus(
 			[
-				'primary' => esc_html__( 'Primary Menu', 'elementary-theme' ),
-				'footer'  => esc_html__( 'Footer Menu', 'elementary-theme' ),
+				'primary' => esc_html__( 'Primary Menu', 'imet-theme' ),
+				'footer'  => esc_html__( 'Footer Menu', 'imet-theme' ),
 			]
 		);
 	}

@@ -4,12 +4,12 @@
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
- * @package rtCamp\Theme\Elementary
+ * @package IMET\Theme
  */
 
 declare( strict_types = 1 );
 
-namespace rtCamp\Theme\Elementary;
+namespace IMET\Theme;
 
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
@@ -18,31 +18,31 @@ defined( 'ABSPATH' ) || exit;
  * Define theme constants.
  */
 function constants(): void {
-	if ( ! defined( 'ELEMENTARY_THEME_VERSION' ) ) {
-		define( 'ELEMENTARY_THEME_VERSION', wp_get_theme()->get( 'Version' ) );
+	if ( ! defined( 'IMET_VERSION' ) ) {
+		define( 'IMET_VERSION', wp_get_theme()->get( 'Version' ) );
 	}
 
-	if ( ! defined( 'ELEMENTARY_THEME_PATH' ) ) {
-		define( 'ELEMENTARY_THEME_PATH', untrailingslashit( get_template_directory() ) );
+	if ( ! defined( 'IMET_PATH' ) ) {
+		define( 'IMET_PATH', untrailingslashit( get_template_directory() ) );
 	}
 
-	if ( ! defined( 'ELEMENTARY_THEME_BUILD_URI' ) ) {
-		define( 'ELEMENTARY_THEME_BUILD_URI', untrailingslashit( get_template_directory_uri() ) . '/assets/build' );
+	if ( ! defined( 'IMET_BUILD_URI' ) ) {
+		define( 'IMET_BUILD_URI', untrailingslashit( get_template_directory_uri() ) . '/assets/build' );
 	}
 
-	if ( ! defined( 'ELEMENTARY_THEME_BUILD_DIR' ) ) {
-		define( 'ELEMENTARY_THEME_BUILD_DIR', untrailingslashit( get_template_directory() ) . '/assets/build' );
+	if ( ! defined( 'IMET_BUILD_DIR' ) ) {
+		define( 'IMET_BUILD_DIR', untrailingslashit( get_template_directory() ) . '/assets/build' );
 	}
 
-	if ( ! defined( 'ELEMENTARY_THEME_ENABLE_TAILWIND' ) ) {
-		define( 'ELEMENTARY_THEME_ENABLE_TAILWIND', false );
+	if ( ! defined( 'IMET_ENABLE_TAILWIND' ) ) {
+		define( 'IMET_ENABLE_TAILWIND', false );
 	}
 }
 
 constants();
 
 // If the autoloader fails, we cannot proceed.
-require_once ELEMENTARY_THEME_PATH . '/inc/Autoloader.php';
+require_once IMET_PATH . '/inc/Autoloader.php';
 if ( ! class_exists( Autoloader::class ) || ! Autoloader::autoload() ) {
 	return;
 }

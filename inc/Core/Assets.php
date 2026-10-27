@@ -2,12 +2,12 @@
 /**
  * Theme assets registration.
  *
- * @package rtCamp\Theme\Elementary
+ * @package IMET\Theme
  */
 
 declare( strict_types = 1 );
 
-namespace rtCamp\Theme\Elementary\Core;
+namespace IMET\Theme\Core;
 
 use rtCamp\WPPrimitives\AssetLoader;
 use rtCamp\WPPrimitives\Contracts\Interfaces\Registrable;
@@ -28,14 +28,14 @@ class Assets extends AssetLoader implements Registrable, Shareable {
 	 * Asset handle prefix, namespacing this theme's handles. Overrides the
 	 * framework default; read by AssetLoader::handle().
 	 */
-	public const HANDLE_PREFIX = 'elementary-theme-';
+	public const HANDLE_PREFIX = 'imet-';
 
 	/**
 	 * Constructor.
 	 */
 	public function __construct() {
 		parent::__construct(
-			ELEMENTARY_THEME_PATH,
+			IMET_PATH,
 			get_template_directory_uri(),
 			'assets/build'
 		);
@@ -45,27 +45,27 @@ class Assets extends AssetLoader implements Registrable, Shareable {
 	 * Whether Tailwind CSS is enabled for this theme.
 	 *
 	 * Off by default. The scaffold's Tailwind feature flips
-	 * ELEMENTARY_THEME_ENABLE_TAILWIND to true in functions.php when enabled.
+	 * IMET_ENABLE_TAILWIND to true in functions.php when enabled.
 	 *
 	 * Resolved at enqueue time (not in the constructor) so the
-	 * elementary_theme_tailwind_enabled filter can be added by child themes or
+	 * imet_tailwind_enabled filter can be added by child themes or
 	 * plugins that load after this one.
 	 *
 	 * To force-enable or disable before the theme loads, define the constant in
 	 * wp-config.php or a must-use plugin:
 	 *
-	 *   define( 'ELEMENTARY_THEME_ENABLE_TAILWIND', true );
-	 *   define( 'ELEMENTARY_THEME_ENABLE_TAILWIND', false );
+	 *   define( 'IMET_ENABLE_TAILWIND', true );
+	 *   define( 'IMET_ENABLE_TAILWIND', false );
 	 *
 	 * To override at runtime (e.g. from a child theme or plugin):
 	 *
-	 *   add_filter( 'elementary_theme_tailwind_enabled', '__return_true' );
-	 *   add_filter( 'elementary_theme_tailwind_enabled', '__return_false' );
+	 *   add_filter( 'imet_tailwind_enabled', '__return_true' );
+	 *   add_filter( 'imet_tailwind_enabled', '__return_false' );
 	 */
 	private function is_tailwind_enabled(): bool {
 		return (bool) apply_filters(
-			'elementary_theme_tailwind_enabled',
-			ELEMENTARY_THEME_ENABLE_TAILWIND
+			'imet_tailwind_enabled',
+			IMET_ENABLE_TAILWIND
 		);
 	}
 
@@ -140,7 +140,7 @@ class Assets extends AssetLoader implements Registrable, Shareable {
 	 * Only runs in the `local` environment and when not disabled via DISABLE_BS
 	 * in .env.local. The client URL is derived from the site URL and the
 	 * BrowserSync port (BS_PORT in .env.local, default 3001), or taken verbatim
-	 * from the ELEMENTARY_THEME_BROWSER_SYNC_URL constant when defined (for
+	 * from the IMET_BROWSER_SYNC_URL constant when defined (for
 	 * custom ports or remote/proxied setups).
 	 *
 	 * @since 1.0.0
@@ -152,8 +152,8 @@ class Assets extends AssetLoader implements Registrable, Shareable {
 			return;
 		}
 
-		if ( defined( 'ELEMENTARY_THEME_BROWSER_SYNC_URL' ) ) {
-			$bs_url = ELEMENTARY_THEME_BROWSER_SYNC_URL;
+		if ( defined( 'IMET_BROWSER_SYNC_URL' ) ) {
+			$bs_url = IMET_BROWSER_SYNC_URL;
 		} else {
 			$scheme = is_ssl() ? 'https' : 'http';
 			$host   = wp_parse_url( home_url(), PHP_URL_HOST );
@@ -162,7 +162,7 @@ class Assets extends AssetLoader implements Registrable, Shareable {
 			$bs_url = "{$scheme}://{$host}:{$port}/browser-sync/browser-sync-client.js";
 		}
 
-		wp_enqueue_script( $this->handle( 'browser-sync' ), $bs_url, [], ELEMENTARY_THEME_VERSION, true );
+		wp_enqueue_script( $this->handle( 'browser-sync' ), $bs_url, [], IMET_VERSION, true );
 	}
 
 	/**
