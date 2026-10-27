@@ -17,10 +17,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 ?>
-<!-- wp:group {"align":"full","className":"imet-footer","style":{"spacing":{"padding":{"top":"0","bottom":"0","left":"0","right":"0"}}},"backgroundColor":"navy","textColor":"white","layout":{"type":"default"}} -->
-<div class="wp-block-group alignfull imet-footer has-white-color has-navy-background-color has-text-color has-background" style="padding-top:0;padding-right:0;padding-bottom:0;padding-left:0">
-<!-- wp:group {"className":"imet-footer-inner","layout":{"type":"constrained","contentSize":"1200px"}} -->
-<div class="wp-block-group imet-footer-inner">
+<!-- wp:group {"align":"full","className":"imet-footer","style":{"spacing":{"padding":{"top":"0","bottom":"0","left":"0","right":"0"},"blockGap":"0"}},"backgroundColor":"navy-footer","textColor":"white","layout":{"type":"default"}} -->
+<div class="wp-block-group alignfull imet-footer has-white-color has-navy-footer-background-color has-text-color has-background" style="padding-top:0;padding-right:0;padding-bottom:0;padding-left:0">
 <!-- wp:buttons {"className":"imet-footer-tabs","layout":{"type":"flex","justifyContent":"center"}} -->
 <div class="wp-block-buttons imet-footer-tabs">
 <!-- wp:button {"textColor":"white","className":"is-style-outline"} -->
@@ -36,27 +34,29 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:button -->
 
 <!-- wp:button {"textColor":"white","className":"is-style-outline"} -->
-<div class="wp-block-button is-style-outline"><a class="wp-block-button__link has-white-color has-text-color wp-element-button" href="/success-stories/">Success Stories</a></div>
-<!-- /wp:button -->
-
-<!-- wp:button {"textColor":"white","className":"is-style-outline"} -->
 <div class="wp-block-button is-style-outline"><a class="wp-block-button__link has-white-color has-text-color wp-element-button" href="/convocation-ceremony/">Convocation Ceremony</a></div>
 <!-- /wp:button -->
 </div>
 <!-- /wp:buttons -->
 
+<!-- wp:group {"className":"imet-footer-inner","layout":{"type":"constrained","contentSize":"1200px"},"style":{"spacing":{"blockGap":"0"}}} -->
+<div class="wp-block-group imet-footer-inner">
 <!-- wp:columns {"className":"imet-footer-top"} -->
 <div class="wp-block-columns imet-footer-top">
-<!-- wp:column {"width":"30%"} -->
-<div class="wp-block-column" style="flex-basis:30%">
+<!-- wp:column {"width":"334px","style":{"spacing":{"blockGap":"0"}}} -->
+<div class="wp-block-column" style="flex-basis:334px">
+<!-- wp:group {"className":"imet-footer-logo","layout":{"type":"default"},"style":{"spacing":{"blockGap":"0"}}} -->
+<div class="wp-block-group imet-footer-logo">
 <!-- wp:site-logo {"width":84,"shouldSyncIcon":false} /-->
+</div>
+<!-- /wp:group -->
 
 <!-- wp:heading {"level":2,"textColor":"white","className":"imet-footer-brand"} -->
 <h2 class="wp-block-heading imet-footer-brand has-white-color has-text-color">IMET Worldwide</h2>
 <!-- /wp:heading -->
 
-<!-- wp:paragraph {"textColor":"white"} -->
-<p class="has-white-color has-text-color">At IMET Worldwide, we don’t award any degrees — we shape industry authorities. Our programs are built for senior leaders, entrepreneurs, C-Suite executives, and domain experts who want to convert their experience into thought leadership, boardroom influence, and lasting digital visibility.</p>
+<!-- wp:paragraph {"textColor":"white","className":"imet-footer-about"} -->
+<p class="imet-footer-about has-white-color has-text-color">At IMET Worldwide, we don’t award any degrees — we shape industry authorities. Our programs are built for senior leaders, entrepreneurs, C-Suite executives, and domain experts who want to convert their experience into thought leadership, boardroom influence, and lasting digital visibility.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:list {"className":"imet-footer-bullets"} -->
@@ -79,14 +79,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 </ul>
 <!-- /wp:list -->
 
-<!-- wp:separator {"className":"is-style-wide"} -->
-<hr class="wp-block-separator has-alpha-channel-opacity is-style-wide"/>
-<!-- /wp:separator -->
-
+<!-- wp:group {"className":"imet-footer-refer","layout":{"type":"default"},"style":{"spacing":{"blockGap":"0"}}} -->
+<div class="wp-block-group imet-footer-refer">
 <!-- wp:buttons -->
 <div class="wp-block-buttons">
-<!-- wp:button {"backgroundColor":"white","textColor":"navy"} -->
-<div class="wp-block-button"><a class="wp-block-button__link has-navy-color has-white-background-color has-text-color has-background wp-element-button" href="/refer-and-earn/">Refer &amp; Earn</a></div>
+<!-- wp:button {"backgroundColor":"white","textColor":"navy-footer"} -->
+<div class="wp-block-button"><a class="wp-block-button__link has-navy-footer-color has-white-background-color has-text-color has-background wp-element-button" href="/refer-and-earn/">Refer &amp; Earn</a></div>
 <!-- /wp:button -->
 </div>
 <!-- /wp:buttons -->
@@ -95,13 +93,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 <p class="has-white-color has-text-color">Turn your connections into rewards: Refer your friends to IMET Worldwide and unlock special benefits.</p>
 <!-- /wp:paragraph -->
 </div>
+<!-- /wp:group -->
+</div>
 <!-- /wp:column -->
 
-<!-- wp:column {"width":"70%"} -->
-<div class="wp-block-column" style="flex-basis:70%">
-<!-- wp:group {"className":"imet-footer-links","layout":{"type":"grid","minimumColumnWidth":"200px"}} -->
+<!-- wp:column {"width":"826px","style":{"spacing":{"blockGap":"0"}}} -->
+<div class="wp-block-column" style="flex-basis:826px">
+<!-- wp:group {"className":"imet-footer-links","layout":{"type":"default"},"style":{"spacing":{"blockGap":"0"}}} -->
 <div class="wp-block-group imet-footer-links">
-<!-- wp:group {"layout":{"type":"default"}} -->
+<!-- wp:group {"layout":{"type":"default"},"style":{"spacing":{"blockGap":"0"}}} -->
 <div class="wp-block-group">
 <!-- wp:heading {"level":3,"textColor":"white","className":"imet-footer-h"} -->
 <h3 class="wp-block-heading imet-footer-h has-white-color has-text-color">Main Menu</h3>
@@ -132,7 +132,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 </div>
 <!-- /wp:group -->
 
-<!-- wp:group {"layout":{"type":"default"}} -->
+<!-- wp:group {"layout":{"type":"default"},"style":{"spacing":{"blockGap":"0"}}} -->
 <div class="wp-block-group">
 <!-- wp:heading {"level":3,"textColor":"white","className":"imet-footer-h"} -->
 <h3 class="wp-block-heading imet-footer-h has-white-color has-text-color">Courses</h3>
@@ -175,7 +175,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 </div>
 <!-- /wp:group -->
 
-<!-- wp:group {"layout":{"type":"default"}} -->
+<!-- wp:group {"layout":{"type":"default"},"style":{"spacing":{"blockGap":"0"}}} -->
 <div class="wp-block-group">
 <!-- wp:heading {"level":3,"textColor":"white","className":"imet-footer-h"} -->
 <h3 class="wp-block-heading imet-footer-h has-white-color has-text-color">Online Doctorate (DBA)</h3>
@@ -208,93 +208,89 @@ if ( ! defined( 'ABSPATH' ) ) {
 </div>
 <!-- /wp:group -->
 
-<!-- wp:separator {"className":"is-style-wide"} -->
-<hr class="wp-block-separator has-alpha-channel-opacity is-style-wide"/>
-<!-- /wp:separator -->
-
-<!-- wp:group {"className":"imet-footer-offices","layout":{"type":"grid","minimumColumnWidth":"150px"}} -->
+<!-- wp:group {"className":"imet-footer-contact","layout":{"type":"default"},"style":{"spacing":{"blockGap":"0"}}} -->
+<div class="wp-block-group imet-footer-contact">
+<!-- wp:group {"className":"imet-footer-offices","layout":{"type":"default"},"style":{"spacing":{"blockGap":"0"}}} -->
 <div class="wp-block-group imet-footer-offices">
-<!-- wp:group {"className":"imet-footer-office","layout":{"type":"default"}} -->
+<!-- wp:group {"className":"imet-footer-office","layout":{"type":"default"},"style":{"spacing":{"blockGap":"0"}}} -->
 <div class="wp-block-group imet-footer-office">
 <!-- wp:heading {"level":4,"textColor":"white","className":"imet-footer-h"} -->
 <h4 class="wp-block-heading imet-footer-h has-white-color has-text-color">Dubai</h4>
 <!-- /wp:heading -->
 
-<!-- wp:paragraph {"textColor":"white"} -->
-<p class="has-white-color has-text-color">Bur Dubai, United Arab Emirates</p>
+<!-- wp:paragraph {"textColor":"white","className":"imet-footer-address"} -->
+<p class="imet-footer-address has-white-color has-text-color">Bur Dubai, United Arab Emirates</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:paragraph {"textColor":"white"} -->
-<p class="has-white-color has-text-color"><a href="tel:+971523085167">+971523085167</a></p>
+<!-- wp:paragraph {"textColor":"white","className":"imet-footer-phone"} -->
+<p class="imet-footer-phone has-white-color has-text-color"><a href="tel:+971523085167">+971523085167</a></p>
 <!-- /wp:paragraph -->
 </div>
 <!-- /wp:group -->
 
-<!-- wp:group {"className":"imet-footer-office","layout":{"type":"default"}} -->
+<!-- wp:group {"className":"imet-footer-office","layout":{"type":"default"},"style":{"spacing":{"blockGap":"0"}}} -->
 <div class="wp-block-group imet-footer-office">
 <!-- wp:heading {"level":4,"textColor":"white","className":"imet-footer-h"} -->
 <h4 class="wp-block-heading imet-footer-h has-white-color has-text-color">USA</h4>
 <!-- /wp:heading -->
 
-<!-- wp:paragraph {"textColor":"white"} -->
-<p class="has-white-color has-text-color">East Brunswick, New Jersey USA</p>
+<!-- wp:paragraph {"textColor":"white","className":"imet-footer-address"} -->
+<p class="imet-footer-address has-white-color has-text-color">East Brunswick, New Jersey USA</p>
 <!-- /wp:paragraph -->
 </div>
 <!-- /wp:group -->
 
-<!-- wp:group {"className":"imet-footer-office","layout":{"type":"default"}} -->
+<!-- wp:group {"className":"imet-footer-office","layout":{"type":"default"},"style":{"spacing":{"blockGap":"0"}}} -->
 <div class="wp-block-group imet-footer-office">
 <!-- wp:heading {"level":4,"textColor":"white","className":"imet-footer-h"} -->
 <h4 class="wp-block-heading imet-footer-h has-white-color has-text-color">Singapore</h4>
 <!-- /wp:heading -->
 
-<!-- wp:paragraph {"textColor":"white"} -->
-<p class="has-white-color has-text-color">77 Robinson Rd, Singapore</p>
+<!-- wp:paragraph {"textColor":"white","className":"imet-footer-address"} -->
+<p class="imet-footer-address has-white-color has-text-color">77 Robinson Rd, Singapore</p>
 <!-- /wp:paragraph -->
 </div>
 <!-- /wp:group -->
 
-<!-- wp:group {"className":"imet-footer-office","layout":{"type":"default"}} -->
+<!-- wp:group {"className":"imet-footer-office","layout":{"type":"default"},"style":{"spacing":{"blockGap":"0"}}} -->
 <div class="wp-block-group imet-footer-office">
 <!-- wp:heading {"level":4,"textColor":"white","className":"imet-footer-h"} -->
 <h4 class="wp-block-heading imet-footer-h has-white-color has-text-color">UK</h4>
 <!-- /wp:heading -->
 
-<!-- wp:paragraph {"textColor":"white"} -->
-<p class="has-white-color has-text-color">Fitzrovia, London, United Kingdom</p>
+<!-- wp:paragraph {"textColor":"white","className":"imet-footer-address"} -->
+<p class="imet-footer-address has-white-color has-text-color">Fitzrovia, London, United Kingdom</p>
 <!-- /wp:paragraph -->
 </div>
 <!-- /wp:group -->
 </div>
 <!-- /wp:group -->
 
-<!-- wp:group {"className":"imet-footer-cta","layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between","verticalAlignment":"center"}} -->
-<div class="wp-block-group imet-footer-cta">
-<!-- wp:group {"layout":{"type":"default"}} -->
-<div class="wp-block-group">
+<!-- wp:group {"className":"imet-footer-advisor","layout":{"type":"default"},"style":{"spacing":{"blockGap":"0"}}} -->
+<div class="wp-block-group imet-footer-advisor">
 <!-- wp:heading {"level":3,"textColor":"white","className":"imet-footer-h"} -->
 <h3 class="wp-block-heading imet-footer-h has-white-color has-text-color">Book Free Mentorship Session</h3>
 <!-- /wp:heading -->
 
-<!-- wp:buttons -->
-<div class="wp-block-buttons">
-<!-- wp:button {"backgroundColor":"white","textColor":"navy"} -->
-<div class="wp-block-button"><a class="wp-block-button__link has-navy-color has-white-background-color has-text-color has-background wp-element-button" href="/contact/">Talk to a Doctoral Advisor</a></div>
+<!-- wp:buttons {"className":"imet-footer-advisor-cta"} -->
+<div class="wp-block-buttons imet-footer-advisor-cta">
+<!-- wp:button {"backgroundColor":"navy-footer","textColor":"white"} -->
+<div class="wp-block-button"><a class="wp-block-button__link has-white-color has-navy-footer-background-color has-text-color has-background wp-element-button" href="/contact/">Talk to a Doctoral Advisor</a></div>
 <!-- /wp:button -->
 </div>
 <!-- /wp:buttons -->
-</div>
-<!-- /wp:group -->
 
-<!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap","verticalAlignment":"center"}} -->
-<div class="wp-block-group">
-<!-- wp:paragraph {"textColor":"white"} -->
-<p class="has-white-color has-text-color"><strong>Follow Us:</strong></p>
-<!-- /wp:paragraph -->
+<!-- wp:group {"className":"imet-footer-follow","layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"right","verticalAlignment":"center"}} -->
+<div class="wp-block-group imet-footer-follow">
+<!-- wp:heading {"level":4,"textColor":"white","className":"imet-footer-h imet-footer-follow-label"} -->
+<h4 class="wp-block-heading imet-footer-h imet-footer-follow-label has-white-color has-text-color">Follow Us:</h4>
+<!-- /wp:heading -->
 
 <!-- wp:social-links {"openInNewTab":true,"className":"is-style-default"} -->
 <ul class="wp-block-social-links is-style-default"><!-- wp:social-link {"url":"https://www.linkedin.com/school/imetworldwide/","service":"linkedin","label":"LinkedIn"} /--></ul>
 <!-- /wp:social-links -->
+</div>
+<!-- /wp:group -->
 </div>
 <!-- /wp:group -->
 </div>
@@ -357,8 +353,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 </div>
 <!-- /wp:group -->
 
-<!-- wp:group {"className":"imet-footer-bottom","style":{"spacing":{"padding":{"top":"20px","bottom":"20px","left":"20px","right":"20px"}}},"backgroundColor":"white","textColor":"ink","layout":{"type":"constrained","contentSize":"1200px"}} -->
-<div class="wp-block-group imet-footer-bottom has-ink-color has-white-background-color has-text-color has-background" style="padding-top:20px;padding-right:20px;padding-bottom:20px;padding-left:20px">
+<!-- wp:group {"className":"imet-footer-bottom","backgroundColor":"white","textColor":"ink","layout":{"type":"constrained","contentSize":"1200px"},"style":{"spacing":{"blockGap":"0"}}} -->
+<div class="wp-block-group imet-footer-bottom has-ink-color has-white-background-color has-text-color has-background">
 <!-- wp:group {"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between","verticalAlignment":"center"}} -->
 <div class="wp-block-group">
 <!-- wp:paragraph {"textColor":"ink"} -->
