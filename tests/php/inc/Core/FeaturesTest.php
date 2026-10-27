@@ -86,8 +86,8 @@ class FeaturesTest extends TestCase {
 	/**
 	 * The instance is namespaced with the theme's context slug.
 	 */
-	public function test_uses_elementary_context(): void {
-		$this->assertSame( 'elementary', ( new FeatureRegistry() )->get_context() );
+	public function test_uses_imet_context(): void {
+		$this->assertSame( 'imet', ( new FeatureRegistry() )->get_context() );
 	}
 
 	/**
@@ -96,9 +96,9 @@ class FeaturesTest extends TestCase {
 	public function test_key_derivation(): void {
 		$registry = new FeatureRegistry();
 
-		$this->assertSame( 'elementary_features', $registry->shared_option_key() );
+		$this->assertSame( 'imet_features', $registry->shared_option_key() );
 		$this->assertSame( self::FLAG, $registry->flag_key( self::FLAG ) );
-		$this->assertSame( 'ELEMENTARY_FEATURE_SAMPLE_FLAG', $registry->constant_name( self::FLAG ) );
+		$this->assertSame( 'IMET_FEATURE_SAMPLE_FLAG', $registry->constant_name( self::FLAG ) );
 	}
 
 	/**
@@ -133,10 +133,10 @@ class FeaturesTest extends TestCase {
 		$registry->enable( self::FLAG );
 		$registry->disable( self::OTHER_FLAG );
 
-		$stored = get_option( 'elementary_features' );
+		$stored = get_option( 'imet_features' );
 		$this->assertTrue( $stored[ self::FLAG ] );
 		$this->assertFalse( $stored[ self::OTHER_FLAG ] );
-		$this->assertFalse( get_option( 'elementary_feature_sample_flag', false ) );
+		$this->assertFalse( get_option( 'imet_feature_sample_flag', false ) );
 	}
 
 	/**

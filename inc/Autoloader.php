@@ -1,6 +1,6 @@
 <?php
 /**
- * Autoloader for PHP classes inside Theme Elementary.
+ * Autoloader for PHP classes inside IMET theme.
  *
  * Provides graceful failure if the Composer autoloader is missing.
  *

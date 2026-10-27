@@ -19,8 +19,8 @@ use rtCamp\WPPrimitives\Utils\FeatureSelector;
  * each ThemeFeature subclass on construction, so the admin settings page
  * discovers them automatically without a central list.
  *
- * Shared option:      elementary_features  (one row; value is {flag_key => bool})
- * Override constants: ELEMENTARY_FEATURE_{FLAG}
+ * Shared option:      imet_features  (one row; value is {flag_key => bool})
+ * Override constants: IMET_FEATURE_{FLAG}
  *
  * @since 1.0.0
  */
@@ -30,6 +30,6 @@ final class FeatureRegistry extends FeatureSelector implements Shareable {
 	 * Constructor.
 	 */
 	public function __construct() {
-		parent::__construct( 'elementary' );
+		parent::__construct( 'imet' );
 	}
 }

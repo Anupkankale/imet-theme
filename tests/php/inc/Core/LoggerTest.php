@@ -47,7 +47,7 @@ class LoggerTest extends TestCase {
 	public function set_up(): void {
 		parent::set_up();
 
-		$tmp = tempnam( sys_get_temp_dir(), 'elementary-logger-' );
+		$tmp = tempnam( sys_get_temp_dir(), 'imet-logger-' );
 		$this->assertNotFalse( $tmp, 'Failed to create temp file for capturing error_log output.' );
 
 		$this->log_file           = $tmp;

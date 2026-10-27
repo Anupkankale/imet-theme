@@ -12,5 +12,5 @@ declare(strict_types = 1);
 define( 'IMET_VERSION', '1.0.0' );
 define( 'IMET_PATH', __DIR__ );
 define( 'IMET_BUILD_DIR', __DIR__ . '/assets/build' );
-define( 'IMET_BUILD_URI', 'https://example.com/wp-content/themes/elementary/assets/build' );
+define( 'IMET_BUILD_URI', 'https://example.com/wp-content/themes/imet-theme/assets/build' );
 define( 'IMET_ENABLE_TAILWIND', false );

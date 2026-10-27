@@ -51,7 +51,7 @@ describe('webpack component entries', () => {
 
 	it('only matches files with the exact component basename', () => {
 		tmpDir = fs.mkdtempSync(
-			path.join(os.tmpdir(), 'elementary-webpack-components-')
+			path.join(os.tmpdir(), 'imet-webpack-components-')
 		);
 		const buttonDir = path.join(tmpDir, 'button');
 
@@ -88,7 +88,7 @@ describe('webpack component entries (edge cases)', () => {
 
 	it('skips private folders, loose files and folders without a matching entry', () => {
 		tmpDir = fs.mkdtempSync(
-			path.join(os.tmpdir(), 'elementary-webpack-components-')
+			path.join(os.tmpdir(), 'imet-webpack-components-')
 		);
 		touch(tmpDir, '_private/_private.js');
 		touch(tmpDir, '.hidden/.hidden.js');
@@ -107,7 +107,7 @@ describe('readAllFileEntries', () => {
 
 	beforeEach(() => {
 		tmpDir = fs.mkdtempSync(
-			path.join(os.tmpdir(), 'elementary-webpack-entries-')
+			path.join(os.tmpdir(), 'imet-webpack-entries-')
 		);
 	});
 
