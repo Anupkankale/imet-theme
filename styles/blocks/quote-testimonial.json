@@ -9,22 +9,22 @@
 	"styles": {
 		"color": {
 			"gradient": "var(--wp--custom--gradient--testimonial)",
-			"text": "#111111"
+			"text": "var(--wp--preset--color--grey-900)"
 		},
 		"border": {
-			"radius": "10px",
-			"width": "0px"
+			"radius": "var(--wp--preset--border-radius--10)",
+			"width": "var(--wp--custom--border-width--0)"
 		},
 		"spacing": {
 			"padding": {
-				"top": "36px",
-				"bottom": "36px",
-				"left": "24px",
-				"right": "18px"
+				"top": "var:preset|spacing|36",
+				"bottom": "var:preset|spacing|36",
+				"left": "var:preset|spacing|24",
+				"right": "var:preset|spacing|18"
 			}
 		},
 		"typography": {
-			"fontSize": "1rem",
+			"fontSize": "var(--wp--preset--font-size--normal)",
 			"lineHeight": "1.4",
 			"fontStyle": "normal"
 		}

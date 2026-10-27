@@ -8,7 +8,7 @@
 	],
 	"styles": {
 		"spacing": {
-			"blockGap": "20px"
+			"blockGap": "var:preset|spacing|20"
 		}
 	}
 }

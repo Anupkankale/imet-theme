@@ -1,0 +1,8 @@
+// The only raw pixel values left in the stylesheets: CSS can't use custom properties in media queries.
+// They follow the live site (Elementor's 767 / 1024) plus the points the footer and menu need with Montserrat.
+$bp-narrow: 480px;
+$bp-phone: 640px;
+$bp-tablet: 768px; // phones below, promo bar and accordions switch here
+$bp-footer: 1000px; // footer columns stack below
+$bp-desktop: 1024px;
+$bp-nav: 1060px; // below this the menu collapses into the overlay

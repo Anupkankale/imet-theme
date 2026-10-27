@@ -15,25 +15,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 ?>
+<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|24"}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group">
+	<!-- wp:heading {"textAlign":"center","level":1,"fontSize":"display"} -->
+	<h1 class="wp-block-heading has-text-align-center has-display-font-size"><?php echo esc_html( _x( '404', 'Error code for a webpage that is not found.', 'imet-theme' ) ); ?></h1>
+	<!-- /wp:heading -->
 
-<!-- wp:heading {"style":{"typography":{"fontSize":"clamp(4rem, 40vw, 20rem)","fontWeight":"100","lineHeight":"1"}},"className":"has-text-align-center"} -->
-<h2 class="has-text-align-center" style="font-size:clamp(4rem, 40vw, 20rem);font-weight:100;line-height:1">
-	<?php echo esc_html( _x( '404', 'Error code for a webpage that is not found.', 'imet-theme' ) ); ?>
-</h2>
-<!-- /wp:heading -->
+	<!-- wp:paragraph {"align":"center"} -->
+	<p class="has-text-align-center"><?php esc_html_e( 'This page could not be found. Maybe try a search?', 'imet-theme' ); ?></p>
+	<!-- /wp:paragraph -->
 
-<!-- wp:paragraph {"align":"center"} -->
-<p class="has-text-align-center">
-	<?php esc_html_e( 'This page could not be found. Maybe try a search?', 'imet-theme' ); ?>
-</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:spacer {"height":"1em"} -->
-<div style="height:1em" aria-hidden="true" class="wp-block-spacer"></div>
-<!-- /wp:spacer -->
-
-<!-- wp:search {"label":"<?php esc_html_e( 'Search', 'imet-theme' ); ?>","showLabel":false,"width":100,"widthUnit":"%","buttonText":"<?php esc_html_e( 'Search', 'imet-theme' ); ?>","buttonUseIcon":true,"align":"center"} /-->
-
-<!-- wp:spacer {"height":"2em"} -->
-<div style="height:2em" aria-hidden="true" class="wp-block-spacer"></div>
-<!-- /wp:spacer -->
+	<!-- wp:search {"label":"<?php esc_html_e( 'Search', 'imet-theme' ); ?>","showLabel":false,"buttonText":"<?php esc_html_e( 'Search', 'imet-theme' ); ?>","buttonUseIcon":true} /-->
+</div>
+<!-- /wp:group -->

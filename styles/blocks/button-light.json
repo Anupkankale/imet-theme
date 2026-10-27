@@ -8,11 +8,11 @@
 	],
 	"styles": {
 		"color": {
-			"background": "#d6d7da",
+			"background": "var(--wp--preset--color--grey-200)",
 			"text": "var(--wp--preset--color--ink)"
 		},
 		"border": {
-			"color": "#d6d7da"
+			"color": "var(--wp--preset--color--grey-200)"
 		}
 	}
 }

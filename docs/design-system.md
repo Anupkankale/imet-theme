@@ -45,3 +45,37 @@ many cards show.
 
 Edit `theme.json` once; every component, the editor and the patterns follow. The plugin's `.imet-section` rules still win inside
 plugin sections (they use the same values), so the two stay visually identical.
+
+## Tokens only (no magic numbers)
+
+Templates, parts, patterns, block-style partials and the SCSS contain no raw `px`/`rem`/`em` values and no hard-coded colours.
+Everything resolves to a token defined once in `theme.json`:
+
+| Token | Name | Example |
+|---|---|---|
+| Spacing presets | named by pixels | `--wp--preset--spacing--20` = 20px; in markup `var:preset|spacing|20` |
+| Radius presets | named by pixels | `--wp--preset--border-radius--6`; `pill` |
+| Type presets | semantic, plus pixel-named extras | `--wp--preset--font-size--medium`, `--14`, `--29` |
+| Colours, shadows | semantic | `--wp--preset--color--navy`, `--wp--preset--shadow--pill` |
+| Dimensions, line heights, border widths, letter spacing | `custom`, named by pixels | `--wp--custom--size--84`, `--wp--custom--line-height--28` |
+| Component values | `custom`, semantic | `--wp--custom--header--pill-height`, `--wp--custom--header--clearance` |
+
+Slugs are pure digits on purpose: WordPress kebab-cases names and would turn `s28` into `s-28`.
+
+**Adding a value:** put it in `theme.json` first, then reference it. Run `npm run lint:tokens`; it fails on any raw size or
+colour, and on any `var(--wp--preset--…)` / `var(--wp--custom--…)` that is not defined (an undefined token silently does
+nothing). It is part of `npm run lint:all`.
+
+### Deliberate exceptions
+
+The theme is pixel-matched to the live site and the plugin's sections, so a few things differ from a generic 8px scale:
+
+- **Pixel-named steps, not an 8px scale.** Spacing steps are the live site's values (4, 5, 6, 8, 10, 12 … 80).
+- **Unequal padding where the live design is unequal:** the footer tabs (80 top / 0 bottom) and inner block (32 / 20), the
+  testimonial card (24 left / 18 right), the link card (54 right, room for the arrow), and the header clearance
+  (`--wp--custom--header--main-clearance` above page content, so the floating pill never covers it).
+- **Breakpoints** are raw values in `src/css/shared/_breakpoints.scss`, the only file allowed to hold them (media queries
+  cannot use variables): 480, 640, 768, 1000, 1024, 1060.
+- **Font weights 400/500/600/700:** 500 is the live nav and eyebrow weight.
+- **Button colours:** the plugin's seven-colour system is kept (six block styles plus the default), not two variants.
+- **Content widths** are 1020px (text) and 1200px (wide), the plugin's containers, not 720px.

@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 ?>
-<!-- wp:group {"className":"imet-section-head","style":{"spacing":{"blockGap":"0"}},"layout":{"type":"constrained","contentSize":"1020px"}} -->
+<!-- wp:group {"className":"imet-section-head","style":{"spacing":{"blockGap":"0"}},"layout":{"type":"constrained","contentSize":"var(--wp--style--global--content-size)"}} -->
 <div class="wp-block-group imet-section-head">
 <!-- wp:paragraph {"className":"is-style-paragraph-eyebrow"} -->
 <p class="is-style-paragraph-eyebrow">Eyebrow</p>

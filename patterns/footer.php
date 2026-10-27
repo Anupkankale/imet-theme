@@ -39,15 +39,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 </div>
 <!-- /wp:buttons -->
 
-<!-- wp:group {"className":"imet-footer-inner","layout":{"type":"constrained","contentSize":"1200px"},"style":{"spacing":{"blockGap":"0"}}} -->
+<!-- wp:group {"className":"imet-footer-inner","layout":{"type":"constrained","contentSize":"var(--wp--style--global--wide-size)"},"style":{"spacing":{"blockGap":"0"}}} -->
 <div class="wp-block-group imet-footer-inner">
 <!-- wp:columns {"className":"imet-footer-top"} -->
 <div class="wp-block-columns imet-footer-top">
-<!-- wp:column {"width":"334px","style":{"spacing":{"blockGap":"0"}}} -->
-<div class="wp-block-column" style="flex-basis:334px">
+<!-- wp:column {"width":"var(--wp--custom--size--334)","style":{"spacing":{"blockGap":"0"}}} -->
+<div class="wp-block-column" style="flex-basis:var(--wp--custom--size--334)">
 <!-- wp:group {"className":"imet-footer-logo","layout":{"type":"default"},"style":{"spacing":{"blockGap":"0"}}} -->
 <div class="wp-block-group imet-footer-logo">
-<!-- wp:site-logo {"width":84,"shouldSyncIcon":false} /-->
+<!-- wp:site-logo {"shouldSyncIcon":false} /-->
 </div>
 <!-- /wp:group -->
 
@@ -97,8 +97,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 </div>
 <!-- /wp:column -->
 
-<!-- wp:column {"width":"826px","style":{"spacing":{"blockGap":"0"}}} -->
-<div class="wp-block-column" style="flex-basis:826px">
+<!-- wp:column {"width":"var(--wp--custom--size--826)","style":{"spacing":{"blockGap":"0"}}} -->
+<div class="wp-block-column" style="flex-basis:var(--wp--custom--size--826)">
 <!-- wp:group {"className":"imet-footer-links","layout":{"type":"default"},"style":{"spacing":{"blockGap":"0"}}} -->
 <div class="wp-block-group imet-footer-links">
 <!-- wp:group {"layout":{"type":"default"},"style":{"spacing":{"blockGap":"0"}}} -->
@@ -353,7 +353,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 </div>
 <!-- /wp:group -->
 
-<!-- wp:group {"className":"imet-footer-bottom","backgroundColor":"white","textColor":"ink","layout":{"type":"constrained","contentSize":"1200px"},"style":{"spacing":{"blockGap":"0"}}} -->
+<!-- wp:group {"className":"imet-footer-bottom","backgroundColor":"white","textColor":"ink","layout":{"type":"constrained","contentSize":"var(--wp--style--global--wide-size)"},"style":{"spacing":{"blockGap":"0"}}} -->
 <div class="wp-block-group imet-footer-bottom has-ink-color has-white-background-color has-text-color has-background">
 <!-- wp:group {"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between","verticalAlignment":"center"}} -->
 <div class="wp-block-group">
@@ -363,24 +363,24 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <!-- wp:group {"className":"imet-footer-logos","layout":{"type":"flex","flexWrap":"wrap","justifyContent":"right"}} -->
 <div class="wp-block-group imet-footer-logos">
-<!-- wp:image {"width":"103px","sizeSlug":"full","linkDestination":"none"} -->
-<figure class="wp-block-image size-full is-resized"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/recognition-singapore.png' ) ); ?>" alt="Singapore Governing Body - IMET Worldwide" style="width:103px"/></figure>
+<!-- wp:image {"sizeSlug":"full","linkDestination":"none"} -->
+<figure class="wp-block-image size-full"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/recognition-singapore.png' ) ); ?>" alt="Singapore Governing Body - IMET Worldwide"/></figure>
 <!-- /wp:image -->
 
-<!-- wp:image {"width":"103px","sizeSlug":"full","linkDestination":"none"} -->
-<figure class="wp-block-image size-full is-resized"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/recognition-moe-india.png' ) ); ?>" alt="Ministry of Education Accredited Program - IMET Worldwide" style="width:103px"/></figure>
+<!-- wp:image {"sizeSlug":"full","linkDestination":"none"} -->
+<figure class="wp-block-image size-full"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/recognition-moe-india.png' ) ); ?>" alt="Ministry of Education Accredited Program - IMET Worldwide"/></figure>
 <!-- /wp:image -->
 
-<!-- wp:image {"width":"103px","sizeSlug":"full","linkDestination":"none"} -->
-<figure class="wp-block-image size-full is-resized"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/recognition-wes.png' ) ); ?>" alt="WES Accredited Program - IMET Worldwide" style="width:103px"/></figure>
+<!-- wp:image {"sizeSlug":"full","linkDestination":"none"} -->
+<figure class="wp-block-image size-full"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/recognition-wes.png' ) ); ?>" alt="WES Accredited Program - IMET Worldwide"/></figure>
 <!-- /wp:image -->
 
-<!-- wp:image {"width":"103px","sizeSlug":"full","linkDestination":"none"} -->
-<figure class="wp-block-image size-full is-resized"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/recognition-mca-india.png' ) ); ?>" alt="Ministry of Corporate Affairs Accredited Program - IMET Worldwide" style="width:103px"/></figure>
+<!-- wp:image {"sizeSlug":"full","linkDestination":"none"} -->
+<figure class="wp-block-image size-full"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/recognition-mca-india.png' ) ); ?>" alt="Ministry of Corporate Affairs Accredited Program - IMET Worldwide"/></figure>
 <!-- /wp:image -->
 
-<!-- wp:image {"width":"103px","sizeSlug":"full","linkDestination":"none"} -->
-<figure class="wp-block-image size-full is-resized"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/recognition-mofa-uae.png' ) ); ?>" alt="Ministry of Foreign Affairs Accredited Program - IMET Worldwide" style="width:103px"/></figure>
+<!-- wp:image {"sizeSlug":"full","linkDestination":"none"} -->
+<figure class="wp-block-image size-full"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/recognition-mofa-uae.png' ) ); ?>" alt="Ministry of Foreign Affairs Accredited Program - IMET Worldwide"/></figure>
 <!-- /wp:image -->
 </div>
 <!-- /wp:group -->

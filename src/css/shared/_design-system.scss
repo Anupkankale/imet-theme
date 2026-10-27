@@ -1,3 +1,5 @@
+@use "breakpoints" as *;
+
 // IMET design system: what theme.json can't express. Values mirror the IMET Blocks plugin (base.scss, _buttons.scss)
 // so core blocks look the same as the plugin's sections. Tokens come from theme.json (--wp--custom--...).
 // Buttons: classes on .wp-block-button, set from the editor's "IMET button" panel (plugin) or typed as Additional CSS:
@@ -12,7 +14,7 @@
 	--imet-btn-px: var(--wp--custom--button--medium--padding-x);
 	--imet-btn-fs: var(--wp--custom--button--medium--size);
 
-	@media (max-width: 640px) {
+	@media (max-width: #{$bp-phone}) {
 		--imet-btn-h: var(--wp--custom--button--medium-mobile--height);
 		--imet-btn-px: var(--wp--custom--button--medium-mobile--padding-x);
 		--imet-btn-fs: var(--wp--custom--button--medium-mobile--size);
@@ -27,7 +29,7 @@ $content: ':is(.wp-block-post-content, .is-root-container):not(.imet-footer *, .
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-	gap: 10px;
+	gap: var(--wp--preset--spacing--10);
 	box-sizing: border-box;
 	min-height: var(--imet-btn-h);
 	padding-inline: var(--imet-btn-px);
@@ -56,7 +58,7 @@ $content: ':is(.wp-block-post-content, .is-root-container):not(.imet-footer *, .
 	--imet-btn-fs: var(--wp--custom--button--large--size);
 }
 
-@media (max-width: 640px) {
+@media (max-width: #{$bp-phone}) {
 	#{$content} .btn-sm .wp-block-button__link {
 		--imet-btn-h: var(--wp--custom--button--small-mobile--height);
 		--imet-btn-px: var(--wp--custom--button--small-mobile--padding-x);
@@ -78,7 +80,7 @@ $content: ':is(.wp-block-post-content, .is-root-container):not(.imet-footer *, .
 // Text link: text, not a box
 #{$content} .is-style-button-link .wp-block-button__link {
 	min-height: 0;
-	padding-block: 4px;
+	padding-block: var(--wp--preset--spacing--4);
 }
 
 #{$content} :is(.btn-block, .wp-block-button__width-100),
@@ -90,11 +92,11 @@ $content: ':is(.wp-block-post-content, .is-root-container):not(.imet-footer *, .
 #{$content} .wp-block-button__link::after {
 	content: "";
 	position: absolute;
-	top: -2px;
-	bottom: -2px;
+	top: calc(var(--wp--preset--spacing--2) * -1);
+	bottom: calc(var(--wp--preset--spacing--2) * -1);
 	left: 0;
 	width: 45%;
-	background: linear-gradient(100deg, transparent 0%, var(--imet-flash, rgba(255, 255, 255, 0.5)) 50%, transparent 100%);
+	background: linear-gradient(100deg, transparent 0%, var(--imet-flash, color-mix(in srgb, var(--wp--preset--color--white) 50%, transparent)) 50%, transparent 100%);
 	transform: translateX(-180%) skewX(-20deg);
 	pointer-events: none;
 	animation: imet-btn-flash 9s ease-in-out var(--imet-flash-delay, 1.5s) infinite;
@@ -105,7 +107,7 @@ $content: ':is(.wp-block-post-content, .is-root-container):not(.imet-footer *, .
 }
 
 #{$content} :is(.is-style-button-white, .is-style-button-outline) .wp-block-button__link {
-	--imet-flash: rgba(21, 41, 78, 0.14);
+	--imet-flash: color-mix(in srgb, var(--wp--preset--color--navy) 14%, transparent);
 }
 
 #{$content} .is-style-button-link .wp-block-button__link::after {
@@ -148,8 +150,8 @@ $content: ':is(.wp-block-post-content, .is-root-container):not(.imet-footer *, .
 	content: "";
 	order: 2;
 	flex-shrink: 0;
-	width: 20px;
-	height: 20px;
+	width: var(--wp--custom--size--20);
+	height: var(--wp--custom--size--20);
 	background: currentcolor;
 	mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 4v11m-5-5 5 5 5-5M5 20h14'/%3E%3C/svg%3E") center / contain no-repeat;
 }
@@ -162,9 +164,9 @@ $content: ':is(.wp-block-post-content, .is-root-container):not(.imet-footer *, .
 
 // Focus ring: the gold ring the plugin uses
 :is(.wp-block-post-content, .is-root-container) :is(a, button, summary, [tabindex]):focus-visible {
-	outline: 3px solid var(--wp--preset--color--gold);
-	outline-offset: 3px;
-	border-radius: 4px;
+	outline: var(--wp--custom--border-width--3) solid var(--wp--preset--color--gold);
+	outline-offset: var(--wp--preset--spacing--3);
+	border-radius: var(--wp--preset--border-radius--4);
 }
 
 // Section rhythm: an IMET section built from core blocks (Group, class "imet-section-band") has the same vertical

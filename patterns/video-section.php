@@ -14,9 +14,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 ?>
-<!-- wp:group {"align":"full","className":"imet-section-band","layout":{"type":"constrained","contentSize":"1200px"}} -->
+<!-- wp:group {"align":"full","className":"imet-section-band","layout":{"type":"constrained","contentSize":"var(--wp--style--global--wide-size)"}} -->
 <div class="wp-block-group alignfull imet-section-band">
-<!-- wp:group {"className":"imet-section-head","style":{"spacing":{"blockGap":"0"}},"layout":{"type":"constrained","contentSize":"1020px"}} -->
+<!-- wp:group {"className":"imet-section-head","style":{"spacing":{"blockGap":"0"}},"layout":{"type":"constrained","contentSize":"var(--wp--style--global--content-size)"}} -->
 <div class="wp-block-group imet-section-head">
 <!-- wp:paragraph {"className":"is-style-paragraph-eyebrow"} -->
 <p class="is-style-paragraph-eyebrow">Eyebrow</p>
@@ -40,7 +40,7 @@ https://www.youtube.com/watch?v=aqz-KE-bpKQ
 </div></figure>
 <!-- /wp:embed -->
 
-<!-- wp:group {"style":{"spacing":{"blockGap":"12px"}},"layout":{"type":"default"}} -->
+<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|12"}},"layout":{"type":"default"}} -->
 <div class="wp-block-group">
 <!-- wp:image {"sizeSlug":"large","linkDestination":"none","className":"is-style-image-video-thumb"} -->
 <figure class="wp-block-image size-large is-style-image-video-thumb"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/video-placeholder.svg' ) ); ?>" alt="Video 1"/></figure>
