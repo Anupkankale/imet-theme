@@ -103,10 +103,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 <div class="wp-block-group imet-footer-links">
 <!-- wp:group {"layout":{"type":"default"},"style":{"spacing":{"blockGap":"0"}}} -->
 <div class="wp-block-group">
-<!-- wp:heading {"level":3,"textColor":"white","className":"imet-footer-h"} -->
-<h3 class="wp-block-heading imet-footer-h has-white-color has-text-color">Main Menu</h3>
-<!-- /wp:heading -->
-
+<!-- wp:details {"showContent":true,"className":"imet-footer-acc"} -->
+<details class="wp-block-details imet-footer-acc" open><summary>Main Menu</summary>
 <!-- wp:list {"className":"imet-footer-list"} -->
 <ul class="wp-block-list imet-footer-list">
 <!-- wp:list-item -->
@@ -129,15 +127,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:list-item -->
 </ul>
 <!-- /wp:list -->
+</details>
+<!-- /wp:details -->
 </div>
 <!-- /wp:group -->
 
 <!-- wp:group {"layout":{"type":"default"},"style":{"spacing":{"blockGap":"0"}}} -->
 <div class="wp-block-group">
-<!-- wp:heading {"level":3,"textColor":"white","className":"imet-footer-h"} -->
-<h3 class="wp-block-heading imet-footer-h has-white-color has-text-color">Courses</h3>
-<!-- /wp:heading -->
-
+<!-- wp:details {"showContent":true,"className":"imet-footer-acc"} -->
+<details class="wp-block-details imet-footer-acc" open><summary>Courses</summary>
 <!-- wp:list {"className":"imet-footer-list"} -->
 <ul class="wp-block-list imet-footer-list">
 <!-- wp:list-item -->
@@ -151,11 +149,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:list-item -->
 </ul>
 <!-- /wp:list -->
+</details>
+<!-- /wp:details -->
 
-<!-- wp:heading {"level":3,"textColor":"white","className":"imet-footer-h"} -->
-<h3 class="wp-block-heading imet-footer-h has-white-color has-text-color">Online Master’s (MBA)</h3>
-<!-- /wp:heading -->
-
+<!-- wp:details {"showContent":true,"className":"imet-footer-acc"} -->
+<details class="wp-block-details imet-footer-acc" open><summary>Online Master’s (MBA)</summary>
 <!-- wp:list {"className":"imet-footer-list"} -->
 <ul class="wp-block-list imet-footer-list">
 <!-- wp:list-item -->
@@ -172,15 +170,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:list-item -->
 </ul>
 <!-- /wp:list -->
+</details>
+<!-- /wp:details -->
 </div>
 <!-- /wp:group -->
 
 <!-- wp:group {"layout":{"type":"default"},"style":{"spacing":{"blockGap":"0"}}} -->
 <div class="wp-block-group">
-<!-- wp:heading {"level":3,"textColor":"white","className":"imet-footer-h"} -->
-<h3 class="wp-block-heading imet-footer-h has-white-color has-text-color">Online Doctorate (DBA)</h3>
-<!-- /wp:heading -->
-
+<!-- wp:details {"showContent":true,"className":"imet-footer-acc"} -->
+<details class="wp-block-details imet-footer-acc" open><summary>Online Doctorate (DBA)</summary>
 <!-- wp:list {"className":"imet-footer-list"} -->
 <ul class="wp-block-list imet-footer-list">
 <!-- wp:list-item -->
@@ -203,6 +201,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:list-item -->
 </ul>
 <!-- /wp:list -->
+</details>
+<!-- /wp:details -->
 </div>
 <!-- /wp:group -->
 </div>
