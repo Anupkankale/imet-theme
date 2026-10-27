@@ -64,8 +64,8 @@
 					"color": "#000000"
 				},
 				{
-					"slug": "text",
-					"name": "Text",
+					"slug": "body-text",
+					"name": "Body Text",
 					"color": "#1c1c1c"
 				},
 				{
@@ -307,7 +307,7 @@
 		},
 		"color": {
 			"background": "var(--wp--preset--color--white)",
-			"text": "var(--wp--preset--color--text)"
+			"text": "var(--wp--preset--color--body-text)"
 		},
 		"elements": {
 			"h1": {
@@ -386,9 +386,9 @@
 		"spacing": {
 			"blockGap": "1.25rem",
 			"padding": {
-				"top": "var(--wp--custom--spacing--small)",
+				"top": "0",
 				"right": "var(--wp--custom--spacing--small)",
-				"bottom": "var(--wp--custom--spacing--small)",
+				"bottom": "0",
 				"left": "var(--wp--custom--spacing--small)"
 			}
 		},
