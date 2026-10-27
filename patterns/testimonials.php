@@ -14,9 +14,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 ?>
-<!-- wp:group {"align":"full","className":"imet-section-band","layout":{"type":"constrained","contentSize":"1200px"}} -->
+<!-- wp:group {"align":"full","className":"imet-section-band","layout":{"type":"constrained","contentSize":"var(--wp--style--global--wide-size)"}} -->
 <div class="wp-block-group alignfull imet-section-band">
-<!-- wp:group {"className":"imet-section-head","style":{"spacing":{"blockGap":"0"}},"layout":{"type":"constrained","contentSize":"1020px"}} -->
+<!-- wp:group {"className":"imet-section-head","style":{"spacing":{"blockGap":"0"}},"layout":{"type":"constrained","contentSize":"var(--wp--style--global--content-size)"}} -->
 <div class="wp-block-group imet-section-head">
 <!-- wp:paragraph {"className":"is-style-paragraph-eyebrow"} -->
 <p class="is-style-paragraph-eyebrow">Eyebrow</p>
@@ -54,8 +54,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 </div>
 <!-- /wp:group -->
 
-<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"},"style":{"spacing":{"margin":{"top":"36px"}}}} -->
-<div class="wp-block-buttons" style="margin-top:36px">
+<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"},"style":{"spacing":{"margin":{"top":"var:preset|spacing|36"}}}} -->
+<div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--36)">
 <!-- wp:button {"className":"is-style-button-link btn-sm"} -->
 <div class="wp-block-button is-style-button-link btn-sm"><a class="wp-block-button__link wp-element-button" href="#">View More</a></div>
 <!-- /wp:button -->

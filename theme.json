@@ -122,6 +122,36 @@
 					"slug": "cream",
 					"name": "Cream",
 					"color": "#fdf3e3"
+				},
+				{
+					"slug": "grey",
+					"name": "Grey",
+					"color": "#666666"
+				},
+				{
+					"slug": "grey-light",
+					"name": "Grey Light",
+					"color": "#8a8a8a"
+				},
+				{
+					"slug": "grey-300",
+					"name": "Grey 300",
+					"color": "#c5c7cc"
+				},
+				{
+					"slug": "linkedin",
+					"name": "LinkedIn",
+					"color": "#0077b5"
+				},
+				{
+					"slug": "grey-200",
+					"name": "Grey 200",
+					"color": "#d6d7da"
+				},
+				{
+					"slug": "grey-900",
+					"name": "Grey 900",
+					"color": "#111111"
 				}
 			]
 		},
@@ -187,6 +217,69 @@
 			"motion": {
 				"fast": "0.2s",
 				"base": "0.25s"
+			},
+			"size": {
+				"2": "2px",
+				"3": "3px",
+				"5-5": "5.5px",
+				"9": "9px",
+				"12-5": "12.5px",
+				"13": "13px",
+				"14": "14px",
+				"15": "15px",
+				"16": "16px",
+				"20": "20px",
+				"22": "22px",
+				"25": "25px",
+				"26": "26px",
+				"27": "27px",
+				"33": "33px",
+				"38": "38px",
+				"40": "40px",
+				"42": "42px",
+				"50": "50px",
+				"62": "62px",
+				"63": "63px",
+				"68": "68px",
+				"72": "72px",
+				"74": "74px",
+				"82": "82px",
+				"84": "84px",
+				"102": "102px",
+				"103": "103px",
+				"110": "110px",
+				"155": "155px",
+				"214": "214px",
+				"260": "260px",
+				"334": "334px",
+				"380": "380px",
+				"826": "826px",
+				"1012": "1012px"
+			},
+			"lineHeight": {
+				"18": "18px",
+				"21": "21px",
+				"22-4": "22.4px",
+				"28": "28px",
+				"35": "35px"
+			},
+			"letterSpacing": {
+				"1": "1px"
+			},
+			"borderWidth": {
+				"0": "0px",
+				"3": "3px",
+				"4": "4px",
+				"9": "9px"
+			},
+			"header": {
+				"promoHeight": "72px",
+				"pillWidth": "min(var(--wp--style--global--wide-size), 100% - var(--wp--preset--spacing--40))",
+				"pillHeight": "80px",
+				"navOffset": "clamp(var(--wp--preset--spacing--4), calc(100vw - 1295px), 145px)",
+				"clearance": "77px",
+				"clearancePhone": "78px",
+				"mainClearance": "110px"
 			}
 		},
 		"typography": {
@@ -284,6 +377,36 @@
 					"slug": "huge",
 					"name": "Banner Title",
 					"size": "clamp(1.75rem, 1.2rem + 1.5vw, 2.5rem)"
+				},
+				{
+					"slug": "14",
+					"name": "14px",
+					"size": "0.875rem"
+				},
+				{
+					"slug": "24",
+					"name": "24px",
+					"size": "1.5rem"
+				},
+				{
+					"slug": "29",
+					"name": "29px",
+					"size": "1.8125rem"
+				},
+				{
+					"slug": "display",
+					"name": "Display (404)",
+					"size": "clamp(5rem, 22vw, 14rem)"
+				},
+				{
+					"slug": "16-5",
+					"name": "16.5px",
+					"size": "1.03125rem"
+				},
+				{
+					"slug": "sub",
+					"name": "Section subtitle",
+					"size": "clamp(1rem, 0.9rem + 0.3vw, 1.125rem)"
 				}
 			],
 			"customFontSize": false
@@ -308,39 +431,159 @@
 			},
 			"spacingSizes": [
 				{
-					"slug": "xxs",
-					"name": "2XS",
+					"slug": "2",
+					"name": "2px",
+					"size": "2px"
+				},
+				{
+					"slug": "3",
+					"name": "3px",
+					"size": "3px"
+				},
+				{
+					"slug": "4",
+					"name": "4px",
+					"size": "4px"
+				},
+				{
+					"slug": "5",
+					"name": "5px",
+					"size": "5px"
+				},
+				{
+					"slug": "6",
+					"name": "6px",
 					"size": "6px"
 				},
 				{
-					"slug": "xs",
-					"name": "XS",
+					"slug": "7",
+					"name": "7px",
+					"size": "7px"
+				},
+				{
+					"slug": "8",
+					"name": "8px",
+					"size": "8px"
+				},
+				{
+					"slug": "9",
+					"name": "9px",
+					"size": "9px"
+				},
+				{
+					"slug": "10",
+					"name": "10px",
 					"size": "10px"
 				},
 				{
-					"slug": "sm",
-					"name": "S",
+					"slug": "12",
+					"name": "12px",
+					"size": "12px"
+				},
+				{
+					"slug": "14",
+					"name": "14px",
+					"size": "14px"
+				},
+				{
+					"slug": "15",
+					"name": "15px",
+					"size": "15px"
+				},
+				{
+					"slug": "16",
+					"name": "16px",
 					"size": "16px"
 				},
 				{
-					"slug": "md",
-					"name": "M",
+					"slug": "17",
+					"name": "17px",
+					"size": "17px"
+				},
+				{
+					"slug": "18",
+					"name": "18px",
+					"size": "18px"
+				},
+				{
+					"slug": "20",
+					"name": "20px",
+					"size": "20px"
+				},
+				{
+					"slug": "22",
+					"name": "22px",
+					"size": "22px"
+				},
+				{
+					"slug": "23",
+					"name": "23px",
+					"size": "23px"
+				},
+				{
+					"slug": "24",
+					"name": "24px",
 					"size": "24px"
 				},
 				{
-					"slug": "lg",
-					"name": "L",
+					"slug": "25",
+					"name": "25px",
+					"size": "25px"
+				},
+				{
+					"slug": "26",
+					"name": "26px",
+					"size": "26px"
+				},
+				{
+					"slug": "30",
+					"name": "30px",
+					"size": "30px"
+				},
+				{
+					"slug": "32",
+					"name": "32px",
+					"size": "32px"
+				},
+				{
+					"slug": "34",
+					"name": "34px",
+					"size": "34px"
+				},
+				{
+					"slug": "36",
+					"name": "36px",
 					"size": "36px"
 				},
 				{
-					"slug": "xl",
-					"name": "XL (section)",
+					"slug": "40",
+					"name": "40px",
+					"size": "40px"
+				},
+				{
+					"slug": "48",
+					"name": "48px",
 					"size": "48px"
 				},
 				{
-					"slug": "xxl",
-					"name": "2XL",
+					"slug": "50",
+					"name": "50px",
+					"size": "50px"
+				},
+				{
+					"slug": "54",
+					"name": "54px",
+					"size": "54px"
+				},
+				{
+					"slug": "70",
+					"name": "70px",
 					"size": "70px"
+				},
+				{
+					"slug": "80",
+					"name": "80px",
+					"size": "80px"
 				}
 			]
 		},
@@ -353,34 +596,54 @@
 			"defaultRadiusSizes": false,
 			"radiusSizes": [
 				{
-					"slug": "button",
-					"name": "Button (6px)",
+					"slug": "3",
+					"name": "3px",
+					"size": "3px"
+				},
+				{
+					"slug": "4",
+					"name": "4px",
+					"size": "4px"
+				},
+				{
+					"slug": "5",
+					"name": "5px",
+					"size": "5px"
+				},
+				{
+					"slug": "6",
+					"name": "6px",
 					"size": "6px"
 				},
 				{
-					"slug": "tile",
-					"name": "Tile (8px)",
+					"slug": "7",
+					"name": "7px",
+					"size": "7px"
+				},
+				{
+					"slug": "8",
+					"name": "8px",
 					"size": "8px"
 				},
 				{
-					"slug": "card",
-					"name": "Card (10px)",
+					"slug": "10",
+					"name": "10px",
 					"size": "10px"
 				},
 				{
-					"slug": "spec",
-					"name": "Spec card (12px)",
+					"slug": "12",
+					"name": "12px",
 					"size": "12px"
 				},
 				{
-					"slug": "large",
-					"name": "IMET (14px)",
-					"size": "14px"
+					"slug": "16",
+					"name": "16px",
+					"size": "16px"
 				},
 				{
-					"slug": "band",
-					"name": "Band (24px)",
-					"size": "24px"
+					"slug": "22",
+					"name": "22px",
+					"size": "22px"
 				},
 				{
 					"slug": "pill",
@@ -416,6 +679,16 @@
 					"slug": "offset-gold",
 					"name": "Offset gold",
 					"shadow": "5px 6px 0 #cf9123"
+				},
+				{
+					"slug": "pill",
+					"name": "Header pill",
+					"shadow": "0 0 10px rgba(0, 0, 0, 0.5)"
+				},
+				{
+					"slug": "dropdown",
+					"name": "Dropdown",
+					"shadow": "0 8px 24px rgba(0, 0, 0, 0.15)"
 				}
 			]
 		}
@@ -477,7 +750,7 @@
 				},
 				"spacing": {
 					"padding": {
-						"left": "var(--wp--preset--spacing--md)"
+						"left": "var(--wp--preset--spacing--24)"
 					}
 				},
 				"typography": {
@@ -513,8 +786,8 @@
 				},
 				"spacing": {
 					"padding": {
-						"top": "var(--wp--preset--spacing--sm)",
-						"bottom": "var(--wp--preset--spacing--sm)"
+						"top": "var(--wp--preset--spacing--16)",
+						"bottom": "var(--wp--preset--spacing--16)"
 					}
 				},
 				"border": {

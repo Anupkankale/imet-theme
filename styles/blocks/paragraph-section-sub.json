@@ -11,13 +11,13 @@
 			"text": "var(--wp--preset--color--ink)"
 		},
 		"typography": {
-			"fontSize": "clamp(1rem, 0.9rem + 0.3vw, 1.125rem)",
+			"fontSize": "var(--wp--preset--font-size--sub)",
 			"lineHeight": "1.55",
 			"fontWeight": "400"
 		},
 		"spacing": {
 			"margin": {
-				"bottom": "24px"
+				"bottom": "var:preset|spacing|24"
 			}
 		}
 	}

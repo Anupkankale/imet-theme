@@ -8,8 +8,8 @@
 	],
 	"styles": {
 		"border": {
-			"radius": "8px",
-			"width": "4px",
+			"radius": "var(--wp--preset--border-radius--8)",
+			"width": "var(--wp--custom--border-width--4)",
 			"style": "solid",
 			"color": "var(--wp--preset--color--navy)"
 		}

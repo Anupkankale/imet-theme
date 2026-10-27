@@ -1,3 +1,5 @@
+@use "breakpoints" as *;
+
 /* stylelint-disable selector-class-pattern -- WordPress block style classes (is-style-group-card) and core BEM names. */
 // IMET components built from core blocks. The block style variations in styles/blocks/*.json carry the tokens
 // (colours, radius, padding, shadow, type); the layout and responsive behaviour live here, because WordPress's
@@ -31,15 +33,15 @@ $page: ':is(.wp-block-post-content, .is-root-container)';
 }
 
 #{$page} .is-style-button-light .wp-block-button__link:is(:hover, :focus-visible) {
-	border-color: #c5c7cc;
-	background: #c5c7cc;
+	border-color: var(--wp--preset--color--grey-300);
+	background: var(--wp--preset--color--grey-300);
 	color: var(--wp--preset--color--ink);
 }
 
 #{$page} .is-style-button-link .wp-block-button__link {
 	text-decoration: underline;
-	text-decoration-thickness: 2px;
-	text-underline-offset: 6px;
+	text-decoration-thickness: var(--wp--custom--size--2);
+	text-underline-offset: var(--wp--preset--spacing--6);
 
 	&:is(:hover, :focus-visible) {
 		background: transparent;
@@ -53,23 +55,23 @@ $page: ':is(.wp-block-post-content, .is-root-container)';
 	position: relative;
 	display: table;
 	margin-inline: auto;
-	margin-bottom: 6px;
-	padding-bottom: 6px;
+	margin-bottom: var(--wp--preset--spacing--6);
+	padding-bottom: var(--wp--preset--spacing--6);
 
 	&::after {
 		content: "";
 		position: absolute;
 		bottom: 0;
 		left: 50%;
-		width: 74px;
-		height: 3px;
+		width: var(--wp--custom--size--74);
+		height: var(--wp--custom--size--3);
 		background: var(--wp--preset--color--gold);
 		transform: translateX(-50%);
 	}
 }
 
 .is-style-paragraph-section-sub {
-	max-width: 1012px;
+	max-width: var(--wp--custom--size--1012);
 	margin-inline: auto;
 	text-align: center;
 }
@@ -79,7 +81,7 @@ $page: ':is(.wp-block-post-content, .is-root-container)';
 	position: relative;
 	display: flex;
 	align-items: center;
-	min-height: 68px;
+	min-height: var(--wp--custom--size--68);
 	transition: background-color 0.25s, color 0.25s, box-shadow 0.25s;
 
 	> p {
@@ -101,10 +103,10 @@ $page: ':is(.wp-block-post-content, .is-root-container)';
 	&::after {
 		content: "";
 		position: absolute;
-		right: 16px;
-		bottom: 12px;
-		width: 26px;
-		height: 26px;
+		right: var(--wp--preset--spacing--16);
+		bottom: var(--wp--preset--spacing--12);
+		width: var(--wp--custom--size--26);
+		height: var(--wp--custom--size--26);
 		background: currentcolor;
 		mask: var(--imet-arrow) center / contain no-repeat;
 		pointer-events: none;
@@ -123,7 +125,7 @@ $page: ':is(.wp-block-post-content, .is-root-container)';
 	display: flex;
 	flex-wrap: nowrap;
 	gap: var(--wp--custom--scroller--gap-mobile);
-	padding-bottom: 10px;
+	padding-bottom: var(--wp--preset--spacing--10);
 	overflow-x: auto;
 	overscroll-behavior-x: contain;
 	scroll-snap-type: x mandatory;
@@ -141,7 +143,7 @@ $page: ':is(.wp-block-post-content, .is-root-container)';
 		scroll-snap-align: start;
 	}
 
-	@media (min-width: 768px) {
+	@media (min-width: #{$bp-tablet}) {
 		gap: var(--wp--custom--scroller--gap);
 
 		> * {
@@ -156,7 +158,7 @@ $page: ':is(.wp-block-post-content, .is-root-container)';
 	grid-auto-columns: 86%;
 	grid-auto-flow: column;
 	grid-template-columns: none;
-	gap: 12px;
+	gap: var(--wp--preset--spacing--12);
 	overflow-x: auto;
 	scroll-snap-type: x mandatory;
 	scrollbar-width: none;
@@ -170,15 +172,15 @@ $page: ':is(.wp-block-post-content, .is-root-container)';
 		scroll-snap-align: start;
 	}
 
-	@media (min-width: 768px) {
+	@media (min-width: #{$bp-tablet}) {
 		grid-auto-columns: auto;
 		grid-auto-flow: row;
 		grid-template-columns: repeat(2, minmax(0, 1fr));
-		gap: 17px;
+		gap: var(--wp--preset--spacing--17);
 		overflow: visible;
 	}
 
-	@media (min-width: 1024px) {
+	@media (min-width: #{$bp-desktop}) {
 		grid-template-columns: repeat(3, minmax(0, 1fr));
 	}
 }
@@ -187,19 +189,19 @@ $page: ':is(.wp-block-post-content, .is-root-container)';
 	position: relative;
 	display: flex;
 	flex-direction: column;
-	min-height: 214px;
+	min-height: var(--wp--custom--size--214);
 	margin: 0;
-	font-size: 1rem;
+	font-size: var(--wp--preset--font-size--normal);
 	font-style: normal;
 	line-height: 1.4;
 
 	&::before {
 		content: "";
 		position: absolute;
-		top: 10px;
-		left: 24px;
-		width: 27px;
-		height: 26px;
+		top: var(--wp--preset--spacing--10);
+		left: var(--wp--preset--spacing--24);
+		width: var(--wp--custom--size--27);
+		height: var(--wp--custom--size--26);
 		background: var(--imet-quote-mark) center / contain no-repeat;
 	}
 
@@ -212,8 +214,8 @@ $page: ':is(.wp-block-post-content, .is-root-container)';
 	cite {
 		display: block;
 		margin-top: auto;
-		padding-top: 18px;
-		color: #8a8a8a;
+		padding-top: var(--wp--preset--spacing--18);
+		color: var(--wp--preset--color--grey-light);
 		font-size: var(--wp--preset--font-size--caption);
 		font-style: normal;
 		line-height: 1.45;
@@ -229,14 +231,14 @@ $page: ':is(.wp-block-post-content, .is-root-container)';
 .is-style-group-video-gallery {
 	display: grid;
 	grid-template-columns: minmax(0, 1fr);
-	gap: 20px;
+	gap: var(--wp--preset--spacing--20);
 	align-items: stretch;
 
 	> * {
 		margin: 0 !important;
 	}
 
-	@media (min-width: 768px) {
+	@media (min-width: #{$bp-tablet}) {
 		grid-template-columns: minmax(0, 2.55fr) minmax(0, 1fr);
 	}
 }
@@ -244,7 +246,7 @@ $page: ':is(.wp-block-post-content, .is-root-container)';
 .is-style-embed-video-frame {
 	overflow: hidden;
 	margin: 0;
-	background: #000;
+	background: var(--wp--preset--color--ink);
 
 	.wp-block-embed__wrapper {
 		margin: 0;
@@ -271,15 +273,35 @@ $page: ':is(.wp-block-post-content, .is-root-container)';
 		position: absolute;
 		top: 50%;
 		left: 50%;
-		width: 38px;
-		height: 38px;
+		width: var(--wp--custom--size--38);
+		height: var(--wp--custom--size--38);
 		border-radius: 50%;
-		background: var(--wp--preset--color--gold) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 24'%3E%3Cpath d='M0 0l20 12L0 24z' fill='%23fff'/%3E%3C/svg%3E") 56% 50% / 14px 16px no-repeat;
+		background: var(--wp--preset--color--gold) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 24'%3E%3Cpath d='M0 0l20 12L0 24z' fill='%23fff'/%3E%3C/svg%3E") 56% 50% / var(--wp--custom--size--14) var(--wp--custom--size--16) no-repeat;
 		transform: translate(-50%, -50%);
 		pointer-events: none;
 	}
 
 	&:hover {
-		transform: translateY(-2px);
+		transform: translateY(calc(var(--wp--custom--size--2) * -1));
+	}
+}
+
+// ---- Post lists: cards in a row share one height --------------------------------------------------------------
+.wp-block-post-template > li > .is-style-group-card {
+	height: 100%;
+}
+
+// ---- Search: the field takes the button's radius and the theme's rule colour ----------------------------------
+.wp-block-search {
+
+	.wp-block-search__input {
+		padding: var(--wp--preset--spacing--10) var(--wp--preset--spacing--16);
+		border: 1px solid var(--wp--preset--color--line);
+		border-radius: var(--wp--preset--border-radius--6);
+		font: inherit;
+	}
+
+	.wp-block-search__button {
+		border-radius: var(--wp--preset--border-radius--6);
 	}
 }

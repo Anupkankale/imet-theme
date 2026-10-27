@@ -12,14 +12,14 @@
 			"text": "var(--wp--preset--color--white)"
 		},
 		"border": {
-			"radius": "16px"
+			"radius": "var(--wp--preset--border-radius--16)"
 		},
 		"spacing": {
 			"padding": {
-				"top": "24px",
-				"bottom": "24px",
-				"left": "40px",
-				"right": "40px"
+				"top": "var:preset|spacing|24",
+				"bottom": "var:preset|spacing|24",
+				"left": "var:preset|spacing|40",
+				"right": "var:preset|spacing|40"
 			}
 		},
 		"elements": {

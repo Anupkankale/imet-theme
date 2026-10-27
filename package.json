@@ -66,7 +66,7 @@
 		"release:bump": "wp-tooling release:bump",
 		"release:changelog": "wp-tooling release:changelog",
 		"sync-ai": "node bin/sync-ai.js",
-		"lint:all": "npm-run-all --parallel lint:css lint:js lint:php lint:package-json",
+		"lint:all": "npm-run-all --parallel lint:css lint:js lint:php lint:package-json lint:tokens",
 		"lint:css": "wp-scripts lint-style ./src",
 		"lint:css:fix": "npm run lint:css -- --fix",
 		"lint:js": "wp-scripts lint-js .",
@@ -86,7 +86,8 @@
 		"test:js": "wp-scripts test-unit-jest --config=tests/js/jest.config.js --passWithNoTests",
 		"test:js:watch": "npm run test:js -- --watch",
 		"test:php": "wp-env run --config=.wp-env.tests.json cli --env-cwd=/var/www/html/wp-content/themes/${PWD##*/} composer exec 'phpunit --do-not-cache-result --verbose'",
-		"wp-env": "wp-env"
+		"wp-env": "wp-env",
+		"lint:tokens": "node ./bin/audit-tokens.js"
 	},
 	"overrides": {
 		"webpack-dev-server": "5.2.6",
