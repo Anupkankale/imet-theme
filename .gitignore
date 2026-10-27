@@ -1,0 +1,40 @@
+### WordPress ###
+
+# Core
+/wordpress/
+
+# macOS/IDE
+.DS_Store
+.idea
+.vscode
+
+# Log files
+*.log
+/tests/logs
+
+# Packages
+/vendor/
+/node_modules/
+
+# Enviroment
+.env
+.env.local
+.wp-env.override.json
+.wp-env.tests.override.json
+
+# Build
+assets/build/
+
+# PHPCS
+phpcs.xml
+
+# Cache
+.phpunit.result.cache
+
+# Tailwind theme
+_tailwind-theme.css
+
+# Graphify knowledge graph: track the queryable graph + report, ignore the rest.
+/graphify-out/*
+!/graphify-out/graph.json
+!/graphify-out/GRAPH_REPORT.md
