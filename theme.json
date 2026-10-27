@@ -298,6 +298,11 @@
 					"fontWeight": "600",
 					"textTransform": "uppercase"
 				}
+			},
+			"core/post-content": {
+				"spacing": {
+					"blockGap": "0"
+				}
 			}
 		},
 		"color": {
@@ -393,7 +398,8 @@
 			"fontWeight": "400",
 			"lineHeight": "1.6",
 			"letterSpacing": "-0.1px"
-		}
+		},
+		"css": "/* Header, content and footer sit flush: the page is built from full-width IMET sections that carry their own spacing. */\n.wp-site-blocks > * { margin-block: 0; }"
 	},
 	"templateParts": [
 		{
