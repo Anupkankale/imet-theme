@@ -1,0 +1,178 @@
+// IMET design system: what theme.json can't express. Values mirror the IMET Blocks plugin (base.scss, _buttons.scss)
+// so core blocks look the same as the plugin's sections. Tokens come from theme.json (--wp--custom--...).
+// Buttons: classes on .wp-block-button, set from the editor's "IMET button" panel (plugin) or typed as Additional CSS:
+//   size    btn-sm · btn-md (default) · btn-lg
+//   extras  btn-block (full width) · btn-icon-download · stack-mobile (on .wp-block-buttons)
+// Colours are block styles: White, Gold, Outline, Outline (on dark), Light grey, Text link.
+
+:root {
+	--imet-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 12h17m-6-7 7 7-7 7' fill='none' stroke='%23000' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--imet-quote-mark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 27 26'%3E%3Cpath fill='%239a93c6' d='M5.6 26C2.3 26 0 23.4 0 19.6 0 11.9 4.4 4.6 11.3 0l1.5 2.2C8.9 5.5 6.6 9 6.3 13.2c.3 0 .7-.1 1-.1 3.2 0 5.6 2.3 5.6 5.9 0 3.9-2.9 7-7.3 7Zm14 0c-3.3 0-5.6-2.6-5.6-6.4 0-7.7 4.4-15 11.3-19.6l1.5 2.2c-3.9 3.3-6.2 6.8-6.5 11 .3 0 .7-.1 1-.1 3.2 0 5.6 2.3 5.6 5.9 0 3.9-2.9 7-7.3 7Z'/%3E%3C/svg%3E");
+	--imet-btn-h: var(--wp--custom--button--medium--height);
+	--imet-btn-px: var(--wp--custom--button--medium--padding-x);
+	--imet-btn-fs: var(--wp--custom--button--medium--size);
+
+	@media (max-width: 640px) {
+		--imet-btn-h: var(--wp--custom--button--medium-mobile--height);
+		--imet-btn-px: var(--wp--custom--button--medium-mobile--padding-x);
+		--imet-btn-fs: var(--wp--custom--button--medium-mobile--size);
+	}
+}
+
+// Page content and the editor canvas only: the header and footer have their own, smaller buttons, and the IMET Blocks
+// plugin's sections (.imet-section) keep the plugin's own button rules (same values, plus its older size aliases).
+$content: ':is(.wp-block-post-content, .is-root-container):not(.imet-footer *, .imet-promo *, .imet-pill *, .imet-section *)';
+
+#{$content} .wp-block-button__link {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+	box-sizing: border-box;
+	min-height: var(--imet-btn-h);
+	padding-inline: var(--imet-btn-px);
+	font-size: var(--imet-btn-fs);
+	text-align: center;
+	letter-spacing: normal;
+	text-transform: none;
+	text-decoration: none;
+	cursor: pointer;
+	transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+	position: relative;
+	overflow: hidden;
+	isolation: isolate;
+}
+
+// Sizes
+#{$content} .btn-sm .wp-block-button__link {
+	--imet-btn-h: var(--wp--custom--button--small--height);
+	--imet-btn-px: var(--wp--custom--button--small--padding-x);
+	--imet-btn-fs: var(--wp--custom--button--small--size);
+}
+
+#{$content} .btn-lg .wp-block-button__link {
+	--imet-btn-h: var(--wp--custom--button--large--height);
+	--imet-btn-px: var(--wp--custom--button--large--padding-x);
+	--imet-btn-fs: var(--wp--custom--button--large--size);
+}
+
+@media (max-width: 640px) {
+	#{$content} .btn-sm .wp-block-button__link {
+		--imet-btn-h: var(--wp--custom--button--small-mobile--height);
+		--imet-btn-px: var(--wp--custom--button--small-mobile--padding-x);
+		--imet-btn-fs: var(--wp--custom--button--small-mobile--size);
+	}
+
+	#{$content} .btn-lg .wp-block-button__link {
+		--imet-btn-h: var(--wp--custom--button--large-mobile--height);
+		--imet-btn-px: var(--wp--custom--button--large-mobile--padding-x);
+		--imet-btn-fs: var(--wp--custom--button--large-mobile--size);
+	}
+
+	#{$content} .wp-block-buttons.stack-mobile > .wp-block-button,
+	#{$content} .wp-block-buttons.stack-mobile .wp-block-button__link {
+		width: 100%;
+	}
+}
+
+// Text link: text, not a box
+#{$content} .is-style-button-link .wp-block-button__link {
+	min-height: 0;
+	padding-block: 4px;
+}
+
+#{$content} :is(.btn-block, .wp-block-button__width-100),
+#{$content} :is(.btn-block, .wp-block-button__width-100) .wp-block-button__link {
+	width: 100%;
+}
+
+// Glass flash: a soft diagonal shine sweeps across every button now and then, and at once on hover / focus.
+#{$content} .wp-block-button__link::after {
+	content: "";
+	position: absolute;
+	top: -2px;
+	bottom: -2px;
+	left: 0;
+	width: 45%;
+	background: linear-gradient(100deg, transparent 0%, var(--imet-flash, rgba(255, 255, 255, 0.5)) 50%, transparent 100%);
+	transform: translateX(-180%) skewX(-20deg);
+	pointer-events: none;
+	animation: imet-btn-flash 9s ease-in-out var(--imet-flash-delay, 1.5s) infinite;
+}
+
+#{$content} .wp-block-button__link:is(:hover, :focus-visible)::after {
+	animation: imet-btn-flash-now 2s ease-in-out;
+}
+
+#{$content} :is(.is-style-button-white, .is-style-button-outline) .wp-block-button__link {
+	--imet-flash: rgba(21, 41, 78, 0.14);
+}
+
+#{$content} .is-style-button-link .wp-block-button__link::after {
+	content: none;
+}
+
+#{$content} .wp-block-button:nth-child(2n) .wp-block-button__link {
+	--imet-flash-delay: 2.6s;
+}
+
+#{$content} .wp-block-button:nth-child(3n) .wp-block-button__link {
+	--imet-flash-delay: 3.7s;
+}
+
+@keyframes imet-btn-flash {
+
+	0% {
+		transform: translateX(-180%) skewX(-20deg);
+	}
+
+	29%,
+	100% {
+		transform: translateX(330%) skewX(-20deg);
+	}
+}
+
+@keyframes imet-btn-flash-now {
+
+	from {
+		transform: translateX(-180%) skewX(-20deg);
+	}
+
+	to {
+		transform: translateX(330%) skewX(-20deg);
+	}
+}
+
+// Download icon after the text (Additional CSS class "btn-icon-download")
+#{$content} .btn-icon-download .wp-block-button__link::before {
+	content: "";
+	order: 2;
+	flex-shrink: 0;
+	width: 20px;
+	height: 20px;
+	background: currentcolor;
+	mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 4v11m-5-5 5 5 5-5M5 20h14'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	#{$content} .wp-block-button__link::after {
+		animation: none;
+	}
+}
+
+// Focus ring: the gold ring the plugin uses
+:is(.wp-block-post-content, .is-root-container) :is(a, button, summary, [tabindex]):focus-visible {
+	outline: 3px solid var(--wp--preset--color--gold);
+	outline-offset: 3px;
+	border-radius: 4px;
+}
+
+// Section rhythm: an IMET section built from core blocks (Group, class "imet-section-band") has the same vertical
+// padding as the plugin's sections; "-tall" is the 70px variant.
+.imet-section-band {
+	padding-block: var(--wp--custom--section--padding);
+}
+
+.imet-section-band-tall {
+	padding-block: var(--wp--custom--section--padding-tall);
+}
