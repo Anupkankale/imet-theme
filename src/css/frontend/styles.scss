@@ -2,3 +2,23 @@
 pre {
 	overflow-x: auto;
 }
+
+// Arial resized to each web font's measured metrics, so text doesn't reflow
+// when the self-hosted font (theme.json fontFace) swaps in.
+@font-face {
+	font-family: "Montserrat Fallback";
+	src: local("Arial"), local("ArialMT");
+	size-adjust: 110.5%;
+	ascent-override: 87.6%;
+	descent-override: 22.72%;
+	line-gap-override: 0%;
+}
+
+@font-face {
+	font-family: "Inter Fallback";
+	src: local("Arial"), local("ArialMT");
+	size-adjust: 107.31%;
+	ascent-override: 90.27%;
+	descent-override: 22.48%;
+	line-gap-override: 0%;
+}

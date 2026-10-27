@@ -122,7 +122,7 @@
 				{
 					"name": "Montserrat",
 					"slug": "montserrat",
-					"fontFamily": "Montserrat, system-ui, sans-serif",
+					"fontFamily": "Montserrat, \"Montserrat Fallback\", system-ui, sans-serif",
 					"fontFace": [
 						{
 							"fontFamily": "Montserrat",
@@ -139,7 +139,7 @@
 				{
 					"name": "Inter",
 					"slug": "inter",
-					"fontFamily": "Inter, system-ui, sans-serif",
+					"fontFamily": "Inter, \"Inter Fallback\", system-ui, sans-serif",
 					"fontFace": [
 						{
 							"fontFamily": "Inter",
@@ -381,10 +381,10 @@
 		"spacing": {
 			"blockGap": "1.25rem",
 			"padding": {
-				"top": "0",
-				"right": "0",
-				"bottom": "0",
-				"left": "0"
+				"top": "var(--wp--custom--spacing--small)",
+				"right": "var(--wp--custom--spacing--small)",
+				"bottom": "var(--wp--custom--spacing--small)",
+				"left": "var(--wp--custom--spacing--small)"
 			}
 		},
 		"typography": {
