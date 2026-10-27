@@ -1,5 +1,7 @@
 // The global styles for the theme.
 @use "../shared/header-footer";
+@use "../shared/design-system";
+@use "../shared/components";
 
 pre {
 	overflow-x: auto;

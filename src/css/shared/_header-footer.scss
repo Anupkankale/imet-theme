@@ -184,6 +184,7 @@ $promo-breakpoint: 768px; // below this the Refer & Earn bar is hidden, as on th
 	}
 
 	&-cta .wp-block-button__link {
+		border: 0; // the global button border is for page content
 		padding: 12px 24px;
 		font-size: 14px;
 		font-weight: 600;
@@ -395,6 +396,10 @@ $footer-icon-phone: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000
 	// Link groups are Details blocks. From 768px up they read as plain headings over open lists (the script keeps
 	// them open); on phones they are the collapsible rows of the live site (350 x 42, caret on the right).
 	&-acc {
+		// The global FAQ look of the Details block (padding, rule, 18px text) is for page content, not the footer.
+		padding: 0;
+		border: 0;
+		font-size: 1rem;
 
 		> summary {
 			display: block;

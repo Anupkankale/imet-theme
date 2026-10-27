@@ -1,0 +1,285 @@
+/* stylelint-disable selector-class-pattern -- WordPress block style classes (is-style-group-card) and core BEM names. */
+// IMET components built from core blocks. The block style variations in styles/blocks/*.json carry the tokens
+// (colours, radius, padding, shadow, type); the layout and responsive behaviour live here, because WordPress's
+// variation CSS can't hold media queries. Values mirror the IMET Blocks plugin sections.
+
+$page: ':is(.wp-block-post-content, .is-root-container)';
+
+// ---- Buttons: hover states of the colour styles ----------------------------------------------------------------
+#{$page} .is-style-button-white .wp-block-button__link:is(:hover, :focus-visible) {
+	border-color: var(--wp--preset--color--gold-soft);
+	background: var(--wp--preset--color--gold-soft);
+	color: var(--wp--preset--color--navy);
+}
+
+#{$page} .is-style-button-gold .wp-block-button__link:is(:hover, :focus-visible) {
+	border-color: var(--wp--preset--color--gold-dark);
+	background: var(--wp--preset--color--gold-dark);
+	color: var(--wp--preset--color--white);
+}
+
+#{$page} .is-style-button-outline .wp-block-button__link:is(:hover, :focus-visible) {
+	border-color: var(--wp--preset--color--navy);
+	background: var(--wp--preset--color--navy);
+	color: var(--wp--preset--color--white);
+}
+
+#{$page} .is-style-button-outline-light .wp-block-button__link:is(:hover, :focus-visible) {
+	border-color: var(--wp--preset--color--white);
+	background: var(--wp--preset--color--white);
+	color: var(--wp--preset--color--navy);
+}
+
+#{$page} .is-style-button-light .wp-block-button__link:is(:hover, :focus-visible) {
+	border-color: #c5c7cc;
+	background: #c5c7cc;
+	color: var(--wp--preset--color--ink);
+}
+
+#{$page} .is-style-button-link .wp-block-button__link {
+	text-decoration: underline;
+	text-decoration-thickness: 2px;
+	text-underline-offset: 6px;
+
+	&:is(:hover, :focus-visible) {
+		background: transparent;
+		color: var(--wp--preset--color--gold);
+	}
+}
+
+// ---- Section header: eyebrow with a gold line, subtitle ---------------------------------------------------------
+.is-style-heading-eyebrow,
+.is-style-paragraph-eyebrow {
+	position: relative;
+	display: table;
+	margin-inline: auto;
+	margin-bottom: 6px;
+	padding-bottom: 6px;
+
+	&::after {
+		content: "";
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+		width: 74px;
+		height: 3px;
+		background: var(--wp--preset--color--gold);
+		transform: translateX(-50%);
+	}
+}
+
+.is-style-paragraph-section-sub {
+	max-width: 1012px;
+	margin-inline: auto;
+	text-align: center;
+}
+
+// ---- Link card with an offset shadow (the specializations cards) -------------------------------------------------
+.is-style-group-spec-card {
+	position: relative;
+	display: flex;
+	align-items: center;
+	min-height: 68px;
+	transition: background-color 0.25s, color 0.25s, box-shadow 0.25s;
+
+	> p {
+		margin: 0;
+	}
+
+	a {
+		color: inherit;
+		text-decoration: none;
+
+		// the whole card is the link
+		&::before {
+			content: "";
+			position: absolute;
+			inset: 0;
+		}
+	}
+
+	&::after {
+		content: "";
+		position: absolute;
+		right: 16px;
+		bottom: 12px;
+		width: 26px;
+		height: 26px;
+		background: currentcolor;
+		mask: var(--imet-arrow) center / contain no-repeat;
+		pointer-events: none;
+	}
+
+	&:hover,
+	&:focus-within {
+		background: var(--wp--preset--color--navy);
+		color: var(--wp--preset--color--white);
+		box-shadow: var(--wp--preset--shadow--offset-gold);
+	}
+}
+
+// ---- Scrolling row: 2 cards per view on phones, 4 from 768px (set --imet-per-view / --imet-per-view-desktop) -------
+.is-style-group-scroller {
+	display: flex;
+	flex-wrap: nowrap;
+	gap: var(--wp--custom--scroller--gap-mobile);
+	padding-bottom: 10px;
+	overflow-x: auto;
+	overscroll-behavior-x: contain;
+	scroll-snap-type: x mandatory;
+	scrollbar-width: none;
+
+	&::-webkit-scrollbar {
+		display: none;
+	}
+
+	> * {
+		flex: 0 0 calc((100% - (var(--imet-per-view, 2) - 1) * var(--wp--custom--scroller--gap-mobile)) / var(--imet-per-view, 2));
+		min-width: 0; // cards shrink to the row's width instead of their longest word
+		margin: 0 !important; // the editor's flow block-gap would push every card after the first down
+		overflow-wrap: break-word;
+		scroll-snap-align: start;
+	}
+
+	@media (min-width: 768px) {
+		gap: var(--wp--custom--scroller--gap);
+
+		> * {
+			flex-basis: calc((100% - (var(--imet-per-view-desktop, 4) - 1) * var(--wp--custom--scroller--gap)) / var(--imet-per-view-desktop, 4));
+		}
+	}
+}
+
+// ---- Testimonials: a swipeable row on phones, 2 then 3 columns ---------------------------------------------------
+.is-style-group-testimonial-grid {
+	display: grid;
+	grid-auto-columns: 86%;
+	grid-auto-flow: column;
+	grid-template-columns: none;
+	gap: 12px;
+	overflow-x: auto;
+	scroll-snap-type: x mandatory;
+	scrollbar-width: none;
+
+	&::-webkit-scrollbar {
+		display: none;
+	}
+
+	> * {
+		margin: 0 !important; // the editor's flow block-gap would push every card after the first down
+		scroll-snap-align: start;
+	}
+
+	@media (min-width: 768px) {
+		grid-auto-columns: auto;
+		grid-auto-flow: row;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 17px;
+		overflow: visible;
+	}
+
+	@media (min-width: 1024px) {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+	}
+}
+
+.is-style-quote-testimonial {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	min-height: 214px;
+	margin: 0;
+	font-size: 1rem;
+	font-style: normal;
+	line-height: 1.4;
+
+	&::before {
+		content: "";
+		position: absolute;
+		top: 10px;
+		left: 24px;
+		width: 27px;
+		height: 26px;
+		background: var(--imet-quote-mark) center / contain no-repeat;
+	}
+
+	> p {
+		margin: 0;
+		font-size: inherit;
+		line-height: inherit;
+	}
+
+	cite {
+		display: block;
+		margin-top: auto;
+		padding-top: 18px;
+		color: #8a8a8a;
+		font-size: var(--wp--preset--font-size--caption);
+		font-style: normal;
+		line-height: 1.45;
+
+		strong {
+			color: var(--wp--preset--color--ink);
+			font-weight: 700;
+		}
+	}
+}
+
+// ---- Video: a big framed player beside a list of thumbnails ------------------------------------------------------
+.is-style-group-video-gallery {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr);
+	gap: 20px;
+	align-items: stretch;
+
+	> * {
+		margin: 0 !important;
+	}
+
+	@media (min-width: 768px) {
+		grid-template-columns: minmax(0, 2.55fr) minmax(0, 1fr);
+	}
+}
+
+.is-style-embed-video-frame {
+	overflow: hidden;
+	margin: 0;
+	background: #000;
+
+	.wp-block-embed__wrapper {
+		margin: 0;
+	}
+}
+
+.is-style-image-video-thumb {
+	position: relative;
+	overflow: hidden;
+	margin: 0;
+	background: var(--wp--preset--color--navy);
+	transition: transform 0.2s;
+
+	img {
+		display: block;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	// play button
+	&::after {
+		content: "";
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 38px;
+		height: 38px;
+		border-radius: 50%;
+		background: var(--wp--preset--color--gold) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 24'%3E%3Cpath d='M0 0l20 12L0 24z' fill='%23fff'/%3E%3C/svg%3E") 56% 50% / 14px 16px no-repeat;
+		transform: translate(-50%, -50%);
+		pointer-events: none;
+	}
+
+	&:hover {
+		transform: translateY(-2px);
+	}
+}

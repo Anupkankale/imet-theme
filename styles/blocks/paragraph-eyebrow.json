@@ -1,0 +1,19 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"title": "Eyebrow (gold, underlined)",
+	"slug": "paragraph-eyebrow",
+	"blockTypes": [
+		"core/paragraph"
+	],
+	"styles": {
+		"color": {
+			"text": "var(--wp--preset--color--gold)"
+		},
+		"typography": {
+			"fontSize": "var(--wp--preset--font-size--eyebrow)",
+			"fontWeight": "500",
+			"lineHeight": "1.3"
+		}
+	}
+}

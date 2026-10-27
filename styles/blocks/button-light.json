@@ -1,0 +1,18 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"title": "Light grey",
+	"slug": "button-light",
+	"blockTypes": [
+		"core/button"
+	],
+	"styles": {
+		"color": {
+			"background": "#d6d7da",
+			"text": "var(--wp--preset--color--ink)"
+		},
+		"border": {
+			"color": "#d6d7da"
+		}
+	}
+}
