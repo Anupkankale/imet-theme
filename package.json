@@ -1,0 +1,110 @@
+{
+	"name": "elementary-theme",
+	"version": "2.0.0",
+	"description": "A starter theme that facilitates a quick head start for developing new block-based themes along with a bunch of developer-friendly features.",
+	"author": "rtCamp",
+	"license": "GPL-2.0-or-later",
+	"keywords": [
+		"block-theme",
+		"rtcamp",
+		"wp-theme"
+	],
+	"homepage": "https://github.com/rtCamp/theme-elementary#readme",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/rtCamp/theme-elementary.git"
+	},
+	"bugs": {
+		"url": "https://github.com/rtCamp/theme-elementary/issues"
+	},
+	"engines": {
+		"node": "^22.22.2 || ^24.15.0 || >=26.0.0"
+	},
+	"dependencies": {
+		"@wordpress/interactivity": "6.56.0"
+	},
+	"devDependencies": {
+		"@babel/core": "7.29.7",
+		"@eslint-community/eslint-plugin-eslint-comments": "4.8.1",
+		"@rtcamp/eslint-config": "^1.2.0",
+		"@rtcamp/stylelint-config": "^1.1.0",
+		"@rtcamp/wp-tooling": "^2.0.0",
+		"@wordpress/babel-preset-default": "8.56.0",
+		"@wordpress/browserslist-config": "6.56.0",
+		"@wordpress/env": "11.16.0",
+		"@wordpress/eslint-plugin": "27.0.0",
+		"@wordpress/scripts": "36.0.0",
+		"browser-sync": "3.0.4",
+		"browser-sync-webpack-plugin": "2.4.0",
+		"browserslist": "4.29.3",
+		"copy-webpack-plugin": "14.0.0",
+		"css-minimizer-webpack-plugin": "8.0.0",
+		"dotenv": "18.0.4",
+		"eslint": "10.11.0",
+		"eslint-import-resolver-typescript": "4.4.5",
+		"eslint-plugin-jest": "29.16.6",
+		"eslint-plugin-react-hooks": "7.1.1",
+		"globals": "17.6.0",
+		"jest": "30.5.2",
+		"jest-environment-jsdom": "30.5.2",
+		"jest-silent-reporter": "0.6.0",
+		"lint-staged": "17.6.0",
+		"npm-run-all": "4.1.5",
+		"rtlcss": "4.3.0",
+		"svgo": "4.1.0",
+		"webpack": "5.111.1",
+		"webpack-remove-empty-scripts": "1.1.1"
+	},
+	"scripts": {
+		"build:dev": "npm-run-all build:assets:dev build:blocks:dev",
+		"build:prod": "npm-run-all build:assets build:blocks",
+		"build:blocks": "wp-scripts build --experimental-modules --config ./node_modules/@wordpress/scripts/config/webpack.config.js --webpack-src-dir=./src/blocks/ --output-path=./assets/build/blocks/",
+		"build:assets": "wp-scripts build --experimental-modules",
+		"build:blocks:dev": "wp-scripts start --no-watch --experimental-modules --config ./node_modules/@wordpress/scripts/config/webpack.config.js --webpack-src-dir=./src/blocks/ --output-path=./assets/build/blocks/",
+		"build:assets:dev": "wp-scripts start --no-watch --experimental-modules",
+		"init": "./bin/init.js",
+		"release:bump": "wp-tooling release:bump",
+		"release:changelog": "wp-tooling release:changelog",
+		"sync-ai": "node bin/sync-ai.js",
+		"lint:all": "npm-run-all --parallel lint:css lint:js lint:php lint:package-json",
+		"lint:css": "wp-scripts lint-style ./src",
+		"lint:css:fix": "npm run lint:css -- --fix",
+		"lint:js": "wp-scripts lint-js .",
+		"lint:js:fix": "npm run lint:js -- --fix",
+		"lint:js:report": "npm run lint:js -- --output-file lint-js-report.json --format json .",
+		"lint:package-json": "wp-scripts lint-pkg-json --ignorePath .gitignore",
+		"lint:php": "php vendor/bin/phpcs",
+		"lint:php:fix": "node ./bin/phpcbf.js",
+		"lint:staged": "lint-staged",
+		"pot": "wp-env run cli --env-cwd=/var/www/html/wp-content/themes/${PWD##*/} composer run pot",
+		"prepare": "npm run sync-ai",
+		"pretest:php": "wp-env start --config=.wp-env.tests.json && wp-env run --config=.wp-env.tests.json cli --env-cwd=/var/www/html/wp-content/themes/${PWD##*/} composer install --no-interaction --no-scripts",
+		"start": "npm-run-all --parallel start:assets start:blocks",
+		"start:assets": "wp-scripts start  --experimental-modules --config webpack.config.js",
+		"start:blocks": "wp-scripts start --hot --experimental-modules --config ./webpack.blocks.config.js --webpack-src-dir=./src/blocks/ --output-path=./assets/build/blocks/",
+		"test": "npm-run-all --parallel test:js test:php",
+		"test:js": "wp-scripts test-unit-jest --config=tests/js/jest.config.js --passWithNoTests",
+		"test:js:watch": "npm run test:js -- --watch",
+		"test:php": "wp-env run --config=.wp-env.tests.json cli --env-cwd=/var/www/html/wp-content/themes/${PWD##*/} composer exec 'phpunit --do-not-cache-result --verbose'",
+		"wp-env": "wp-env"
+	},
+	"overrides": {
+		"webpack-dev-server": "5.2.6",
+		"express": {
+			"qs": "6.16.0"
+		},
+		"markdownlint-cli": {
+			"js-yaml": "5.4.1"
+		},
+		"copy-webpack-plugin": {
+			"serialize-javascript": "7.0.5"
+		},
+		"sockjs": {
+			"uuid": "11.1.1"
+		},
+		"@wordpress/scripts": {
+			"adm-zip": "0.6.1"
+		}
+	},
+	"private": true
+}

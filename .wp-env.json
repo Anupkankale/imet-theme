@@ -1,0 +1,7 @@
+{
+	"core": null,
+	"phpVersion": "8.2",
+	"themes": [ "." ],
+	"port": 5890,
+	"testsEnvironment": false
+}
