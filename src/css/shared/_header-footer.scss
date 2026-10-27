@@ -257,6 +257,7 @@ $promo-breakpoint: 768px; // below this the Refer & Earn bar is hidden, as on th
 // white bottom strip 82px tall.
 
 $footer-icon-pin: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 384 512'%3E%3Cpath d='M172 501C27 291 0 269 0 192 0 86 86 0 192 0s192 86 192 192c0 77-27 99-172 309a24 24 0 0 1-40 0zm20-229a80 80 0 1 0 0-160 80 80 0 0 0 0 160z'/%3E%3C/svg%3E");
+$footer-icon-caret: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 512'%3E%3Cpath d='M31.3 192h257.4c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8a20 20 0 0 1-28.2 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z'/%3E%3C/svg%3E");
 $footer-icon-phone: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath d='M164 25c-9-22-33-34-56-28L34 29C14 38 0 58 0 80c0 238 194 432 432 432 22 0 42-14 51-34l22-74c6-23-6-47-28-56l-48-20c-19-8-41-2-54 14l-31 38C281 359 153 231 112 160l38-31c16-13 22-35 14-54z'/%3E%3C/svg%3E");
 
 .imet-footer {
@@ -383,12 +384,101 @@ $footer-icon-phone: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000
 		padding-bottom: 20px;
 		border-bottom: 1px solid var(--wp--preset--color--white);
 
-		@media (max-width: 700px) {
-			grid-template-columns: 1fr 1fr;
+		@media (max-width: 767px) {
+			grid-template-columns: 1fr;
+			gap: 0;
+			padding-bottom: 0;
+			border-bottom: 0;
+		}
+	}
+
+	// Link groups are Details blocks. From 768px up they read as plain headings over open lists (the script keeps
+	// them open); on phones they are the collapsible rows of the live site (350 x 42, caret on the right).
+	&-acc {
+
+		> summary {
+			display: block;
+			margin: 0 0 10px;
+			font-size: 18px;
+			font-weight: 700;
+			line-height: 28px;
+			list-style: none;
+			cursor: default;
+			pointer-events: none;
+
+			&::-webkit-details-marker {
+				display: none;
+			}
+
+			&::marker {
+				content: "";
+			}
 		}
 
-		@media (max-width: 480px) {
-			grid-template-columns: 1fr;
+		& + & {
+			margin-top: 30px;
+		}
+
+		.imet-footer-list {
+			margin: 0;
+		}
+
+		@media (max-width: 767px) {
+			margin: 0 10px;
+
+			& + & {
+				margin-top: 0;
+			}
+
+			> summary {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				box-sizing: border-box;
+				min-height: 42px;
+				margin: 0;
+				padding: 10px;
+				font-size: 16px;
+				line-height: 22.4px;
+				cursor: pointer;
+				pointer-events: auto;
+
+				&::after {
+					content: "";
+					flex: none;
+					width: 9px;
+					height: 15px;
+					background: currentcolor;
+					mask: $footer-icon-caret center / contain no-repeat;
+				}
+			}
+
+			&[open] > summary::after {
+				transform: rotate(180deg);
+			}
+
+			.imet-footer-list {
+				padding: 10px;
+				text-align: left;
+
+				a {
+					display: block;
+				}
+
+				li {
+					margin: 5px 0 0;
+					padding-bottom: 5px;
+					line-height: 22.4px;
+
+					&:first-child {
+						margin-top: 0;
+					}
+
+					&:last-child {
+						padding-bottom: 0;
+					}
+				}
+			}
 		}
 	}
 
@@ -416,9 +506,15 @@ $footer-icon-phone: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000
 		column-gap: 9px;
 		margin-top: 20px;
 
-		@media (max-width: 700px) {
-			grid-template-columns: 1fr;
-			row-gap: 24px;
+		@media (max-width: 767px) {
+			display: flex;
+			flex-direction: column;
+			gap: 24px;
+			margin-top: 30px;
+
+			> .imet-footer-advisor {
+				order: -1;
+			}
 		}
 	}
 

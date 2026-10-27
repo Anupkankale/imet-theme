@@ -91,6 +91,7 @@ class Assets extends AssetLoader implements Registrable, Shareable {
 	public function register_assets(): void {
 		$this->register_script( $this->handle( 'core-navigation' ), 'js/frontend/core-navigation' );
 		$this->register_style( $this->handle( 'core-navigation' ), 'css/frontend/core-navigation' );
+		$this->register_script( $this->handle( 'footer-accordion' ), 'js/frontend/footer-accordion' );
 		$this->register_style( $this->handle( 'styles' ), 'css/frontend/styles' );
 
 		if ( $this->is_tailwind_enabled() ) {
@@ -114,6 +115,11 @@ class Assets extends AssetLoader implements Registrable, Shareable {
 		if ( ! empty( $block['blockName'] ) && 'core/navigation' === $block['blockName'] ) {
 			wp_enqueue_script( $this->handle( 'core-navigation' ) );
 			wp_enqueue_style( $this->handle( 'core-navigation' ) );
+		}
+
+		// The footer's link groups are Details blocks that collapse on phones.
+		if ( ! empty( $block['blockName'] ) && 'core/details' === $block['blockName'] && str_contains( (string) ( $block['attrs']['className'] ?? '' ), 'imet-footer-acc' ) ) {
+			wp_enqueue_script( $this->handle( 'footer-accordion' ) );
 		}
 
 		return $markup;

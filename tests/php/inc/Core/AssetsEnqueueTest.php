@@ -93,6 +93,31 @@ class AssetsEnqueueTest extends TestCase {
 	}
 
 	/**
+	 * The footer's link groups (Details blocks) pull in the accordion script; other Details blocks do not.
+	 */
+	public function test_footer_accordion_enqueues_its_script(): void {
+		$assets = $this->registered_assets();
+
+		$assets->enqueue_block_specific_assets(
+			'<details></details>',
+			[
+				'blockName' => 'core/details',
+				'attrs'     => [ 'className' => 'other' ],
+			] 
+		);
+		$this->assertFalse( wp_script_is( 'imet-footer-accordion', 'enqueued' ) );
+
+		$assets->enqueue_block_specific_assets(
+			'<details></details>',
+			[
+				'blockName' => 'core/details',
+				'attrs'     => [ 'className' => 'imet-footer-acc' ],
+			] 
+		);
+		$this->assertTrue( wp_script_is( 'imet-footer-accordion', 'enqueued' ) );
+	}
+
+	/**
 	 * Other blocks, and blocks without a name, enqueue nothing.
 	 */
 	public function test_other_blocks_enqueue_nothing(): void {
@@ -221,7 +246,7 @@ class AssetsEnqueueTest extends TestCase {
 	 * @return Assets Assets with its handles registered.
 	 */
 	private function registered_assets(): Assets {
-		foreach ( [ 'js/frontend/core-navigation.js', 'css/frontend/core-navigation.css', 'css/frontend/styles.css', 'css/frontend/tailwind.css' ] as $relative ) {
+		foreach ( [ 'js/frontend/core-navigation.js', 'js/frontend/footer-accordion.js', 'css/frontend/core-navigation.css', 'css/frontend/styles.css', 'css/frontend/tailwind.css' ] as $relative ) {
 			$file = untrailingslashit( IMET_PATH ) . '/assets/build/' . $relative;
 
 			if ( ! file_exists( $file ) ) {
