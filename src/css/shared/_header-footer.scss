@@ -3,8 +3,8 @@
 // Layout and colours live in the block markup (parts/header.html, patterns/footer.php); this is only what blocks
 // can't express: the sticky pill, the shadow and the responsive switches.
 
-$nav-breakpoint: 1000px; // below this the menu collapses into the overlay
-$promo-breakpoint: 900px; // below this the Refer & Earn bar is hidden
+$nav-breakpoint: 1060px; // below this the menu collapses into the overlay (live: 1024px; Montserrat is wider)
+$promo-breakpoint: 768px; // below this the Refer & Earn bar is hidden, as on the live site
 
 // ---- Header ---------------------------------------------------------------------------------------------------
 
@@ -21,6 +21,12 @@ $promo-breakpoint: 900px; // below this the Refer & Earn bar is hidden
 	@media (max-width: #{$promo-breakpoint - 1}) {
 		--imet-promo-h: 0;
 	}
+}
+
+.imet-promo,
+.imet-pill,
+.imet-footer {
+	letter-spacing: normal; // the theme's -0.1px tracking is for the IMET sections only
 }
 
 .imet-promo {
@@ -76,18 +82,49 @@ $promo-breakpoint: 900px; // below this the Refer & Earn bar is hidden
 	margin: 0 auto;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 
+	// Tablet: 10px in from the screen edge, 15px inside. Phone: the same inset, 34px inside, 10px from the top.
 	@media (max-width: #{$nav-breakpoint - 1}) {
-		padding-inline: 24px !important;
+		top: 18px;
+		width: calc(100% - 20px);
+		padding-inline: 15px !important;
 	}
 
-	// Keeps the menu on one line: sub-menus open as cards under the item.
-	.wp-block-navigation {
-		flex: 1 1 auto;
+	@media (max-width: #{$promo-breakpoint - 1}) {
+		top: 10px;
+		padding-inline: 34px !important;
 	}
 
-	.wp-block-navigation-item__content {
-		padding-block: 8px;
+	// The menu starts 165px after the logo at 1440px (145 + the 20px flex gap) (as on the live site), closing up on narrower screens so it
+	// never runs into the button.
+	nav.imet-nav {
+		flex: 0 1 auto;
+		margin: 0 0 0 auto; // below the breakpoint the hamburger sits at the right edge
+
+		@media (min-width: $nav-breakpoint) {
+			margin: 0 auto 0 clamp(4px, calc(100vw - 1295px), 145px);
+		}
+	}
+
+	// Live values: 15px / 500 / #666, 12px either side of each item, 25px for the chevron.
+	.imet-nav {
+		color: #666;
+		font-size: 15px;
+		font-weight: 500;
+		line-height: 1.2;
+	}
+
+	.imet-nav .wp-block-navigation__responsive-container-content > .wp-block-navigation__container > .wp-block-navigation-item {
+		padding-inline: 12px;
+	}
+
+	.imet-nav .wp-block-navigation-item__content {
+		padding: 0;
 		white-space: nowrap;
+	}
+
+	.imet-nav .wp-block-navigation__submenu-icon {
+		width: 13px;
+		margin-inline-start: 12px;
 	}
 
 	.has-child .wp-block-navigation__submenu-container {
@@ -104,13 +141,53 @@ $promo-breakpoint: 900px; // below this the Refer & Earn bar is hidden
 		.wp-block-navigation-item__content {
 			padding: 10px 14px;
 			white-space: normal;
+			font-size: 15px;
+		}
+	}
+
+	// The open overlay (phones and tablets): a plain list, sub-menus indented under their parent.
+	.wp-block-navigation__responsive-container.is-menu-open {
+		color: var(--wp--preset--color--body-text);
+
+		.wp-block-navigation__responsive-container-content {
+			padding: 40px 20px 20px;
+		}
+
+		.wp-block-navigation__container {
+			gap: 8px;
+			align-items: flex-start;
+		}
+
+		.imet-nav .wp-block-navigation-item,
+		.wp-block-navigation__responsive-container-content > .wp-block-navigation__container > .wp-block-navigation-item {
+			padding-inline: 0;
+			font-size: 17px;
+			font-weight: 600;
+		}
+
+		.has-child .wp-block-navigation__submenu-container {
+			width: auto;
+			min-width: 0;
+			max-width: none;
+			padding: 4px 0 8px 16px;
+			border: 0;
+			border-radius: 0;
+			box-shadow: none;
+			background: transparent;
+
+			.wp-block-navigation-item__content {
+				padding: 6px 0;
+				font-size: 15px;
+				font-weight: 500;
+			}
 		}
 	}
 
 	&-cta .wp-block-button__link {
 		padding: 12px 24px;
-		font-size: 0.875rem;
+		font-size: 14px;
 		font-weight: 600;
+		line-height: 18px;
 		white-space: nowrap;
 	}
 
@@ -122,8 +199,22 @@ $promo-breakpoint: 900px; // below this the Refer & Earn bar is hidden
 	// Menu overlay up to $nav-breakpoint (core switches at 600px; five items plus the button need more room).
 	@media (max-width: #{$nav-breakpoint - 1}) {
 
+		// Hamburger: a 33px tinted square, as on the live site.
 		.wp-block-navigation__responsive-container-open:not(.always-shown) {
 			display: flex;
+			align-items: center;
+			justify-content: center;
+			box-sizing: border-box;
+			width: 33px;
+			height: 33px;
+			padding: 5.5px;
+			border-radius: 3px;
+			background: rgba(0, 0, 0, 0.05);
+
+			svg {
+				width: 22px;
+				height: 22px;
+			}
 		}
 
 		.wp-block-navigation__responsive-container:not(.hidden-by-default):not(.is-menu-open) {
@@ -140,9 +231,37 @@ $promo-breakpoint: 900px; // below this the Refer & Earn bar is hidden
 	}
 }
 
+// The pill floats over the top of the page and takes no height, so the content has to clear it. Pages that open with
+// an IMET section get the clearance inside that section (a transparent border, so its own background still shows
+// behind the pill; 77px puts the Home hero's first line where the live site has it); everything else gets it as
+// padding on <main>. Front end only: the block editor has no header.
+.wp-site-blocks > main {
+	padding-top: 110px;
+
+	&:has(> .wp-block-post-content > .imet-section:first-child) {
+		padding-top: 0;
+	}
+}
+
+.wp-block-post-content > .imet-section:first-child {
+	border-top: 77px solid transparent;
+	background-origin: border-box;
+
+	@media (max-width: #{$promo-breakpoint - 1}) {
+		border-top-width: 78px;
+	}
+}
+
 // ---- Footer ---------------------------------------------------------------------------------------------------
+// Geometry follows the live site at 1440px: tabs at 80px, content columns 334 + 40 + 826 wide, 28px line height,
+// white bottom strip 82px tall.
+
+$footer-icon-pin: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 384 512'%3E%3Cpath d='M172 501C27 291 0 269 0 192 0 86 86 0 192 0s192 86 192 192c0 77-27 99-172 309a24 24 0 0 1-40 0zm20-229a80 80 0 1 0 0-160 80 80 0 0 0 0 160z'/%3E%3C/svg%3E");
+$footer-icon-phone: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath d='M164 25c-9-22-33-34-56-28L34 29C14 38 0 58 0 80c0 238 194 432 432 432 22 0 42-14 51-34l22-74c6-23-6-47-28-56l-48-20c-19-8-41-2-54 14l-31 38C281 359 153 231 112 160l38-31c16-13 22-35 14-54z'/%3E%3C/svg%3E");
 
 .imet-footer {
+	font-size: 1rem;
+	line-height: 28px;
 
 	a {
 		color: inherit;
@@ -154,137 +273,358 @@ $promo-breakpoint: 900px; // below this the Refer & Earn bar is hidden
 		}
 	}
 
-	&-inner {
-		padding: 60px 20px 48px;
+	:where(p, li) {
+		margin: 0;
+		line-height: 28px;
 	}
 
 	&-tabs {
-		gap: 16px;
-		margin-bottom: 48px;
+		gap: 20px;
+		margin: 0;
+		padding: 80px 20px 0;
 
 		.wp-block-button__link {
-			padding: 12px 24px;
+			padding: 10px 20px;
 			border: 1px solid var(--wp--preset--color--white);
-			border-radius: 6px;
-			font-size: 0.875rem;
+			border-radius: 7px;
+			font-size: 14px;
+			font-weight: 400;
 			letter-spacing: 1px;
+			line-height: 21px;
 		}
 	}
 
-	// The logo is dark artwork: it sits on a white plate on the navy background.
-	.wp-block-site-logo img {
-		padding: 8px;
-		border-radius: 50%;
-		background: var(--wp--preset--color--white);
+	&-inner {
+		padding: 32px 20px 20px;
 	}
 
 	&-top {
-		gap: 48px;
-		margin-bottom: 0;
+		gap: 40px;
+		align-items: flex-start;
+		margin: 0;
+
+		@media (max-width: 1000px) {
+			flex-wrap: wrap !important;
+
+			> .wp-block-column {
+				flex-basis: 100% !important;
+			}
+		}
+	}
+
+	&-logo {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		box-sizing: border-box;
+		width: 110px;
+		height: 102px;
+		border-radius: 8px;
+		background: var(--wp--preset--color--white);
+
+		.wp-block-site-logo {
+			margin: 0;
+			line-height: 0;
+		}
 	}
 
 	&-brand {
-		margin: 24px 0 12px;
-		font-size: 1.8125rem;
+		margin: 10px 0 0;
+		font-size: 29px;
 		font-weight: 600;
-		line-height: 1.2;
+		line-height: 35px;
 	}
 
-	&-h {
-		margin: 0 0 16px;
-		font-size: 1.125rem;
-		font-weight: 700;
-		line-height: 1.3;
-	}
-
-	&-list,
-	&-bullets,
-	&-countries {
-		padding: 0;
-		margin: 0 0 24px;
-		list-style: none;
-
-		li {
-			margin: 0 0 12px;
-		}
+	&-about {
+		margin: 10px 0;
 	}
 
 	&-bullets {
-		margin-top: 16px;
-		padding-left: 1.25rem;
+		margin: 0;
+		padding-left: 40px;
 		list-style: disc;
 	}
 
-	&-links {
-		gap: 32px;
-	}
-
-	&-offices {
-		gap: 32px;
-
-		p {
-			margin: 0 0 8px;
-		}
-	}
-
-	&-cta {
-		gap: 24px;
-		margin-top: 32px;
+	&-refer {
+		margin-top: 10px;
+		padding-top: 20px;
+		border-top: 1px solid var(--wp--preset--color--white);
 
 		.wp-block-buttons {
 			margin: 0;
 		}
 
+		.wp-block-button__link {
+			padding: 12px 24px;
+			border: 1px solid var(--wp--preset--color--navy-footer);
+			border-radius: 5px;
+			font-size: 14px;
+			font-weight: 600;
+			line-height: 18px;
+		}
+
 		p {
-			margin: 0;
+			margin-top: 24px;
 		}
 	}
 
-	.wp-block-separator {
-		margin: 24px 0;
-		border-color: rgba(255, 255, 255, 0.4);
-		opacity: 1;
+	&-h {
+		margin: 0 0 10px;
+		font-size: 18px;
+		font-weight: 700;
+		line-height: 28px;
+	}
+
+	&-links {
+		display: grid;
+		grid-template-columns: 1fr 2fr 2fr;
+		gap: 10px;
+		align-items: start;
+		padding-bottom: 20px;
+		border-bottom: 1px solid var(--wp--preset--color--white);
+
+		@media (max-width: 700px) {
+			grid-template-columns: 1fr 1fr;
+		}
+
+		@media (max-width: 480px) {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	&-list {
+		margin: 0 0 30px;
+		padding: 0;
+		list-style: none;
+
+		li {
+			margin-bottom: 5px;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	&-contact {
+		display: grid;
+		grid-template-columns: 572fr 245fr;
+		column-gap: 9px;
+		margin-top: 20px;
+
+		@media (max-width: 700px) {
+			grid-template-columns: 1fr;
+			row-gap: 24px;
+		}
+	}
+
+	&-offices {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 10px 0;
+		align-content: start;
+
+		@media (max-width: 480px) {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	&-office .imet-footer-h {
+		margin-bottom: 10px;
+	}
+
+	&-address,
+	&-phone {
+		position: relative;
+		padding-left: 23px;
+
+		&::before {
+			content: "";
+			position: absolute;
+			top: 7px;
+			left: 0;
+			width: 14px;
+			height: 14px;
+			background: currentcolor;
+			mask: center / contain no-repeat;
+		}
+	}
+
+	&-address::before {
+		mask-image: $footer-icon-pin;
+	}
+
+	&-phone {
+		margin-top: 10px;
+
+		&::before {
+			mask-image: $footer-icon-phone;
+		}
+	}
+
+	&-advisor-cta {
+		margin: 0;
+
+		.wp-block-button {
+			width: 100%;
+		}
+
+		.wp-block-button__link {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			box-sizing: border-box;
+			width: 100%;
+			height: 40px;
+			padding: 0 24px;
+			border: 1px solid var(--wp--preset--color--white);
+			border-radius: 3px;
+			font-size: 14px;
+			font-weight: 600;
+			line-height: 18px;
+		}
+	}
+
+	&-follow {
+		gap: 20px;
+		padding-right: 10px;
+		margin-top: 155px; // where the live site's enquiry form sits
+
+		@media (max-width: 1000px) {
+			margin-top: 24px;
+		}
+
+		.imet-footer-h {
+			margin: 0;
+			line-height: 18px;
+		}
+
+		.wp-block-social-links {
+			margin: 0;
+		}
+
+		.wp-social-link {
+			width: 50px;
+			height: 50px;
+			border-radius: 10%;
+			background: #0077b5;
+		}
+
+		.wp-block-social-link-anchor {
+			padding: 12.5px;
+		}
+
+		svg {
+			width: 25px;
+			height: 25px;
+		}
 	}
 
 	&-countries-title {
-		margin-top: 48px;
-		font-size: 1.125rem;
+		margin-top: 26px;
 	}
 
 	&-countries {
 		display: flex;
 		flex-wrap: wrap;
 		margin: 0;
+		padding: 0;
+		list-style: none;
 
 		li {
-			margin: 0 20px 12px 0;
-			padding-right: 20px;
-			border-right: 1px solid rgba(255, 255, 255, 0.5);
-			line-height: 1.4;
+			margin: 0 25px 0 0;
+			padding-right: 25px;
+			border-right: 1px solid var(--wp--preset--color--white);
 		}
 	}
 
 	&-bottom {
+		box-sizing: border-box;
+		min-height: 82px;
+		padding: 10px 20px;
+
+		> .wp-block-group {
+			min-height: 62px;
+		}
 
 		a {
 			color: inherit;
 		}
-
-		p {
-			margin: 0;
-		}
 	}
 
 	&-logos {
-		gap: 16px;
+		gap: 20px;
+		padding-right: 4px; // not margin: core's flex layout resets child margins
 
-		figure {
+		.wp-block-image {
 			margin: 0;
 		}
 
 		.wp-block-image img {
 			display: block;
 			height: auto;
+		}
+
+		@media (max-width: 1000px) {
+			padding-right: 0;
+		}
+	}
+
+	// Phone: centred, tabs two per row, country links as rows (live site).
+	@media (max-width: #{$promo-breakpoint - 1}) {
+
+		&-tabs {
+			padding-top: 40px;
+		}
+
+		&-inner {
+			padding-inline: 10px;
+		}
+
+		&-top > .wp-block-column {
+			text-align: center;
+		}
+
+		&-logo {
+			margin-inline: auto;
+		}
+
+		&-bullets {
+			text-align: left;
+		}
+
+		&-refer .wp-block-buttons {
+			justify-content: center;
+		}
+
+		&-follow {
+			justify-content: center !important;
+			padding-right: 0;
+		}
+
+		&-advisor {
+			text-align: center;
+		}
+
+		&-office {
+			text-align: left;
+		}
+
+		&-countries li {
+			box-sizing: border-box;
+			width: 100%;
+			margin: 0;
+			padding: 4px 0 3px;
+			border-right: 0;
+			border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+		}
+
+		&-bottom {
+			text-align: left;
 		}
 	}
 }

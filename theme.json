@@ -39,6 +39,11 @@
 					"color": "#192d52"
 				},
 				{
+					"slug": "navy-footer",
+					"name": "Navy Footer",
+					"color": "#14234b"
+				},
+				{
 					"slug": "gold",
 					"name": "Gold",
 					"color": "#cf9123"
@@ -158,7 +163,7 @@
 				{
 					"slug": "normal",
 					"name": "Normal",
-					"size": "1.0625rem"
+					"size": "1rem"
 				},
 				{
 					"fluid": {
