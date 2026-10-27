@@ -27,6 +27,7 @@ class ThemeSetup implements Registrable {
 		add_action( 'after_setup_theme', [ $this, 'add_theme_support' ] );
 		add_action( 'after_setup_theme', [ $this, 'register_image_sizes' ] );
 		add_action( 'after_setup_theme', [ $this, 'load_textdomain' ] );
+		add_action( 'init', [ $this, 'disable_emoji' ] );
 	}
 
 	/**
@@ -36,7 +37,6 @@ class ThemeSetup implements Registrable {
 	 */
 	public function add_theme_support(): void {
 		add_theme_support( 'responsive-embeds' );
-		add_theme_support( 'custom-spacing' );
 		add_theme_support( 'align-wide' );
 	}
 
@@ -61,5 +61,25 @@ class ThemeSetup implements Registrable {
 			'imet-theme',
 			get_template_directory() . '/languages'
 		);
+	}
+
+	/**
+	 * Stop WordPress from loading the emoji detection script and styles.
+	 *
+	 * Browsers render emoji natively, so wp-emoji only costs a request and
+	 * inline JS on every page.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @action init
+	 */
+	public function disable_emoji(): void {
+		remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+		remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
+		remove_action( 'wp_print_styles', 'print_emoji_styles' );
+		remove_action( 'admin_print_styles', 'print_emoji_styles' );
+		remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
+		remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
+		remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
 	}
 }
