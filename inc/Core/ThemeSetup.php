@@ -38,6 +38,11 @@ class ThemeSetup implements Registrable {
 	public function add_theme_support(): void {
 		add_theme_support( 'responsive-embeds' );
 		add_theme_support( 'align-wide' );
+
+		// The header and footer styles, so the editors see them as they are on the site.
+		if ( file_exists( IMET_PATH . '/assets/build/css/editor/editor.css' ) ) {
+			add_editor_style( 'assets/build/css/editor/editor.css' );
+		}
 	}
 
 	/**

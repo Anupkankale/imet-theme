@@ -1,17 +1,69 @@
-<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"16px","bottom":"16px","left":"20px","right":"20px"}},"border":{"bottom":{"color":"var:preset|color|line","width":"1px"}}},"backgroundColor":"white","layout":{"type":"constrained","contentSize":"1200px"}} -->
-<div class="wp-block-group alignfull has-white-background-color has-background" style="border-bottom-color:var(--wp--preset--color--line);border-bottom-width:1px;padding-top:16px;padding-right:20px;padding-bottom:16px;padding-left:20px">
-	<!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between","verticalAlignment":"center"}} -->
-	<div class="wp-block-group">
-		<!-- wp:site-logo {"width":140} /-->
+<!-- wp:group {"align":"full","className":"imet-promo","style":{"spacing":{"padding":{"left":"20px","right":"20px"}}},"backgroundColor":"navy","textColor":"white","layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"center","verticalAlignment":"center"}} -->
+<div class="wp-block-group alignfull imet-promo has-white-color has-navy-background-color has-text-color has-background" style="padding-right:20px;padding-left:20px">
+	<!-- wp:group {"className":"imet-promo-text","layout":{"type":"flex","orientation":"vertical","justifyContent":"left"},"style":{"spacing":{"blockGap":"2px"}}} -->
+	<div class="wp-block-group imet-promo-text">
+		<!-- wp:paragraph {"className":"imet-promo-title"} -->
+		<p class="imet-promo-title">Your Network. Their Future. <span class="has-gold-color has-text-color">Your Reward.</span></p>
+		<!-- /wp:paragraph -->
 
-		<!-- wp:navigation {"overlayMenu":"mobile","layout":{"type":"flex","justifyContent":"right"}} -->
-		<!-- wp:page-list {"isNavigationChild":true,"showSubmenuIcon":true,"openSubmenusOnClick":false} /-->
+		<!-- wp:paragraph {"className":"imet-promo-sub"} -->
+		<p class="imet-promo-sub">Refer a Friend to our Doctorate or MBA Program and <strong class="has-gold-color has-text-color">earn up to $500</strong></p>
+		<!-- /wp:paragraph -->
+	</div>
+	<!-- /wp:group -->
+
+	<!-- wp:buttons -->
+	<div class="wp-block-buttons">
+		<!-- wp:button {"textColor":"white","className":"is-style-outline"} -->
+		<div class="wp-block-button is-style-outline"><a class="wp-block-button__link has-white-color has-text-color wp-element-button" href="/refer-and-earn/">Refer Now →</a></div>
+		<!-- /wp:button -->
+	</div>
+	<!-- /wp:buttons -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"align":"full","className":"imet-pill-wrap","layout":{"type":"default"}} -->
+<div class="wp-block-group alignfull imet-pill-wrap">
+	<!-- wp:group {"className":"imet-pill","style":{"border":{"radius":"22px"},"spacing":{"padding":{"top":"0","bottom":"0","left":"50px","right":"50px"}}},"backgroundColor":"white","layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between","verticalAlignment":"center"}} -->
+	<div class="wp-block-group imet-pill has-white-background-color has-background" style="border-radius:22px;padding-top:0;padding-right:50px;padding-bottom:0;padding-left:50px">
+		<!-- wp:site-logo {"width":63,"shouldSyncIcon":false} /-->
+
+		<!-- wp:navigation {"overlayMenu":"mobile","icon":"menu","textColor":"muted","fontSize":"small","className":"imet-nav","layout":{"type":"flex","justifyContent":"center","flexWrap":"nowrap"},"style":{"spacing":{"blockGap":"28px"},"typography":{"fontWeight":"500"}}} -->
+			<!-- wp:navigation-submenu {"label":"Online Doctorate (DBA)","url":"/online-doctorate-business-administration-dba-programs/","kind":"custom"} -->
+				<!-- wp:navigation-link {"label":"DBA in Cybersecurity","url":"/online-doctorate-cybersecurity-certificate-program/","kind":"custom"} /-->
+				<!-- wp:navigation-link {"label":"DBA in Artificial Intelligence (AI/ML)","url":"/online-doctorate-dba-artificial-intelligence-ml/","kind":"custom"} /-->
+				<!-- wp:navigation-link {"label":"DBA in Digital Transformation","url":"/online-doctorate-digital-transformation-program/","kind":"custom"} /-->
+				<!-- wp:navigation-link {"label":"DBA in Project Management","url":"/online-doctorate-dba-project-management/","kind":"custom"} /-->
+				<!-- wp:navigation-link {"label":"DBA in Generative AI","url":"/online-doctorate-dba-generative-ai/","kind":"custom"} /-->
+				<!-- wp:navigation-link {"label":"DBA in IT Governance","url":"/online-doctorate-it-governance-risk-compliance/","kind":"custom"} /-->
+			<!-- /wp:navigation-submenu -->
+			<!-- wp:navigation-submenu {"label":"Online Master’s (MBA)","url":"/online-masters-mba-degree-programs/","kind":"custom"} -->
+				<!-- wp:navigation-link {"label":"MBA in Cybersecurity","url":"/online-masters-mba-cybersecurity-program/","kind":"custom"} /-->
+				<!-- wp:navigation-link {"label":"MBA in Project Management","url":"/online-masters-mba-project-management-program/","kind":"custom"} /-->
+				<!-- wp:navigation-link {"label":"MBA in Data Analytics","url":"/online-masters-mba-degree-data-analytics-program/","kind":"custom"} /-->
+			<!-- /wp:navigation-submenu -->
+			<!-- wp:navigation-submenu {"label":"Discover"} -->
+				<!-- wp:navigation-link {"label":"About Us","url":"/about-us/","kind":"custom"} /-->
+				<!-- wp:navigation-link {"label":"Accreditation","url":"/accreditation-and-recognition/","kind":"custom"} /-->
+				<!-- wp:navigation-link {"label":"Convocation","url":"/convocation-ceremony/","kind":"custom"} /-->
+				<!-- wp:navigation-link {"label":"Success story","url":"/success-stories/","kind":"custom"} /-->
+				<!-- wp:navigation-link {"label":"Alumni video","url":"/alumni-speak/","kind":"custom"} /-->
+				<!-- wp:navigation-link {"label":"Case Studies","url":"/case-studies/","kind":"custom"} /-->
+				<!-- wp:navigation-link {"label":"Testimonials","url":"/testimonials/","kind":"custom"} /-->
+			<!-- /wp:navigation-submenu -->
+			<!-- wp:navigation-submenu {"label":"Resources"} -->
+				<!-- wp:navigation-link {"label":"Certificate Validation","url":"/verification-results/","kind":"custom"} /-->
+				<!-- wp:navigation-link {"label":"Assessment","url":"/assessment/","kind":"custom"} /-->
+				<!-- wp:navigation-link {"label":"Download Resources","url":"/resources/","kind":"custom"} /-->
+				<!-- wp:navigation-link {"label":"Blogs","url":"/blog/","kind":"custom"} /-->
+			<!-- /wp:navigation-submenu -->
+			<!-- wp:navigation-link {"label":"Contact Us","url":"/contact/","kind":"custom","className":"imet-nav-contact"} /-->
 		<!-- /wp:navigation -->
 
-		<!-- wp:buttons -->
-		<div class="wp-block-buttons">
-			<!-- wp:button -->
-			<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="#">Apply Now</a></div>
+		<!-- wp:buttons {"className":"imet-pill-cta"} -->
+		<div class="wp-block-buttons imet-pill-cta">
+			<!-- wp:button {"style":{"border":{"radius":"5px"}}} -->
+			<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="/contact/" style="border-radius:5px">Contact Us</a></div>
 			<!-- /wp:button -->
 		</div>
 		<!-- /wp:buttons -->

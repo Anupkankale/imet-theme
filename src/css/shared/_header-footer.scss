@@ -1,0 +1,290 @@
+/* stylelint-disable selector-class-pattern -- WordPress core block class names use BEM (wp-block-button__link). */
+// Header and footer. Shared by the front end (frontend/styles.scss) and the block editor (editor/editor.scss).
+// Layout and colours live in the block markup (parts/header.html, patterns/footer.php); this is only what blocks
+// can't express: the sticky pill, the shadow and the responsive switches.
+
+$nav-breakpoint: 1000px; // below this the menu collapses into the overlay
+$promo-breakpoint: 900px; // below this the Refer & Earn bar is hidden
+
+// ---- Header ---------------------------------------------------------------------------------------------------
+
+// The header part is sticky; its top is pulled up by the height of the promo bar, so the bar scrolls away and the
+// pill stays. The pill itself takes no height (see .imet-pill-wrap): it floats over the top of the page, like the
+// hero's top padding expects.
+.wp-site-blocks > header.wp-block-template-part {
+	--imet-promo-h: 72px;
+
+	position: sticky;
+	top: calc(var(--wp-admin--admin-bar--height, 0px) - var(--imet-promo-h));
+	z-index: 100;
+
+	@media (max-width: #{$promo-breakpoint - 1}) {
+		--imet-promo-h: 0;
+	}
+}
+
+.imet-promo {
+	box-sizing: border-box;
+	height: 72px;
+	gap: 48px;
+	margin: 0;
+
+	// (Core's flex layout rule is as specific as .imet-promo, hence the extra class.)
+	@media (max-width: #{$promo-breakpoint - 1}) {
+
+		&.wp-block-group {
+			display: none;
+		}
+	}
+
+	&-title {
+		margin: 0;
+		font-size: 1.5rem;
+		font-weight: 700;
+		line-height: 1.2;
+	}
+
+	&-sub {
+		margin: 0;
+		font-size: 0.9375rem;
+		line-height: 1.3;
+	}
+
+	.wp-block-button__link {
+		padding: 8px 22px;
+		border: 1px solid currentcolor;
+		border-radius: 999px;
+		font-size: 0.9375rem;
+		font-weight: 600;
+		line-height: 1.4;
+	}
+}
+
+.imet-pill-wrap {
+	position: relative;
+	height: 0;
+	margin: 0;
+	overflow: visible;
+}
+
+.imet-pill {
+	box-sizing: border-box;
+	position: relative;
+	width: min(1200px, 100% - 40px);
+	min-height: 80px;
+	top: 15px; // offset, not margin: core's first-child reset would cancel a margin
+	margin: 0 auto;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
+	@media (max-width: #{$nav-breakpoint - 1}) {
+		padding-inline: 24px !important;
+	}
+
+	// Keeps the menu on one line: sub-menus open as cards under the item.
+	.wp-block-navigation {
+		flex: 1 1 auto;
+	}
+
+	.wp-block-navigation-item__content {
+		padding-block: 8px;
+		white-space: nowrap;
+	}
+
+	.has-child .wp-block-navigation__submenu-container {
+		width: max-content;
+		min-width: 260px;
+		max-width: 380px;
+		padding: 8px;
+		border: 1px solid var(--wp--preset--color--line);
+		border-radius: var(--wp--custom--radius);
+		box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+		background: var(--wp--preset--color--white);
+		color: var(--wp--preset--color--body-text);
+
+		.wp-block-navigation-item__content {
+			padding: 10px 14px;
+			white-space: normal;
+		}
+	}
+
+	&-cta .wp-block-button__link {
+		padding: 12px 24px;
+		font-size: 0.875rem;
+		font-weight: 600;
+		white-space: nowrap;
+	}
+
+	// "Contact Us" lives in the menu too, but only shows inside the overlay.
+	.imet-nav-contact {
+		display: none;
+	}
+
+	// Menu overlay up to $nav-breakpoint (core switches at 600px; five items plus the button need more room).
+	@media (max-width: #{$nav-breakpoint - 1}) {
+
+		.wp-block-navigation__responsive-container-open:not(.always-shown) {
+			display: flex;
+		}
+
+		.wp-block-navigation__responsive-container:not(.hidden-by-default):not(.is-menu-open) {
+			display: none;
+		}
+
+		.imet-pill-cta {
+			display: none;
+		}
+
+		.imet-nav-contact {
+			display: block;
+		}
+	}
+}
+
+// ---- Footer ---------------------------------------------------------------------------------------------------
+
+.imet-footer {
+
+	a {
+		color: inherit;
+		text-decoration: none;
+
+		&:hover,
+		&:focus-visible {
+			text-decoration: underline;
+		}
+	}
+
+	&-inner {
+		padding: 60px 20px 48px;
+	}
+
+	&-tabs {
+		gap: 16px;
+		margin-bottom: 48px;
+
+		.wp-block-button__link {
+			padding: 12px 24px;
+			border: 1px solid var(--wp--preset--color--white);
+			border-radius: 6px;
+			font-size: 0.875rem;
+			letter-spacing: 1px;
+		}
+	}
+
+	// The logo is dark artwork: it sits on a white plate on the navy background.
+	.wp-block-site-logo img {
+		padding: 8px;
+		border-radius: 50%;
+		background: var(--wp--preset--color--white);
+	}
+
+	&-top {
+		gap: 48px;
+		margin-bottom: 0;
+	}
+
+	&-brand {
+		margin: 24px 0 12px;
+		font-size: 1.8125rem;
+		font-weight: 600;
+		line-height: 1.2;
+	}
+
+	&-h {
+		margin: 0 0 16px;
+		font-size: 1.125rem;
+		font-weight: 700;
+		line-height: 1.3;
+	}
+
+	&-list,
+	&-bullets,
+	&-countries {
+		padding: 0;
+		margin: 0 0 24px;
+		list-style: none;
+
+		li {
+			margin: 0 0 12px;
+		}
+	}
+
+	&-bullets {
+		margin-top: 16px;
+		padding-left: 1.25rem;
+		list-style: disc;
+	}
+
+	&-links {
+		gap: 32px;
+	}
+
+	&-offices {
+		gap: 32px;
+
+		p {
+			margin: 0 0 8px;
+		}
+	}
+
+	&-cta {
+		gap: 24px;
+		margin-top: 32px;
+
+		.wp-block-buttons {
+			margin: 0;
+		}
+
+		p {
+			margin: 0;
+		}
+	}
+
+	.wp-block-separator {
+		margin: 24px 0;
+		border-color: rgba(255, 255, 255, 0.4);
+		opacity: 1;
+	}
+
+	&-countries-title {
+		margin-top: 48px;
+		font-size: 1.125rem;
+	}
+
+	&-countries {
+		display: flex;
+		flex-wrap: wrap;
+		margin: 0;
+
+		li {
+			margin: 0 20px 12px 0;
+			padding-right: 20px;
+			border-right: 1px solid rgba(255, 255, 255, 0.5);
+			line-height: 1.4;
+		}
+	}
+
+	&-bottom {
+
+		a {
+			color: inherit;
+		}
+
+		p {
+			margin: 0;
+		}
+	}
+
+	&-logos {
+		gap: 16px;
+
+		figure {
+			margin: 0;
+		}
+
+		.wp-block-image img {
+			display: block;
+			height: auto;
+		}
+	}
+}
