@@ -1,7 +1,12 @@
 {
 	"core": null,
 	"phpVersion": "8.2",
-	"themes": [ "." ],
+	"themes": [
+		"."
+	],
 	"port": 5890,
-	"testsEnvironment": false
+	"testsEnvironment": false,
+	"plugins": [
+		"../../plugins/imet-blocks"
+	]
 }
