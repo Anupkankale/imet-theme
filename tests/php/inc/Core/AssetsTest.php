@@ -2,13 +2,13 @@
 /**
  * Test Assets class.
  *
- * @package rtCamp\Theme\Elementary
+ * @package IMET\Theme
  */
 
 declare( strict_types = 1 );
 
-use rtCamp\Theme\Elementary\Core\Assets;
-use rtCamp\Theme\Elementary\Tests\TestCase;
+use IMET\Theme\Core\Assets;
+use IMET\Theme\Tests\TestCase;
 
 /**
  * Class AssetsTest
@@ -83,11 +83,11 @@ class AssetsTest extends TestCase {
 	 * Handles carry the theme prefix via the framework handle() helper.
 	 */
 	public function test_handles_are_prefixed(): void {
-		$this->assertSame( 'elementary-theme-', Assets::HANDLE_PREFIX );
-		$this->assertSame( 'elementary-theme-core-navigation', $this->instance->handle( 'core-navigation' ) );
-		$this->assertSame( 'elementary-theme-styles', $this->instance->handle( 'styles' ) );
-		$this->assertSame( 'elementary-theme-tailwind', $this->instance->handle( 'tailwind' ) );
-		$this->assertSame( 'elementary-theme-browser-sync', $this->instance->handle( 'browser-sync' ) );
+		$this->assertSame( 'imet-', Assets::HANDLE_PREFIX );
+		$this->assertSame( 'imet-core-navigation', $this->instance->handle( 'core-navigation' ) );
+		$this->assertSame( 'imet-styles', $this->instance->handle( 'styles' ) );
+		$this->assertSame( 'imet-tailwind', $this->instance->handle( 'tailwind' ) );
+		$this->assertSame( 'imet-browser-sync', $this->instance->handle( 'browser-sync' ) );
 	}
 
 	/**
@@ -105,8 +105,8 @@ class AssetsTest extends TestCase {
 
 		$this->instance->register_assets();
 
-		$this->assertTrue( wp_script_is( 'elementary-theme-core-navigation', 'registered' ) );
-		$this->assertTrue( wp_style_is( 'elementary-theme-styles', 'registered' ) );
+		$this->assertTrue( wp_script_is( 'imet-core-navigation', 'registered' ) );
+		$this->assertTrue( wp_style_is( 'imet-styles', 'registered' ) );
 	}
 
 	/**
@@ -115,7 +115,7 @@ class AssetsTest extends TestCase {
 	 * @param string $relative Path relative to assets/build (e.g. js/frontend/core-navigation.js).
 	 */
 	private function write_build_asset( string $relative ): void {
-		$file = untrailingslashit( ELEMENTARY_THEME_PATH ) . '/assets/build/' . $relative;
+		$file = untrailingslashit( IMET_PATH ) . '/assets/build/' . $relative;
 		$dir  = dirname( $file );
 
 		if ( ! is_dir( $dir ) ) {

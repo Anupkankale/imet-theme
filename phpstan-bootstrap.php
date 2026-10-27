@@ -4,13 +4,13 @@
  *
  * This is just for the constants defined in the theme. This file is used by PHPStan to bootstrap the analysis.
  *
- * @package rtCamp\Theme\Elementary
+ * @package IMET\Theme
  */
 
 declare(strict_types = 1);
 
-define( 'ELEMENTARY_THEME_VERSION', '1.0.0' );
-define( 'ELEMENTARY_THEME_PATH', __DIR__ );
-define( 'ELEMENTARY_THEME_BUILD_DIR', __DIR__ . '/assets/build' );
-define( 'ELEMENTARY_THEME_BUILD_URI', 'https://example.com/wp-content/themes/elementary/assets/build' );
-define( 'ELEMENTARY_THEME_ENABLE_TAILWIND', false );
+define( 'IMET_VERSION', '1.0.0' );
+define( 'IMET_PATH', __DIR__ );
+define( 'IMET_BUILD_DIR', __DIR__ . '/assets/build' );
+define( 'IMET_BUILD_URI', 'https://example.com/wp-content/themes/elementary/assets/build' );
+define( 'IMET_ENABLE_TAILWIND', false );

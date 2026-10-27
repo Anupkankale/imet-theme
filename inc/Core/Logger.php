@@ -2,12 +2,12 @@
 /**
  * Theme logger service.
  *
- * @package rtCamp\Theme\Elementary
+ * @package IMET\Theme
  */
 
 declare( strict_types = 1 );
 
-namespace rtCamp\Theme\Elementary\Core;
+namespace IMET\Theme\Core;
 
 use rtCamp\WPPrimitives\Contracts\Interfaces\Shareable;
 use rtCamp\WPPrimitives\Utils\Logger as FrameworkLogger;
@@ -29,6 +29,6 @@ final class Logger extends FrameworkLogger implements Shareable {
 	 * Constructor.
 	 */
 	public function __construct() {
-		parent::__construct( 'elementary_theme' );
+		parent::__construct( 'imet-theme' );
 	}
 }

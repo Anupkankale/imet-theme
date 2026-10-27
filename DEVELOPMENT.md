@@ -18,7 +18,7 @@ The theme has a small set of locations with distinct responsibilities:
 | `templates/`, `parts/`, `patterns/`, `styles/`, `theme.json` | Block-theme markup and configuration. |
 | `vendor/` | Framework code, Composer-managed. Do not edit — `composer install` overwrites it; changes belong in the framework repository. |
 
-After initialization, read the `autoload.psr-4` entry in `composer.json` before creating a namespace. The starter uses `rtCamp\Theme\Elementary\`; an Acme Blog project uses `rtCamp\Theme\Acme_Blog\` and maps it to `inc/`. Keep directory segments and class names aligned with that mapping, and do not use `classmap` autoloading for namespaced classes — it works against this PSR-4 mapping. Keep the working tree clean enough to review the generated changes, and install dependencies before adding a class:
+After initialization, read the `autoload.psr-4` entry in `composer.json` before creating a namespace. The starter uses `rtCamp\Theme\IMET\`; an Acme Blog project uses `rtCamp\Theme\Acme_Blog\` and maps it to `inc/`. Keep directory segments and class names aligned with that mapping, and do not use `classmap` autoloading for namespaced classes — it works against this PSR-4 mapping. Keep the working tree clean enough to review the generated changes, and install dependencies before adding a class:
 
 ```bash
 composer install

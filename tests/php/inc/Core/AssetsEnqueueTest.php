@@ -3,13 +3,13 @@
  * Test the Assets enqueue paths: block-specific assets, Tailwind and the
  * BrowserSync client.
  *
- * @package rtCamp\Theme\Elementary
+ * @package IMET\Theme
  */
 
 declare( strict_types = 1 );
 
-use rtCamp\Theme\Elementary\Core\Assets;
-use rtCamp\Theme\Elementary\Tests\TestCase;
+use IMET\Theme\Core\Assets;
+use IMET\Theme\Tests\TestCase;
 
 /**
  * Class AssetsEnqueueTest
@@ -73,7 +73,7 @@ class AssetsEnqueueTest extends TestCase {
 			unlink( $this->env_file );
 		}
 
-		remove_all_filters( 'elementary_theme_tailwind_enabled' );
+		remove_all_filters( 'imet_tailwind_enabled' );
 
 		parent::tear_down();
 	}
@@ -88,8 +88,8 @@ class AssetsEnqueueTest extends TestCase {
 		$result = $assets->enqueue_block_specific_assets( $markup, [ 'blockName' => 'core/navigation' ] );
 
 		$this->assertSame( $markup, $result );
-		$this->assertTrue( wp_script_is( 'elementary-theme-core-navigation', 'enqueued' ) );
-		$this->assertTrue( wp_style_is( 'elementary-theme-core-navigation', 'enqueued' ) );
+		$this->assertTrue( wp_script_is( 'imet-core-navigation', 'enqueued' ) );
+		$this->assertTrue( wp_style_is( 'imet-core-navigation', 'enqueued' ) );
 	}
 
 	/**
@@ -102,8 +102,8 @@ class AssetsEnqueueTest extends TestCase {
 		$this->assertSame( 'raw', $assets->enqueue_block_specific_assets( 'raw', [ 'blockName' => null ] ) );
 		$this->assertSame( 'raw', $assets->enqueue_block_specific_assets( 'raw', [] ) );
 
-		$this->assertFalse( wp_script_is( 'elementary-theme-core-navigation', 'enqueued' ) );
-		$this->assertFalse( wp_style_is( 'elementary-theme-core-navigation', 'enqueued' ) );
+		$this->assertFalse( wp_script_is( 'imet-core-navigation', 'enqueued' ) );
+		$this->assertFalse( wp_style_is( 'imet-core-navigation', 'enqueued' ) );
 	}
 
 	/**
@@ -113,14 +113,14 @@ class AssetsEnqueueTest extends TestCase {
 		$assets = $this->registered_assets();
 
 		$assets->enqueue_assets();
-		$this->assertTrue( wp_style_is( 'elementary-theme-styles', 'enqueued' ) );
-		$this->assertFalse( wp_style_is( 'elementary-theme-tailwind', 'registered' ) );
+		$this->assertTrue( wp_style_is( 'imet-styles', 'enqueued' ) );
+		$this->assertFalse( wp_style_is( 'imet-tailwind', 'registered' ) );
 
-		add_filter( 'elementary_theme_tailwind_enabled', '__return_true' );
+		add_filter( 'imet_tailwind_enabled', '__return_true' );
 		$assets->register_assets();
 		$assets->enqueue_assets();
 
-		$this->assertTrue( wp_style_is( 'elementary-theme-tailwind', 'enqueued' ) );
+		$this->assertTrue( wp_style_is( 'imet-tailwind', 'enqueued' ) );
 	}
 
 	/**
@@ -184,7 +184,7 @@ class AssetsEnqueueTest extends TestCase {
 	public function test_browser_sync_client_respects_off_flags( string $env ): void {
 		$this->browser_sync_assets( $env )->enqueue_browser_sync();
 
-		$this->assertFalse( wp_script_is( 'elementary-theme-browser-sync', 'enqueued' ) );
+		$this->assertFalse( wp_script_is( 'imet-browser-sync', 'enqueued' ) );
 	}
 
 	/**
@@ -207,7 +207,7 @@ class AssetsEnqueueTest extends TestCase {
 		$method->setAccessible( true );
 
 		$this->assertSame(
-			wp_normalize_path( trailingslashit( ELEMENTARY_THEME_PATH ) . '.env.local' ),
+			wp_normalize_path( trailingslashit( IMET_PATH ) . '.env.local' ),
 			wp_normalize_path( (string) $method->invoke( new Assets() ) )
 		);
 	}
@@ -222,7 +222,7 @@ class AssetsEnqueueTest extends TestCase {
 	 */
 	private function registered_assets(): Assets {
 		foreach ( [ 'js/frontend/core-navigation.js', 'css/frontend/core-navigation.css', 'css/frontend/styles.css', 'css/frontend/tailwind.css' ] as $relative ) {
-			$file = untrailingslashit( ELEMENTARY_THEME_PATH ) . '/assets/build/' . $relative;
+			$file = untrailingslashit( IMET_PATH ) . '/assets/build/' . $relative;
 
 			if ( ! file_exists( $file ) ) {
 				wp_mkdir_p( dirname( $file ) );
@@ -305,8 +305,8 @@ class AssetsEnqueueTest extends TestCase {
 	 * @return string|null Source URL.
 	 */
 	private function browser_sync_src(): ?string {
-		$this->assertTrue( wp_script_is( 'elementary-theme-browser-sync', 'enqueued' ) );
+		$this->assertTrue( wp_script_is( 'imet-browser-sync', 'enqueued' ) );
 
-		return wp_scripts()->registered['elementary-theme-browser-sync']->src ?? null;
+		return wp_scripts()->registered['imet-browser-sync']->src ?? null;
 	}
 }

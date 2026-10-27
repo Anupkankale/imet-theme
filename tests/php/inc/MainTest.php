@@ -2,14 +2,14 @@
 /**
  * Test Main class.
  *
- * @package rtCamp\Theme\Elementary
+ * @package IMET\Theme
  */
 
 declare( strict_types = 1 );
 
-use rtCamp\Theme\Elementary\Core\Components;
-use rtCamp\Theme\Elementary\Main;
-use rtCamp\Theme\Elementary\Tests\TestCase;
+use IMET\Theme\Core\Components;
+use IMET\Theme\Main;
+use IMET\Theme\Tests\TestCase;
 
 /**
  * Class MainTest
@@ -24,7 +24,7 @@ class MainTest extends TestCase {
 	 * @since 1.0.0
 	 */
 	public function test_class_exists(): void {
-		$this->assertTrue( class_exists( 'rtCamp\Theme\Elementary\Main' ) );
+		$this->assertTrue( class_exists( 'IMET\Theme\Main' ) );
 	}
 
 	/**

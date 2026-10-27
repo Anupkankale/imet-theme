@@ -2,14 +2,14 @@
 /**
  * Theme component loader.
  *
- * @package rtCamp\Theme\Elementary
+ * @package IMET\Theme
  */
 
 declare( strict_types = 1 );
 
-namespace rtCamp\Theme\Elementary\Core;
+namespace IMET\Theme\Core;
 
-use rtCamp\Theme\Elementary\Main;
+use IMET\Theme\Main;
 use rtCamp\WPPrimitives\AssetLoader;
 use rtCamp\WPPrimitives\ComponentLoader;
 use rtCamp\WPPrimitives\Contracts\Interfaces\Shareable;

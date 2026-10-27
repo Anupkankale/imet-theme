@@ -5,15 +5,14 @@
  * Stateless utility class — pure functions wrapped in a namespace.
  * Final + private constructor: must be used statically, never instantiated.
  *
- * The service accessors (logger / encryption / templates) return the theme's
+ * The service accessors (logger / templates) return the theme's
  * shared framework service from the container, so callers use the framework
  * API directly with no extra wrapping:
  *
  *   Util::logger()->info( 'Cache warmed', [ 'items' => 42 ] );
- *   $cipher = Util::encryption()->encrypt( $secret );
  *   Util::templates()->render( 'content', 'card', [ 'title' => 'Hi' ] );
  *
- * The component / template / encrypt wrappers below stay for the common cases.
+ * The component / template wrappers below stay for the common cases.
  * Add a new shared service by adding the Core\<Service> class (implementing
  * Shareable) to Main::CLASSES and a one-line accessor here.
  *
@@ -21,19 +20,18 @@
  * one under `inc/Helpers/`. Keep `Util` for cross-cutting bits that don't
  * earn their own dedicated class.
  *
- * @package rtCamp\Theme\Elementary\Helpers
+ * @package IMET\Theme\Helpers
  */
 
 declare( strict_types = 1 );
 
-namespace rtCamp\Theme\Elementary\Helpers;
+namespace IMET\Theme\Helpers;
 
-use rtCamp\Theme\Elementary\Core\Components;
-use rtCamp\Theme\Elementary\Core\Encryption;
-use rtCamp\Theme\Elementary\Core\FeatureRegistry;
-use rtCamp\Theme\Elementary\Core\Logger;
-use rtCamp\Theme\Elementary\Core\Templates;
-use rtCamp\Theme\Elementary\Main;
+use IMET\Theme\Core\Components;
+use IMET\Theme\Core\FeatureRegistry;
+use IMET\Theme\Core\Logger;
+use IMET\Theme\Core\Templates;
+use IMET\Theme\Main;
 
 /**
  * Class - Util
@@ -54,15 +52,6 @@ final class Util {
 	 */
 	public static function logger(): Logger {
 		return self::shared( Logger::class );
-	}
-
-	/**
-	 * The theme's shared Encryptor.
-	 *
-	 * @return Encryption Shared encryptor.
-	 */
-	public static function encryption(): Encryption {
-		return self::shared( Encryption::class );
 	}
 
 	/**
@@ -129,32 +118,6 @@ final class Util {
 	 */
 	public static function get_template( string $slug, ?string $name = null, array $args = [] ): string {
 		return self::templates()->get( $slug, $name, $args );
-	}
-
-	/**
-	 * Encrypt a value with the theme's shared Encryptor.
-	 *
-	 * @param string $value Plaintext to encrypt.
-	 *
-	 * @return string|false Encrypted value, or false on failure.
-	 *
-	 * @throws \RuntimeException If ELEMENTARY_ENCRYPTION_KEY is not configured.
-	 */
-	public static function encrypt( string $value ): string|false {
-		return self::encryption()->encrypt( $value );
-	}
-
-	/**
-	 * Decrypt a value produced by Util::encrypt().
-	 *
-	 * @param string $value Encrypted value.
-	 *
-	 * @return string|false Decrypted value, or false on failure/tampering.
-	 *
-	 * @throws \RuntimeException If ELEMENTARY_ENCRYPTION_KEY is not configured.
-	 */
-	public static function decrypt( string $value ): string|false {
-		return self::encryption()->decrypt( $value );
 	}
 
 	/**

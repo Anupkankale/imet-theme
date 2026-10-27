@@ -13,7 +13,7 @@ const { optimize: svgoOptimize } = require('svgo');
 /**
  * Tailwind (opt-in). The theme.json token plugin is wired only when the entry
  * file exists; the build skips it otherwise. Runtime enqueue is gated separately
- * on ELEMENTARY_THEME_ENABLE_TAILWIND (see functions.php / Assets.php).
+ * on IMET_ENABLE_TAILWIND (see functions.php / Assets.php).
  */
 const tailwindEntry = path.resolve(
 	process.cwd(),

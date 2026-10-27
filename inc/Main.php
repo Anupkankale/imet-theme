@@ -2,26 +2,15 @@
 /**
  * Theme bootstrap file.
  *
- * @package rtCamp\Theme\Elementary
+ * @package IMET\Theme
  */
 
 declare( strict_types = 1 );
 
-namespace rtCamp\Theme\Elementary;
+namespace IMET\Theme;
 
 use rtCamp\WPPrimitives\Contracts\Traits\{Singleton, Loader};
-use rtCamp\Theme\Elementary\Core\{Assets, Components, Encryption, FeatureRegistry, Logger, Menu, Templates, ThemeSetup};
-
-use rtCamp\Theme\Elementary\Modules\Settings\FeaturesSettingsPage;
-// wp:example:block-extension
-use rtCamp\Theme\Elementary\Modules\BlockExtensions\MediaTextInteractive;
-// wp:example:block-extension:end
-// wp:example:settings
-use rtCamp\Theme\Elementary\Modules\Settings\ThemeOptions;
-// wp:example:settings:end
-// wp:example:shortcode
-use rtCamp\Theme\Elementary\Modules\Shortcodes\AuthorBio;
-// wp:example:shortcode:end
+use IMET\Theme\Core\{Assets, Components, FeatureRegistry, Logger, Menu, Templates, ThemeSetup};
 
 /**
  * Class Main
@@ -42,19 +31,8 @@ class Main {
 		ThemeSetup::class,
 		Components::class,
 		Templates::class,
-		Encryption::class,
 		FeatureRegistry::class,
 		Logger::class,
-		FeaturesSettingsPage::class,
-		// wp:example:block-extension
-		MediaTextInteractive::class,
-		// wp:example:block-extension:end
-		// wp:example:settings
-		ThemeOptions::class,
-		// wp:example:settings:end
-		// wp:example:shortcode
-		AuthorBio::class,
-		// wp:example:shortcode:end
 	];
 
 	/**

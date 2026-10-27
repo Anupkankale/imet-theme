@@ -2,12 +2,12 @@
 /**
  * Theme feature registry.
  *
- * @package rtCamp\Theme\Elementary\Core
+ * @package IMET\Theme\Core
  */
 
 declare( strict_types = 1 );
 
-namespace rtCamp\Theme\Elementary\Core;
+namespace IMET\Theme\Core;
 
 use rtCamp\WPPrimitives\Contracts\Interfaces\Shareable;
 use rtCamp\WPPrimitives\Utils\FeatureSelector;

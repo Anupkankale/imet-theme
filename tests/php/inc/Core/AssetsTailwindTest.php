@@ -2,27 +2,27 @@
 /**
  * Test Tailwind CSS enqueue gating in the Assets class.
  *
- * @package rtCamp\Theme\Elementary
+ * @package IMET\Theme
  */
 
 declare( strict_types = 1 );
 
-use rtCamp\Theme\Elementary\Core\Assets;
-use rtCamp\Theme\Elementary\Tests\TestCase;
+use IMET\Theme\Core\Assets;
+use IMET\Theme\Tests\TestCase;
 
 /**
  * Class AssetsTailwindTest
  *
- * Tailwind is off by default; the elementary_theme_tailwind_enabled filter
- * (wrapping the ELEMENTARY_THEME_ENABLE_TAILWIND constant, resolved at enqueue
+ * Tailwind is off by default; the imet_tailwind_enabled filter
+ * (wrapping the IMET_ENABLE_TAILWIND constant, resolved at enqueue
  * time) turns it on or off. These cover the enqueue gating behaviour.
  *
  * @since 1.0.0
  */
 class AssetsTailwindTest extends TestCase {
 
-	private const TAILWIND_HANDLE = 'elementary-theme-tailwind';
-	private const TAILWIND_FILTER = 'elementary_theme_tailwind_enabled';
+	private const TAILWIND_HANDLE = 'imet-tailwind';
+	private const TAILWIND_FILTER = 'imet_tailwind_enabled';
 
 	/**
 	 * Assets instance.

@@ -1,0 +1,27 @@
+{
+	"name": "IMET",
+	"kind": "theme",
+	"version": "1.0.0",
+	"slug": "imet-theme",
+	"textDomain": "imet-theme",
+	"package": "rtcamp/imet-theme",
+	"namespace": "IMET\\Theme",
+	"functionPrefix": "imet_",
+	"constantPrefix": "IMET",
+	"cssPrefix": "imet-",
+	"features": {
+		"tailwind": false,
+		"hmr": true
+	},
+	"generatedBy": "@rtcamp/wp-tooling init",
+	"examples": {
+		"removed": [
+			"block-extension",
+			"components",
+			"patterns",
+			"settings",
+			"shortcode"
+		]
+	},
+	"generatedAt": "2026-10-27T04:47:56.297Z"
+}

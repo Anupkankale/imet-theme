@@ -21,8 +21,8 @@ parameters:
 	reportWrongPhpDocTypeInVarTag: true
 
 	dynamicConstantNames:
-		- ELEMENTARY_THEME_DISABLE_BROWSER_SYNC
-		- ELEMENTARY_THEME_ENABLE_TAILWIND
+		- IMET_DISABLE_BROWSER_SYNC
+		- IMET_ENABLE_TAILWIND
 
 	bootstrapFiles:
 		- phpstan-bootstrap.php

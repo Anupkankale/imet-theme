@@ -2,12 +2,12 @@
 /**
  * Provide a base class for all unit tests by extending WP_UnitTestCase.
  *
- * @package rtCamp\Theme\Elementary
+ * @package IMET\Theme
  */
 
 declare( strict_types = 1 );
 
-namespace rtCamp\Theme\Elementary\Tests;
+namespace IMET\Theme\Tests;
 
 use WP_UnitTestCase;
 

@@ -4,12 +4,12 @@
  *
  * Provides graceful failure if the Composer autoloader is missing.
  *
- * @package rtCamp\Theme\Elementary
+ * @package IMET\Theme
  */
 
 declare( strict_types = 1 );
 
-namespace rtCamp\Theme\Elementary;
+namespace IMET\Theme;
 
 /**
  * Class Autoloader
@@ -28,7 +28,7 @@ final class Autoloader {
 	 * @since 1.0.0
 	 */
 	public static function autoload(): bool {
-		$autoloader = ELEMENTARY_THEME_PATH . '/vendor/autoload.php';
+		$autoloader = IMET_PATH . '/vendor/autoload.php';
 
 		if ( ! is_readable( $autoloader ) ) {
 			self::missing_autoloader_notice();
@@ -48,8 +48,8 @@ final class Autoloader {
 	private static function missing_autoloader_notice(): void {
 		$error_message = sprintf(
 			/* translators: %s: The theme name. */
-			__( '%s: The Composer autoloader was not found. If you installed the theme from the GitHub source code, make sure to run `composer install`.', 'elementary-theme' ),
-			esc_html( 'Elementary Theme' )
+			__( '%s: The Composer autoloader was not found. If you installed the theme from the GitHub source code, make sure to run `composer install`.', 'imet-theme' ),
+			esc_html( 'IMET' )
 		);
 
 		_doing_it_wrong( esc_html( self::class ), esc_html( $error_message ), '1.0.0' );

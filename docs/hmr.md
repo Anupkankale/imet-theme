@@ -91,10 +91,10 @@ BS_PORT=3002
 Then define the matching constant in `wp-config.php` so PHP enqueues the client from the right URL:
 
 ```php
-define( 'ELEMENTARY_THEME_BROWSER_SYNC_URL', 'https://yoursite.local:3002/browser-sync/browser-sync-client.js' );
+define( 'IMET_BROWSER_SYNC_URL', 'https://yoursite.local:3002/browser-sync/browser-sync-client.js' );
 ```
 
-`ELEMENTARY_THEME_BROWSER_SYNC_URL` overrides the auto-detected URL entirely, so it also works for remote setups (ddev, reverse proxy) where the BrowserSync server is on a different host or IP.
+`IMET_BROWSER_SYNC_URL` overrides the auto-detected URL entirely, so it also works for remote setups (ddev, reverse proxy) where the BrowserSync server is on a different host or IP.
 
 ### Block dev server port
 
@@ -159,7 +159,7 @@ By default, PHP constructs the client URL from the site's scheme and host:
 To override it entirely — for a non-standard port, a remote dev server, or a reverse proxy setup — define this constant in `wp-config.php`:
 
 ```php
-define( 'ELEMENTARY_THEME_BROWSER_SYNC_URL', 'https://yoursite.local:3002/browser-sync/browser-sync-client.js' );
+define( 'IMET_BROWSER_SYNC_URL', 'https://yoursite.local:3002/browser-sync/browser-sync-client.js' );
 ```
 
 This takes precedence over the auto-detected URL.

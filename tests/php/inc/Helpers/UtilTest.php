@@ -2,18 +2,17 @@
 /**
  * Test the Util helpers.
  *
- * @package rtCamp\Theme\Elementary
+ * @package IMET\Theme
  */
 
 declare( strict_types = 1 );
 
-use rtCamp\Theme\Elementary\Core\Components;
-use rtCamp\Theme\Elementary\Core\Encryption;
-use rtCamp\Theme\Elementary\Core\Logger;
-use rtCamp\Theme\Elementary\Core\Templates;
-use rtCamp\Theme\Elementary\Helpers\Util;
-use rtCamp\Theme\Elementary\Main;
-use rtCamp\Theme\Elementary\Tests\TestCase;
+use IMET\Theme\Core\Components;
+use IMET\Theme\Core\Logger;
+use IMET\Theme\Core\Templates;
+use IMET\Theme\Helpers\Util;
+use IMET\Theme\Main;
+use IMET\Theme\Tests\TestCase;
 
 /**
  * Class UtilTest
@@ -79,7 +78,6 @@ class UtilTest extends TestCase {
 		$main = Main::get_instance();
 
 		$this->assertSame( $main->get_shared( Logger::class ), Util::logger() );
-		$this->assertSame( $main->get_shared( Encryption::class ), Util::encryption() );
 		$this->assertSame( $main->get_shared( Templates::class ), Util::templates() );
 		$this->assertSame( $main->get_shared( Components::class ), Util::components() );
 	}
@@ -135,7 +133,7 @@ class UtilTest extends TestCase {
 	 * @param string $php Component template source.
 	 */
 	private function write_component( string $php ): void {
-		$dir = untrailingslashit( ELEMENTARY_THEME_PATH ) . '/src/components/' . self::COMPONENT;
+		$dir = untrailingslashit( IMET_PATH ) . '/src/components/' . self::COMPONENT;
 		$this->write( $dir, self::COMPONENT . '.php', $php );
 	}
 
@@ -145,7 +143,7 @@ class UtilTest extends TestCase {
 	 * @param string $php Template source.
 	 */
 	private function write_template( string $php ): void {
-		$this->write( untrailingslashit( ELEMENTARY_THEME_PATH ) . '/template-parts', self::TEMPLATE . '.php', $php );
+		$this->write( untrailingslashit( IMET_PATH ) . '/template-parts', self::TEMPLATE . '.php', $php );
 	}
 
 	/**

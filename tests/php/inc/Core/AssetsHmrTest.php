@@ -2,13 +2,13 @@
 /**
  * Test the HMR / BrowserSync gating in the Assets class.
  *
- * @package rtCamp\Theme\Elementary
+ * @package IMET\Theme
  */
 
 declare( strict_types = 1 );
 
-use rtCamp\Theme\Elementary\Core\Assets;
-use rtCamp\Theme\Elementary\Tests\TestCase;
+use IMET\Theme\Core\Assets;
+use IMET\Theme\Tests\TestCase;
 
 /**
  * Class AssetsHmrTest

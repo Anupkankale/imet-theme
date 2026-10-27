@@ -2,15 +2,15 @@
 /**
  * Test Logger service.
  *
- * @package rtCamp\Theme\Elementary
+ * @package IMET\Theme
  */
 
 declare( strict_types = 1 );
 
-use rtCamp\Theme\Elementary\Core\Logger;
-use rtCamp\Theme\Elementary\Helpers\Util;
-use rtCamp\Theme\Elementary\Main;
-use rtCamp\Theme\Elementary\Tests\TestCase;
+use IMET\Theme\Core\Logger;
+use IMET\Theme\Helpers\Util;
+use IMET\Theme\Main;
+use IMET\Theme\Tests\TestCase;
 use rtCamp\WPPrimitives\Contracts\Interfaces\Shareable;
 use rtCamp\WPPrimitives\Utils\Logger as FrameworkLogger;
 
@@ -125,11 +125,11 @@ class LoggerTest extends TestCase {
 
 		$contents = $this->captured();
 
-		// The theme logger is constructed with the 'elementary_theme' prefix.
-		$this->assertStringContainsString( '[DEBUG] [elementary_theme] d-msg', $contents );
-		$this->assertStringContainsString( '[INFO] [elementary_theme] cache warmed {"items":42}', $contents );
-		$this->assertStringContainsString( '[WARNING] [elementary_theme] w-msg', $contents );
-		$this->assertStringContainsString( '[ERROR] [elementary_theme] e-msg', $contents );
+		// The theme logger is constructed with the 'imet-theme' prefix.
+		$this->assertStringContainsString( '[DEBUG] [imet-theme] d-msg', $contents );
+		$this->assertStringContainsString( '[INFO] [imet-theme] cache warmed {"items":42}', $contents );
+		$this->assertStringContainsString( '[WARNING] [imet-theme] w-msg', $contents );
+		$this->assertStringContainsString( '[ERROR] [imet-theme] e-msg', $contents );
 	}
 
 	/**
@@ -139,7 +139,7 @@ class LoggerTest extends TestCase {
 		Util::logger()->info( 'plain-line-no-context' );
 
 		$contents = $this->captured();
-		$this->assertStringContainsString( '[INFO] [elementary_theme] plain-line-no-context', $contents );
+		$this->assertStringContainsString( '[INFO] [imet-theme] plain-line-no-context', $contents );
 		$this->assertStringNotContainsString( 'plain-line-no-context {', $contents );
 	}
 }

@@ -2,13 +2,13 @@
 /**
  * Test ThemeSetup class.
  *
- * @package rtCamp\Theme\Elementary
+ * @package IMET\Theme
  */
 
 declare( strict_types = 1 );
 
-use rtCamp\Theme\Elementary\Core\ThemeSetup;
-use rtCamp\Theme\Elementary\Tests\TestCase;
+use IMET\Theme\Core\ThemeSetup;
+use IMET\Theme\Tests\TestCase;
 
 /**
  * Class ThemeSetupTest
@@ -95,6 +95,6 @@ class ThemeSetupTest extends TestCase {
 		$custom_paths = ( new \ReflectionProperty( $wp_textdomain_registry, 'custom_paths' ) )->getValue( $wp_textdomain_registry );
 
 		$this->assertIsArray( $custom_paths );
-		$this->assertSame( get_template_directory() . '/languages', $custom_paths['elementary-theme'] ?? null );
+		$this->assertSame( get_template_directory() . '/languages', $custom_paths['imet-theme'] ?? null );
 	}
 }
