@@ -1,86 +1,44 @@
-<h1 align="center">Theme Elementary</h1>
+# ImetBlocktheme
 
-<p align="center"> <a href="LICENSE"><img src="https://img.shields.io/badge/license-GPL--2.0--or--later-blue.svg" alt="License: GPL-2.0-or-later"></a> <img src="https://img.shields.io/badge/PHP-8.2%2B-777bb4.svg" alt="PHP 8.2+"> <img src="https://img.shields.io/badge/WordPress-block%20theme-21759b.svg" alt="WordPress block theme"> </p>
+Block theme for **IMET Worldwide** (Online Doctorate DBA and Master's MBA pages). It holds the design system, the IMET
+section blocks (`imet/*`), the page patterns, the templates and every style. Functionality that must outlive the theme
+(FAQ structured data, the migration command) lives in the companion plugin
+[`imet-core`](https://github.com/Anupkankale/imet-core).
 
-<p align="center"> A starter <a href="https://developer.wordpress.org/block-editor/how-to-guides/themes/block-theme-overview/">block theme</a> that gives you a quick head start on new block-based themes, with a bunch of developer-friendly features built in. </p>
+- **Author:** [anupkankale.com](https://anupkankale.com)
+- **Requires:** WordPress 6.6+, PHP 8.2+
+- **License:** [GPL-2.0-or-later](LICENSE)
 
-<p align="center"> <img src="https://user-images.githubusercontent.com/59014930/187202051-df015d4a-f885-40cb-9fc9-c13991d3216d.png" alt="Theme Elementary preview" width="100%"> </p>
+## How it is organised
 
----
+| Path | What it is |
+| --- | --- |
+| `theme.json` | Every design token (colours, type, spacing, radius, shadow, widths). The single source. |
+| `src/blocks/` | The 25 `imet/*` section blocks (`block.json`, `index.js`, `style.scss`, `view.js`, `default.html`). |
+| `src/blocks-shared/` | Shared block code: `registerSectionBlock`, view helpers, the "IMET button" panel, base styles. |
+| `src/css/`, `src/js/` | Theme-wide styles and scripts (design system, header, footer, breakpoints). |
+| `patterns/` | Page and section patterns (DBA category page, DBA course page, testimonials, video, footer…). |
+| `templates/`, `parts/` | Block templates and template parts (header, footer). |
+| `styles/blocks/` | Block style variations. |
+| `inc/` | PHP (`IMET\Theme\`): `Core/` (assets, menu, setup), `Modules/Blocks`, `Modules/Media`. |
+| `assets/images/imet/` | The design's images. |
+| `bin/` | `audit-tokens.js`, `verify-blocks.js`, `shoot.js`. |
+| `tests/` | PHPUnit (`tests/php`, mirrors `inc/`) and Jest (`tests/js`). |
 
-This is a starter WordPress block theme. It provides the structure, examples, asset pipeline, checks, and optional development features needed for building a new block theme.
+Architecture, rules and recipes: **[SKILLS.md](SKILLS.md)**. Token table and documented exceptions:
+[docs/design-system.md](docs/design-system.md). Deployment: [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md).
 
-This theme uses [`rtcamp/wp-primitives`](https://github.com/rtCamp/wp-primitives) as a runtime dependency and ships with [`@rtcamp/wp-tooling`](https://github.com/rtCamp/wp-tooling) for streamlined project initialization and feature scaffolding.
-
-> **Working on this theme?** See [DEVELOPMENT.md](DEVELOPMENT.md) for the architecture overview, the module pattern, and how to add new classes. [CONTRIBUTING.md](CONTRIBUTING.md) covers the dev setup and PR flow.
-
-## Get started
-
-Create a new theme with Composer, or clone this repository:
+## Develop
 
 ```bash
-composer create-project rtcamp/imet my-theme
+npm ci && composer install      # dependencies
+npm run build:prod              # assets, then blocks (assets/build is gitignored)
+npm run lint:all                # css, js, php, package.json, design tokens
+npm run test:js                 # Jest
+composer phpcs && composer phpstan
 ```
 
-Start with the [Getting Started guide](docs/getting-started.md) — a short, concrete walkthrough covering prerequisites, acquiring the starter, installing dependencies, personalizing the theme, and seeing it running in local WordPress.
+## Deploy
 
-## What is included
-
-Initialization personalizes the theme and lets you keep or remove the supplied examples. The asset pipeline builds CSS, JavaScript, and blocks; HMR and Tailwind are optional. Linting, static analysis, tests, and AI-assisted setup and scaffolding are included for project development.
-
-See [Included features](docs/features.md) for the available examples and options.
-
-## Choose your next task
-
-Once the theme is running, here's where to go next:
-
-| I want to…                                          | Read                                              |
-| --------------------------------------------------- | ------------------------------------------------- |
-| Initialize or manage a theme                        | [Initialization](docs/initialization.md)          |
-| Run WordPress locally, build, or check a change     | [Local development](docs/local-development.md)    |
-| Explore the supplied examples and optional features | [Included features](docs/features.md)             |
-| Generate a feature                                  | [Scaffolding](docs/scaffolding.md)                |
-| Extend the theme by hand                            | [Development guide](DEVELOPMENT.md)               |
-
-## AI tooling
-
-This theme ships AI-assisted setup and feature scaffolding, kept in step across assistants:
-
-- **Claude Code:** retained skills in [`.claude/skills/`](.claude/skills/) — `/init`, `/scaffold`, and `/setup`.
-- **GitHub Copilot:** `/init` and `/scaffold` prompts are available while setting up this source repository.
-  - Initialization removes the Copilot-specific files under `.github` (`copilot-instructions.md`, `prompts/`, `instructions/`); issue templates, the PR template, and workflows stay.
-- A committed knowledge graph in [`graphify-out/`](graphify-out/) lets AI assistants query the codebase's structure instead of reading it all; see [docs/internal/knowledge-graph.md](docs/internal/knowledge-graph.md) for how it's built and kept current.
-
-Shared conventions for all assistants live in [AGENTS.md](AGENTS.md).
-
-## Folder structure
-
-```
-functions.php               # PHP entry point
-inc/                        # project PHP (PSR-4 root)
-├── Autoloader.php          # wraps vendor/autoload.php with graceful failure
-├── Main.php                # theme bootstrap — loads services
-├── Abstracts/              # base classes for theme features
-├── Helpers/                # stateless static utilities
-├── Core/                   # theme-wide infra — assets, components, menus, templates, theme setup
-└── Modules/                # feature areas
-    ├── BlockExtensions/    # block render filters and integrations
-    ├── Settings/           # admin settings pages (extend AbstractSettingsPage)
-    └── Shortcodes/         # shortcodes
-src/{components,css,js,fonts,images}/ # frontend sources → assets/build/
-parts/ patterns/ templates/ # block parts, patterns, templates
-template-parts/             # PHP template partials
-styles/                     # theme.json style variations
-theme.json  style.css       # theme config
-bin/                        # init and scaffold scripts
-tests/{js,php}/             # JS & PHP tests
-vendor/rtcamp/wp-primitives/ # framework (Composer-managed; do not modify)
-```
-
-Some of these directories hold supplied examples that initialization can remove; see [Included features](docs/features.md).
-
-## License
-
-[GPL-2.0-or-later](LICENSE)
-
-<p align="center"> <a href="https://rtcamp.com"><img src="https://n8e0ka87m9.gdcdn.us/kfnbt046p8/GitHub_Banner.webp" alt="rtCamp — high-performance enterprise WordPress" width="100%"></a> </p>
+`develop` deploys to staging and `main` to production (only when enabled) over SSH. See
+[docs/DEPLOYMENT.md](docs/DEPLOYMENT.md).

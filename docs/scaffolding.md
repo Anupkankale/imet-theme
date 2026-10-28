@@ -15,7 +15,7 @@ Rule of thumb: use the CLI for a single artifact you can fully specify; use `/sc
 
 ## Before generating
 
-Finish [initialization](initialization.md) and install dependencies. Work from the theme root. Use your project's namespace from `composer.json`; the examples use `rtCamp\Theme\Acme_Blog` and text domain `acme-blog`.
+Finish [initialization](initialization.md) and install dependencies. Work from the theme root. Use your project's namespace from `composer.json`; the examples use `IMET\Theme` and text domain `acme-blog`.
 
 Theme classes go under `inc/Modules/`; tests mirror source under `tests/php/`. Registration is directly in `Main::CLASSES`, not a per-kind module. For blocks, the source/build locations are `src/blocks/` and `assets/build/blocks/`.
 
@@ -31,9 +31,9 @@ Preview the shortcode with explicit theme conventions:
 
 ```bash
 npx wp-tooling add wp/shortcode --non-interactive --json --dry-run \
-  --namespace='rtCamp\Theme\Acme_Blog\Modules\Shortcodes' \
+  --namespace='IMET\Theme\Modules\Shortcodes' \
   --base_path=inc/Modules/Shortcodes \
-  --tests_namespace='rtCamp\Theme\Acme_Blog\Tests\inc\Modules\Shortcodes' \
+  --tests_namespace='IMET\Theme\Tests\inc\Modules\Shortcodes' \
   --tests_path=tests/php/inc/Modules/Shortcodes \
   --tag=acme_blog_site_name --class=SiteName
 ```
@@ -46,7 +46,7 @@ Remove `--dry-run` to generate. Inspect:
 The generic wiring output may point to a module file. For this theme, add this entry to the existing `Main::CLASSES` array in `inc/Main.php` instead:
 
 ```php
-\rtCamp\Theme\Acme_Blog\Modules\Shortcodes\SiteName::class,
+\IMET\Theme\Modules\Shortcodes\SiteName::class,
 ```
 
 Do not replace the existing array or register the same class twice. The framework dependency is already installed; generating a shortcode does not require reinstalling it.

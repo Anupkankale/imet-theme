@@ -1,8 +1,14 @@
 {
-	"name": "rtcamp/imet-theme",
-	"description": "A starter theme that facilitates a quick head start for developing new block-based themes along with a bunch of developer-friendly features.",
+	"name": "anupkankale/imet-theme",
+	"description": "Block theme for IMET Worldwide: design system, section blocks, patterns and templates.",
 	"type": "wordpress-theme",
-	"homepage": "https://rtcamp.com/",
+	"homepage": "https://anupkankale.com",
+	"authors": [
+		{
+			"name": "anupkankale.com",
+			"homepage": "https://anupkankale.com"
+		}
+	],
 	"license": "GPL-2.0-or-later",
 	"require": {
 		"php": ">=8.2",
