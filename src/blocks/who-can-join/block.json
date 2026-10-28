@@ -1,0 +1,50 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "imet/who-can-join",
+	"title": "IMET Who Can Join",
+	"category": "imet",
+	"icon": "groups",
+	"description": "Accordion (one open at a time, smooth animation) beside a photo.",
+	"keywords": [
+		"imet",
+		"section"
+	],
+	"version": "1.0.0",
+	"textdomain": "imet-theme",
+	"supports": {
+		"anchor": true,
+		"html": false,
+		"align": [
+			"full"
+		]
+	},
+	"attributes": {
+		"align": {
+			"type": "string",
+			"default": "full"
+		}
+	},
+	"imet": {
+		"tagName": "section",
+		"className": "section join",
+		"anchor": "who-can-join"
+	},
+	"editorScript": "file:./index.js",
+	"style": [
+		"imet-base",
+		"file:./style-index.css"
+	],
+	"viewScript": "file:./view.js",
+	"styles": [
+		{
+			"name": "default",
+			"label": "Lines",
+			"isDefault": true
+		},
+		{
+			"name": "boxed",
+			"label": "Boxed"
+		}
+	]
+}

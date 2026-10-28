@@ -1,0 +1,51 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "imet/section",
+	"title": "IMET Section (blank)",
+	"category": "imet",
+	"icon": "align-wide",
+	"description": "Empty section with the IMET design (fonts, buttons, utilities). Build any new section inside it; add u-bg-navy / u-bg-soft / u-bg-card for a background.",
+	"keywords": [
+		"imet",
+		"section",
+		"blank",
+		"container"
+	],
+	"version": "1.0.0",
+	"textdomain": "imet-theme",
+	"supports": {
+		"anchor": true,
+		"html": false,
+		"align": [
+			"full"
+		]
+	},
+	"attributes": {
+		"align": {
+			"type": "string",
+			"default": "full"
+		}
+	},
+	"imet": {
+		"tagName": "section",
+		"className": "section imet-blank",
+		"anchor": ""
+	},
+	"editorScript": "file:./index.js",
+	"style": [
+		"imet-base",
+		"file:./style-index.css"
+	],
+	"styles": [
+		{
+			"name": "default",
+			"label": "Default",
+			"isDefault": true
+		},
+		{
+			"name": "home",
+			"label": "Home"
+		}
+	]
+}
