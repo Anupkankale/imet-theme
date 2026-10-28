@@ -24,5 +24,18 @@
 				]
 			}
 		]
-	}
+	},
+	"overrides": [
+		{
+			"files": [
+				"src/blocks/**/*.scss",
+				"src/blocks-shared/**/*.scss"
+			],
+			"rules": {
+				"no-descending-specificity": null,
+				"selector-class-pattern": null,
+				"no-duplicate-selectors": null
+			}
+		}
+	]
 }
