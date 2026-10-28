@@ -20,10 +20,10 @@ jobs:
     with:
       project-type: theme
       enable-phpstan: true
-      php-versions: '["8.2", "8.3", "8.4"]'
-      wp-versions: '["6.5", "6.6", "6.7", "6.8", "6.9", "7.0"]'
-      # WordPress added PHP 8.4 support in 6.7.
-      test-php-exclude: '[{"php": "8.4", "wp": "6.5"}, {"php": "8.4", "wp": "6.6"}]'
+      # Trimmed from PHP 8.2-8.4 x WordPress 6.5-7.0 (18 jobs): the site runs PHP 8.2, and the theme requires WordPress 6.6+,
+      # so test the oldest supported WordPress and the newest one on PHP 8.2.
+      php-versions: '["8.2"]'
+      wp-versions: '["6.6", "7.0"]'
 
       # Optional wp-ci inputs, upstream defaults — uncomment to change.
       # skip: ''                # lint-css,lint-js,lint-php,test-js,test-php,build,build-artifact,a11y
