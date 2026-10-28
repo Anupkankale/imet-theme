@@ -1,7 +1,7 @@
 # IMET design system
 
-The theme carries the design of the IMET Blocks plugin's finished pages (DBA category page, DBA course page) so core
-blocks look the same as the plugin's sections. Home-page-only styles are not included.
+The theme owns the design of the IMET section blocks (`src/blocks/`) and the finished pages built from them (DBA category
+page, DBA course page), so core blocks and the `imet/*` sections look the same. Home-page-only styles are not included.
 
 **Where things live**
 
@@ -43,8 +43,9 @@ many cards show.
 
 ## Changing a token
 
-Edit `theme.json` once; every component, the editor and the patterns follow. The plugin's `.imet-section` rules still win inside
-plugin sections (they use the same values), so the two stay visually identical.
+Edit `theme.json` once; every component, the editor and the patterns follow. The section blocks' own `.imet-section` rules use
+the same values, so they stay visually identical to core blocks. The ported block SCSS still holds raw values that are being
+converted to tokens; `bin/audit-tokens-baseline.json` is the ratchet (counts only go down).
 
 ## Tokens only (no magic numbers)
 
@@ -68,7 +69,7 @@ nothing). It is part of `npm run lint:all`.
 
 ### Deliberate exceptions
 
-The theme is pixel-matched to the live site and the plugin's sections, so a few things differ from a generic 8px scale:
+The theme is pixel-matched to the live site and the IMET sections, so a few things differ from a generic 8px scale:
 
 - **Pixel-named steps, not an 8px scale.** Spacing steps are the live site's values (4, 5, 6, 8, 10, 12 … 80).
 - **Unequal padding where the live design is unequal:** the footer tabs (80 top / 0 bottom) and inner block (32 / 20), the
@@ -77,5 +78,5 @@ The theme is pixel-matched to the live site and the plugin's sections, so a few 
 - **Breakpoints** are raw values in `src/css/shared/_breakpoints.scss`, the only file allowed to hold them (media queries
   cannot use variables): 480, 640, 768, 1000, 1024, 1060.
 - **Font weights 400/500/600/700:** 500 is the live nav and eyebrow weight.
-- **Button colours:** the plugin's seven-colour system is kept (six block styles plus the default), not two variants.
-- **Content widths** are 1020px (text) and 1200px (wide), the plugin's containers, not 720px.
+- **Button colours:** the seven-colour system is kept (six block styles plus the default), not two variants.
+- **Content widths** are 1020px (text) and 1200px (wide), the sections' containers, not 720px.
