@@ -24,6 +24,8 @@
  */
 require('dotenv').config({ path: '.env.local', quiet: true });
 
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+
 /**
  * WordPress dependencies
  */
@@ -92,10 +94,58 @@ const fixDevServer = (singleConfig) => {
 	return singleConfig;
 };
 
+/**
+ * Block-specific additions to the script config:
+ *  - the shared stylesheet (`shared/base`) and the editor additions (`editor/index`) as their own entries;
+ *  - CSS `url()`s are left as written (they point at ../../../images/imet/, stable file names);
+ *  - each block's `default.html` (its default inner content) is copied next to its block.json.
+ *
+ * @param {Object} singleConfig A webpack configuration object.
+ * @return {Object} The same config with the IMET block additions.
+ */
+const withImetBlocks = (singleConfig) => {
+	if (!singleConfig || singleConfig.output?.module) {
+		return singleConfig;
+	}
+
+	for (const rule of singleConfig.module.rules) {
+		for (const use of Array.isArray(rule.use) ? rule.use : []) {
+			if (
+				use &&
+				typeof use.loader === 'string' &&
+				/[\\/]css-loader[\\/]/.test(use.loader)
+			) {
+				use.options = { ...use.options, url: false };
+			}
+		}
+	}
+
+	const baseEntry = singleConfig.entry;
+	singleConfig.entry = () => ({
+		...(typeof baseEntry === 'function' ? baseEntry() : baseEntry),
+		'shared/base': './src/blocks-shared/base.scss',
+		'editor/index': './src/blocks-shared/editor.js',
+	});
+	singleConfig.plugins = [
+		...singleConfig.plugins,
+		new CopyWebpackPlugin({
+			patterns: [
+				{
+					from: '*/default.html',
+					context: 'src/blocks',
+					noErrorOnMissing: true,
+				},
+			],
+		}),
+	];
+
+	return singleConfig;
+};
+
 /*
  * `--experimental-modules` makes the stock config export an array of configs
  * ([ scriptConfig, moduleConfig ]); otherwise it's a single object.
  */
 module.exports = Array.isArray(config)
-	? config.map(fixDevServer)
-	: fixDevServer(config);
+	? config.map((c) => withImetBlocks(fixDevServer(c)))
+	: withImetBlocks(fixDevServer(config));

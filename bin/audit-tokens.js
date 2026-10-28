@@ -7,6 +7,10 @@
  * Fails (exit 1) when templates, parts, patterns, block-style partials or the SCSS contain a raw px/rem/em value
  * or a hard-coded colour. Allowed: 0, 1px borders, comments, media queries (CSS can't use variables there; see
  * src/css/shared/_breakpoints.scss), SVG data URIs. Also lists padding pairs whose sides differ, for review.
+ *
+ * The section blocks ported from the old plugin (src/blocks, src/blocks-shared) are on a ratchet: the count of raw
+ * values per file is stored in bin/audit-tokens-baseline.json and may only go down. Convert a value to a token, then
+ * run `node bin/audit-tokens.js --update-baseline` to lower the count. A line with `token-ok: reason` is skipped.
  */
 const fs = require('fs');
 const path = require('path');
@@ -19,6 +23,15 @@ const targets = [
 	['styles/blocks', ['.json']],
 	['src/css', ['.scss']],
 ];
+const ratchetTargets = [
+	['src/blocks', ['.scss']],
+	['src/blocks-shared', ['.scss']],
+];
+const baselineFile = path.join(__dirname, 'audit-tokens-baseline.json');
+const baseline = fs.existsSync(baselineFile)
+	? JSON.parse(fs.readFileSync(baselineFile, 'utf8'))
+	: {};
+const counts = {};
 const skipFiles = ['_breakpoints.scss'];
 
 const walk = (dir, exts) =>
@@ -61,7 +74,10 @@ const addCustom = (obj, prefix) =>
 addCustom(theme.custom, '--wp--custom');
 const undefinedVars = new Set();
 
-for (const [dir, exts] of targets) {
+for (const [dir, exts, ratchet] of [
+	...targets,
+	...ratchetTargets.map((t) => [...t, true]),
+]) {
 	const base = path.join(root, dir);
 	if (!fs.existsSync(base)) {
 		continue;
@@ -73,6 +89,7 @@ for (const [dir, exts] of targets) {
 			.forEach((line, i) => {
 				let text = line
 					.replace(/url\(\s*["']?data:[^)]*\)/g, 'url()')
+					.replace(/href="#[^"]*"/g, 'href=""')
 					.replace(/\/\/.*$/, '');
 				if (
 					/^\s*(@media|\*|\/\*)/.test(text) ||
@@ -95,7 +112,12 @@ for (const [dir, exts] of targets) {
 						undefinedVars.add(`${rel}:${i + 1}  ${m[1]}`);
 					}
 				}
-				if (raw.length || colors.length) {
+				if ((raw.length || colors.length) && ratchet) {
+					if (!/token-ok:/.test(line)) {
+						counts[rel] =
+							(counts[rel] ?? 0) + raw.length + colors.length;
+					}
+				} else if (raw.length || colors.length) {
 					hits.push(
 						`${rel}:${i + 1}  ${[...raw, ...colors].join(' ')}`
 					);
@@ -122,6 +144,18 @@ for (const [dir, exts] of targets) {
 	}
 }
 
+if (process.argv.includes('--update-baseline')) {
+	fs.writeFileSync(baselineFile, `${JSON.stringify(counts, null, '\t')}\n`);
+	console.log(`Baseline written for ${Object.keys(counts).length} file(s).`);
+	process.exit(0);
+}
+for (const [file, count] of Object.entries(counts)) {
+	if (count > (baseline[file] ?? 0)) {
+		hits.push(
+			`${file}  ${count} raw value(s), baseline allows ${baseline[file] ?? 0}`
+		);
+	}
+}
 if (asymmetric.length) {
 	console.log(
 		`Review: ${asymmetric.length} padding set(s) with unequal sides:\n  ${asymmetric.join('\n  ')}\n`
