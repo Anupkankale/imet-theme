@@ -1,0 +1,54 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "imet/hero",
+	"title": "IMET Hero",
+	"category": "imet",
+	"icon": "cover-image",
+	"description": "Headline, stats, button, enquiry form card and accreditation logos (a marquee on phones).",
+	"keywords": [
+		"imet",
+		"section"
+	],
+	"version": "1.0.0",
+	"textdomain": "imet-theme",
+	"supports": {
+		"anchor": true,
+		"html": false,
+		"align": [
+			"full"
+		]
+	},
+	"attributes": {
+		"align": {
+			"type": "string",
+			"default": "full"
+		}
+	},
+	"imet": {
+		"tagName": "section",
+		"className": "hero",
+		"anchor": "top"
+	},
+	"editorScript": "file:./index.js",
+	"style": [
+		"imet-base",
+		"file:./style-index.css"
+	],
+	"viewScript": "file:./view.js",
+	"styles": [
+		{
+			"name": "default",
+			"label": "Light",
+			"isDefault": true
+		},
+		{
+			"name": "dark",
+			"label": "Dark"
+		},
+		{
+			"name": "home",
+			"label": "Home"
+		}
+	]
+}
