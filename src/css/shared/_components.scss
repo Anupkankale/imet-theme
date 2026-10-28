@@ -3,7 +3,7 @@
 /* stylelint-disable selector-class-pattern -- WordPress block style classes (is-style-group-card) and core BEM names. */
 // IMET components built from core blocks. The block style variations in styles/blocks/*.json carry the tokens
 // (colours, radius, padding, shadow, type); the layout and responsive behaviour live here, because WordPress's
-// variation CSS can't hold media queries. Values mirror the IMET Blocks plugin sections.
+// variation CSS can't hold media queries. Values are shared with the IMET section blocks.
 
 $page: ':is(.wp-block-post-content, .is-root-container)';
 
@@ -307,7 +307,7 @@ $page: ':is(.wp-block-post-content, .is-root-container)';
 }
 
 // ---- Details (FAQ look) for plain page content ------------------------------------------------------------------
-// Not inside an IMET section (the plugin styles its own accordions; extra padding here added 32px to every item) or
+// Not inside an IMET section (the section blocks style their own accordions; extra padding here added 32px to every item) or
 // the footer (its link groups are Details blocks too).
 .wp-block-details:not(.imet-section *, .imet-footer *) {
 	padding-block: var(--wp--preset--spacing--16);
