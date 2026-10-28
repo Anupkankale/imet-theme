@@ -1,0 +1,194 @@
+/* ==========================================================================
+   Buttons: one system for every IMET button (core/buttons + core/button).
+   Classes sit on .wp-block-button and are set from the editor's "IMET button" panel:
+     colour  btn-navy (default) · btn-white · btn-gold · btn-outline · btn-outline-light · btn-light · btn-link
+     size    btn-sm · btn-md (default) · btn-lg
+   Every button: same font, weight, radius, border and hover. Heights are exact (min-height), so buttons
+   of the same size line up across sections whatever their text.
+   ========================================================================== */
+.imet-section {
+	--btn-font: var(--ui);
+	--btn-weight: 600;
+	--btn-radius: 6px;
+	--btn-border: 2px;
+
+	/* size: height · horizontal padding · text */
+	--btn-sm-h: 48px; --btn-sm-px: 24px; --btn-sm-fs: 1rem;      /* 16px */
+	--btn-md-h: 60px; --btn-md-px: 32px; --btn-md-fs: 1.125rem;  /* 18px */
+	--btn-lg-h: 72px; --btn-lg-px: 40px; --btn-lg-fs: 1.25rem;   /* 20px */
+}
+
+@media (max-width: 640px) {
+
+	.imet-section {
+		--btn-sm-h: 44px; --btn-sm-px: 20px; --btn-sm-fs: 0.9375rem; /* 15px */
+		--btn-md-h: 54px; --btn-md-px: 26px; --btn-md-fs: 1rem;      /* 16px */
+		--btn-lg-h: 62px; --btn-lg-px: 22px; --btn-lg-fs: 1.0625rem; /* 17px */
+	}
+}
+
+/* Row of buttons */
+.imet-section .wp-block-buttons { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 32px; }
+
+.imet-section .wp-block-buttons.center,
+.imet-section .wp-block-buttons.is-content-justification-center { justify-content: center; }
+
+.imet-section .wp-block-buttons.center { margin-top: 36px; }
+
+.imet-section .wp-block-buttons > .wp-block-button { margin: 0; }
+
+/* Base = Medium + Navy (a button with no IMET classes still looks right) */
+.imet-section .wp-block-button__link {
+	--h: var(--btn-md-h); --px: var(--btn-md-px); --fs: var(--btn-md-fs);
+	--bg: var(--navy); --fg: #fff; --bd: var(--navy);
+	--bg-hover: var(--navy-deep); --fg-hover: #fff; --bd-hover: var(--navy-deep);
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+	box-sizing: border-box;
+	min-height: var(--h);
+	padding: 8px var(--px);
+	font-family: var(--btn-font);
+	font-size: var(--fs);
+	font-weight: var(--btn-weight);
+	line-height: 1.2;
+	letter-spacing: normal;
+	text-transform: none;
+	text-decoration: none;
+	text-align: center;
+	color: var(--fg);
+	background: var(--bg);
+	border: var(--btn-border) solid var(--bd);
+	border-radius: var(--btn-radius);
+	box-shadow: none;
+	cursor: pointer;
+	transition: background-color .2s, color .2s, border-color .2s;
+}
+
+.imet-section .wp-block-button__link:hover,
+.imet-section .wp-block-button__link:focus-visible { color: var(--fg-hover); background: var(--bg-hover); border-color: var(--bd-hover); }
+
+/* No theme focus outline after a mouse click (keyboard focus keeps the gold ring from base.scss) */
+.imet-section .wp-block-button__link:focus:not(:focus-visible) { outline: none; }
+
+/* Sizes (btn-xs, btn-eligible, btn-cta: names used by earlier versions of the page) */
+.imet-section :is(.btn-sm, .btn-xs) .wp-block-button__link { --h: var(--btn-sm-h); --px: var(--btn-sm-px); --fs: var(--btn-sm-fs); }
+
+.imet-section .btn-md .wp-block-button__link { --h: var(--btn-md-h); --px: var(--btn-md-px); --fs: var(--btn-md-fs); }
+
+.imet-section :is(.btn-lg, .btn-eligible, .btn-cta) .wp-block-button__link { --h: var(--btn-lg-h); --px: var(--btn-lg-px); --fs: var(--btn-lg-fs); }
+
+/* Colours */
+.imet-section .btn-white .wp-block-button__link {
+	--bg: #fff; --fg: var(--navy); --bd: #fff;
+	--bg-hover: var(--gold-soft); --fg-hover: var(--navy); --bd-hover: var(--gold-soft);
+}
+
+.imet-section .btn-gold .wp-block-button__link {
+	--bg: var(--gold); --fg: #fff; --bd: var(--gold);
+	--bg-hover: #b57c18; --fg-hover: #fff; --bd-hover: #b57c18;
+}
+
+.imet-section .btn-outline .wp-block-button__link {
+	--bg: transparent; --fg: var(--navy); --bd: var(--navy);
+	--bg-hover: var(--navy); --fg-hover: #fff; --bd-hover: var(--navy);
+}
+
+/* Light grey (e.g. "See More" on a table) */
+.imet-section .btn-light .wp-block-button__link {
+	--bg: #d6d7da; --fg: #000; --bd: #d6d7da;
+	--bg-hover: #c5c7cc; --fg-hover: #000; --bd-hover: #c5c7cc;
+	--flash: rgba(255, 255, 255, .6);
+}
+
+/* Text link: underlined text, no box (e.g. "View More" under the testimonials). Same font and sizes. */
+.imet-section .btn-link .wp-block-button__link {
+	--bg: transparent; --fg: var(--ink); --bd: transparent; --px: 0;
+	--bg-hover: transparent; --fg-hover: var(--gold); --bd-hover: transparent;
+	min-height: 0; /* text, not a box: no fixed height */
+	padding-block: 4px;
+	text-decoration: underline;
+	text-decoration-thickness: 2px;
+	text-underline-offset: 6px;
+}
+
+/* Outline on dark backgrounds */
+.imet-section .btn-outline-light .wp-block-button__link {
+	--bg: transparent; --fg: #fff; --bd: #fff;
+	--bg-hover: #fff; --fg-hover: var(--navy); --bd-hover: #fff;
+}
+
+/* Glass flash: a soft diagonal shine sweeps slowly across every button now and then (a 2.6s sweep every 9s, staggered by
+   --flash-delay), and at once on hover / keyboard focus. Light buttons get a navy-tinted shine so it shows.
+   Off for visitors who ask for reduced motion (base.scss shortens every animation to nothing). */
+.imet-section .wp-block-button__link {
+	--flash: rgba(255, 255, 255, .5);
+	position: relative;
+	overflow: hidden;
+	isolation: isolate;
+}
+
+.imet-section .wp-block-button__link::after {
+	content: "";
+	position: absolute;
+	top: -2px;
+	bottom: -2px;
+	left: 0;
+	width: 45%;
+	background: linear-gradient(100deg, transparent 0%, var(--flash) 50%, transparent 100%);
+	transform: translateX(-180%) skewX(-20deg);
+	pointer-events: none;
+	animation: imet-btn-flash 9s ease-in-out var(--flash-delay, 1.5s) infinite;
+}
+
+.imet-section .wp-block-button__link:is(:hover, :focus-visible)::after { animation: imet-btn-flash-now 2s ease-in-out; }
+
+.imet-section :is(.btn-white, .btn-outline) .wp-block-button__link { --flash: rgba(21, 41, 78, .14); }
+
+.imet-section .btn-outline .wp-block-button__link:hover { --flash: rgba(255, 255, 255, .5); } /* fills navy on hover */
+.imet-section .btn-link .wp-block-button__link::after { content: none; }
+
+/* Buttons side by side don't flash at the same moment */
+.imet-section .wp-block-button:nth-child(2n) .wp-block-button__link { --flash-delay: 2.6s; }
+
+.imet-section .wp-block-button:nth-child(3n) .wp-block-button__link { --flash-delay: 3.7s; }
+
+@keyframes imet-btn-flash {
+
+	0% { transform: translateX(-180%) skewX(-20deg); }
+
+	29%, 100% { transform: translateX(330%) skewX(-20deg); } /* 29% of 9s ≈ 2.6s sweep, then a pause */
+}
+
+@keyframes imet-btn-flash-now {
+
+	from { transform: translateX(-180%) skewX(-20deg); }
+
+	to { transform: translateX(330%) skewX(-20deg); }
+}
+
+/* Full width (core "Width 100%" setting, or class btn-block) */
+.imet-section :is(.btn-block, .wp-block-button__width-100) { width: 100%; }
+
+.imet-section :is(.btn-block, .wp-block-button__width-100) .wp-block-button__link { width: 100%; }
+
+@media (max-width: 640px) {
+
+	/* Phones: buttons in a row marked "stack-mobile" go full width, one per line. */
+	.imet-section .wp-block-buttons.stack-mobile > .wp-block-button,
+	.imet-section .wp-block-buttons.stack-mobile .wp-block-button__link { width: 100%; }
+}
+
+/* Download icon after the text (Additional CSS class "btn-icon-download", e.g. "Download Brochure").
+   A mask, so it takes the button's text colour; ::before because ::after is the glass flash. */
+.imet-section .btn-icon-download .wp-block-button__link::before {
+	content: "";
+	order: 2;
+	width: 20px;
+	height: 20px;
+	flex-shrink: 0;
+	background: currentcolor;
+	-webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 4v11m-5-5 5 5 5-5M5 20h14'/%3E%3C/svg%3E") center / contain no-repeat;
+	mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 4v11m-5-5 5 5 5-5M5 20h14'/%3E%3C/svg%3E") center / contain no-repeat;
+}

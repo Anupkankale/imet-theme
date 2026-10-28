@@ -1,0 +1,164 @@
+name: Deploy to Hostinger
+description: >
+  Upload a built theme/plugin folder to Hostinger over SSH (rsync into <name>.incoming, swap it in, purge the cache,
+  smoke test, and swap the previous version back if the smoke test fails).
+
+inputs:
+  source:
+    description: Built folder to upload (its contents become wp-content/<kind>/<name>/).
+    required: true
+  kind:
+    description: "themes or plugins."
+    required: true
+  name:
+    description: Folder name under wp-content/<kind>/ (lowercase letters, digits and hyphens).
+    required: true
+  host:
+    required: true
+  port:
+    required: true
+  user:
+    required: true
+  key:
+    description: Private deploy key (from an environment secret).
+    required: true
+  known-hosts:
+    required: true
+  wp-path:
+    description: WordPress root on the server (the folder that contains wp-content).
+    required: true
+  site-url:
+    description: Public URL of the site to smoke test.
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - name: Validate inputs
+      shell: bash
+      env:
+        KIND: ${{ inputs.kind }}
+        NAME: ${{ inputs.name }}
+        WP_PATH: ${{ inputs.wp-path }}
+        SITE_URL: ${{ inputs.site-url }}
+      run: |
+        set -euo pipefail
+        [[ "$KIND" == "themes" || "$KIND" == "plugins" ]] || { echo "::error::kind must be themes or plugins"; exit 1; }
+        [[ "$NAME" =~ ^[a-z0-9][a-z0-9-]*$ ]] || { echo "::error::invalid folder name"; exit 1; }
+        [[ "$WP_PATH" == /* && "$WP_PATH" != "/" ]] || { echo "::error::WP_PATH must be an absolute path"; exit 1; }
+        [[ "$SITE_URL" == https://* ]] || { echo "::error::SITE_URL must start with https://"; exit 1; }
+
+    - name: Prepare SSH
+      shell: bash
+      env:
+        SSH_KEY: ${{ inputs.key }}
+        SSH_KNOWN_HOSTS: ${{ inputs.known-hosts }}
+        SSH_PORT: ${{ inputs.port }}
+      run: |
+        set -euo pipefail
+        umask 077
+        mkdir -p ~/.ssh
+        printf '%s\n' "$SSH_KEY" > ~/.ssh/deploy_key
+        printf '%s\n' "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
+        chmod 600 ~/.ssh/deploy_key ~/.ssh/known_hosts
+        # Host key checking stays on: the key must already be in SSH_KNOWN_HOSTS.
+        echo "SSH_OPTS=-i $HOME/.ssh/deploy_key -p $SSH_PORT -o IdentitiesOnly=yes -o BatchMode=yes -o StrictHostKeyChecking=yes -o UserKnownHostsFile=$HOME/.ssh/known_hosts -o ConnectTimeout=20" >> "$GITHUB_ENV"
+
+    - name: Upload to <name>.incoming
+      shell: bash
+      env:
+        SOURCE: ${{ inputs.source }}
+        KIND: ${{ inputs.kind }}
+        NAME: ${{ inputs.name }}
+        HOST: ${{ inputs.host }}
+        SSH_USER: ${{ inputs.user }}
+        WP_PATH: ${{ inputs.wp-path }}
+      run: |
+        set -euo pipefail
+        test -d "$SOURCE" && test -n "$(ls -A "$SOURCE")" || { echo "::error::nothing to deploy in $SOURCE"; exit 1; }
+        # Only this repo's folder is touched: never wp-content as a whole, never uploads/.
+        TARGET="$WP_PATH/wp-content/$KIND/$NAME"
+        ssh $SSH_OPTS "$SSH_USER@$HOST" "test -d '$WP_PATH/wp-content/$KIND'" \
+          || { echo "::error::$WP_PATH/wp-content/$KIND not found on the server (check WP_PATH)"; exit 1; }
+        rsync -az --delete --human-readable --stats \
+          -e "ssh $SSH_OPTS" \
+          "$SOURCE"/ "$SSH_USER@$HOST:$TARGET.incoming/"
+
+    - name: Swap in the new version
+      shell: bash
+      env:
+        KIND: ${{ inputs.kind }}
+        NAME: ${{ inputs.name }}
+        HOST: ${{ inputs.host }}
+        SSH_USER: ${{ inputs.user }}
+        WP_PATH: ${{ inputs.wp-path }}
+      run: |
+        set -euo pipefail
+        # Keep only one .previous. Two renames: the folder is missing for a few milliseconds.
+        ssh $SSH_OPTS "$SSH_USER@$HOST" bash -s -- "$WP_PATH/wp-content/$KIND" "$NAME" <<'REMOTE'
+        set -euo pipefail
+        cd "$1"; name="$2"
+        rm -rf "$name.previous"
+        if [ -d "$name" ]; then mv "$name" "$name.previous"; fi
+        mv "$name.incoming" "$name"
+        REMOTE
+
+    - name: Purge cache (a failure here does not fail the deploy)
+      shell: bash
+      env:
+        HOST: ${{ inputs.host }}
+        SSH_USER: ${{ inputs.user }}
+        WP_PATH: ${{ inputs.wp-path }}
+      run: |
+        ssh $SSH_OPTS "$SSH_USER@$HOST" bash -s -- "$WP_PATH" <<'REMOTE' || echo "::warning::cache purge failed (deploy continues)"
+        cd "$1" || exit 1
+        if wp plugin is-active litespeed-cache 2>/dev/null; then
+          wp litespeed-purge all || exit 1
+        else
+          wp cache flush || exit 1
+        fi
+        REMOTE
+
+    - name: Smoke test
+      id: smoke
+      shell: bash
+      env:
+        SITE_URL: ${{ inputs.site-url }}
+      run: |
+        set -uo pipefail
+        url="${SITE_URL%/}/?deploy_check=${GITHUB_SHA}"
+        for attempt in 1 2 3; do
+          code=$(curl -sS -L --max-time 30 -o "$RUNNER_TEMP/smoke.html" -w '%{http_code}' "$url" || echo 000)
+          if [ "$code" = "200" ] && ! grep -qi "critical error" "$RUNNER_TEMP/smoke.html"; then
+            echo "Smoke test passed ($url → $code)"
+            exit 0
+          fi
+          echo "Attempt $attempt: HTTP $code$(grep -qi 'critical error' "$RUNNER_TEMP/smoke.html" && echo ', page contains "critical error"')"
+          sleep 10
+        done
+        echo "::error::Smoke test failed for $url"
+        exit 1
+
+    - name: Roll back to .previous
+      if: failure() && steps.smoke.outcome == 'failure'
+      shell: bash
+      env:
+        KIND: ${{ inputs.kind }}
+        NAME: ${{ inputs.name }}
+        HOST: ${{ inputs.host }}
+        SSH_USER: ${{ inputs.user }}
+        WP_PATH: ${{ inputs.wp-path }}
+      run: |
+        set -uo pipefail
+        ssh $SSH_OPTS "$SSH_USER@$HOST" bash -s -- "$WP_PATH" "$WP_PATH/wp-content/$KIND" "$NAME" <<'REMOTE'
+        set -uo pipefail
+        wp_path="$1"; cd "$2"; name="$3"
+        if [ -d "$name.previous" ]; then
+          mv "$name" "$name.failed" && mv "$name.previous" "$name" && rm -rf "$name.failed"
+          echo "Rolled back to the previous version."
+          cd "$wp_path" && { wp plugin is-active litespeed-cache 2>/dev/null && wp litespeed-purge all || wp cache flush; } || true
+        else
+          echo "No .previous folder (first deploy): nothing to roll back to."
+        fi
+        REMOTE
+        echo "::error::Deploy failed the smoke test and was rolled back (if a previous version existed)."

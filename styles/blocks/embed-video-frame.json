@@ -1,0 +1,18 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"title": "Video frame",
+	"slug": "embed-video-frame",
+	"blockTypes": [
+		"core/embed"
+	],
+	"styles": {
+		"border": {
+			"radius": "var(--wp--preset--border-radius--10)",
+			"width": "var(--wp--custom--border-width--9)",
+			"style": "solid",
+			"color": "var(--wp--preset--color--navy)"
+		},
+		"shadow": "var(--wp--preset--shadow--raised)"
+	}
+}

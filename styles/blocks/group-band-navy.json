@@ -1,0 +1,33 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"title": "Navy band",
+	"slug": "group-band-navy",
+	"blockTypes": [
+		"core/group"
+	],
+	"styles": {
+		"color": {
+			"background": "var(--wp--preset--color--navy-band)",
+			"text": "var(--wp--preset--color--white)"
+		},
+		"border": {
+			"radius": "var(--wp--preset--border-radius--16)"
+		},
+		"spacing": {
+			"padding": {
+				"top": "var:preset|spacing|24",
+				"bottom": "var:preset|spacing|24",
+				"left": "var:preset|spacing|40",
+				"right": "var:preset|spacing|40"
+			}
+		},
+		"elements": {
+			"heading": {
+				"color": {
+					"text": "var(--wp--preset--color--white)"
+				}
+			}
+		}
+	}
+}

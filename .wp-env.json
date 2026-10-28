@@ -5,8 +5,5 @@
 		"."
 	],
 	"port": 5890,
-	"testsEnvironment": false,
-	"plugins": [
-		"../../plugins/imet-blocks"
-	]
+	"testsEnvironment": false
 }

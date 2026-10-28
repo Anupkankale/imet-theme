@@ -1,0 +1,24 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"title": "Section subtitle",
+	"slug": "paragraph-section-sub",
+	"blockTypes": [
+		"core/paragraph"
+	],
+	"styles": {
+		"color": {
+			"text": "var(--wp--preset--color--ink)"
+		},
+		"typography": {
+			"fontSize": "var(--wp--preset--font-size--sub)",
+			"lineHeight": "1.55",
+			"fontWeight": "400"
+		},
+		"spacing": {
+			"margin": {
+				"bottom": "var:preset|spacing|24"
+			}
+		}
+	}
+}

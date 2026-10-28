@@ -1,0 +1,54 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "imet/embassy",
+	"title": "IMET Recognition Logos",
+	"category": "imet",
+	"icon": "awards",
+	"description": "Header and a row of captioned emblems/logos.",
+	"keywords": [
+		"imet",
+		"section"
+	],
+	"version": "1.0.0",
+	"textdomain": "imet-theme",
+	"supports": {
+		"anchor": true,
+		"html": false,
+		"align": [
+			"full"
+		]
+	},
+	"attributes": {
+		"align": {
+			"type": "string",
+			"default": "full"
+		}
+	},
+	"imet": {
+		"tagName": "section",
+		"className": "section embassy",
+		"anchor": ""
+	},
+	"editorScript": "file:./index.js",
+	"style": [
+		"imet-base",
+		"file:./style-index.css"
+	],
+	"styles": [
+		{
+			"name": "default",
+			"label": "Emblems with captions",
+			"isDefault": true
+		},
+		{
+			"name": "logos",
+			"label": "Logos"
+		},
+		{
+			"name": "home",
+			"label": "Home"
+		}
+	],
+	"viewScript": "file:./view.js"
+}

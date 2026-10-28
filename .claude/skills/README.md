@@ -6,6 +6,7 @@ Skills for AI assistants (Claude Code, Cursor, and any tool that reads the Claud
 |---|---|---|
 | [`init/`](init/SKILL.md) | `/init` | Turn this cloned theme into a named theme and manage it afterwards: rename the starter tokens, keep/remove the example sets, toggle optional features (Tailwind, HMR, Dev Tools). Drives `npm run init`. |
 | [`scaffold/`](scaffold/SKILL.md) | `/scaffold` | Add one feature (dynamic block, shortcode, settings/admin page, service, CI workflow - plus CPT/taxonomy/REST/CLI/cron for a companion plugin) via `npx wp-tooling add`, TDD-first, wiring it into `Main::CLASSES`. |
+| [`imet-theme/`](imet-theme/SKILL.md) | auto / `/imet-theme` | Architecture, rules and recipes for this theme: the theme owns the `imet/*` blocks, patterns and styles; `imet-core` holds only functionality. Same text as the root [`SKILLS.md`](../../SKILLS.md). |
 
 `init` is theme-specific. `scaffold` tracks `@rtcamp/wp-tooling` and introspects the project, so it stays correct as the layout evolves. [`setup/`](setup/SKILL.md) (`/setup`) is the generic natural-language tooling bootstrapper for empty/existing projects. Use `/init` to personalize this skeleton; `/setup` does not replace its identity and capability flow.
 

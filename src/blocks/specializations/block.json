@@ -1,0 +1,54 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "imet/specializations",
+	"title": "IMET Specializations",
+	"category": "imet",
+	"icon": "tag",
+	"description": "Our Programs: linked program cards, 4 per view, continuous marquee scroll.",
+	"keywords": [
+		"imet",
+		"section"
+	],
+	"version": "1.0.0",
+	"textdomain": "imet-theme",
+	"supports": {
+		"anchor": true,
+		"html": false,
+		"align": [
+			"full"
+		]
+	},
+	"attributes": {
+		"align": {
+			"type": "string",
+			"default": "full"
+		}
+	},
+	"imet": {
+		"tagName": "section",
+		"className": "section specs",
+		"anchor": "specializations"
+	},
+	"editorScript": "file:./index.js",
+	"style": [
+		"imet-base",
+		"file:./style-index.css"
+	],
+	"viewScript": "file:./view.js",
+	"styles": [
+		{
+			"name": "default",
+			"label": "Four per view (scrolling)",
+			"isDefault": true
+		},
+		{
+			"name": "five",
+			"label": "Five per row"
+		},
+		{
+			"name": "home",
+			"label": "Home"
+		}
+	]
+}

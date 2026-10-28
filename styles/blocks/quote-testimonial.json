@@ -1,0 +1,32 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"title": "Testimonial card",
+	"slug": "quote-testimonial",
+	"blockTypes": [
+		"core/quote"
+	],
+	"styles": {
+		"color": {
+			"gradient": "var(--wp--custom--gradient--testimonial)",
+			"text": "var(--wp--preset--color--grey-900)"
+		},
+		"border": {
+			"radius": "var(--wp--preset--border-radius--10)",
+			"width": "var(--wp--custom--border-width--0)"
+		},
+		"spacing": {
+			"padding": {
+				"top": "var:preset|spacing|36",
+				"bottom": "var:preset|spacing|36",
+				"left": "var:preset|spacing|24",
+				"right": "var:preset|spacing|18"
+			}
+		},
+		"typography": {
+			"fontSize": "var(--wp--preset--font-size--normal)",
+			"lineHeight": "1.4",
+			"fontStyle": "normal"
+		}
+	}
+}

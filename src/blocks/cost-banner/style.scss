@@ -1,0 +1,183 @@
+/* IMET Cost Banner (imet/cost-banner). Root element: .imet-section.cost-banner
+   Figma: a rounded card the width of the container (1200px): fee | white "45%" ribbon (pokes out above) |
+   scholarship text + button. */
+
+/* Boxed band: its own width, not the page's content-size cap. (The block editor's root rule is as specific as a plain
+   section selector, so this one is a class higher.) */
+.is-layout-constrained > .imet-section.cost-banner { max-width: none; }
+
+.imet-section.cost-banner {
+	position: relative;
+	display: grid;
+	grid-template-columns: 402px 205px minmax(0, 1fr);
+	width: min(1200px, 100% + 2 * var(--wp--style--root--padding-left, 0px) - 40px); /* 100% is the padded content box inside the theme */
+	min-height: 249px;
+	margin: 35px auto 20px;
+	border-radius: 24px;
+	background: linear-gradient(90deg, #b98a3c 0%, #8a6b3c 22%, #4b4a4e 42%, #26304d 58%, #15294e 100%);
+	color: #fff;
+}
+
+.imet-section .cost-left {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 20px 20px 24px;
+	text-align: center;
+	overflow: hidden;
+	border-radius: 24px 0 0 24px;
+}
+
+/* Cap and scroll behind the price (decoration) */
+.imet-section .cost-left::before {
+	content: "";
+	position: absolute;
+	right: -40px;
+	bottom: 0;
+	width: 220px;
+	aspect-ratio: 580 / 240;
+	background: url(../../../images/imet/cost-cap.webp) right bottom / 100% auto no-repeat;
+	opacity: .55;
+	-webkit-mask-image: linear-gradient(90deg, transparent, #000 40%);
+	mask-image: linear-gradient(90deg, transparent, #000 40%);
+}
+
+.imet-section .cost-left > *,
+.imet-section .cost-left > .wp-block-group__inner-container > * { position: relative; z-index: 1; }
+
+.imet-section .cost-left h3 {
+	color: #fff;
+	font-size: clamp(1.75rem, 1.2rem + 1.5vw, 2.5rem); /* 28px → 40px */
+	font-weight: 700;
+	line-height: 1.1;
+}
+
+.imet-section .price-tag {
+	display: inline-block;
+	margin-top: 16px;
+	background: #15294e;
+	border: 1px solid #f1c27a;
+	border-radius: 8px;
+	padding: 2px 18px;
+	color: #f6c35a;
+	font-size: clamp(1.5rem, 1.2rem + 1vw, 2rem); /* 24px → 32px */
+	font-weight: 700;
+	line-height: 1.5;
+}
+
+/* White ribbon: from 23px above the card to a point 30px above its bottom */
+.imet-section .cost-mid {
+	align-self: start;
+	height: 242px;
+	margin-top: -23px;
+	padding: 10px 12px 40px;
+	background: #fff;
+	color: var(--navy);
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 88%, 0 100%);
+	filter: drop-shadow(0 2px 3px rgba(0, 0, 0, .15));
+}
+
+.imet-section .cost-mid .up-to { font-size: 1.0625rem; font-weight: 500; color: #000; }
+
+.imet-section .cost-mid .pct {
+	padding-bottom: 6px;
+	border-bottom: 1px solid var(--navy);
+	color: #e09a1b;
+	font-size: 4.125rem; /* 66px */
+	font-weight: 800;
+	line-height: 1;
+}
+
+.imet-section .cost-mid .merit { margin-top: 8px; color: #000; font-size: 1.1875rem; font-weight: 500; line-height: 1.2; }
+
+.imet-section .cost-right { padding: 24px 40px 26px 22px; }
+
+.imet-section .cost-right h3 { color: #fff; font-size: clamp(1.5rem, 0.7143rem + 1.6369vw, 2.1875rem); font-weight: 700; } /* → 35px */
+.imet-section .cost-right p {
+	max-width: 480px;
+	margin: 8px 0 18px;
+	color: #fff;
+	font-family: var(--ui);
+	font-size: 0.96875rem; /* 15.5px */
+	line-height: 1.6;
+}
+
+/* Button with a circled arrow after the text */
+.imet-section .btn-arrow .wp-block-button__link::before {
+	content: "";
+	order: 2;
+	width: 22px;
+	height: 22px;
+	background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2315294e' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='M8 12h8m-3-3 3 3-3 3'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+@media (max-width: 1200px) {
+
+	.imet-section.cost-banner { grid-template-columns: 1fr 190px 1.2fr; }
+}
+
+@media (max-width: 900px) {
+
+	.imet-section.cost-banner { grid-template-columns: 1fr; text-align: center; background: linear-gradient(180deg, #b98a3c 0%, #3a3a45 40%, #15294e 100%); }
+
+	.imet-section .cost-left { border-radius: 24px 24px 0 0; }
+
+	.imet-section .cost-left, .imet-section .cost-right { padding: 28px 20px; }
+
+	.imet-section .cost-right .wp-block-buttons { justify-content: center; }
+
+	.imet-section .cost-mid { width: 220px; height: auto; margin: 0 auto; padding-top: 12px; }
+
+	.imet-section .cost-right p { margin-inline: auto; }
+}
+
+/* After the "Wide" Highlights (DBA Course Page): spacing from the Figma */
+@media (min-width: 641px) {
+
+	.imet-section.highlights.is-style-wide + .imet-section.cost-banner { margin: 32px auto 38px; }
+}
+
+/* ---------- Style "Home" (block style, the Home page): a 952px card, 234px tall, smaller type (Home page, 1440 frame). ---------- */
+.imet-section.cost-banner.is-style-home {
+	grid-template-columns: 306px 150px minmax(0, 1fr);
+	width: min(952px, 100% + 2 * var(--wp--style--root--padding-left, 0px) - 40px); /* 100% is the padded content box inside the theme */
+	min-height: 234px;
+	margin: 20px auto;
+	border-radius: 16px;
+}
+
+.imet-section.cost-banner.is-style-home .cost-left { padding: 15px 15px 15px 30px; border-radius: 16px 0 0 16px; }
+
+.imet-section.cost-banner.is-style-home .cost-left h3 { font-size: 1.5625rem; line-height: 1.52; } /* 25px */
+.imet-section.cost-banner.is-style-home .price-tag { margin-top: 20px; padding: 0 12px; border: 2px solid #ffd385; border-radius: 10px; color: #ffd385; font-size: 1.25rem; line-height: 2.2; }
+
+.imet-section.cost-banner.is-style-home .cost-mid { height: 220px; margin-top: -1px; padding: 10px 10px 36px; }
+
+.imet-section.cost-banner.is-style-home .cost-mid .up-to { font-size: .9375rem; line-height: 1.33; }
+
+.imet-section.cost-banner.is-style-home .cost-mid .pct { padding-bottom: 8px; font-size: 1.875rem; line-height: 1.17; }
+
+.imet-section.cost-banner.is-style-home .cost-mid .merit { margin-top: 8px; font-size: .8125rem; font-weight: 600; line-height: 1.85; }
+
+.imet-section.cost-banner.is-style-home .cost-right { padding: 15px 30px 15px 44px; }
+
+.imet-section.cost-banner.is-style-home .cost-right h3 { font-size: 1.5625rem; line-height: 1.52; }
+
+.imet-section.cost-banner.is-style-home .cost-right p { max-width: 431px; margin: 5px 0 14px; font-size: .8125rem; line-height: 1.43; } /* 13px */
+
+@media (max-width: 900px) {
+
+	.imet-section.cost-banner.is-style-home { grid-template-columns: 1fr; }
+
+	.imet-section.cost-banner.is-style-home .cost-left { border-radius: 16px 16px 0 0; padding: 28px 20px; }
+
+	.imet-section.cost-banner.is-style-home .cost-right { padding: 28px 20px; }
+
+	.imet-section.cost-banner.is-style-home .cost-right p { margin-inline: auto; }
+}
