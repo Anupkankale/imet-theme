@@ -1,6 +1,6 @@
-# Theme Elementary
+# ImetBlocktheme
 
-Build a WordPress block theme from this starter theme, then keep the examples and tools your project needs. Start with [Getting Started](getting-started.md).
+Developer documentation for the IMET block theme: setup, local development, assets and scaffolding. Start with [Getting Started](getting-started.md).
 
 ## Two ways to work
 

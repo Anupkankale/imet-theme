@@ -1,4 +1,4 @@
-# AGENTS.md — Theme Elementary
+# AGENTS.md — ImetBlocktheme
 
 Tool-agnostic brief for AI coding agents (Claude Code, Copilot coding agent, Codex). A custom WordPress **block theme** built on `rtcamp/wp-primitives` (in `vendor/`).
 
