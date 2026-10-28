@@ -5,7 +5,7 @@ section blocks (`imet/*`), the page patterns, the templates and every style. Fun
 (FAQ structured data, the migration command) lives in the companion plugin
 [`imet-core`](https://github.com/Anupkankale/imet-core).
 
-- **Author:** [anupkankale.com](https://anupkankale.com)
+- **Author:** [Anup Kankale](https://anupkankale.com)
 - **Requires:** WordPress 6.6+, PHP 8.2+
 - **License:** [GPL-2.0-or-later](LICENSE)
 
