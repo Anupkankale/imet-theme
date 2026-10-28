@@ -1,8 +1,8 @@
 @use "breakpoints" as *;
 
-// IMET design system: what theme.json can't express. Values mirror the IMET Blocks plugin (base.scss, _buttons.scss)
-// so core blocks look the same as the plugin's sections. Tokens come from theme.json (--wp--custom--...).
-// Buttons: classes on .wp-block-button, set from the editor's "IMET button" panel (plugin) or typed as Additional CSS:
+// IMET design system: what theme.json can't express. Values are shared with the IMET section blocks (src/blocks-shared/base.scss, _buttons.scss)
+// so core blocks look the same as the IMET sections. Tokens come from theme.json (--wp--custom--...).
+// Buttons: classes on .wp-block-button, set from the editor's "IMET button" panel (src/blocks-shared/button-panel.js) or typed as Additional CSS:
 //   size    btn-sm · btn-md (default) · btn-lg
 //   extras  btn-block (full width) · btn-icon-download · stack-mobile (on .wp-block-buttons)
 // Colours are block styles: White, Gold, Outline, Outline (on dark), Light grey, Text link.
@@ -21,9 +21,9 @@
 	}
 }
 
-// Page content and the editor canvas only: the header and footer have their own, smaller buttons, and the IMET Blocks
-// plugin's sections (.imet-section) keep the plugin's own button rules (same values, plus its older size aliases).
-$content: ':is(.wp-block-post-content, .is-root-container):not(.imet-footer *, .imet-promo *, .imet-pill *, .imet-section *)';
+// Page content and the editor canvas only: the header and footer have their own, smaller buttons. The IMET section
+// blocks use the same button values (src/blocks-shared/_buttons.scss adds the older size aliases).
+$content: ':is(.wp-block-post-content, .is-root-container):not(.imet-footer *, .imet-promo *, .imet-pill *)';
 
 #{$content} .wp-block-button__link {
 	display: inline-flex;
@@ -162,7 +162,7 @@ $content: ':is(.wp-block-post-content, .is-root-container):not(.imet-footer *, .
 	}
 }
 
-// Focus ring: the gold ring the plugin uses
+// Focus ring: the gold ring the IMET sections use
 :is(.wp-block-post-content, .is-root-container) :is(a, button, summary, [tabindex]):focus-visible {
 	outline: var(--wp--custom--border-width--3) solid var(--wp--preset--color--gold);
 	outline-offset: var(--wp--preset--spacing--3);
@@ -170,7 +170,7 @@ $content: ':is(.wp-block-post-content, .is-root-container):not(.imet-footer *, .
 }
 
 // Section rhythm: an IMET section built from core blocks (Group, class "imet-section-band") has the same vertical
-// padding as the plugin's sections; "-tall" is the 70px variant.
+// padding as the IMET section blocks; "-tall" is the 70px variant.
 .imet-section-band {
 	padding-block: var(--wp--custom--section--padding);
 }
