@@ -240,7 +240,7 @@
 // The pill floats over the top of the page and takes no height, so the content has to clear it. Pages that open with
 // an IMET section get the clearance inside that section (a transparent border, so its own background still shows
 // behind the pill; 77px puts the Home hero's first line where the live site has it); everything else gets it as
-// padding on <main>. Front end only: the block editor has no header.
+// padding on <main>. Front end only (.wp-site-blocks): the block editor has no header.
 .wp-site-blocks > main {
 	padding-top: var(--wp--custom--header--main-clearance);
 
@@ -249,7 +249,7 @@
 	}
 }
 
-.wp-block-post-content > .imet-section:first-child {
+.wp-site-blocks .wp-block-post-content > .imet-section:first-child {
 	border-top: var(--wp--custom--header--clearance) solid transparent;
 	background-origin: border-box;
 

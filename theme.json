@@ -276,7 +276,7 @@
 				"promoHeight": "72px",
 				"pillWidth": "min(var(--wp--style--global--wide-size), 100% - var(--wp--preset--spacing--40))",
 				"pillHeight": "80px",
-				"navOffset": "clamp(var(--wp--preset--spacing--4), calc(100vw - 1295px), 145px)",
+				"navOffset": "clamp(var(--wp--preset--spacing--24), calc(100vw - 1275px), 165px)",
 				"clearance": "77px",
 				"clearancePhone": "78px",
 				"mainClearance": "110px"
@@ -932,7 +932,7 @@
 			}
 		},
 		"spacing": {
-			"blockGap": "1.25rem",
+			"blockGap": "0",
 			"padding": {
 				"top": "0",
 				"right": "var(--wp--custom--spacing--small)",
