@@ -18,8 +18,8 @@ feature/* ──PR──▶ develop ──PR──▶ main
               (automatic)       and only when PRODUCTION_ENABLED=true)
 ```
 
-What a deploy does: build in GitHub (no secrets there) → upload to `<name>.incoming` over SSH → swap it in (`<name>.previous` keeps
-the last version) → purge cache → check the site returns 200 with no "critical error" → if that check fails, the previous version is
+What a deploy does: build in GitHub (no secrets there) → upload to `.<name>.incoming` over SSH → swap it in (`.<name>.previous` keeps
+the last version; the leading dot hides it from WordPress, so it never shows up as an extra theme or plugin) → purge cache → check the site returns 200 with no "critical error" → if that check fails, the previous version is
 put back automatically. It only ever touches its own folder, never `wp-content` as a whole and never `uploads/`.
 
 > Never paste a private key into a chat, an issue or a file in the repo. The private key only ever lives on your laptop and in the
@@ -113,11 +113,11 @@ staging URL as the **staging** `SITE_URL`. Production later uses the live site's
 
 **Manual:** tag every release (`git tag v1.2.0 && git push origin v1.2.0`). To go back: **Actions → Deploy → Run workflow**, choose the
 environment, and put the older tag (or a commit SHA) in **ref**. It rebuilds that version and deploys it the same way. The server
-also keeps one `<name>.previous` folder for a quick manual restore over SSH:
+also keeps one hidden `.<name>.previous` folder for a quick manual restore over SSH:
 
 ```bash
 cd ~/domains/YOUR_DOMAIN/public_html/wp-content/themes
-mv imet-theme imet-theme.broken && mv imet-theme.previous imet-theme
+mv imet-theme imet-theme.broken && mv .imet-theme.previous imet-theme && rm -rf imet-theme.broken
 ```
 
 ## h. Rules
