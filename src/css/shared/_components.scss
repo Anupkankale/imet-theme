@@ -305,3 +305,12 @@ $page: ':is(.wp-block-post-content, .is-root-container)';
 		border-radius: var(--wp--preset--border-radius--6);
 	}
 }
+
+// ---- Details (FAQ look) for plain page content ------------------------------------------------------------------
+// Not inside an IMET section (the plugin styles its own accordions; extra padding here added 32px to every item) or
+// the footer (its link groups are Details blocks too).
+.wp-block-details:not(.imet-section *, .imet-footer *) {
+	padding-block: var(--wp--preset--spacing--16);
+	border-bottom: 1px solid var(--wp--preset--color--line);
+	font-size: var(--wp--preset--font-size--medium);
+}
