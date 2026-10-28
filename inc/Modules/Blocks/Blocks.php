@@ -58,6 +58,11 @@ class Blocks implements Registrable {
 		);
 		wp_style_add_data( 'imet-base', 'path', $file );
 
+		// Not built yet (a fresh clone, or CI without a build): there is nothing to register, and the loader would complain.
+		if ( ! file_exists( get_theme_file_path( 'assets/build/blocks/blocks-manifest.php' ) ) ) {
+			return;
+		}
+
 		$loader = new AssetLoader( IMET_PATH, get_template_directory_uri(), 'assets/build' );
 		$loader->register_block_manifest( 'assets/build/' . self::BLOCKS_PATH, 'assets/build/blocks/blocks-manifest.php' );
 	}

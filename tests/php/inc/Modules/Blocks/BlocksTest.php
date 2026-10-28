@@ -53,6 +53,20 @@ class BlocksTest extends TestCase {
 	}
 
 	/**
+	 * Test registering without a build is silent (no _doing_it_wrong from the asset loader).
+	 */
+	public function test_register_blocks_without_a_build_is_silent(): void {
+		if ( file_exists( get_theme_file_path( 'assets/build/blocks/blocks-manifest.php' ) ) ) {
+			$this->markTestSkipped( 'The theme is built here.' );
+		}
+
+		$this->instance->register_blocks();
+
+		// An unexpected _doing_it_wrong fails the test on its own; this asserts we got here.
+		$this->assertTrue( wp_style_is( 'imet-base', 'registered' ) );
+	}
+
+	/**
 	 * Test the IMET category comes first.
 	 */
 	public function test_add_category_is_first(): void {
