@@ -1,0 +1,56 @@
+# Files that are NOT uploaded to the server (rsync --exclude-from). Patterns starting with / are relative to the repo root,
+# so vendor packages keep their own src/, tests/ and docs. The build output (assets/build) and vendor/ are produced by the
+# deploy workflow and ARE uploaded.
+
+# Git and GitHub
+.git*
+/.github
+
+# Source, tests and docs
+/src
+/tests
+/docs
+/bin
+/scripts
+/graphify-out
+*.md
+
+# Dependencies installed only for building
+/node_modules
+
+# Tooling config
+/.editorconfig
+/.nvmrc
+/.env*
+/.wp-env*
+/.stylelint*
+/.eslint*
+/.prettier*
+/.husky
+/.browserslistrc
+/.lintstagedrc*
+/.deployignore
+/.npmrc
+/.wp-scaffold.json
+/.vipgoci*
+/.claude
+/phpcs.xml*
+/phpstan*
+/phpunit.xml*
+/eslint.config.*
+/stylelint.config.*
+/webpack*.js
+/babel.config.js
+/package.json
+/package-lock.json
+/composer.json
+/composer.lock
+/tailwind.config.*
+/AGENTS.md
+/CLAUDE.md
+/SKILLS.md
+
+# Misc
+.DS_Store
+*.log
+*.map
