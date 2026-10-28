@@ -18,7 +18,7 @@ The theme has a small set of locations with distinct responsibilities:
 | `templates/`, `parts/`, `patterns/`, `styles/`, `theme.json` | Block-theme markup and configuration. |
 | `vendor/` | Framework code, Composer-managed. Do not edit — `composer install` overwrites it; changes belong in the framework repository. |
 
-After initialization, read the `autoload.psr-4` entry in `composer.json` before creating a namespace. The starter uses `rtCamp\Theme\IMET\`; an Acme Blog project uses `rtCamp\Theme\Acme_Blog\` and maps it to `inc/`. Keep directory segments and class names aligned with that mapping, and do not use `classmap` autoloading for namespaced classes — it works against this PSR-4 mapping. Keep the working tree clean enough to review the generated changes, and install dependencies before adding a class:
+After initialization, read the `autoload.psr-4` entry in `composer.json` before creating a namespace. This theme uses `IMET\Theme\`, mapped to `inc/`. Keep directory segments and class names aligned with that mapping, and do not use `classmap` autoloading for namespaced classes — it works against this PSR-4 mapping. Keep the working tree clean enough to review the generated changes, and install dependencies before adding a class:
 
 ```bash
 composer install
@@ -79,10 +79,10 @@ Start with `tests/php/inc/Modules/ReadingTimeTest.php`, extending the theme's `T
 
 declare( strict_types = 1 );
 
-namespace rtCamp\Theme\Acme_Blog\Tests\inc\Modules;
+namespace IMET\Theme\Tests\inc\Modules;
 
-use rtCamp\Theme\Acme_Blog\Modules\ReadingTime;
-use rtCamp\Theme\Acme_Blog\Tests\TestCase;
+use IMET\Theme\Modules\ReadingTime;
+use IMET\Theme\Tests\TestCase;
 
 final class ReadingTimeTest extends TestCase {
 	public function test_appends_the_notice(): void {
@@ -105,7 +105,7 @@ Next create `inc/Modules/ReadingTime.php` from the class below, initially using 
 
 declare( strict_types = 1 );
 
-namespace rtCamp\Theme\Acme_Blog\Modules;
+namespace IMET\Theme\Modules;
 
 use rtCamp\WPPrimitives\Contracts\Interfaces\Registrable;
 
@@ -130,7 +130,7 @@ Add the class to the existing registration list without replacing any entries:
 
 ```php
 // inc/Main.php
-use rtCamp\Theme\Acme_Blog\Modules\ReadingTime;
+use IMET\Theme\Modules\ReadingTime;
 
 public const CLASSES = [
 	// Keep every existing entry here.
