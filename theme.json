@@ -779,24 +779,6 @@
 				"spacing": {
 					"blockGap": "16px 32px"
 				}
-			},
-			"core/details": {
-				"typography": {
-					"fontSize": "var(--wp--preset--font-size--medium)"
-				},
-				"spacing": {
-					"padding": {
-						"top": "var(--wp--preset--spacing--16)",
-						"bottom": "var(--wp--preset--spacing--16)"
-					}
-				},
-				"border": {
-					"bottom": {
-						"color": "var(--wp--preset--color--line)",
-						"width": "1px",
-						"style": "solid"
-					}
-				}
 			}
 		},
 		"color": {
