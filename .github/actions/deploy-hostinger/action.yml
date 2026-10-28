@@ -1,7 +1,8 @@
 name: Deploy to Hostinger
 description: >
-  Upload a built theme/plugin folder to Hostinger over SSH (rsync into <name>.incoming, swap it in, purge the cache,
-  smoke test, and swap the previous version back if the smoke test fails).
+  Upload a built theme/plugin folder to Hostinger over SSH (rsync into .<name>.incoming, swap it in, purge the cache,
+  smoke test, and swap the previous version back if the smoke test fails). The helper folders start with a dot so that
+  WordPress does not list them as extra themes or plugins.
 
 inputs:
   source:
@@ -64,7 +65,7 @@ runs:
         # Host key checking stays on: the key must already be in SSH_KNOWN_HOSTS.
         echo "SSH_OPTS=-i $HOME/.ssh/deploy_key -p $SSH_PORT -o IdentitiesOnly=yes -o BatchMode=yes -o StrictHostKeyChecking=yes -o UserKnownHostsFile=$HOME/.ssh/known_hosts -o ConnectTimeout=20" >> "$GITHUB_ENV"
 
-    - name: Upload to <name>.incoming
+    - name: Upload to .<name>.incoming
       shell: bash
       env:
         SOURCE: ${{ inputs.source }}
@@ -82,7 +83,7 @@ runs:
           || { echo "::error::$WP_PATH/wp-content/$KIND not found on the server (check WP_PATH)"; exit 1; }
         rsync -az --delete --human-readable --stats \
           -e "ssh $SSH_OPTS" \
-          "$SOURCE"/ "$SSH_USER@$HOST:$TARGET.incoming/"
+          "$SOURCE"/ "$SSH_USER@$HOST:$WP_PATH/wp-content/$KIND/.$NAME.incoming/"
 
     - name: Swap in the new version
       shell: bash
@@ -94,13 +95,13 @@ runs:
         WP_PATH: ${{ inputs.wp-path }}
       run: |
         set -euo pipefail
-        # Keep only one .previous. Two renames: the folder is missing for a few milliseconds.
+        # Keep only one .<name>.previous (hidden: WordPress skips folders starting with a dot). Two renames: the folder is missing for a few milliseconds.
         ssh $SSH_OPTS "$SSH_USER@$HOST" bash -s -- "$WP_PATH/wp-content/$KIND" "$NAME" <<'REMOTE'
         set -euo pipefail
         cd "$1"; name="$2"
-        rm -rf "$name.previous"
-        if [ -d "$name" ]; then mv "$name" "$name.previous"; fi
-        mv "$name.incoming" "$name"
+        rm -rf ".$name.previous"
+        if [ -d "$name" ]; then mv "$name" ".$name.previous"; fi
+        mv ".$name.incoming" "$name"
         REMOTE
 
     - name: Purge cache (a failure here does not fail the deploy)
@@ -153,12 +154,12 @@ runs:
         ssh $SSH_OPTS "$SSH_USER@$HOST" bash -s -- "$WP_PATH" "$WP_PATH/wp-content/$KIND" "$NAME" <<'REMOTE'
         set -uo pipefail
         wp_path="$1"; cd "$2"; name="$3"
-        if [ -d "$name.previous" ]; then
-          mv "$name" "$name.failed" && mv "$name.previous" "$name" && rm -rf "$name.failed"
+        if [ -d ".$name.previous" ]; then
+          mv "$name" ".$name.failed" && mv ".$name.previous" "$name" && rm -rf ".$name.failed"
           echo "Rolled back to the previous version."
           cd "$wp_path" && { wp plugin is-active litespeed-cache 2>/dev/null && wp litespeed-purge all || wp cache flush; } || true
         else
-          echo "No .previous folder (first deploy): nothing to roll back to."
+          echo "No previous version (first deploy): nothing to roll back to."
         fi
         REMOTE
         echo "::error::Deploy failed the smoke test and was rolled back (if a previous version existed)."
