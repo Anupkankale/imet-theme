@@ -1,21 +1,21 @@
 {
 	"name": "imet-theme",
 	"version": "1.0.0",
-	"description": "A starter theme that facilitates a quick head start for developing new block-based themes along with a bunch of developer-friendly features.",
-	"author": "rtCamp",
+	"description": "Block theme for IMET Worldwide: design system, section blocks, patterns and templates.",
+	"author": "anupkankale.com",
 	"license": "GPL-2.0-or-later",
 	"keywords": [
 		"block-theme",
-		"rtcamp",
+		"imet",
 		"wp-theme"
 	],
-	"homepage": "https://github.com/rtCamp/theme-elementary#readme",
+	"homepage": "https://github.com/Anupkankale/imet-theme#readme",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/rtCamp/theme-elementary.git"
+		"url": "https://github.com/Anupkankale/imet-theme.git"
 	},
 	"bugs": {
-		"url": "https://github.com/rtCamp/theme-elementary/issues"
+		"url": "https://github.com/Anupkankale/imet-theme/issues"
 	},
 	"engines": {
 		"node": "^22.22.2 || ^24.15.0 || >=26.0.0"

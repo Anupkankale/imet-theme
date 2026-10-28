@@ -32,7 +32,7 @@ All example sets are kept by default. Removing a set during init deletes its con
 For an Acme Blog project that retained the button example, call this from a PHP template:
 
 ```php
-\rtCamp\Theme\Acme_Blog\Helpers\Util::component(
+\IMET\Theme\Helpers\Util::component(
     'button',
     [ 'label' => __( 'Read more', 'acme-blog' ), 'url' => home_url( '/' ) ]
 );

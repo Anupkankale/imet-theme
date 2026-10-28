@@ -12,26 +12,16 @@ This guide walks you through turning this starter into a working theme: you'll c
 
 An existing local WordPress installation can replace `wp-env`; Docker is still needed for this repository's container-based PHP test command.
 
-## 1. Get the starter theme
+## 1. Get the theme
 
-For a standalone project, run this from the directory that will contain it. Composer gives you a copy without the starter's Git history and installs its dependencies, so you can skip step 2:
-
-```bash
-composer create-project rtcamp/imet acme-blog
-cd acme-blog
-git init
-git add .
-git commit -m "chore: start from theme-elementary"
-```
-
-Or clone the repository:
+Clone the repository:
 
 ```bash
-git clone https://github.com/rtCamp/theme-elementary.git acme-blog
-cd acme-blog
+git clone https://github.com/Anupkankale/imet-theme.git
+cd imet-theme
 ```
 
-The theme's install hook runs `npm i` during `create-project`, so have Node 22.22.2 or later active first. The first commit gives the Composer copy a baseline, so `git status` shows what init changes in step 3.
+Have Node 22.22.2 or later active first (the install hook runs `npm i`).
 
 With `nvm`, select the project's Node version:
 
