@@ -124,7 +124,8 @@ class Blocks implements Registrable {
 	 * @since 1.0.0
 	 */
 	public function enqueue_editor_assets(): void {
-		$asset_file = IMET_PATH . '/assets/build/blocks/editor/index.asset.php';
+		// A function call (not a constant path) because this is build output that is not in the repo.
+		$asset_file = get_theme_file_path( 'assets/build/blocks/editor/index.asset.php' );
 
 		if ( file_exists( $asset_file ) ) {
 			$asset = require $asset_file; // phpcs:ignore WordPressVIPMinimum.Files.IncludingFile.UsingVariable -- Built file.
