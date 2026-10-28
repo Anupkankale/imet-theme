@@ -1,6 +1,6 @@
 # Maintainer guidance
 
-For developers maintaining Theme Elementary itself. Downstream theme developers should start with [Getting Started](../getting-started.md) and [Local development](../local-development.md).
+For developers maintaining ImetBlocktheme itself. Downstream theme developers should start with [Getting Started](../getting-started.md) and [Local development](../local-development.md).
 
 The [maintenance guide](maintenance.md) covers:
 

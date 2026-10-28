@@ -83,9 +83,9 @@ For local verification, install the shared builder in a separate checkout and us
 
 ```bash
 node /path/to/action-docusaurus-build/cli.mjs build \
-  --source /path/to/theme-elementary \
-  --repository rtCamp/theme-elementary \
-  --out-dir /tmp/theme-elementary-docs
+  --source /path/to/imet-theme \
+  --repository Anupkankale/imet-theme \
+  --out-dir /tmp/imet-theme-docs
 ```
 
 Check the homepage, navigation order, root-guide links, anchors, and mobile layout. The builder fails on broken internal links and missing repository-file links. Also check external links and root Markdown, which are not fully covered by the site build. Update incoming links whenever a guide is moved or removed, and [record the results](#record-validation-results).

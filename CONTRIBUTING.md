@@ -1,6 +1,6 @@
-# Contributing to Theme Elementary
+# Contributing to ImetBlocktheme
 
-Thanks for your interest in improving Theme Elementary — a WordPress block starter theme built on the `rtcamp/wp-primitives` package.
+Thanks for your interest in improving ImetBlocktheme, the WordPress block theme for IMET Worldwide.
 
 ## Development setup
 
