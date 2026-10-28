@@ -23,7 +23,9 @@ if (args[0] === '--compare') {
 	for (const f of fs.readdirSync(a)) {
 		const same =
 			fs.existsSync(path.join(b, f)) &&
-			fs.readFileSync(path.join(a, f)).equals(fs.readFileSync(path.join(b, f)));
+			fs
+				.readFileSync(path.join(a, f))
+				.equals(fs.readFileSync(path.join(b, f)));
 		console.log(`${same ? 'same' : 'DIFF'}  ${f}`);
 		diff += same ? 0 : 1;
 	}
@@ -35,20 +37,39 @@ const { chromium } = require(
 );
 const base = option('url', 'http://imetworld.local');
 const out = args[0];
-const ids = args.filter((a, i) => /^\d+$/.test(a) && !args[i - 1]?.startsWith('--'));
+const ids = args.filter(
+	(a, i) => /^\d+$/.test(a) && !args[i - 1]?.startsWith('--')
+);
 
 (async () => {
 	fs.mkdirSync(out, { recursive: true });
 	const browser = await chromium.launch();
-	for (const [name, width] of [['desktop', 1440], ['phone', 390]]) {
-		const page = await (await browser.newContext({ viewport: { width, height: 900 } })).newPage();
+	for (const [name, width] of [
+		['desktop', 1440],
+		['phone', 390],
+	]) {
+		const page = await (
+			await browser.newContext({ viewport: { width, height: 900 } })
+		).newPage();
 		for (const id of ids) {
-			await page.goto(`${base}/?page_id=${id}`, { waitUntil: 'networkidle' });
+			await page.goto(`${base}/?page_id=${id}`, {
+				waitUntil: 'networkidle',
+			});
 			// Freeze moving parts (marquees, smooth scroll) so two runs can match byte for byte.
-			await page.addStyleTag({ content: '*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}' });
-			await page.evaluate(() => document.querySelectorAll('[class*="is-clone"]').forEach((e) => e.remove()));
+			await page.addStyleTag({
+				content:
+					'*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}',
+			});
+			await page.evaluate(() =>
+				document
+					.querySelectorAll('[class*="is-clone"]')
+					.forEach((e) => e.remove())
+			);
 			await page.waitForTimeout(400);
-			await page.screenshot({ path: path.join(out, `${id}-${name}.png`), fullPage: true });
+			await page.screenshot({
+				path: path.join(out, `${id}-${name}.png`),
+				fullPage: true,
+			});
 		}
 	}
 	await browser.close();
