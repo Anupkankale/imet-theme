@@ -12,6 +12,10 @@ namespace IMET\Theme;
 use rtCamp\WPPrimitives\Contracts\Traits\{Singleton, Loader};
 use IMET\Theme\Core\{Assets, Components, FeatureRegistry, Logger, Menu, Templates, ThemeSetup};
 
+use IMET\Theme\Modules\Blocks\Blocks;
+
+use IMET\Theme\Modules\Media\{Images, Video};
+
 /**
  * Class Main
  *
@@ -33,6 +37,9 @@ class Main {
 		Templates::class,
 		FeatureRegistry::class,
 		Logger::class,
+		Blocks::class,
+		Images::class,
+		Video::class,
 	];
 
 	/**

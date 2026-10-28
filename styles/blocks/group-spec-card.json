@@ -1,0 +1,32 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"title": "Link card (offset shadow)",
+	"slug": "group-spec-card",
+	"blockTypes": [
+		"core/group"
+	],
+	"styles": {
+		"color": {
+			"background": "var(--wp--preset--color--white)",
+			"text": "var(--wp--preset--color--ink)"
+		},
+		"border": {
+			"radius": "var(--wp--preset--border-radius--12)"
+		},
+		"shadow": "var(--wp--preset--shadow--offset)",
+		"spacing": {
+			"padding": {
+				"top": "var:preset|spacing|12",
+				"bottom": "var:preset|spacing|12",
+				"left": "var:preset|spacing|20",
+				"right": "var:preset|spacing|54"
+			}
+		},
+		"typography": {
+			"fontSize": "var(--wp--preset--font-size--16-5)",
+			"fontWeight": "500",
+			"lineHeight": "1.3"
+		}
+	}
+}

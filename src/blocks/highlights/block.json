@@ -1,0 +1,53 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "imet/highlights",
+	"title": "IMET Highlights",
+	"category": "imet",
+	"icon": "yes-alt",
+	"description": "Overview header, icon list (bold label in gold), button and an illustration.",
+	"keywords": [
+		"imet",
+		"section"
+	],
+	"version": "1.0.0",
+	"textdomain": "imet-theme",
+	"supports": {
+		"anchor": true,
+		"html": false,
+		"align": [
+			"full"
+		]
+	},
+	"attributes": {
+		"align": {
+			"type": "string",
+			"default": "full"
+		}
+	},
+	"imet": {
+		"tagName": "section",
+		"className": "highlights",
+		"anchor": "overview"
+	},
+	"editorScript": "file:./index.js",
+	"style": [
+		"imet-base",
+		"file:./style-index.css"
+	],
+	"styles": [
+		{
+			"name": "default",
+			"label": "Default",
+			"isDefault": true
+		},
+		{
+			"name": "wide",
+			"label": "Wide"
+		},
+		{
+			"name": "home",
+			"label": "Home"
+		}
+	]
+}

@@ -1,10 +1,10 @@
+@use "breakpoints" as *;
+
 /* stylelint-disable selector-class-pattern -- WordPress core block class names use BEM (wp-block-button__link). */
 // Header and footer. Shared by the front end (frontend/styles.scss) and the block editor (editor/editor.scss).
 // Layout and colours live in the block markup (parts/header.html, patterns/footer.php); this is only what blocks
 // can't express: the sticky pill, the shadow and the responsive switches.
 
-$nav-breakpoint: 1060px; // below this the menu collapses into the overlay (live: 1024px; Montserrat is wider)
-$promo-breakpoint: 768px; // below this the Refer & Earn bar is hidden, as on the live site
 
 // ---- Header ---------------------------------------------------------------------------------------------------
 
@@ -12,13 +12,13 @@ $promo-breakpoint: 768px; // below this the Refer & Earn bar is hidden, as on th
 // pill stays. The pill itself takes no height (see .imet-pill-wrap): it floats over the top of the page, like the
 // hero's top padding expects.
 .wp-site-blocks > header.wp-block-template-part {
-	--imet-promo-h: 72px;
+	--imet-promo-h: var(--wp--custom--size--72);
 
 	position: sticky;
-	top: calc(var(--wp-admin--admin-bar--height, 0px) - var(--imet-promo-h));
+	top: calc(var(--wp-admin--admin-bar--height, 0) - var(--imet-promo-h));
 	z-index: 100;
 
-	@media (max-width: #{$promo-breakpoint - 1}) {
+	@media (max-width: #{$bp-tablet - 1}) {
 		--imet-promo-h: 0;
 	}
 }
@@ -31,12 +31,12 @@ $promo-breakpoint: 768px; // below this the Refer & Earn bar is hidden, as on th
 
 .imet-promo {
 	box-sizing: border-box;
-	height: 72px;
-	gap: 48px;
+	height: var(--wp--custom--size--72);
+	gap: var(--wp--preset--spacing--48);
 	margin: 0;
 
 	// (Core's flex layout rule is as specific as .imet-promo, hence the extra class.)
-	@media (max-width: #{$promo-breakpoint - 1}) {
+	@media (max-width: #{$bp-tablet - 1}) {
 
 		&.wp-block-group {
 			display: none;
@@ -45,22 +45,22 @@ $promo-breakpoint: 768px; // below this the Refer & Earn bar is hidden, as on th
 
 	&-title {
 		margin: 0;
-		font-size: 1.5rem;
+		font-size: var(--wp--preset--font-size--24);
 		font-weight: 700;
 		line-height: 1.2;
 	}
 
 	&-sub {
 		margin: 0;
-		font-size: 0.9375rem;
+		font-size: var(--wp--preset--font-size--small);
 		line-height: 1.3;
 	}
 
 	.wp-block-button__link {
-		padding: 8px 22px;
+		padding: var(--wp--preset--spacing--8) var(--wp--preset--spacing--22);
 		border: 1px solid currentcolor;
-		border-radius: 999px;
-		font-size: 0.9375rem;
+		border-radius: var(--wp--preset--border-radius--pill);
+		font-size: var(--wp--preset--font-size--small);
 		font-weight: 600;
 		line-height: 1.4;
 	}
@@ -76,22 +76,27 @@ $promo-breakpoint: 768px; // below this the Refer & Earn bar is hidden, as on th
 .imet-pill {
 	box-sizing: border-box;
 	position: relative;
-	width: min(1200px, 100% - 40px);
-	min-height: 80px;
-	top: 15px; // offset, not margin: core's first-child reset would cancel a margin
+	width: var(--wp--custom--header--pill-width);
+	min-height: var(--wp--custom--header--pill-height);
+	top: var(--wp--preset--spacing--15); // offset, not margin: core's first-child reset would cancel a margin
 	margin: 0 auto;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+	box-shadow: var(--wp--preset--shadow--pill);
 
 	// Tablet: 10px in from the screen edge, 15px inside. Phone: the same inset, 34px inside, 10px from the top.
-	@media (max-width: #{$nav-breakpoint - 1}) {
-		top: 18px;
-		width: calc(100% - 20px);
-		padding-inline: 15px !important;
+	@media (max-width: #{$bp-nav - 1}) {
+		top: var(--wp--preset--spacing--18);
+		width: calc(100% - var(--wp--custom--size--20));
+		padding-inline: var(--wp--preset--spacing--15) !important;
 	}
 
-	@media (max-width: #{$promo-breakpoint - 1}) {
-		top: 10px;
-		padding-inline: 34px !important;
+	@media (max-width: #{$bp-tablet - 1}) {
+		top: var(--wp--preset--spacing--10);
+		padding-inline: var(--wp--preset--spacing--34) !important;
+	}
+
+	.wp-block-site-logo img {
+		width: var(--wp--custom--size--63);
+		height: auto;
 	}
 
 	// The menu starts 165px after the logo at 1440px (145 + the 20px flex gap) (as on the live site), closing up on narrower screens so it
@@ -100,21 +105,21 @@ $promo-breakpoint: 768px; // below this the Refer & Earn bar is hidden, as on th
 		flex: 0 1 auto;
 		margin: 0 0 0 auto; // below the breakpoint the hamburger sits at the right edge
 
-		@media (min-width: $nav-breakpoint) {
-			margin: 0 auto 0 clamp(4px, calc(100vw - 1295px), 145px);
+		@media (min-width: $bp-nav) {
+			margin: 0 auto 0 var(--wp--custom--header--nav-offset);
 		}
 	}
 
 	// Live values: 15px / 500 / #666, 12px either side of each item, 25px for the chevron.
 	.imet-nav {
-		color: #666;
-		font-size: 15px;
+		color: var(--wp--preset--color--grey);
+		font-size: var(--wp--preset--font-size--small);
 		font-weight: 500;
 		line-height: 1.2;
 	}
 
 	.imet-nav .wp-block-navigation__responsive-container-content > .wp-block-navigation__container > .wp-block-navigation-item {
-		padding-inline: 12px;
+		padding-inline: var(--wp--preset--spacing--12);
 	}
 
 	.imet-nav .wp-block-navigation-item__content {
@@ -123,25 +128,25 @@ $promo-breakpoint: 768px; // below this the Refer & Earn bar is hidden, as on th
 	}
 
 	.imet-nav .wp-block-navigation__submenu-icon {
-		width: 13px;
-		margin-inline-start: 12px;
+		width: var(--wp--custom--size--13);
+		margin-inline-start: var(--wp--preset--spacing--12);
 	}
 
 	.has-child .wp-block-navigation__submenu-container {
 		width: max-content;
-		min-width: 260px;
-		max-width: 380px;
-		padding: 8px;
+		min-width: var(--wp--custom--size--260);
+		max-width: var(--wp--custom--size--380);
+		padding: var(--wp--preset--spacing--8);
 		border: 1px solid var(--wp--preset--color--line);
 		border-radius: var(--wp--custom--radius);
-		box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+		box-shadow: var(--wp--preset--shadow--dropdown);
 		background: var(--wp--preset--color--white);
 		color: var(--wp--preset--color--body-text);
 
 		.wp-block-navigation-item__content {
-			padding: 10px 14px;
+			padding: var(--wp--preset--spacing--10) var(--wp--preset--spacing--14);
 			white-space: normal;
-			font-size: 15px;
+			font-size: var(--wp--preset--font-size--small);
 		}
 	}
 
@@ -150,18 +155,18 @@ $promo-breakpoint: 768px; // below this the Refer & Earn bar is hidden, as on th
 		color: var(--wp--preset--color--body-text);
 
 		.wp-block-navigation__responsive-container-content {
-			padding: 40px 20px 20px;
+			padding: var(--wp--preset--spacing--40) var(--wp--preset--spacing--20) var(--wp--preset--spacing--20);
 		}
 
 		.wp-block-navigation__container {
-			gap: 8px;
+			gap: var(--wp--preset--spacing--8);
 			align-items: flex-start;
 		}
 
 		.imet-nav .wp-block-navigation-item,
 		.wp-block-navigation__responsive-container-content > .wp-block-navigation__container > .wp-block-navigation-item {
 			padding-inline: 0;
-			font-size: 17px;
+			font-size: var(--wp--preset--font-size--body);
 			font-weight: 600;
 		}
 
@@ -169,25 +174,26 @@ $promo-breakpoint: 768px; // below this the Refer & Earn bar is hidden, as on th
 			width: auto;
 			min-width: 0;
 			max-width: none;
-			padding: 4px 0 8px 16px;
+			padding: var(--wp--preset--spacing--4) 0 var(--wp--preset--spacing--8) var(--wp--preset--spacing--16);
 			border: 0;
 			border-radius: 0;
 			box-shadow: none;
 			background: transparent;
 
 			.wp-block-navigation-item__content {
-				padding: 6px 0;
-				font-size: 15px;
+				padding: var(--wp--preset--spacing--6) 0;
+				font-size: var(--wp--preset--font-size--small);
 				font-weight: 500;
 			}
 		}
 	}
 
 	&-cta .wp-block-button__link {
-		padding: 12px 24px;
-		font-size: 14px;
+		border: 0; // the global button border is for page content
+		padding: var(--wp--preset--spacing--12) var(--wp--preset--spacing--24);
+		font-size: var(--wp--preset--font-size--14);
 		font-weight: 600;
-		line-height: 18px;
+		line-height: var(--wp--custom--line-height--18);
 		white-space: nowrap;
 	}
 
@@ -196,8 +202,8 @@ $promo-breakpoint: 768px; // below this the Refer & Earn bar is hidden, as on th
 		display: none;
 	}
 
-	// Menu overlay up to $nav-breakpoint (core switches at 600px; five items plus the button need more room).
-	@media (max-width: #{$nav-breakpoint - 1}) {
+	// Menu overlay up to $bp-nav (core switches at 600px; five items plus the button need more room).
+	@media (max-width: #{$bp-nav - 1}) {
 
 		// Hamburger: a 33px tinted square, as on the live site.
 		.wp-block-navigation__responsive-container-open:not(.always-shown) {
@@ -205,15 +211,15 @@ $promo-breakpoint: 768px; // below this the Refer & Earn bar is hidden, as on th
 			align-items: center;
 			justify-content: center;
 			box-sizing: border-box;
-			width: 33px;
-			height: 33px;
-			padding: 5.5px;
-			border-radius: 3px;
-			background: rgba(0, 0, 0, 0.05);
+			width: var(--wp--custom--size--33);
+			height: var(--wp--custom--size--33);
+			padding: var(--wp--custom--size--5-5);
+			border-radius: var(--wp--preset--border-radius--3);
+			background: color-mix(in srgb, var(--wp--preset--color--ink) 5%, transparent);
 
 			svg {
-				width: 22px;
-				height: 22px;
+				width: var(--wp--custom--size--22);
+				height: var(--wp--custom--size--22);
 			}
 		}
 
@@ -234,21 +240,21 @@ $promo-breakpoint: 768px; // below this the Refer & Earn bar is hidden, as on th
 // The pill floats over the top of the page and takes no height, so the content has to clear it. Pages that open with
 // an IMET section get the clearance inside that section (a transparent border, so its own background still shows
 // behind the pill; 77px puts the Home hero's first line where the live site has it); everything else gets it as
-// padding on <main>. Front end only: the block editor has no header.
+// padding on <main>. Front end only (.wp-site-blocks): the block editor has no header.
 .wp-site-blocks > main {
-	padding-top: 110px;
+	padding-top: var(--wp--custom--header--main-clearance);
 
 	&:has(> .wp-block-post-content > .imet-section:first-child) {
 		padding-top: 0;
 	}
 }
 
-.wp-block-post-content > .imet-section:first-child {
-	border-top: 77px solid transparent;
+.wp-site-blocks .wp-block-post-content > .imet-section:first-child {
+	border-top: var(--wp--custom--header--clearance) solid transparent;
 	background-origin: border-box;
 
-	@media (max-width: #{$promo-breakpoint - 1}) {
-		border-top-width: 78px;
+	@media (max-width: #{$bp-tablet - 1}) {
+		border-top-width: var(--wp--custom--header--clearance-phone);
 	}
 }
 
@@ -261,8 +267,8 @@ $footer-icon-caret: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000
 $footer-icon-phone: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath d='M164 25c-9-22-33-34-56-28L34 29C14 38 0 58 0 80c0 238 194 432 432 432 22 0 42-14 51-34l22-74c6-23-6-47-28-56l-48-20c-19-8-41-2-54 14l-31 38C281 359 153 231 112 160l38-31c16-13 22-35 14-54z'/%3E%3C/svg%3E");
 
 .imet-footer {
-	font-size: 1rem;
-	line-height: 28px;
+	font-size: var(--wp--preset--font-size--normal);
+	line-height: var(--wp--custom--line-height--28);
 
 	a {
 		color: inherit;
@@ -276,35 +282,35 @@ $footer-icon-phone: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000
 
 	:where(p, li) {
 		margin: 0;
-		line-height: 28px;
+		line-height: var(--wp--custom--line-height--28);
 	}
 
 	&-tabs {
-		gap: 20px;
+		gap: var(--wp--preset--spacing--20);
 		margin: 0;
-		padding: 80px 20px 0;
+		padding: var(--wp--preset--spacing--80) var(--wp--preset--spacing--20) 0;
 
 		.wp-block-button__link {
-			padding: 10px 20px;
+			padding: var(--wp--preset--spacing--10) var(--wp--preset--spacing--20);
 			border: 1px solid var(--wp--preset--color--white);
-			border-radius: 7px;
-			font-size: 14px;
+			border-radius: var(--wp--preset--border-radius--7);
+			font-size: var(--wp--preset--font-size--14);
 			font-weight: 400;
-			letter-spacing: 1px;
-			line-height: 21px;
+			letter-spacing: var(--wp--custom--letter-spacing--1);
+			line-height: var(--wp--custom--line-height--21);
 		}
 	}
 
 	&-inner {
-		padding: 32px 20px 20px;
+		padding: var(--wp--preset--spacing--32) var(--wp--preset--spacing--20) var(--wp--preset--spacing--20);
 	}
 
 	&-top {
-		gap: 40px;
+		gap: var(--wp--preset--spacing--40);
 		align-items: flex-start;
 		margin: 0;
 
-		@media (max-width: 1000px) {
+		@media (max-width: #{$bp-footer}) {
 			flex-wrap: wrap !important;
 
 			> .wp-block-column {
@@ -318,37 +324,42 @@ $footer-icon-phone: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000
 		align-items: center;
 		justify-content: center;
 		box-sizing: border-box;
-		width: 110px;
-		height: 102px;
-		border-radius: 8px;
+		width: var(--wp--custom--size--110);
+		height: var(--wp--custom--size--102);
+		border-radius: var(--wp--preset--border-radius--8);
 		background: var(--wp--preset--color--white);
 
 		.wp-block-site-logo {
 			margin: 0;
 			line-height: 0;
 		}
+
+		.wp-block-site-logo img {
+			width: var(--wp--custom--size--84);
+			height: auto;
+		}
 	}
 
 	&-brand {
-		margin: 10px 0 0;
-		font-size: 29px;
+		margin: var(--wp--preset--spacing--10) 0 0;
+		font-size: var(--wp--preset--font-size--29);
 		font-weight: 600;
-		line-height: 35px;
+		line-height: var(--wp--custom--line-height--35);
 	}
 
 	&-about {
-		margin: 10px 0;
+		margin: var(--wp--preset--spacing--10) 0;
 	}
 
 	&-bullets {
 		margin: 0;
-		padding-left: 40px;
+		padding-left: var(--wp--preset--spacing--40);
 		list-style: disc;
 	}
 
 	&-refer {
-		margin-top: 10px;
-		padding-top: 20px;
+		margin-top: var(--wp--preset--spacing--10);
+		padding-top: var(--wp--preset--spacing--20);
 		border-top: 1px solid var(--wp--preset--color--white);
 
 		.wp-block-buttons {
@@ -356,35 +367,35 @@ $footer-icon-phone: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000
 		}
 
 		.wp-block-button__link {
-			padding: 12px 24px;
+			padding: var(--wp--preset--spacing--12) var(--wp--preset--spacing--24);
 			border: 1px solid var(--wp--preset--color--navy-footer);
-			border-radius: 5px;
-			font-size: 14px;
+			border-radius: var(--wp--preset--border-radius--5);
+			font-size: var(--wp--preset--font-size--14);
 			font-weight: 600;
-			line-height: 18px;
+			line-height: var(--wp--custom--line-height--18);
 		}
 
 		p {
-			margin-top: 24px;
+			margin-top: var(--wp--preset--spacing--24);
 		}
 	}
 
 	&-h {
-		margin: 0 0 10px;
-		font-size: 18px;
+		margin: 0 0 var(--wp--preset--spacing--10);
+		font-size: var(--wp--preset--font-size--medium);
 		font-weight: 700;
-		line-height: 28px;
+		line-height: var(--wp--custom--line-height--28);
 	}
 
 	&-links {
 		display: grid;
 		grid-template-columns: 1fr 2fr 2fr;
-		gap: 10px;
+		gap: var(--wp--preset--spacing--10);
 		align-items: start;
-		padding-bottom: 20px;
+		padding-bottom: var(--wp--preset--spacing--20);
 		border-bottom: 1px solid var(--wp--preset--color--white);
 
-		@media (max-width: 767px) {
+		@media (max-width: #{$bp-tablet - 1}) {
 			grid-template-columns: 1fr;
 			gap: 0;
 			padding-bottom: 0;
@@ -395,13 +406,17 @@ $footer-icon-phone: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000
 	// Link groups are Details blocks. From 768px up they read as plain headings over open lists (the script keeps
 	// them open); on phones they are the collapsible rows of the live site (350 x 42, caret on the right).
 	&-acc {
+		// The global FAQ look of the Details block (padding, rule, 18px text) is for page content, not the footer.
+		padding: 0;
+		border: 0;
+		font-size: var(--wp--preset--font-size--normal);
 
 		> summary {
 			display: block;
-			margin: 0 0 10px;
-			font-size: 18px;
+			margin: 0 0 var(--wp--preset--spacing--10);
+			font-size: var(--wp--preset--font-size--medium);
 			font-weight: 700;
-			line-height: 28px;
+			line-height: var(--wp--custom--line-height--28);
 			list-style: none;
 			cursor: default;
 			pointer-events: none;
@@ -416,15 +431,15 @@ $footer-icon-phone: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000
 		}
 
 		& + & {
-			margin-top: 30px;
+			margin-top: var(--wp--preset--spacing--30);
 		}
 
 		.imet-footer-list {
 			margin: 0;
 		}
 
-		@media (max-width: 767px) {
-			margin: 0 10px;
+		@media (max-width: #{$bp-tablet - 1}) {
+			margin: 0 var(--wp--preset--spacing--10);
 
 			& + & {
 				margin-top: 0;
@@ -435,19 +450,19 @@ $footer-icon-phone: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000
 				align-items: center;
 				justify-content: space-between;
 				box-sizing: border-box;
-				min-height: 42px;
+				min-height: var(--wp--custom--size--42);
 				margin: 0;
-				padding: 10px;
-				font-size: 16px;
-				line-height: 22.4px;
+				padding: var(--wp--preset--spacing--10);
+				font-size: var(--wp--preset--font-size--normal);
+				line-height: var(--wp--custom--line-height--22-4);
 				cursor: pointer;
 				pointer-events: auto;
 
 				&::after {
 					content: "";
 					flex: none;
-					width: 9px;
-					height: 15px;
+					width: var(--wp--custom--size--9);
+					height: var(--wp--custom--size--15);
 					background: currentcolor;
 					mask: $footer-icon-caret center / contain no-repeat;
 				}
@@ -458,7 +473,7 @@ $footer-icon-phone: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000
 			}
 
 			.imet-footer-list {
-				padding: 10px;
+				padding: var(--wp--preset--spacing--10);
 				text-align: left;
 
 				a {
@@ -466,9 +481,9 @@ $footer-icon-phone: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000
 				}
 
 				li {
-					margin: 5px 0 0;
-					padding-bottom: 5px;
-					line-height: 22.4px;
+					margin: var(--wp--preset--spacing--5) 0 0;
+					padding-bottom: var(--wp--preset--spacing--5);
+					line-height: var(--wp--custom--line-height--22-4);
 
 					&:first-child {
 						margin-top: 0;
@@ -483,12 +498,12 @@ $footer-icon-phone: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000
 	}
 
 	&-list {
-		margin: 0 0 30px;
+		margin: 0 0 var(--wp--preset--spacing--30);
 		padding: 0;
 		list-style: none;
 
 		li {
-			margin-bottom: 5px;
+			margin-bottom: var(--wp--preset--spacing--5);
 
 			&:last-child {
 				margin-bottom: 0;
@@ -503,14 +518,14 @@ $footer-icon-phone: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000
 	&-contact {
 		display: grid;
 		grid-template-columns: 572fr 245fr;
-		column-gap: 9px;
-		margin-top: 20px;
+		column-gap: var(--wp--preset--spacing--9);
+		margin-top: var(--wp--preset--spacing--20);
 
-		@media (max-width: 767px) {
+		@media (max-width: #{$bp-tablet - 1}) {
 			display: flex;
 			flex-direction: column;
-			gap: 24px;
-			margin-top: 30px;
+			gap: var(--wp--preset--spacing--24);
+			margin-top: var(--wp--preset--spacing--30);
 
 			> .imet-footer-advisor {
 				order: -1;
@@ -521,30 +536,30 @@ $footer-icon-phone: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000
 	&-offices {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
-		gap: 10px 0;
+		gap: var(--wp--preset--spacing--10) 0;
 		align-content: start;
 
-		@media (max-width: 480px) {
+		@media (max-width: #{$bp-narrow}) {
 			grid-template-columns: 1fr;
 		}
 	}
 
 	&-office .imet-footer-h {
-		margin-bottom: 10px;
+		margin-bottom: var(--wp--preset--spacing--10);
 	}
 
 	&-address,
 	&-phone {
 		position: relative;
-		padding-left: 23px;
+		padding-left: var(--wp--preset--spacing--23);
 
 		&::before {
 			content: "";
 			position: absolute;
-			top: 7px;
+			top: var(--wp--preset--spacing--7);
 			left: 0;
-			width: 14px;
-			height: 14px;
+			width: var(--wp--custom--size--14);
+			height: var(--wp--custom--size--14);
 			background: currentcolor;
 			mask: center / contain no-repeat;
 		}
@@ -555,7 +570,7 @@ $footer-icon-phone: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000
 	}
 
 	&-phone {
-		margin-top: 10px;
+		margin-top: var(--wp--preset--spacing--10);
 
 		&::before {
 			mask-image: $footer-icon-phone;
@@ -575,28 +590,28 @@ $footer-icon-phone: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000
 			justify-content: center;
 			box-sizing: border-box;
 			width: 100%;
-			height: 40px;
-			padding: 0 24px;
+			height: var(--wp--custom--size--40);
+			padding: 0 var(--wp--preset--spacing--24);
 			border: 1px solid var(--wp--preset--color--white);
-			border-radius: 3px;
-			font-size: 14px;
+			border-radius: var(--wp--preset--border-radius--3);
+			font-size: var(--wp--preset--font-size--14);
 			font-weight: 600;
-			line-height: 18px;
+			line-height: var(--wp--custom--line-height--18);
 		}
 	}
 
 	&-follow {
-		gap: 20px;
-		padding-right: 10px;
-		margin-top: 155px; // where the live site's enquiry form sits
+		gap: var(--wp--preset--spacing--20);
+		padding-right: var(--wp--preset--spacing--10);
+		margin-top: var(--wp--custom--size--155); // where the live site's enquiry form sits
 
-		@media (max-width: 1000px) {
-			margin-top: 24px;
+		@media (max-width: #{$bp-footer}) {
+			margin-top: var(--wp--preset--spacing--24);
 		}
 
 		.imet-footer-h {
 			margin: 0;
-			line-height: 18px;
+			line-height: var(--wp--custom--line-height--18);
 		}
 
 		.wp-block-social-links {
@@ -604,24 +619,24 @@ $footer-icon-phone: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000
 		}
 
 		.wp-social-link {
-			width: 50px;
-			height: 50px;
+			width: var(--wp--custom--size--50);
+			height: var(--wp--custom--size--50);
 			border-radius: 10%;
-			background: #0077b5;
+			background: var(--wp--preset--color--linkedin);
 		}
 
 		.wp-block-social-link-anchor {
-			padding: 12.5px;
+			padding: var(--wp--custom--size--12-5);
 		}
 
 		svg {
-			width: 25px;
-			height: 25px;
+			width: var(--wp--custom--size--25);
+			height: var(--wp--custom--size--25);
 		}
 	}
 
 	&-countries-title {
-		margin-top: 26px;
+		margin-top: var(--wp--preset--spacing--26);
 	}
 
 	&-countries {
@@ -632,19 +647,19 @@ $footer-icon-phone: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000
 		list-style: none;
 
 		li {
-			margin: 0 25px 0 0;
-			padding-right: 25px;
+			margin: 0 var(--wp--preset--spacing--25) 0 0;
+			padding-right: var(--wp--preset--spacing--25);
 			border-right: 1px solid var(--wp--preset--color--white);
 		}
 	}
 
 	&-bottom {
 		box-sizing: border-box;
-		min-height: 82px;
-		padding: 10px 20px;
+		min-height: var(--wp--custom--size--82);
+		padding: var(--wp--preset--spacing--10) var(--wp--preset--spacing--20);
 
 		> .wp-block-group {
-			min-height: 62px;
+			min-height: var(--wp--custom--size--62);
 		}
 
 		a {
@@ -653,8 +668,8 @@ $footer-icon-phone: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000
 	}
 
 	&-logos {
-		gap: 20px;
-		padding-right: 4px; // not margin: core's flex layout resets child margins
+		gap: var(--wp--preset--spacing--20);
+		padding-right: var(--wp--preset--spacing--4); // not margin: core's flex layout resets child margins
 
 		.wp-block-image {
 			margin: 0;
@@ -662,23 +677,24 @@ $footer-icon-phone: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000
 
 		.wp-block-image img {
 			display: block;
+			width: var(--wp--custom--size--103);
 			height: auto;
 		}
 
-		@media (max-width: 1000px) {
+		@media (max-width: #{$bp-footer}) {
 			padding-right: 0;
 		}
 	}
 
 	// Phone: centred, tabs two per row, country links as rows (live site).
-	@media (max-width: #{$promo-breakpoint - 1}) {
+	@media (max-width: #{$bp-tablet - 1}) {
 
 		&-tabs {
-			padding-top: 40px;
+			padding-top: var(--wp--preset--spacing--40);
 		}
 
 		&-inner {
-			padding-inline: 10px;
+			padding-inline: var(--wp--preset--spacing--10);
 		}
 
 		&-top > .wp-block-column {
@@ -714,9 +730,9 @@ $footer-icon-phone: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000
 			box-sizing: border-box;
 			width: 100%;
 			margin: 0;
-			padding: 4px 0 3px;
+			padding: var(--wp--preset--spacing--4) 0 var(--wp--preset--spacing--3);
 			border-right: 0;
-			border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+			border-bottom: 1px solid color-mix(in srgb, var(--wp--preset--color--white) 50%, transparent);
 		}
 
 		&-bottom {

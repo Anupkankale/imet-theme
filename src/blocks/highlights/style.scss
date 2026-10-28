@@ -1,0 +1,198 @@
+/* IMET Highlights (imet/highlights). Root element: .imet-section.highlights
+   Figma: left-aligned eyebrow + title, icon list, button | image (472px) on the right. */
+.imet-section.highlights { padding: 44px 0 40px; } /* between the hero's accreditation card and the section menu bar */
+.imet-section .hl-grid {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) 472px;
+	gap: 40px;
+	align-items: start;
+	padding: 0 16px 0 30px;
+}
+
+.imet-section.highlights .title { margin-bottom: 0; }
+
+.imet-section .hl-list {
+	display: grid;
+	gap: 22px;
+	margin: 26px 0 27px;
+	max-width: 660px;
+}
+
+.imet-section .hl-list li {
+	position: relative;
+	padding-left: 47px;
+	min-height: 32px;
+	font-size: clamp(1rem, 0.85rem + 0.35vw, 1.1875rem); /* 16px → 19px */
+	line-height: 1.32;
+	color: #000;
+}
+
+.imet-section .hl-list li::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: -2px;
+	width: 32px;
+	height: 32px;
+	background: center / contain no-repeat;
+}
+
+/* Icons in order: network, thesis, research, career (tick); a 5th item gets the academic icon */
+.imet-section .hl-list li:nth-child(5n+1)::before { background-image: url(../../../images/imet/hl-1.png); }
+
+.imet-section .hl-list li:nth-child(5n+2)::before { background-image: url(../../../images/imet/hl-2.png); }
+
+.imet-section .hl-list li:nth-child(5n+3)::before { background-image: url(../../../images/imet/hl-3.png); }
+
+.imet-section .hl-list li:nth-child(5n+4)::before { background-image: url(../../../images/imet/hl-5.png); }
+
+.imet-section .hl-list li:nth-child(5n+5)::before { background-image: url(../../../images/imet/hl-4.png); }
+
+.imet-section .hl-list strong { color: var(--gold); font-weight: 600; }
+
+.imet-section .hl-visual { padding-top: 26px; }
+
+.imet-section .hl-visual img { width: 100%; max-width: 472px; margin-left: auto; }
+
+@media (max-width: 1200px) {
+
+	.imet-section .hl-grid { grid-template-columns: minmax(0, 1fr) 400px; padding-inline: 0; }
+}
+
+@media (max-width: 900px) {
+
+	.imet-section .hl-grid { grid-template-columns: 1fr; }
+
+	.imet-section .hl-visual img { margin-inline: auto; }
+}
+
+/* One column: centred header and button; the list stays left-aligned */
+@media (max-width: 900px) {
+
+	.imet-section .hl-grid { padding-inline: 0; }
+
+	.imet-section .hl-list { margin-inline: auto; }
+
+	.imet-section .hl-text .wp-block-buttons { justify-content: center; }
+}
+
+/* ---------- Style "Wide" (block style, e.g. the DBA Course Page): one-line title over a wider text column, compact
+   18px list, 386px button, 478px image reaching 18px past the container (Figma 1440 frame). The wide layout needs
+   the full 1200px container plus its overhang, so it starts at 1281px; narrower screens use the default layout. ---------- */
+@media (min-width: 1281px) {
+
+	.imet-section.highlights.is-style-wide { padding: 12px 0 0; }
+
+	.imet-section.highlights.is-style-wide .hl-grid {
+		grid-template-columns: minmax(0, 1fr) 478px;
+		gap: 0;
+		margin-left: calc(50% - 600px - 8px);
+		margin-right: calc(50% - 600px - 18px);
+		width: auto;
+		padding: 0;
+	}
+
+	.imet-section.highlights.is-style-wide .hl-text { position: relative; z-index: 1; }
+
+	.imet-section.highlights.is-style-wide .title { white-space: nowrap; font-size: 2.125rem; } /* 34px */
+	.imet-section.highlights.is-style-wide .hl-visual { padding-top: 17px; }
+
+	.imet-section.highlights.is-style-wide .hl-visual img { max-width: 478px; }
+}
+
+.imet-section.highlights.is-style-wide .hl-list { gap: 6px; margin: 37px 0 9px; max-width: 735px; }
+
+.imet-section.highlights.is-style-wide .hl-list li { padding-left: 48px; font-size: 1.125rem; line-height: 1.39; }
+
+.imet-section.highlights.is-style-wide .hl-list li::before { left: 3px; top: -3px; width: 28px; height: 28px; }
+
+.imet-section.highlights.is-style-wide .wp-block-button__link { min-width: 386px; }
+
+@media (max-width: 640px) {
+
+	.imet-section.highlights.is-style-wide .wp-block-button__link { min-width: 0; }
+}
+
+/* ---------- Style "Home" (block style, the Home page): grey-blue band, eyebrow + title, outlined gold pills
+   (two per row), button, and the enquiry form in a white card on the right (Home page, 1440 frame). ---------- */
+.imet-section.highlights.is-style-home { padding: 10px 0; background: rgba(20, 35, 75, .06); }
+
+.imet-section.highlights.is-style-home .hl-grid {
+	grid-template-columns: minmax(0, 550px) minmax(0, 1fr);
+	gap: 30px;
+	width: min(1100px, 100% - 40px);
+	margin-inline: auto;
+	padding: 0 74px 0 44px;
+}
+
+.imet-section.highlights.is-style-home .hl-text { padding: 38px 0; }
+
+.imet-section.highlights.is-style-home .eyebrow-line { margin-bottom: 6px; padding-bottom: 0; }
+
+.imet-section.highlights.is-style-home .title { margin-bottom: 0; line-height: 1.43; }
+
+.imet-section.highlights.is-style-home .hl-list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 20px;
+	margin: 20px 0;
+	max-width: none;
+}
+
+.imet-section.highlights.is-style-home .hl-list li {
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	min-height: 48px;
+	padding: 5px 10px;
+	border: 2px solid var(--gold);
+	border-radius: 300px;
+	font-size: .875rem; /* 14px */
+	line-height: 1.43;
+}
+
+.imet-section.highlights.is-style-home .hl-list li::before { position: static; flex: 0 0 32px; }
+
+.imet-section.highlights.is-style-home .hl-list li:has(> strong)::before { display: none; }
+
+.imet-section.highlights.is-style-home .hl-list strong { padding: 4px 8px; border-radius: 4px; background: var(--gold); color: #fff; font-weight: 700; line-height: 1.7; }
+
+.imet-section.highlights.is-style-home .hl-list li:not(:has(> strong)) strong { all: unset; }
+
+.imet-section.highlights.is-style-home .wp-block-buttons { margin: 0; }
+
+.imet-section.highlights.is-style-home .hl-form {
+	align-self: start;
+	margin-top: 30px;
+	padding: 10px 30px 30px;
+	border-radius: 10px;
+	background: #fff;
+}
+
+.imet-section.highlights.is-style-home .hl-form h2 { margin: 0 0 16px; font-size: .9375rem; font-weight: 700; line-height: 1.33; text-align: center; color: #000; }
+
+@media (max-width: 900px) {
+
+	.imet-section.highlights.is-style-home .hl-grid { padding: 0; gap: 0; }
+
+	.imet-section.highlights.is-style-home .hl-text { padding: 28px 0; }
+
+	.imet-section.highlights.is-style-home .hl-form { margin: 0 0 28px; }
+
+	.imet-section.highlights.is-style-home .hl-list { justify-content: center; }
+}
+
+@media (max-width: 900px) {
+
+	.imet-section.highlights.is-style-home .eyebrow-line.left { display: inline-block; margin-inline: 0; }
+
+	.imet-section.highlights.is-style-home .eyebrow-line.left::after { content: none; }
+
+	.imet-section.highlights.is-style-home .hl-grid { grid-template-columns: minmax(0, 1fr); width: calc(100% - 20px); }
+
+	.imet-section.highlights.is-style-home .hl-list { flex-direction: column; flex-wrap: nowrap; align-items: stretch; gap: 20px; margin-inline: 0; }
+
+	.imet-section.highlights.is-style-home .hl-list li { font-size: 1rem; line-height: 1.4; }
+
+	.imet-section.highlights.is-style-home .hl-text .wp-block-buttons { justify-content: flex-start; }
+}

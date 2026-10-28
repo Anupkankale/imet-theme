@@ -1,0 +1,17 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"title": "Video thumbnail",
+	"slug": "image-video-thumb",
+	"blockTypes": [
+		"core/image"
+	],
+	"styles": {
+		"border": {
+			"radius": "var(--wp--preset--border-radius--8)",
+			"width": "var(--wp--custom--border-width--4)",
+			"style": "solid",
+			"color": "var(--wp--preset--color--navy)"
+		}
+	}
+}

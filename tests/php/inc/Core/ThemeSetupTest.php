@@ -57,6 +57,7 @@ class ThemeSetupTest extends TestCase {
 		$this->assertGreaterThan( 0, has_action( 'after_setup_theme', [ $this->instance, 'register_image_sizes' ] ) );
 		$this->assertGreaterThan( 0, has_action( 'after_setup_theme', [ $this->instance, 'load_textdomain' ] ) );
 		$this->assertGreaterThan( 0, has_action( 'init', [ $this->instance, 'disable_emoji' ] ) );
+		$this->assertGreaterThan( 0, has_action( 'init', [ $this->instance, 'register_pattern_categories' ] ) );
 	}
 
 	/**
@@ -107,5 +108,14 @@ class ThemeSetupTest extends TestCase {
 
 		$this->assertFalse( has_action( 'wp_head', 'print_emoji_detection_script' ) );
 		$this->assertFalse( has_action( 'wp_print_styles', 'print_emoji_styles' ) );
+	}
+
+	/**
+	 * Test the IMET Sections pattern category is registered.
+	 */
+	public function test_register_pattern_categories(): void {
+		$this->instance->register_pattern_categories();
+
+		$this->assertTrue( \WP_Block_Pattern_Categories_Registry::get_instance()->is_registered( 'imet-sections' ) );
 	}
 }
