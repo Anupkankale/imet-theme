@@ -890,231 +890,78 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:group --></section>
 <!-- /wp:imet/section -->
 
-<!-- wp:imet/testimonials {"className":"is-style-home is-clients"} -->
-<section class="wp-block-imet-testimonials alignfull imet-section section testimonials is-style-home is-clients"><!-- wp:group {"className":"imet-container testi-head","layout":{"type":"default"}} -->
-<div class="wp-block-group imet-container testi-head"><!-- wp:heading {"className":"title"} -->
-<h2 class="wp-block-heading title">Client Testimonials</h2>
+<!-- wp:imet/testimonials {"align":"full"} -->
+<section class="wp-block-imet-testimonials alignfull imet-section section testimonials"><!-- wp:group {"className":"imet-container testi-head","layout":{"type":"default"}} -->
+<div class="wp-block-group imet-container testi-head"><!-- wp:paragraph {"className":"eyebrow-line"} -->
+<p class="eyebrow-line">Clients Testimonials</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"className":"title"} -->
+<h2 class="wp-block-heading title">What Our Clients Say</h2>
 <!-- /wp:heading -->
-
 <!-- wp:paragraph {"className":"sub"} -->
-<p class="sub">Our success stories cut across various industries, countries, and levels of career experience – learners have received worldwide recognition, CXO appointments, and huge salary increments during their DBA (doctor of business administration) online experience.</p>
+<p class="sub">Our success stories cut across various industries, countries, and levels of career experience – learners have received worldwide recognition, CXO appointments, and huge salary increments during their DBA doctor of business administration online experience.</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
-
-<!-- wp:group {"className":"testi-grid","layout":{"type":"default"}} -->
+<!-- wp:group {"className":"imet-container","layout":{"type":"default"}} -->
+<div class="wp-block-group imet-container"><!-- wp:group {"className":"testi-grid","layout":{"type":"default"}} -->
 <div class="wp-block-group testi-grid"><!-- wp:group {"className":"testi-card","layout":{"type":"default"}} -->
-<div class="wp-block-group testi-card"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"testi-avatar"} -->
-<figure class="wp-block-image size-full testi-avatar"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/imet/home-client-1.webp' ) ); ?>" alt="Dr. Davinder Pal S."/></figure>
-<!-- /wp:image -->
-
-<!-- wp:paragraph {"className":"testi-quote"} -->
+<div class="wp-block-group testi-card"><!-- wp:paragraph {"className":"testi-quote"} -->
 <p class="testi-quote">“The DBA journey with IMET Worldwide gave me deeper strategic insights to complement my Salesforce and cloud expertise. It empowered me to drive digital innovation with stronger academic and practical grounding.”</p>
 <!-- /wp:paragraph -->
-
 <!-- wp:group {"className":"testi-foot","layout":{"type":"default"}} -->
 <div class="wp-block-group testi-foot"><!-- wp:group {"className":"testi-who","layout":{"type":"default"}} -->
 <div class="wp-block-group testi-who"><!-- wp:paragraph {"className":"testi-name"} -->
 <p class="testi-name"><strong>Dr. Davinder Pal S.</strong></p>
 <!-- /wp:paragraph -->
-
 <!-- wp:paragraph {"className":"testi-role"} -->
 <p class="testi-role">Salesforce Application Architect | AWS Certified | Digital Transformation Specialist</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
-
 <!-- wp:paragraph {"className":"testi-linkedin"} -->
 <p class="testi-linkedin"><a href="https://www.linkedin.com/in/davindersingh-sfdc/" target="_blank" rel="noreferrer noopener">LinkedIn</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group -->
-
 <!-- wp:group {"className":"testi-card","layout":{"type":"default"}} -->
-<div class="wp-block-group testi-card"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"testi-avatar"} -->
-<figure class="wp-block-image size-full testi-avatar"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/imet/home-client-2.webp' ) ); ?>" alt="Dinesh Singh"/></figure>
-<!-- /wp:image -->
-
-<!-- wp:paragraph {"className":"testi-quote"} -->
+<div class="wp-block-group testi-card"><!-- wp:paragraph {"className":"testi-quote"} -->
 <p class="testi-quote">“The DBA program at IMET Worldwide enhanced my ability to align technology with business goals. It provided the right blend of academic rigor and practical application for CTO-level leadership.”</p>
 <!-- /wp:paragraph -->
-
 <!-- wp:group {"className":"testi-foot","layout":{"type":"default"}} -->
 <div class="wp-block-group testi-foot"><!-- wp:group {"className":"testi-who","layout":{"type":"default"}} -->
 <div class="wp-block-group testi-who"><!-- wp:paragraph {"className":"testi-name"} -->
 <p class="testi-name"><strong>Dinesh Singh</strong></p>
 <!-- /wp:paragraph -->
-
 <!-- wp:paragraph {"className":"testi-role"} -->
 <p class="testi-role">Chief Technology Officer</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
-
 <!-- wp:paragraph {"className":"testi-linkedin"} -->
 <p class="testi-linkedin"><a href="https://www.linkedin.com/in/dinesh-singh-a9a68912/" target="_blank" rel="noreferrer noopener">LinkedIn</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group -->
-
 <!-- wp:group {"className":"testi-card","layout":{"type":"default"}} -->
-<div class="wp-block-group testi-card"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"testi-avatar"} -->
-<figure class="wp-block-image size-full testi-avatar"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/imet/home-client-3.webp' ) ); ?>" alt="Meheriar Patel"/></figure>
-<!-- /wp:image -->
-
-<!-- wp:paragraph {"className":"testi-quote"} -->
+<div class="wp-block-group testi-card"><!-- wp:paragraph {"className":"testi-quote"} -->
 <p class="testi-quote">“The DBA journey at IMET Worldwide enriched my strategic approach to IT operations and management. The mentorship and research exposure helped me align business goals with technology leadership more effectively.”</p>
 <!-- /wp:paragraph -->
-
 <!-- wp:group {"className":"testi-foot","layout":{"type":"default"}} -->
 <div class="wp-block-group testi-foot"><!-- wp:group {"className":"testi-who","layout":{"type":"default"}} -->
 <div class="wp-block-group testi-who"><!-- wp:paragraph {"className":"testi-name"} -->
 <p class="testi-name"><strong>Meheriar Patel</strong></p>
 <!-- /wp:paragraph -->
-
 <!-- wp:paragraph {"className":"testi-role"} -->
 <p class="testi-role">Group CIO | CDO | CTO | Mentor &amp; Advisor</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
-
 <!-- wp:paragraph {"className":"testi-linkedin"} -->
 <p class="testi-linkedin"><a href="https://www.linkedin.com/in/meheriar/" target="_blank" rel="noreferrer noopener">LinkedIn</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --></div>
-<!-- /wp:group -->
-
-<!-- wp:group {"className":"testi-card","layout":{"type":"default"}} -->
-<div class="wp-block-group testi-card"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"testi-avatar"} -->
-<figure class="wp-block-image size-full testi-avatar"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/imet/home-client-4.webp' ) ); ?>" alt="Dr. Amey Naik"/></figure>
-<!-- /wp:image -->
-
-<!-- wp:paragraph {"className":"testi-quote"} -->
-<p class="testi-quote">“The DBA program at IMET Worldwide helped me refine my leadership vision in digital technology. It strengthened my ability to innovate and mentor global organizations with confidence.”</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:group {"className":"testi-foot","layout":{"type":"default"}} -->
-<div class="wp-block-group testi-foot"><!-- wp:group {"className":"testi-who","layout":{"type":"default"}} -->
-<div class="wp-block-group testi-who"><!-- wp:paragraph {"className":"testi-name"} -->
-<p class="testi-name"><strong>Dr. Amey Naik</strong></p>
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph {"className":"testi-role"} -->
-<p class="testi-role">Partner, Saga Technologies</p>
-<!-- /wp:paragraph --></div>
-<!-- /wp:group -->
-
-<!-- wp:paragraph {"className":"testi-linkedin"} -->
-<p class="testi-linkedin"><a href="https://www.linkedin.com/in/dr-amey-naik-b290a882/" target="_blank" rel="noreferrer noopener">LinkedIn</a></p>
-<!-- /wp:paragraph --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group -->
-
-<!-- wp:group {"className":"testi-card","layout":{"type":"default"}} -->
-<div class="wp-block-group testi-card"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"testi-avatar"} -->
-<figure class="wp-block-image size-full testi-avatar"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/imet/home-client-5.webp' ) ); ?>" alt="Dr. Vikrant Nivate"/></figure>
-<!-- /wp:image -->
-
-<!-- wp:paragraph {"className":"testi-quote"} -->
-<p class="testi-quote">“The DBA journey with IMET Worldwide was enriching and practical. It gave me clarity on how to merge research with real-world business practices while driving technology solutions.”</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:group {"className":"testi-foot","layout":{"type":"default"}} -->
-<div class="wp-block-group testi-foot"><!-- wp:group {"className":"testi-who","layout":{"type":"default"}} -->
-<div class="wp-block-group testi-who"><!-- wp:paragraph {"className":"testi-name"} -->
-<p class="testi-name"><strong>Dr. Vikrant Nivate</strong></p>
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph {"className":"testi-role"} -->
-<p class="testi-role">Global Service Delivery Manager | DBA | PRINCE2® | Safran Group</p>
-<!-- /wp:paragraph --></div>
-<!-- /wp:group -->
-
-<!-- wp:paragraph {"className":"testi-linkedin"} -->
-<p class="testi-linkedin"><a href="https://www.linkedin.com/in/vikrant-nivate-105881ba/" target="_blank" rel="noreferrer noopener">LinkedIn</a></p>
-<!-- /wp:paragraph --></div>
-<!-- /wp:group --></div>
-<!-- /wp:group -->
-
-<!-- wp:group {"className":"testi-card","layout":{"type":"default"}} -->
-<div class="wp-block-group testi-card"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"testi-avatar"} -->
-<figure class="wp-block-image size-full testi-avatar"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/imet/home-client-6.webp' ) ); ?>" alt="Dr. Jey Radha"/></figure>
-<!-- /wp:image -->
-
-<!-- wp:paragraph {"className":"testi-quote"} -->
-<p class="testi-quote">“The DBA at IMET Worldwide added depth to my service delivery and IT leadership journey. It equipped me with research-driven insights to lead secure, efficient, and future-ready operations.”</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:group {"className":"testi-foot","layout":{"type":"default"}} -->
-<div class="wp-block-group testi-foot"><!-- wp:group {"className":"testi-who","layout":{"type":"default"}} -->
-<div class="wp-block-group testi-who"><!-- wp:paragraph {"className":"testi-name"} -->
-<p class="testi-name"><strong>Dr. Jey Radha</strong></p>
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph {"className":"testi-role"} -->
-<p class="testi-role">Project/Practice Director – Digital Transformation &amp; IT Security</p>
-<!-- /wp:paragraph --></div>
-<!-- /wp:group -->
-
-<!-- wp:paragraph {"className":"testi-linkedin"} -->
-<p class="testi-linkedin"><a href="https://www.linkedin.com/in/radhaj/" target="_blank" rel="noreferrer noopener">LinkedIn</a></p>
-<!-- /wp:paragraph --></div>
-<!-- /wp:group --></div>
-<!-- /wp:group -->
-
-<!-- wp:group {"className":"testi-card","layout":{"type":"default"}} -->
-<div class="wp-block-group testi-card"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"testi-avatar"} -->
-<figure class="wp-block-image size-full testi-avatar"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/imet/home-client-7.webp' ) ); ?>" alt="Dr. Shijin Prasad R. S."/></figure>
-<!-- /wp:image -->
-
-<!-- wp:paragraph {"className":"testi-quote"} -->
-<p class="testi-quote">“The DBA journey with IMET Worldwide has been transformative. Coming from a healthcare background, this program gave me not only academic depth but also the strategic mindset to implement real-world solutions in my organisation.”</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:group {"className":"testi-foot","layout":{"type":"default"}} -->
-<div class="wp-block-group testi-foot"><!-- wp:group {"className":"testi-who","layout":{"type":"default"}} -->
-<div class="wp-block-group testi-who"><!-- wp:paragraph {"className":"testi-name"} -->
-<p class="testi-name"><strong>Dr. Shijin Prasad R. S.</strong></p>
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph {"className":"testi-role"} -->
-<p class="testi-role">Doctorate (DBA) – Healthcare (AI &amp; RPA Focus)</p>
-<!-- /wp:paragraph --></div>
-<!-- /wp:group -->
-
-<!-- wp:paragraph {"className":"testi-linkedin"} -->
-<p class="testi-linkedin"><a href="https://www.linkedin.com/in/shijinprasad/" target="_blank" rel="noreferrer noopener">LinkedIn</a></p>
-<!-- /wp:paragraph --></div>
-<!-- /wp:group --></div>
-<!-- /wp:group -->
-
-<!-- wp:group {"className":"testi-card","layout":{"type":"default"}} -->
-<div class="wp-block-group testi-card"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"testi-avatar"} -->
-<figure class="wp-block-image size-full testi-avatar"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/imet/home-client-8.webp' ) ); ?>" alt="Dr. Suresh A Shan"/></figure>
-<!-- /wp:image -->
-
-<!-- wp:paragraph {"className":"testi-quote"} -->
-<p class="testi-quote">“My DBA journey at IMET Worldwide shaped my leadership thinking, blending research, strategy, and innovation, while mentorship and global exposure helped me apply learning confidently in real executive roles.”</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:group {"className":"testi-foot","layout":{"type":"default"}} -->
-<div class="wp-block-group testi-foot"><!-- wp:group {"className":"testi-who","layout":{"type":"default"}} -->
-<div class="wp-block-group testi-who"><!-- wp:paragraph {"className":"testi-name"} -->
-<p class="testi-name"><strong>Dr. Suresh A Shan</strong></p>
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph {"className":"testi-role"} -->
-<p class="testi-role">Ph.D. (CS), DBA, MCA, MBA, M.Tech, ISB Global CIO, Independent Director</p>
-<!-- /wp:paragraph --></div>
-<!-- /wp:group -->
-
-<!-- wp:paragraph {"className":"testi-linkedin"} -->
-<p class="testi-linkedin"><a href="https://www.linkedin.com/in/assuresh/" target="_blank" rel="noreferrer noopener">LinkedIn</a></p>
-<!-- /wp:paragraph --></div>
-<!-- /wp:group --></div>
-<!-- /wp:group --></div>
-<!-- /wp:group -->
-
-<!-- wp:group {"className":"imet-container","layout":{"type":"default"}} -->
-<div class="wp-block-group imet-container"><!-- wp:buttons {"className":"testi-more"} -->
-<div class="wp-block-buttons testi-more"><!-- wp:button {"className":"btn-navy btn-sm"} -->
-<div class="wp-block-button btn-navy btn-sm"><a class="wp-block-button__link wp-element-button" href="#advisor-form">Talk to a Doctoral Advisor</a></div>
+<!-- wp:buttons {"className":"testi-more"} -->
+<div class="wp-block-buttons testi-more"><!-- wp:button {"className":"btn-link btn-lg"} -->
+<div class="wp-block-button btn-link btn-lg"><a class="wp-block-button__link wp-element-button" href="#">View More</a></div>
 <!-- /wp:button --></div>
 <!-- /wp:buttons --></div>
 <!-- /wp:group --></section>
