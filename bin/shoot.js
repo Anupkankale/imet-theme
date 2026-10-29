@@ -65,6 +65,18 @@ const ids = args.filter(
 					.querySelectorAll('[class*="is-clone"]')
 					.forEach((e) => e.remove())
 			);
+			// Scroll through the page so lazy-loaded images (logos, thumbnails, photos) are fetched before the shot.
+			await page.evaluate(async () => {
+				const step = window.innerHeight / 2;
+				for (let y = 0; y < document.body.scrollHeight; y += step) {
+					window.scrollTo(0, y);
+					await new Promise((resolve) =>
+						window.setTimeout(resolve, 100)
+					);
+				}
+				window.scrollTo(0, 0);
+			});
+			await page.waitForLoadState('networkidle');
 			await page.waitForTimeout(400);
 			await page.screenshot({
 				path: path.join(out, `${id}-${name}.png`),
