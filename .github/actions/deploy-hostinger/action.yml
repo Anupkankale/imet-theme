@@ -113,6 +113,9 @@ runs:
       run: |
         ssh $SSH_OPTS "$SSH_USER@$HOST" bash -s -- "$WP_PATH" <<'REMOTE' || echo "::warning::cache purge failed (deploy continues)"
         cd "$1" || exit 1
+        # WordPress caches each theme's pattern list in a site transient until the theme version changes: clear it so
+        # patterns added by this deploy show up right away (delete_pattern_cache() exists since WordPress 6.4).
+        wp eval 'foreach ( wp_get_themes() as $theme ) { if ( method_exists( $theme, "delete_pattern_cache" ) ) { $theme->delete_pattern_cache(); } }' 2>/dev/null || true
         if wp plugin is-active litespeed-cache 2>/dev/null; then
           wp litespeed-purge all || exit 1
         else

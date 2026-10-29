@@ -80,3 +80,10 @@ The theme is pixel-matched to the live site and the IMET sections, so a few thin
 - **Font weights 400/500/600/700:** 500 is the live nav and eyebrow weight.
 - **Button colours:** the seven-colour system is kept (six block styles plus the default), not two variants.
 - **Content widths** are 1020px (text) and 1200px (wide), the sections' containers, not 720px.
+
+## Home pattern
+
+`patterns/home.php` ("Home (IMET)") reuses the Home block styles of `imet/hero`, `imet/highlights` and the global `imet/cost-banner`. Their Home
+rules and the advisor form (`_advisor-form.scss`) are tokens only. New token: palette colour `danger` (`#b3261e`) for form errors; everything else is
+an existing preset. Gold pill icons are inline SVG data URIs (the only place a hex colour is allowed in CSS).
+
