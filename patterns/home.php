@@ -348,35 +348,36 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <!-- wp:imet/specializations {"className":"is-style-home","anchor":"programs"} -->
 <section class="wp-block-imet-specializations alignfull imet-section section specs is-style-home" id="programs"><!-- wp:group {"className":"imet-container sec-head","layout":{"type":"default"}} -->
-<div class="wp-block-group imet-container sec-head"><!-- wp:heading {"className":"title"} -->
-<h2 class="wp-block-heading title">Top Featured Doctorate (DBA) &amp; Master's (MBA) Programs</h2>
+<div class="wp-block-group imet-container sec-head"><!-- wp:paragraph {"className":"eyebrow-line"} -->
+<p class="eyebrow-line">Our Programs</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"className":"title"} -->
+<h2 class="wp-block-heading title">Top Featured Doctorate (DBA) &amp; Masters (MBA) Programs</h2>
 <!-- /wp:heading -->
+
+<!-- wp:paragraph {"className":"sub"} -->
+<p class="sub">Explore our internationally validated Doctorate in Business Administration (DBA) programs, supported by embassy affiliations.</p>
+<!-- /wp:paragraph -->
 
 <!-- wp:group {"className":"spec-grid","layout":{"type":"default"}} -->
 <div class="wp-block-group spec-grid"><!-- wp:paragraph {"className":"spec-card"} -->
 <p class="spec-card"><a href="https://imetworldwide.com/online-doctorate-cybersecurity-certificate-program/"><span class="sp-title">Doctorate in CyberSecurity</span><span class="sp-desc">Develop board-level authority in cyber risk, governance, and enterprise security strategy.</span></a></p>
 <!-- /wp:paragraph -->
-
 <!-- wp:paragraph {"className":"spec-card"} -->
 <p class="spec-card"><a href="https://imetworldwide.com/online-masters-mba-cybersecurity/"><span class="sp-title">MBA in Cybersecurity</span><span class="sp-desc">Build managerial and business-driven cybersecurity leadership for modern enterprises.</span></a></p>
 <!-- /wp:paragraph -->
-
 <!-- wp:paragraph {"className":"spec-card"} -->
 <p class="spec-card"><a href="https://imetworldwide.com/online-doctorate-digital-transformation-program/"><span class="sp-title">Doctorate in Digital Transformation</span><span class="sp-desc">Lead large-scale digital change by aligning technology, strategy, and organizational impact.</span></a></p>
 <!-- /wp:paragraph -->
-
 <!-- wp:paragraph {"className":"spec-card"} -->
 <p class="spec-card"><a href="https://imetworldwide.com/online-masters-mba-project-management-program/"><span class="sp-title">MBA in Project Management</span><span class="sp-desc">Master structured delivery, stakeholder control, and execution of complex business initiatives.</span></a></p>
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph {"className":"spec-card"} -->
-<p class="spec-card"><a href="https://imetworldwide.com/online-doctorate-dba-artificial-intelligence-ml/"><span class="sp-title">Doctorate in AI/ML</span><span class="sp-desc">Establish thought leadership in AI strategy, advanced analytics, and intelligent enterprise systems.</span></a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
 <!-- wp:buttons -->
-<div class="wp-block-buttons"><!-- wp:button {"className":"btn-navy btn-sm"} -->
-<div class="wp-block-button btn-navy btn-sm"><a class="wp-block-button__link wp-element-button" href="#advisor-form">Talk to Advisor</a></div>
+<div class="wp-block-buttons"><!-- wp:button {"className":"btn-navy btn-md"} -->
+<div class="wp-block-button btn-navy btn-md"><a class="wp-block-button__link wp-element-button" href="https://imetworldwide.com/online-doctorate-business-administration-dba-programs/">View More</a></div>
 <!-- /wp:button --></div>
 <!-- /wp:buttons --></div>
 <!-- /wp:group --></section>
