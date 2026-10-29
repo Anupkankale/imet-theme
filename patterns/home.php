@@ -967,33 +967,32 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:group --></section>
 <!-- /wp:imet/testimonials -->
 
-<!-- wp:imet/faq {"className":"is-style-home","anchor":"faq"} -->
-<section class="wp-block-imet-faq alignfull imet-section section faq is-style-home" id="faq"><!-- wp:group {"className":"imet-container narrow","layout":{"type":"default"}} -->
+<!-- wp:imet/faq {"align":"full","anchor":"faq"} -->
+<section id="faq" class="wp-block-imet-faq alignfull imet-section section faq"><!-- wp:group {"className":"imet-container narrow","layout":{"type":"default"}} -->
 <div class="wp-block-group imet-container narrow"><!-- wp:group {"className":"sec-head","layout":{"type":"default"}} -->
-<div class="wp-block-group sec-head"><!-- wp:heading {"className":"title"} -->
-<h2 class="wp-block-heading title">Frequently Asked Questions (FAQs)</h2>
+<div class="wp-block-group sec-head"><!-- wp:paragraph {"className":"eyebrow-line faq-eyebrow"} -->
+<p class="eyebrow-line faq-eyebrow">Doctorate (DBA) Frequently Asked Questions (FAQs)</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"className":"title"} -->
+<h2 class="wp-block-heading title">Doctorate in Cybersecurity certificate Program</h2>
 <!-- /wp:heading --></div>
 <!-- /wp:group -->
-
 <!-- wp:group {"className":"faq-acc","layout":{"type":"default"}} -->
 <div class="wp-block-group faq-acc"><!-- wp:details -->
 <details class="wp-block-details"><summary>What is an Online Doctorate (DBA) and Master’s Programs ?</summary><!-- wp:paragraph -->
 <p>The online Doctor of Business Administration (DBA) program at IMET Worldwide delivers terminal-level education for senior information technology professionals who want to reach leadership roles in business or consulting or academic positions. Students gain leadership skills and research abilities through its combination of flexible internet learning and research-based studies.</p>
 <!-- /wp:paragraph --></details>
 <!-- /wp:details -->
-
 <!-- wp:details -->
 <details class="wp-block-details"><summary>What is an online Doctorate (DBA) programs?</summary><!-- wp:paragraph -->
 <p>The online Doctor of Business Administration (DBA) program at IMET Worldwide delivers terminal-level education for senior information technology professionals who want to reach leadership roles in business or consulting or academic positions. Students gain leadership skills and research abilities through its combination of flexible internet learning and research-based studies.</p>
 <!-- /wp:paragraph --></details>
 <!-- /wp:details -->
-
 <!-- wp:details -->
 <details class="wp-block-details"><summary>How long does it take to complete an online doctorate program in IMET Worldwide &amp; what are the fees?</summary><!-- wp:paragraph -->
 <p>An online doctorate program at IMET Worldwide can be completed in 12–24 months. The total program fee for the course is USD 8,000.</p>
 <!-- /wp:paragraph --></details>
 <!-- /wp:details -->
-
 <!-- wp:details -->
 <details class="wp-block-details"><summary>Who can take the IMET Doctorate (DBA) Program?</summary><!-- wp:paragraph -->
 <p>This program is for:</p>
@@ -1013,109 +1012,91 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:list-item --></ul>
 <!-- /wp:list --></details>
 <!-- /wp:details -->
-
 <!-- wp:details -->
 <details class="wp-block-details"><summary>Which specializations do you offer for online doctoral (DBA) programs?</summary><!-- wp:paragraph -->
 <p>Doctoral programs at IMET enable working IT professionals to choose between IT Governance training as well as advanced studies in AI &amp; Machine Learning and Cybersecurity and Project Management and Data Analytics and Generative AI and Supply Chain Management. Every concentration teaches them advanced capabilities with strategic understandings which empower leaders to boost modern digital business success through security and efficiency and innovation.</p>
 <!-- /wp:paragraph --></details>
 <!-- /wp:details -->
-
 <!-- wp:details -->
 <details class="wp-block-details"><summary>Which specialization should I choose for an online Doctorate program?</summary><!-- wp:paragraph -->
 <p>To determine the right specialization for your online Doctorate research consider your professional objectives alongside your selected field of work. The IMET Worldwide program features a range of focused learning options which include IT Governance together with AI &amp; Machine Learning and Cybersecurity Quadrilaterals and Project Management and Data Analytics along with Generative AI and Supply Chain Management. These areas provide you with essential competencies and sharp intelligence to lead within today’s digital environment.</p>
 <!-- /wp:paragraph --></details>
 <!-- /wp:details -->
-
 <!-- wp:details -->
 <details class="wp-block-details"><summary>How can an online Doctorate degree from IMET Worldwide help me to advance my career?</summary><!-- wp:paragraph -->
 <p>An online Doctorate from IMET Worldwide enhances your cognitive understanding and teaches you to become a strategic leader through successive learning along with practical specialization training. Your new skills will help you both lead digital transformations and generate innovation which leads to enhanced industry competition and positions you for senior leadership opportunities while enhancing your professional standing.</p>
 <!-- /wp:paragraph --></details>
 <!-- /wp:details -->
-
 <!-- wp:details -->
 <details class="wp-block-details"><summary>Does IMET Worldwide offer online Doctorate (DBA) programs for students in the USA?</summary><!-- wp:paragraph -->
 <p>The Doctorate programs along with the Doctor of Business Administration (DBA) at IMET Worldwide are available for American and UAE students as well as those in India through their online platform. The online structure of these programs makes them accessible to working professionals from different areas who want to develop their careers.</p>
 <!-- /wp:paragraph --></details>
 <!-- /wp:details -->
-
 <!-- wp:details -->
 <details class="wp-block-details"><summary>How long does the Master’s program take to complete?</summary><!-- wp:paragraph -->
 <p>The Master’s program can typically be completed within 12 to 24 months, depending on the chosen specialization, and research work.</p>
 <!-- /wp:paragraph --></details>
 <!-- /wp:details -->
-
 <!-- wp:details -->
 <details class="wp-block-details"><summary>What makes IMET Worldwide's Master’s program unique?</summary><!-- wp:paragraph -->
 <p>IMET Worldwide's Master’s is research-focused, mentorship-driven, and designed with global industry alignment. Unlike conventional programs, it combines academic theory with practical problem-solving, preparing graduates to address complex real-world challenges with innovation and leadership.</p>
 <!-- /wp:paragraph --></details>
 <!-- /wp:details -->
-
 <!-- wp:details -->
 <details class="wp-block-details"><summary>Who is eligible to apply for the Master’s program?</summary><!-- wp:paragraph -->
 <p>The Master’s degree is open to graduates, working professionals, and aspiring leaders who hold a recognized Bachelor’s degree (or equivalent). Candidates with relevant work experience or strong academic backgrounds are given preference, though exceptional applicants from diverse fields may also be considered.</p>
 <!-- /wp:paragraph --></details>
 <!-- /wp:details -->
-
 <!-- wp:details -->
 <details class="wp-block-details"><summary>Can I specialize in Artificial Intelligence or Cybersecurity within the Online DBA?</summary><!-- wp:paragraph -->
 <p>Yes. Our Online DBA programs allow you to focus their research on high-demand areas such as Artificial Intelligence, Cybersecurity, Data Analytics, Digital Transformation, or IT Governance. While the program is typically a Doctor of Business Administration, the specialization is reflected in the research topic and dissertation.</p>
 <!-- /wp:paragraph --></details>
 <!-- /wp:details -->
-
 <!-- wp:details -->
 <details class="wp-block-details"><summary>What are the typical salary trends for Online DBA graduates in 2026?</summary><!-- wp:paragraph -->
 <p>Salary trends in 2026 indicate strong demand for doctorate-level professionals in consulting, executive leadership, digital strategy, and academia. Compensation varies by region and experience, but senior professionals with a doctorate (DBA) often move into C-suite roles, advisory positions, or high-level consulting, where salaries are significantly above industry averages.</p>
 <!-- /wp:paragraph --></details>
 <!-- /wp:details -->
-
 <!-- wp:details -->
 <details class="wp-block-details"><summary>How does the “Applied Research” model benefit working professionals?</summary><!-- wp:paragraph -->
 <p>The applied research model allows professionals to conduct research based on real business challenges within their own organization or industry. This approach makes the doctoral journey practical and career-relevant. It enables candidates to create measurable business impact while completing their thesis.</p>
 <!-- /wp:paragraph --></details>
 <!-- /wp:details -->
-
 <!-- wp:details -->
 <details class="wp-block-details"><summary>Is a PhD in Business Administration better than a DBA for a career in academia?</summary><!-- wp:paragraph -->
 <p>A PhD is traditionally research-intensive and theory-driven, making it suitable for full-time academic and research careers. A DBA focuses on applied research and executive practice. For purely academic research roles, a PhD may be preferred. For teaching, consulting, and executive leadership in academia, a DBA is widely accepted.</p>
 <!-- /wp:paragraph --></details>
 <!-- /wp:details -->
-
 <!-- wp:details -->
 <details class="wp-block-details"><summary>What is the difference between a PhD and a DBA for a corporate career?</summary><!-- wp:paragraph -->
 <p>For corporate careers, a DBA is often more aligned with executive leadership and applied business strategy. A PhD emphasizes theoretical research and academic contribution. Senior corporate professionals usually choose a DBA because it integrates practical business solutions with doctoral-level research.</p>
 <!-- /wp:paragraph --></details>
 <!-- /wp:details -->
-
 <!-- wp:details -->
 <details class="wp-block-details"><summary>Can a graduate from an Online DBA program use the title “Dr.”?</summary><!-- wp:paragraph -->
 <p>Yes. Professionals of accredited and recognized doctoral programs, including Online DBA programs, are academically entitled to use the title “Dr.” as per the awarding institution’s regulations and local laws.</p>
 <!-- /wp:paragraph --></details>
 <!-- /wp:details -->
-
 <!-- wp:details -->
 <details class="wp-block-details"><summary>Can I get a PhD without a Master’s degree?</summary><!-- wp:paragraph -->
 <p>Yes, a Master’s degree is generally required for admission to our PhD programs. There are no entrance exams required to be eligible for this program. Candidates with an honours bachelor’s degree or relevant academic and professional qualifications may also be considered where applicable.</p>
 <!-- /wp:paragraph --></details>
 <!-- /wp:details -->
-
 <!-- wp:details -->
 <details class="wp-block-details"><summary>Are online MBA and DBA programs valid for the UAE Golden Visa?</summary><!-- wp:paragraph -->
 <p>Eligibility for the UAE Golden Visa depends on official government criteria, accreditation status, academic ranking, and degree recognition. While postgraduate degrees may support eligibility, applicants should verify requirements directly with UAE authorities or immigration advisors before making decisions.</p>
 <!-- /wp:paragraph --></details>
 <!-- /wp:details -->
-
 <!-- wp:details -->
 <details class="wp-block-details"><summary>Is an Online DBA equivalent to a PhD in India?</summary><!-- wp:paragraph -->
 <p>In India, equivalence depends on recognition by relevant educational authorities and the accreditation status of the awarding institution. Generally, both DBA and PhD are doctoral-level qualifications, but regulatory bodies may treat them differently for academic appointments.</p>
 <!-- /wp:paragraph --></details>
 <!-- /wp:details -->
-
 <!-- wp:details -->
 <details class="wp-block-details"><summary>Do I need prior research experience to join a Doctorate program?</summary><!-- wp:paragraph -->
 <p>Not necessarily. Many DBA programs are designed for experienced professionals and include structured research methodology training. While prior research experience can be helpful, it is not always mandatory.</p>
 <!-- /wp:paragraph --></details>
 <!-- /wp:details -->
-
 <!-- wp:details -->
 <details class="wp-block-details"><summary>What are the most in-demand DBA specializations in 2026?</summary><!-- wp:paragraph -->
 <p>In 2026, high-demand areas include:</p>
@@ -1147,25 +1128,27 @@ if ( ! defined( 'ABSPATH' ) ) {
 <p>These areas align with global digital and corporate transformation trends.</p>
 <!-- /wp:paragraph --></details>
 <!-- /wp:details -->
-
 <!-- wp:details -->
 <details class="wp-block-details"><summary>How much does an Online DBA cost compared to an on-campus program?</summary><!-- wp:paragraph -->
 <p>Online DBA programs are generally more cost-effective than on-campus programs because they eliminate relocation, travel, and campus infrastructure expenses. However, tuition varies significantly depending on the institution, country, and accreditation.</p>
 <!-- /wp:paragraph --></details>
 <!-- /wp:details -->
-
 <!-- wp:details -->
 <details class="wp-block-details"><summary>Can I complete my doctoral thesis while working full-time?</summary><!-- wp:paragraph -->
 <p>Yes. Most Online DBA programs are specifically designed for working professionals. With structured supervision, milestone-based research planning, and time management, candidates can complete their thesis alongside full-time employment.</p>
 <!-- /wp:paragraph --></details>
 <!-- /wp:details -->
-
 <!-- wp:details -->
 <details class="wp-block-details"><summary>Does the degree certificate mention “Online” or “Distance Learning”?</summary><!-- wp:paragraph -->
 <p>The final degree certificate does not explicitly mention “Online” and reflects only the awarded doctoral title. However, policies vary by university and jurisdiction. It is advisable to confirm this directly with the admissions or academic office before enrollment.</p>
 <!-- /wp:paragraph --></details>
 <!-- /wp:details --></div>
-<!-- /wp:group --></div>
+<!-- /wp:group -->
+<!-- wp:buttons {"className":"center faq-more"} -->
+<div class="wp-block-buttons center faq-more"><!-- wp:button {"className":"btn-navy btn-md"} -->
+<div class="wp-block-button btn-navy btn-md"><a class="wp-block-button__link wp-element-button" href="#faq">See More</a></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons --></div>
 <!-- /wp:group --></section>
 <!-- /wp:imet/faq -->
 
