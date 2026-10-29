@@ -1,0 +1,66 @@
+/* Home page rhythm and type scale: one breathing room above and below every content section, one section-title size and
+   one lead size, on every device. Scoped to a page that starts with the Home hero, so the course pages keep their own
+   Figma-matched spacing. The hero, "Why choose" and "Top Featured programs" keep the values measured from the Figma.
+   Tokens only. */
+$home: ".wp-block-post-content:has(> .imet-section.hero.is-style-home)";
+
+#{$home} { --imet-section-y: var(--wp--preset--spacing--48); }
+
+@media (max-width: 1024px) {
+
+	#{$home} { --imet-section-y: var(--wp--preset--spacing--40); }
+}
+
+@media (max-width: 640px) {
+
+	#{$home} { --imet-section-y: var(--wp--preset--spacing--32); }
+}
+
+#{$home} > .imet-section:not(.hero, .highlights, .specs, .cost-banner) { padding-block: var(--imet-section-y); }
+
+/* Section titles: 35px on desktop, easing down to 26px on phones (the x-large size token), semi-bold. */
+#{$home} > .imet-section:not(.hero, .highlights, .cta-wrap, .cert) .title {
+	font-size: var(--wp--preset--font-size--x-large);
+	font-weight: 600;
+	line-height: 1.3;
+}
+
+/* The line under a title. */
+#{$home} > .imet-section .sub {
+	font-size: var(--wp--preset--font-size--sub);
+	line-height: 1.55;
+}
+
+/* Testimonial cards keep their 1186px on desktop but sit 20px from the screen edge like every other section (it was 16px). */
+#{$home} :is(.testi-grid, .testi-more) { --testi-w: min(var(--wp--custom--size--1186), 100vw - var(--wp--preset--spacing--40)); }
+
+/* Below 1100px the "Why choose IMET" header stacks: eyebrow, title, text and the card track share one left edge
+   (the 10px nudge and the centred, narrower track belong to the two-column desktop header). */
+@media (max-width: 1100px) {
+
+	#{$home} .step-cards:not(.is-cases) .sc-head :is(.eyebrow-line, .title) { margin-left: 0; }
+
+	#{$home} .step-cards:not(.is-cases) .step-grid { width: 100%; max-width: none; margin-inline: 0; }
+}
+
+/* Alumni videos: a three-column grid on desktop and tablet (it used to collapse to one 340px column at 900px), a single
+   column on phones. Captions keep one size on every device (they jumped from 16px to 20px on phones). */
+@media (max-width: 1100px) {
+
+	#{$home} .video-trio {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: var(--wp--preset--spacing--24);
+		width: 100%;
+		margin-top: var(--wp--preset--spacing--26);
+	}
+}
+
+@media (max-width: 700px) {
+
+	#{$home} .video-trio { grid-template-columns: minmax(0, 1fr); width: min(100%, var(--wp--custom--size--380)); }
+}
+
+#{$home} .video-tile figcaption {
+	font-size: var(--wp--preset--font-size--normal);
+	line-height: 1.5;
+}

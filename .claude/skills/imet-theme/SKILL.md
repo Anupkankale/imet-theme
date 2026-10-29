@@ -124,6 +124,7 @@ npm run test:js           # Jest (uses a silent reporter: add --reporters=defaul
 composer phpcs && composer phpstan
 node bin/verify-blocks.js [--playwright <path>] [page ids]   # editor validity of imet/* blocks (needs WP-CLI + Playwright)
 node bin/shoot.js <dir> <page ids>   &&   node bin/shoot.js --compare <dirA> <dirB>   # visual before/after
+node bin/audit-layout.js <page id>      # spacing, gutters, heading sizes, fonts, tap targets at 1440/1024/768/390
 wp imet migrate <id> --dry-run       # (imet-core) convert Group sections into imet/* blocks
 ```
 
