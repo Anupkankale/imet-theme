@@ -108,121 +108,139 @@
 	.imet-section.specs { padding: 48px 0; }
 }
 
-/* ---------- Style "Home" (block style, the Home page): grey band with five white cards. Each card has the title, a navy
-   arrow, a thin line and the description. The lines line up across the row. All five cards always show: five in a row on
-   desktop, three then two on tablets, two columns on large phones, one on small phones. Nothing scrolls. ---------- */
-.imet-section.specs.is-style-home { padding: 40px 0 36px; background: #f5f5f5; }
+/* ---------- Style "Home" (block style, the Home page, pattern "Home (IMET)"): eyebrow, title and sub on a yellow-to-lavender
+   band, four white cards (title, arrow, line, description) and a "View More" button. The first card is navy; hovering
+   or focusing any card turns it navy (and the first one white again). Sizes are the Figma's (1440 frame). Tokens only. ---------- */
+.imet-section.specs.is-style-home {
+	--eyebrow-line: var(--wp--custom--size--88);
 
-.imet-section.specs.is-style-home .title { margin-bottom: 28px; font-weight: 700; }
+	padding: var(--wp--preset--spacing--24) 0 calc(var(--wp--preset--spacing--40) + var(--wp--preset--spacing--4));
+	background: var(--wp--custom--gradient--programs);
+}
+
+.imet-section.specs.is-style-home .eyebrow-line { margin-bottom: var(--wp--preset--spacing--10); padding-bottom: var(--wp--preset--spacing--4); }
+
+.imet-section.specs.is-style-home .title { margin-bottom: var(--wp--preset--spacing--6); font-weight: 600; }
+
+.imet-section.specs.is-style-home .sub { max-width: none; margin-bottom: 0; }
 
 .imet-section.specs.is-style-home .spec-grid {
 	display: grid;
-	grid-template-columns: repeat(5, minmax(0, 1fr));
-	gap: 16px;
-	width: min(1180px, 100% - 40px);
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	gap: var(--wp--preset--spacing--6);
+	width: min(var(--wp--custom--size--1102), 100% - var(--wp--preset--spacing--40));
+	margin: var(--wp--preset--spacing--16) auto 0;
 	padding: 0;
 	overflow: visible;
 }
 
-.imet-section.specs.is-style-home .spec-card { flex: none; }
+.imet-section.specs.is-style-home .spec-card { flex: none; margin: 0; }
 
 .imet-section.specs.is-style-home .spec-card.is-clone { display: none; }
 
 .imet-section.specs.is-style-home .spec-card a {
-	flex-direction: column;
-	align-items: stretch;
-	justify-content: flex-start;
-	min-height: 0;
-	padding: 18px 18px 22px;
-	border: 1px solid transparent;
-	border-radius: 18px;
-	box-shadow: 0 1px 2px rgba(20, 35, 75, .06);
+	position: relative;
+	display: grid;
+	grid-template-rows: var(--wp--custom--size--44) auto;
+	align-content: start;
+	box-sizing: border-box;
+	min-height: var(--wp--custom--size--135);
+	height: 100%;
+	padding: var(--wp--preset--spacing--14) var(--wp--custom--size--13) var(--wp--preset--spacing--5);
+	border: 0;
+	border-radius: var(--wp--preset--border-radius--8);
+	background: var(--wp--preset--color--white);
+	box-shadow: none;
+	color: var(--wp--preset--color--ink);
 	font-weight: 400;
 	text-align: left;
-	transition: transform .25s, box-shadow .25s, border-color .25s;
+	text-decoration: none;
+	transition: background-color 0.2s, color 0.2s;
 }
 
-.imet-section.specs.is-style-home .spec-card a:is(:hover, :focus-visible) {
-	transform: translateY(-3px);
-	border-color: #14234b;
-	background: #fff;
-	color: #000;
-	box-shadow: 0 10px 24px rgba(20, 35, 75, .14);
-}
+.imet-section.specs.is-style-home .spec-card a::before { content: none; }
 
+/* Arrow badge, top right: navy with a white arrow; white with a navy arrow on the navy card. */
 .imet-section.specs.is-style-home .spec-card a::after {
-	top: 18px;
-	right: 18px;
+	content: "";
+	position: absolute;
+	top: var(--wp--preset--spacing--15);
+	right: var(--wp--preset--spacing--18);
 	bottom: auto;
-	width: 32px;
-	height: 32px;
-	border-radius: 8px;
+	width: var(--wp--custom--size--20);
+	height: var(--wp--custom--size--20);
+	border-radius: 0;
 	-webkit-mask: none;
 	mask: none;
-	background: #14234b url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M4 12h15m-6-7 7 7-7 7' fill='none' stroke='%23fff' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 18px no-repeat;
+	background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Crect width='20' height='20' rx='3' fill='%2314234b'/%3E%3Cpath d='M6.5 13.5l7-7M7.5 6.5h6v6' fill='none' stroke='%23fff' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
+	transform: none;
 }
-
-.imet-section.specs.is-style-home .spec-card a:is(:hover, :focus-visible)::after { transform: translateX(3px); }
 
 .imet-section.specs.is-style-home .sp-title {
-	display: block;
-	padding: 2px 44px 14px 0;
-	border-bottom: 1px solid #dfe2ec;
-	font-size: 1.0625rem; /* 17px */
+	display: flex;
+	align-items: center;
+	padding: 0 var(--wp--preset--spacing--34) 0 0;
+	border: 0;
+	font-size: var(--wp--preset--font-size--medium);
 	font-weight: 600;
-	line-height: 1.4;
+	line-height: 1.22;
 }
 
-.imet-section.specs.is-style-home .sp-desc { display: block; margin-top: 14px; color: #333; font-size: .9375rem; line-height: 1.6; }
-
-.imet-section.specs.is-style-home .wp-block-buttons { justify-content: center; margin-top: 28px; }
-
-/* Desktop: the lines under the titles line up, whatever the number of title lines (the cards share two rows) */
-@media (min-width: 1101px) {
-
-	@supports (grid-template-rows: subgrid) {
-
-		.imet-section.specs.is-style-home .spec-grid { grid-template-rows: auto 1fr; }
-
-		.imet-section.specs.is-style-home :is(.spec-card, .spec-card a) { display: grid; grid-row: span 2; grid-template-rows: subgrid; }
-
-		.imet-section.specs.is-style-home .spec-card a { row-gap: 0; align-content: start; }
-
-		.imet-section.specs.is-style-home .sp-desc { margin-top: 0; padding-top: 14px; }
-	}
+.imet-section.specs.is-style-home .sp-desc {
+	display: block;
+	margin-top: var(--wp--preset--spacing--5);
+	padding-top: var(--wp--preset--spacing--5);
+	border-top: 1px solid var(--wp--preset--color--grey-900);
+	color: inherit;
+	font-family: var(--wp--preset--font-family--inter);
+	font-size: var(--wp--preset--font-size--small);
+	line-height: 1.33;
 }
 
-@media (min-width: 761px) and (max-width: 1100px) {
-
-	/* three, then the last two centred under them */
-	.imet-section.specs.is-style-home .spec-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); width: min(920px, 100% - 40px); }
-
-	.imet-section.specs.is-style-home .spec-card { grid-column: span 2; }
-
-	.imet-section.specs.is-style-home .spec-card:nth-child(4) { grid-column: 2 / span 2; }
+/* Brand colour: the first card by default, any card on hover / keyboard focus. */
+.imet-section.specs.is-style-home .spec-card:first-child a,
+.imet-section.specs.is-style-home .spec-card a:is(:hover, :focus-visible) {
+	background: var(--wp--preset--color--navy-band);
+	color: var(--wp--preset--color--white);
 }
 
-@media (max-width: 760px) {
+.imet-section.specs.is-style-home .spec-card:first-child a::after,
+.imet-section.specs.is-style-home .spec-card a:is(:hover, :focus-visible)::after { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Crect width='20' height='20' rx='3' fill='%23fff'/%3E%3Cpath d='M6.5 13.5l7-7M7.5 6.5h6v6' fill='none' stroke='%2314234b' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); }
 
-	.imet-section.specs.is-style-home .spec-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.imet-section.specs.is-style-home .spec-card:first-child .sp-desc,
+.imet-section.specs.is-style-home .spec-card a:is(:hover, :focus-visible) .sp-desc { border-top-color: var(--wp--preset--color--grey-200); }
+
+/* While the row is hovered or has focus inside, the first card gives its colour to the card in use. */
+.imet-section.specs.is-style-home .spec-grid:is(:hover, :has(a:focus-visible)) .spec-card:first-child a:not(:hover, :focus-visible) {
+	background: var(--wp--preset--color--white);
+	color: var(--wp--preset--color--ink);
 }
 
-@media (max-width: 640px) {
+.imet-section.specs.is-style-home .spec-grid:is(:hover, :has(a:focus-visible)) .spec-card:first-child a:not(:hover, :focus-visible)::after { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Crect width='20' height='20' rx='3' fill='%2314234b'/%3E%3Cpath d='M6.5 13.5l7-7M7.5 6.5h6v6' fill='none' stroke='%23fff' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); }
 
-	.imet-section.specs.is-style-home { padding: 32px 0; }
+.imet-section.specs.is-style-home .spec-grid:is(:hover, :has(a:focus-visible)) .spec-card:first-child a:not(:hover, :focus-visible) .sp-desc { border-top-color: var(--wp--preset--color--grey-900); }
 
-	.imet-section.specs.is-style-home .title { margin-bottom: 20px; font-size: 1.5625rem; line-height: 1.3; }
+.imet-section.specs.is-style-home .wp-block-buttons { justify-content: center; margin-top: calc(var(--wp--preset--spacing--20) + 1px); }
+
+.imet-section.specs.is-style-home .wp-block-button__link {
+	min-width: var(--wp--custom--size--255);
+	min-height: var(--wp--custom--size--65);
+	font-size: var(--wp--preset--font-size--large);
+	font-weight: 600;
 }
 
-@media (max-width: 520px) {
+@media (max-width: 900px) {
 
-	.imet-section.specs.is-style-home .spec-grid { grid-template-columns: 1fr; gap: 10px; width: calc(100% - 24px); }
+	.imet-section.specs.is-style-home .spec-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--wp--preset--spacing--10); }
+}
 
-	.imet-section.specs.is-style-home .spec-card a { padding: 14px 14px 16px; border-radius: 16px; }
+@media (max-width: 560px) {
 
-	.imet-section.specs.is-style-home .spec-card a::after { top: 14px; right: 14px; }
+	.imet-section.specs.is-style-home { padding: var(--wp--preset--spacing--32) 0; }
 
-	.imet-section.specs.is-style-home .sp-title { padding-bottom: 10px; font-size: 1.125rem; }
+	.imet-section.specs.is-style-home .spec-grid { grid-template-columns: 1fr; width: calc(100% - var(--wp--preset--spacing--24)); }
 
-	.imet-section.specs.is-style-home .sp-desc { margin-top: 10px; font-size: .9375rem; line-height: 1.5; }
+	.imet-section.specs.is-style-home .spec-card a { min-height: 0; padding-bottom: var(--wp--preset--spacing--14); }
+
+	.imet-section.specs.is-style-home .wp-block-button__link { min-width: 0; width: 100%; }
 }

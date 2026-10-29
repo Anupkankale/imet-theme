@@ -2,7 +2,20 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## Unreleased
+## 1.1.0 - 2026-10-29
+
+### Added
+
+- Pattern **Home (IMET)** (`patterns/home.php`): the Home hero (badge, heading, lead, button, graduate cards), the "Why choose IMET Worldwide?" section with the advisor form, and the fee / scholarship offer banner.
+- `[imet_advisor_form]` styles (`src/blocks-shared/_advisor-form.scss`); the form itself ships in the `imet-core` plugin.
+- Palette colour `danger` for form errors.
+
+### Changed
+
+- Home styles of `imet/hero` and `imet/highlights` re-skinned to the new Home design (tokens only; saved markup unchanged, so existing pages stay valid but look like the new design).
+- Deploys clear WordPress's cached pattern list, so new patterns appear right after a release.
+- "Top Featured Doctorate (DBA) & Masters (MBA) Programs" (`imet/specializations` Home style) rebuilt to the Figma, measured to the pixel on the 1440 frame: "Our Programs" eyebrow, four 271 × 135 cards on a yellow-to-lavender band, navy first card, brand-colour hover and focus, "View More" button. New tokens: gradient `programs` and sizes 44, 65, 88, 135, 255, 1102.
+
 
 ### Changed
 
