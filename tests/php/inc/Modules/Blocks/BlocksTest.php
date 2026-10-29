@@ -53,6 +53,44 @@ class BlocksTest extends TestCase {
 	}
 
 	/**
+	 * Test hooks keep built block assets cache-busted.
+	 */
+	public function test_register_hooks_versions_block_assets(): void {
+		$this->instance->register_hooks();
+
+		$this->assertNotFalse( has_filter( 'style_loader_src', [ $this->instance, 'version_asset' ] ) );
+		$this->assertNotFalse( has_filter( 'script_loader_src', [ $this->instance, 'version_asset' ] ) );
+	}
+
+	/**
+	 * Test a built block asset gets its file time as version.
+	 */
+	public function test_version_asset_uses_the_file_time(): void {
+		$file = get_theme_file_path( 'assets/build/blocks/zz-version-test/style-index.css' );
+		wp_mkdir_p( dirname( $file ) );
+		file_put_contents( $file, '/* fixture */' ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_file_put_contents -- Test fixture.
+		touch( $file, 1700000000 );
+
+		$src = get_theme_file_uri( 'assets/build/blocks/zz-version-test/style-index.css' ) . '?ver=1.0.0';
+
+		$this->assertStringContainsString( 'ver=1700000000', $this->instance->version_asset( $src ) );
+		$this->assertStringNotContainsString( 'ver=1.0.0', $this->instance->version_asset( $src ) );
+
+		unlink( $file ); // phpcs:ignore WordPress.WP.AlternativeFunctions.unlink_unlink -- Test fixture.
+		rmdir( dirname( $file ) ); // phpcs:ignore WordPress.WP.AlternativeFunctions.rmdir_rmdir -- Test fixture.
+	}
+
+	/**
+	 * Test other URLs and missing files are left alone.
+	 */
+	public function test_version_asset_ignores_other_urls(): void {
+		$this->assertSame( 'https://example.org/a.css?ver=1', $this->instance->version_asset( 'https://example.org/a.css?ver=1' ) );
+
+		$missing = get_theme_file_uri( 'assets/build/blocks/nope/style-index.css' ) . '?ver=1.0.0';
+		$this->assertSame( $missing, $this->instance->version_asset( $missing ) );
+	}
+
+	/**
 	 * Test registering without a build is silent (no _doing_it_wrong from the asset loader).
 	 */
 	public function test_register_blocks_without_a_build_is_silent(): void {
