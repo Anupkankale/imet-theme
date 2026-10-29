@@ -39,6 +39,8 @@ class Blocks implements Registrable {
 		add_filter( 'block_categories_all', [ $this, 'add_category' ] );
 		add_filter( 'render_block', [ $this, 'add_alignfull' ], 10, 2 );
 		add_action( 'enqueue_block_editor_assets', [ $this, 'enqueue_editor_assets' ] );
+		add_filter( 'style_loader_src', [ $this, 'version_asset' ] );
+		add_filter( 'script_loader_src', [ $this, 'version_asset' ] );
 	}
 
 	/**
@@ -121,6 +123,34 @@ class Blocks implements Registrable {
 		}
 
 		return $tags->get_updated_html();
+	}
+
+	/**
+	 * Version a built block asset by its file time.
+	 *
+	 * Blocks registered from block.json get that file's `version` ("1.0.0") as the cache key of their CSS and JS, which
+	 * never changes between releases: the CDN and browsers keep serving the first copy for a year. Keying the URL on
+	 * the built file makes every deploy deliver the new assets.
+	 *
+	 * @param string $src Style or script URL.
+	 *
+	 * @return string URL with `ver` set to the file's modification time, or unchanged for anything else.
+	 */
+	public function version_asset( string $src ): string {
+		$base = get_theme_file_uri( 'assets/build/blocks/' );
+
+		if ( ! str_starts_with( $src, $base ) ) {
+			return $src;
+		}
+
+		$relative = (string) strtok( substr( $src, strlen( $base ) ), '?' );
+		$file     = get_theme_file_path( 'assets/build/blocks/' . $relative );
+
+		if ( '' === $relative || ! is_file( $file ) ) {
+			return $src;
+		}
+
+		return add_query_arg( 'ver', (string) filemtime( $file ), remove_query_arg( 'ver', $src ) );
 	}
 
 	/**
