@@ -152,6 +152,11 @@
 					"slug": "grey-900",
 					"name": "Grey 900",
 					"color": "#111111"
+				},
+				{
+					"slug": "danger",
+					"name": "Danger",
+					"color": "#b3261e"
 				}
 			]
 		},

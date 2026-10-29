@@ -90,6 +90,15 @@ Note: `IMET_PATH` has **no trailing slash**: write `IMET_PATH . '/assets/...'`.
 A file in `patterns/` with a header (`Title`, `Slug: imet-theme/<name>`, `Categories: imet-sections`, `Viewport Width`). Images:
 `<?php echo esc_url( get_theme_file_uri( 'assets/images/imet/<file>' ) ); ?>`. Tokens only.
 
+### The Home pattern and the advisor form
+`patterns/home.php` ("Home (IMET)") is the Home page: `imet/hero` `is-style-home` (badge, H1, lead, button, `.h-grads` cards), `imet/highlights`
+`is-style-home` ("Why choose": eyebrow, title, lead, `hl-list hl-pills`, `.hl-form#advisor-form`) and `imet/cost-banner` (the global offer banner).
+Its Home styles are tokens only. `[imet_advisor_form]` is rendered by the **imet-core** plugin (`AdvisorForm`); the theme only styles
+`.imet-advisor-form` (`src/blocks-shared/_advisor-form.scss`). Changing the form's markup means changing both sides. The form has no nonce
+on purpose (page cache would expire it): honeypot + same-origin check + rate limit; leads are stored as private `imet_lead` posts.
+Cached pattern list: WordPress keeps a theme's pattern list until the theme `Version` changes, so **bump the version in `style.css` when you add a
+pattern** (the deploy also clears it).
+
 ### Add a block style variation
 `styles/blocks/<slug>.json` (the slug is the filename; class `is-style-<slug>`). The `css` field can't hold media queries or comma selectors; put responsive CSS in SCSS.
 
