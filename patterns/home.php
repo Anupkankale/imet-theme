@@ -768,112 +768,113 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <!-- wp:imet/testimonials {"className":"is-style-home is-stories"} -->
 <section class="wp-block-imet-testimonials alignfull imet-section section testimonials is-style-home is-stories"><!-- wp:group {"className":"imet-container testi-head","layout":{"type":"default"}} -->
-<div class="wp-block-group imet-container testi-head"><!-- wp:heading {"className":"title"} -->
-<h2 class="wp-block-heading title">Our Online Doctorate (DBA) Program Success Stories</h2>
+<div class="wp-block-group imet-container testi-head"><!-- wp:paragraph {"className":"eyebrow-line"} -->
+<p class="eyebrow-line">Our Programs</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"className":"title"} -->
+<h2 class="wp-block-heading title">Our Success Stories</h2>
 <!-- /wp:heading -->
-
 <!-- wp:paragraph {"className":"sub"} -->
 <p class="sub">Discover real journeys of transformation from professionals who turned experience into influence. Explore how our Alumni built personal brands, earned global recognition, and unlocked leadership opportunities through research, visibility, and the “Dr.” title.</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
-
-<!-- wp:group {"className":"imet-container","layout":{"type":"default"}} -->
-<div class="wp-block-group imet-container"><!-- wp:group {"className":"testi-grid","layout":{"type":"default"}} -->
-<div class="wp-block-group testi-grid"><!-- wp:group {"className":"testi-card","layout":{"type":"default"}} -->
-<div class="wp-block-group testi-card"><!-- wp:paragraph {"className":"testi-quote"} -->
-<p class="testi-quote">My Doctorate journey at IMET Worldwide was transformational, shaping me into a tech leader whose voice and influence create lasting value.</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph {"className":"testi-name"} -->
-<p class="testi-name">Dr. Shijin Prasad</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:group {"className":"testi-foot","layout":{"type":"default"}} -->
-<div class="wp-block-group testi-foot"><!-- wp:paragraph {"className":"testi-linkedin"} -->
-<p class="testi-linkedin"><a href="https://www.linkedin.com/in/shijinprasad/" target="_blank" rel="noreferrer noopener">LinkedIn</a></p>
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph {"className":"testi-more"} -->
-<p class="testi-more"><a href="https://imetworldwide.com/success-stories/">Read More</a></p>
-<!-- /wp:paragraph --></div>
-<!-- /wp:group --></div>
-<!-- /wp:group -->
-
-<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"testi-photo"} -->
-<figure class="wp-block-image size-full testi-photo"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/imet/home-story-1.webp' ) ); ?>" alt="Dr. Shijin Prasad"/></figure>
+<!-- wp:group {"className":"story-grid","layout":{"type":"default"}} -->
+<div class="wp-block-group story-grid"><!-- wp:group {"className":"story-card","layout":{"type":"default"}} -->
+<div class="wp-block-group story-card"><!-- wp:group {"className":"story-inner","layout":{"type":"default"}} -->
+<div class="wp-block-group story-inner"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"story-front"} -->
+<figure class="wp-block-image size-full story-front"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/imet/home-success-1.jpg' ) ); ?>" alt="Dr. Shibin Chulliparambil"/></figure>
 <!-- /wp:image -->
-
-<!-- wp:group {"className":"testi-card","layout":{"type":"default"}} -->
-<div class="wp-block-group testi-card"><!-- wp:paragraph {"className":"testi-quote"} -->
-<p class="testi-quote">The Doctorate at IMET Worldwide empowered me to lead with clarity, speak with impact, and influence with purpose.</p>
+<!-- wp:group {"className":"story-back","layout":{"type":"default"}} -->
+<div class="wp-block-group story-back"><!-- wp:paragraph {"className":"story-quote"} -->
+<p class="story-quote">The Doctorate at IMET Worldwide empowered me to lead with clarity, speak with impact, and influence with purpose.</p>
 <!-- /wp:paragraph -->
-
-<!-- wp:paragraph {"className":"testi-name"} -->
-<p class="testi-name">Dr. Shibin Chulliparambil</p>
+<!-- wp:group {"className":"story-foot","layout":{"type":"default"}} -->
+<div class="wp-block-group story-foot"><!-- wp:paragraph {"className":"story-name"} -->
+<p class="story-name">Dr. Shibin Chulliparambil</p>
 <!-- /wp:paragraph -->
-
-<!-- wp:group {"className":"testi-foot","layout":{"type":"default"}} -->
-<div class="wp-block-group testi-foot"><!-- wp:paragraph {"className":"testi-linkedin"} -->
-<p class="testi-linkedin"><a href="https://imetworldwide.com/success-stories/" target="_blank" rel="noreferrer noopener">LinkedIn</a></p>
+<!-- wp:group {"className":"story-links","layout":{"type":"default"}} -->
+<div class="wp-block-group story-links"><!-- wp:paragraph {"className":"story-linkedin"} -->
+<p class="story-linkedin"><a href="https://www.linkedin.com/" target="_blank" rel="noreferrer noopener">LinkedIn</a></p>
 <!-- /wp:paragraph -->
-
-<!-- wp:paragraph {"className":"testi-more"} -->
-<p class="testi-more"><a href="https://imetworldwide.com/success-stories/">Read More</a></p>
+<!-- wp:paragraph {"className":"story-more"} -->
+<p class="story-more"><a href="https://imetworldwide.com/success-stories/">Read More</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --></div>
+<!-- /wp:group --></div>
+<!-- /wp:group --></div>
+<!-- /wp:group --></div>
 <!-- /wp:group -->
-
-<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"testi-photo"} -->
-<figure class="wp-block-image size-full testi-photo"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/imet/home-story-2.webp' ) ); ?>" alt="Dr. Shibin Chulliparambil"/></figure>
+<!-- wp:group {"className":"story-card","layout":{"type":"default"}} -->
+<div class="wp-block-group story-card"><!-- wp:group {"className":"story-inner","layout":{"type":"default"}} -->
+<div class="wp-block-group story-inner"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"story-front"} -->
+<figure class="wp-block-image size-full story-front"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/imet/home-success-2.jpg' ) ); ?>" alt="Dr. Abhishek Mathur"/></figure>
 <!-- /wp:image -->
-
-<!-- wp:group {"className":"testi-card","layout":{"type":"default"}} -->
-<div class="wp-block-group testi-card"><!-- wp:paragraph {"className":"testi-quote"} -->
-<p class="testi-quote">Doctorate journey with IMET Worldwide was a catalyst for my leadership growth, transforming me into a stronger leader, speaker, and influencer.</p>
+<!-- wp:group {"className":"story-back","layout":{"type":"default"}} -->
+<div class="wp-block-group story-back"><!-- wp:paragraph {"className":"story-quote"} -->
+<p class="story-quote">Doctorate journey with IMET Worldwide was a catalyst for my leadership growth, transforming me into a stronger leader, speaker, and influencer.</p>
 <!-- /wp:paragraph -->
-
-<!-- wp:paragraph {"className":"testi-name"} -->
-<p class="testi-name">Dr. Abhishek Mathur</p>
+<!-- wp:group {"className":"story-foot","layout":{"type":"default"}} -->
+<div class="wp-block-group story-foot"><!-- wp:paragraph {"className":"story-name"} -->
+<p class="story-name">Dr. Abhishek Mathur</p>
 <!-- /wp:paragraph -->
-
-<!-- wp:group {"className":"testi-foot","layout":{"type":"default"}} -->
-<div class="wp-block-group testi-foot"><!-- wp:paragraph {"className":"testi-linkedin"} -->
-<p class="testi-linkedin"><a href="https://imetworldwide.com/success-stories/" target="_blank" rel="noreferrer noopener">LinkedIn</a></p>
+<!-- wp:group {"className":"story-links","layout":{"type":"default"}} -->
+<div class="wp-block-group story-links"><!-- wp:paragraph {"className":"story-linkedin"} -->
+<p class="story-linkedin"><a href="https://www.linkedin.com/" target="_blank" rel="noreferrer noopener">LinkedIn</a></p>
 <!-- /wp:paragraph -->
-
-<!-- wp:paragraph {"className":"testi-more"} -->
-<p class="testi-more"><a href="https://imetworldwide.com/success-stories/">Read More</a></p>
+<!-- wp:paragraph {"className":"story-more"} -->
+<p class="story-more"><a href="https://imetworldwide.com/success-stories/">Read More</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --></div>
+<!-- /wp:group --></div>
+<!-- /wp:group --></div>
+<!-- /wp:group --></div>
 <!-- /wp:group -->
-
-<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"testi-photo"} -->
-<figure class="wp-block-image size-full testi-photo"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/imet/home-story-3.webp' ) ); ?>" alt="Dr. Abhishek Mathur"/></figure>
+<!-- wp:group {"className":"story-card","layout":{"type":"default"}} -->
+<div class="wp-block-group story-card"><!-- wp:group {"className":"story-inner","layout":{"type":"default"}} -->
+<div class="wp-block-group story-inner"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"story-front"} -->
+<figure class="wp-block-image size-full story-front"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/imet/home-success-3.jpg' ) ); ?>" alt="Dr. Shijin Prasad"/></figure>
 <!-- /wp:image -->
-
-<!-- wp:group {"className":"testi-card","layout":{"type":"default"}} -->
-<div class="wp-block-group testi-card"><!-- wp:paragraph {"className":"testi-quote"} -->
-<p class="testi-quote">Through my Doctorate at IMET Worldwide, I discovered the power to transform knowledge into leadership, voice into impact, and vision into influence.</p>
+<!-- wp:group {"className":"story-back","layout":{"type":"default"}} -->
+<div class="wp-block-group story-back"><!-- wp:paragraph {"className":"story-quote"} -->
+<p class="story-quote">My Doctorate journey at IMET Worldwide was transformational, shaping me into a tech leader whose voice and influence create lasting value.</p>
 <!-- /wp:paragraph -->
-
-<!-- wp:paragraph {"className":"testi-name"} -->
-<p class="testi-name">Dr. Prabhkar Ramakrishnan</p>
+<!-- wp:group {"className":"story-foot","layout":{"type":"default"}} -->
+<div class="wp-block-group story-foot"><!-- wp:paragraph {"className":"story-name"} -->
+<p class="story-name">Dr. Shijin Prasad</p>
 <!-- /wp:paragraph -->
-
-<!-- wp:group {"className":"testi-foot","layout":{"type":"default"}} -->
-<div class="wp-block-group testi-foot"><!-- wp:paragraph {"className":"testi-linkedin"} -->
-<p class="testi-linkedin"><a href="https://www.linkedin.com/in/dr-prabhakar-ramakrishnan-64003129/" target="_blank" rel="noreferrer noopener">LinkedIn</a></p>
+<!-- wp:group {"className":"story-links","layout":{"type":"default"}} -->
+<div class="wp-block-group story-links"><!-- wp:paragraph {"className":"story-linkedin"} -->
+<p class="story-linkedin"><a href="https://www.linkedin.com/in/shijinprasad/" target="_blank" rel="noreferrer noopener">LinkedIn</a></p>
 <!-- /wp:paragraph -->
-
-<!-- wp:paragraph {"className":"testi-more"} -->
-<p class="testi-more"><a href="https://imetworldwide.com/success-stories/">Read More</a></p>
+<!-- wp:paragraph {"className":"story-more"} -->
+<p class="story-more"><a href="https://imetworldwide.com/success-stories/">Read More</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --></div>
+<!-- /wp:group --></div>
+<!-- /wp:group --></div>
+<!-- /wp:group --></div>
 <!-- /wp:group -->
-
-<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"testi-photo"} -->
-<figure class="wp-block-image size-full testi-photo"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/imet/home-story-4.webp' ) ); ?>" alt="Dr. Prabhkar Ramakrishnan"/></figure>
-<!-- /wp:image --></div>
+<!-- wp:group {"className":"story-card","layout":{"type":"default"}} -->
+<div class="wp-block-group story-card"><!-- wp:group {"className":"story-inner","layout":{"type":"default"}} -->
+<div class="wp-block-group story-inner"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"story-front"} -->
+<figure class="wp-block-image size-full story-front"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/imet/home-success-4.jpg' ) ); ?>" alt="Dr. Sona Saha Das"/></figure>
+<!-- /wp:image -->
+<!-- wp:group {"className":"story-back","layout":{"type":"default"}} -->
+<div class="wp-block-group story-back"><!-- wp:paragraph {"className":"story-quote"} -->
+<p class="story-quote">Achieving New Heights with the Power of a Doctorate.</p>
+<!-- /wp:paragraph -->
+<!-- wp:group {"className":"story-foot","layout":{"type":"default"}} -->
+<div class="wp-block-group story-foot"><!-- wp:paragraph {"className":"story-name"} -->
+<p class="story-name">Dr. Sona Saha Das</p>
+<!-- /wp:paragraph -->
+<!-- wp:group {"className":"story-links","layout":{"type":"default"}} -->
+<div class="wp-block-group story-links"><!-- wp:paragraph {"className":"story-more"} -->
+<p class="story-more"><a href="https://imetworldwide.com/wp-content/uploads/2025/10/Case-Study-Dr.-Sona-Saha-Das-2.pdf">Read More</a></p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group --></div>
+<!-- /wp:group --></div>
+<!-- /wp:group --></div>
+<!-- /wp:group --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group --></section>
 <!-- /wp:imet/testimonials -->
