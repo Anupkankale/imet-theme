@@ -1,0 +1,143 @@
+/* The "Talk to an Advisor" lead form: markup comes from the imet-core plugin ([imet_advisor_form]), the look from here.
+   Contract: .imet-advisor-form > (.__notice) + form.__form > .__label, input/select/textarea, .__phone, .__hp, .__consent, .__submit.
+   Tokens only. */
+.imet-advisor-form { width: 100%; }
+
+.imet-advisor-form__form {
+	display: grid;
+	gap: var(--wp--preset--spacing--10);
+	margin: 0;
+}
+
+/* Labels exist for screen readers; the placeholder is the visible hint. */
+.imet-advisor-form__label {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	clip-path: inset(50%);
+	white-space: nowrap;
+}
+
+.imet-advisor-form :is(input:not([type="checkbox"]), select, textarea) {
+	box-sizing: border-box;
+	width: 100%;
+	margin: 0;
+	padding: var(--wp--preset--spacing--8) var(--wp--preset--spacing--10);
+	border: 1px solid var(--wp--preset--color--grey-300);
+	border-radius: var(--wp--preset--border-radius--8);
+	background: var(--wp--preset--color--white);
+	color: var(--wp--preset--color--ink);
+	font-family: inherit;
+	font-size: var(--wp--preset--font-size--14);
+	line-height: 1.4;
+}
+
+.imet-advisor-form textarea {
+	min-height: var(--wp--custom--size--84);
+	resize: vertical;
+}
+
+.imet-advisor-form ::placeholder {
+	color: var(--wp--preset--color--grey);
+	opacity: 1;
+}
+
+.imet-advisor-form :is(input, select, textarea):focus-visible {
+	outline: var(--wp--custom--size--2) solid var(--wp--preset--color--sky);
+	outline-offset: 0;
+	border-color: var(--wp--preset--color--navy);
+}
+
+/* Country code + number share one rounded field. */
+.imet-advisor-form__phone {
+	display: flex;
+	align-items: stretch;
+	border: 1px solid var(--wp--preset--color--grey-300);
+	border-radius: var(--wp--preset--border-radius--8);
+	background: var(--wp--preset--color--white);
+	overflow: hidden;
+}
+
+.imet-advisor-form__phone:focus-within {
+	outline: var(--wp--custom--size--2) solid var(--wp--preset--color--sky);
+	border-color: var(--wp--preset--color--navy);
+}
+
+.imet-advisor-form .imet-advisor-form__phone :is(select, input) {
+	border: 0;
+	border-radius: 0;
+	outline: 0;
+}
+
+.imet-advisor-form .imet-advisor-form__phone select {
+	flex: 0 0 auto;
+	width: auto;
+	padding-right: var(--wp--preset--spacing--4);
+	border-right: 1px solid var(--wp--preset--color--grey-300);
+	border-radius: var(--wp--preset--border-radius--8) 0 0 var(--wp--preset--border-radius--8);
+}
+
+.imet-advisor-form .imet-advisor-form__phone input { flex: 1 1 auto; min-width: 0; }
+
+/* Honeypot: out of sight and out of reach for people. */
+.imet-advisor-form__hp {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	clip-path: inset(50%);
+}
+
+.imet-advisor-form__consent {
+	display: flex;
+	align-items: flex-start;
+	gap: var(--wp--preset--spacing--6);
+	color: var(--wp--preset--color--body-text);
+	font-size: var(--wp--preset--font-size--caption);
+	line-height: 1.5;
+}
+
+.imet-advisor-form__consent input { flex: 0 0 auto; margin-top: var(--wp--preset--spacing--3); }
+
+.imet-advisor-form__submit {
+	justify-self: start;
+	min-height: var(--wp--custom--size--44);
+	padding: var(--wp--preset--spacing--8) var(--wp--preset--spacing--16);
+	border: 0;
+	border-radius: var(--wp--preset--border-radius--5);
+	background: var(--wp--preset--color--navy);
+	color: var(--wp--preset--color--white);
+	font-family: inherit;
+	font-size: var(--wp--preset--font-size--14);
+	font-weight: 600;
+	cursor: pointer;
+}
+
+.imet-advisor-form__submit:hover { background: var(--wp--preset--color--navy-deep); }
+
+.imet-advisor-form__submit:focus-visible {
+	outline: var(--wp--custom--size--2) solid var(--wp--preset--color--gold);
+	outline-offset: var(--wp--custom--size--2);
+}
+
+.imet-advisor-form__notice {
+	margin: 0 0 var(--wp--preset--spacing--10);
+	padding: var(--wp--preset--spacing--8) var(--wp--preset--spacing--10);
+	border: 1px solid;
+	border-radius: var(--wp--preset--border-radius--8);
+	font-size: var(--wp--preset--font-size--14);
+	line-height: 1.4;
+}
+
+.imet-advisor-form__notice.is-success {
+	border-color: var(--wp--preset--color--green);
+	background: var(--wp--preset--color--cream);
+	color: var(--wp--preset--color--navy);
+}
+
+.imet-advisor-form__notice.is-error {
+	border-color: var(--wp--preset--color--danger);
+	background: var(--wp--preset--color--white);
+	color: var(--wp--preset--color--danger);
+}

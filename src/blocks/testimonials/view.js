@@ -70,3 +70,16 @@ each('.wp-block-imet-testimonials.is-stories .testi-grid', (grid) => {
 	});
 	grid.after(nav);
 });
+
+// Success stories: touch screens have no hover, so a tap flips the card (taps on its links still follow them).
+each('.wp-block-imet-testimonials .story-card', (card) => {
+	card.addEventListener('click', (event) => {
+		if (
+			!window.matchMedia('(hover: none)').matches ||
+			event.target.closest('a')
+		) {
+			return;
+		}
+		card.classList.toggle('is-flipped');
+	});
+});

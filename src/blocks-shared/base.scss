@@ -156,6 +156,8 @@ html:has(.imet-section) { scroll-behavior: smooth; }
 
 /* Buttons: see _buttons.scss */
 @include meta.load-css('buttons');
+@include meta.load-css('advisor-form');
+@include meta.load-css('home-rhythm');
 
 .imet-section .split-head {
 	display: grid;

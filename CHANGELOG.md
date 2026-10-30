@@ -2,7 +2,30 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## Unreleased
+## 1.1.0 - 2026-10-29
+
+### Added
+
+- New pattern **MBA Category Page** (`imet-theme/mba-category-page`): the Online Master's (MBA) category page from the Figma, built entirely from existing blocks (hero, subnav, highlights, specializations, cost banner, overview, achievements, who-can-join, embassy, career table, analytics, alumni video, cyber banner, testimonials, certificate, FAQ, CTA). The career table gets a four-column variant (`is-four`). New images `mba-usp.jpg`, `mba-certificate.jpg`.
+- Pattern **Home (IMET)** (`patterns/home.php`): the Home hero (badge, heading, lead, button, graduate cards), the "Why choose IMET Worldwide?" section with the advisor form, and the fee / scholarship offer banner.
+- `[imet_advisor_form]` styles (`src/blocks-shared/_advisor-form.scss`); the form itself ships in the `imet-core` plugin.
+- Palette colour `danger` for form errors.
+
+### Changed
+
+- Home styles of `imet/hero` and `imet/highlights` re-skinned to the new Home design (tokens only; saved markup unchanged, so existing pages stay valid but look like the new design).
+- Deploys clear WordPress's cached pattern list, so new patterns appear right after a release.
+- Home page layout rhythm (`src/blocks-shared/_home-rhythm.scss`, scoped to a page that starts with the Home hero): every content section has the same top and bottom padding (48px desktop, 40px laptop and tablet, 32px phone), one section-title size (35px easing to 26px, semi-bold) and one lead size; the "Why choose IMET" header and card track share one left edge on tablet and phone; the alumni videos form a three-column grid down to 700px; video captions keep one size on every device; the testimonial cards sit 20px from the screen edge like every other section.
+- "Top Featured programs" cards scroll: all five cards (AI/ML included) in a row that glides sideways, four in view on desktop, two on tablets, one with a peek on phones, with a 20px gap (16px on tablets and phones) between cards; it pauses on hover, focus and touch, and swiping works. No card is highlighted by default: hovering or focusing a card turns it brand navy.
+- Less empty space under the advisor form: the "Why choose" section's bottom padding is 24px (was 54px), so the form sits about 38px above the fee banner's ribbon as in the Figma, and the banner hands over to the next section's own padding (about 50px instead of 68px); stacked on tablets and phones the gap is 40px.
+- Scrolling card rows (hero graduates, programs, logos, testimonials) no longer show a repeated card: the loop copies the helper adds are hidden while the cards fit in the row and only appear while it scrolls (`is-static`).
+- "Our Success Stories" redesigned to the Figma: eyebrow, title and lead, then four pastel portrait cards (new photos `home-success-1…4.jpg`, cropped from the Figma) that flip on hover or keyboard focus to a navy back with the story, the LinkedIn link and "Read More"; a tap flips them on touch screens. Two columns on tablets, one on phones.
+- Header, footer and the top offer bar are all edited in the block editor (Appearance → Editor → Patterns → Template parts): the offer bar ("Refer a Friend… earn up to $500") is its own global part, **Offer Bar (global)** (`parts/promo-bar.html`), used by the header and insertable anywhere with the Template Part block; the footer (`parts/footer.html`) is real blocks (lists, accordions, images, social links) instead of a locked pattern, and the old `imet-theme/footer` pattern is gone; the menu is the header's Navigation block (25 editable items). The front end is pixel-identical. `[imet_year]` keeps the footer's copyright year current.
+- The fee banner is centred at every width (it was 20px off at laptop and tablet widths); the advisor form's Submit button and text links are 44px tap targets on touch screens.
+- `bin/audit-layout.js`: measures a page at 1440 / 1024 / 768 / 390 px (overflow, section padding, gutters, heading sizes, font usage, tap targets).
+- Built block CSS and JS are versioned by file time (they used the fixed `1.0.0` from `block.json`, so the CDN and browsers kept serving old block styles after a deploy).
+- "Top Featured Doctorate (DBA) & Masters (MBA) Programs" (`imet/specializations` Home style) rebuilt to the Figma, measured to the pixel on the 1440 frame: "Our Programs" eyebrow, four 271 × 135 cards on a yellow-to-lavender band, navy first card, brand-colour hover and focus, "View More" button. New tokens: gradient `programs` and sizes 44, 65, 88, 135, 255, 1102.
+
 
 ### Changed
 
