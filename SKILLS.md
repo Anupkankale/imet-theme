@@ -90,6 +90,18 @@ Note: `IMET_PATH` has **no trailing slash**: write `IMET_PATH . '/assets/...'`.
 A file in `patterns/` with a header (`Title`, `Slug: imet-theme/<name>`, `Categories: imet-sections`, `Viewport Width`). Images:
 `<?php echo esc_url( get_theme_file_uri( 'assets/images/imet/<file>' ) ); ?>`. Tokens only.
 
+### The Home pattern and the advisor form
+`patterns/home.php` ("Home (IMET)") is the Home page: `imet/hero` `is-style-home` (badge, H1, lead, button, `.h-grads` cards), `imet/highlights`
+`is-style-home` ("Why choose": eyebrow, title, lead, `hl-list hl-pills`, `.hl-form#advisor-form`) and `imet/cost-banner` (the global offer banner).
+Its Home styles are tokens only. `[imet_advisor_form]` is rendered by the **imet-core** plugin (`AdvisorForm`); the theme only styles
+`.imet-advisor-form` (`src/blocks-shared/_advisor-form.scss`). Changing the form's markup means changing both sides. The form has no nonce
+on purpose (page cache would expire it): honeypot + same-origin check + rate limit; leads are stored as private `imet_lead` posts.
+Cached pattern list: WordPress keeps a theme's pattern list until the theme `Version` changes, so **bump the version in `style.css` when you add a
+pattern** (the deploy also clears it).
+
+### Header, footer, menu and the offer bar
+All three are template parts edited in the block editor (**Appearance → Editor → Patterns → Template parts**): `parts/header.html` (logo + the Navigation block with the menu items), `parts/footer.html` (real blocks, copyright year via `[imet_year]`) and `parts/promo-bar.html` ("Offer Bar (global)": edit it once and it changes on every page; it can also be dropped into any page with the Template Part block). Editing in the Site Editor saves a copy in the database that overrides the theme file; use "Clear customizations" to go back to the file. Images in a part use root-relative paths (`/wp-content/themes/imet-theme/assets/...`) because parts are plain HTML.
+
 ### Add a block style variation
 `styles/blocks/<slug>.json` (the slug is the filename; class `is-style-<slug>`). The `css` field can't hold media queries or comma selectors; put responsive CSS in SCSS.
 
@@ -110,6 +122,7 @@ npm run test:js           # Jest (uses a silent reporter: add --reporters=defaul
 composer phpcs && composer phpstan
 node bin/verify-blocks.js [--playwright <path>] [page ids]   # editor validity of imet/* blocks (needs WP-CLI + Playwright)
 node bin/shoot.js <dir> <page ids>   &&   node bin/shoot.js --compare <dirA> <dirB>   # visual before/after
+node bin/audit-layout.js <page id>      # spacing, gutters, heading sizes, fonts, tap targets at 1440/1024/768/390
 wp imet migrate <id> --dry-run       # (imet-core) convert Group sections into imet/* blocks
 ```
 

@@ -113,86 +113,125 @@
 	.imet-section.highlights.is-style-wide .wp-block-button__link { min-width: 0; }
 }
 
-/* ---------- Style "Home" (block style, the Home page): grey-blue band, eyebrow + title, outlined gold pills
-   (two per row), button, and the enquiry form in a white card on the right (Home page, 1440 frame). ---------- */
-.imet-section.highlights.is-style-home { padding: 10px 0; background: rgba(20, 35, 75, .06); }
+/* ---------- Style "Home" (block style, the Home page, pattern "Home (IMET)"): white band, eyebrow with a short gold line,
+   title, lead, outlined gold pills and the advisor form in a rounded white card on the right. Tokens only. ---------- */
+.imet-section.highlights.is-style-home {
+	--eyebrow-size: var(--wp--preset--font-size--large);
+	--eyebrow-line: var(--wp--preset--spacing--80);
+	--imet-title-size: var(--wp--preset--font-size--xx-large);
 
-.imet-section.highlights.is-style-home .hl-grid {
-	grid-template-columns: minmax(0, 550px) minmax(0, 1fr);
-	gap: 30px;
-	width: min(1100px, 100% - 40px);
-	margin-inline: auto;
-	padding: 0 74px 0 44px;
+	padding: var(--wp--preset--spacing--54) 0 var(--wp--preset--spacing--24);
+	background: var(--wp--preset--color--white);
 }
 
-.imet-section.highlights.is-style-home .hl-text { padding: 38px 0; }
+.imet-section.highlights.is-style-home .hl-grid {
+	grid-template-columns: minmax(0, 1fr) minmax(0, var(--wp--custom--size--334));
+	gap: var(--wp--preset--spacing--70);
+	align-items: start;
+	width: min(var(--wp--style--global--wide-size), 100% - var(--wp--preset--spacing--40));
+	margin-inline: auto;
+	padding: 0;
+}
 
-.imet-section.highlights.is-style-home .eyebrow-line { margin-bottom: 6px; padding-bottom: 0; }
+.imet-section.highlights.is-style-home .hl-text { padding: 0; }
 
-.imet-section.highlights.is-style-home .title { margin-bottom: 0; line-height: 1.43; }
+.imet-section.highlights.is-style-home .eyebrow-line { margin-bottom: var(--wp--preset--spacing--10); }
+
+.imet-section.highlights.is-style-home .title {
+	margin: 0;
+	font-weight: 700;
+	line-height: 1.25;
+	text-wrap: balance;
+}
+
+.imet-section.highlights.is-style-home .hl-lead {
+	margin: var(--wp--preset--spacing--20) 0 0;
+	font-size: var(--wp--preset--font-size--small);
+	line-height: 1.6;
+}
 
 .imet-section.highlights.is-style-home .hl-list {
 	display: flex;
 	flex-wrap: wrap;
-	gap: 20px;
-	margin: 20px 0;
+	gap: var(--wp--preset--spacing--14);
+	margin: var(--wp--preset--spacing--20) 0 0;
 	max-width: none;
 }
 
 .imet-section.highlights.is-style-home .hl-list li {
 	display: inline-flex;
 	align-items: center;
-	gap: 10px;
-	min-height: 48px;
-	padding: 5px 10px;
-	border: 2px solid var(--gold);
-	border-radius: 300px;
-	font-size: .875rem; /* 14px */
-	line-height: 1.43;
+	gap: var(--wp--preset--spacing--10);
+	min-height: var(--wp--preset--spacing--40);
+	padding: var(--wp--preset--spacing--3) var(--wp--preset--spacing--10);
+	border: var(--wp--custom--size--2) solid var(--wp--preset--color--gold);
+	border-radius: var(--wp--preset--border-radius--pill);
+	color: var(--wp--preset--color--ink);
+	font-size: var(--wp--preset--font-size--small);
+	line-height: 1.3;
 }
 
-.imet-section.highlights.is-style-home .hl-list li::before { position: static; flex: 0 0 32px; }
+.imet-section.highlights.is-style-home .hl-list li::before { position: static; flex: 0 0 var(--wp--preset--spacing--30); height: var(--wp--preset--spacing--30); }
 
+/* A pill that starts with a highlighted word ("100%", "1-on-1") has no icon: the gold chip is its mark. */
 .imet-section.highlights.is-style-home .hl-list li:has(> strong)::before { display: none; }
 
-.imet-section.highlights.is-style-home .hl-list strong { padding: 4px 8px; border-radius: 4px; background: var(--gold); color: #fff; font-weight: 700; line-height: 1.7; }
+.imet-section.highlights.is-style-home .hl-list li > strong {
+	padding: var(--wp--preset--spacing--3) var(--wp--preset--spacing--6);
+	border-radius: var(--wp--preset--border-radius--4);
+	background: var(--wp--preset--color--gold);
+	color: var(--wp--preset--color--white);
+	font-weight: 700;
+	line-height: 1.4;
+}
 
-.imet-section.highlights.is-style-home .hl-list li:not(:has(> strong)) strong { all: unset; }
+/* "Up to" over a bold number ("45% Scholarship Available"). */
+.imet-section.highlights.is-style-home .hl-amount { display: inline-flex; flex-direction: column; line-height: 1; }
 
-.imet-section.highlights.is-style-home .wp-block-buttons { margin: 0; }
+.imet-section.highlights.is-style-home .hl-amount sup { top: 0; font-size: smaller; line-height: 1; vertical-align: baseline; }
+
+.imet-section.highlights.is-style-home .hl-amount strong { font-size: var(--wp--preset--font-size--medium); font-weight: 700; }
+
+.imet-section.highlights.is-style-home .hl-text .wp-block-buttons { margin: var(--wp--preset--spacing--26) 0 0; }
+
+/* Gold icon discs by position for the Home pattern order (scholarship, international, duration, online, cybersecurity, mentoring);
+   the "100%" and "1-on-1" pills use a gold chip instead. Inline SVG, so no extra requests. */
+.imet-section .hl-list.hl-pills li:nth-child(1)::before { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%23cf9123'/%3E%3Ctext x='16' y='22.5' font-size='18' font-weight='700' font-family='Arial,sans-serif' text-anchor='middle' fill='%23fff'%3E$%3C/text%3E%3C/svg%3E"); }
+
+.imet-section .hl-list.hl-pills li:nth-child(2)::before { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%23cf9123'/%3E%3Cg fill='none' stroke='%23fff' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='16' cy='16' r='8.5'/%3E%3Cellipse cx='16' cy='16' rx='3.6' ry='8.5'/%3E%3Cpath d='M7.5 16h17'/%3E%3C/g%3E%3C/svg%3E"); }
+
+.imet-section .hl-list.hl-pills li:nth-child(3)::before { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%23cf9123'/%3E%3Cg fill='none' stroke='%23fff' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='16' cy='16' r='8.5'/%3E%3Cpath d='M16 11v5.2l3.4 2'/%3E%3C/g%3E%3C/svg%3E"); }
+
+.imet-section .hl-list.hl-pills li:nth-child(5)::before { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%23cf9123'/%3E%3Cg fill='none' stroke='%23fff' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='10.5' y='15' width='11' height='8' rx='1.8'/%3E%3Cpath d='M13 15v-2.6a3 3 0 0 1 6 0V15'/%3E%3C/g%3E%3C/svg%3E"); }
 
 .imet-section.highlights.is-style-home .hl-form {
 	align-self: start;
-	margin-top: 30px;
-	padding: 10px 30px 30px;
-	border-radius: 10px;
-	background: #fff;
+	padding: var(--wp--preset--spacing--16) var(--wp--preset--spacing--20) var(--wp--preset--spacing--20);
+	border: 1px solid var(--wp--preset--color--grey-300);
+	border-radius: var(--wp--preset--border-radius--22);
+	background: var(--wp--preset--color--white);
+	box-shadow: var(--wp--preset--shadow--soft);
 }
 
-.imet-section.highlights.is-style-home .hl-form h2 { margin: 0 0 16px; font-size: .9375rem; font-weight: 700; line-height: 1.33; text-align: center; color: #000; }
-
-@media (max-width: 900px) {
-
-	.imet-section.highlights.is-style-home .hl-grid { padding: 0; gap: 0; }
-
-	.imet-section.highlights.is-style-home .hl-text { padding: 28px 0; }
-
-	.imet-section.highlights.is-style-home .hl-form { margin: 0 0 28px; }
-
-	.imet-section.highlights.is-style-home .hl-list { justify-content: center; }
+.imet-section.highlights.is-style-home .hl-form h2 {
+	margin: 0 0 var(--wp--preset--spacing--10);
+	color: var(--wp--preset--color--navy);
+	font-size: var(--wp--preset--font-size--large);
+	font-weight: 700;
+	line-height: 1.3;
+	text-align: center;
 }
 
 @media (max-width: 900px) {
 
-	.imet-section.highlights.is-style-home .eyebrow-line.left { display: inline-block; margin-inline: 0; }
+	.imet-section.highlights.is-style-home .hl-grid { grid-template-columns: minmax(0, 1fr); gap: var(--wp--preset--spacing--32); }
 
-	.imet-section.highlights.is-style-home .eyebrow-line.left::after { content: none; }
+	.imet-section.highlights.is-style-home .eyebrow-line.left { display: inline-block; }
+}
 
-	.imet-section.highlights.is-style-home .hl-grid { grid-template-columns: minmax(0, 1fr); width: calc(100% - 20px); }
+@media (max-width: 640px) {
 
-	.imet-section.highlights.is-style-home .hl-list { flex-direction: column; flex-wrap: nowrap; align-items: stretch; gap: 20px; margin-inline: 0; }
+	.imet-section.highlights.is-style-home { padding: var(--wp--preset--spacing--40) 0 var(--wp--preset--spacing--24); }
 
-	.imet-section.highlights.is-style-home .hl-list li { font-size: 1rem; line-height: 1.4; }
-
-	.imet-section.highlights.is-style-home .hl-text .wp-block-buttons { justify-content: flex-start; }
+	.imet-section.highlights.is-style-home .hl-list { flex-direction: column; flex-wrap: nowrap; align-items: stretch; }
 }

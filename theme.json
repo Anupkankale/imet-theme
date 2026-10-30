@@ -152,6 +152,11 @@
 					"slug": "grey-900",
 					"name": "Grey 900",
 					"color": "#111111"
+				},
+				{
+					"slug": "danger",
+					"name": "Danger",
+					"color": "#b3261e"
 				}
 			]
 		},
@@ -206,7 +211,8 @@
 			"gradient": {
 				"testimonial": "linear-gradient(135deg, #eaebff, #fef3e1)",
 				"specs": "linear-gradient(180deg, #fdf3e3 0%, #d1defe 100%)",
-				"hero": "linear-gradient(135deg, #eaebff, #fef3e1)"
+				"hero": "linear-gradient(135deg, #eaebff, #fef3e1)",
+				"programs": "linear-gradient(90deg, #fbf7dc, #d2d2fe)"
 			},
 			"scroller": {
 				"gap": "26px",
@@ -254,7 +260,14 @@
 				"334": "334px",
 				"380": "380px",
 				"826": "826px",
-				"1012": "1012px"
+				"1012": "1012px",
+				"44": "44px",
+				"65": "65px",
+				"88": "88px",
+				"135": "135px",
+				"255": "255px",
+				"1102": "1102px",
+				"1186": "1186px"
 			},
 			"lineHeight": {
 				"18": "18px",
@@ -941,6 +954,11 @@
 			"name": "footer",
 			"title": "Footer",
 			"area": "footer"
+		},
+		{
+			"name": "promo-bar",
+			"title": "Offer Bar (global)",
+			"area": "uncategorized"
 		}
 	]
 }
