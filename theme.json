@@ -954,6 +954,11 @@
 			"name": "footer",
 			"title": "Footer",
 			"area": "footer"
+		},
+		{
+			"name": "promo-bar",
+			"title": "Offer Bar (global)",
+			"area": "uncategorized"
 		}
 	]
 }
