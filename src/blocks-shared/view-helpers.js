@@ -129,12 +129,16 @@ export function marquee(row, items, { speed = 40, alwaysMove = false } = {}) {
 			row.clientWidth + 2
 		);
 	};
+	// While the originals fit in the row nothing scrolls, so the copies would only show as repeated items: hide them.
+	const syncStatic = () => row.classList.toggle('is-static', !overflows());
+	syncStatic();
 	let pos = 0;
 	let last = 0;
 	let paused = false;
 	let visible = false;
 	const tick = (now) => {
 		window.requestAnimationFrame(tick);
+		syncStatic();
 		const dt = last ? Math.min(now - last, 100) : 0;
 		last = now;
 		const w = loopWidth();
