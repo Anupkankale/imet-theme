@@ -163,3 +163,10 @@
 
 	.imet-section.overview.is-style-photo .ov-grid > .wp-block-buttons .wp-block-button__link { min-width: 0; }
 }
+
+/* Style "Visual" (MBA page): the section is the heading and one photo with its floating chips, no benefit list. */
+.imet-section.overview.is-visual .benefit-list { display: none; }
+
+.imet-section.overview.is-visual .ov-grid { grid-template-columns: minmax(0, 1fr); padding-left: 0; }
+
+.imet-section.overview.is-visual .ov-visual img { max-width: var(--wp--custom--size--450); margin-inline: auto; }
