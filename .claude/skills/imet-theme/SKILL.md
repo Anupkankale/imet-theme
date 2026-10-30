@@ -104,6 +104,9 @@ on purpose (page cache would expire it): honeypot + same-origin check + rate lim
 Cached pattern list: WordPress keeps a theme's pattern list until the theme `Version` changes, so **bump the version in `style.css` when you add a
 pattern** (the deploy also clears it).
 
+### Header, footer, menu and the offer bar
+All three are template parts edited in the block editor (**Appearance → Editor → Patterns → Template parts**): `parts/header.html` (logo + the Navigation block with the menu items), `parts/footer.html` (real blocks, copyright year via `[imet_year]`) and `parts/promo-bar.html` ("Offer Bar (global)": edit it once and it changes on every page; it can also be dropped into any page with the Template Part block). Editing in the Site Editor saves a copy in the database that overrides the theme file; use "Clear customizations" to go back to the file. Images in a part use root-relative paths (`/wp-content/themes/imet-theme/assets/...`) because parts are plain HTML.
+
 ### Add a block style variation
 `styles/blocks/<slug>.json` (the slug is the filename; class `is-style-<slug>`). The `css` field can't hold media queries or comma selectors; put responsive CSS in SCSS.
 

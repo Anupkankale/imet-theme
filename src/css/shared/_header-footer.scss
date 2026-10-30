@@ -2,7 +2,7 @@
 
 /* stylelint-disable selector-class-pattern -- WordPress core block class names use BEM (wp-block-button__link). */
 // Header and footer. Shared by the front end (frontend/styles.scss) and the block editor (editor/editor.scss).
-// Layout and colours live in the block markup (parts/header.html, patterns/footer.php); this is only what blocks
+// Layout and colours live in the block markup (parts/header.html, parts/promo-bar.html, parts/footer.html); this is only what blocks
 // can't express: the sticky pill, the shadow and the responsive switches.
 
 
