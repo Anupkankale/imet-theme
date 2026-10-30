@@ -1,6 +1,7 @@
 import {
 	each,
 	accordion,
+	marquee,
 	reduceMotion,
 } from '../../src/blocks-shared/view-helpers';
 
@@ -79,5 +80,54 @@ describe('accordion', () => {
 		});
 		first.querySelector('summary').dispatchEvent(event);
 		expect(event.defaultPrevented).toBe(true);
+	});
+});
+
+describe('marquee', () => {
+	beforeEach(() => {
+		window.matchMedia = jest.fn(() => ({ matches: false }));
+		window.IntersectionObserver = class {
+			observe() {}
+		};
+		window.requestAnimationFrame = jest.fn();
+		document.body.innerHTML =
+			'<div class="row"><a class="item" href="#a">a</a><a class="item" href="#b">b</a></div>';
+	});
+
+	const build = (options) => {
+		const row = document.querySelector('.row');
+		marquee(row, [...row.querySelectorAll('.item')], options);
+		return row;
+	};
+
+	test('adds a hidden-from-assistive-tech copy of every item', () => {
+		const row = build();
+		const copies = row.querySelectorAll('.is-clone');
+
+		expect(copies).toHaveLength(2);
+		copies.forEach((copy) => {
+			expect(copy.getAttribute('aria-hidden')).toBe('true');
+			expect(copy.getAttribute('tabindex')).toBeNull();
+			expect(copy.getAttribute('href')).toBe(
+				copy.textContent === 'a' ? '#a' : '#b'
+			);
+		});
+		expect(row.classList.contains('is-marquee')).toBe(true);
+	});
+
+	test('a row whose items fit is static, so the copies stay hidden', () => {
+		expect(build().classList.contains('is-static')).toBe(true);
+	});
+
+	test('a row that always moves is never static', () => {
+		expect(
+			build({ alwaysMove: true }).classList.contains('is-static')
+		).toBe(false);
+	});
+
+	test('does nothing for reduced motion or a single item', () => {
+		window.matchMedia = jest.fn(() => ({ matches: true }));
+
+		expect(build().querySelectorAll('.is-clone')).toHaveLength(0);
 	});
 });

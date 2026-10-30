@@ -70,3 +70,6 @@ $imet-space: 0, 8, 16, 24, 32, 48, 64;
 
 	.imet-section .u-hide-desktop { display: none !important; }
 }
+
+/* A marquee row whose items all fit does not scroll: its loop copies stay hidden so nothing shows twice. */
+.is-marquee.is-static .is-clone { display: none; }
