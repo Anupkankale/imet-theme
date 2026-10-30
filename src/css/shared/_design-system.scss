@@ -89,6 +89,11 @@ $content: ':is(.wp-block-post-content, .is-root-container):not(.imet-footer *, .
 	text-underline-offset: var(--wp--preset--spacing--6);
 }
 
+// Touch screens: a text link is still a 44px target.
+@media (max-width: 1024px) {
+	#{$content} .btn-link .wp-block-button__link { min-height: var(--wp--custom--size--44); }
+}
+
 #{$content} :is(.btn-block, .wp-block-button__width-100),
 #{$content} :is(.btn-block, .wp-block-button__width-100) .wp-block-button__link {
 	width: 100%;
