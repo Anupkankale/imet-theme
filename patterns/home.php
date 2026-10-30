@@ -353,7 +353,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:paragraph -->
 
 <!-- wp:heading {"className":"title"} -->
-<h2 class="wp-block-heading title">Top Featured Doctorate (DBA) &amp; Masters (MBA) Programs</h2>
+<h2 class="wp-block-heading title">Top Featured Doctorate (DBA) &amp; Master’s (MBA) Programs</h2>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"className":"sub"} -->
@@ -372,6 +372,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:paragraph -->
 <!-- wp:paragraph {"className":"spec-card"} -->
 <p class="spec-card"><a href="https://imetworldwide.com/online-masters-mba-project-management-program/"><span class="sp-title">MBA in Project Management</span><span class="sp-desc">Master structured delivery, stakeholder control, and execution of complex business initiatives.</span></a></p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"spec-card"} -->
+<p class="spec-card"><a href="https://imetworldwide.com/online-doctorate-dba-artificial-intelligence-ml/"><span class="sp-title">Doctorate in AI/ML</span><span class="sp-desc">Establish thought leadership in AI strategy, advanced analytics, and intelligent enterprise systems.</span></a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
