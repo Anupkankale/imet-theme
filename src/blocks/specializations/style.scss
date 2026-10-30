@@ -109,8 +109,8 @@
 }
 
 /* ---------- Style "Home" (block style, the Home page, pattern "Home (IMET)"): eyebrow, title and sub on a yellow-to-lavender
-   band, a scrolling row of white cards (title, arrow, line, description; four in view) and a "View More" button. The first card is navy; hovering
-   or focusing any card turns it navy (and the first one white again). Sizes are the Figma's (1440 frame). Tokens only. ---------- */
+   band, a scrolling row of white cards (title, arrow, line, description; four in view, spaced apart) and a "View More" button.
+   Hovering or focusing a card turns it brand navy; none is highlighted by default. Tokens only. ---------- */
 .imet-section.specs.is-style-home {
 	--eyebrow-line: var(--wp--custom--size--88);
 
@@ -125,11 +125,11 @@
 .imet-section.specs.is-style-home .sub { max-width: none; margin-bottom: 0; }
 
 .imet-section.specs.is-style-home .spec-grid {
-	--spec-gap: var(--wp--preset--spacing--6);
+	--spec-gap: var(--wp--preset--spacing--20);
 
 	display: flex;
 	gap: var(--spec-gap);
-	width: min(var(--wp--custom--size--1102), 100% - var(--wp--preset--spacing--40));
+	width: min(var(--wp--style--global--wide-size), 100% - var(--wp--preset--spacing--40));
 	margin: var(--wp--preset--spacing--16) auto 0;
 	padding: 0;
 	overflow-x: auto;
@@ -203,28 +203,15 @@
 	line-height: 1.33;
 }
 
-/* Brand colour: the first card by default, any card on hover / keyboard focus. */
-.imet-section.specs.is-style-home .spec-card:first-child a,
+/* Brand colour on hover and keyboard focus only: no card is highlighted by default. */
 .imet-section.specs.is-style-home .spec-card a:is(:hover, :focus-visible) {
 	background: var(--wp--preset--color--navy-band);
 	color: var(--wp--preset--color--white);
 }
 
-.imet-section.specs.is-style-home .spec-card:first-child a::after,
 .imet-section.specs.is-style-home .spec-card a:is(:hover, :focus-visible)::after { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Crect width='20' height='20' rx='3' fill='%23fff'/%3E%3Cpath d='M6.5 13.5l7-7M7.5 6.5h6v6' fill='none' stroke='%2314234b' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); }
 
-.imet-section.specs.is-style-home .spec-card:first-child .sp-desc,
 .imet-section.specs.is-style-home .spec-card a:is(:hover, :focus-visible) .sp-desc { border-top-color: var(--wp--preset--color--grey-200); }
-
-/* While the row is hovered or has focus inside, the first card gives its colour to the card in use. */
-.imet-section.specs.is-style-home .spec-grid:is(:hover, :has(a:focus-visible)) .spec-card:first-child a:not(:hover, :focus-visible) {
-	background: var(--wp--preset--color--white);
-	color: var(--wp--preset--color--ink);
-}
-
-.imet-section.specs.is-style-home .spec-grid:is(:hover, :has(a:focus-visible)) .spec-card:first-child a:not(:hover, :focus-visible)::after { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Crect width='20' height='20' rx='3' fill='%2314234b'/%3E%3Cpath d='M6.5 13.5l7-7M7.5 6.5h6v6' fill='none' stroke='%23fff' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); }
-
-.imet-section.specs.is-style-home .spec-grid:is(:hover, :has(a:focus-visible)) .spec-card:first-child a:not(:hover, :focus-visible) .sp-desc { border-top-color: var(--wp--preset--color--grey-900); }
 
 .imet-section.specs.is-style-home .wp-block-buttons { justify-content: center; margin-top: calc(var(--wp--preset--spacing--20) + 1px); }
 
@@ -237,7 +224,7 @@
 
 @media (max-width: 900px) {
 
-	.imet-section.specs.is-style-home .spec-grid { --spec-gap: var(--wp--preset--spacing--10); }
+	.imet-section.specs.is-style-home .spec-grid { --spec-gap: var(--wp--preset--spacing--16); }
 
 	.imet-section.specs.is-style-home .spec-card { flex-basis: calc((100% - var(--spec-gap)) / 2); }
 }
