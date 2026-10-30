@@ -109,7 +109,7 @@
 }
 
 /* ---------- Style "Home" (block style, the Home page, pattern "Home (IMET)"): eyebrow, title and sub on a yellow-to-lavender
-   band, four white cards (title, arrow, line, description) and a "View More" button. The first card is navy; hovering
+   band, a scrolling row of white cards (title, arrow, line, description; four in view) and a "View More" button. The first card is navy; hovering
    or focusing any card turns it navy (and the first one white again). Sizes are the Figma's (1440 frame). Tokens only. ---------- */
 .imet-section.specs.is-style-home {
 	--eyebrow-line: var(--wp--custom--size--88);
@@ -125,18 +125,24 @@
 .imet-section.specs.is-style-home .sub { max-width: none; margin-bottom: 0; }
 
 .imet-section.specs.is-style-home .spec-grid {
-	display: grid;
-	grid-template-columns: repeat(4, minmax(0, 1fr));
-	gap: var(--wp--preset--spacing--6);
+	--spec-gap: var(--wp--preset--spacing--6);
+
+	display: flex;
+	gap: var(--spec-gap);
 	width: min(var(--wp--custom--size--1102), 100% - var(--wp--preset--spacing--40));
 	margin: var(--wp--preset--spacing--16) auto 0;
 	padding: 0;
-	overflow: visible;
+	overflow-x: auto;
+	scrollbar-width: none;
 }
 
-.imet-section.specs.is-style-home .spec-card { flex: none; margin: 0; }
+.imet-section.specs.is-style-home .spec-grid::-webkit-scrollbar { display: none; }
 
-.imet-section.specs.is-style-home .spec-card.is-clone { display: none; }
+/* Four cards in view; the row glides sideways (view.js) and pauses on hover, focus or touch. Swiping and trackpads work too. */
+.imet-section.specs.is-style-home .spec-card {
+	flex: 0 0 calc((100% - 3 * var(--spec-gap)) / 4);
+	margin: 0;
+}
 
 .imet-section.specs.is-style-home .spec-card a {
 	position: relative;
@@ -231,14 +237,18 @@
 
 @media (max-width: 900px) {
 
-	.imet-section.specs.is-style-home .spec-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--wp--preset--spacing--10); }
+	.imet-section.specs.is-style-home .spec-grid { --spec-gap: var(--wp--preset--spacing--10); }
+
+	.imet-section.specs.is-style-home .spec-card { flex-basis: calc((100% - var(--spec-gap)) / 2); }
 }
 
 @media (max-width: 560px) {
 
 	.imet-section.specs.is-style-home { padding: var(--wp--preset--spacing--32) 0; }
 
-	.imet-section.specs.is-style-home .spec-grid { grid-template-columns: 1fr; width: calc(100% - var(--wp--preset--spacing--24)); }
+	.imet-section.specs.is-style-home .spec-grid { width: calc(100% - var(--wp--preset--spacing--24)); }
+
+	.imet-section.specs.is-style-home .spec-card { flex-basis: 82%; }
 
 	.imet-section.specs.is-style-home .spec-card a { min-height: 0; padding-bottom: var(--wp--preset--spacing--14); }
 
