@@ -120,7 +120,7 @@
 	--eyebrow-line: var(--wp--preset--spacing--80);
 	--imet-title-size: var(--wp--preset--font-size--xx-large);
 
-	padding: var(--wp--preset--spacing--54) 0;
+	padding: var(--wp--preset--spacing--54) 0 var(--wp--preset--spacing--24);
 	background: var(--wp--preset--color--white);
 }
 
@@ -231,7 +231,7 @@
 
 @media (max-width: 640px) {
 
-	.imet-section.highlights.is-style-home { padding: var(--wp--preset--spacing--40) 0; }
+	.imet-section.highlights.is-style-home { padding: var(--wp--preset--spacing--40) 0 var(--wp--preset--spacing--24); }
 
 	.imet-section.highlights.is-style-home .hl-list { flex-direction: column; flex-wrap: nowrap; align-items: stretch; }
 }
