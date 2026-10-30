@@ -18,6 +18,15 @@ $home: ".wp-block-post-content:has(> .imet-section.hero.is-style-home)";
 
 #{$home} > .imet-section:not(.hero, .highlights, .specs, .cost-banner) { padding-block: var(--imet-section-y); }
 
+/* The fee banner sits close under the "Why choose" form and hands over to the next section's own padding. */
+#{$home} > .imet-section.cost-banner { margin-bottom: 0; }
+
+/* Stacked banner (no ribbon poking up): a smaller gap under the form. */
+@media (max-width: 900px) {
+
+	#{$home} > .imet-section.cost-banner { margin-top: var(--wp--preset--spacing--16); }
+}
+
 /* Section titles: 35px on desktop, easing down to 26px on phones (the x-large size token), semi-bold. */
 #{$home} > .imet-section:not(.hero, .highlights, .cta-wrap, .cert) .title {
 	font-size: var(--wp--preset--font-size--x-large);
