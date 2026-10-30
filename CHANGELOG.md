@@ -6,6 +6,7 @@ All notable changes to this project are documented in this file. The format is b
 
 ### Added
 
+- New pattern **MBA Category Page** (`imet-theme/mba-category-page`): the Online Master's (MBA) category page from the Figma, built entirely from existing blocks (hero, subnav, highlights, specializations, cost banner, overview, achievements, who-can-join, embassy, career table, analytics, alumni video, cyber banner, testimonials, certificate, FAQ, CTA). The career table gets a four-column variant (`is-four`). New images `mba-usp.jpg`, `mba-certificate.jpg`.
 - Pattern **Home (IMET)** (`patterns/home.php`): the Home hero (badge, heading, lead, button, graduate cards), the "Why choose IMET Worldwide?" section with the advisor form, and the fee / scholarship offer banner.
 - `[imet_advisor_form]` styles (`src/blocks-shared/_advisor-form.scss`); the form itself ships in the `imet-core` plugin.
 - Palette colour `danger` for form errors.

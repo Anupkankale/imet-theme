@@ -75,6 +75,13 @@
 
 .imet-section .ct-more .wp-block-button__link { min-width: 180px; }
 
+/* Four-column variant (MBA page): same table, one column fewer. Only above the tablet width, where the
+   2-column and 1-column layouts below take over. */
+@media (min-width: 1001px) {
+
+	.imet-section.career.is-four .career-table { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
 @media (max-width: 1000px) {
 
 	.imet-section .career-table { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: none; }
