@@ -1,0 +1,59 @@
+/* Location page variants (imet-theme/location-page). Each is opt-in through a class on the section, so the other pages keep
+   their own look: .is-card (FAQ as one soft card), .is-light (achievements on a pale gradient), .is-band (About IMET on
+   a navy band) and .is-wide (the "Publish your research" banner edge to edge). Tokens only. */
+
+/* ---------- FAQ as one card (.faq.is-card) ---------- */
+.imet-section.faq.is-card .faq-acc {
+	width: min(var(--wp--custom--size--916), 100%);
+	padding: var(--wp--preset--spacing--20) var(--wp--preset--spacing--30);
+	border-radius: var(--wp--preset--border-radius--16);
+	background: var(--wp--preset--color--peach);
+}
+
+.imet-section.faq.is-card .faq-acc details { border-bottom: 0; }
+
+.imet-section.faq.is-card .faq-acc summary { justify-content: center; text-align: center; }
+
+.imet-section.faq.is-card .faq-acc details[open] summary { border-bottom: 1px solid var(--wp--preset--color--ink); }
+
+/* ---------- Achievements, pale (.achieve.is-light) ---------- */
+.imet-section.achieve.is-light {
+	background: linear-gradient(90deg, var(--wp--preset--color--cream), var(--wp--preset--color--sky));
+	border-radius: 0;
+	color: var(--wp--preset--color--navy);
+}
+
+.imet-section.achieve.is-light :is(h2, .count, .count-label) { color: var(--wp--preset--color--navy); }
+
+.imet-section.achieve.is-light::before,
+.imet-section.achieve.is-light::after { content: none; }
+
+/* ---------- About IMET on a navy band (.about-card.is-band) ---------- */
+.imet-section.about-card.is-band {
+	background: var(--wp--preset--color--navy-band);
+	color: var(--wp--preset--color--white);
+}
+
+.imet-section.about-card.is-band :is(.eyebrow-line, .title, .sub) { color: var(--wp--preset--color--white); }
+
+.imet-section.about-card.is-band .eyebrow-line { color: var(--wp--preset--color--gold); }
+
+.imet-section.about-card.is-band .about-box { display: block; width: min(var(--wp--custom--size--1102), 100%); padding: 0; background: none; }
+
+.imet-section.about-card.is-band .about-ticks { columns: 2; column-gap: var(--wp--preset--spacing--40); }
+
+.imet-section.about-card.is-band .about-box li { color: var(--wp--preset--color--white); break-inside: avoid; }
+
+.imet-section.about-card.is-band .about-key { display: none; }
+
+@media (max-width: 640px) {
+
+	.imet-section.about-card.is-band .about-ticks { columns: 1; }
+}
+
+/* ---------- "Publish your research" edge to edge (.cta-wrap.is-publish.is-wide) ---------- */
+.imet-section.cta-wrap.is-style-home.is-publish.is-wide { padding: 0; background: var(--wp--preset--color--navy-footer); }
+
+.imet-section.cta-wrap.is-style-home.is-publish.is-wide .imet-container { width: min(var(--wp--custom--size--1186), 100% - var(--wp--preset--spacing--40)); }
+
+.imet-section.cta-wrap.is-style-home.is-publish.is-wide .cta { border-radius: 0; }
