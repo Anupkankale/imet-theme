@@ -15,7 +15,6 @@ use IMET\Theme\Core\{Assets, Components, FeatureRegistry, Logger, Menu, Template
 use IMET\Theme\Modules\Blocks\Blocks;
 
 use IMET\Theme\Modules\Media\{Images, Video};
-use IMET\Theme\Modules\Shortcodes\CurrentYear;
 
 /**
  * Class Main
@@ -41,7 +40,7 @@ class Main {
 		Blocks::class,
 		Images::class,
 		Video::class,
-		CurrentYear::class,
+		Modules\Shortcodes\CurrentYear::class,
 	];
 
 	/**
