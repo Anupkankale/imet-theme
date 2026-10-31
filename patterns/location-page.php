@@ -70,6 +70,33 @@ if ( ! defined( 'ABSPATH' ) ) {
 [imet_advisor_form]
 <!-- /wp:shortcode --></div>
 <!-- /wp:group --></div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"imet-container","layout":{"type":"default"}} -->
+<div class="wp-block-group imet-container"><!-- wp:group {"className":"ac-card","layout":{"type":"default"}} -->
+<div class="wp-block-group ac-card"><!-- wp:heading {"className":"ac-title"} -->
+<h2 class="wp-block-heading ac-title">Institutional Recognition &amp; Credential Evaluation</h2>
+<!-- /wp:heading -->
+<!-- wp:group {"className":"ac-logos","layout":{"type":"default"}} -->
+<div class="wp-block-group ac-logos"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ac-logo"} -->
+<figure class="wp-block-image size-full ac-logo"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/logo-qatar-mofa.jpg" ) ); ?>" alt="Ministry of Foreign Affairs, State of Qatar"/></figure>
+<!-- /wp:image -->
+<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ac-logo"} -->
+<figure class="wp-block-image size-full ac-logo"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/logo-ministry-education.webp" ) ); ?>" alt="Ministry of Education"/></figure>
+<!-- /wp:image -->
+<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ac-logo"} -->
+<figure class="wp-block-image size-full ac-logo"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/logo-wes.webp" ) ); ?>" alt="World Education Services"/></figure>
+<!-- /wp:image -->
+<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ac-logo"} -->
+<figure class="wp-block-image size-full ac-logo"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/logo-mca.webp" ) ); ?>" alt="Ministry of Corporate Affairs"/></figure>
+<!-- /wp:image -->
+<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ac-logo"} -->
+<figure class="wp-block-image size-full ac-logo"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/logo-mofa.webp" ) ); ?>" alt="Ministry of Foreign Affairs"/></figure>
+<!-- /wp:image -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</div>
 <!-- /wp:group --></section>
 <!-- /wp:imet/hero -->
 <!-- wp:imet/subnav {"align":"full","anchor":"subnav"} -->
