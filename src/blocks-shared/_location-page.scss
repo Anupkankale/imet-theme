@@ -57,3 +57,16 @@
 .imet-section.cta-wrap.is-style-home.is-publish.is-wide .imet-container { width: min(var(--wp--custom--size--1186), 100% - var(--wp--preset--spacing--40)); }
 
 .imet-section.cta-wrap.is-style-home.is-publish.is-wide .cta { border-radius: 0; }
+
+/* ---------- Tab panel as separate cards (.tabs.is-cards) ---------- */
+.imet-section.tabs.is-cards .tab-panel { padding: 0; background: none; }
+
+.imet-section.tabs.is-cards .tab-panel ul { align-items: start; gap: var(--wp--preset--spacing--10); }
+
+.imet-section.tabs.is-cards .tab-panel li {
+	padding: var(--wp--preset--spacing--20) var(--wp--preset--spacing--20) var(--wp--preset--spacing--20) var(--wp--preset--spacing--50);
+	border-radius: var(--wp--preset--border-radius--22);
+	background: var(--wp--preset--color--card);
+}
+
+.imet-section.tabs.is-cards .tab-panel li::before { left: var(--wp--preset--spacing--20); top: var(--wp--preset--spacing--24); }
