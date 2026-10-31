@@ -28,7 +28,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <h1 class="wp-block-heading">Online DBA in<br>Cybersecurity Program</h1>
 <!-- /wp:heading -->
 <!-- wp:paragraph {"className":"hero-lead"} -->
-<p class="hero-lead">The online doctorate in cybersecurity program helps senior tech professionals to strengthen their Leadership skills while aligning Cybersecurity prospects with business goals</p>
+<p class="hero-lead">Pursue a globally recognized Doctorate Program (DBA), tailored for Senior IT Leaders and CXOs ready to turn their industry experience into thought leadership, boardroom influence, and digital visibility.</p>
 <!-- /wp:paragraph -->
 <!-- wp:group {"className":"h-stats","layout":{"type":"default"}} -->
 <div class="wp-block-group h-stats"><!-- wp:group {"className":"h-stat","layout":{"type":"default"}} -->
@@ -36,7 +36,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <p class="h-num">12-24</p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph {"className":"h-label"} -->
-<p class="h-label">Month Program<br>Duration</p>
+<p class="h-label">Month Duration<br>Months</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 <!-- wp:group {"className":"h-stat","layout":{"type":"default"}} -->
@@ -44,7 +44,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <p class="h-num">100%</p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph {"className":"h-label"} -->
-<p class="h-label">Online Study<br>Format</p>
+<p class="h-label">Online</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 <!-- wp:group {"className":"h-stat","layout":{"type":"default"}} -->
@@ -52,7 +52,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <p class="h-num"><sub>upto</sub>45%</p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph {"className":"h-label"} -->
-<p class="h-label">Scholarships &amp;<br>Fees</p>
+<p class="h-label">Scholarships &amp;<br>Feed</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group -->
@@ -122,6 +122,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:list-item -->
 <!-- wp:list-item -->
 <li><strong>Thesis Support:</strong> Full guidance on industry-focused cybersecurity research &amp; dissertation.</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><strong>Research Papers:</strong> Publication Assistance for international journals like IEEE, Google Scholar citations.</li>
 <!-- /wp:list-item -->
 <!-- wp:list-item -->
 <li><strong>Academic Outcome:</strong> Earn the prestigious ‘Dr.’ prefix and global recognition with an online doctorate in cybersecurity</li>
