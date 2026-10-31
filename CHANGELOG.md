@@ -6,6 +6,7 @@ All notable changes to this project are documented in this file. The format is b
 
 ### Added
 
+- Phone spacing on every page: one 32px room above and below each content section (course, MBA, location and landing pages were 48px or mixed), one header-to-content gap, one gap for stacked cards, highlight lists share one text size and gap, more room above the fee banner heading.
 - Location Page: the "Institutional Recognition & Credential Evaluation" card now sits under the dark hero, overlapping its bottom edge as in the Figma.
 - Phone and tablet consistency on every page: section titles share one weight (600) and size, eyebrows one weight, forced line breaks in headings and lead text no longer leave a lone word (new `LineBreaks` module marks them, CSS hides them on phones), FAQ rows and "View More" links are 44px tall, and the "Publish your research" banner is centred. New `_responsive.scss`.
 - New pattern **Location Page** (`imet-theme/location-page`): the DBA city/country page from the Figma, built from existing blocks plus four opt-in variants: FAQ card (`is-card`), pale achievements (`is-light`), navy About band (`is-band`) and an edge-to-edge publish banner (`is-wide`). Replace `[City]` in the heading with the place. New image `loc-highlights.jpg`.

@@ -31,4 +31,27 @@
 	.imet-section.cta-wrap.is-style-home.is-publish .cta { min-height: 0; align-items: center; text-align: center; }
 
 	.imet-section.cta-wrap.is-style-home.is-publish .cta-text { text-align: center; }
+
+	/* One vertical rhythm on phones: every content section has the same room above and below (the Home page already used 32px),
+	   a section header sits the same distance above its content, and stacked cards share one gap. */
+	body .imet-section:is(.section, .highlights, .cta-wrap) { padding-block: var(--wp--preset--spacing--32); }
+
+	.imet-section .sec-head { margin-bottom: var(--wp--preset--spacing--24); }
+
+	.imet-section :is(.sub, .cert-sub, .cta-sub) { margin-bottom: var(--wp--preset--spacing--24); }
+
+	.imet-section :is(.benefit-list, .step-grid, .bento, .spec-grid) { gap: var(--wp--preset--spacing--16); }
+
+	/* Variants that set their own padding (course pages) join the same rhythm. */
+	body .imet-section:is(.overview.is-style-photo, .tabs, .join.is-style-boxed) { padding-block: var(--wp--preset--spacing--32); }
+
+	/* Highlight lists: the same text size and gap on every page, and a clear space before the picture. */
+	body .imet-section.highlights.highlights .hl-list { gap: var(--wp--preset--spacing--16); margin-block: var(--wp--preset--spacing--24); }
+
+	body .imet-section.highlights.highlights .hl-list li { font-size: var(--wp--preset--font-size--body); line-height: 1.45; }
+
+	.imet-section .hl-visual { padding-top: var(--wp--preset--spacing--16); }
+
+	/* Fee banner: room above its heading. */
+	.imet-section.cost-banner .cost-left { padding-top: var(--wp--preset--spacing--32); }
 }
