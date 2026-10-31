@@ -107,6 +107,9 @@ pattern** (the deploy also clears it).
 ### Header, footer, menu and the offer bar
 All three are template parts edited in the block editor (**Appearance → Editor → Patterns → Template parts**): `parts/header.html` (logo + the Navigation block with the menu items), `parts/footer.html` (real blocks, copyright year via `[imet_year]`) and `parts/promo-bar.html` ("Offer Bar (global)": edit it once and it changes on every page; it can also be dropped into any page with the Template Part block). Editing in the Site Editor saves a copy in the database that overrides the theme file; use "Clear customizations" to go back to the file. Images in a part use root-relative paths (`/wp-content/themes/imet-theme/assets/...`) because parts are plain HTML.
 
+### Menu links (header and footer)
+Links are managed in **Appearance > Menus**, not in the template parts. Locations: `primary` (Header menu), `footer-main`, `footer-courses`, `footer-mba`, `footer-dba`, `footer-countries` (registered in `Menu`). `MenuSeeder` creates starting menus from `DefaultMenus` once (never over an assigned menu). `MenuRenderer` swaps the items of a Navigation or List block whose class contains `imet-menu-<location>` for the assigned menu, printed by `NavWalker` in the core Navigation markup; with no menu assigned the block prints as saved. New footer column = register a location in `Menu`, add it to `DefaultMenus`, add `imet-menu-<location>` to the List block (comment and `<ul>` class). REST: `/wp/v2/menus`, `/menu-items`, `/menu-locations`.
+
 ### Add a block style variation
 `styles/blocks/<slug>.json` (the slug is the filename; class `is-style-<slug>`). The `css` field can't hold media queries or comma selectors; put responsive CSS in SCSS.
 

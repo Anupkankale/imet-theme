@@ -42,6 +42,8 @@ class Main {
 		Video::class,
 		Modules\Shortcodes\CurrentYear::class,
 		Modules\Typography\LineBreaks::class,
+		Modules\Menus\MenuSeeder::class,
+		Modules\Menus\MenuRenderer::class,
 	];
 
 	/**
