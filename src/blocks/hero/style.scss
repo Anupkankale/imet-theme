@@ -559,7 +559,7 @@
 }
 
 .imet-section.hero.is-style-home .hero-lead {
-	max-width: var(--wp--custom--size--1012);
+	max-width: var(--wp--custom--size--1102);
 	margin: var(--wp--preset--spacing--16) auto 0;
 	font-size: var(--wp--preset--font-size--medium);
 	line-height: 1.5;
@@ -582,6 +582,14 @@
 .imet-section .h-grads::-webkit-scrollbar { display: none; }
 
 .imet-section .h-grad { flex: 0 0 var(--wp--custom--size--214); margin: 0; }
+
+/* Wide screens: five photo cards share the row evenly (they were 214px each and the fifth was clipped by a few pixels). */
+@media (min-width: 1025px) {
+
+	.imet-section .h-grads { width: min(var(--wp--custom--size--1186), 100% - var(--wp--preset--spacing--40)); }
+
+	.imet-section .h-grad { flex: 1 1 0; min-width: 0; }
+}
 
 .imet-section .h-grad img { display: block; width: 100%; height: auto; }
 
