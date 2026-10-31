@@ -182,11 +182,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:image --></div>
 <!-- /wp:group -->
 
-<!-- wp:buttons -->
-<div class="wp-block-buttons"><!-- wp:button {"className":"btn-navy btn-sm"} -->
-<div class="wp-block-button btn-navy btn-sm"><a class="wp-block-button__link wp-element-button" href="https://imetworldwide.com/accreditation-and-recognition/">Verify Accreditations &amp; Global Standing</a></div>
-<!-- /wp:button --></div>
-<!-- /wp:buttons --></div>
+</div>
 <!-- /wp:group --></section>
 <!-- /wp:imet/embassy -->
 
