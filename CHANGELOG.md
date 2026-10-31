@@ -6,6 +6,7 @@ All notable changes to this project are documented in this file. The format is b
 
 ### Added
 
+- New pattern **Location Page** (`imet-theme/location-page`): the DBA city/country page from the Figma, built from existing blocks plus four opt-in variants: FAQ card (`is-card`), pale achievements (`is-light`), navy About band (`is-band`) and an edge-to-edge publish banner (`is-wide`). Replace `[City]` in the heading with the place. New image `loc-highlights.jpg`.
 - MBA Category Page matched closer to the Figma: six specialization cards in one row (`is-style-six`), the overview section as one photo (`is-visual`), a narrower four-column table, the real Highlights and Qatar-logo images, a compact advisor form, two alumni thumbnails without on-image captions, semi-bold eyebrows (scope class `is-style-mba` on the hero).
 - New pattern **MBA Category Page** (`imet-theme/mba-category-page`): the Online Master's (MBA) category page from the Figma, built entirely from existing blocks (hero, subnav, highlights, specializations, cost banner, overview, achievements, who-can-join, embassy, career table, analytics, alumni video, cyber banner, testimonials, certificate, FAQ, CTA). The career table gets a four-column variant (`is-four`). New images `mba-usp.jpg`, `mba-certificate.jpg`.
 - Pattern **Home (IMET)** (`patterns/home.php`): the Home hero (badge, heading, lead, button, graduate cards), the "Why choose IMET Worldwide?" section with the advisor form, and the fee / scholarship offer banner.
