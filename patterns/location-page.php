@@ -210,8 +210,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- wp:paragraph {"className":"spec-card"} -->
 <p class="spec-card"><a href="https://imetworldwide.com/online-doctorate-it-governance-risk-compliance/">DBA in IT Governance</a></p>
 <!-- /wp:paragraph --></div>
-<!-- /wp:group --></section>
-<!-- /wp:imet/specializations -->
+<!-- /wp:group -->
+<!-- wp:buttons {"className":"center"} -->
+<div class="wp-block-buttons center"><!-- wp:button {"className":"btn-navy btn-md"} -->
+<div class="wp-block-button btn-navy btn-md"><a class="wp-block-button__link wp-element-button" href="#advisor-form">Talk to a Doctoral Advisor</a></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons -->
+</section>
 <!-- wp:imet/faq {"align":"full","className":"is-card"} -->
 <section class="wp-block-imet-faq alignfull is-card imet-section section faq"><!-- wp:group {"className":"imet-container narrow","layout":{"type":"default"}} -->
 <div class="wp-block-group imet-container narrow"><!-- wp:group {"className":"sec-head","layout":{"type":"default"}} -->
@@ -308,8 +313,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 </div>
 <!-- /wp:group --></section>
 <!-- /wp:imet/achievements -->
-<!-- wp:imet/tabs {"align":"full","anchor":"who-can-join"} -->
-<section id="who-can-join" class="wp-block-imet-tabs alignfull imet-section section tabs"><!-- wp:group {"className":"imet-container","layout":{"type":"default"}} -->
+<!-- wp:imet/tabs {"align":"full","anchor":"who-can-join","className":"is-cards"} -->
+<section id="who-can-join" class="wp-block-imet-tabs alignfull is-cards imet-section section tabs"><!-- wp:group {"className":"imet-container","layout":{"type":"default"}} -->
 <div class="wp-block-group imet-container"><!-- wp:group {"className":"sec-head","layout":{"type":"default"}} -->
 <div class="wp-block-group sec-head"><!-- wp:paragraph {"className":"eyebrow-line"} -->
 <p class="eyebrow-line">MBA Eligibility Criteria</p>
