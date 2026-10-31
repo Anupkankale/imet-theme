@@ -92,6 +92,7 @@ class Assets extends AssetLoader implements Registrable, Shareable {
 		$this->register_script( $this->handle( 'core-navigation' ), 'js/frontend/core-navigation' );
 		$this->register_style( $this->handle( 'core-navigation' ), 'css/frontend/core-navigation' );
 		$this->register_script( $this->handle( 'footer-accordion' ), 'js/frontend/footer-accordion' );
+		$this->register_script( $this->handle( 'header-scroll' ), 'js/frontend/header-scroll' );
 		$this->register_style( $this->handle( 'styles' ), 'css/frontend/styles' );
 
 		if ( $this->is_tailwind_enabled() ) {
@@ -115,6 +116,7 @@ class Assets extends AssetLoader implements Registrable, Shareable {
 		if ( ! empty( $block['blockName'] ) && 'core/navigation' === $block['blockName'] ) {
 			wp_enqueue_script( $this->handle( 'core-navigation' ) );
 			wp_enqueue_style( $this->handle( 'core-navigation' ) );
+			wp_enqueue_script( $this->handle( 'header-scroll' ) );
 		}
 
 		// The footer's link groups are Details blocks that collapse on phones.

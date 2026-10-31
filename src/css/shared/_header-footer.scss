@@ -15,11 +15,25 @@
 	--imet-promo-h: var(--wp--custom--size--72);
 
 	position: sticky;
-	top: calc(var(--wp-admin--admin-bar--height, 0) - var(--imet-promo-h));
+	top: calc(var(--wp-admin--admin-bar--height, 0px) - var(--imet-promo-h)); // 0px, not 0: a unitless 0 makes the calc() invalid
 	z-index: 100;
 
 	@media (max-width: #{$bp-tablet - 1}) {
-		--imet-promo-h: 0;
+		// A unit is needed here: the sticky offset subtracts this from a length.
+		// stylelint-disable-next-line length-zero-no-unit
+		--imet-promo-h: 0px;
+	}
+
+	// Scrolling down hides the header (header-scroll.js adds .is-hidden), scrolling up brings it back. The extra distance
+	// carries the floating pill off the screen too, since the pill takes no height of its own.
+	transition: transform var(--wp--custom--motion--base) ease;
+
+	&.is-hidden {
+		transform: translateY(calc(-100% - var(--wp--custom--size--135)));
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		transition: none;
 	}
 }
 
