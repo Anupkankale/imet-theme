@@ -35,8 +35,12 @@ class Menu implements Registrable {
 	public function register_menus(): void {
 		register_nav_menus(
 			[
-				'primary' => esc_html__( 'Primary Menu', 'imet-theme' ),
-				'footer'  => esc_html__( 'Footer Menu', 'imet-theme' ),
+				'primary'          => esc_html__( 'Header menu', 'imet-theme' ),
+				'footer-main'      => esc_html__( 'Footer: Main Menu', 'imet-theme' ),
+				'footer-courses'   => esc_html__( 'Footer: Courses', 'imet-theme' ),
+				'footer-mba'       => esc_html__( 'Footer: Online Master’s (MBA)', 'imet-theme' ),
+				'footer-dba'       => esc_html__( 'Footer: Online Doctorate (DBA)', 'imet-theme' ),
+				'footer-countries' => esc_html__( 'Footer: Doctorate Programs by Country', 'imet-theme' ),
 			]
 		);
 	}
