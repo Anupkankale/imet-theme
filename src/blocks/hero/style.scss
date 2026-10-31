@@ -599,3 +599,13 @@
 
 	.imet-section .h-grad { flex-basis: var(--wp--custom--size--155); }
 }
+
+/* Dark hero with the accreditation card (Location page): the card overlaps the bottom edge of the navy band, as in the Figma. */
+.imet-section.hero.is-style-dark:has(.ac-card) { padding-bottom: 0; }
+
+.imet-section.hero.is-style-dark:has(.ac-card)::after {
+	content: "";
+	height: var(--wp--preset--spacing--70);
+}
+
+.imet-section.hero.is-style-dark .ac-card { margin: var(--wp--preset--spacing--30) auto 0; width: min(var(--wp--custom--size--1102), 100%); }
