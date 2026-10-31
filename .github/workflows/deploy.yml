@@ -1,12 +1,11 @@
 name: Deploy
 
-# develop → staging (automatic). main → production (required reviewer, and only while PRODUCTION_ENABLED is "true").
-# Rollback: Actions → Deploy → Run workflow, choose the environment and give an older tag or commit as "ref".
+# One branch: every push to main deploys to the site (the "staging" environment holds its SSH secrets).
+# Rollback: Actions → Deploy → Run workflow and give an older tag or commit as "ref".
 
 on:
   push:
     branches:
-      - develop
       - main
   workflow_dispatch:
     inputs:
@@ -15,7 +14,6 @@ on:
         type: choice
         options:
           - staging
-          - production
         required: true
       ref:
         description: Tag, branch or commit to deploy (empty = the branch this run was started from). Use an older tag to roll back.
@@ -85,9 +83,9 @@ jobs:
           retention-days: 7
 
   staging:
-    name: Deploy to staging
+    name: Deploy to site
     needs: build
-    if: (github.event_name == 'push' && github.ref == 'refs/heads/develop') || (github.event_name == 'workflow_dispatch' && inputs.environment == 'staging')
+    if: (github.event_name == 'push' && github.ref == 'refs/heads/main') || (github.event_name == 'workflow_dispatch' && inputs.environment == 'staging')
     runs-on: ubuntu-latest
     environment: staging
     concurrency:
@@ -95,38 +93,6 @@ jobs:
       cancel-in-progress: false
     steps:
       # Only for the deploy action itself; the code to deploy comes from the build artifact.
-      - uses: actions/checkout@v4
-        with:
-          sparse-checkout: .github/actions
-          persist-credentials: false
-      - uses: actions/download-artifact@v4
-        with:
-          name: dist
-          path: ${{ runner.temp }}/dist
-      - uses: ./.github/actions/deploy-hostinger
-        with:
-          source: ${{ runner.temp }}/dist
-          kind: ${{ env.TARGET_KIND }}
-          name: ${{ env.TARGET_NAME }}
-          host: ${{ secrets.SSH_HOST }}
-          port: ${{ secrets.SSH_PORT }}
-          user: ${{ secrets.SSH_USER }}
-          key: ${{ secrets.SSH_KEY }}
-          known-hosts: ${{ secrets.SSH_KNOWN_HOSTS }}
-          wp-path: ${{ secrets.WP_PATH }}
-          site-url: ${{ vars.SITE_URL }}
-
-  production:
-    name: Deploy to production
-    needs: build
-    # Skipped (no approval prompt, no SSH) until the repository variable PRODUCTION_ENABLED is "true".
-    if: vars.PRODUCTION_ENABLED == 'true' && ((github.event_name == 'push' && github.ref == 'refs/heads/main') || (github.event_name == 'workflow_dispatch' && inputs.environment == 'production'))
-    runs-on: ubuntu-latest
-    environment: production
-    concurrency:
-      group: deploy-production
-      cancel-in-progress: false
-    steps:
       - uses: actions/checkout@v4
         with:
           sparse-checkout: .github/actions
