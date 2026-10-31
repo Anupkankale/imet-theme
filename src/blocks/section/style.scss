@@ -17,7 +17,7 @@
 
 .imet-section.imet-blank.is-style-home .centres-map { margin: 0 auto; }
 
-.imet-section.imet-blank.is-style-home .centres-map img { width: min(720px, 100%); margin-inline: auto; }
+.imet-section.imet-blank.is-style-home .centres-map img { width: min(var(--wp--custom--size--1102), 100%); margin-inline: auto; }
 
 @media (max-width: 640px) {
 

@@ -83,7 +83,7 @@
    .is-final, the closing banner (photo under a navy veil, title left, white button right). ---------- */
 .imet-section.cta-wrap.is-style-home { padding: 10px 0; }
 
-.imet-section.cta-wrap.is-style-home.is-publish .imet-container { width: min(996px, 100% - 40px); }
+.imet-section.cta-wrap.is-style-home.is-publish .imet-container { width: min(var(--wp--custom--size--1102), 100% - 40px); }
 
 .imet-section.cta-wrap.is-style-home.is-publish .cta {
 	display: flex;

@@ -226,3 +226,17 @@
 
 	.imet-section.step-cards.is-style-home:not(.is-cases) .step-card { flex-basis: 100%; }
 }
+
+/* Home "Why choose" header: eyebrow, title and lead centred in one column, as in the Figma. */
+@media (min-width: 901px) {
+
+	.imet-section.step-cards.is-style-home:not(.is-cases) .sc-head {
+		grid-template-columns: minmax(0, 1fr);
+		justify-content: center;
+		gap: 0;
+		width: min(var(--wp--custom--size--1012), 100% - var(--wp--preset--spacing--40));
+		text-align: center;
+	}
+
+	.imet-section.step-cards.is-style-home:not(.is-cases) .sc-head :is(.eyebrow-line, .title, .sub) { margin-inline: auto; text-align: center; }
+}

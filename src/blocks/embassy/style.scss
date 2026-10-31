@@ -124,3 +124,8 @@
 
 	.imet-section.embassy.is-style-home { padding: 32px 0; }
 }
+
+/* Embassy emblems with captions (Home page "Internationally Validated" row): six emblems, name under each. */
+.imet-section.embassy.is-style-home.is-embassy .emblem img { width: auto; height: var(--wp--custom--size--88); max-height: none; }
+
+.imet-section.embassy.is-style-home.is-embassy .emblem figcaption { display: block; font-size: var(--wp--preset--font-size--caption); }

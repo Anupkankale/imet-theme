@@ -302,8 +302,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:group --></section>
 <!-- /wp:imet/tabs -->
 
-<!-- wp:imet/embassy {"className":"is-style-home"} -->
-<section class="wp-block-imet-embassy alignfull imet-section section embassy is-style-home"><!-- wp:group {"className":"imet-container","layout":{"type":"default"}} -->
+<!-- wp:imet/embassy {"className":"is-style-home is-embassy"} -->
+<section class="wp-block-imet-embassy alignfull imet-section section embassy is-style-home is-embassy"><!-- wp:group {"className":"imet-container","layout":{"type":"default"}} -->
 <div class="wp-block-group imet-container"><!-- wp:group {"className":"sec-head","layout":{"type":"default"}} -->
 <div class="wp-block-group sec-head"><!-- wp:paragraph {"className":"eyebrow-line"} -->
 <p class="eyebrow-line">Recognized Worldwide</p>
@@ -316,31 +316,27 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <!-- wp:group {"className":"emblem-row","layout":{"type":"default"}} -->
 <div class="wp-block-group emblem-row"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"emblem"} -->
-<figure class="wp-block-image size-full emblem"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/imet/home-emb-4.webp' ) ); ?>" alt="Embassy of Kuwait"/></figure>
+<figure class="wp-block-image size-full emblem"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/imet/emb-uae.webp' ) ); ?>" alt="Embassy of UAE"/><figcaption class="wp-element-caption">Embassy of UAE</figcaption></figure>
 <!-- /wp:image -->
 
 <!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"emblem"} -->
-<figure class="wp-block-image size-full emblem"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/imet/home-emb-5.webp' ) ); ?>" alt="Saudi Arabia Ministry of Foreign Affairs"/></figure>
+<figure class="wp-block-image size-full emblem"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/imet/emb-bahrain.webp' ) ); ?>" alt="Embassy of Bahrain"/><figcaption class="wp-element-caption">Embassy of Bahrain</figcaption></figure>
 <!-- /wp:image -->
 
 <!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"emblem"} -->
-<figure class="wp-block-image size-full emblem"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/imet/home-emb-6.webp' ) ); ?>" alt="Embassy of South Africa"/></figure>
+<figure class="wp-block-image size-full emblem"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/imet/emb-usa.webp' ) ); ?>" alt="Embassy of United States"/><figcaption class="wp-element-caption">Embassy of United States</figcaption></figure>
 <!-- /wp:image -->
 
 <!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"emblem"} -->
-<figure class="wp-block-image size-full emblem"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/imet/home-emb-7.webp' ) ); ?>" alt="Embassy of United Arab Emirates"/></figure>
+<figure class="wp-block-image size-full emblem"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/imet/emb-qatar.webp' ) ); ?>" alt="Embassy of Qatar"/><figcaption class="wp-element-caption">Embassy of Qatar</figcaption></figure>
 <!-- /wp:image -->
 
 <!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"emblem"} -->
-<figure class="wp-block-image size-full emblem"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/imet/home-emb-1.webp' ) ); ?>" alt="Embassy of New Zealand"/></figure>
+<figure class="wp-block-image size-full emblem"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/imet/emb-nz.webp' ) ); ?>" alt="Embassy of New Zealand"/><figcaption class="wp-element-caption">Embassy of New Zealand</figcaption></figure>
 <!-- /wp:image -->
 
 <!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"emblem"} -->
-<figure class="wp-block-image size-full emblem"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/imet/home-emb-2.webp' ) ); ?>" alt="Embassy of Singapore"/></figure>
-<!-- /wp:image -->
-
-<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"emblem"} -->
-<figure class="wp-block-image size-full emblem"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/imet/home-emb-3.webp' ) ); ?>" alt="Embassy of United Kingdom"/></figure>
+<figure class="wp-block-image size-full emblem"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/imet/emb-singapore.webp' ) ); ?>" alt="Embassy of Singapore"/><figcaption class="wp-element-caption">Embassy of Singapore</figcaption></figure>
 <!-- /wp:image --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group --></section>
@@ -408,6 +404,37 @@ if ( ! defined( 'ABSPATH' ) ) {
 <div class="wp-block-group step-grid"><!-- wp:group {"className":"step-card","layout":{"type":"default"}} -->
 <div class="wp-block-group step-card"><!-- wp:group {"className":"sc-text","layout":{"type":"default"}} -->
 <div class="wp-block-group sc-text"><!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">Personalized Research Guidance</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Work 1-on-1 with our expert research mentors, and receive dedicated support for publishing in SCOPUS / IEEE journals and boost citations on Google Scholar, ResearchGate, and similar platforms.</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group -->
+
+<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"sc-photo"} -->
+<figure class="wp-block-image size-full sc-photo"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/imet/home-why-1.webp' ) ); ?>" alt="Why choose IMET's online doctorate and master's program"/></figure>
+<!-- /wp:image --></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"className":"step-card","layout":{"type":"default"}} -->
+<div class="wp-block-group step-card"><!-- wp:group {"className":"sc-text","layout":{"type":"default"}} -->
+<div class="wp-block-group sc-text"><!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">Digital Presence &amp; Brand Visibility</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>We help amplify your professional identity through strategic digital branding, optimizing profiles, showcasing research globally, and ensuring recognition across boardrooms, media, and professional networks worldwide.</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group -->
+
+<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"sc-photo"} -->
+<figure class="wp-block-image size-full sc-photo"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/imet/home-why-2.webp' ) ); ?>" alt="Executive branding services"/></figure>
+<!-- /wp:image --></div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"step-card","layout":{"type":"default"}} -->
+<div class="wp-block-group step-card"><!-- wp:group {"className":"sc-text","layout":{"type":"default"}} -->
+<div class="wp-block-group sc-text"><!-- wp:heading {"level":3} -->
 <h3 class="wp-block-heading">Online, Flexible &amp; Affordable Program</h3>
 <!-- /wp:heading -->
 
@@ -436,69 +463,40 @@ if ( ! defined( 'ABSPATH' ) ) {
 <figure class="wp-block-image size-full sc-photo"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/imet/home-why-4.webp' ) ); ?>" alt="Scholarship for online master degree"/></figure>
 <!-- /wp:image --></div>
 <!-- /wp:group -->
-
-<!-- wp:group {"className":"step-card","layout":{"type":"default"}} -->
-<div class="wp-block-group step-card"><!-- wp:group {"className":"sc-text","layout":{"type":"default"}} -->
-<div class="wp-block-group sc-text"><!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading">Personalized Research Guidance</h3>
-<!-- /wp:heading -->
-
-<!-- wp:paragraph -->
-<p>Work 1-on-1 with our expert research mentors, and receive dedicated support for publishing in SCOPUS / IEEE journals and boost citations on Google Scholar, ResearchGate, and similar platforms.</p>
-<!-- /wp:paragraph --></div>
-<!-- /wp:group -->
-
-<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"sc-photo"} -->
-<figure class="wp-block-image size-full sc-photo"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/imet/home-why-1.webp' ) ); ?>" alt="Why choose IMET's online doctorate and master's program"/></figure>
-<!-- /wp:image --></div>
-<!-- /wp:group -->
-
-<!-- wp:group {"className":"step-card","layout":{"type":"default"}} -->
-<div class="wp-block-group step-card"><!-- wp:group {"className":"sc-text","layout":{"type":"default"}} -->
-<div class="wp-block-group sc-text"><!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading">Digital Presence &amp; Brand Visibility</h3>
-<!-- /wp:heading -->
-
-<!-- wp:paragraph -->
-<p>We help amplify your professional identity through strategic digital branding, optimizing profiles, showcasing research globally, and ensuring recognition across boardrooms, media, and professional networks worldwide.</p>
-<!-- /wp:paragraph --></div>
-<!-- /wp:group -->
-
-<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"sc-photo"} -->
-<figure class="wp-block-image size-full sc-photo"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/imet/home-why-2.webp' ) ); ?>" alt="Executive branding services"/></figure>
-<!-- /wp:image --></div>
-<!-- /wp:group --></div>
+</div>
 <!-- /wp:group --></div>
 <!-- /wp:group --></section>
 <!-- /wp:imet/step-cards -->
 
 <!-- wp:imet/alumni-video {"className":"is-style-home"} -->
 <section class="wp-block-imet-alumni-video alignfull imet-section section alumni is-style-home"><!-- wp:group {"className":"imet-container","layout":{"type":"default"}} -->
-<div class="wp-block-group imet-container"><!-- wp:group {"className":"sec-head","layout":{"type":"default"}} -->
-<div class="wp-block-group sec-head"><!-- wp:heading {"className":"title"} -->
-<h2 class="wp-block-heading title">Alumni Speak: Real Journeys of Global Leadership</h2>
-<!-- /wp:heading --></div>
-<!-- /wp:group -->
-
-<!-- wp:group {"className":"video-trio","layout":{"type":"default"}} -->
-<div class="wp-block-group video-trio"><!-- wp:image {"sizeSlug":"full","linkDestination":"custom","className":"video-tile yt-auto"} -->
-<figure class="wp-block-image size-full video-tile yt-auto"><a href="https://www.youtube.com/watch?v=Iz36TrS8Aas"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/imet/alumni-convocation.jpg' ) ); ?>" alt="My Doctorate Journey to Global Visibility – with Dr. Raj Srirambatla"/></a><figcaption class="wp-element-caption">My Doctorate Journey to Global Visibility – with Dr. Raj Srirambatla</figcaption></figure>
+<div class="wp-block-group imet-container"><!-- wp:paragraph {"className":"eyebrow-line"} -->
+<p class="eyebrow-line">What Our Clients Say</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"className":"title"} -->
+<h2 class="wp-block-heading title">Doctorate of Business Administration (DBA) Alumni Speak</h2>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"sub"} -->
+<p class="sub">Hear real experiences and success stories from our clients through DBA podcasts. Discover how the program transformed their careers and enhanced their leadership journey. Gain valuable insights from professionals who have walked the same path.</p>
+<!-- /wp:paragraph -->
+<!-- wp:group {"className":"video-gallery","layout":{"type":"default"}} -->
+<div class="wp-block-group video-gallery"><!-- wp:image {"sizeSlug":"full","linkDestination":"custom","className":"video-main yt-auto"} -->
+<figure class="wp-block-image size-full video-main yt-auto"><a href="https://www.youtube.com/watch?v=Iz36TrS8Aas"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/alumni-convocation.jpg" ) ); ?>" alt="DBA alumni testimonial"/></a><figcaption class="wp-element-caption">Convocation Day: our DBA graduates share their journey</figcaption></figure>
 <!-- /wp:image -->
-
-<!-- wp:image {"sizeSlug":"full","linkDestination":"custom","className":"video-tile yt-auto"} -->
-<figure class="wp-block-image size-full video-tile yt-auto"><a href="https://www.youtube.com/watch?v=si5_oKHCI6g"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/imet/alumni-convocation.jpg' ) ); ?>" alt="How the Doctorate Journey Transformed my Self branding - with Dr. Moutasim Billah"/></a><figcaption class="wp-element-caption">How the Doctorate Journey Transformed my Self branding - with Dr. Moutasim Billah</figcaption></figure>
+<!-- wp:group {"className":"video-list","layout":{"type":"default"}} -->
+<div class="wp-block-group video-list"><!-- wp:image {"sizeSlug":"full","linkDestination":"custom","className":"video-item yt-auto"} -->
+<figure class="wp-block-image size-full video-item yt-auto"><a href="https://www.youtube.com/watch?v=si5_oKHCI6g"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/alumni-convocation.jpg" ) ); ?>" alt="Testimonial 1"/></a><figcaption class="wp-element-caption">Convocation Day highlights</figcaption></figure>
 <!-- /wp:image -->
-
-<!-- wp:image {"sizeSlug":"full","linkDestination":"custom","className":"video-tile yt-auto"} -->
-<figure class="wp-block-image size-full video-tile yt-auto"><a href="https://www.youtube.com/watch?v=LPXJiGiubQI"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/imet/alumni-convocation.jpg' ) ); ?>" alt="Doctorate as My Launchpad with Dr. Irfan Baig"/></a><figcaption class="wp-element-caption">Doctorate as My Launchpad with Dr. Irfan Baig</figcaption></figure>
-<!-- /wp:image --></div>
-<!-- /wp:group -->
-
+<!-- wp:image {"sizeSlug":"full","linkDestination":"custom","className":"video-item yt-auto"} -->
+<figure class="wp-block-image size-full video-item yt-auto"><a href="https://www.youtube.com/watch?v=LPXJiGiubQI"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/alumni-convocation.jpg" ) ); ?>" alt="Testimonial 2"/></a><figcaption class="wp-element-caption">Alumni podcast: the doctorate journey</figcaption></figure>
+<!-- /wp:image -->
 <!-- wp:buttons {"className":"video-more"} -->
-<div class="wp-block-buttons video-more"><!-- wp:button {"className":"btn-navy btn-sm"} -->
-<div class="wp-block-button btn-navy btn-sm"><a class="wp-block-button__link wp-element-button" href="https://imetworldwide.com/alumni-speak/" target="_blank" rel="noreferrer noopener">View More</a></div>
+<div class="wp-block-buttons video-more"><!-- wp:button {"className":"btn-navy btn-md"} -->
+<div class="wp-block-button btn-navy btn-md"><a class="wp-block-button__link wp-element-button" href="https://www.youtube.com/@imetworldwide" target="_blank" rel="noreferrer noopener">View More</a></div>
 <!-- /wp:button --></div>
 <!-- /wp:buttons --></div>
+<!-- /wp:group --></div>
+<!-- /wp:group --></div>
 <!-- /wp:group --></section>
 <!-- /wp:imet/alumni-video -->
 
