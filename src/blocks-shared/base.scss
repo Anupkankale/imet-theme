@@ -266,8 +266,7 @@ section.imet-section[id] { scroll-margin-top: 100px; }
 	.imet-section { font-size: 1rem; }
 }
 
-/* Eyebrow with a gold line under it ("Clients Testimonials", "What Our Clients Say"). Centre its parent.
-   Size and line length per section: --eyebrow-size, --eyebrow-line. */
+/* Eyebrow: gold label above a section title (no underline). Centre its parent. Size per section: --eyebrow-size. */
 .imet-section :is(.eyebrow-line, .alumni-eyebrow) {
 	position: relative;
 	display: inline-block;
@@ -279,21 +278,6 @@ section.imet-section[id] { scroll-margin-top: 100px; }
 	line-height: 1.3;
 }
 
-.imet-section :is(.eyebrow-line, .alumni-eyebrow)::after {
-	content: "";
-	position: absolute;
-	left: 50%;
-	bottom: 0;
-	width: var(--eyebrow-line, 74px);
-	height: 3px;
-	background: var(--gold);
-	transform: translateX(-50%);
-}
-
-/* Left-aligned eyebrow (line starts under the first letter) */
-.imet-section .eyebrow-line.left::after,
-.imet-section .has-text-align-left.eyebrow-line::after { left: 0; transform: none; }
-
 /* Wrapper for a centred section header (eyebrow + title + sub) */
 .imet-section .sec-head { text-align: center; }
 
@@ -303,8 +287,6 @@ section.imet-section[id] { scroll-margin-top: 100px; }
 	.imet-section .title.left { text-align: center; }
 
 	.imet-section .eyebrow-line.left { display: table; margin-inline: auto; }
-
-	.imet-section .eyebrow-line.left::after { left: 50%; transform: translateX(-50%); }
 }
 
 /* Previous / next arrows under a row that scrolls sideways (the Home page rows; buttons are added by view.js) */
