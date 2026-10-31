@@ -1,0 +1,34 @@
+/* Small-screen consistency for every page built from IMET blocks. Section titles and eyebrows keep one weight, titles one
+   size, forced desktop line breaks stop leaving a lone word, and controls are at least 44px tall. Tokens only. */
+@media (max-width: 1024px) {
+
+	.imet-section .eyebrow-line { font-weight: 600; }
+
+	.imet-section .title { font-weight: 600; }
+
+	.imet-section .faq-acc summary { min-height: var(--wp--custom--size--44); }
+
+	.imet-section .btn-link .wp-block-button__link { min-height: var(--wp--custom--size--44); }
+}
+
+@media (max-width: 640px) {
+
+	.imet-section .title {
+		font-size: var(--wp--preset--font-size--x-large);
+		line-height: 1.3;
+	}
+
+	/* The editor's balancing <br> (marked by the LineBreaks module, which keeps a space before it) is only for wide screens. */
+	:is(h1, h2, h3, .sub, .hero-lead, .cta-sub, .cert-sub) .imet-br { display: none; }
+
+	/* Hero badges: space between the laurels so neighbours do not touch. */
+	.imet-section .h-stats { gap: var(--wp--preset--spacing--16); }
+
+	/* Bullet lists under a heading: one gap, not a gap plus each item's own margin. */
+	.imet-section .dots { gap: var(--wp--preset--spacing--10); }
+
+	/* The "Publish your research" banner: centred, no leftover height under the graphic. */
+	.imet-section.cta-wrap.is-style-home.is-publish .cta { min-height: 0; align-items: center; text-align: center; }
+
+	.imet-section.cta-wrap.is-style-home.is-publish .cta-text { text-align: center; }
+}

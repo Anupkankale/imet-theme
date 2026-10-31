@@ -332,3 +332,6 @@ section.imet-section[id] { scroll-margin-top: 100px; }
 
 	.imet-page:has(> .wp-block-imet-hero.is-style-home) .imet-section .title { line-height: 1.4; }
 }
+
+/* Last, so the small-screen rules win over the section rules above. */
+@include meta.load-css('responsive');
