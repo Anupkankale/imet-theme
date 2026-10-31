@@ -1,0 +1,15 @@
+/* MBA category page (its hero uses the "MBA" class): semi-bold gold eyebrows, a more compact advisor form and videos
+   without the on-image captions, as in the Figma. Scoped so the other pages keep their own look. Tokens only. */
+$mba: ".wp-block-post-content:has(> .imet-section.hero.is-style-mba)";
+
+#{$mba} .imet-section .eyebrow-line { font-weight: 600; }
+
+#{$mba} .imet-section .h-form .imet-advisor-form :is(input:not([type="checkbox"]), textarea, select) {
+	padding-block: var(--wp--preset--spacing--10);
+	font-size: var(--wp--preset--font-size--14);
+}
+
+#{$mba} .imet-section .imet-advisor-form__label { font-size: var(--wp--preset--font-size--14); }
+
+#{$mba} .video-main figcaption,
+#{$mba} .video-item figcaption { display: none; }
