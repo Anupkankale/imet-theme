@@ -79,7 +79,9 @@
    2-column and 1-column layouts below take over. */
 @media (min-width: 1001px) {
 
-	.imet-section.career.is-four .career-table { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+	.imet-section.career.is-four .career-table { grid-template-columns: repeat(4, minmax(0, 1fr)); width: min(var(--wp--custom--size--916), 100%); }
+
+	.imet-section.career.is-four .ct-col :is(h3, h4) { min-height: var(--wp--custom--size--88); font-weight: 400; }
 }
 
 @media (max-width: 1000px) {
