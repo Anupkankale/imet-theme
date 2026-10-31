@@ -256,3 +256,8 @@
 	padding: var(--wp--preset--spacing--14) var(--wp--preset--spacing--36) var(--wp--preset--spacing--14) var(--wp--preset--spacing--14);
 	font-size: var(--wp--preset--font-size--small);
 }
+
+@media (max-width: 640px) {
+
+	.imet-section.specs.is-style-five .title { margin-bottom: var(--wp--preset--spacing--10); line-height: 1.3; }
+}
