@@ -1,5 +1,9 @@
 # Deployment: GitHub → Hostinger
 
+> **Current flow (simplified):** one branch. Every push to `main` builds and deploys to the site whose secrets are in the
+> `staging` GitHub environment. There is no `develop` deploy and no production job; the sections below that mention
+> production or `develop` are history. To roll back, Actions → Deploy → Run workflow with an older tag or commit as `ref`.
+
 Two repositories deploy to the same WordPress site, each with its own copy of the same workflow:
 
 | Repository | Deploys to |
