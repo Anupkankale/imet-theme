@@ -241,3 +241,18 @@
 
 	.imet-section.specs.is-style-home .wp-block-button__link { min-width: 0; width: 100%; }
 }
+
+/* Style "Six per row" (MBA page): six compact cards fit the wide container, so the marquee doesn't start. Smaller
+   screens use the scrolling rows above. */
+@media (min-width: 1101px) {
+
+	.imet-section.specs.is-style-six .spec-grid { --per-view: 6; --gap: var(--wp--preset--spacing--16); width: min(var(--wp--custom--size--1186), 100% - var(--wp--preset--spacing--40)); }
+
+	.imet-section.specs.is-style-six .spec-card.is-clone { display: none; }
+}
+
+.imet-section.specs.is-style-six .spec-card a {
+	align-items: flex-start;
+	padding: var(--wp--preset--spacing--14) var(--wp--preset--spacing--36) var(--wp--preset--spacing--14) var(--wp--preset--spacing--14);
+	font-size: var(--wp--preset--font-size--small);
+}

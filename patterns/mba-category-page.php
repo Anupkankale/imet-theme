@@ -15,8 +15,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 ?>
-<!-- wp:imet/hero {"align":"full","anchor":"top"} -->
-<section id="top" class="wp-block-imet-hero alignfull imet-section hero"><!-- wp:group {"className":"imet-container hero-grid","layout":{"type":"default"}} -->
+<!-- wp:imet/hero {"align":"full","anchor":"top","className":"is-style-mba"} -->
+<section id="top" class="wp-block-imet-hero alignfull is-style-mba imet-section hero"><!-- wp:group {"className":"imet-container hero-grid","layout":{"type":"default"}} -->
 <div class="wp-block-group imet-container hero-grid"><!-- wp:group {"className":"hero-text","layout":{"type":"default"}} -->
 <div class="wp-block-group hero-text"><!-- wp:heading {"level":1} -->
 <h1 class="wp-block-heading">Online Master's<br>(MBA) Degree Programs</h1>
@@ -80,7 +80,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:heading -->
 <!-- wp:group {"className":"ac-logos","layout":{"type":"default"}} -->
 <div class="wp-block-group ac-logos"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ac-logo"} -->
-<figure class="wp-block-image size-full ac-logo"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/logo-singapore.webp" ) ); ?>" alt="Singapore"/></figure>
+<figure class="wp-block-image size-full ac-logo"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/logo-qatar-mofa.jpg" ) ); ?>" alt="Ministry of Foreign Affairs, State of Qatar"/></figure>
 <!-- /wp:image -->
 <!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ac-logo"} -->
 <figure class="wp-block-image size-full ac-logo"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/logo-ministry-education.webp" ) ); ?>" alt="Ministry of Education"/></figure>
@@ -142,13 +142,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 </div>
 <!-- /wp:group -->
 <!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"hl-visual"} -->
-<figure class="wp-block-image size-full hl-visual"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/highlights.webp" ) ); ?>" alt="MBA graduates: promoted to CxO, 15+ top global specializations, skill growth"/></figure>
+<figure class="wp-block-image size-full hl-visual"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/mba-highlights.jpg" ) ); ?>" alt="MBA graduates: 3x salary increase, high career ROI, skill expansion"/></figure>
 <!-- /wp:image -->
 </div>
 <!-- /wp:group --></section>
 <!-- /wp:imet/highlights -->
-<!-- wp:imet/specializations {"align":"full","anchor":"specializations"} -->
-<section id="specializations" class="wp-block-imet-specializations alignfull imet-section section specs"><!-- wp:group {"className":"imet-container sec-head","layout":{"type":"default"}} -->
+<!-- wp:imet/specializations {"align":"full","anchor":"specializations","className":"is-style-six"} -->
+<section id="specializations" class="wp-block-imet-specializations alignfull is-style-six imet-section section specs"><!-- wp:group {"className":"imet-container sec-head","layout":{"type":"default"}} -->
 <div class="wp-block-group imet-container sec-head"><!-- wp:paragraph {"className":"eyebrow-line"} -->
 <p class="eyebrow-line">Flagship Programs</p>
 <!-- /wp:paragraph -->
@@ -219,8 +219,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 </div>
 <!-- /wp:group --></section>
 <!-- /wp:imet/cost-banner -->
-<!-- wp:imet/overview {"align":"full","anchor":"programs"} -->
-<section id="programs" class="wp-block-imet-overview alignfull imet-section section overview"><!-- wp:group {"className":"imet-container","layout":{"type":"default"}} -->
+<!-- wp:imet/overview {"align":"full","anchor":"programs","className":"is-visual"} -->
+<section id="programs" class="wp-block-imet-overview alignfull is-visual imet-section section overview"><!-- wp:group {"className":"imet-container","layout":{"type":"default"}} -->
 <div class="wp-block-group imet-container"><!-- wp:group {"className":"sec-head","layout":{"type":"default"}} -->
 <div class="wp-block-group sec-head"><!-- wp:paragraph {"className":"eyebrow-line ov-eyebrow"} -->
 <p class="eyebrow-line ov-eyebrow">Our USPs</p>
@@ -602,9 +602,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:image -->
 <!-- wp:image {"sizeSlug":"full","linkDestination":"custom","className":"video-item yt-auto"} -->
 <figure class="wp-block-image size-full video-item yt-auto"><a href="https://www.youtube.com/"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/alumni-convocation.jpg" ) ); ?>" alt="Testimonial 2"/></a><figcaption class="wp-element-caption">Alumni podcast: the doctorate journey</figcaption></figure>
-<!-- /wp:image -->
-<!-- wp:image {"sizeSlug":"full","linkDestination":"custom","className":"video-item yt-auto"} -->
-<figure class="wp-block-image size-full video-item yt-auto"><a href="https://www.youtube.com/"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/alumni-convocation.jpg" ) ); ?>" alt="Testimonial 3"/></a><figcaption class="wp-element-caption">From IT leader to “Dr.”</figcaption></figure>
 <!-- /wp:image -->
 <!-- wp:buttons {"className":"video-more"} -->
 <div class="wp-block-buttons video-more"><!-- wp:button {"className":"btn-navy btn-md"} -->
