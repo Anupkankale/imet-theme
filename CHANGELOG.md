@@ -6,6 +6,7 @@ All notable changes to this project are documented in this file. The format is b
 
 ### Added
 
+- The header hides when scrolling down and returns on any scroll up (`header-scroll.js`); it stays visible near the top, while a menu is open and while focus is inside it, and respects reduced motion. Also fixes the header's sticky offset, which was an invalid `calc()` without an admin bar (so the header never stuck for visitors).
 - Menus are managed in **Appearance > Menus**: six locations (Header menu, and the five footer link columns) with starting menus created from the original links the first time an administrator opens wp-admin (`MenuSeeder`, never replaces an assigned menu). The header Navigation block and the footer lists carry an `imet-menu-<location>` class and print the assigned menu (`MenuRenderer`, `NavWalker` keeps the core Navigation markup, dropdowns and mobile overlay); with no menu assigned they print as saved. The same menus are available over the REST API (`/wp/v2/menus`, `/menu-items`, `/menu-locations`). Footer text, contact blocks and the offer bar stay editable in the Site Editor.
 - The gold underline below section eyebrow labels is removed on every page (the `::after` line under `.eyebrow-line` and `.alumni-eyebrow`).
 - Phone spacing on every page: one 32px room above and below each content section (course, MBA, location and landing pages were 48px or mixed), one header-to-content gap, one gap for stacked cards, highlight lists share one text size and gap, more room above the fee banner heading.
