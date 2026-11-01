@@ -102,7 +102,7 @@ class MenuRenderer implements Registrable {
 	}
 
 	/**
-	 * Replace a List block with the menu, keeping the list's classes.
+	 * Replace a List block's items with the menu, keeping the list's own opening tag (classes, anchor, inline style).
 	 *
 	 * @since 1.2.0
 	 *
@@ -112,10 +112,9 @@ class MenuRenderer implements Registrable {
 	 * @return string The list HTML.
 	 */
 	private function list( string $content, string $location ): string {
-		$classes = 1 === preg_match( '/<ul[^>]*class="([^"]*)"/', $content, $match ) ? $match[1] : 'wp-block-list';
-		$items   = $this->items( $location, 1, true );
+		$open_tag = 1 === preg_match( '/<ul\b[^>]*>/', $content, $match ) ? $match[0] : '<ul class="wp-block-list">';
 
-		return '<ul class="' . esc_attr( $classes ) . '">' . $items . '</ul>';
+		return $open_tag . $this->items( $location, 1, true ) . '</ul>';
 	}
 
 	/**
