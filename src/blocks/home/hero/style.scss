@@ -10,7 +10,7 @@
 	position: absolute;
 	left: 0;
 	right: 0;
-	bottom: 0;
+	bottom: -1px; /* 1px past the edge: when the hero ends on a fraction of a pixel, its background no longer shows as a thin line */
 	height: 127px; /* the accreditation card overlaps the gradient by 57px */
 	background: #fff;
 	z-index: 0;

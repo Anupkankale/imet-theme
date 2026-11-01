@@ -56,9 +56,9 @@
 
 .imet-section .faq-more.is-hidden { display: none; }
 
-/* Style "Compact" (block style, e.g. the DBA Course Page): questions start right under the title, 14.5px answers on
+/* Style "Compact" (block style, e.g. the DBA Course Page): questions a short gap under the title, 14.5px answers on
    taller lines, a larger "See More" (Figma 1440 frame). Closed rows keep the same height. */
-.imet-section.faq.is-style-compact .title { margin-bottom: -20px; }
+.imet-section.faq.is-style-compact .title { margin-bottom: var(--wp--preset--spacing--16); } /* with the first row's own top padding, about 32px of room */
 
 .imet-section.faq.is-style-compact .faq-more { margin-top: 29px; }
 
@@ -72,11 +72,6 @@
 .imet-section.faq.is-style-compact .faq-acc details p { padding-bottom: 20px; font-size: 0.90625rem; line-height: 1.9; }
 
 .imet-section.faq.is-style-compact .faq-more .wp-block-button__link { min-width: 171px; min-height: 56px; font-size: 1.125rem; }
-
-@media (max-width: 640px) {
-
-	.imet-section.faq.is-style-compact .title { margin-bottom: 9px; }
-}
 
 /* ---------- Style "Home" (block style, the Home page): every question shown (no "See More"), as grey rounded
    rows 10px apart in a 1040px column, 16px questions (Home page, 1440 frame). ---------- */

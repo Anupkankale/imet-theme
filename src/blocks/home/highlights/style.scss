@@ -36,7 +36,8 @@
 	background: center / contain no-repeat;
 }
 
-/* Icons in order: network, thesis, research, career (tick); a 5th item gets the academic icon */
+/* Icons in order: network, thesis, research, then the tick for the last (career) item; in a five-item list the 4th
+   (academic outcome) gets the target */
 .imet-section .hl-list li:nth-child(5n+1)::before { background-image: url(../../../../images/imet/hl-1.png); }
 
 .imet-section .hl-list li:nth-child(5n+2)::before { background-image: url(../../../../images/imet/hl-2.png); }
@@ -45,7 +46,9 @@
 
 .imet-section .hl-list li:nth-child(5n+4)::before { background-image: url(../../../../images/imet/hl-5.png); }
 
-.imet-section .hl-list li:nth-child(5n+5)::before { background-image: url(../../../../images/imet/hl-4.png); }
+.imet-section .hl-list li:nth-child(4):not(:last-child)::before { background-image: url(../../../../images/imet/hl-4.png); }
+
+.imet-section .hl-list li:nth-child(5n+5)::before { background-image: url(../../../../images/imet/hl-5.png); }
 
 .imet-section .hl-list strong { color: var(--gold); font-weight: 600; }
 
@@ -75,42 +78,33 @@
 	.imet-section .hl-text .wp-block-buttons { justify-content: center; }
 }
 
-/* ---------- Style "Wide" (block style, e.g. the DBA Course Page): one-line title over a wider text column, compact
-   18px list, 386px button, 478px image reaching 18px past the container (Figma 1440 frame). The wide layout needs
-   the full 1200px container plus its overhang, so it starts at 1281px; narrower screens use the default layout. ---------- */
-@media (min-width: 1281px) {
+/* ---------- Style "Wide" (block style, e.g. the DBA Course Page): a light grey band; title, a roomy list with 36px gold
+   icons and the button on the left, a large photo with its chips (about 544px) on the right. The two columns need the
+   container, from 1025px up; narrower screens stack. ---------- */
+.imet-section.highlights.is-style-wide { background: var(--wp--preset--color--card); }
 
-	.imet-section.highlights.is-style-wide { padding: 12px 0 0; }
+/* Two columns from tablet-landscape up: the image takes 46% of the row (544px at most), the list the rest, so laptops
+   (about 1180px) show the same large image as the design instead of the narrow 400px default. */
+@media (min-width: 1025px) {
 
 	.imet-section.highlights.is-style-wide .hl-grid {
-		grid-template-columns: minmax(0, 1fr) 478px;
-		gap: 0;
-		margin-left: calc(50% - 600px);
-		margin-right: calc(50% - 600px);
-		width: auto;
-		padding: 0;
+		grid-template-columns: minmax(0, 1fr) min(46%, var(--wp--custom--size--544));
+		gap: 0 var(--wp--preset--spacing--40);
+		align-items: center;
 	}
 
-	.imet-section.highlights.is-style-wide .hl-text { position: relative; z-index: 1; }
-
-	.imet-section.highlights.is-style-wide .title { white-space: nowrap; font-size: 2.125rem; } /* 34px */
-	.imet-section.highlights.is-style-wide .hl-visual { padding-top: 17px; }
-
-	.imet-section.highlights.is-style-wide .hl-visual img { max-width: 478px; }
+	.imet-section.highlights.is-style-wide .hl-visual img { max-width: none; }
 }
 
-.imet-section.highlights.is-style-wide .hl-list { gap: 6px; margin: 37px 0 9px; max-width: 735px; }
+.imet-section.highlights.is-style-wide .title { font-size: var(--wp--preset--font-size--xx-large); }
 
-.imet-section.highlights.is-style-wide .hl-list li { padding-left: 48px; font-size: 1.125rem; line-height: 1.39; }
+.imet-section.highlights.is-style-wide .hl-visual img { mix-blend-mode: multiply; } /* a photo's white edge takes the band's grey */
 
-.imet-section.highlights.is-style-wide .hl-list li::before { left: 3px; top: -3px; width: 28px; height: 28px; }
+.imet-section.highlights.is-style-wide .hl-list { gap: var(--wp--preset--spacing--24); margin: var(--wp--preset--spacing--32) 0; }
 
-.imet-section.highlights.is-style-wide .wp-block-button__link { min-width: 386px; }
+.imet-section.highlights.is-style-wide .hl-list li { min-height: var(--wp--preset--spacing--36); padding: var(--wp--preset--spacing--6) 0 0 var(--wp--preset--spacing--54); font-size: var(--wp--preset--font-size--16-5); line-height: 1.5; }
 
-@media (max-width: 640px) {
-
-	.imet-section.highlights.is-style-wide .wp-block-button__link { min-width: 0; }
-}
+.imet-section.highlights.is-style-wide .hl-list li::before { top: 0; width: var(--wp--preset--spacing--36); height: var(--wp--preset--spacing--36); mix-blend-mode: multiply; } /* the icons' white corners vanish on the grey band */
 
 /* ---------- Style "Home" (block style, the Home page, pattern "Home (IMET)"): white band, eyebrow with a short gold line,
    title, lead, outlined gold pills and the advisor form in a rounded white card on the right. Tokens only. ---------- */
