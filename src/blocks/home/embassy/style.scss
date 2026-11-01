@@ -108,9 +108,6 @@
 
 .imet-section.embassy.is-style-home.is-employers .emblem-row + .emblem-row { margin-top: 24px; }
 
-/* A moving first row is followed by its pause button's zero-height box (view-helpers.js pauseButton): same gap. */
-.imet-section.embassy.is-style-home.is-employers .emblem-row + .imet-motion-control + .emblem-row { margin-top: var(--wp--preset--spacing--24); }
-
 .imet-section.embassy.is-style-home.is-employers .emblem img { width: 102px; height: 52px; border: 1px solid #ececec; border-radius: 8px; object-fit: contain; background: #fff; }
 
 .imet-section.embassy.is-style-home.is-employers .emblem-row.is-marquee { gap: 15px; }
