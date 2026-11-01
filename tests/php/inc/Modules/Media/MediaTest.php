@@ -64,6 +64,21 @@ class MediaTest extends TestCase {
 	}
 
 	/**
+	 * The main player asks for the large thumbnail and names the standard one as its fallback, without inline script
+	 * (an onerror attribute breaks under a Content-Security-Policy and does not fire for YouTube's placeholder).
+	 */
+	public function test_main_player_has_a_fallback_without_inline_script(): void {
+		$html = ( new Video() )->swap_thumbnail(
+			'<figure><a href="https://youtu.be/dQw4w9WgXcQ"><img src="a.jpg"/></a></figure>',
+			[ 'attrs' => [ 'className' => 'video-main yt-auto' ] ]
+		);
+
+		$this->assertStringContainsString( 'src="https://i.ytimg.com/vi/dQw4w9WgXcQ/maxresdefault.jpg"', $html );
+		$this->assertStringContainsString( 'data-fallback-src="https://i.ytimg.com/vi/dQw4w9WgXcQ/hqdefault.jpg"', $html );
+		$this->assertStringNotContainsString( 'onerror', $html );
+	}
+
+	/**
 	 * Test images without yt-auto are untouched.
 	 */
 	public function test_plain_image_is_untouched(): void {

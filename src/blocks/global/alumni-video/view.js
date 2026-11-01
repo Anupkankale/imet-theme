@@ -1,6 +1,9 @@
 /* Video gallery: the main player plays its YouTube video in place; a thumbnail plays its video in the main player
    (and is marked active). Videos are Image blocks linked to YouTube; without a YouTube link they act as normal links. */
-import { each } from '../../../blocks-shared/view-helpers';
+import { each, thumbnailFallback } from '../../../blocks-shared/view-helpers';
+
+// The main player's large thumbnail falls back to the standard one when the video has none (set by Video.php).
+each('.wp-block-imet-alumni-video img[data-fallback-src]', thumbnailFallback);
 
 const youtubeId = (url) =>
 	((url || '').match(
