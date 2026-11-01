@@ -4,6 +4,7 @@ import {
 	marquee,
 	pauseButton,
 	reduceMotion,
+	videoConsent,
 } from '../../src/blocks-shared/view-helpers';
 
 const FAQ = `
@@ -181,5 +182,65 @@ describe('pauseButton', () => {
 		expect(calls).toEqual([true, false]);
 		expect(button.getAttribute('aria-pressed')).toBe('false');
 		expect(button.classList.contains('imet-motion-toggle')).toBe(true);
+	});
+});
+
+describe('videoConsent', () => {
+	beforeEach(() => {
+		window.localStorage.clear();
+		document.body.innerHTML = '<div class="player"></div>';
+	});
+	const player = () => document.querySelector('.player');
+
+	test('asks before anything loads from YouTube', () => {
+		const start = jest.fn();
+		videoConsent(player(), start);
+
+		const notice = player().querySelector('.imet-video-consent');
+		expect(start).not.toHaveBeenCalled();
+		expect(notice).not.toBeNull();
+		expect(notice.textContent).toContain('YouTube');
+		expect(document.activeElement.textContent).toBe('Play video');
+	});
+
+	test('"Play video" starts the video and removes the notice', () => {
+		const start = jest.fn();
+		videoConsent(player(), start);
+		player().querySelector('.imet-video-consent-play').click();
+
+		expect(start).toHaveBeenCalledTimes(1);
+		expect(player().querySelector('.imet-video-consent')).toBeNull();
+		expect(window.localStorage.getItem('imet-video-consent')).toBeNull();
+	});
+
+	test('"Remember my choice" skips the notice next time', () => {
+		videoConsent(player(), jest.fn());
+		player().querySelector('input[type="checkbox"]').click();
+		player().querySelector('.imet-video-consent-play').click();
+
+		const start = jest.fn();
+		videoConsent(player(), start);
+		expect(start).toHaveBeenCalledTimes(1);
+		expect(player().querySelector('.imet-video-consent')).toBeNull();
+	});
+
+	test('"Cancel" closes the notice without loading the video', () => {
+		const start = jest.fn();
+		videoConsent(player(), start);
+		player().querySelector('.imet-video-consent-cancel').click();
+
+		expect(start).not.toHaveBeenCalled();
+		expect(player().querySelector('.imet-video-consent')).toBeNull();
+	});
+
+	test('clicks inside the notice do not reach a surrounding link', () => {
+		document.body.innerHTML = '<a href="#v" class="player"></a>';
+		const outer = jest.fn();
+		player().addEventListener('click', outer);
+
+		videoConsent(player(), jest.fn());
+		player().querySelector('.imet-video-consent-cancel').click();
+
+		expect(outer).not.toHaveBeenCalled();
 	});
 });

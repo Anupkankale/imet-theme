@@ -89,6 +89,80 @@ export function accordion(group, { openFirst = false, duration = 320 } = {}) {
 	);
 }
 
+const VIDEO_CONSENT = 'imet-video-consent';
+
+const remembered = () => {
+	try {
+		return window.localStorage.getItem(VIDEO_CONSENT) === 'yes';
+	} catch {
+		return false; // storage blocked (private mode, site data off): ask every time
+	}
+};
+
+/**
+ * Ask before loading a YouTube player: nothing is requested from YouTube until the visitor presses "Play video"
+ * (GDPR). "Remember my choice" stores the answer in this browser so later videos start straight away. Clicks inside the
+ * notice never reach a surrounding link.
+ * @param {Element}    container Element the notice covers (positioned by the block's CSS, or made relative here).
+ * @param {() => void} start     Loads and plays the video.
+ */
+export function videoConsent(container, start) {
+	if (remembered()) {
+		start();
+		return;
+	}
+	container.querySelector(':scope > .imet-video-consent')?.remove();
+
+	const notice = document.createElement('div');
+	notice.className = 'imet-video-consent';
+	notice.setAttribute('role', 'group');
+	notice.setAttribute('aria-label', 'YouTube video');
+
+	const text = document.createElement('p');
+	text.textContent =
+		'This video is hosted on YouTube. Playing it loads content from YouTube (Google), which can set cookies and receives your IP address.';
+
+	const label = document.createElement('label');
+	const remember = document.createElement('input');
+	remember.type = 'checkbox';
+	label.append(remember, ' Remember my choice');
+
+	const play = document.createElement('button');
+	play.type = 'button';
+	play.className = 'imet-video-consent-play';
+	play.textContent = 'Play video';
+
+	const cancel = document.createElement('button');
+	cancel.type = 'button';
+	cancel.className = 'imet-video-consent-cancel';
+	cancel.textContent = 'Cancel';
+
+	notice.append(text, label, play, cancel);
+	notice.addEventListener('click', (event) => event.stopPropagation());
+	play.addEventListener('click', (event) => {
+		event.preventDefault();
+		if (remember.checked) {
+			try {
+				window.localStorage.setItem(VIDEO_CONSENT, 'yes');
+			} catch {
+				// Not stored: the notice shows again next time.
+			}
+		}
+		notice.remove();
+		start();
+	});
+	cancel.addEventListener('click', (event) => {
+		event.preventDefault();
+		notice.remove();
+	});
+
+	if (window.getComputedStyle(container).position === 'static') {
+		container.style.position = 'relative';
+	}
+	container.appendChild(notice);
+	play.focus();
+}
+
 /**
  * A button that stops and restarts moving content, placed right after it. WCAG 2.2.2 (Pause, Stop, Hide) asks for one
  * on anything that moves for more than five seconds; pausing on hover or focus alone does not count.
