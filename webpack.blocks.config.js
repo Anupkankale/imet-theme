@@ -131,7 +131,7 @@ const withImetBlocks = (singleConfig) => {
 		new CopyWebpackPlugin({
 			patterns: [
 				{
-					from: '*/default.html',
+					from: '**/default.html',
 					context: 'src/blocks',
 					noErrorOnMissing: true,
 				},
