@@ -109,6 +109,7 @@ class AssetsTest extends TestCase {
 
 		$this->assertTrue( wp_script_is( 'imet-core-navigation', 'registered' ) );
 		$this->assertTrue( wp_script_is( 'imet-footer-accordion', 'registered' ) );
+		$this->assertTrue( wp_script_is( 'imet-header-scroll', 'registered' ) );
 		$this->assertTrue( wp_style_is( 'imet-styles', 'registered' ) );
 	}
 
