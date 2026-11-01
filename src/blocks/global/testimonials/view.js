@@ -1,5 +1,6 @@
 /* Testimonial slider: auto-advances every 4s; pauses on hover, touch and focus, and stops for good with the pause
    button (WCAG 2.2.2); swipe/scroll by hand. */
+import { __ } from '@wordpress/i18n';
 import {
 	each,
 	marquee,
@@ -73,8 +74,8 @@ each('.wp-block-imet-testimonials.is-stories .testi-grid', (grid) => {
 	const nav = document.createElement('div');
 	nav.className = 'sc-nav is-testi';
 	[
-		['Previous', -1],
-		['Next', 1],
+		[__('Previous', 'imet-theme'), -1],
+		[__('Next', 'imet-theme'), 1],
 	].forEach(([label, dir]) => {
 		const b = document.createElement('button');
 		b.type = 'button';

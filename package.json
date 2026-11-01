@@ -21,6 +21,7 @@
 		"node": "^22.22.2 || ^24.15.0 || >=26.0.0"
 	},
 	"dependencies": {
+		"@wordpress/i18n": "6.29.0",
 		"@wordpress/interactivity": "6.56.0"
 	},
 	"devDependencies": {
