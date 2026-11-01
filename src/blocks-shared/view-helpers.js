@@ -1,4 +1,5 @@
 /* Helpers for the blocks' front-end scripts (each block's view.js only touches its own blocks). */
+import { __ } from '@wordpress/i18n';
 export const reduceMotion = () =>
 	window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -116,26 +117,28 @@ export function videoConsent(container, start) {
 	const notice = document.createElement('div');
 	notice.className = 'imet-video-consent';
 	notice.setAttribute('role', 'group');
-	notice.setAttribute('aria-label', 'YouTube video');
+	notice.setAttribute('aria-label', __('YouTube video', 'imet-theme'));
 
 	const text = document.createElement('p');
-	text.textContent =
-		'This video is hosted on YouTube. Playing it loads content from YouTube (Google), which can set cookies and receives your IP address.';
+	text.textContent = __(
+		'This video is hosted on YouTube. Playing it loads content from YouTube (Google), which can set cookies and receives your IP address.',
+		'imet-theme'
+	);
 
 	const label = document.createElement('label');
 	const remember = document.createElement('input');
 	remember.type = 'checkbox';
-	label.append(remember, ' Remember my choice');
+	label.append(remember, ' ', __('Remember my choice', 'imet-theme'));
 
 	const play = document.createElement('button');
 	play.type = 'button';
 	play.className = 'imet-video-consent-play';
-	play.textContent = 'Play video';
+	play.textContent = __('Play video', 'imet-theme');
 
 	const cancel = document.createElement('button');
 	cancel.type = 'button';
 	cancel.className = 'imet-video-consent-cancel';
-	cancel.textContent = 'Cancel';
+	cancel.textContent = __('Cancel', 'imet-theme');
 
 	notice.append(text, label, play, cancel);
 	notice.addEventListener('click', (event) => event.stopPropagation());
@@ -174,7 +177,7 @@ export function pauseButton(anchor, onChange) {
 	const button = document.createElement('button');
 	button.type = 'button';
 	button.className = 'imet-motion-toggle';
-	button.setAttribute('aria-label', 'Pause animation');
+	button.setAttribute('aria-label', __('Pause animation', 'imet-theme'));
 	button.setAttribute('aria-pressed', 'false');
 	button.addEventListener('click', () => {
 		const stopped = button.getAttribute('aria-pressed') !== 'true';
