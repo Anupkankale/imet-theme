@@ -77,8 +77,9 @@ class Video implements Registrable {
 				// The thumbnail's real size, so the browser reserves the space before it loads (maxresdefault is 1280 x 720, hqdefault 480 x 360).
 				$tag = str_replace( '<img', '<img width="' . ( $large ? 1280 : 480 ) . '" height="' . ( $large ? 720 : 360 ) . '"', $tag );
 
+				// Not every video has the large thumbnail: the alumni-video view script swaps to this one when it is missing.
 				if ( $large ) {
-					$tag = str_replace( '<img', '<img onerror="this.onerror=null;this.src=\'' . esc_url( $base . 'hqdefault.jpg' ) . '\'"', $tag );
+					$tag = str_replace( '<img', '<img data-fallback-src="' . esc_url( $base . 'hqdefault.jpg' ) . '"', $tag );
 				}
 
 				return $tag;
