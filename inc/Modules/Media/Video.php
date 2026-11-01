@@ -70,7 +70,16 @@ class Video implements Registrable {
 	public function register_hooks(): void {
 		add_filter( 'render_block_core/image', [ $this, 'swap_thumbnail' ], 10, 2 );
 		add_action( self::CRON_HOOK, [ $this, 'run_fetch' ], 10, 2 );
-		add_action( 'admin_init', [ $this, 'fetch_pending' ] );
+		add_action( 'admin_init', [ $this, 'run_pending' ] );
+	}
+
+	/**
+	 * The admin_init callback: download a few pending thumbnails (actions return nothing).
+	 *
+	 * @since 1.2.1
+	 */
+	public function run_pending(): void {
+		$this->fetch_pending();
 	}
 
 	/**
