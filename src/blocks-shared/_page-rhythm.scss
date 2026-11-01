@@ -1,0 +1,21 @@
+/* Page rhythm for every page except Home (Home has its own, in _home-rhythm.scss): one breathing room above and below
+   every content section, on every device, instead of a different padding per section. The hero, the sub-navigation
+   and the boxed banners (fee, achievements, cyber, wide highlights) keep their own spacing. Tokens only. */
+$page: ".wp-block-post-content:not(:has(> .imet-section.hero.is-style-home))";
+
+#{$page} { --imet-section-y: var(--wp--preset--spacing--48); }
+
+@media (max-width: 1024px) {
+
+	#{$page} { --imet-section-y: var(--wp--preset--spacing--40); }
+}
+
+@media (max-width: 640px) {
+
+	#{$page} { --imet-section-y: var(--wp--preset--spacing--32); }
+}
+
+#{$page} > .imet-section:is(.section, .highlights:not(.is-style-wide), .cta-wrap) { padding-block: var(--imet-section-y); }
+
+/* The wide highlights hand over to the fee banner below (no bottom padding) but get the same room under the sub-navigation. */
+#{$page} > .imet-section.highlights.is-style-wide { padding-top: var(--imet-section-y); }
