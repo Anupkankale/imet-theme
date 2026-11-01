@@ -81,23 +81,24 @@ class MenuRenderer implements Registrable {
 	 * @return string The block HTML.
 	 */
 	private function navigation( string $content, string $location ): string {
-		$start = strpos( $content, '<ul class="wp-block-navigation__container' );
+		// The item list is the <ul> carrying the `wp-block-navigation__container` class, wherever that class sits in the
+		// attribute and whatever attributes come before it. MenuRendererTest renders a real Navigation block on every
+		// WordPress version CI runs, so a change in core's markup fails a test instead of silently keeping the saved links.
+		$pattern = '/<ul\b[^>]*\sclass="(?:[^"]*\s)?wp-block-navigation__container(?:\s[^"]*)?"[^>]*>/';
 
-		if ( false === $start ) {
+		if ( 1 !== preg_match( $pattern, $content, $match, PREG_OFFSET_CAPTURE ) ) {
 			return $content;
 		}
 
-		$end = $this->closing_ul( $content, $start );
+		$open_tag = $match[0][0];
+		$start    = (int) $match[0][1];
+		$end      = $this->closing_ul( $content, $start );
 
 		if ( null === $end ) {
 			return $content;
 		}
 
-		$open_end = (int) strpos( $content, '>', $start );
-		$open_tag = substr( $content, $start, $open_end - $start + 1 );
-		$items    = $this->items( $location, 0 );
-
-		return substr( $content, 0, $start ) . $open_tag . $items . '</ul>' . substr( $content, $end );
+		return substr( $content, 0, $start ) . $open_tag . $this->items( $location, 0 ) . '</ul>' . substr( $content, $end );
 	}
 
 	/**
