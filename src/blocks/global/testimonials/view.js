@@ -60,8 +60,10 @@ each('.wp-block-imet-testimonials:not(.is-style-home) .testi-grid', (grid) =>
 );
 
 /* Home page: the client testimonials glide sideways; the success stories get arrows under the row. */
-each('.wp-block-imet-testimonials.is-clients .testi-grid', (grid) =>
-	marquee(grid, [...grid.querySelectorAll('.testi-card')], { speed: 30 })
+each(
+	'.wp-block-imet-testimonials.is-style-home.is-clients .testi-grid',
+	(grid) =>
+		marquee(grid, [...grid.querySelectorAll('.testi-card')], { speed: 30 })
 );
 each('.wp-block-imet-testimonials.is-stories .testi-grid', (grid) => {
 	const card = grid.querySelector('.testi-card');
