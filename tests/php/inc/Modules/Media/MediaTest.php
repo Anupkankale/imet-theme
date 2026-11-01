@@ -51,31 +51,127 @@ class MediaTest extends TestCase {
 	}
 
 	/**
-	 * Test a yt-auto image shows the YouTube thumbnail.
+	 * A yt-auto image shows the thumbnail stored on this site, never a YouTube URL.
 	 */
-	public function test_yt_auto_image_gets_thumbnail(): void {
+	public function test_yt_auto_image_uses_the_local_thumbnail(): void {
+		update_option(
+			Video::OPTION,
+			[
+				'dQw4w9WgXcQ-small' => [
+					'url'    => 'https://example.org/wp-content/uploads/youtube-dQw4w9WgXcQ-small.jpg',
+					'width'  => 480,
+					'height' => 360,
+				],
+			]
+		);
+
 		$html = ( new Video() )->swap_thumbnail(
 			'<figure><a href="https://youtu.be/dQw4w9WgXcQ"><img src="a.jpg" srcset="x" width="1" height="1"/></a></figure>',
 			[ 'attrs' => [ 'className' => 'video-item yt-auto' ] ]
 		);
 
-		$this->assertStringContainsString( 'https://i.ytimg.com/vi/dQw4w9WgXcQ/hqdefault.jpg', $html );
+		$this->assertStringContainsString( 'src="https://example.org/wp-content/uploads/youtube-dQw4w9WgXcQ-small.jpg"', $html );
+		$this->assertStringContainsString( 'width="480" height="360"', $html );
 		$this->assertStringNotContainsString( 'srcset', $html );
+		$this->assertStringNotContainsString( 'ytimg', $html );
 	}
 
 	/**
-	 * The main player asks for the large thumbnail and names the standard one as its fallback, without inline script
-	 * (an onerror attribute breaks under a Content-Security-Policy and does not fire for YouTube's placeholder).
+	 * Without a stored copy the editor's image stays, nothing points the browser at YouTube, and the download is
+	 * queued in the background.
 	 */
-	public function test_main_player_has_a_fallback_without_inline_script(): void {
-		$html = ( new Video() )->swap_thumbnail(
+	public function test_missing_thumbnail_keeps_the_editor_image_and_queues_a_download(): void {
+		delete_option( Video::OPTION );
+		$html = '<figure><a href="https://youtu.be/dQw4w9WgXcQ"><img src="a.jpg"/></a></figure>';
+
+		$out = ( new Video() )->swap_thumbnail( $html, [ 'attrs' => [ 'className' => 'video-main yt-auto' ] ] );
+
+		$this->assertSame( $html, $out );
+		$this->assertNotFalse( wp_next_scheduled( Video::CRON_HOOK, [ 'dQw4w9WgXcQ', 'large' ] ) );
+	}
+
+	/**
+	 * The large size falls back to the standard thumbnail when YouTube only has its 120px placeholder, and the
+	 * stored copy records the real size.
+	 */
+	public function test_fetch_falls_back_from_the_placeholder(): void {
+		$responses = [
+			'maxresdefault.jpg' => $this->jpeg( 120, 90 ),
+			'hqdefault.jpg'     => $this->jpeg( 480, 360 ),
+		];
+		$this->fake_youtube( $responses );
+
+		$this->assertTrue( ( new Video() )->fetch( 'dQw4w9WgXcQ', 'large' ) );
+
+		$stored = get_option( Video::OPTION )['dQw4w9WgXcQ-large'];
+
+		$this->assertSame( 480, $stored['width'] );
+		$this->assertSame( 360, $stored['height'] );
+		$this->assertStringStartsWith( wp_upload_dir()['baseurl'], $stored['url'] );
+
+		wp_delete_file( wp_upload_dir()['basedir'] . substr( $stored['url'], strlen( wp_upload_dir()['baseurl'] ) ) );
+	}
+
+	/**
+	 * A failed download is remembered, and not queued again for a day.
+	 */
+	public function test_failed_fetch_is_not_retried_at_once(): void {
+		delete_option( Video::OPTION );
+		$this->fake_youtube( [] );
+		$video = new Video();
+
+		$this->assertFalse( $video->fetch( 'dQw4w9WgXcQ', 'small' ) );
+
+		$video->swap_thumbnail(
 			'<figure><a href="https://youtu.be/dQw4w9WgXcQ"><img src="a.jpg"/></a></figure>',
-			[ 'attrs' => [ 'className' => 'video-main yt-auto' ] ]
+			[ 'attrs' => [ 'className' => 'video-item yt-auto' ] ]
 		);
 
-		$this->assertStringContainsString( 'src="https://i.ytimg.com/vi/dQw4w9WgXcQ/maxresdefault.jpg"', $html );
-		$this->assertStringContainsString( 'data-fallback-src="https://i.ytimg.com/vi/dQw4w9WgXcQ/hqdefault.jpg"', $html );
-		$this->assertStringNotContainsString( 'onerror', $html );
+		$this->assertFalse( wp_next_scheduled( Video::CRON_HOOK, [ 'dQw4w9WgXcQ', 'small' ] ) );
+	}
+
+	/**
+	 * Answer requests to i.ytimg.com with the given files (anything else: 404), with no network access.
+	 *
+	 * @param array<string, string> $files File name => JPEG bytes.
+	 */
+	private function fake_youtube( array $files ): void {
+		add_filter(
+			'pre_http_request',
+			static function ( $pre, array $args, string $url ) use ( $files ) {
+				unset( $pre, $args );
+				$bits = $files[ basename( (string) wp_parse_url( $url, PHP_URL_PATH ) ) ] ?? null;
+
+				return [
+					'headers'  => [],
+					'body'     => (string) $bits,
+					'response' => [
+						'code'    => null === $bits ? 404 : 200,
+						'message' => null === $bits ? 'Not Found' : 'OK',
+					],
+					'cookies'  => [],
+					'filename' => null,
+				];
+			},
+			10,
+			3
+		);
+	}
+
+	/**
+	 * A JPEG of the given size.
+	 *
+	 * @param int $width  Width.
+	 * @param int $height Height.
+	 *
+	 * @return string JPEG bytes.
+	 */
+	private function jpeg( int $width, int $height ): string {
+		$image = imagecreatetruecolor( $width, $height );
+		ob_start();
+		imagejpeg( $image );
+
+		return (string) ob_get_clean();
 	}
 
 	/**

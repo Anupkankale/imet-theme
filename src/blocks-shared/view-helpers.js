@@ -90,33 +90,6 @@ export function accordion(group, { openFirst = false, duration = 320 } = {}) {
 }
 
 /**
- * Swap a YouTube thumbnail for its `data-fallback-src` when the large one is missing. YouTube answers a missing
- * maxresdefault.jpg with a 120px-wide grey placeholder, which loads fine, so an error handler alone never fires.
- * @param {HTMLImageElement} img Image with a `data-fallback-src` attribute.
- */
-export function thumbnailFallback(img) {
-	const fallback = img.dataset.fallbackSrc;
-	if (!fallback) {
-		return;
-	}
-	const swap = () => {
-		if (img.src !== fallback) {
-			img.src = fallback;
-		}
-	};
-	const check = () => {
-		if (img.naturalWidth > 0 && img.naturalWidth <= 120) {
-			swap();
-		}
-	};
-	img.addEventListener('error', swap, { once: true });
-	img.addEventListener('load', check);
-	if (img.complete) {
-		check();
-	}
-}
-
-/**
  * A button that stops and restarts moving content, placed right after it. WCAG 2.2.2 (Pause, Stop, Hide) asks for one
  * on anything that moves for more than five seconds; pausing on hover or focus alone does not count.
  * @param {Element}                    anchor   The moving element; the button goes right after it.
