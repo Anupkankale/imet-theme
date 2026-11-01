@@ -1,18 +1,37 @@
 /* Video gallery: the main player plays its YouTube video in place; a thumbnail plays its video in the main player
-   (and is marked active). Videos are Image blocks linked to YouTube; without a YouTube link they act as normal links. */
-import { each } from '../../../blocks-shared/view-helpers';
+   (and is marked active). Videos are Image blocks linked to YouTube; without a YouTube link they act as normal links.
+   Nothing loads from YouTube until the visitor agrees in the consent notice (videoConsent). */
+import { __ } from '@wordpress/i18n';
+import { each, videoConsent } from '../../../blocks-shared/view-helpers';
 
 const youtubeId = (url) =>
 	((url || '').match(
 		/(?:youtu\.be\/|[?&]v=|\/embed\/|\/shorts\/|\/live\/)([\w-]{11})/
 	) || [])[1];
 
-function play(box, id, title) {
+/**
+ * Play a video in box once the visitor agrees. The notice covers `noticeOn` (default: box); pass the element around a
+ * link, since buttons cannot sit inside one.
+ * @param {Element}    box              Element the player iframe goes into.
+ * @param {string}     id               YouTube video id.
+ * @param {string}     title            Accessible title of the player.
+ * @param {Object}     options          Options.
+ * @param {Element}    options.noticeOn Element the consent notice covers.
+ * @param {() => void} options.onStart  Called when the video starts.
+ */
+function play(box, id, title, { noticeOn = box, onStart } = {}) {
+	videoConsent(noticeOn, () => {
+		load(box, id, title);
+		onStart?.();
+	});
+}
+
+function load(box, id, title) {
 	box.querySelector('iframe')?.remove();
 	const frame = document.createElement('iframe');
 	frame.src =
 		'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0';
-	frame.title = title || 'Video';
+	frame.title = title || __('Video', 'imet-theme');
 	frame.allow =
 		'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
 	frame.allowFullscreen = true;
@@ -86,7 +105,9 @@ each('.wp-block-imet-alumni-video .video-trio .video-tile', (tile) => {
 	}
 	link.addEventListener('click', (e) => {
 		e.preventDefault();
-		play(link, id, titleOf(link));
-		tile.classList.add('is-playing');
+		play(link, id, titleOf(link), {
+			noticeOn: tile,
+			onStart: () => tile.classList.add('is-playing'),
+		});
 	});
 });

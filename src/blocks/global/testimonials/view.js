@@ -1,7 +1,10 @@
-/* Testimonial slider: auto-advances every 4s; pauses on hover, touch and focus; swipe/scroll by hand. */
+/* Testimonial slider: auto-advances every 4s; pauses on hover, touch and focus, and stops for good with the pause
+   button (WCAG 2.2.2); swipe/scroll by hand. */
+import { __ } from '@wordpress/i18n';
 import {
 	each,
 	marquee,
+	pauseButton,
 	reduceMotion,
 } from '../../../blocks-shared/view-helpers';
 
@@ -22,14 +25,25 @@ each('.wp-block-imet-testimonials .slider-track', (track) => {
 			behavior: still ? 'auto' : 'smooth',
 		});
 	};
+	let stopped = false;
 	let timer = still ? null : setInterval(next, 4000);
 	const pause = () => clearInterval(timer);
 	const resume = () => {
 		clearInterval(timer);
-		if (!still) {
+		if (!still && !stopped) {
 			timer = setInterval(next, 4000);
 		}
 	};
+	if (!still) {
+		pauseButton(track, (stop) => {
+			stopped = stop;
+			if (stop) {
+				pause();
+			} else {
+				resume();
+			}
+		});
+	}
 	track.addEventListener('mouseenter', pause);
 	track.addEventListener('mouseleave', resume);
 	track.addEventListener('touchstart', pause, { passive: true });
@@ -47,8 +61,10 @@ each('.wp-block-imet-testimonials:not(.is-style-home) .testi-grid', (grid) =>
 );
 
 /* Home page: the client testimonials glide sideways; the success stories get arrows under the row. */
-each('.wp-block-imet-testimonials.is-clients .testi-grid', (grid) =>
-	marquee(grid, [...grid.querySelectorAll('.testi-card')], { speed: 30 })
+each(
+	'.wp-block-imet-testimonials.is-style-home.is-clients .testi-grid',
+	(grid) =>
+		marquee(grid, [...grid.querySelectorAll('.testi-card')], { speed: 30 })
 );
 each('.wp-block-imet-testimonials.is-stories .testi-grid', (grid) => {
 	const card = grid.querySelector('.testi-card');
@@ -58,8 +74,8 @@ each('.wp-block-imet-testimonials.is-stories .testi-grid', (grid) => {
 	const nav = document.createElement('div');
 	nav.className = 'sc-nav is-testi';
 	[
-		['Previous', -1],
-		['Next', 1],
+		[__('Previous', 'imet-theme'), -1],
+		[__('Next', 'imet-theme'), 1],
 	].forEach(([label, dir]) => {
 		const b = document.createElement('button');
 		b.type = 'button';

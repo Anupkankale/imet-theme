@@ -50,7 +50,10 @@
 /* First 5 questions; "See More" shows the rest */
 
 /* (front end only: the editor shows every question) */
-:where(body:not(.editor-styles-wrapper)) .imet-section .faq-acc:not(.is-expanded) details:nth-of-type(n+6) { display: none; }
+:where(body:not(.editor-styles-wrapper)) .imet-section.is-enhanced .faq-acc:not(.is-expanded) details:nth-of-type(n+6) { display: none; }
+
+/* Without JavaScript every question shows, so the button has nothing to do. */
+:where(body:not(.editor-styles-wrapper)) .imet-section.faq:not(.is-enhanced) .faq-more { display: none; }
 
 .imet-section .faq-more { margin-top: 36px; }
 
