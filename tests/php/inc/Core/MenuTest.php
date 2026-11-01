@@ -64,6 +64,10 @@ class MenuTest extends TestCase {
 
 		$locations = get_registered_nav_menus();
 		$this->assertArrayHasKey( 'primary', $locations );
-		$this->assertArrayHasKey( 'footer', $locations );
+		$this->assertArrayHasKey( 'footer-main', $locations );
+		$this->assertArrayHasKey( 'footer-courses', $locations );
+		$this->assertArrayHasKey( 'footer-mba', $locations );
+		$this->assertArrayHasKey( 'footer-dba', $locations );
+		$this->assertArrayHasKey( 'footer-countries', $locations );
 	}
 }

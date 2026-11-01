@@ -100,6 +100,7 @@ class AssetsTest extends TestCase {
 		// reads (removed again in tear_down()).
 		$this->write_build_asset( 'js/frontend/core-navigation.js' );
 		$this->write_build_asset( 'js/frontend/footer-accordion.js' );
+		$this->write_build_asset( 'js/frontend/header-scroll.js' );
 		$this->write_build_asset( 'css/frontend/core-navigation.css' );
 		$this->write_build_asset( 'css/frontend/styles.css' );
 		$this->write_build_asset( 'css/frontend/tailwind.css' );
@@ -108,6 +109,7 @@ class AssetsTest extends TestCase {
 
 		$this->assertTrue( wp_script_is( 'imet-core-navigation', 'registered' ) );
 		$this->assertTrue( wp_script_is( 'imet-footer-accordion', 'registered' ) );
+		$this->assertTrue( wp_script_is( 'imet-header-scroll', 'registered' ) );
 		$this->assertTrue( wp_style_is( 'imet-styles', 'registered' ) );
 	}
 
