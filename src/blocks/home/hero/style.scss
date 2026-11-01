@@ -22,11 +22,10 @@
 	display: grid;
 	grid-template-columns: minmax(0, 1fr) 354px;
 	gap: 60px;
-	align-items: start;
-	padding-right: 46px; /* form card ends 46px inside the container (Figma) */
+	align-items: start; /* text and form card share the container's edges, like every section below */
 }
 
-.imet-section .hero-text { padding: 2px 0 0 30px; }
+.imet-section .hero-text { padding: 2px 0 0; }
 
 .imet-section.hero h1 {
 	font-size: clamp(1.75rem, 1.0357rem + 1.4881vw, 2.375rem); /* 28px → 38px */
@@ -301,10 +300,13 @@
 	color: #9f1239;
 }
 
+/* Space above (off the form) and below (before the next section), and the container's full width. The selector
+   outranks WordPress's flow-layout rule that zeroes the margins of a container's first and last child. */
+.imet-section.hero .imet-container > .ac-card { margin: var(--wp--preset--spacing--32) 0; }
+
 .imet-section .ac-card {
 	position: relative;
 	z-index: 1;
-	margin: 35px 52px 0 80px;
 	background: #fff;
 	border-radius: 20px;
 	box-shadow: 0 2px 4px rgba(0,0,0,.18);
@@ -374,8 +376,6 @@
 
 	.imet-section .h-stats { margin-bottom: 32px; }
 
-	.imet-section .ac-card { margin-inline: 0; }
-
 	.imet-section .ac-logos { grid-template-columns: repeat(3, 1fr); row-gap: 20px; }
 
 	.imet-section .ac-logo:nth-child(4) { border-left: 0; }
@@ -411,7 +411,6 @@
 /* One column: centre the text, stats and button */
 @media (max-width: 1100px) {
 
-	.imet-section .hero-grid { padding-right: 0; } /* the 46px offset only lines the form card up on desktop */
 	.imet-section .hero-text { text-align: center; }
 
 	.imet-section .hero-lead { margin-inline: auto; }
@@ -609,4 +608,3 @@
 	height: var(--wp--preset--spacing--70);
 }
 
-.imet-section.hero.is-style-dark .ac-card { margin: var(--wp--preset--spacing--30) auto 0; width: min(var(--wp--custom--size--1102), 100%); }
