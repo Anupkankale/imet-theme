@@ -121,10 +121,13 @@
 }
 
 /* ---------- Style "Home" (block style, the Home page): plain centred pills, then a navy panel with the photo on the
-   left and a timeline on the right (gold title, white text, grey dots joined by a line). ---------- */
+   left and a timeline on the right (gold title with an arrow, white text, gold dots joined by a line). Every panel
+   (Doctorate, MBA, Diploma) has its own photo. ---------- */
 .imet-section.tabs.is-style-home { padding: 20px 0 30px; }
 
-.imet-section.tabs.is-style-home .title { margin-bottom: 30px; font-size: 2rem; font-weight: 700; line-height: 1.4; }
+.imet-section.tabs.is-style-home .title { margin-bottom: 10px; font-size: 2rem; font-weight: 700; line-height: 1.4; }
+
+.imet-section.tabs.is-style-home .sub { max-width: 680px; margin-bottom: var(--wp--preset--spacing--20); }
 
 .imet-section.tabs.is-style-home .tab-nav {
 	justify-content: center;
@@ -146,34 +149,46 @@
 .imet-section.tabs.is-style-home .tab-panel {
 	display: grid;
 	grid-template-columns: minmax(0, 1fr);
-	padding: 40px 16px 57px 69px;
+	padding: var(--wp--preset--spacing--12) var(--wp--preset--spacing--34) var(--wp--preset--spacing--12) var(--wp--preset--spacing--12);
 	border-radius: 30px;
 	background: #14234b;
 }
 
 .imet-section.tabs.is-style-home .tab-panel[hidden] { display: none; }
 
-.imet-section.tabs.is-style-home .tab-panel:has(.tab-photo) { grid-template-columns: 333px minmax(0, 1fr); column-gap: 86px; align-items: start; }
+.imet-section.tabs.is-style-home .tab-panel:has(.tab-photo) { grid-template-columns: 370px minmax(0, 1fr); grid-template-rows: auto 1fr; column-gap: var(--wp--preset--spacing--25); }
 
 .imet-section.tabs.is-style-home .tab-photo { grid-row: 1 / span 2; margin: 0; }
 
-.imet-section.tabs.is-style-home .tab-photo img { width: 333px; max-width: 100%; border-radius: 20px; }
+/* One frame for every photo, so the three tabs line up whatever the image's own size */
+.imet-section.tabs.is-style-home .tab-photo img { width: 100%; height: 100%; min-height: 445px; border-radius: 20px; object-fit: cover; }
 
-.imet-section.tabs.is-style-home .tab-panel ul { display: block; margin-top: 10px; }
+.imet-section.tabs.is-style-home .tab-panel ul { display: block; margin-top: var(--wp--preset--spacing--12); }
 
-.imet-section.tabs.is-style-home .tab-panel li { position: relative; margin-bottom: 13px; padding-left: 35px; color: #fff; font-size: .875rem; line-height: 1.57; }
+.imet-section.tabs.is-style-home .tab-panel li { position: relative; margin-bottom: 13px; padding: 0 var(--wp--preset--spacing--40) 0 var(--wp--preset--spacing--20); color: #fff; font-size: .875rem; line-height: 1.57; }
 
 .imet-section.tabs.is-style-home .tab-panel li:last-child { margin-bottom: 0; }
 
-.imet-section.tabs.is-style-home .tab-panel li::before { top: 3px; left: 0; width: 15px; height: 15px; border-radius: 50%; background: #e7e7e7; }
+.imet-section.tabs.is-style-home .tab-panel li::before { top: var(--wp--preset--spacing--7); left: 0; width: var(--wp--preset--spacing--7); height: var(--wp--preset--spacing--7); border-radius: 50%; background: var(--gold); }
 
-.imet-section.tabs.is-style-home .tab-panel li:not(:last-child)::after { content: ""; position: absolute; left: 6px; top: 18px; bottom: -16px; width: 2px; background: #e7e7e7; }
+.imet-section.tabs.is-style-home .tab-panel li:not(:last-child)::after { content: ""; position: absolute; left: var(--wp--preset--spacing--3); top: var(--wp--preset--spacing--14); bottom: calc(-1 * var(--wp--preset--spacing--20)); width: 1px; background: var(--gold); }
 
 .imet-section.tabs.is-style-home .tab-panel li strong { display: block; color: var(--gold); font-size: 1rem; font-weight: 700; line-height: 1.25; }
 
 .imet-section.tabs.is-style-home .tab-panel li strong a { color: inherit; }
 
-.imet-section.tabs.is-style-home .tab-panel .wp-block-buttons { margin-top: 20px; padding-left: 0; }
+/* The arrow at the end of each linked title row */
+.imet-section.tabs.is-style-home .tab-panel li strong a::after {
+	content: "";
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: var(--wp--preset--spacing--20);
+	height: var(--wp--preset--spacing--20);
+	background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none'%3E%3Ccircle cx='10' cy='10' r='10' fill='%23fff'/%3E%3Cpath d='M6 10h8m-3.5-3.5L14 10l-3.5 3.5' stroke='%2314234b' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+.imet-section.tabs.is-style-home .tab-panel .wp-block-buttons { align-self: end; margin: var(--wp--preset--spacing--20) 0 var(--wp--preset--spacing--6); padding-left: 0; }
 
 @media (max-width: 900px) {
 
@@ -181,9 +196,9 @@
 
 	.imet-section.tabs.is-style-home .tab-photo { grid-row: auto; margin-bottom: 24px; }
 
-	.imet-section.tabs.is-style-home .tab-photo img { margin-inline: auto; }
+	.imet-section.tabs.is-style-home .tab-photo img { max-width: 370px; min-height: 0; aspect-ratio: 370 / 445; margin-inline: auto; }
 
-	.imet-section.tabs.is-style-home .tab-panel { padding: 24px 18px 32px; }
+	.imet-section.tabs.is-style-home .tab-panel { padding: var(--wp--preset--spacing--12) var(--wp--preset--spacing--18) var(--wp--preset--spacing--32); }
 }
 
 @media (max-width: 640px) {
