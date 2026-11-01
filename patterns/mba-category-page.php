@@ -518,7 +518,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <h3 class="wp-block-heading">Academic Recognition</h3>
 <!-- /wp:heading -->
 <!-- wp:paragraph -->
-<p>Develop scholarly credibility through thesis research, academic publications, citations, and meaningful research</p>
+<p>Develop scholarly credibility through thesis research, academic publications, citations, and meaningful research collaborations worldwide.</p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph -->
 <p>Appear in journals, business media, and academic blogs</p>

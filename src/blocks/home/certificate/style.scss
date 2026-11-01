@@ -5,16 +5,15 @@
 .imet-section .cert-wrap {
 	display: grid;
 	grid-template-columns: 444px minmax(0, 1fr);
-	gap: 50px;
-	align-items: start;
-	padding-left: 78px;
+	gap: var(--wp--preset--spacing--48);
+	align-items: start; /* photo and text share the container's edges */
 }
 
 .imet-section .cert-photo { margin: 0; }
 
 .imet-section .cert-photo img { width: 100%; border-radius: 20px; }
 
-.imet-section .cert-card { margin-right: -41px; padding-top: 0; } /* the text runs a little past the container (Figma) */
+.imet-section .cert-card { padding-top: 0; } /* stays inside the container (it ran 41px past it and scrolled the page sideways) */
 .imet-section.cert .title {
 	margin-bottom: 8px;
 	font-size: clamp(1.625rem, 0.7679rem + 1.7857vw, 2.375rem); /* 26px → 38px */
@@ -46,9 +45,7 @@
 
 @media (max-width: 1100px) {
 
-	.imet-section .cert-wrap { grid-template-columns: 380px minmax(0, 1fr); gap: 36px; padding-left: 0; }
-
-	.imet-section .cert-card { margin-right: 0; }
+	.imet-section .cert-wrap { grid-template-columns: 380px minmax(0, 1fr); gap: 36px; }
 }
 
 @media (max-width: 900px) {
