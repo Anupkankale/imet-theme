@@ -3,7 +3,7 @@
    grey rounded panel; panels hold a two-column list with green ticks. */
 .imet-section.tabs { padding: 37px 0 30px; }
 
-.imet-section.tabs .sub { max-width: 920px; margin-bottom: -7px; } /* the label bar starts right under the intro (Figma) */
+.imet-section.tabs .sub { max-width: 920px; margin-bottom: var(--wp--preset--spacing--32); } /* room between the intro and the label bar */
 
 /* Followed by the CTA banner (DBA Course Page): the banner's own top margin is the gap */
 .imet-section.tabs:has(+ .imet-section.cyber) { padding-bottom: 0; }
@@ -14,7 +14,7 @@
 	align-items: center;
 	justify-content: space-between;
 	gap: 8px 16px;
-	width: min(1000px, 100%);
+	width: min(var(--wp--custom--size--1012), 100%); /* the bar and the panel share one width, so their edges line up */
 	min-height: 85px;
 	margin: 0 auto;
 	padding: 4px 30px;
@@ -49,10 +49,10 @@
 .imet-section .tab-label:focus:not(:focus-visible) { outline: none; }
 
 /* Panels */
-.imet-section .tab-panels { width: min(955px, 100%); margin: 12px auto 0; }
+.imet-section .tab-panels { width: min(var(--wp--custom--size--1012), 100%); margin: var(--wp--preset--spacing--16) auto 0; }
 
 .imet-section .tab-panel {
-	padding: 30px 38px 20px 62px;
+	padding: var(--wp--preset--spacing--32) var(--wp--preset--spacing--40); /* even on all sides */
 	border-radius: 22px;
 	background: #f3f3f3;
 }
@@ -71,7 +71,7 @@
 .imet-section .tab-panel ul {
 	display: grid;
 	grid-template-columns: repeat(2, minmax(0, 1fr));
-	gap: 25px 20px;
+	gap: var(--wp--preset--spacing--24) var(--wp--preset--spacing--40);
 }
 
 .imet-section .tab-panel li {
@@ -93,6 +93,11 @@
 }
 
 .imet-section .tab-panel li strong { color: #000; font-weight: 600; }
+
+/* A closing line under the list (e.g. "Outcome: …" on the careers tab) */
+.imet-section .tab-panel .tab-note { margin-top: var(--wp--preset--spacing--24); padding-top: var(--wp--preset--spacing--16); border-top: 1px solid var(--wp--preset--color--line); line-height: 1.56; }
+
+.imet-section .tab-panel .tab-note strong { color: var(--wp--preset--color--gold-dark); font-weight: 600; }
 
 @media (max-width: 900px) {
 
