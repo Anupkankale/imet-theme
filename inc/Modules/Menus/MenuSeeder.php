@@ -80,18 +80,22 @@ class MenuSeeder implements Registrable {
 				continue;
 			}
 
-			$menu_id = wp_create_nav_menu( $menu['name'] );
+			// A menu with this name already exists (it was unassigned, or seeded by an earlier version): assign it as it
+			// is. Adding the default items to it would duplicate every link the editor already has.
+			$existing = wp_get_nav_menu_object( $menu['name'] );
 
-			if ( is_wp_error( $menu_id ) ) {
-				$existing = wp_get_nav_menu_object( $menu['name'] );
-				$menu_id  = $existing ? (int) $existing->term_id : 0;
+			if ( $existing ) {
+				$menu_id = (int) $existing->term_id;
+			} else {
+				$menu_id = wp_create_nav_menu( $menu['name'] );
+
+				if ( is_wp_error( $menu_id ) || ! $menu_id ) {
+					continue;
+				}
+
+				$this->add_items( (int) $menu_id, $menu['items'], 0 );
 			}
 
-			if ( ! $menu_id ) {
-				continue;
-			}
-
-			$this->add_items( (int) $menu_id, $menu['items'], 0 );
 			$locations[ $location ] = (int) $menu_id;
 			++$created;
 		}
