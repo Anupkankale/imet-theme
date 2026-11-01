@@ -305,16 +305,18 @@ section.imet-section[id] { scroll-margin-top: 100px; }
 
 .imet-section .sc-nav button:first-child { transform: scaleX(-1); }
 
-/* Pause button after every auto-moving row (view-helpers.js pauseButton, WCAG 2.2.2). Its box is an empty,
-   zero-height block after the row, so the layout is exactly what it is without the button; the button floats up over
-   the row's bottom-right corner. Hidden while the row fits and does not move. Pressed: a play triangle instead of the
-   two pause bars. */
+/* Pause button for every auto-moving row (view-helpers.js pauseButton, WCAG 2.2.2). Its box is an empty,
+   zero-height block after the row, so the layout is exactly what it is without the button. The script picks where the
+   button sits so it covers no content: .is-below (under the rows), .is-above (over them; the script sets the lift) or,
+   when neither side has room, .is-overlay (over the rows' bottom-right corner). Pressed: a play triangle instead of
+   the two pause bars. */
 .imet-section .imet-motion-control { position: relative; height: 0; }
+
+.imet-section .imet-motion-control[hidden] { display: none; }
 
 .imet-section .imet-motion-toggle {
 	position: absolute;
 	right: var(--wp--preset--spacing--8);
-	bottom: var(--wp--preset--spacing--8);
 	z-index: 2;
 	display: block;
 	width: var(--wp--preset--spacing--32);
@@ -327,13 +329,16 @@ section.imet-section[id] { scroll-margin-top: 100px; }
 	cursor: pointer;
 }
 
+.imet-section .is-below > .imet-motion-toggle { top: var(--wp--preset--spacing--6); }
+
+.imet-section .is-overlay > .imet-motion-toggle { bottom: var(--wp--preset--spacing--8); }
+
 .imet-section .imet-motion-toggle[aria-pressed="true"] {
 	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M8 5.5v13l10-6.5z' fill='%2315294e'/%3E%3C/svg%3E");
 }
 
 .imet-section .imet-motion-toggle:focus-visible { outline: var(--wp--custom--size--2) solid var(--gold); outline-offset: var(--wp--preset--spacing--2); }
 
-.imet-section .is-marquee.is-static + .imet-motion-control { display: none; }
 
 /* Utilities last, so they win over the rules above: see _utilities.scss */
 @include meta.load-css('utilities');
