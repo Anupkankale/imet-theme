@@ -1,36 +1,23 @@
 # Getting started
 
-This guide walks you through turning this starter into a working theme: you'll create a personalized **Acme Blog** theme, activate it on a local WordPress site, and confirm a source-code edit shows up on the frontend. By the end, you'll have the theme running locally and a repeatable checklist for the workflows that follow. Run commands from the theme directory unless a step says otherwise.
+This guide gets the IMET theme running on a local WordPress site and confirms that a source edit reaches the frontend.
+Run commands from the theme directory unless a step says otherwise.
 
 ## Prerequisites
 
 - **Git**
 - **Composer 2**
 - **PHP 8.2+**
-- **Node and npm** matching [`.nvmrc`](../.nvmrc) — use `nvm` or another Node version manager to select it
-- **Docker**, running, for the recommended `wp-env` route
-
-An existing local WordPress installation can replace `wp-env`; Docker is still needed for this repository's container-based PHP test command.
+- **Node and npm** matching [`.nvmrc`](../.nvmrc) (use `nvm` or another version manager)
+- **Docker**, running, for `wp-env` and the PHP tests
 
 ## 1. Get the theme
-
-Clone the repository:
 
 ```bash
 git clone https://github.com/Anupkankale/imet-theme.git
 cd imet-theme
+nvm install && nvm use
 ```
-
-Have Node 22.22.2 or later active first (the install hook runs `npm i`).
-
-With `nvm`, select the project's Node version:
-
-```bash
-nvm install
-nvm use
-```
-
-If you're on VIP, follow the [VIP local-development guide](https://docs.wpvip.com/local-development/) for project-level setup; this guide covers only the theme-local steps.
 
 ## 2. Install dependencies
 
@@ -38,64 +25,36 @@ If you're on VIP, follow the [VIP local-development guide](https://docs.wpvip.co
 composer install
 ```
 
-Composer's install hook also runs `npm i`, which runs `sync-ai`. Do not repeat npm installation immediately afterwards. If you used Composer's `--no-scripts` option, run `npm install` separately.
+Composer's install hook also runs `npm i`, so you don't need to run npm afterwards. If you used `--no-scripts`, run
+`npm install` yourself.
 
-Resolve installation errors before continuing; see [initialization troubleshooting](initialization.md#troubleshooting).
+## 3. Start WordPress and activate the theme
 
-## 3. Personalize
-
-Review `git status` and resolve unrelated changes before running:
-
-```bash
-npm run init
-```
-
-Use **Acme Blog** as the theme name. For this first walkthrough, keep the examples and the default feature selection: HMR on, Tailwind off. The [initialization guide](initialization.md) explains each decision, including cleanup and optional Git initialization.
-
-Alternatively, open the clone in your AI assistant and ask:
-
-```text
-/init Set up this theme as "Acme Blog". Keep the examples and default features.
-```
-
-Use one route. The AI route can handle dependency installation too if you start it before step 2.
-
-> **Using a different AI assistant?** `/init` and `/scaffold` are Claude Code skills. [AGENTS.md](../AGENTS.md) is the tool-agnostic source of truth, with matching Copilot prompts in `.github/prompts/`; with another tool, describe the task and use the CLI route instead.
-
-Review the resulting `style.css`, Composer namespace, `.wp-scaffold.json`, and removed files. Initialization changes the display name; the theme's directory remains `acme-blog`. A baseline commit after this review gives you a useful checkpoint before feature development.
-
-## 4. Start WordPress and activate the theme
-
-For a standalone project, use the bundled `wp-env` route below. If the theme is inside an existing WordPress repository, skip the bundled `wp-env` route and start that repository's environment using its own instructions. Use its activation command and site URL, and run `npm run build:dev` from the theme directory.
-
-### Standalone `wp-env` route
-
-The committed `.wp-env.json` mounts the theme, uses PHP 8.2, and sets the development port. The PHP tests run in a separate environment configured by `.wp-env.tests.json`.
-
-From the theme directory, run:
+The committed `.wp-env.json` mounts the theme on PHP 8.2. The PHP tests run in a separate environment from
+`.wp-env.tests.json`.
 
 ```bash
 npm run wp-env start
-npm run wp-env run cli -- wp theme activate acme-blog
+npm run wp-env run cli -- wp theme activate imet-theme
 npm run build:dev
 ```
 
-For the standalone `wp-env` route, open [the local site](http://localhost:5890) and [WordPress admin](http://localhost:5890/wp-admin/). A fresh wp-env installation uses `admin` / `password`. Under Appearance, confirm **Acme Blog** is active, then open the Site Editor and check that the theme templates load.
+Open [the local site](http://localhost:5890) and [WordPress admin](http://localhost:5890/wp-admin/) (`admin` /
+`password` on a fresh install). Under Appearance, confirm **ImetBlocktheme** is active, then open the Site Editor and
+check that the templates load.
 
-If your folder has another name, use that exact name in the activation command. For an existing WordPress environment, open its configured site and admin URLs; confirm the theme is active and its templates load in the Site Editor there.
+The FAQ structured data and the migration command live in the companion plugin
+[`imet-core`](https://github.com/Anupkankale/imet-core). Install and activate it on the same site when you work on those
+features.
 
-## 5. Make a visible edit
-
-Start the theme asset watcher:
+## 4. Make a visible edit
 
 ```bash
 npm run start:assets
 ```
 
-In `src/css/frontend/styles.scss`, temporarily add `body { outline: 3px solid red; }`. Wait for a successful rebuild and refresh the frontend. Remove the rule after checking it. Stop the watcher with Ctrl+C.
+In `src/css/frontend/styles.scss`, temporarily add `body { outline: 3px solid red; }`. Wait for the rebuild, refresh the
+frontend, then remove the rule and stop the watcher with Ctrl+C.
 
-Manual refresh works without further configuration. [Local development](local-development.md) shows how to enable automatic reload, watch custom blocks, run checks, and create a production build.
-
-The theme is now running locally with a source-to-frontend edit confirmed — you're ready to build on it.
-
-Next, [explore the supplied features](features.md), [generate a feature](scaffolding.md), or [extend the theme manually](../DEVELOPMENT.md).
+Next: [Local development](local-development.md) for watchers, checks and the production build, the
+[design system](design-system.md) for tokens, and the [development guide](../DEVELOPMENT.md) for adding PHP classes.

@@ -80,7 +80,7 @@ By naming files with the underscore, we make sure they are excluded from the Web
 
 ## Components and blocks
 
-A component's asset filename matches its directory, for example `src/components/card/card.js` and `card.scss`. Its PHP render file stays in `src/components/card/card.php`. The theme component loader connects rendering and assets; see [Included features](features.md#supplied-examples).
+A component's asset filename matches its directory, for example `src/components/card/card.js` and `card.scss`. Its PHP render file stays in `src/components/card/card.php`. The theme component loader (`inc/Core/Components.php`) connects rendering and assets; see the framework's [ComponentLoader reference](https://github.com/rtCamp/wp-primitives/blob/main/docs/loaders.md#componentloader).
 
 Custom blocks have their own build and registration. Keep their metadata and sources under `src/blocks/`, and point PHP registration at the corresponding `assets/build/blocks/` output. The starter does not require a custom block to render its standard block-theme templates.
 
