@@ -100,6 +100,7 @@ class AssetsTest extends TestCase {
 		// reads (removed again in tear_down()).
 		$this->write_build_asset( 'js/frontend/core-navigation.js' );
 		$this->write_build_asset( 'js/frontend/footer-accordion.js' );
+		$this->write_build_asset( 'js/frontend/header-scroll.js' );
 		$this->write_build_asset( 'css/frontend/core-navigation.css' );
 		$this->write_build_asset( 'css/frontend/styles.css' );
 		$this->write_build_asset( 'css/frontend/tailwind.css' );
