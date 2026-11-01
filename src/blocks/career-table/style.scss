@@ -4,11 +4,13 @@
    each row lines up across the table. */
 .imet-section.career { padding: 14px 0 24px; }
 
+.imet-section.career .sec-head { margin-bottom: var(--wp--preset--spacing--32); } /* room between the intro and the table */
+
 .imet-section .career-table {
 	display: grid;
 	grid-template-columns: repeat(5, minmax(0, 1fr));
 	grid-template-rows: auto repeat(5, auto);
-	width: min(1140px, 100%);
+	width: 100%; /* the container's width, like every section around it */
 	margin: 0 auto;
 	border: 1px solid #e3a531;
 	border-radius: 10px 10px 16px 16px;
@@ -79,7 +81,7 @@
    2-column and 1-column layouts below take over. */
 @media (min-width: 1001px) {
 
-	.imet-section.career.is-four .career-table { grid-template-columns: repeat(4, minmax(0, 1fr)); width: min(var(--wp--custom--size--916), 100%); }
+	.imet-section.career.is-four .career-table { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 
 	.imet-section.career.is-four .ct-col :is(h3, h4) { min-height: var(--wp--custom--size--88); font-weight: 400; }
 }
