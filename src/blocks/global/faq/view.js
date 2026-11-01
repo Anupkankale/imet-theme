@@ -4,13 +4,17 @@ each('.wp-block-imet-faq .faq-acc', (group) =>
 	accordion(group, { openFirst: true })
 );
 
-// "See More": shows the questions after the first 5 (hidden by CSS), then hides itself.
+let uid = 0;
+
+// "See More": shows the questions after the first 5, then hides itself. The CSS only hides those questions (and only
+// shows the button) once this script has marked the block .is-enhanced, so without JavaScript every question is visible.
 each('.wp-block-imet-faq', (faq) => {
 	const group = faq.querySelector('.faq-acc');
 	const more = faq.querySelector('.faq-more');
 	if (!group || !more) {
 		return;
 	}
+	faq.classList.add('is-enhanced');
 	if (group.querySelectorAll('details').length <= 5) {
 		more.classList.add('is-hidden');
 		return;
@@ -20,7 +24,7 @@ each('.wp-block-imet-faq', (faq) => {
 		return;
 	}
 	if (!group.id) {
-		group.id = 'imet-faq-list';
+		group.id = 'imet-faq-list-' + ++uid;
 	}
 	link.setAttribute('role', 'button');
 	link.setAttribute('aria-controls', group.id);
