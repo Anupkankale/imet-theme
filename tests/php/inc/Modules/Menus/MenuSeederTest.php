@@ -49,4 +49,34 @@ class MenuSeederTest extends WP_UnitTestCase {
 
 		$this->assertSame( 0, $seeder->seed() );
 	}
+
+	/**
+	 * A menu that already exists under the default name, but is not assigned, is assigned as it is: its items are not
+	 * added a second time (e.g. after someone unassigned it and DefaultMenus::VERSION was bumped).
+	 *
+	 * @since 1.2.1
+	 */
+	public function test_seed_reuses_an_existing_menu_without_duplicating_items(): void {
+		$name    = DefaultMenus::all()['primary']['name'];
+		$menu_id = wp_create_nav_menu( $name );
+		wp_update_nav_menu_item(
+			$menu_id,
+			0,
+			[
+				'menu-item-title'  => 'Kept link',
+				'menu-item-url'    => 'https://example.org/kept/',
+				'menu-item-type'   => 'custom',
+				'menu-item-status' => 'publish',
+			]
+		);
+
+		( new MenuSeeder() )->seed();
+
+		$locations = get_theme_mod( 'nav_menu_locations' );
+		$items     = wp_get_nav_menu_items( $menu_id );
+
+		$this->assertSame( $menu_id, (int) $locations['primary'] );
+		$this->assertCount( 1, $items );
+		$this->assertSame( 'Kept link', $items[0]->title );
+	}
 }
