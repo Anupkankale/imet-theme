@@ -1,6 +1,6 @@
 <?php
 /**
- * YouTube thumbnails for the video gallery.
+ * YouTube thumbnails for the video gallery, served from this site.
  *
  * @package IMET\Theme
  */
@@ -14,14 +14,42 @@ use rtCamp\WPPrimitives\Contracts\Interfaces\Registrable;
 /**
  * Class Video
  *
- * An Image block with the class "yt-auto" that links to a YouTube video shows
- * that video's thumbnail from YouTube, so editors only paste the link (IMET
- * Video gallery). Without a YouTube link, or without "yt-auto", the image chosen
- * in the editor is shown.
+ * An Image block with the class "yt-auto" that links to a YouTube video shows that video's thumbnail, so editors only
+ * paste the link (IMET Video gallery). Without a YouTube link, or without "yt-auto", the image chosen in the editor is
+ * shown.
+ *
+ * Visitors' browsers never contact YouTube for a thumbnail (privacy, GDPR): the thumbnail is downloaded once, in the
+ * background by WP-Cron, into the uploads folder, and served from there. Until that copy exists the editor's image
+ * shows. The video itself only loads from youtube-nocookie.com once the visitor presses play (alumni-video view.js).
  *
  * @since 1.0.0
  */
 class Video implements Registrable {
+
+	/**
+	 * Option holding the downloaded thumbnails: "<video id>-<size>" => url, width, height (or a failed-at time).
+	 */
+	public const OPTION = 'imet_youtube_thumbnails';
+
+	/**
+	 * Cron hook that downloads one thumbnail.
+	 */
+	public const CRON_HOOK = 'imet_fetch_youtube_thumbnail';
+
+	/**
+	 * Seconds before a failed download is tried again.
+	 */
+	private const RETRY_AFTER = DAY_IN_SECONDS;
+
+	/**
+	 * Largest thumbnail accepted, in bytes.
+	 */
+	private const MAX_BYTES = 2 * MB_IN_BYTES;
+
+	/**
+	 * Width YouTube serves in place of a missing maxresdefault.jpg (a grey placeholder with a 404 or 200 status).
+	 */
+	private const PLACEHOLDER_WIDTH = 120;
 
 	/**
 	 * Register hooks.
@@ -30,6 +58,7 @@ class Video implements Registrable {
 	 */
 	public function register_hooks(): void {
 		add_filter( 'render_block_core/image', [ $this, 'swap_thumbnail' ], 10, 2 );
+		add_action( self::CRON_HOOK, [ $this, 'fetch' ], 10, 2 );
 	}
 
 	/**
@@ -44,7 +73,7 @@ class Video implements Registrable {
 	}
 
 	/**
-	 * Swap the image of a "yt-auto" block for the video's YouTube thumbnail.
+	 * Swap the image of a "yt-auto" block for the video's locally stored thumbnail.
 	 *
 	 * @param string               $html  Block markup.
 	 * @param array<string, mixed> $block Parsed block.
@@ -64,28 +93,168 @@ class Video implements Registrable {
 			return $html;
 		}
 
-		// Main player: the largest thumbnail (not every video has one) with the standard one as fallback.
-		$base  = 'https://i.ytimg.com/vi/' . $id . '/';
-		$large = 1 === preg_match( '/(^|\s)video-main(\s|$)/', $class );
-		$src   = $base . ( $large ? 'maxresdefault.jpg' : 'hqdefault.jpg' );
+		// Main player: the largest thumbnail (not every video has one, fetch() falls back to the standard one).
+		$size  = 1 === preg_match( '/(^|\s)video-main(\s|$)/', $class ) ? 'large' : 'small';
+		$thumb = $this->stored( $id, $size );
+
+		if ( null === $thumb ) {
+			$this->schedule( $id, $size );
+
+			return $html; // The editor's image until the local copy exists.
+		}
 
 		return (string) preg_replace_callback(
 			'#<img\b[^>]*>#',
-			static function ( array $img ) use ( $src, $base, $large ): string {
+			static function ( array $img ) use ( $thumb ): string {
 				$tag = (string) preg_replace( '#\s(?:srcset|sizes|width|height)="[^"]*"#', '', $img[0] );
-				$tag = (string) preg_replace( '#\ssrc="[^"]*"#', ' src="' . esc_url( $src ) . '"', $tag );
-				// The thumbnail's real size, so the browser reserves the space before it loads (maxresdefault is 1280 x 720, hqdefault 480 x 360).
-				$tag = str_replace( '<img', '<img width="' . ( $large ? 1280 : 480 ) . '" height="' . ( $large ? 720 : 360 ) . '"', $tag );
+				$tag = (string) preg_replace( '#\ssrc="[^"]*"#', ' src="' . esc_url( $thumb['url'] ) . '"', $tag );
 
-				// Not every video has the large thumbnail: the alumni-video view script swaps to this one when it is missing.
-				if ( $large ) {
-					$tag = str_replace( '<img', '<img data-fallback-src="' . esc_url( $base . 'hqdefault.jpg' ) . '"', $tag );
-				}
-
-				return $tag;
+				// The thumbnail's real size, so the browser reserves the space before it loads.
+				return str_replace( '<img', '<img width="' . (int) $thumb['width'] . '" height="' . (int) $thumb['height'] . '"', $tag );
 			},
 			$html,
 			1
 		);
+	}
+
+	/**
+	 * Download one thumbnail into the uploads folder and remember it (the cron callback).
+	 *
+	 * The large size tries maxresdefault.jpg and falls back to hqdefault.jpg when YouTube has none (a 404, or its
+	 * 120px placeholder). A failure is remembered and retried after a day.
+	 *
+	 * @since 1.2.1
+	 *
+	 * @param string $id   Video id.
+	 * @param string $size `large` or `small`.
+	 *
+	 * @return bool Whether a thumbnail is now stored.
+	 */
+	public function fetch( string $id, string $size ): bool {
+		if ( 1 !== preg_match( '/^[\w-]{11}$/', $id ) || ! in_array( $size, [ 'large', 'small' ], true ) ) {
+			return false;
+		}
+
+		$files = 'large' === $size ? [ 'maxresdefault.jpg', 'hqdefault.jpg' ] : [ 'hqdefault.jpg' ];
+		$image = null;
+
+		foreach ( $files as $file ) {
+			$image = $this->download( 'https://i.ytimg.com/vi/' . $id . '/' . $file );
+
+			if ( null !== $image ) {
+				break;
+			}
+		}
+
+		$thumbnails = $this->all();
+		$key        = $id . '-' . $size;
+
+		if ( null === $image ) {
+			$thumbnails[ $key ] = [ 'failed' => time() ];
+			update_option( self::OPTION, $thumbnails, false );
+
+			return false;
+		}
+
+		$upload = wp_upload_bits( 'youtube-' . $key . '.jpg', null, $image['bits'] );
+
+		if ( ! empty( $upload['error'] ) || empty( $upload['url'] ) ) {
+			$thumbnails[ $key ] = [ 'failed' => time() ];
+			update_option( self::OPTION, $thumbnails, false );
+
+			return false;
+		}
+
+		$thumbnails[ $key ] = [
+			'url'    => (string) $upload['url'],
+			'width'  => $image['width'],
+			'height' => $image['height'],
+		];
+		update_option( self::OPTION, $thumbnails, false );
+
+		return true;
+	}
+
+	/**
+	 * A stored thumbnail.
+	 *
+	 * @param string $id   Video id.
+	 * @param string $size `large` or `small`.
+	 *
+	 * @return array{url: string, width: int, height: int}|null The thumbnail, or null when there is none yet.
+	 */
+	private function stored( string $id, string $size ): ?array {
+		$thumb = $this->all()[ $id . '-' . $size ] ?? null;
+
+		if ( ! is_array( $thumb ) || empty( $thumb['url'] ) ) {
+			return null;
+		}
+
+		return [
+			'url'    => (string) $thumb['url'],
+			'width'  => (int) ( $thumb['width'] ?? 0 ),
+			'height' => (int) ( $thumb['height'] ?? 0 ),
+		];
+	}
+
+	/**
+	 * Queue the download of a thumbnail, unless it is queued already or failed less than a day ago.
+	 *
+	 * @param string $id   Video id.
+	 * @param string $size `large` or `small`.
+	 */
+	private function schedule( string $id, string $size ): void {
+		$failed = (int) ( $this->all()[ $id . '-' . $size ]['failed'] ?? 0 );
+
+		if ( $failed > time() - self::RETRY_AFTER || false !== wp_next_scheduled( self::CRON_HOOK, [ $id, $size ] ) ) {
+			return;
+		}
+
+		wp_schedule_single_event( time(), self::CRON_HOOK, [ $id, $size ] );
+	}
+
+	/**
+	 * Every stored thumbnail entry.
+	 *
+	 * @return array<string, array<string, mixed>> Key => entry.
+	 */
+	private function all(): array {
+		$thumbnails = get_option( self::OPTION, [] );
+
+		return is_array( $thumbnails ) ? $thumbnails : [];
+	}
+
+	/**
+	 * Fetch one JPEG from YouTube's image server.
+	 *
+	 * @param string $url Thumbnail URL.
+	 *
+	 * @return array{bits: string, width: int, height: int}|null The image, or null when missing, a placeholder or invalid.
+	 */
+	private function download( string $url ): ?array {
+		$response = wp_safe_remote_get(
+			$url,
+			[
+				'timeout'             => 10,
+				'limit_response_size' => self::MAX_BYTES,
+			]
+		);
+
+		if ( is_wp_error( $response ) || 200 !== (int) wp_remote_retrieve_response_code( $response ) ) {
+			return null;
+		}
+
+		$bits = (string) wp_remote_retrieve_body( $response );
+		$info = '' === $bits ? false : getimagesizefromstring( $bits );
+
+		if ( false === $info || IMAGETYPE_JPEG !== $info[2] || $info[0] <= self::PLACEHOLDER_WIDTH ) {
+			return null;
+		}
+
+		return [
+			'bits'   => $bits,
+			'width'  => (int) $info[0],
+			'height' => (int) $info[1],
+		];
 	}
 }

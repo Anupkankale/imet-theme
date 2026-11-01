@@ -4,7 +4,6 @@ import {
 	marquee,
 	pauseButton,
 	reduceMotion,
-	thumbnailFallback,
 } from '../../src/blocks-shared/view-helpers';
 
 const FAQ = `
@@ -182,44 +181,5 @@ describe('pauseButton', () => {
 		expect(calls).toEqual([true, false]);
 		expect(button.getAttribute('aria-pressed')).toBe('false');
 		expect(button.classList.contains('imet-motion-toggle')).toBe(true);
-	});
-});
-
-describe('thumbnailFallback', () => {
-	const image = (naturalWidth, complete = false) => {
-		document.body.innerHTML =
-			'<img src="https://i.ytimg.com/vi/x/maxresdefault.jpg" data-fallback-src="https://i.ytimg.com/vi/x/hqdefault.jpg">';
-		const img = document.querySelector('img');
-		Object.defineProperty(img, 'naturalWidth', { value: naturalWidth });
-		Object.defineProperty(img, 'complete', { value: complete });
-		return img;
-	};
-	const FALLBACK = 'https://i.ytimg.com/vi/x/hqdefault.jpg';
-
-	test('swaps to the fallback when the image fails', () => {
-		const img = image(0);
-		thumbnailFallback(img);
-		img.dispatchEvent(new window.Event('error'));
-		expect(img.src).toBe(FALLBACK);
-	});
-
-	test('swaps when YouTube serves its 120px placeholder for a missing large thumbnail', () => {
-		const img = image(120);
-		thumbnailFallback(img);
-		img.dispatchEvent(new window.Event('load'));
-		expect(img.src).toBe(FALLBACK);
-	});
-
-	test('checks an image that already loaded before the script ran', () => {
-		const img = image(120, true);
-		thumbnailFallback(img);
-		expect(img.src).toBe(FALLBACK);
-	});
-
-	test('keeps a real large thumbnail', () => {
-		const img = image(1280);
-		thumbnailFallback(img);
-		img.dispatchEvent(new window.Event('load'));
-		expect(img.src).toContain('maxresdefault');
 	});
 });
