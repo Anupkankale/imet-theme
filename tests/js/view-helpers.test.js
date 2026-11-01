@@ -2,6 +2,7 @@ import {
 	each,
 	accordion,
 	marquee,
+	pauseButton,
 	reduceMotion,
 } from '../../src/blocks-shared/view-helpers';
 
@@ -125,9 +126,60 @@ describe('marquee', () => {
 		).toBe(false);
 	});
 
+	test('adds a pause button after the row (WCAG 2.2.2)', () => {
+		const row = build({ alwaysMove: true });
+		const button = row.nextElementSibling;
+
+		expect(button.tagName).toBe('BUTTON');
+		expect(button.type).toBe('button');
+		expect(button.getAttribute('aria-pressed')).toBe('false');
+		expect(button.getAttribute('aria-label')).toBe('Pause animation');
+	});
+
+	test('the pause button stops the row until it is pressed again, whatever the pointer does', () => {
+		const row = build({ alwaysMove: true });
+		const button = row.nextElementSibling;
+
+		button.click();
+		expect(button.getAttribute('aria-pressed')).toBe('true');
+		expect(row.classList.contains('is-stopped')).toBe(true);
+
+		// Hover and focus ending must not restart a row the visitor stopped.
+		row.dispatchEvent(new window.MouseEvent('mouseenter'));
+		row.dispatchEvent(new window.MouseEvent('mouseleave'));
+		row.dispatchEvent(new window.FocusEvent('focusout'));
+		expect(row.classList.contains('is-stopped')).toBe(true);
+
+		button.click();
+		expect(button.getAttribute('aria-pressed')).toBe('false');
+		expect(row.classList.contains('is-stopped')).toBe(false);
+	});
+
 	test('does nothing for reduced motion or a single item', () => {
 		window.matchMedia = jest.fn(() => ({ matches: true }));
 
-		expect(build().querySelectorAll('.is-clone')).toHaveLength(0);
+		const row = build();
+		expect(row.querySelectorAll('.is-clone')).toHaveLength(0);
+		expect(row.nextElementSibling).toBeNull();
+	});
+});
+
+describe('pauseButton', () => {
+	beforeEach(() => {
+		document.body.innerHTML = '<div class="moving"></div>';
+	});
+
+	test('reports each press and keeps aria-pressed in step', () => {
+		const calls = [];
+		const button = pauseButton(document.querySelector('.moving'), (s) =>
+			calls.push(s)
+		);
+
+		button.click();
+		button.click();
+
+		expect(calls).toEqual([true, false]);
+		expect(button.getAttribute('aria-pressed')).toBe('false');
+		expect(button.classList.contains('imet-motion-toggle')).toBe(true);
 	});
 });

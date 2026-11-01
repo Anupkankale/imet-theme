@@ -305,6 +305,28 @@ section.imet-section[id] { scroll-margin-top: 100px; }
 
 .imet-section .sc-nav button:first-child { transform: scaleX(-1); }
 
+/* Pause button after every auto-moving row (view-helpers.js pauseButton, WCAG 2.2.2). Hidden while the row fits and
+   does not move. Pressed: shows a play triangle instead of the two pause bars. */
+.imet-section .imet-motion-toggle {
+	display: block;
+	width: var(--wp--preset--spacing--32);
+	height: var(--wp--preset--spacing--32);
+	margin: var(--wp--preset--spacing--12) 0 0 auto;
+	padding: 0;
+	border: 0;
+	border-radius: 50%;
+	background: var(--card) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M9 6v12M15 6v12' stroke='%2315294e' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E") center / var(--wp--preset--spacing--16) no-repeat;
+	cursor: pointer;
+}
+
+.imet-section .imet-motion-toggle[aria-pressed="true"] {
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M8 5.5v13l10-6.5z' fill='%2315294e'/%3E%3C/svg%3E");
+}
+
+.imet-section .imet-motion-toggle:focus-visible { outline: var(--wp--custom--size--2) solid var(--gold); outline-offset: var(--wp--preset--spacing--2); }
+
+.imet-section .is-marquee.is-static + .imet-motion-toggle { display: none; }
+
 /* Utilities last, so they win over the rules above: see _utilities.scss */
 @include meta.load-css('utilities');
 

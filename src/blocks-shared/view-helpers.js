@@ -90,10 +90,32 @@ export function accordion(group, { openFirst = false, duration = 320 } = {}) {
 }
 
 /**
+ * A button that stops and restarts moving content, placed right after it. WCAG 2.2.2 (Pause, Stop, Hide) asks for one
+ * on anything that moves for more than five seconds; pausing on hover or focus alone does not count.
+ * @param {Element}                    anchor   The moving element; the button goes right after it.
+ * @param {(stopped: boolean) => void} onChange Called with true when the visitor stops the motion, false when they restart it.
+ * @return {HTMLButtonElement} The button.
+ */
+export function pauseButton(anchor, onChange) {
+	const button = document.createElement('button');
+	button.type = 'button';
+	button.className = 'imet-motion-toggle';
+	button.setAttribute('aria-label', 'Pause animation');
+	button.setAttribute('aria-pressed', 'false');
+	button.addEventListener('click', () => {
+		const stopped = button.getAttribute('aria-pressed') !== 'true';
+		button.setAttribute('aria-pressed', stopped ? 'true' : 'false');
+		onChange(stopped);
+	});
+	anchor.after(button);
+	return button;
+}
+
+/**
  * Marquee: the row glides left at `speed` px/s and loops without a jump (the items are repeated once,
  * marked .is-clone and hidden from screen readers and the tab order). It only moves while the row actually
  * overflows (so CSS decides per screen size), is on screen and isn't hovered, focused or touched; swiping still
- * works. Off for "reduce motion". `alwaysMove` keeps it gliding even when the items exactly fit the row (the copies
+ * works. A pause button after the row stops it until pressed again. Off for "reduce motion". `alwaysMove` keeps it gliding even when the items exactly fit the row (the copies
  * fill in behind them), for rows that should never sit still.
  * @param {Element}   row                Row that glides.
  * @param {Element[]} items              Items in the row.
@@ -135,6 +157,7 @@ export function marquee(row, items, { speed = 40, alwaysMove = false } = {}) {
 	let pos = 0;
 	let last = 0;
 	let paused = false;
+	let stopped = false;
 	let visible = false;
 	const tick = (now) => {
 		window.requestAnimationFrame(tick);
@@ -142,8 +165,14 @@ export function marquee(row, items, { speed = 40, alwaysMove = false } = {}) {
 		const dt = last ? Math.min(now - last, 100) : 0;
 		last = now;
 		const w = loopWidth();
-		if (paused || !visible || w <= 0 || !overflows()) {
-			if (!paused && w > 0 && !overflows() && row.scrollLeft) {
+		if (paused || stopped || !visible || w <= 0 || !overflows()) {
+			if (
+				!paused &&
+				!stopped &&
+				w > 0 &&
+				!overflows() &&
+				row.scrollLeft
+			) {
 				row.scrollLeft = pos = 0; // fits again (e.g. after a resize): back to the start
 			}
 			return;
@@ -162,6 +191,13 @@ export function marquee(row, items, { speed = 40, alwaysMove = false } = {}) {
 		pos = w > 0 ? row.scrollLeft % w : 0; // continue from where a swipe left it
 		paused = false;
 	};
+	pauseButton(row, (stop) => {
+		stopped = stop;
+		row.classList.toggle('is-stopped', stop);
+		if (!stop) {
+			resume();
+		}
+	});
 	row.addEventListener('mouseenter', pause);
 	row.addEventListener('mouseleave', resume);
 	row.addEventListener('touchstart', pause, { passive: true });
