@@ -57,16 +57,18 @@
 
 .imet-section .cy-3 { width: 107px; height: 107px; right: 38px; top: 16px; }
 
-.imet-section .cy-4 { width: 79px; height: 79px; right: 122px; top: 143px; }
+.imet-section .cy-4 { width: 79px; height: 79px; right: 122px; top: 161px; }
 
-@media (max-width: 1100px) {
-
-	.imet-section .cy-1, .imet-section .cy-3 { display: none; }
-}
-
-@media (max-width: 1200px) {
+/* All four photos show while they clear the heading and buttons; on narrower screens the two by the buttons go
+   first, then the top two. */
+@media (max-width: 1024px) {
 
 	.imet-section .cy-2, .imet-section .cy-4 { display: none; }
+}
+
+@media (max-width: 900px) {
+
+	.imet-section .cy-1, .imet-section .cy-3 { display: none; }
 }
 
 @media (max-width: 640px) {
