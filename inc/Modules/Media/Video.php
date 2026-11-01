@@ -58,7 +58,7 @@ class Video implements Registrable {
 	 */
 	public function register_hooks(): void {
 		add_filter( 'render_block_core/image', [ $this, 'swap_thumbnail' ], 10, 2 );
-		add_action( self::CRON_HOOK, [ $this, 'fetch' ], 10, 2 );
+		add_action( self::CRON_HOOK, [ $this, 'run_fetch' ], 10, 2 );
 	}
 
 	/**
@@ -118,7 +118,19 @@ class Video implements Registrable {
 	}
 
 	/**
-	 * Download one thumbnail into the uploads folder and remember it (the cron callback).
+	 * The cron callback: download one thumbnail (actions return nothing).
+	 *
+	 * @since 1.2.1
+	 *
+	 * @param string $id   Video id.
+	 * @param string $size `large` or `small`.
+	 */
+	public function run_fetch( string $id, string $size ): void {
+		$this->fetch( $id, $size );
+	}
+
+	/**
+	 * Download one thumbnail into the uploads folder and remember it.
 	 *
 	 * The large size tries maxresdefault.jpg and falls back to hqdefault.jpg when YouTube has none (a 404, or its
 	 * 120px placeholder). A failure is remembered and retried after a day.
