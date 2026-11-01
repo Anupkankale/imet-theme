@@ -33,7 +33,7 @@ graphify update .
 graphify cluster-only . --no-label --no-viz
 ```
 
-`update` re-extracts the code and rebuilds the structural graph; `cluster-only` refreshes `graphify-out/GRAPH_REPORT.md` without regenerating the HTML visualization. The maintained repository artifacts are `graphify-out/graph.json` and `graphify-out/GRAPH_REPORT.md`. Regenerating committed artifacts is a separate maintainer decision; see [maintenance](maintenance.md#knowledge-graph).
+`update` re-extracts the code and rebuilds the structural graph; `cluster-only` refreshes `graphify-out/GRAPH_REPORT.md` without regenerating the HTML visualization. The maintained repository artifacts are `graphify-out/graph.json` and `graphify-out/GRAPH_REPORT.md`. Regenerating the committed artifacts is a separate maintainer decision.
 
 ## Optional: semantic layer
 

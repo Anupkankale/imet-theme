@@ -55,7 +55,7 @@ jobs:
           site-url: ${{ steps.pages.outputs.origin }}
           base-url: ${{ steps.pages.outputs.base_url && format('{0}/', steps.pages.outputs.base_path) || '' }}
           sidebar: >-
-            ["index", "getting-started", "initialization", "local-development", "features", "scaffolding"]
+            ["index", "getting-started", "local-development", "design-system", "DEPLOYMENT"]
 
       - name: Upload GitHub Pages artifact
         if: >-

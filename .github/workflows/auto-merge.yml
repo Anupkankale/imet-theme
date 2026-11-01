@@ -32,11 +32,18 @@ jobs:
         if: |
           contains( github.event.workflow_run.head_commit.message, 'version-update:semver-minor' ) ||
           contains( github.event.workflow_run.head_commit.message, 'version-update:semver-patch' )
-        run: gh pr merge "$PR_NUMBER" --auto --merge --delete-branch
+        # gh reads GH_TOKEN. Without the GH_BOT_TOKEN secret, skip with a warning
+        # instead of failing: the PR simply waits for a manual merge.
+        run: |
+          if [ -z "$GH_TOKEN" ]; then
+            echo "::warning::GH_BOT_TOKEN secret is not set; PR #$PR_NUMBER left for a manual merge."
+            exit 0
+          fi
+          gh pr merge "$PR_NUMBER" --auto --merge --delete-branch
         env:
           GH_REPO: ${{ github.repository }}
           PR_NUMBER: ${{ github.event.workflow_run.pull_requests[0].number }}
-          GITHUB_TOKEN: ${{ secrets.GH_BOT_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_BOT_TOKEN }}
 
   gutenberg-packages:
     name: Gutenberg packages update PR auto-merge
@@ -53,8 +60,15 @@ jobs:
           endsWith(github.event.workflow_run.head_commit.message, format('{0} {1}', 'rtBot', '<43742164+rtBot@users.noreply.github.com>')) &&
           github.event.workflow_run.head_commit.author.name == 'rtBot' &&
           github.event.workflow_run.head_commit.author.email == '43742164+rtBot@users.noreply.github.com'
-        run: gh pr merge "$PR_NUMBER" --auto --merge --delete-branch
+        # gh reads GH_TOKEN. Without the GH_BOT_TOKEN secret, skip with a warning
+        # instead of failing: the PR simply waits for a manual merge.
+        run: |
+          if [ -z "$GH_TOKEN" ]; then
+            echo "::warning::GH_BOT_TOKEN secret is not set; PR #$PR_NUMBER left for a manual merge."
+            exit 0
+          fi
+          gh pr merge "$PR_NUMBER" --auto --merge --delete-branch
         env:
           GH_REPO: ${{ github.repository }}
           PR_NUMBER: ${{ github.event.workflow_run.pull_requests[0].number }}
-          GITHUB_TOKEN: ${{ secrets.GH_BOT_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_BOT_TOKEN }}

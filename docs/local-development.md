@@ -1,12 +1,12 @@
 # Local development
 
-This guide covers day-to-day work on an initialized theme: running WordPress locally, editing source and seeing the result, checking a change, and building for delivery. Start here after [initialization](initialization.md). Commands run from the theme directory; examples assume the folder is `acme-blog`.
+This guide covers day-to-day work on the theme: running WordPress locally, editing source and seeing the result, checking a change, and building for delivery. Start here after [Getting Started](getting-started.md). Commands run from the theme directory; examples assume the folder is `imet-theme`.
 
 ## Start and stop WordPress
 
 ```bash
 npm run wp-env start
-npm run wp-env run cli -- wp theme activate acme-blog
+npm run wp-env run cli -- wp theme activate imet-theme
 ```
 
 The development site is `http://localhost:5890`. PHP tests use a separate environment, defined in `.wp-env.tests.json`, on `http://localhost:5891` with its own database; `npm run test:php` starts it when needed. Activation uses the mounted **folder name**, not the theme display name or text domain. When you finish, stop the environments with:
@@ -27,7 +27,7 @@ For an existing local WordPress installation, use its normal startup and activat
 | `src/js/frontend/modules/` | Interactivity modules under `assets/build/js/modules/`. |
 | `src/components/<name>/<name>.{js,scss}` | `assets/build/js/components/<name>.js` and `assets/build/css/components/<name>.css`; the component PHP stays under `src/components/`. |
 | `src/blocks/` (when added) | Block files under `assets/build/blocks/`. |
-| `inc/`, `template-parts/` | PHP behavior and render templates. |
+| `inc/` | PHP behavior. |
 
 Edit files under `src/`, `inc/`, `templates/`, `parts/`, `patterns/`, and `styles/`. Treat everything under `assets/build/` as generated output; do not edit it by hand.
 
@@ -75,7 +75,7 @@ npm run test:js -- --runInBand --watch=false tests/js/webpack-config.test.js
 Use PHP compatible with the project's installed checks (PHP 8.2 is the wp-env baseline). To run PHPCS in that container instead:
 
 ```bash
-npm run wp-env -- run cli --env-cwd=/var/www/html/wp-content/themes/acme-blog -- vendor/bin/phpcs
+npm run wp-env -- run cli --env-cwd=/var/www/html/wp-content/themes/imet-theme -- vendor/bin/phpcs
 ```
 
 The theme's PHP test command runs inside the test environment's `cli` container; its pretest hook starts that environment and installs Composer dependencies there without scripts. The test environment has `WP_DEBUG` on, which the logger tests need.
@@ -87,10 +87,10 @@ npm run test:php
 For a focused PHP test:
 
 ```bash
-npm run wp-env -- run --config=.wp-env.tests.json cli --env-cwd=/var/www/html/wp-content/themes/acme-blog -- vendor/bin/phpunit --filter AuthorBioTest
+npm run wp-env -- run --config=.wp-env.tests.json cli --env-cwd=/var/www/html/wp-content/themes/imet-theme -- vendor/bin/phpunit --filter MenuTest
 ```
 
-Use the relevant test name if the example was removed. Keep smoke projects outside this repository so Jest does not discover another project's tests. Use the explicit commands above for a terminating review check; aggregate-script details belong in [maintenance](internal/maintenance.md#checks).
+Replace `MenuTest` with the test you are working on. Keep smoke projects outside this repository so Jest does not discover another project's tests.
 
 ## Build for delivery
 
@@ -98,7 +98,7 @@ Use the relevant test name if the example was removed. Keep smoke projects outsi
 npm run build:prod
 ```
 
-Verify `assets/build/` contains the CSS, JavaScript, metadata, and any custom blocks needed by the theme. The directory is gitignored: commit source and build configuration, not the build output itself, and make sure your deployment process runs this build (or an equivalent) before the theme goes live. This starter theme does not define your project's deployment pipeline — that decision is yours.
+Verify `assets/build/` contains the CSS, JavaScript, metadata, and any custom blocks needed by the theme. The directory is gitignored: commit source and build configuration, not the build output itself, and the deploy workflow runs this build before uploading the theme; see [Deployment](DEPLOYMENT.md).
 
 Review visible behavior and checks before feature integration; make a separate feature commit when that checkpoint is useful for your workflow.
 

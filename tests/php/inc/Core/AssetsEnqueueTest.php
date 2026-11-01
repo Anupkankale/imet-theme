@@ -90,6 +90,7 @@ class AssetsEnqueueTest extends TestCase {
 		$this->assertSame( $markup, $result );
 		$this->assertTrue( wp_script_is( 'imet-core-navigation', 'enqueued' ) );
 		$this->assertTrue( wp_style_is( 'imet-core-navigation', 'enqueued' ) );
+		$this->assertTrue( wp_script_is( 'imet-header-scroll', 'enqueued' ) );
 	}
 
 	/**

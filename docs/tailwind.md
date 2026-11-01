@@ -11,7 +11,7 @@ npm run init -- --enable=tailwind --yes
 npm install
 ```
 
-This adds the entry and PostCSS configuration, declares the packages, and turns on the theme's Tailwind enqueue constant — you don't need to edit webpack or recreate the configuration by hand. See [Initialization](initialization.md) for managing the full feature selection.
+This adds the entry and PostCSS configuration, declares the packages, and turns on the theme's Tailwind enqueue constant — you don't need to edit webpack or recreate the configuration by hand.
 
 ## What to edit
 

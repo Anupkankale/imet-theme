@@ -30,6 +30,13 @@ updates:
       # @wordpress/babel-preset-default) is still on Babel 7.
       - dependency-name: "@babel/core"
         update-types: ["version-update:semver-major"]
+      # @rtcamp/eslint-config 1.x peers on @wordpress/eslint-plugin <=27, and
+      # @wordpress/scripts 37 pulls in eslint-plugin 28, so `npm ci` fails with
+      # ERESOLVE. Hold both majors until @rtcamp/eslint-config supports 28.
+      - dependency-name: "@wordpress/eslint-plugin"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "@wordpress/scripts"
+        update-types: ["version-update:semver-major"]
 
   - package-ecosystem: composer
     directory: '/'
