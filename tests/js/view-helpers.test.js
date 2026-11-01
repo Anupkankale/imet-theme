@@ -129,8 +129,10 @@ describe('marquee', () => {
 
 	test('adds a pause button after the row (WCAG 2.2.2)', () => {
 		const row = build({ alwaysMove: true });
-		const button = row.nextElementSibling;
+		const control = row.nextElementSibling;
+		const button = control.firstElementChild;
 
+		expect(control.className).toBe('imet-motion-control');
 		expect(button.tagName).toBe('BUTTON');
 		expect(button.type).toBe('button');
 		expect(button.getAttribute('aria-pressed')).toBe('false');
@@ -139,7 +141,7 @@ describe('marquee', () => {
 
 	test('the pause button stops the row until it is pressed again, whatever the pointer does', () => {
 		const row = build({ alwaysMove: true });
-		const button = row.nextElementSibling;
+		const button = row.nextElementSibling.querySelector('button');
 
 		button.click();
 		expect(button.getAttribute('aria-pressed')).toBe('true');

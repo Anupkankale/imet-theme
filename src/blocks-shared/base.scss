@@ -305,13 +305,21 @@ section.imet-section[id] { scroll-margin-top: 100px; }
 
 .imet-section .sc-nav button:first-child { transform: scaleX(-1); }
 
-/* Pause button after every auto-moving row (view-helpers.js pauseButton, WCAG 2.2.2). Hidden while the row fits and
-   does not move. Pressed: shows a play triangle instead of the two pause bars. */
+/* Pause button after every auto-moving row (view-helpers.js pauseButton, WCAG 2.2.2). Its box is an empty,
+   zero-height block after the row, so the layout is exactly what it is without the button; the button floats up over
+   the row's bottom-right corner. Hidden while the row fits and does not move. Pressed: a play triangle instead of the
+   two pause bars. */
+.imet-section .imet-motion-control { position: relative; height: 0; }
+
 .imet-section .imet-motion-toggle {
+	position: absolute;
+	right: var(--wp--preset--spacing--8);
+	bottom: var(--wp--preset--spacing--8);
+	z-index: 2;
 	display: block;
 	width: var(--wp--preset--spacing--32);
 	height: var(--wp--preset--spacing--32);
-	margin: var(--wp--preset--spacing--12) 0 0 auto;
+	margin: 0;
 	padding: 0;
 	border: 0;
 	border-radius: 50%;
@@ -325,7 +333,7 @@ section.imet-section[id] { scroll-margin-top: 100px; }
 
 .imet-section .imet-motion-toggle:focus-visible { outline: var(--wp--custom--size--2) solid var(--gold); outline-offset: var(--wp--preset--spacing--2); }
 
-.imet-section .is-marquee.is-static + .imet-motion-toggle { display: none; }
+.imet-section .is-marquee.is-static + .imet-motion-control { display: none; }
 
 /* Utilities last, so they win over the rules above: see _utilities.scss */
 @include meta.load-css('utilities');
