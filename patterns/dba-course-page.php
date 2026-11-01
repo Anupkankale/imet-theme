@@ -70,6 +70,33 @@ if ( ! defined( 'ABSPATH' ) ) {
 [imet_advisor_form]
 <!-- /wp:shortcode --></div>
 <!-- /wp:group --></div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"imet-container","layout":{"type":"default"}} -->
+<div class="wp-block-group imet-container"><!-- wp:group {"className":"ac-card","layout":{"type":"default"}} -->
+<div class="wp-block-group ac-card"><!-- wp:heading {"className":"ac-title"} -->
+<h2 class="wp-block-heading ac-title">Institutional Recognition &amp; Credential Evaluation</h2>
+<!-- /wp:heading -->
+<!-- wp:group {"className":"ac-logos","layout":{"type":"default"}} -->
+<div class="wp-block-group ac-logos"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ac-logo"} -->
+<figure class="wp-block-image size-full ac-logo"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/logo-qatar-mofa.jpg" ) ); ?>" alt="Ministry of Foreign Affairs, State of Qatar"/></figure>
+<!-- /wp:image -->
+<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ac-logo"} -->
+<figure class="wp-block-image size-full ac-logo"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/logo-ministry-education.webp" ) ); ?>" alt="Ministry of Education"/></figure>
+<!-- /wp:image -->
+<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ac-logo"} -->
+<figure class="wp-block-image size-full ac-logo"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/logo-wes.webp" ) ); ?>" alt="World Education Services"/></figure>
+<!-- /wp:image -->
+<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ac-logo"} -->
+<figure class="wp-block-image size-full ac-logo"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/logo-mca.webp" ) ); ?>" alt="Ministry of Corporate Affairs"/></figure>
+<!-- /wp:image -->
+<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ac-logo"} -->
+<figure class="wp-block-image size-full ac-logo"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/logo-mofa.webp" ) ); ?>" alt="Ministry of Foreign Affairs"/></figure>
+<!-- /wp:image -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</div>
 <!-- /wp:group --></section>
 <!-- /wp:imet/hero -->
 <!-- wp:imet/subnav {"align":"full","anchor":"subnav"} -->
@@ -83,11 +110,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- wp:imet/highlights {"align":"full","anchor":"overview","className":"is-style-wide"} -->
 <section id="overview" class="wp-block-imet-highlights alignfull imet-section highlights is-style-wide"><!-- wp:group {"className":"imet-container hl-grid","layout":{"type":"default"}} -->
 <div class="wp-block-group imet-container hl-grid"><!-- wp:group {"className":"hl-text","layout":{"type":"default"}} -->
-<div class="wp-block-group hl-text"><!-- wp:paragraph {"className":"eyebrow-line left"} -->
-<p class="eyebrow-line left">Overview</p>
-<!-- /wp:paragraph -->
-<!-- wp:heading {"className":"title left"} -->
-<h2 class="wp-block-heading title left">Program Highlights of DBA in CyberSecurity</h2>
+<div class="wp-block-group hl-text"><!-- wp:heading {"className":"title left"} -->
+<h2 class="wp-block-heading title left">Program Highlights</h2>
 <!-- /wp:heading -->
 <!-- wp:list {"className":"hl-list"} -->
 <ul class="wp-block-list hl-list"><!-- wp:list-item -->
@@ -97,7 +121,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 <li><strong>Thesis Support:</strong> Full guidance on industry-focused cybersecurity research &amp; dissertation.</li>
 <!-- /wp:list-item -->
 <!-- wp:list-item -->
-<li><strong>Academic Outcome:</strong> Earn the prestigious ‘Dr.’ prefix and global recognition with an online doctorate in cybersecurity</li>
+<li><strong>Research Papers:</strong> Publication Assistance for international journals like IEEE, Google Scholar citations.</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><strong>Academic Outcome:</strong> Earn the prestigious ‘Dr.’ prefix and global recognition with an online doctorate in cybersecurity.</li>
 <!-- /wp:list-item -->
 <!-- wp:list-item -->
 <li><strong>Career Outcome:</strong> Improve leadership impact and stabilise career prospects through visibility.</li>
@@ -105,15 +132,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 </ul>
 <!-- /wp:list -->
 <!-- wp:buttons -->
-<div class="wp-block-buttons"><!-- wp:button {"className":"btn-navy btn-lg"} -->
-<div class="wp-block-button btn-navy btn-lg"><a class="wp-block-button__link wp-element-button" href="#advisor-form">Talk to a DBA Advisor</a></div>
+<div class="wp-block-buttons"><!-- wp:button {"className":"btn-navy btn-sm"} -->
+<div class="wp-block-button btn-navy btn-sm"><a class="wp-block-button__link wp-element-button" href="#advisor-form">Talk to an Executive Program Guide</a></div>
 <!-- /wp:button -->
 </div>
 <!-- /wp:buttons -->
 </div>
 <!-- /wp:group -->
 <!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"hl-visual"} -->
-<figure class="wp-block-image size-full hl-visual"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/course-highlights.webp" ) ); ?>" alt="Cybersecurity shield over a digital hand: Cyber Risk Director, 85% of global organizations report increased cyber risk"/></figure>
+<figure class="wp-block-image size-full hl-visual"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/course-highlights-v3.webp" ) ); ?>" alt="Cybersecurity shield over a digital hand: AI Ethics &amp; Security, +30% salary growth potential"/></figure>
 <!-- /wp:image -->
 </div>
 <!-- /wp:group --></section>
@@ -320,13 +347,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 <section id="learn-more" class="wp-block-imet-tabs alignfull imet-section section tabs"><!-- wp:group {"className":"imet-container","layout":{"type":"default"}} -->
 <div class="wp-block-group imet-container"><!-- wp:group {"className":"sec-head","layout":{"type":"default"}} -->
 <div class="wp-block-group sec-head"><!-- wp:paragraph {"className":"eyebrow-line"} -->
-<p class="eyebrow-line">Program Details</p>
+<p class="eyebrow-line">Others Programs</p>
 <!-- /wp:paragraph -->
 <!-- wp:heading {"className":"title"} -->
-<h2 class="wp-block-heading title">Learn More About the Programs</h2>
+<h2 class="wp-block-heading title">Learn More About the DBA Cybersecurity Programs</h2>
 <!-- /wp:heading -->
 <!-- wp:paragraph {"className":"sub"} -->
-<p class="sub">Everything you need to know about the online DBA in Cybersecurity in one place: the skills you will build, who the program is designed for, the senior careers it leads to, and the frameworks and tools you will work with.</p>
+<p class="sub">The most recognized master’s program across the globe is the MBA. It combines business theory and leadership practice, equipping professionals with top management, consulting, and entrepreneurial performance.</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 <!-- wp:group {"className":"tab-nav","layout":{"type":"default"}} -->
@@ -334,10 +361,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 <p class="tab-label">Skills You Learn</p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph {"className":"tab-label"} -->
-<p class="tab-label">Who Should Do It</p>
+<p class="tab-label">Who Should Join</p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph {"className":"tab-label"} -->
-<p class="tab-label">Careers after a DBA in Cybersecurity</p>
+<p class="tab-label">Career After Doctorate</p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph {"className":"tab-label"} -->
 <p class="tab-label">Tools</p>
@@ -370,22 +397,22 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- wp:group {"className":"tab-panel","layout":{"type":"default"}} -->
 <div class="wp-block-group tab-panel"><!-- wp:list -->
 <ul class="wp-block-list"><!-- wp:list-item -->
-<li><strong>CISOs &amp; Security Heads</strong> – Leaders who want doctoral credibility to shape enterprise security strategy.</li>
+<li><strong>CISOs, CIOs, and CTOs</strong> – Security leaders aspiring for more ownership on cybersecurity governance and overall enterprise security strategy.</li>
 <!-- /wp:list-item -->
 <!-- wp:list-item -->
-<li><strong>IT Directors &amp; CTOs</strong> – Technology executives responsible for risk, governance, and digital trust.</li>
+<li><strong>Researchers &amp; Scholars</strong> – Individuals who are ardent about enhancing cybersecurity knowledge via publications and international research.</li>
 <!-- /wp:list-item -->
 <!-- wp:list-item -->
-<li><strong>Cybersecurity Consultants</strong> – Advisors who want research-backed authority with boards and clients.</li>
+<li><strong>Senior IT &amp; Security Managers</strong> – Professionals who wish to power up to the boardroom level of decision-making and influence on policy.</li>
 <!-- /wp:list-item -->
 <!-- wp:list-item -->
-<li><strong>Risk &amp; Compliance Leaders</strong> – Professionals running GRC, audit, and regulatory programs.</li>
+<li><strong>Tech Entrepreneurs &amp; Innovators</strong> – Entrepreneurs who create cybersecurity-based products, platforms, or advisory practices.</li>
 <!-- /wp:list-item -->
 <!-- wp:list-item -->
-<li><strong>Senior Engineers &amp; Architects</strong> – Specialists ready to move from delivery into leadership.</li>
+<li><strong>Cybersecurity Consultants &amp; Advisors</strong> – Professionals seeking to enhance their credibility to a doctoral level of personal branding.</li>
 <!-- /wp:list-item -->
 <!-- wp:list-item -->
-<li><strong>Public-Sector &amp; Defense Professionals</strong> – Leaders protecting national and critical infrastructure.</li>
+<li><strong>Government &amp; Policy Professionals</strong> – Professionals working in national security, cyber law, or regulatory positions to have a research-based advantage.</li>
 <!-- /wp:list-item -->
 </ul>
 <!-- /wp:list --></div>
@@ -393,45 +420,42 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- wp:group {"className":"tab-panel","layout":{"type":"default"}} -->
 <div class="wp-block-group tab-panel"><!-- wp:list -->
 <ul class="wp-block-list"><!-- wp:list-item -->
-<li><strong>Chief Information Security Officer (CISO)</strong> – Own the security strategy and report to the board.</li>
+<li><strong>From Manager → To CISO / CIO / CTO</strong> – The transformation of working with IT/security teams to leading enterprise-wide cybersecurity strategies.</li>
 <!-- /wp:list-item -->
 <!-- wp:list-item -->
-<li><strong>Cyber Risk Director</strong> – Lead enterprise risk, resilience, and incident-readiness programs.</li>
+<li><strong>From Consultant → To Global Advisor</strong> – Elevate your profile from project-based consulting to recognized thought leadership in cybersecurity.</li>
 <!-- /wp:list-item -->
 <!-- wp:list-item -->
-<li><strong>Cybersecurity Advisor</strong> – Advise boards, regulators, and investors on cyber risk.</li>
+<li><strong>From Security Specialist → To Cybersecurity Strategist</strong> – Shifting from understanding and solving technical problems to establishing long-term governance systems.</li>
 <!-- /wp:list-item -->
 <!-- wp:list-item -->
-<li><strong>Head of Governance, Risk &amp; Compliance</strong> – Build frameworks that meet global standards.</li>
-<!-- /wp:list-item -->
-<!-- wp:list-item -->
-<li><strong>AI &amp; Cloud Security Lead</strong> – Secure AI systems and multi-cloud environments at scale.</li>
-<!-- /wp:list-item -->
-<!-- wp:list-item -->
-<li><strong>Professor &amp; Researcher</strong> – Teach and publish as a recognized cybersecurity scholar.</li>
+<li><strong>From Team Leader → To Policy Maker</strong> – Shift from operational leadership to contributing to global cyber law, compliance, and digital safety standards.</li>
 <!-- /wp:list-item -->
 </ul>
-<!-- /wp:list --></div>
+<!-- /wp:list -->
+<!-- wp:paragraph {"className":"tab-note"} -->
+<p class="tab-note"><strong>Outcome:</strong> With a DBA, you don’t just secure systems — you secure influence, visibility, and authority at the boardroom and industry level.</p>
+<!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 <!-- wp:group {"className":"tab-panel","layout":{"type":"default"}} -->
 <div class="wp-block-group tab-panel"><!-- wp:list -->
 <ul class="wp-block-list"><!-- wp:list-item -->
-<li><strong>Security Frameworks</strong> – NIST CSF, ISO/IEC 27001, CIS Controls, and COBIT for governance.</li>
+<li><strong>Firewalls &amp; IDS/IPS</strong> – Palo Alto, Snort, Suricata, etc., to monitor, detect, and block malicious traffic.</li>
 <!-- /wp:list-item -->
 <!-- wp:list-item -->
-<li><strong>Risk Quantification</strong> – FAIR, risk registers, and quantitative cyber-risk models.</li>
+<li><strong>Encryption &amp; PKI Tools</strong> – OpenSSL, HashiCorp Vault to secure sensitive data and communications.</li>
 <!-- /wp:list-item -->
 <!-- wp:list-item -->
-<li><strong>Threat Intelligence</strong> – MITRE ATT&amp;CK, threat modelling, and incident-response playbooks.</li>
+<li><strong>SIEM Solutions</strong> – Real-time security information and event management (RSIEM) like Splunk, IBM QRadar and ArcSight platforms.</li>
 <!-- /wp:list-item -->
 <!-- wp:list-item -->
-<li><strong>Research Software</strong> – SPSS, NVivo, Zotero, and Mendeley for analysis and referencing.</li>
+<li><strong>Vulnerability Scanners</strong> – Nessus, Qualys and OpenVAS to detect system vulnerabilities before malicious users can exploit them.</li>
 <!-- /wp:list-item -->
 <!-- wp:list-item -->
-<li><strong>Cloud &amp; AI Security</strong> – Zero-trust architecture, CSPM, and AI model-risk frameworks.</li>
+<li><strong>Endpoint Protection</strong> – Applications such as CrowdStrike, Symantec, McAfee, to protect the devices against malware and ransomware.</li>
 <!-- /wp:list-item -->
 <!-- wp:list-item -->
-<li><strong>Publishing &amp; Visibility</strong> – Google Scholar, ResearchGate, ORCID, and LinkedIn thought leadership.</li>
+<li><strong>Identity and Access Management (IAM)</strong> – Okta, Microsoft Azure AD, and Ping Identity to provide secure authentication and user access control.</li>
 <!-- /wp:list-item -->
 </ul>
 <!-- /wp:list --></div>
