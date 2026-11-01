@@ -1,7 +1,9 @@
-/* Testimonial slider: auto-advances every 4s; pauses on hover, touch and focus; swipe/scroll by hand. */
+/* Testimonial slider: auto-advances every 4s; pauses on hover, touch and focus, and stops for good with the pause
+   button (WCAG 2.2.2); swipe/scroll by hand. */
 import {
 	each,
 	marquee,
+	pauseButton,
 	reduceMotion,
 } from '../../../blocks-shared/view-helpers';
 
@@ -22,14 +24,25 @@ each('.wp-block-imet-testimonials .slider-track', (track) => {
 			behavior: still ? 'auto' : 'smooth',
 		});
 	};
+	let stopped = false;
 	let timer = still ? null : setInterval(next, 4000);
 	const pause = () => clearInterval(timer);
 	const resume = () => {
 		clearInterval(timer);
-		if (!still) {
+		if (!still && !stopped) {
 			timer = setInterval(next, 4000);
 		}
 	};
+	if (!still) {
+		pauseButton(track, (stop) => {
+			stopped = stop;
+			if (stop) {
+				pause();
+			} else {
+				resume();
+			}
+		});
+	}
 	track.addEventListener('mouseenter', pause);
 	track.addEventListener('mouseleave', resume);
 	track.addEventListener('touchstart', pause, { passive: true });
