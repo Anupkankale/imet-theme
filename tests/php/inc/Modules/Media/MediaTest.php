@@ -214,8 +214,8 @@ class MediaTest extends TestCase {
 	}
 
 	/**
-	 * Loading is decided by position, not by class: every page opens with imet/hero, so its images load eagerly (the
-	 * first non-logo one with fetchpriority="high", the page's likely LCP image); images in any later IMET section load lazily;
+	 * Loading is decided by position, not by class: every page opens with imet/hero, so its images load eagerly (none
+	 * gets fetchpriority: the measured LCP element is hero text, never an image); images in any later IMET section load lazily;
 	 * images outside IMET sections are left to WordPress. A new section needs no list update.
 	 */
 	public function test_loading_follows_the_section(): void {
@@ -249,15 +249,11 @@ class MediaTest extends TestCase {
 		};
 
 		$this->assertStringContainsString( 'loading="eager"', $tag( 'logo.png' ) );
-		$this->assertStringNotContainsString( 'fetchpriority', $tag( 'logo.png' ), 'The small accreditation logo is not the LCP image.' );
 		$this->assertStringContainsString( 'loading="eager"', $tag( 'hero-1.jpg' ) );
-		$this->assertStringContainsString( 'fetchpriority="high"', $tag( 'hero-1.jpg' ) );
 		$this->assertStringContainsString( 'loading="eager"', $tag( 'hero-2.jpg' ) );
-		$this->assertStringNotContainsString( 'fetchpriority', $tag( 'hero-2.jpg' ) );
 		$this->assertStringContainsString( 'loading="lazy"', $tag( 'hero-3.jpg' ), 'An explicit loading attribute is kept.' );
 		$this->assertStringContainsString( 'loading="lazy"', $tag( 'section.jpg' ) );
-		$this->assertStringNotContainsString( 'fetchpriority', $tag( 'section.jpg' ) );
 		$this->assertStringNotContainsString( 'loading="eager"', $tag( 'outside.jpg' ) );
-		$this->assertStringNotContainsString( 'fetchpriority', $tag( 'outside.jpg' ) );
+		$this->assertStringNotContainsString( 'fetchpriority', $html );
 	}
 }

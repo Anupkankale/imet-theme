@@ -15,9 +15,9 @@ use rtCamp\WPPrimitives\Contracts\Interfaces\Registrable;
  * Class Images
  *
  * Image loading by position on the page, not by class name. Every page opens with the `imet/hero` section, so the
- * images inside it are visible as soon as the page loads: they load eagerly, and the first one that is not an
- * accreditation logo (`ac-logo`, small, and first in most heroes) gets `fetchpriority="high"`, as the likely Largest
- * Contentful Paint image. Images in every other IMET section are further
+ * images inside it are visible as soon as the page loads: they load eagerly. No image gets `fetchpriority`: measured on
+ * every page pattern, the Largest Contentful Paint element is the hero text (or, on the Home hero at phone width, the
+ * section's CSS background), never an image, so a high priority would only compete with the fonts. Images in every other IMET section are further
  * down and load lazily. Images outside IMET sections, and any image that already has a `loading` attribute, are left
  * alone. WordPress adds its own loading attribute later, and only to images that have none yet.
  *
@@ -29,11 +29,6 @@ class Images implements Registrable {
 	 * The section that opens every page.
 	 */
 	private const HERO = 'imet/hero';
-
-	/**
-	 * Class of the small accreditation logos, which never get fetchpriority.
-	 */
-	private const LOGO = 'ac-logo';
 
 	/**
 	 * How many IMET section blocks are being rendered around the current block.
@@ -48,13 +43,6 @@ class Images implements Registrable {
 	 * @var int
 	 */
 	private int $hero_depth = 0;
-
-	/**
-	 * Whether an image already got fetchpriority="high" in this request.
-	 *
-	 * @var bool
-	 */
-	private bool $priority_given = false;
 
 	/**
 	 * Register hooks.
@@ -99,7 +87,7 @@ class Images implements Registrable {
 	}
 
 	/**
-	 * Add `loading` (and, once, `fetchpriority`) to an image by the section it is in.
+	 * Add `loading` to an image by the section it is in.
 	 *
 	 * @param string               $html  Block markup.
 	 * @param array<string, mixed> $block Parsed block.
@@ -107,22 +95,15 @@ class Images implements Registrable {
 	 * @return string Block markup.
 	 */
 	public function add_loading_hint( string $html, array $block ): string {
+		unset( $block ); // Part of the filter's signature; the section counters already know where the image is.
+
 		if ( $this->section_depth < 1 ) {
 			return $html;
 		}
 
-		$eager = $this->hero_depth > 0;
-		$html  = (string) preg_replace( '#<img\b(?![^>]*\bloading=)#', '<img loading="' . ( $eager ? 'eager' : 'lazy' ) . '"', $html, 1 );
+		$loading = $this->hero_depth > 0 ? 'eager' : 'lazy';
 
-		$classes = preg_split( '/\s+/', (string) ( $block['attrs']['className'] ?? '' ), -1, PREG_SPLIT_NO_EMPTY );
-		$is_logo = is_array( $classes ) && in_array( self::LOGO, $classes, true );
-
-		if ( $eager && ! $is_logo && ! $this->priority_given && 1 === preg_match( '#<img\b[^>]*\bloading="eager"#', $html ) ) {
-			$this->priority_given = true;
-			$html                 = (string) preg_replace( '#<img\b(?![^>]*\bfetchpriority=)#', '<img fetchpriority="high"', $html, 1 );
-		}
-
-		return $html;
+		return (string) preg_replace( '#<img\b(?![^>]*\bloading=)#', '<img loading="' . $loading . '"', $html, 1 );
 	}
 
 	/**
