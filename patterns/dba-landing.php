@@ -345,17 +345,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 </div>
 <!-- /wp:group --></section>
 <!-- /wp:imet/achievements -->
-<!-- wp:imet/career-table {"align":"full"} -->
-<section class="wp-block-imet-career-table alignfull imet-section section career"><!-- wp:group {"className":"imet-container","layout":{"type":"default"}} -->
+<!-- wp:imet/career-table {"align":"full","className":"is-four"} -->
+<section class="wp-block-imet-career-table alignfull is-four imet-section section career"><!-- wp:group {"className":"imet-container","layout":{"type":"default"}} -->
 <div class="wp-block-group imet-container"><!-- wp:group {"className":"sec-head","layout":{"type":"default"}} -->
 <div class="wp-block-group sec-head"><!-- wp:paragraph {"className":"eyebrow-line"} -->
-<p class="eyebrow-line">Our USP's</p>
+<p class="eyebrow-line">Executive Excellence &amp; Global Recognition</p>
 <!-- /wp:paragraph -->
 <!-- wp:heading {"className":"title"} -->
-<h2 class="wp-block-heading title">Online Doctor of Business Administration (DBA) Program</h2>
+<h2 class="wp-block-heading title">Achieve Global Recognition with an Online DBA</h2>
 <!-- /wp:heading -->
 <!-- wp:paragraph {"className":"sub"} -->
-<p class="sub">The most recognized master’s program across the globe is the MBA. It combines business theory and leadership practice, equipping professionals with top management, consulting, and entrepreneurial performance.</p>
+<p class="sub">Elevate your leadership, strengthen executive credibility, expand global visibility, and establish research-driven authority through advanced doctoral business expertise.</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 <!-- wp:group {"className":"career-table","layout":{"type":"default"}} -->
@@ -364,7 +364,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <h3 class="wp-block-heading">Leadership Positioning</h3>
 <!-- /wp:heading -->
 <!-- wp:paragraph -->
-<p>Earn the “Dr.” prefix to command authority in C-suites, boardrooms, and investor circles</p>
+<p>Earn the doctoral title to strengthen executive credibility across C-suites, boardrooms, and investor networks.</p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph -->
 <p>Build decision-making models that scale beyond projects into enterprise strategy</p>
@@ -385,7 +385,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <h3 class="wp-block-heading">C-Suite Momentum</h3>
 <!-- /wp:heading -->
 <!-- wp:paragraph -->
-<p>Break into elite roles: CXO, Advisor, Strategic Consultant, or Policy Influencer</p>
+<p>Position yourself for CXO, strategic consulting, executive advisory, and influential policy leadership opportunities globally.</p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph -->
 <p>Make the leap from operational roles to visionary leadership positions</p>
@@ -406,7 +406,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <h3 class="wp-block-heading">Digital Visibility &amp; Personal Branding</h3>
 <!-- /wp:heading -->
 <!-- wp:paragraph -->
-<p>Build an executive-grade LinkedIn presence and Google-first discoverability</p>
+<p>Build a powerful LinkedIn presence and improve online discoverability through strategic executive personal branding.</p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph -->
 <p>Turn your dissertation into a personal brand asset that opens global doors</p>
@@ -427,7 +427,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <h3 class="wp-block-heading">Academic Recognition</h3>
 <!-- /wp:heading -->
 <!-- wp:paragraph -->
-<p>Publish as scholar-practitioner with approving thesis &amp; citations</p>
+<p>Develop scholarly credibility through thesis research, academic publications, citations, and meaningful research collaborations worldwide.</p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph -->
 <p>Appear in journals, business media, and academic blogs</p>
@@ -440,27 +440,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:paragraph -->
 <!-- wp:paragraph -->
 <p>Codify your frameworks into IP, whitepapers, or toolkits</p>
-<!-- /wp:paragraph -->
-</div>
-<!-- /wp:group -->
-<!-- wp:group {"className":"ct-col","layout":{"type":"default"}} -->
-<div class="wp-block-group ct-col"><!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading">Global Thought Leadership</h3>
-<!-- /wp:heading -->
-<!-- wp:paragraph -->
-<p>Become a go-to industry voice through articles, podcasts, and keynote sessions</p>
-<!-- /wp:paragraph -->
-<!-- wp:paragraph -->
-<p>Get featured on panels, conferences, and research roundtables</p>
-<!-- /wp:paragraph -->
-<!-- wp:paragraph -->
-<p>Share your frameworks and IP models on global platforms</p>
-<!-- /wp:paragraph -->
-<!-- wp:paragraph -->
-<p>Start your own consulting/advisor/coach brand</p>
-<!-- /wp:paragraph -->
-<!-- wp:paragraph -->
-<p>Position yourself as an expert in AI, Cybersecurity, GRC, or Strategy</p>
 <!-- /wp:paragraph -->
 </div>
 <!-- /wp:group -->

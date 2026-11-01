@@ -5,12 +5,13 @@
 
 .imet-section.overview .sub { margin-bottom: 56px; }
 
+/* Two equal columns with one fixed gap: the list and the photo share the container's edges, and the space between
+   them stays 48px at every width (a fixed-width list beside a capped photo left 40-170px of empty space). */
 .imet-section .ov-grid {
 	display: grid;
-	grid-template-columns: 446px minmax(0, 1fr);
-	gap: 60px;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: var(--wp--preset--spacing--48);
 	align-items: center;
-	padding-left: 16px;
 }
 
 .imet-section .ov-visual img { width: 100%; max-width: 566px; margin-left: auto; }
@@ -96,12 +97,6 @@
 
 @media (max-width: 1200px) {
 
-	.imet-section .ov-grid {
-		grid-template-columns: 420px minmax(0, 1fr);
-		gap: 40px;
-		padding-left: 0;
-	}
-
 	.imet-section.overview .split-head { grid-template-columns: 1fr 1fr; }
 }
 
@@ -146,10 +141,9 @@
 
 @media (min-width: 1241px) { /* needs the full 1200px container */
 	.imet-section.overview.is-style-photo .ov-grid {
-		grid-template-columns: 442px 633px;
+		grid-template-columns: minmax(0, 1fr) 633px; /* the list takes what the photo leaves, from the container's edge */
 		grid-template-rows: auto 1fr; /* the photo row is only as tall as the photo; the list spans both */
-		gap: 0 17px;
-		padding-left: 71px;
+		gap: 0 var(--wp--preset--spacing--48);
 	}
 
 	.imet-section.overview.is-style-photo .ov-visual { margin-top: 5px; }

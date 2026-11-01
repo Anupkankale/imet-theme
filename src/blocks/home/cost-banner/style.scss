@@ -29,23 +29,27 @@
 	justify-content: center;
 	padding: 20px 20px 24px;
 	text-align: center;
-	overflow: hidden;
 	border-radius: 24px 0 0 24px;
 }
 
-/* Cap and scroll behind the price (decoration) */
+/* Cap, diploma and book (decoration), placed as in the Figma: it starts under "Program Fee" (47% into the price
+   column), runs in under the white ribbon to just past it (115% of the column's width) and sits 9px above the card's
+   bottom; the cap's top rises behind the title. Muted so the price stays readable; the ribbon and the text sit above it. */
 .imet-section .cost-left::before {
 	content: "";
 	position: absolute;
-	right: -40px;
-	bottom: 0;
-	width: 220px;
-	aspect-ratio: 580 / 240;
-	background: url(../../../../images/imet/cost-cap.webp) right bottom / 100% auto no-repeat;
+	left: 47%;
+	bottom: var(--wp--preset--spacing--9);
+	width: 115%;
+	aspect-ratio: 760 / 339;
+	background: url(../../../../images/imet/cost-cap-v2.webp) center / contain no-repeat;
 	opacity: .55;
-	-webkit-mask-image: linear-gradient(90deg, transparent, #000 40%);
-	mask-image: linear-gradient(90deg, transparent, #000 40%);
+	-webkit-mask-image: linear-gradient(90deg, transparent, #000 20%);
+	mask-image: linear-gradient(90deg, transparent, #000 20%);
+	pointer-events: none;
 }
+
+.imet-section .cost-mid { position: relative; z-index: 1; }
 
 .imet-section .cost-left > *,
 .imet-section .cost-left > .wp-block-group__inner-container > * { position: relative; z-index: 1; }
@@ -130,6 +134,8 @@
 	.imet-section.cost-banner { grid-template-columns: 1fr; text-align: center; background: linear-gradient(180deg, #b98a3c 0%, #3a3a45 40%, #15294e 100%); }
 
 	.imet-section .cost-left { border-radius: 24px 24px 0 0; }
+
+	.imet-section .cost-left::before { display: none; } /* stacked: no ribbon to tuck under, and it would sit behind the text */
 
 	.imet-section .cost-left, .imet-section .cost-right { padding: 28px 20px; }
 
