@@ -88,22 +88,50 @@ class MediaTest extends TestCase {
 	}
 
 	/**
-	 * Test hero images load eagerly and below-the-fold images lazily.
+	 * Loading is decided by position, not by class: every page opens with imet/hero, so its images load eagerly (the
+	 * first non-logo one with fetchpriority="high", the page's likely LCP image); images in any later IMET section load lazily;
+	 * images outside IMET sections are left to WordPress. A new section needs no list update.
 	 */
-	public function test_loading_hints(): void {
-		$images = new Images();
+	public function test_loading_follows_the_section(): void {
+		global $wp_filter;
 
-		$this->assertStringContainsString(
-			'loading="eager"',
-			$images->add_loading_hint( '<img src="a.jpg"/>', [ 'attrs' => [ 'className' => 'h-grad' ] ] )
+		// Use a fresh instance (fresh fetchpriority state), not the one the theme registered at boot.
+		foreach ( [ 'render_block_data', 'render_block', 'render_block_core/image' ] as $hook ) {
+			foreach ( $wp_filter[ $hook ]->callbacks ?? [] as $priority => $callbacks ) {
+				foreach ( $callbacks as $callback ) {
+					if ( is_array( $callback['function'] ) && $callback['function'][0] instanceof Images ) {
+						remove_filter( $hook, $callback['function'], $priority );
+					}
+				}
+			}
+		}
+		( new Images() )->register_hooks();
+
+		$image = static fn ( string $src, string $attrs = '', string $class_name = '' ): string => '' === $class_name
+			? '<!-- wp:image --><figure class="wp-block-image"><img src="' . $src . '" alt=""' . $attrs . '/></figure><!-- /wp:image -->'
+			: '<!-- wp:image {"className":"' . $class_name . '"} --><figure class="wp-block-image ' . $class_name . '"><img src="' . $src . '" alt=""' . $attrs . '/></figure><!-- /wp:image -->';
+		$html  = do_blocks(
+			'<!-- wp:imet/hero --><div class="hero">' . $image( 'logo.png', '', 'ac-logo' ) . $image( 'hero-1.jpg' ) . $image( 'hero-2.jpg' ) . $image( 'hero-3.jpg', ' loading="lazy"' ) . '</div><!-- /wp:imet/hero -->'
+			. '<!-- wp:imet/highlights --><div>' . $image( 'section.jpg' ) . '</div><!-- /wp:imet/highlights -->'
+			. $image( 'outside.jpg' )
 		);
-		$this->assertStringContainsString(
-			'loading="lazy"',
-			$images->add_loading_hint( '<img src="a.jpg"/>', [ 'attrs' => [ 'className' => 'sc-photo' ] ] )
-		);
-		$this->assertStringNotContainsString(
-			'loading=',
-			$images->add_loading_hint( '<img src="a.jpg"/>', [ 'attrs' => [ 'className' => 'other' ] ] )
-		);
+
+		$tag = static function ( string $src ) use ( $html ): string {
+			preg_match( '#<img\b[^>]*src="' . preg_quote( $src, '#' ) . '"[^>]*>#', $html, $match );
+
+			return $match[0] ?? '';
+		};
+
+		$this->assertStringContainsString( 'loading="eager"', $tag( 'logo.png' ) );
+		$this->assertStringNotContainsString( 'fetchpriority', $tag( 'logo.png' ), 'The small accreditation logo is not the LCP image.' );
+		$this->assertStringContainsString( 'loading="eager"', $tag( 'hero-1.jpg' ) );
+		$this->assertStringContainsString( 'fetchpriority="high"', $tag( 'hero-1.jpg' ) );
+		$this->assertStringContainsString( 'loading="eager"', $tag( 'hero-2.jpg' ) );
+		$this->assertStringNotContainsString( 'fetchpriority', $tag( 'hero-2.jpg' ) );
+		$this->assertStringContainsString( 'loading="lazy"', $tag( 'hero-3.jpg' ), 'An explicit loading attribute is kept.' );
+		$this->assertStringContainsString( 'loading="lazy"', $tag( 'section.jpg' ) );
+		$this->assertStringNotContainsString( 'fetchpriority', $tag( 'section.jpg' ) );
+		$this->assertStringNotContainsString( 'loading="eager"', $tag( 'outside.jpg' ) );
+		$this->assertStringNotContainsString( 'fetchpriority', $tag( 'outside.jpg' ) );
 	}
 }
