@@ -246,7 +246,7 @@ class AssetsEnqueueTest extends TestCase {
 	 * @return Assets Assets with its handles registered.
 	 */
 	private function registered_assets(): Assets {
-		foreach ( [ 'js/frontend/core-navigation.js', 'js/frontend/footer-accordion.js', 'css/frontend/core-navigation.css', 'css/frontend/styles.css', 'css/frontend/tailwind.css' ] as $relative ) {
+		foreach ( [ 'js/frontend/core-navigation.js', 'js/frontend/footer-accordion.js', 'js/frontend/header-scroll.js', 'css/frontend/core-navigation.css', 'css/frontend/styles.css', 'css/frontend/tailwind.css' ] as $relative ) {
 			$file = untrailingslashit( IMET_PATH ) . '/assets/build/' . $relative;
 
 			if ( ! file_exists( $file ) ) {
