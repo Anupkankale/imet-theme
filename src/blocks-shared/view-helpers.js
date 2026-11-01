@@ -166,7 +166,7 @@ export function videoConsent(container, start) {
 /**
  * A button that stops and restarts moving content, placed right after it. WCAG 2.2.2 (Pause, Stop, Hide) asks for one
  * on anything that moves for more than five seconds; pausing on hover or focus alone does not count.
- * @param {Element}                    anchor   The moving element; the button goes right after it.
+ * @param {Element}                    anchor   The moving element; the button's box goes right after it.
  * @param {(stopped: boolean) => void} onChange Called with true when the visitor stops the motion, false when they restart it.
  * @return {HTMLButtonElement} The button.
  */
@@ -181,7 +181,12 @@ export function pauseButton(anchor, onChange) {
 		button.setAttribute('aria-pressed', stopped ? 'true' : 'false');
 		onChange(stopped);
 	});
-	anchor.after(button);
+	// A zero-height box after the row holds the button, which the CSS floats over the row's bottom-right corner: the
+	// page layout stays exactly as it is without the button.
+	const control = document.createElement('div');
+	control.className = 'imet-motion-control';
+	control.appendChild(button);
+	anchor.after(control);
 	return button;
 }
 
