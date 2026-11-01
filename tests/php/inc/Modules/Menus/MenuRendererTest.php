@@ -86,6 +86,39 @@ class MenuRendererTest extends WP_UnitTestCase {
 	}
 
 	/**
+	 * A list tied to a menu keeps every attribute set in the editor (anchor, inline style), not only its classes.
+	 *
+	 * @since 1.2.1
+	 */
+	public function test_list_keeps_its_attributes(): void {
+		register_nav_menu( 'footer-main', 'Footer main' );
+
+		$menu_id = wp_create_nav_menu( 'Footer attrs' );
+		wp_update_nav_menu_item(
+			$menu_id,
+			0,
+			[
+				'menu-item-title'  => 'Managed link',
+				'menu-item-url'    => 'https://example.org/managed/',
+				'menu-item-type'   => 'custom',
+				'menu-item-status' => 'publish',
+			]
+		);
+		set_theme_mod( 'nav_menu_locations', [ 'footer-main' => $menu_id ] );
+
+		$out = ( new MenuRenderer() )->render(
+			'<ul id="footer-links" class="wp-block-list imet-menu-footer-main" style="gap:4px"><li>Saved</li></ul>',
+			[
+				'blockName' => 'core/list',
+				'attrs'     => [ 'className' => 'imet-menu-footer-main' ],
+			]
+		);
+
+		$this->assertStringStartsWith( '<ul id="footer-links" class="wp-block-list imet-menu-footer-main" style="gap:4px">', $out );
+		$this->assertStringContainsString( 'Managed link', $out );
+	}
+
+	/**
 	 * A real core Navigation block tied to an assigned menu prints the menu's items, nested, inside core's own item
 	 * list, and keeps the mobile overlay. Rendered by core on every WordPress version CI runs, so a change in core's
 	 * markup fails here instead of silently leaving the saved links on the live header.
