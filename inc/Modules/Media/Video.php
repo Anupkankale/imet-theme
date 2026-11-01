@@ -235,7 +235,7 @@ class Video implements Registrable {
 		$response = wp_safe_remote_get(
 			$url,
 			[
-				'timeout'             => 10,
+				'timeout'             => 3, // VIP standard; this runs in a background cron job, never during a page view.
 				'limit_response_size' => self::MAX_BYTES,
 			]
 		);

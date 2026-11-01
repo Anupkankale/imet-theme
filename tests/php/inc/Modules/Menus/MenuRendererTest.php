@@ -171,11 +171,11 @@ class MenuRendererTest extends WP_UnitTestCase {
 			[ 'LI', 'wp-block-navigation-submenu' ],
 			[ 'BUTTON', 'wp-block-navigation-submenu__toggle' ],
 			[ 'UL', 'wp-block-navigation__submenu-container' ],
-		] as [ $tag, $class ] ) {
-			$expected = $this->directives( $core, $tag, $class );
+		] as [ $tag, $class_name ] ) {
+			$expected = $this->directives( $core, $tag, $class_name );
 
-			$this->assertNotEmpty( $expected, "Core renders no {$tag}.{$class} directives: update this test to core's markup." );
-			$this->assertSame( $expected, $this->directives( $ours, $tag, $class ), "NavWalker {$tag}.{$class} directives differ from core." );
+			$this->assertNotEmpty( $expected, "Core renders no {$tag}.{$class_name} directives: update this test to core's markup." );
+			$this->assertSame( $expected, $this->directives( $ours, $tag, $class_name ), "NavWalker {$tag}.{$class_name} directives differ from core." );
 		}
 	}
 
@@ -240,19 +240,19 @@ class MenuRendererTest extends WP_UnitTestCase {
 	/**
 	 * The `data-wp-*` attributes of the first matching tag, JSON values decoded so formatting does not matter.
 	 *
-	 * @param string $html  HTML.
-	 * @param string $tag   Tag name.
-	 * @param string $class Class the tag must carry.
+	 * @param string $html       HTML.
+	 * @param string $tag        Tag name.
+	 * @param string $class_name Class the tag must carry.
 	 *
 	 * @return array<string, mixed> Attribute name => value.
 	 */
-	private function directives( string $html, string $tag, string $class ): array {
+	private function directives( string $html, string $tag, string $class_name ): array {
 		$tags = new WP_HTML_Tag_Processor( $html );
 
 		if ( ! $tags->next_tag(
 			[
 				'tag_name'   => $tag,
-				'class_name' => $class,
+				'class_name' => $class_name,
 			]
 		) ) {
 			return [];
