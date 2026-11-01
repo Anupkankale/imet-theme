@@ -8,6 +8,27 @@ section blocks (`imet/*`), the page patterns, the templates and every style. Fun
 - **Author:** [Anup Kankale](https://anupkankale.com)
 - **Requires:** WordPress 6.6+, PHP 8.2+
 - **License:** [GPL-2.0-or-later](LICENSE)
+- **Based on:** [rtCamp theme-elementary](https://github.com/rtCamp/theme-elementary) (GPL-2.0-or-later)
+
+## Credits and how this was built
+
+This theme started from rtCamp's open-source starter
+[theme-elementary](https://github.com/rtCamp/theme-elementary). The starter provided the build tooling (webpack, Babel),
+linting (PHPCS, PHPStan, ESLint, Stylelint), the PHPUnit/Jest scaffolding, the CI workflows (via
+`rtCamp/wp-shared-workflows`) and the `inc/` class structure built on `rtcamp/wp-primitives`. Thanks to rtCamp for
+publishing it.
+
+Built on top of the starter for IMET:
+
+- The IMET design system in `theme.json` and the 25 `imet/*` section blocks in `src/blocks/`.
+- The page patterns: Home, MBA category, Location, DBA course, DBA landing, testimonials, video, 404 and others.
+- The Figma match and the phone and tablet layouts.
+- A header and footer editable from Menus and the block editor.
+- The deploy pipeline (`.github/workflows/deploy.yml`, [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md)).
+
+**AI assistance.** This theme was built with AI coding assistants (Claude Code), and commits made with one say so in a
+`Co-Authored-By` trailer. I set the architecture, matched the Figma designs, and reviewed, tested and deployed every
+change. `AGENTS.md`, `CLAUDE.md` and `.claude/skills/` are the instructions those assistants work from.
 
 ## How it is organised
 
