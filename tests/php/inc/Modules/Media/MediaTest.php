@@ -131,6 +131,36 @@ class MediaTest extends TestCase {
 	}
 
 	/**
+	 * Without WP-Cron, an editor's wp-admin visit downloads the pending thumbnails (a few per page load) and takes them
+	 * off the list; the next render serves the local copy.
+	 */
+	public function test_admin_visit_downloads_pending_thumbnails_without_cron(): void {
+		delete_option( Video::OPTION );
+		delete_option( Video::PENDING_OPTION );
+		$this->fake_youtube( [ 'hqdefault.jpg' => $this->jpeg( 480, 360 ) ] );
+		$video = new Video();
+		$html  = '<figure><a href="https://youtu.be/dQw4w9WgXcQ"><img src="a.jpg"/></a></figure>';
+		$block = [ 'attrs' => [ 'className' => 'video-item yt-auto' ] ];
+
+		$video->swap_thumbnail( $html, $block );
+		$this->assertArrayHasKey( 'dQw4w9WgXcQ-small', get_option( Video::PENDING_OPTION ) );
+
+		wp_set_current_user( 0 );
+		$this->assertSame( 0, $video->fetch_pending(), 'Visitors never trigger downloads.' );
+
+		wp_set_current_user( self::factory()->user->create( [ 'role' => 'editor' ] ) );
+		$this->assertSame( 1, $video->fetch_pending() );
+		$this->assertSame( [], get_option( Video::PENDING_OPTION ) );
+
+		$out    = $video->swap_thumbnail( $html, $block );
+		$stored = get_option( Video::OPTION )['dQw4w9WgXcQ-small'];
+
+		$this->assertStringContainsString( 'src="' . $stored['url'] . '"', $out );
+
+		wp_delete_file( wp_upload_dir()['basedir'] . substr( $stored['url'], strlen( wp_upload_dir()['baseurl'] ) ) );
+	}
+
+	/**
 	 * Answer requests to i.ytimg.com with the given files (anything else: 404), with no network access.
 	 *
 	 * @param array<string, string> $files File name => JPEG bytes.

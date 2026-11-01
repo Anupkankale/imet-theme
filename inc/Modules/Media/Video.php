@@ -18,9 +18,10 @@ use rtCamp\WPPrimitives\Contracts\Interfaces\Registrable;
  * paste the link (IMET Video gallery). Without a YouTube link, or without "yt-auto", the image chosen in the editor is
  * shown.
  *
- * Visitors' browsers never contact YouTube for a thumbnail (privacy, GDPR): the thumbnail is downloaded once, in the
- * background by WP-Cron, into the uploads folder, and served from there. Until that copy exists the editor's image
- * shows. The video itself only loads from youtube-nocookie.com once the visitor presses play (alumni-video view.js).
+ * Visitors' browsers never contact YouTube for a thumbnail (privacy, GDPR): the thumbnail is downloaded once into the
+ * uploads folder and served from there. Until that copy exists the editor's image shows. A missing thumbnail goes on a
+ * pending list that two things work through, so it does not depend on WP-Cron alone (hosts often set DISABLE_WP_CRON):
+ * a WP-Cron event, and any wp-admin page load by someone who can edit posts (a few per request). The video itself only loads from youtube-nocookie.com once the visitor presses play (alumni-video view.js).
  *
  * @since 1.0.0
  */
@@ -35,6 +36,16 @@ class Video implements Registrable {
 	 * Cron hook that downloads one thumbnail.
 	 */
 	public const CRON_HOOK = 'imet_fetch_youtube_thumbnail';
+
+	/**
+	 * Option holding the thumbnails still to download: "<video id>-<size>" => [ id, size ].
+	 */
+	public const PENDING_OPTION = 'imet_youtube_thumbnails_pending';
+
+	/**
+	 * Thumbnails downloaded per wp-admin page load, so the admin never slows down much.
+	 */
+	private const ADMIN_BATCH = 3;
 
 	/**
 	 * Seconds before a failed download is tried again.
@@ -59,6 +70,28 @@ class Video implements Registrable {
 	public function register_hooks(): void {
 		add_filter( 'render_block_core/image', [ $this, 'swap_thumbnail' ], 10, 2 );
 		add_action( self::CRON_HOOK, [ $this, 'run_fetch' ], 10, 2 );
+		add_action( 'admin_init', [ $this, 'fetch_pending' ] );
+	}
+
+	/**
+	 * Download a few pending thumbnails while an editor uses wp-admin, for sites where WP-Cron does not run.
+	 *
+	 * @since 1.2.1
+	 *
+	 * @return int Number of thumbnails downloaded.
+	 */
+	public function fetch_pending(): int {
+		if ( ! current_user_can( 'edit_posts' ) ) {
+			return 0;
+		}
+
+		$fetched = 0;
+
+		foreach ( array_slice( $this->pending(), 0, self::ADMIN_BATCH ) as [ $id, $size ] ) {
+			$fetched += $this->fetch( (string) $id, (string) $size ) ? 1 : 0;
+		}
+
+		return $fetched;
 	}
 
 	/**
@@ -161,6 +194,8 @@ class Video implements Registrable {
 		$thumbnails = $this->all();
 		$key        = $id . '-' . $size;
 
+		$this->unqueue( $key );
+
 		if ( null === $image ) {
 			$thumbnails[ $key ] = [ 'failed' => time() ];
 			update_option( self::OPTION, $thumbnails, false );
@@ -216,13 +251,48 @@ class Video implements Registrable {
 	 * @param string $size `large` or `small`.
 	 */
 	private function schedule( string $id, string $size ): void {
-		$failed = (int) ( $this->all()[ $id . '-' . $size ]['failed'] ?? 0 );
+		$key    = $id . '-' . $size;
+		$failed = (int) ( $this->all()[ $key ]['failed'] ?? 0 );
 
-		if ( $failed > time() - self::RETRY_AFTER || false !== wp_next_scheduled( self::CRON_HOOK, [ $id, $size ] ) ) {
+		if ( $failed > time() - self::RETRY_AFTER ) {
 			return;
 		}
 
-		wp_schedule_single_event( time(), self::CRON_HOOK, [ $id, $size ] );
+		$pending = $this->pending();
+
+		if ( ! isset( $pending[ $key ] ) ) {
+			$pending[ $key ] = [ $id, $size ];
+			update_option( self::PENDING_OPTION, $pending, false );
+		}
+
+		if ( false === wp_next_scheduled( self::CRON_HOOK, [ $id, $size ] ) ) {
+			wp_schedule_single_event( time(), self::CRON_HOOK, [ $id, $size ] );
+		}
+	}
+
+	/**
+	 * Thumbnails still to download.
+	 *
+	 * @return array<string, array{0: string, 1: string}> Key => [ id, size ].
+	 */
+	private function pending(): array {
+		$pending = get_option( self::PENDING_OPTION, [] );
+
+		return is_array( $pending ) ? $pending : [];
+	}
+
+	/**
+	 * Take a thumbnail off the pending list.
+	 *
+	 * @param string $key "<video id>-<size>".
+	 */
+	private function unqueue( string $key ): void {
+		$pending = $this->pending();
+
+		if ( isset( $pending[ $key ] ) ) {
+			unset( $pending[ $key ] );
+			update_option( self::PENDING_OPTION, $pending, false );
+		}
 	}
 
 	/**
