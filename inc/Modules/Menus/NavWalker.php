@@ -148,8 +148,8 @@ class NavWalker extends Walker_Nav_Menu {
 		$extra     = array_diff( array_filter( (array) $item->classes ), [ 'menu-item', 'menu-item-has-children' ] );
 		// Drop WordPress's per-item ids and duplicate current_* spellings; keep the current-menu-* state classes so a parent of
 		// the current page can be styled as active.
-		$extra     = array_filter( $extra, static fn ( $css ) => ! str_starts_with( (string) $css, 'menu-item-' ) && ! str_starts_with( (string) $css, 'current_' ) && ! str_starts_with( (string) $css, 'current-page' ) );
-		$classes   = array_merge(
+		$extra   = array_filter( $extra, static fn ( $css ) => ! str_starts_with( (string) $css, 'menu-item-' ) && ! str_starts_with( (string) $css, 'current_' ) && ! str_starts_with( (string) $css, 'current-page' ) );
+		$classes = array_merge(
 			[ 'wp-block-navigation-item' ],
 			$has_child ? [ 'has-child', 'open-on-hover-click', 'wp-block-navigation-submenu' ] : [ 'wp-block-navigation-link' ],
 			array_values( $extra )
