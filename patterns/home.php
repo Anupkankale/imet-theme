@@ -55,6 +55,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"h-grad"} -->
 <figure class="wp-block-image size-full h-grad"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/imet/home-grad-3.webp' ) ); ?>" alt="Dr. Caroline Koech, Executive Director"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"h-grad"} -->
+<figure class="wp-block-image size-full h-grad"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/imet/home-grad-4.webp' ) ); ?>" alt="Dr. Thamer Al Qadi, CTO"/></figure>
 <!-- /wp:image --></div>
 <!-- /wp:group --></section>
 <!-- /wp:imet/hero -->
@@ -195,7 +199,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <!-- wp:heading {"className":"title"} -->
 <h2 class="wp-block-heading title">Learn More About the Programs</h2>
-<!-- /wp:heading --></div>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"className":"sub"} -->
+<p class="sub">Online Doctorate (DBA) &amp; Master’s Programs for executives and IT leaders – Pursue a globally recognized online doctorate of business</p>
+<!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
 <!-- wp:group {"className":"tab-nav","layout":{"type":"default"}} -->
@@ -242,27 +250,31 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <!-- wp:buttons -->
 <div class="wp-block-buttons"><!-- wp:button {"className":"btn-white btn-sm"} -->
-<div class="wp-block-button btn-white btn-sm"><a class="wp-block-button__link wp-element-button" href="https://imetworldwide.com/online-doctorate-business-administration-dba-programs/">Start Your DBA Journey</a></div>
+<div class="wp-block-button btn-white btn-sm"><a class="wp-block-button__link wp-element-button" href="#advisor-form">Talk to a Doctoral Advisor</a></div>
 <!-- /wp:button --></div>
 <!-- /wp:buttons --></div>
 <!-- /wp:group -->
 
 <!-- wp:group {"className":"tab-panel","layout":{"type":"default"}} -->
-<div class="wp-block-group tab-panel"><!-- wp:list -->
+<div class="wp-block-group tab-panel"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"tab-photo"} -->
+<figure class="wp-block-image size-full tab-photo"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/imet/mba-highlights.jpg' ) ); ?>" alt="Online MBA professionals with higher career ROI and skill expansion"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:list -->
 <ul class="wp-block-list"><!-- wp:list-item -->
-<li><strong><a href="https://imetworldwide.com/online-masters-mba-cybersecurity/">MBA in Cybersecurity</a></strong></li>
+<li><strong><a href="https://imetworldwide.com/online-masters-mba-cybersecurity/">MBA in Cybersecurity</a></strong>Lead enterprises in protecting digital assets with strategic and technical cybersecurity expertise.</li>
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
-<li><strong><a href="https://imetworldwide.com/online-masters-mba-project-management-program/">MBA in Project Management</a></strong></li>
+<li><strong><a href="https://imetworldwide.com/online-masters-mba-project-management-program/">MBA in Project Management</a></strong>Drive project success with advanced leadership and organizational management skills.</li>
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
-<li><strong><a href="https://imetworldwide.com/best-online-masters-mba-degree-data-analytics/">MBA in Data Analytics</a></strong></li>
+<li><strong><a href="https://imetworldwide.com/best-online-masters-mba-degree-data-analytics/">MBA in Data Analytics</a></strong>Gain expertise in turning complex data into actionable business insights.</li>
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
-<li><strong><a href="https://imetworldwide.com/mba-supply-chain-management-online-programs-career-scope-and-salary-in-2025/">MBA in Supply Chain Management</a></strong></li>
+<li><strong><a href="https://imetworldwide.com/mba-supply-chain-management-online-programs-career-scope-and-salary-in-2025/">MBA in Supply Chain Management</a></strong>Optimize global supply chains to enhance efficiency and innovation.</li>
 <!-- /wp:list-item --></ul>
 <!-- /wp:list -->
 
@@ -274,17 +286,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:group -->
 
 <!-- wp:group {"className":"tab-panel","layout":{"type":"default"}} -->
-<div class="wp-block-group tab-panel"><!-- wp:list -->
+<div class="wp-block-group tab-panel"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"tab-photo"} -->
+<figure class="wp-block-image size-full tab-photo"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/imet/join-graduates.jpg' ) ); ?>" alt="IMET Worldwide graduates celebrating their diplomas"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:list -->
 <ul class="wp-block-list"><!-- wp:list-item -->
-<li><strong>Diploma in Project Management</strong></li>
+<li><strong>Diploma in Project Management</strong>Build the skills to manage projects efficiently from initiation to completion.</li>
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
-<li><strong>Diploma of Leadership and Management</strong></li>
+<li><strong>Diploma of Leadership and Management</strong>Develop the mindset and skillset to inspire teams, drive performance, and lead organizational change.</li>
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
-<li><strong>Diploma in Entrepreneurship</strong></li>
+<li><strong>Diploma in Entrepreneurship</strong>Turn ideas into successful business ventures with practical tools in innovation, business planning, funding strategies, and market development.</li>
 <!-- /wp:list-item --></ul>
 <!-- /wp:list -->
 
@@ -306,8 +322,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:paragraph -->
 
 <!-- wp:heading {"className":"title"} -->
-<h2 class="wp-block-heading title">Internationally Validated Doctorate Program With Embassy Affiliations</h2>
-<!-- /wp:heading --></div>
+<h2 class="wp-block-heading title">Internationally Validated Doctorate<br>Programs With Embassy Affiliations</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"className":"sub"} -->
+<p class="sub">Explore our internationally validated Doctorate in Business Administration (DBA) programs, supported by embassy affiliations to enhance global recognition, academic credibility, and professional growth opportunities worldwide.</p>
+<!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
 <!-- wp:group {"className":"emblem-row","layout":{"type":"default"}} -->
