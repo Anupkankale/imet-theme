@@ -44,7 +44,7 @@ class Defaults {
 	 * @return string Block markup, or an empty string when the block has none.
 	 */
 	public function get( string $block_name ): string {
-		$file = $this->blocks_dir . substr( $block_name, strlen( 'imet/' ) ) . '/default.html';
+		$file = Blocks::block_dir( rtrim( $this->blocks_dir, '/' ), substr( $block_name, strlen( 'imet/' ) ) ) . '/default.html';
 
 		if ( ! is_readable( $file ) ) {
 			return '';

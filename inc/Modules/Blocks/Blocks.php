@@ -9,7 +9,6 @@ declare( strict_types = 1 );
 
 namespace IMET\Theme\Modules\Blocks;
 
-use rtCamp\WPPrimitives\AssetLoader;
 use rtCamp\WPPrimitives\Contracts\Interfaces\Registrable;
 
 /**
@@ -28,6 +27,31 @@ class Blocks implements Registrable {
 	 * Built blocks directory, relative to the theme root.
 	 */
 	private const BLOCKS_PATH = 'blocks';
+
+	/**
+	 * Sub-folders that group blocks: `home` for the Home page sections, `global` for the ones reused on any page.
+	 */
+	private const GROUPS = [ 'home', 'global' ];
+
+	/**
+	 * Folder of one built block: at the root of the blocks directory, or inside one of the groups.
+	 *
+	 * @param string $blocks_dir Built blocks directory, no trailing slash.
+	 * @param string $slug       Block slug, e.g. `hero`.
+	 *
+	 * @return string The block's folder (the root path when it is in no group).
+	 */
+	public static function block_dir( string $blocks_dir, string $slug ): string {
+		foreach ( self::GROUPS as $group ) {
+			$dir = $blocks_dir . '/' . $group . '/' . $slug;
+
+			if ( is_dir( $dir ) ) {
+				return $dir;
+			}
+		}
+
+		return $blocks_dir . '/' . $slug;
+	}
 
 	/**
 	 * Register hooks.
@@ -65,8 +89,13 @@ class Blocks implements Registrable {
 			return;
 		}
 
-		$loader = new AssetLoader( IMET_PATH, get_template_directory_uri(), 'assets/build' );
-		$loader->register_block_manifest( 'assets/build/' . self::BLOCKS_PATH, 'assets/build/blocks/blocks-manifest.php' );
+		// The manifest keys every block by its bare name, but the grouped ones (home/, global/) live one level down.
+		$blocks_dir = get_theme_file_path( 'assets/build/' . self::BLOCKS_PATH );
+		$manifest   = require $blocks_dir . '/blocks-manifest.php';
+
+		foreach ( array_keys( is_array( $manifest ) ? $manifest : [] ) as $name ) {
+			register_block_type( self::block_dir( $blocks_dir, (string) $name ) );
+		}
 	}
 
 	/**
