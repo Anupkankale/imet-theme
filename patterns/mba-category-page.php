@@ -219,8 +219,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 </div>
 <!-- /wp:group --></section>
 <!-- /wp:imet/cost-banner -->
-<!-- wp:imet/overview {"align":"full","anchor":"programs","className":"is-visual"} -->
-<section id="programs" class="wp-block-imet-overview alignfull is-visual imet-section section overview"><!-- wp:group {"className":"imet-container","layout":{"type":"default"}} -->
+<!-- wp:imet/overview {"align":"full","anchor":"programs"} -->
+<section id="programs" class="wp-block-imet-overview alignfull imet-section section overview"><!-- wp:group {"className":"imet-container","layout":{"type":"default"}} -->
 <div class="wp-block-group imet-container"><!-- wp:group {"className":"sec-head","layout":{"type":"default"}} -->
 <div class="wp-block-group sec-head"><!-- wp:paragraph {"className":"eyebrow-line ov-eyebrow"} -->
 <p class="eyebrow-line ov-eyebrow">Our USPs</p>
@@ -239,7 +239,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <h3 class="wp-block-heading">Boardroom-Level Expertise</h3>
 <!-- /wp:heading -->
 <!-- wp:paragraph -->
-<p>Gain the strategic knowledge to guide boards and executives on strategy and risk.</p>
+<p>Develop strategic decision-making skills to influence executive leadership, corporate strategy, and organizational growth.</p>
 <!-- /wp:paragraph -->
 </div>
 <!-- /wp:group -->
@@ -614,13 +614,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:imet/alumni-video -->
 <!-- wp:imet/cyber-banner -->
 <section class="wp-block-imet-cyber-banner imet-section cyber"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"cy-av cy-1"} -->
-<figure class="wp-block-image size-full cy-av cy-1"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/cyber-1.webp" ) ); ?>" alt=""/></figure>
+<figure class="wp-block-image size-full cy-av cy-1"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/cyber-dba-1.webp" ) ); ?>" alt=""/></figure>
 <!-- /wp:image -->
 <!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"cy-av cy-2"} -->
-<figure class="wp-block-image size-full cy-av cy-2"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/cyber-2.webp" ) ); ?>" alt=""/></figure>
+<figure class="wp-block-image size-full cy-av cy-2"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/cyber-dba-2.webp" ) ); ?>" alt=""/></figure>
 <!-- /wp:image -->
 <!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"cy-av cy-3"} -->
-<figure class="wp-block-image size-full cy-av cy-3"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/cyber-3.webp" ) ); ?>" alt=""/></figure>
+<figure class="wp-block-image size-full cy-av cy-3"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/cyber-dba-3.webp" ) ); ?>" alt=""/></figure>
 <!-- /wp:image -->
 <!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"cy-av cy-4"} -->
 <figure class="wp-block-image size-full cy-av cy-4"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/cyber-4.webp" ) ); ?>" alt=""/></figure>
@@ -657,31 +657,55 @@ if ( ! defined( 'ABSPATH' ) ) {
 <div class="wp-block-group imet-container"><!-- wp:group {"className":"testi-grid","layout":{"type":"default"}} -->
 <div class="wp-block-group testi-grid"><!-- wp:group {"className":"testi-card","layout":{"type":"default"}} -->
 <div class="wp-block-group testi-card"><!-- wp:paragraph {"className":"testi-quote"} -->
-<p class="testi-quote">Our Online Doctorate in Business Administration (DBA) program is designed for senior professionals and executives looking to advance</p>
+<p class="testi-quote">“The DBA journey with IMET Worldwide gave me deeper strategic insights to complement my Salesforce and cloud expertise. It empowered me to drive digital innovation with stronger academic and practical grounding.”</p>
 <!-- /wp:paragraph -->
 <!-- wp:group {"className":"testi-foot","layout":{"type":"default"}} -->
-<div class="wp-block-group testi-foot"><!-- wp:paragraph {"className":"testi-linkedin"} -->
-<p class="testi-linkedin"><a href="https://www.linkedin.com/" target="_blank" rel="noreferrer noopener">LinkedIn</a></p>
+<div class="wp-block-group testi-foot"><!-- wp:group {"className":"testi-who","layout":{"type":"default"}} -->
+<div class="wp-block-group testi-who"><!-- wp:paragraph {"className":"testi-name"} -->
+<p class="testi-name"><strong>Dr. Davinder Pal S.</strong></p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"testi-role"} -->
+<p class="testi-role">Salesforce Application Architect | AWS Certified | Digital Transformation Specialist</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group -->
+<!-- wp:paragraph {"className":"testi-linkedin"} -->
+<p class="testi-linkedin"><a href="https://www.linkedin.com/in/davindersingh-sfdc/" target="_blank" rel="noreferrer noopener">LinkedIn</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group -->
 <!-- wp:group {"className":"testi-card","layout":{"type":"default"}} -->
 <div class="wp-block-group testi-card"><!-- wp:paragraph {"className":"testi-quote"} -->
-<p class="testi-quote">Our Online Doctorate in Business Administration (DBA) program is designed for senior professionals and executives looking to advance</p>
+<p class="testi-quote">“The DBA program at IMET Worldwide enhanced my ability to align technology with business goals. It provided the right blend of academic rigor and practical application for CTO-level leadership.”</p>
 <!-- /wp:paragraph -->
 <!-- wp:group {"className":"testi-foot","layout":{"type":"default"}} -->
-<div class="wp-block-group testi-foot"><!-- wp:paragraph {"className":"testi-linkedin"} -->
-<p class="testi-linkedin"><a href="https://www.linkedin.com/" target="_blank" rel="noreferrer noopener">LinkedIn</a></p>
+<div class="wp-block-group testi-foot"><!-- wp:group {"className":"testi-who","layout":{"type":"default"}} -->
+<div class="wp-block-group testi-who"><!-- wp:paragraph {"className":"testi-name"} -->
+<p class="testi-name"><strong>Dinesh Singh</strong></p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"testi-role"} -->
+<p class="testi-role">Chief Technology Officer</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group -->
+<!-- wp:paragraph {"className":"testi-linkedin"} -->
+<p class="testi-linkedin"><a href="https://www.linkedin.com/in/dinesh-singh-a9a68912/" target="_blank" rel="noreferrer noopener">LinkedIn</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group -->
 <!-- wp:group {"className":"testi-card","layout":{"type":"default"}} -->
 <div class="wp-block-group testi-card"><!-- wp:paragraph {"className":"testi-quote"} -->
-<p class="testi-quote">Our Online Doctorate in Business Administration (DBA) program is designed for senior professionals and executives looking to advance</p>
+<p class="testi-quote">“The DBA journey at IMET Worldwide enriched my strategic approach to IT operations and management. The mentorship and research exposure helped me align business goals with technology leadership more effectively.”</p>
 <!-- /wp:paragraph -->
 <!-- wp:group {"className":"testi-foot","layout":{"type":"default"}} -->
-<div class="wp-block-group testi-foot"><!-- wp:paragraph {"className":"testi-linkedin"} -->
-<p class="testi-linkedin"><a href="https://www.linkedin.com/" target="_blank" rel="noreferrer noopener">LinkedIn</a></p>
+<div class="wp-block-group testi-foot"><!-- wp:group {"className":"testi-who","layout":{"type":"default"}} -->
+<div class="wp-block-group testi-who"><!-- wp:paragraph {"className":"testi-name"} -->
+<p class="testi-name"><strong>Meheriar Patel</strong></p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"testi-role"} -->
+<p class="testi-role">Group CIO | CDO | CTO | Mentor &amp; Advisor</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group -->
+<!-- wp:paragraph {"className":"testi-linkedin"} -->
+<p class="testi-linkedin"><a href="https://www.linkedin.com/in/meheriar/" target="_blank" rel="noreferrer noopener">LinkedIn</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group --></div>
@@ -738,7 +762,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <section id="faq" class="wp-block-imet-faq alignfull imet-section section faq"><!-- wp:group {"className":"imet-container narrow","layout":{"type":"default"}} -->
 <div class="wp-block-group imet-container narrow"><!-- wp:group {"className":"sec-head","layout":{"type":"default"}} -->
 <div class="wp-block-group sec-head"><!-- wp:paragraph {"className":"eyebrow-line faq-eyebrow"} -->
-<p class="eyebrow-line faq-eyebrow">Frequently Asked Questions</p>
+<p class="eyebrow-line faq-eyebrow">Frequently Asked Questions (FAQs)</p>
 <!-- /wp:paragraph -->
 <!-- wp:heading {"className":"title"} -->
 <h2 class="wp-block-heading title">FAQs: Doctor of Business Administration (MBA)</h2>
