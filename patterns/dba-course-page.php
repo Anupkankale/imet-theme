@@ -465,13 +465,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:imet/tabs -->
 <!-- wp:imet/cyber-banner -->
 <section class="wp-block-imet-cyber-banner imet-section cyber"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"cy-av cy-1"} -->
-<figure class="wp-block-image size-full cy-av cy-1"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/cyber-1.webp" ) ); ?>" alt=""/></figure>
+<figure class="wp-block-image size-full cy-av cy-1"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/cyber-dba-1.webp" ) ); ?>" alt=""/></figure>
 <!-- /wp:image -->
 <!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"cy-av cy-2"} -->
-<figure class="wp-block-image size-full cy-av cy-2"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/cyber-2.webp" ) ); ?>" alt=""/></figure>
+<figure class="wp-block-image size-full cy-av cy-2"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/cyber-dba-2.webp" ) ); ?>" alt=""/></figure>
 <!-- /wp:image -->
 <!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"cy-av cy-3"} -->
-<figure class="wp-block-image size-full cy-av cy-3"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/cyber-3.webp" ) ); ?>" alt=""/></figure>
+<figure class="wp-block-image size-full cy-av cy-3"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/cyber-dba-3.webp" ) ); ?>" alt=""/></figure>
 <!-- /wp:image -->
 <!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"cy-av cy-4"} -->
 <figure class="wp-block-image size-full cy-av cy-4"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/cyber-4.webp" ) ); ?>" alt=""/></figure>
@@ -492,47 +492,71 @@ if ( ! defined( 'ABSPATH' ) ) {
 </div>
 <!-- /wp:group --></section>
 <!-- /wp:imet/cyber-banner -->
-<!-- wp:imet/testimonials {"align":"full","className":"is-style-compact"} -->
-<section class="wp-block-imet-testimonials alignfull imet-section section testimonials is-style-compact"><!-- wp:group {"className":"imet-container testi-head","layout":{"type":"default"}} -->
+<!-- wp:imet/testimonials {"align":"full"} -->
+<section class="wp-block-imet-testimonials alignfull imet-section section testimonials"><!-- wp:group {"className":"imet-container testi-head","layout":{"type":"default"}} -->
 <div class="wp-block-group imet-container testi-head"><!-- wp:paragraph {"className":"eyebrow-line"} -->
 <p class="eyebrow-line">Clients Testimonials</p>
 <!-- /wp:paragraph -->
 <!-- wp:heading {"className":"title"} -->
-<h2 class="wp-block-heading title">Our Online Doctorate in Cybersecurity<br>Degree Program Testimonials</h2>
+<h2 class="wp-block-heading title">What Our Clients Say</h2>
 <!-- /wp:heading -->
 <!-- wp:paragraph {"className":"sub"} -->
-<p class="sub">Our clients' feedback speaks volumes about our dedication and quality. Read through the testimonials from our satisfied</p>
+<p class="sub">Our success stories cut across various industries, countries, and levels of career experience – learners have received worldwide recognition, CXO appointments, and huge salary increments during their DBA doctor of business administration online experience.</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 <!-- wp:group {"className":"imet-container","layout":{"type":"default"}} -->
 <div class="wp-block-group imet-container"><!-- wp:group {"className":"testi-grid","layout":{"type":"default"}} -->
 <div class="wp-block-group testi-grid"><!-- wp:group {"className":"testi-card","layout":{"type":"default"}} -->
 <div class="wp-block-group testi-card"><!-- wp:paragraph {"className":"testi-quote"} -->
-<p class="testi-quote">Our Online Doctorate in Business Administration (DBA) program is designed for senior professionals and executives looking to advance</p>
+<p class="testi-quote">“The DBA journey with IMET Worldwide gave me deeper strategic insights to complement my Salesforce and cloud expertise. It empowered me to drive digital innovation with stronger academic and practical grounding.”</p>
 <!-- /wp:paragraph -->
 <!-- wp:group {"className":"testi-foot","layout":{"type":"default"}} -->
-<div class="wp-block-group testi-foot"><!-- wp:paragraph {"className":"testi-linkedin"} -->
-<p class="testi-linkedin"><a href="https://www.linkedin.com/" target="_blank" rel="noreferrer noopener">LinkedIn</a></p>
+<div class="wp-block-group testi-foot"><!-- wp:group {"className":"testi-who","layout":{"type":"default"}} -->
+<div class="wp-block-group testi-who"><!-- wp:paragraph {"className":"testi-name"} -->
+<p class="testi-name"><strong>Dr. Davinder Pal S.</strong></p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"testi-role"} -->
+<p class="testi-role">Salesforce Application Architect | AWS Certified | Digital Transformation Specialist</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group -->
+<!-- wp:paragraph {"className":"testi-linkedin"} -->
+<p class="testi-linkedin"><a href="https://www.linkedin.com/in/davindersingh-sfdc/" target="_blank" rel="noreferrer noopener">LinkedIn</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group -->
 <!-- wp:group {"className":"testi-card","layout":{"type":"default"}} -->
 <div class="wp-block-group testi-card"><!-- wp:paragraph {"className":"testi-quote"} -->
-<p class="testi-quote">Our Online Doctorate in Business Administration (DBA) program is designed for senior professionals and executives looking to advance</p>
+<p class="testi-quote">“The DBA program at IMET Worldwide enhanced my ability to align technology with business goals. It provided the right blend of academic rigor and practical application for CTO-level leadership.”</p>
 <!-- /wp:paragraph -->
 <!-- wp:group {"className":"testi-foot","layout":{"type":"default"}} -->
-<div class="wp-block-group testi-foot"><!-- wp:paragraph {"className":"testi-linkedin"} -->
-<p class="testi-linkedin"><a href="https://www.linkedin.com/" target="_blank" rel="noreferrer noopener">LinkedIn</a></p>
+<div class="wp-block-group testi-foot"><!-- wp:group {"className":"testi-who","layout":{"type":"default"}} -->
+<div class="wp-block-group testi-who"><!-- wp:paragraph {"className":"testi-name"} -->
+<p class="testi-name"><strong>Dinesh Singh</strong></p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"testi-role"} -->
+<p class="testi-role">Chief Technology Officer</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group -->
+<!-- wp:paragraph {"className":"testi-linkedin"} -->
+<p class="testi-linkedin"><a href="https://www.linkedin.com/in/dinesh-singh-a9a68912/" target="_blank" rel="noreferrer noopener">LinkedIn</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group -->
 <!-- wp:group {"className":"testi-card","layout":{"type":"default"}} -->
 <div class="wp-block-group testi-card"><!-- wp:paragraph {"className":"testi-quote"} -->
-<p class="testi-quote">Our Online Doctorate in Business Administration (DBA) program is designed for senior professionals and executives looking to advance</p>
+<p class="testi-quote">“The DBA journey at IMET Worldwide enriched my strategic approach to IT operations and management. The mentorship and research exposure helped me align business goals with technology leadership more effectively.”</p>
 <!-- /wp:paragraph -->
 <!-- wp:group {"className":"testi-foot","layout":{"type":"default"}} -->
-<div class="wp-block-group testi-foot"><!-- wp:paragraph {"className":"testi-linkedin"} -->
-<p class="testi-linkedin"><a href="https://www.linkedin.com/" target="_blank" rel="noreferrer noopener">LinkedIn</a></p>
+<div class="wp-block-group testi-foot"><!-- wp:group {"className":"testi-who","layout":{"type":"default"}} -->
+<div class="wp-block-group testi-who"><!-- wp:paragraph {"className":"testi-name"} -->
+<p class="testi-name"><strong>Meheriar Patel</strong></p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"testi-role"} -->
+<p class="testi-role">Group CIO | CDO | CTO | Mentor &amp; Advisor</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group -->
+<!-- wp:paragraph {"className":"testi-linkedin"} -->
+<p class="testi-linkedin"><a href="https://www.linkedin.com/in/meheriar/" target="_blank" rel="noreferrer noopener">LinkedIn</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group --></div>

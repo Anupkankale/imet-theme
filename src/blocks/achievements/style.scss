@@ -8,7 +8,10 @@
 .imet-section.achieve {
 	position: relative;
 	overflow: hidden;
-	width: min(1200px, 100% + 2 * var(--wp--style--root--padding-left, 0px) - 40px); /* 100% is the padded content box inside the theme */
+	--achieve-width: min(1200px, 100% + 2 * var(--wp--style--root--padding-left, 0px) - 40px); /* 100% is the padded content box inside the theme */
+
+	width: var(--achieve-width);
+	left: min(0px, calc((100% - var(--achieve-width)) / 2)); /* wider than the padded box (below 1240px): shift it so both screen gutters are 20px, like the fee banner */
 	min-height: 178px;
 	margin: 0 auto 38px;
 	display: flex;
