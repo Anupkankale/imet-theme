@@ -31,7 +31,17 @@ $page: ".wp-block-post-content:not(:has(> .imet-section.hero.is-style-home))";
    coloured band they keep the same 48px off its edge. */
 #{$page} > .imet-section:is(.cost-banner, .cyber, .achieve) { margin-block: 0; }
 
-#{$page} > .imet-section.highlights.is-style-wide + .imet-section:is(.cost-banner, .cyber, .achieve) { margin-top: var(--imet-section-y); }
+/* Next to a coloured band (or another banner) there is no section padding to lean on, so the banner keeps 48px off it
+   (the fee banner's ribbon also rises 23px above the card). */
+#{$page} > .imet-section:is(.highlights.is-style-wide, .specs, .is-band, .hero, .cost-banner, .cyber, .achieve) + .imet-section:is(.cost-banner, .cyber, .achieve) { margin-top: var(--imet-section-y); }
+
+#{$page} > .imet-section:is(.cost-banner, .cyber, .achieve):has(+ .imet-section:is(.highlights.is-style-wide, .specs, .is-band)) { margin-bottom: var(--imet-section-y); }
+
+/* The fee banner's ribbon stands above the card: the room is measured from the ribbon's top, not the card's. */
+@media (min-width: 901px) {
+
+	#{$page} > .imet-section:is(.highlights.is-style-wide, .specs, .is-band, .hero, .cost-banner, .cyber, .achieve) + .imet-section.cost-banner { margin-top: calc(var(--imet-section-y) + var(--wp--preset--spacing--24)); }
+}
 
 #{$page} > .imet-section:is(.cost-banner, .cyber, .achieve) + .imet-section:not(.section) { margin-top: var(--imet-section-y); }
 
