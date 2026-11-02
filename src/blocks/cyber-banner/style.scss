@@ -8,7 +8,10 @@
 .imet-section.cyber {
 	position: relative;
 	overflow: hidden;
-	width: min(1200px, 100% + 2 * var(--wp--style--root--padding-left, 0px) - 40px); /* 100% is the padded content box inside the theme; 1200px lines it up with the section containers */
+	--cyber-width: min(1200px, 100% + 2 * var(--wp--style--root--padding-left, 0px) - 40px); /* 100% is the padded content box inside the theme; 1200px lines it up with the section containers */
+
+	width: var(--cyber-width);
+	left: min(0px, calc((100% - var(--cyber-width)) / 2)); /* wider than the padded box (below 1240px): shift it so both screen gutters are 20px, like the fee banner */
 	min-height: 270px;
 	margin: 30px auto 20px;
 	padding: 44px 0 40px;
