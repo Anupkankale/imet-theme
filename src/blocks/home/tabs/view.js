@@ -54,3 +54,27 @@ each('.wp-block-imet-tabs', (section) => {
 	select(0);
 	section.querySelector('.tab-panels')?.classList.add('is-ready');
 });
+
+/* Cards inside a panel (e.g. the Location page): each shows its first lines and a "Read More" that unfolds the rest;
+   "Read Less" folds it back. The editor shows every card open. */
+let cardUid = 0;
+
+each('.wp-block-imet-tabs .tab-card', (card) => {
+	const body = document.createElement('div');
+	body.className = 'tab-card-body';
+	body.id = 'imet-tab-card-' + ++cardUid;
+	[...card.children].forEach((child) => body.appendChild(child));
+	const more = document.createElement('button');
+	more.type = 'button';
+	more.className = 'tab-card-more';
+	more.textContent = 'Read More';
+	more.setAttribute('aria-expanded', 'false');
+	more.setAttribute('aria-controls', body.id);
+	card.append(body, more);
+	card.classList.add('is-foldable');
+	more.addEventListener('click', () => {
+		const open = card.classList.toggle('is-open');
+		more.textContent = open ? 'Read Less' : 'Read More';
+		more.setAttribute('aria-expanded', open ? 'true' : 'false');
+	});
+});

@@ -198,8 +198,32 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:group -->
 <!-- wp:group {"className":"faq-acc","layout":{"type":"default"}} -->
 <div class="wp-block-group faq-acc"><!-- wp:details -->
-<details class="wp-block-details"><summary>Which specializations do you offer for online doctoral programs?</summary><!-- wp:paragraph -->
-<p>Doctoral programs at IMET enable students to choose between IT Governance training as well as advanced studies in AI &amp; Machine Learning and Cybersecurity and Project Management and Data Analytics and Generative AI and Supply Chain Management. Every concentration teaches students advanced capabilities with strategic understandings which empower leaders to boost modern digital business success through security and efficiency and innovation.</p>
+<details class="wp-block-details"><summary>Am I eligible for scholarships in online DBA programs?</summary><!-- wp:paragraph -->
+<p>We offer DBA programs with upto 45% scholarship. Also providing financial support based on leadership experience, career growth, and professional achievements.</p>
+<!-- /wp:paragraph -->
+</details>
+<!-- /wp:details -->
+<!-- wp:details -->
+<details class="wp-block-details"><summary>Is this program suitable for experienced professionals?</summary><!-- wp:paragraph -->
+<p>Yes. These online doctorate programs are specifically designed for senior professionals aiming to enhance leadership, research, and strategic thinking.</p>
+<!-- /wp:paragraph -->
+</details>
+<!-- /wp:details -->
+<!-- wp:details -->
+<details class="wp-block-details"><summary>How is scholarship eligibility evaluated?</summary><!-- wp:paragraph -->
+<p>Scholarships are awarded after evaluating professional experience, leadership exposure, and long-term career potential.</p>
+<!-- /wp:paragraph -->
+</details>
+<!-- /wp:details -->
+<!-- wp:details -->
+<details class="wp-block-details"><summary>Will this program support global career opportunities?</summary><!-- wp:paragraph -->
+<p>Yes. A doctorate in business administration online from the UAE is globally recognized and supports international career growth.</p>
+<!-- /wp:paragraph -->
+</details>
+<!-- /wp:details -->
+<!-- wp:details -->
+<details class="wp-block-details"><summary>What learning format should I expect?</summary><!-- wp:paragraph -->
+<p>Participants experience a structured format including case studies, applied research, academic sessions, and leadership-focused discussions.</p>
 <!-- /wp:paragraph -->
 </details>
 <!-- /wp:details -->
@@ -247,20 +271,54 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:button --></div>
 <!-- /wp:buttons -->
 </section>
+<!-- /wp:imet/specializations -->
 <!-- wp:imet/faq {"align":"full","className":"is-card"} -->
 <section class="wp-block-imet-faq alignfull is-card imet-section section faq"><!-- wp:group {"className":"imet-container narrow","layout":{"type":"default"}} -->
 <div class="wp-block-group imet-container narrow"><!-- wp:group {"className":"sec-head","layout":{"type":"default"}} -->
 <div class="wp-block-group sec-head"><!-- wp:paragraph {"className":"eyebrow-line faq-eyebrow"} -->
-<p class="eyebrow-line faq-eyebrow">MBA Eligibility Criteria</p>
+<p class="eyebrow-line faq-eyebrow">Doctorate Concentrations</p>
 <!-- /wp:paragraph -->
 <!-- wp:heading {"className":"title"} -->
-<h2 class="wp-block-heading title">Doctorate Concentration Explain</h2>
-<!-- /wp:heading --></div>
+<h2 class="wp-block-heading title">Which Specialization should you take?</h2>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"sub"} -->
+<p class="sub">Selecting the right specialization in online business doctorate programs depends on your career goals and industry experience.</p>
+<!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 <!-- wp:group {"className":"faq-acc","layout":{"type":"default"}} -->
 <div class="wp-block-group faq-acc"><!-- wp:details -->
-<details class="wp-block-details"><summary>Which specializations do you offer for online doctoral programs?</summary><!-- wp:paragraph -->
-<p>Doctoral programs at IMET enable students to choose between IT Governance training as well as advanced studies in AI &amp; Machine Learning and Cybersecurity and Project Management and Data Analytics and Generative AI and Supply Chain Management. Every concentration teaches students advanced capabilities with strategic understandings which empower leaders to boost modern digital business success through security and efficiency and innovation.</p>
+<details class="wp-block-details"><summary>Doctorate in Cybersecurity</summary><!-- wp:paragraph -->
+<p>Ideal for professionals focused on enterprise security, cyber risk, and governance.</p>
+<!-- /wp:paragraph -->
+</details>
+<!-- /wp:details -->
+<!-- wp:details -->
+<details class="wp-block-details"><summary>Doctorate in Artificial Intelligence (AI/ML)</summary><!-- wp:paragraph -->
+<p>Ideal for leaders applying AI and machine learning to products, operations, and data-driven strategy.</p>
+<!-- /wp:paragraph -->
+</details>
+<!-- /wp:details -->
+<!-- wp:details -->
+<details class="wp-block-details"><summary>Doctorate in Digital Transformation</summary><!-- wp:paragraph -->
+<p>Ideal for executives leading large-scale change across technology, processes, and business models.</p>
+<!-- /wp:paragraph -->
+</details>
+<!-- /wp:details -->
+<!-- wp:details -->
+<details class="wp-block-details"><summary>Doctorate in Project Management</summary><!-- wp:paragraph -->
+<p>Ideal for professionals who run complex programs and portfolios and want strategic, board-level oversight.</p>
+<!-- /wp:paragraph -->
+</details>
+<!-- /wp:details -->
+<!-- wp:details -->
+<details class="wp-block-details"><summary>Doctorate in Generative AI</summary><!-- wp:paragraph -->
+<p>Ideal for innovators building and governing generative AI solutions across the enterprise.</p>
+<!-- /wp:paragraph -->
+</details>
+<!-- /wp:details -->
+<!-- wp:details -->
+<details class="wp-block-details"><summary>Doctorate in IT Governance</summary><!-- wp:paragraph -->
+<p>Ideal for leaders responsible for IT risk, compliance, and aligning technology with business strategy.</p>
 <!-- /wp:paragraph -->
 </details>
 <!-- /wp:details -->
@@ -281,12 +339,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:image -->
 
 <!-- wp:group {"className":"cta-text","layout":{"type":"default"}} -->
-<div class="wp-block-group cta-text"><!-- wp:heading -->
-<h2 class="wp-block-heading">Publish your research paper in International Journals.</h2>
+<div class="wp-block-group cta-text"><!-- wp:paragraph {"className":"eyebrow-line left"} -->
+<p class="eyebrow-line left">MBA Eligibility Criteria</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Publish your research paper in International journals.</h2>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"className":"cta-sub"} -->
-<p class="cta-sub">Get expert guidance to publish your research papers in top international journals.</p>
+<p class="cta-sub">Discover real journeys of transformation from professionals who turned experience into influence.</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
@@ -351,118 +413,285 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:paragraph -->
 <!-- wp:heading {"className":"title"} -->
 <h2 class="wp-block-heading title">Online DBA Doctorate Program for USA Tech Leaders</h2>
-<!-- /wp:heading -->
-<!-- wp:paragraph {"className":"sub"} -->
-<p class="sub">Everything you need to know about the online DBA in Cybersecurity in one place: the skills you will build, who the program is designed for, the senior careers it leads to, and the frameworks and tools you will work with.</p>
-<!-- /wp:paragraph --></div>
+<!-- /wp:heading --></div>
 <!-- /wp:group -->
 <!-- wp:group {"className":"tab-nav","layout":{"type":"default"}} -->
 <div class="wp-block-group tab-nav"><!-- wp:paragraph {"className":"tab-label"} -->
-<p class="tab-label">Skills You Learn</p>
+<p class="tab-label">Who Should Apply</p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph {"className":"tab-label"} -->
-<p class="tab-label">Who Should Do It</p>
+<p class="tab-label">Key Benefit</p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph {"className":"tab-label"} -->
-<p class="tab-label">Careers after a DBA in Cybersecurity</p>
+<p class="tab-label">Program Structure</p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph {"className":"tab-label"} -->
-<p class="tab-label">Tools</p>
-<!-- /wp:paragraph --></div>
+<p class="tab-label">DBA V/s Phd</p>
+<!-- /wp:paragraph -->
+</div>
 <!-- /wp:group -->
 <!-- wp:group {"className":"tab-panels","layout":{"type":"default"}} -->
 <div class="wp-block-group tab-panels"><!-- wp:group {"className":"tab-panel","layout":{"type":"default"}} -->
-<div class="wp-block-group tab-panel"><!-- wp:list -->
+<div class="wp-block-group tab-panel"><!-- wp:group {"className":"tab-card","layout":{"type":"default"}} -->
+<div class="wp-block-group tab-card"><!-- wp:paragraph {"className":"tab-card-lead"} -->
+<p class="tab-card-lead"><strong>[Placeholder: Who Should Apply – card 1 title]</strong> – Replace with a one-line summary.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p>[Placeholder: intro line]</p>
+<!-- /wp:paragraph -->
+<!-- wp:list {"ordered":true} -->
+<ol class="wp-block-list"><!-- wp:list-item -->
+<li>[Placeholder: first point]<!-- wp:list -->
 <ul class="wp-block-list"><!-- wp:list-item -->
-<li><strong>Strategic Risk Management</strong> – Capability to evaluate, manage, and control cyber risks on an enterprise-wide basis.</li>
+<li>[Placeholder: detail for the first point, a sentence or two long so the card has something to fold.]</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list --></li>
 <!-- /wp:list-item -->
 <!-- wp:list-item -->
-<li><strong>Leadership &amp; Policy Influence</strong> – Competencies to support boards, develop security policies, and influence organizational resilience.</li>
+<li>[Placeholder: second point]<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>[Placeholder: detail for the second point.]</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list --></li>
 <!-- /wp:list-item -->
 <!-- wp:list-item -->
-<li><strong>Advanced Cybersecurity Frameworks</strong> – Mastery of international security standards, compliance frameworks, and governance frameworks.</li>
-<!-- /wp:list-item -->
-<!-- wp:list-item -->
-<li><strong>Research &amp; Analytical Rigor</strong> – Ability to perform top-tier research and publicize the results of the innovations related to cybersecurity.</li>
-<!-- /wp:list-item -->
-<!-- wp:list-item -->
-<li><strong>AI &amp; Emerging Tech in Security</strong> – Knowledge of applying AI, ML, and automation to proactive defense of threats.</li>
-<!-- /wp:list-item -->
-<!-- wp:list-item -->
-<li><strong>Digital Branding &amp; Thought Leadership</strong> – Positioning yourself as an authority in cybersecurity through publications, keynotes, and executive visibility.</li>
-<!-- /wp:list-item -->
-</ul>
+<li>[Placeholder: third point]<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>[Placeholder: detail for the third point.]</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list --></li>
+<!-- /wp:list-item --></ol>
 <!-- /wp:list --></div>
 <!-- /wp:group -->
-<!-- wp:group {"className":"tab-panel","layout":{"type":"default"}} -->
-<div class="wp-block-group tab-panel"><!-- wp:list -->
+<!-- wp:group {"className":"tab-card","layout":{"type":"default"}} -->
+<div class="wp-block-group tab-card"><!-- wp:paragraph {"className":"tab-card-lead"} -->
+<p class="tab-card-lead"><strong>[Placeholder: Who Should Apply – card 2 title]</strong> – Replace with a one-line summary.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p>[Placeholder: intro line]</p>
+<!-- /wp:paragraph -->
+<!-- wp:list {"ordered":true} -->
+<ol class="wp-block-list"><!-- wp:list-item -->
+<li>[Placeholder: first point]<!-- wp:list -->
 <ul class="wp-block-list"><!-- wp:list-item -->
-<li><strong>CISOs &amp; Security Heads</strong> – Leaders who want doctoral credibility to shape enterprise security strategy.</li>
+<li>[Placeholder: detail for the first point, a sentence or two long so the card has something to fold.]</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list --></li>
 <!-- /wp:list-item -->
 <!-- wp:list-item -->
-<li><strong>IT Directors &amp; CTOs</strong> – Technology executives responsible for risk, governance, and digital trust.</li>
+<li>[Placeholder: second point]<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>[Placeholder: detail for the second point.]</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list --></li>
 <!-- /wp:list-item -->
 <!-- wp:list-item -->
-<li><strong>Cybersecurity Consultants</strong> – Advisors who want research-backed authority with boards and clients.</li>
-<!-- /wp:list-item -->
-<!-- wp:list-item -->
-<li><strong>Risk &amp; Compliance Leaders</strong> – Professionals running GRC, audit, and regulatory programs.</li>
-<!-- /wp:list-item -->
-<!-- wp:list-item -->
-<li><strong>Senior Engineers &amp; Architects</strong> – Specialists ready to move from delivery into leadership.</li>
-<!-- /wp:list-item -->
-<!-- wp:list-item -->
-<li><strong>Public-Sector &amp; Defense Professionals</strong> – Leaders protecting national and critical infrastructure.</li>
-<!-- /wp:list-item -->
-</ul>
+<li>[Placeholder: third point]<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>[Placeholder: detail for the third point.]</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list --></li>
+<!-- /wp:list-item --></ol>
 <!-- /wp:list --></div>
 <!-- /wp:group -->
-<!-- wp:group {"className":"tab-panel","layout":{"type":"default"}} -->
-<div class="wp-block-group tab-panel"><!-- wp:list -->
-<ul class="wp-block-list"><!-- wp:list-item -->
-<li><strong>Chief Information Security Officer (CISO)</strong> – Own the security strategy and report to the board.</li>
-<!-- /wp:list-item -->
-<!-- wp:list-item -->
-<li><strong>Cyber Risk Director</strong> – Lead enterprise risk, resilience, and incident-readiness programs.</li>
-<!-- /wp:list-item -->
-<!-- wp:list-item -->
-<li><strong>Cybersecurity Advisor</strong> – Advise boards, regulators, and investors on cyber risk.</li>
-<!-- /wp:list-item -->
-<!-- wp:list-item -->
-<li><strong>Head of Governance, Risk &amp; Compliance</strong> – Build frameworks that meet global standards.</li>
-<!-- /wp:list-item -->
-<!-- wp:list-item -->
-<li><strong>AI &amp; Cloud Security Lead</strong> – Secure AI systems and multi-cloud environments at scale.</li>
-<!-- /wp:list-item -->
-<!-- wp:list-item -->
-<li><strong>Professor &amp; Researcher</strong> – Teach and publish as a recognized cybersecurity scholar.</li>
-<!-- /wp:list-item -->
-</ul>
-<!-- /wp:list --></div>
+</div>
 <!-- /wp:group -->
 <!-- wp:group {"className":"tab-panel","layout":{"type":"default"}} -->
-<div class="wp-block-group tab-panel"><!-- wp:list -->
+<div class="wp-block-group tab-panel"><!-- wp:group {"className":"tab-card","layout":{"type":"default"}} -->
+<div class="wp-block-group tab-card"><!-- wp:paragraph {"className":"tab-card-lead"} -->
+<p class="tab-card-lead"><strong>[Placeholder: Key Benefit – card 1 title]</strong> – Replace with a one-line summary.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p>[Placeholder: intro line]</p>
+<!-- /wp:paragraph -->
+<!-- wp:list {"ordered":true} -->
+<ol class="wp-block-list"><!-- wp:list-item -->
+<li>[Placeholder: first point]<!-- wp:list -->
 <ul class="wp-block-list"><!-- wp:list-item -->
-<li><strong>Security Frameworks</strong> – NIST CSF, ISO/IEC 27001, CIS Controls, and COBIT for governance.</li>
+<li>[Placeholder: detail for the first point, a sentence or two long so the card has something to fold.]</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list --></li>
 <!-- /wp:list-item -->
 <!-- wp:list-item -->
-<li><strong>Risk Quantification</strong> – FAIR, risk registers, and quantitative cyber-risk models.</li>
+<li>[Placeholder: second point]<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>[Placeholder: detail for the second point.]</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list --></li>
 <!-- /wp:list-item -->
 <!-- wp:list-item -->
-<li><strong>Threat Intelligence</strong> – MITRE ATT&amp;CK, threat modelling, and incident-response playbooks.</li>
-<!-- /wp:list-item -->
-<!-- wp:list-item -->
-<li><strong>Research Software</strong> – SPSS, NVivo, Zotero, and Mendeley for analysis and referencing.</li>
-<!-- /wp:list-item -->
-<!-- wp:list-item -->
-<li><strong>Cloud &amp; AI Security</strong> – Zero-trust architecture, CSPM, and AI model-risk frameworks.</li>
-<!-- /wp:list-item -->
-<!-- wp:list-item -->
-<li><strong>Publishing &amp; Visibility</strong> – Google Scholar, ResearchGate, ORCID, and LinkedIn thought leadership.</li>
-<!-- /wp:list-item -->
-</ul>
+<li>[Placeholder: third point]<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>[Placeholder: detail for the third point.]</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list --></li>
+<!-- /wp:list-item --></ol>
 <!-- /wp:list --></div>
-<!-- /wp:group --></div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"tab-card","layout":{"type":"default"}} -->
+<div class="wp-block-group tab-card"><!-- wp:paragraph {"className":"tab-card-lead"} -->
+<p class="tab-card-lead"><strong>[Placeholder: Key Benefit – card 2 title]</strong> – Replace with a one-line summary.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p>[Placeholder: intro line]</p>
+<!-- /wp:paragraph -->
+<!-- wp:list {"ordered":true} -->
+<ol class="wp-block-list"><!-- wp:list-item -->
+<li>[Placeholder: first point]<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>[Placeholder: detail for the first point, a sentence or two long so the card has something to fold.]</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list --></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>[Placeholder: second point]<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>[Placeholder: detail for the second point.]</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list --></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>[Placeholder: third point]<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>[Placeholder: detail for the third point.]</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list --></li>
+<!-- /wp:list-item --></ol>
+<!-- /wp:list --></div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"tab-panel","layout":{"type":"default"}} -->
+<div class="wp-block-group tab-panel"><!-- wp:group {"className":"tab-card","layout":{"type":"default"}} -->
+<div class="wp-block-group tab-card"><!-- wp:paragraph {"className":"tab-card-lead"} -->
+<p class="tab-card-lead"><strong>[Placeholder: Program Structure – card 1 title]</strong> – Replace with a one-line summary.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p>[Placeholder: intro line]</p>
+<!-- /wp:paragraph -->
+<!-- wp:list {"ordered":true} -->
+<ol class="wp-block-list"><!-- wp:list-item -->
+<li>[Placeholder: first point]<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>[Placeholder: detail for the first point, a sentence or two long so the card has something to fold.]</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list --></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>[Placeholder: second point]<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>[Placeholder: detail for the second point.]</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list --></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>[Placeholder: third point]<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>[Placeholder: detail for the third point.]</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list --></li>
+<!-- /wp:list-item --></ol>
+<!-- /wp:list --></div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"tab-card","layout":{"type":"default"}} -->
+<div class="wp-block-group tab-card"><!-- wp:paragraph {"className":"tab-card-lead"} -->
+<p class="tab-card-lead"><strong>[Placeholder: Program Structure – card 2 title]</strong> – Replace with a one-line summary.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p>[Placeholder: intro line]</p>
+<!-- /wp:paragraph -->
+<!-- wp:list {"ordered":true} -->
+<ol class="wp-block-list"><!-- wp:list-item -->
+<li>[Placeholder: first point]<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>[Placeholder: detail for the first point, a sentence or two long so the card has something to fold.]</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list --></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>[Placeholder: second point]<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>[Placeholder: detail for the second point.]</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list --></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>[Placeholder: third point]<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>[Placeholder: detail for the third point.]</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list --></li>
+<!-- /wp:list-item --></ol>
+<!-- /wp:list --></div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"tab-panel","layout":{"type":"default"}} -->
+<div class="wp-block-group tab-panel"><!-- wp:group {"className":"tab-card","layout":{"type":"default"}} -->
+<div class="wp-block-group tab-card"><!-- wp:paragraph {"className":"tab-card-lead"} -->
+<p class="tab-card-lead"><strong>[Placeholder: DBA V/s Phd – card 1 title]</strong> – Replace with a one-line summary.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p>[Placeholder: intro line]</p>
+<!-- /wp:paragraph -->
+<!-- wp:list {"ordered":true} -->
+<ol class="wp-block-list"><!-- wp:list-item -->
+<li>[Placeholder: first point]<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>[Placeholder: detail for the first point, a sentence or two long so the card has something to fold.]</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list --></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>[Placeholder: second point]<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>[Placeholder: detail for the second point.]</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list --></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>[Placeholder: third point]<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>[Placeholder: detail for the third point.]</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list --></li>
+<!-- /wp:list-item --></ol>
+<!-- /wp:list --></div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"tab-card","layout":{"type":"default"}} -->
+<div class="wp-block-group tab-card"><!-- wp:paragraph {"className":"tab-card-lead"} -->
+<p class="tab-card-lead"><strong>[Placeholder: DBA V/s Phd – card 2 title]</strong> – Replace with a one-line summary.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p>[Placeholder: intro line]</p>
+<!-- /wp:paragraph -->
+<!-- wp:list {"ordered":true} -->
+<ol class="wp-block-list"><!-- wp:list-item -->
+<li>[Placeholder: first point]<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>[Placeholder: detail for the first point, a sentence or two long so the card has something to fold.]</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list --></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>[Placeholder: second point]<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>[Placeholder: detail for the second point.]</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list --></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>[Placeholder: third point]<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>[Placeholder: detail for the third point.]</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list --></li>
+<!-- /wp:list-item --></ol>
+<!-- /wp:list --></div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</div>
 <!-- /wp:group --></div>
 <!-- /wp:group --></section>
 <!-- /wp:imet/tabs -->
