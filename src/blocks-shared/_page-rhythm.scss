@@ -3,16 +3,16 @@
    and the boxed banners (fee, achievements, cyber, wide highlights) keep their own spacing. Tokens only. */
 $page: ".wp-block-post-content:not(:has(> .imet-section.hero.is-style-home))";
 
-#{$page} { --imet-section-y: var(--wp--preset--spacing--48); }
+#{$page} { --imet-section-y: var(--wp--preset--spacing--40); }
 
 @media (max-width: 1024px) {
 
-	#{$page} { --imet-section-y: var(--wp--preset--spacing--40); }
+	#{$page} { --imet-section-y: var(--wp--preset--spacing--32); }
 }
 
 @media (max-width: 640px) {
 
-	#{$page} { --imet-section-y: var(--wp--preset--spacing--32); }
+	#{$page} { --imet-section-y: var(--wp--preset--spacing--24); }
 }
 
 #{$page} > .imet-section:is(.section, .highlights, .cta-wrap) { padding-block: var(--imet-section-y); }
@@ -47,3 +47,6 @@ $page: ".wp-block-post-content:not(:has(> .imet-section.hero.is-style-home))";
 
 /* The banner already separates the two sections: no divider line hard against its bottom edge. */
 #{$page} > .imet-section:is(.cost-banner, .cyber, .achieve) + .imet-section.section { border-top: 0; }
+
+/* A boxed CTA card after a section: the section's own bottom padding is the gap, not twice the rhythm (UI review) */
+#{$page} > .imet-section.section + .imet-section.cta-wrap.is-wide { padding-top: 0; }

@@ -171,9 +171,22 @@
 	height: auto;
 }
 
+/* The country code and the number share one field (the advisor form's own design): no second border inside it, and
+   the code only as wide as it needs, so the number gets the rest of the row. The field rule above is very specific
+   (six :not()s), so these add a never-matching id inside :is() to outrank it. */
+.imet-section .h-form .imet-advisor-form__phone :is(select, input, #imet-phone-field) {
+	border: 0;
+	border-radius: 0;
+	outline: 0;
+}
+
+.imet-section .h-form .imet-advisor-form__phone :is(select, #imet-phone-field) { flex: 0 0 auto; width: auto; border-right: 1px solid var(--wp--preset--color--grey-300); font-family: "Twemoji Country Flags", var(--ui); } /* flags on Windows too (font in _advisor-form.scss) */
+
+.imet-section .h-form .imet-advisor-form__phone :is(input, #imet-phone-field) { flex: 1 1 0; width: 0; min-width: 0; } /* grows into the space left, never wider than the row (no sideways scroll on phones) */
+
 .imet-section .h-form textarea:not([hidden]):not([readonly]):not([disabled]):not([data-imet]):not([data-x]):not([data-y]) {
-	height: 108px;
-	min-height: 108px;
+	height: var(--wp--custom--size--88); /* a shorter message box keeps the form level with the hero text (UI review) */
+	min-height: var(--wp--custom--size--88);
 	resize: vertical;
 }
 
@@ -310,7 +323,7 @@
 	background: #fff;
 	border-radius: 20px;
 	box-shadow: 0 2px 4px rgba(0,0,0,.18);
-	padding: 22px 40px 26px;
+	padding: var(--wp--preset--spacing--16) var(--wp--preset--spacing--32) var(--wp--preset--spacing--16); /* a shorter strip (UI review) */
 }
 
 .imet-section .ac-title {
@@ -459,7 +472,8 @@
 .imet-section.hero.is-style-dark .hero-lead { margin: 22px 0 36px; font-size: clamp(1rem, 0.8661rem + 0.372vw, 1.21875rem); line-height: 1.45; } /* → 19.5px */
 .imet-section.hero.is-style-dark .wp-block-button__link { min-width: 320px; }
 
-.imet-section.hero.is-style-dark .h-form { margin-top: 40px; border-color: #fff; }
+/* The form's bottom lines up with the hero's last button (UI review): no offset at the top, anchored to the row's end */
+.imet-section.hero.is-style-dark .h-form { align-self: end; margin-top: 0; border-color: #fff; }
 
 /* Breadcrumb: Home > DBA > DBA in Cybersecurity */
 .imet-section .h-crumbs {

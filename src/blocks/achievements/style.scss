@@ -12,7 +12,7 @@
 
 	width: var(--achieve-width);
 	left: min(0px, calc((100% - var(--achieve-width)) / 2)); /* wider than the padded box (below 1240px): shift it so both screen gutters are 20px, like the fee banner */
-	min-height: 178px;
+	min-height: var(--wp--custom--size--135); /* a shorter box (UI review) */
 	margin: 0 auto 38px;
 	display: flex;
 	align-items: center;

@@ -28,7 +28,7 @@ html:has(.imet-section) { scroll-behavior: smooth; }
 	--radius: 14px;
 	--head: var(--wp--preset--font-family--montserrat, "Montserrat", "Montserrat Fallback", system-ui, sans-serif);
 	--ui: var(--wp--preset--font-family--inter, "Inter", "Inter Fallback", system-ui, sans-serif);
-	font-family: var(--head);
+	font-family: var(--ui); /* body copy in Inter (UI review); headings and display figures stay Montserrat, below */
 	font-weight: 400;
 	color: var(--text);
 	line-height: 1.6;
@@ -71,6 +71,9 @@ html:has(.imet-section) { scroll-behavior: smooth; }
 	color: var(--ink);
 	line-height: 1.2;
 }
+
+/* Display figures set as paragraphs (hero stats, price, the 45% ribbon, achievement counts) keep the heading face. */
+.imet-section :is(.h-num, .price-tag, .pct, .up-to, .merit, .count, .big) { font-family: var(--head); }
 
 /* Editors mark accent words in bold: in headings they become the gold accent from the design. */
 .imet-section h1 strong,
@@ -274,9 +277,15 @@ section.imet-section[id] { scroll-margin-top: 100px; }
 	margin-bottom: 6px;
 	padding-bottom: 6px;
 	color: var(--gold);
-	font-size: var(--eyebrow-size, clamp(1.125rem, 0.8393rem + 0.5952vw, 1.375rem)); /* 18px → 22px */
+	font-family: var(--ui);
+	font-size: var(--eyebrow-size, var(--wp--preset--font-size--medium)); /* 18px, 16px on phones (UI review) */
 	font-weight: 500;
 	line-height: 1.3;
+}
+
+@media (max-width: 640px) {
+
+	.imet-section :is(.eyebrow-line, .alumni-eyebrow) { font-size: var(--eyebrow-size-mobile, var(--wp--preset--font-size--normal)); }
 }
 
 /* Wrapper for a centred section header (eyebrow + title + sub) */

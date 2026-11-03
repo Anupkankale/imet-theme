@@ -39,6 +39,7 @@
 	padding: 5px 12px 5px 81px;
 	border: 1px solid var(--line);
 	border-radius: 4px;
+	transition: box-shadow .2s ease;
 }
 
 .imet-section .ben-item::before {
@@ -158,3 +159,8 @@
 	.imet-section.overview.is-style-photo .ov-grid > .wp-block-buttons .wp-block-button__link { min-width: 0; }
 }
 
+/* A drop shadow lifts a benefit card under the pointer (UI review) */
+@media (hover: hover) {
+
+	.imet-section .ben-item:hover { box-shadow: var(--wp--preset--shadow--dropdown); }
+}

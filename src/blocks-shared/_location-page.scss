@@ -14,6 +14,17 @@
 
 .imet-section.faq.is-card .faq-acc details { border-bottom: 0; }
 
+/* The card lifts under the pointer (UI review) */
+.imet-section.faq.is-card .faq-acc { transition: box-shadow .2s ease; }
+
+@media (hover: hover) {
+
+	.imet-section.faq.is-card .faq-acc:hover { box-shadow: var(--wp--preset--shadow--dropdown); }
+}
+
+/* A second card FAQ on the page gets its own colour, so the two don't read as one (UI review) */
+.imet-section.faq.is-card.is-alt .faq-acc { background: var(--wp--preset--color--lavender); }
+
 /* A short list on one card: every question shows, so no "See More" */
 :where(body:not(.editor-styles-wrapper)) .imet-section.faq.is-card.is-enhanced .faq-acc:not(.is-expanded) details:nth-of-type(n+6) { display: block; }
 
@@ -55,6 +66,11 @@
 
 .imet-section.achieve.is-light :is(h2, .count, .count-label) { color: var(--wp--preset--color--navy); }
 
+/* On the pale band: rounded like the other cards, and a dark divider after the title (UI review) */
+.imet-section.achieve.is-light { border-radius: var(--wp--preset--border-radius--16); }
+
+.imet-section.achieve.is-light h2 { border-right-color: var(--wp--preset--color--ink); }
+
 .imet-section.achieve.is-light::before,
 .imet-section.achieve.is-light::after { content: none; }
 
@@ -85,7 +101,7 @@
    a gold eyebrow with its line, a bold three-line title and the intro, then the journals graphic (Figma). ---------- */
 .imet-section.cta-wrap.is-style-home.is-publish.is-wide .imet-container { width: min(var(--wp--style--global--wide-size), 100% - var(--wp--preset--spacing--40)); }
 
-.imet-section.cta-wrap.is-style-home.is-publish.is-wide .cta { gap: var(--wp--preset--spacing--40); padding: var(--wp--preset--spacing--32) var(--wp--preset--spacing--40); border-radius: 0; background: var(--wp--preset--color--navy-footer); }
+.imet-section.cta-wrap.is-style-home.is-publish.is-wide .cta { gap: var(--wp--preset--spacing--40); padding: var(--wp--preset--spacing--32) var(--wp--preset--spacing--40); border-radius: var(--wp--preset--border-radius--16); /* rounded like the other cards (UI review) */ background: var(--wp--preset--color--navy-footer); }
 
 .imet-section.cta-wrap.is-style-home.is-publish.is-wide .cta-bulb { flex: 0 0 var(--wp--custom--size--155); }
 
@@ -134,6 +150,12 @@
 	color: var(--wp--preset--color--grey-900);
 	font-size: var(--wp--preset--font-size--small);
 	line-height: 1.6;
+	transition: box-shadow .2s ease;
+}
+
+@media (hover: hover) {
+
+	.imet-section.tabs.is-cards .tab-card:hover { box-shadow: var(--wp--preset--shadow--dropdown); }
 }
 
 /* The text hangs off the tick: every line in the card starts where the lead's text starts */
