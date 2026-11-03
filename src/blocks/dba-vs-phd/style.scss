@@ -189,3 +189,9 @@
 
 	.imet-section.vs { padding: 48px 0; }
 }
+
+/* Phones: the comparison is left out (UI review), and so is its sub-navigation link */
+@media (max-width: 640px) {
+
+	.imet-section.vs { display: none; }
+}
