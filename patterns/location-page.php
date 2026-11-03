@@ -272,8 +272,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:buttons -->
 </section>
 <!-- /wp:imet/specializations -->
-<!-- wp:imet/faq {"align":"full","className":"is-card"} -->
-<section class="wp-block-imet-faq alignfull is-card imet-section section faq"><!-- wp:group {"className":"imet-container narrow","layout":{"type":"default"}} -->
+<!-- wp:imet/faq {"align":"full","className":"is-card is-alt"} -->
+<section class="wp-block-imet-faq alignfull is-card is-alt imet-section section faq"><!-- wp:group {"className":"imet-container narrow","layout":{"type":"default"}} -->
 <div class="wp-block-group imet-container narrow"><!-- wp:group {"className":"sec-head","layout":{"type":"default"}} -->
 <div class="wp-block-group sec-head"><!-- wp:paragraph {"className":"eyebrow-line faq-eyebrow"} -->
 <p class="eyebrow-line faq-eyebrow">Doctorate Concentrations</p>

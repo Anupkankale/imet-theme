@@ -9,7 +9,7 @@
 	padding-left: 37px;
 }
 
-.imet-section .an-visual img { width: 100%; border-radius: 22px; box-shadow: 0 2px 3px rgba(0,0,0,.3); }
+.imet-section .an-visual img { width: 100%; } /* the picture draws its own card: no second frame or shadow around it (UI review) */
 
 .imet-section.analytics .title { margin-bottom: 16px; font-size: clamp(1.625rem, 1.0357rem + 1.4881vw, 2.375rem); font-weight: 600; } /* → 38px */
 .imet-section .dots {
@@ -56,4 +56,10 @@
 	.imet-section .an-grid { padding-left: 0; }
 
 	.imet-section.analytics .wp-block-buttons { justify-content: center; }
+}
+
+/* Phones: the text only, without the dashboard image (UI review) */
+@media (max-width: 640px) {
+
+	.imet-section .an-visual { display: none; }
 }

@@ -1,28 +1,9 @@
-import { each } from '../../../blocks-shared/view-helpers';
+import { each, marquee } from '../../../blocks-shared/view-helpers';
 
-/* Home page: arrows under the row of cards scroll it one card at a time. */
-each('.wp-block-imet-step-cards.is-style-home:not(.is-cases)', (section) => {
-	const grid = section.querySelector('.step-grid');
-	const card = grid && grid.querySelector('.step-card');
-	if (!card) {
-		return;
-	}
-	const nav = document.createElement('div');
-	nav.className = 'sc-nav';
-	[
-		['Previous', -1],
-		['Next', 1],
-	].forEach(([label, dir]) => {
-		const b = document.createElement('button');
-		b.type = 'button';
-		b.setAttribute('aria-label', label);
-		b.addEventListener('click', () =>
-			grid.scrollBy({
-				left: dir * (card.offsetWidth + 10),
-				behavior: 'smooth',
-			})
-		);
-		nav.appendChild(b);
-	});
-	grid.after(nav);
-});
+/* Home page: the row of cards glides sideways on its own (no arrows), like the other card rows. It only moves while the
+   cards are wider than the row, pauses on hover and focus, and stays still for people who ask for less motion. */
+each(
+	'.wp-block-imet-step-cards.is-style-home:not(.is-cases) .step-grid',
+	(grid) =>
+		marquee(grid, [...grid.querySelectorAll('.step-card')], { speed: 30 })
+);

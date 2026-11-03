@@ -24,7 +24,7 @@
 	align-items: center;
 	justify-content: center;
 	color: #fff;
-	padding: 30px 17.5px;
+	padding: 20px 17.5px; /* a slimmer band (UI review) */
 	font-size: 1.0625rem;
 	font-weight: 500;
 	white-space: nowrap;
@@ -60,4 +60,10 @@
 @media (max-width: 640px) {
 
 	.imet-section .subnav-links a { padding: 18px 14px; font-size: 0.9375rem; }
+}
+
+/* Phones: the DBA vs Ph.D section is hidden there, so is its link */
+@media (max-width: 640px) {
+
+	.imet-section .subnav-links a[href="#dba-vs-phd"] { display: none; }
 }

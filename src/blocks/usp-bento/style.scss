@@ -128,3 +128,9 @@
 
 	.imet-section.usp { padding: 48px 0; }
 }
+
+/* Phones: the first three USPs only (UI review) */
+@media (max-width: 640px) {
+
+	.imet-section .bento > .b-card:nth-child(n+4) { display: none; }
+}
