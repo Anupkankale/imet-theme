@@ -26,6 +26,14 @@ Built on top of the starter for IMET:
 - A header and footer editable from Menus and the block editor.
 - The deploy pipeline (`.github/workflows/deploy.yml`, [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md)).
 
+Third-party assets:
+
+- `assets/fonts/twemoji-country-flags.woff2`: the "Twemoji Country Flags" font from
+  [country-flag-emoji-polyfill](https://github.com/talkjs/country-flag-emoji-polyfill) (code MIT). The flag artwork is
+  [Twemoji](https://github.com/twitter/twemoji) by Twitter, Inc and other contributors, licensed under
+  [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/). It draws the flags in the advisor form's country-code list,
+  which Windows browsers otherwise show as letters ("AE").
+
 **AI assistance.** This theme was built with AI coding assistants (Claude Code), and commits made with one say so in a
 `Co-Authored-By` trailer. I set the architecture, matched the Figma designs, and reviewed, tested and deployed every
 change. `AGENTS.md`, `CLAUDE.md` and `.claude/skills/` are the instructions those assistants work from.

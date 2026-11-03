@@ -1,6 +1,5 @@
 /* Testimonial slider: auto-advances every 4s; pauses on hover, touch and focus, and stops for good with the pause
    button (WCAG 2.2.2); swipe/scroll by hand. */
-import { __ } from '@wordpress/i18n';
 import {
 	each,
 	marquee,
@@ -60,36 +59,12 @@ each('.wp-block-imet-testimonials:not(.is-style-home) .testi-grid', (grid) =>
 	})
 );
 
-/* Home page: the client testimonials glide sideways; the success stories get arrows under the row. */
+/* Home page: the client testimonials and the success stories glide sideways on their own (no arrows). */
 each(
-	'.wp-block-imet-testimonials.is-style-home.is-clients .testi-grid',
+	'.wp-block-imet-testimonials.is-style-home:is(.is-clients, .is-stories) .testi-grid',
 	(grid) =>
 		marquee(grid, [...grid.querySelectorAll('.testi-card')], { speed: 30 })
 );
-each('.wp-block-imet-testimonials.is-stories .testi-grid', (grid) => {
-	const card = grid.querySelector('.testi-card');
-	if (!card) {
-		return;
-	}
-	const nav = document.createElement('div');
-	nav.className = 'sc-nav is-testi';
-	[
-		[__('Previous', 'imet-theme'), -1],
-		[__('Next', 'imet-theme'), 1],
-	].forEach(([label, dir]) => {
-		const b = document.createElement('button');
-		b.type = 'button';
-		b.setAttribute('aria-label', label);
-		b.addEventListener('click', () =>
-			grid.scrollBy({
-				left: dir * (card.offsetWidth + 10),
-				behavior: 'smooth',
-			})
-		);
-		nav.appendChild(b);
-	});
-	grid.after(nav);
-});
 
 // Success stories: touch screens have no hover, so a tap flips the card (taps on its links still follow them).
 each('.wp-block-imet-testimonials .story-card', (card) => {

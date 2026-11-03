@@ -4,16 +4,16 @@
    Tokens only. */
 $home: ".wp-block-post-content:has(> .imet-section.hero.is-style-home)";
 
-#{$home} { --imet-section-y: var(--wp--preset--spacing--48); }
+#{$home} { --imet-section-y: var(--wp--preset--spacing--40); }
 
 @media (max-width: 1024px) {
 
-	#{$home} { --imet-section-y: var(--wp--preset--spacing--40); }
+	#{$home} { --imet-section-y: var(--wp--preset--spacing--32); }
 }
 
 @media (max-width: 640px) {
 
-	#{$home} { --imet-section-y: var(--wp--preset--spacing--32); }
+	#{$home} { --imet-section-y: var(--wp--preset--spacing--24); }
 }
 
 #{$home} > .imet-section:not(.hero, .highlights, .specs, .cost-banner) { padding-block: var(--imet-section-y); }
