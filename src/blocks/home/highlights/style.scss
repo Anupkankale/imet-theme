@@ -100,6 +100,50 @@
 
 .imet-section.highlights.is-style-wide .hl-visual img { mix-blend-mode: multiply; } /* a photo's white edge takes the band's grey */
 
+/* Photo with chips (DBA Course Page, like the live site): the chips are real text laid over a plain photo, so they stay
+   sharp, translate and can be edited. The box is the photo's width and the chips scale with it (container units). */
+.imet-section .hl-visual.has-chips {
+	position: relative;
+	width: 100%;
+	max-width: var(--wp--custom--size--544);
+	margin-inline: auto;
+	container-type: inline-size;
+}
+
+.imet-section .hl-visual.has-chips .hl-photo { margin: 0 0 0 6%; }
+
+.imet-section .hl-visual.has-chips img { max-width: none; }
+
+.imet-section .hl-visual .hl-chip {
+	position: absolute;
+	display: flex;
+	align-items: center;
+	gap: 2.4cqi;
+	margin: 0;
+	padding: 2.6cqi 4cqi;
+	color: var(--wp--preset--color--white);
+	font-family: var(--ui);
+	font-size: clamp(var(--wp--preset--font-size--caption), 3cqi, var(--wp--preset--font-size--medium));
+	font-weight: 600;
+	line-height: 1.35;
+	box-shadow: var(--wp--preset--shadow--soft);
+}
+
+.imet-section .hl-visual .hl-chip.is-blue { top: 18%; left: 0; border-radius: var(--wp--preset--border-radius--8); background: var(--wp--preset--color--blue); }
+
+/* Search icon before "AI Ethics & Security", as on the live site */
+.imet-section .hl-visual .hl-chip.is-blue::before {
+	content: "";
+	flex: none;
+	width: 1.3lh;
+	height: 1.3lh;
+	background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round'%3E%3Ccircle cx='10.5' cy='10.5' r='6.5'/%3E%3Cpath d='m15.5 15.5 5 5'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+.imet-section .hl-visual .hl-chip.is-green { top: 60%; right: 0; max-width: 54%; border-radius: var(--wp--preset--border-radius--pill); background: var(--wp--preset--color--green); }
+
+.imet-section .hl-visual .hl-chip.is-green strong { flex: none; font-family: var(--wp--preset--font-family--montserrat); font-size: clamp(var(--wp--preset--font-size--large), 4.8cqi, var(--wp--preset--font-size--29)); font-weight: 700; line-height: 1; }
+
 .imet-section.highlights.is-style-wide .hl-list { gap: var(--wp--preset--spacing--24); margin: var(--wp--preset--spacing--32) 0; }
 
 .imet-section.highlights.is-style-wide .hl-list li { min-height: var(--wp--preset--spacing--36); padding: var(--wp--preset--spacing--6) 0 0 var(--wp--preset--spacing--54); font-size: var(--wp--preset--font-size--16-5); line-height: 1.5; }
