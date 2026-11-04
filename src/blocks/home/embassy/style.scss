@@ -98,13 +98,13 @@
 
 .imet-section.embassy.is-style-home.is-employers { padding: 20px 0 30px; }
 
-.imet-section.embassy.is-style-home.is-employers .sec-head .sub { margin-top: 24px; }
+.imet-section.embassy.is-style-home.is-employers .sec-head .sub { margin-top: var(--wp--preset--spacing--8); } /* the shared header rhythm (UI review) */
 
 .imet-section.embassy.is-style-home.is-employers .emblem-row { justify-content: flex-start; gap: 15px; margin-top: 0; }
 
 .imet-section.embassy.is-style-home.is-employers .emblem-row { padding: 3px 0; }
 
-.imet-section.embassy.is-style-home.is-employers .sec-head + .emblem-row { margin-top: 35px; }
+.imet-section.embassy.is-style-home.is-employers .sec-head + .emblem-row { margin-top: 0; } /* the header's own 32px is the gap */
 
 .imet-section.embassy.is-style-home.is-employers .emblem-row + .emblem-row { margin-top: 24px; }
 

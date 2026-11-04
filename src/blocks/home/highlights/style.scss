@@ -139,7 +139,7 @@
 
 .imet-section.highlights.is-style-home .hl-lead {
 	margin: var(--wp--preset--spacing--20) 0 0;
-	font-size: var(--wp--preset--font-size--small);
+	font-size: var(--wp--preset--font-size--medium); /* 18px body copy (UI review) */
 	line-height: 1.6;
 }
 
@@ -161,6 +161,7 @@
 	border-radius: var(--wp--preset--border-radius--pill);
 	color: var(--wp--preset--color--ink);
 	font-size: var(--wp--preset--font-size--small);
+	font-weight: 500; /* medium label beside the bold figure (UI review) */
 	line-height: 1.3;
 }
 
