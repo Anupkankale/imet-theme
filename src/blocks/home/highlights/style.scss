@@ -153,7 +153,6 @@
 /* ---------- Style "Home" (block style, the Home page, pattern "Home (IMET)"): white band, eyebrow with a short gold line,
    title, lead, outlined gold pills and the advisor form in a rounded white card on the right. Tokens only. ---------- */
 .imet-section.highlights.is-style-home {
-	--eyebrow-size: var(--wp--preset--font-size--large);
 	--eyebrow-line: var(--wp--preset--spacing--80);
 	--imet-title-size: var(--wp--preset--font-size--xx-large);
 
@@ -173,7 +172,7 @@
 .imet-section.highlights.is-style-home .hl-text { padding: 0; }
 
 .imet-section.highlights.is-style-home .title {
-	margin: var(--imet-eyebrow-gap) 0 0; /* the shared eyebrow → heading gap */
+	margin: var(--wp--custom--eyebrow--gap) 0 0; /* the shared eyebrow → heading gap */
 	font-weight: 700;
 	line-height: 1.25;
 	text-wrap: balance;
@@ -261,8 +260,6 @@
 @media (max-width: 900px) {
 
 	.imet-section.highlights.is-style-home .hl-grid { grid-template-columns: minmax(0, 1fr); gap: var(--wp--preset--spacing--32); }
-
-	.imet-section.highlights.is-style-home .eyebrow-line.left { display: inline-block; }
 }
 
 @media (max-width: 640px) {
