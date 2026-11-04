@@ -139,9 +139,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:buttons -->
 </div>
 <!-- /wp:group -->
-<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"hl-visual"} -->
-<figure class="wp-block-image size-full hl-visual"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/course-highlights-v3.webp" ) ); ?>" alt="Cybersecurity shield over a digital hand: AI Ethics &amp; Security, +30% salary growth potential"/></figure>
+<!-- wp:group {"className":"hl-visual has-chips","layout":{"type":"default"}} -->
+<div class="wp-block-group hl-visual has-chips"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"hl-photo"} -->
+<figure class="wp-block-image size-full hl-photo"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/course-highlights-clean.webp" ) ); ?>" alt="Cybersecurity shield over a digital hand"/></figure>
 <!-- /wp:image -->
+<!-- wp:paragraph {"className":"hl-chip is-blue"} -->
+<p class="hl-chip is-blue">AI Ethics &amp; Security</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"hl-chip is-green"} -->
+<p class="hl-chip is-green"><strong>+30%</strong> Salary Growth Potential</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group -->
 </div>
 <!-- /wp:group --></section>
 <!-- /wp:imet/highlights -->
