@@ -7,3 +7,11 @@ each(
 	(grid) =>
 		marquee(grid, [...grid.querySelectorAll('.step-card')], { speed: 30 })
 );
+
+/* Home page case studies: the four cards glide too, even on wide screens where they would fit (UI review). */
+each('.wp-block-imet-step-cards.is-style-home.is-cases .step-grid', (grid) =>
+	marquee(grid, [...grid.querySelectorAll('.step-card')], {
+		speed: 30,
+		alwaysMove: true,
+	})
+);
