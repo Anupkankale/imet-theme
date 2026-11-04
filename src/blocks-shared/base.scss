@@ -288,6 +288,12 @@ section.imet-section[id] { scroll-margin-top: 100px; }
 	.imet-section :is(.eyebrow-line, .alumni-eyebrow) { font-size: var(--eyebrow-size-mobile, var(--wp--preset--font-size--normal)); }
 }
 
+/* Eyebrow → heading: one gap on every page and every device, the Location page's (the eyebrow's own padding, then 8px).
+   It ranged from 0 to 12px, block by block (UI review). */
+.imet-section :is(.eyebrow-line, .alumni-eyebrow):has(+ :is(h1, h2, h3, h4, h5, h6)) { margin-bottom: 0; }
+
+.imet-section :is(.eyebrow-line, .alumni-eyebrow) + :is(h1, h2, h3, h4, h5, h6) { margin-top: var(--wp--preset--spacing--8); }
+
 /* Wrapper for a centred section header (eyebrow + title + sub) */
 .imet-section .sec-head { text-align: center; }
 
