@@ -78,3 +78,28 @@ each('.wp-block-imet-testimonials .story-card', (card) => {
 		card.classList.toggle('is-flipped');
 	});
 });
+
+// Success stories on touch screens: with no hover to turn them, each card turns on its own, a few seconds after it comes
+// into view, then turns back, so the story on the back is seen without a tap. Skipped for people who ask for less motion.
+each('.wp-block-imet-testimonials.is-stories .story-card', (card) => {
+	if (
+		reduceMotion() ||
+		!window.matchMedia('(hover: none)').matches ||
+		!('IntersectionObserver' in window)
+	) {
+		return;
+	}
+	let timer = 0;
+	new window.IntersectionObserver(
+		([entry]) => {
+			window.clearInterval(timer);
+			if (entry.isIntersecting) {
+				timer = window.setInterval(
+					() => card.classList.toggle('is-flipped'),
+					3500
+				);
+			}
+		},
+		{ threshold: 0.6 }
+	).observe(card);
+});
