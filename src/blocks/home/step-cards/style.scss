@@ -87,9 +87,9 @@
 	text-align: left;
 }
 
-.imet-section .sc-head .eyebrow-line { margin: 10px 0 0 10px; padding: 0; }
+.imet-section .sc-head .eyebrow-line { margin: 10px 0 0 10px; }
 
-.imet-section .sc-head .title { margin: 0 0 0 10px; text-align: left; }
+.imet-section .sc-head .title { margin: var(--wp--preset--spacing--8) 0 0 10px; text-align: left; } /* the shared eyebrow → heading gap */
 
 .imet-section .sc-head .sub { max-width: none; margin: 13px 0 0; color: #000; text-align: left; font-size: 1rem; line-height: 1.625; }
 

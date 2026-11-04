@@ -172,10 +172,8 @@
 
 .imet-section.highlights.is-style-home .hl-text { padding: 0; }
 
-.imet-section.highlights.is-style-home .eyebrow-line { margin-bottom: var(--wp--preset--spacing--10); }
-
 .imet-section.highlights.is-style-home .title {
-	margin: 0;
+	margin: var(--wp--preset--spacing--8) 0 0; /* the shared eyebrow → heading gap */
 	font-weight: 700;
 	line-height: 1.25;
 	text-wrap: balance;
