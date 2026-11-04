@@ -98,8 +98,7 @@
 	gap: 10px;
 	width: min(1110px, 100% - 40px);
 	overflow-x: auto;
-	scroll-snap-type: x mandatory;
-	scrollbar-width: none;
+	scrollbar-width: none; /* no scroll snapping: the row glides on its own (view.js), and snapping would pull it back to a card edge every frame */
 }
 
 .imet-section.step-cards.is-style-home .step-grid::-webkit-scrollbar { display: none; }
@@ -165,18 +164,25 @@
 
 .imet-section.step-cards.is-style-home.is-cases .title { margin-bottom: 20px; }
 
+/* One row that glides sideways on its own at every width (view.js, UI review), like the other card rows */
 .imet-section.step-cards.is-style-home.is-cases .step-grid {
-	display: grid;
-	grid-template-columns: repeat(4, minmax(0, 278px));
-	justify-content: center;
-	gap: 20px;
+	display: flex;
+	gap: var(--wp--preset--spacing--20);
 	width: min(1172px, 100% - 40px);
-	overflow: visible;
+	margin-inline: auto;
+	overflow-x: auto;
+	scrollbar-width: none;
 }
+
+.imet-section.step-cards.is-style-home.is-cases .step-grid::-webkit-scrollbar { display: none; }
+
+/* Room under the row, so its pause button sits below the cards instead of over a card's Read More */
+.imet-section.step-cards.is-style-home.is-cases .step-grid { margin-bottom: var(--wp--preset--spacing--20); }
 
 .imet-section.step-cards.is-style-home.is-cases .step-card {
 	position: relative;
 	display: block;
+	flex: 0 0 278px;
 	min-height: 300px;
 	overflow: hidden;
 	background: #000;
@@ -210,27 +216,11 @@
 
 .imet-section.step-cards.is-style-home.is-cases .sc-more a { color: var(--gold); }
 
-@media (max-width: 1100px) {
-
-	.imet-section.step-cards.is-style-home.is-cases .step-grid { grid-template-columns: repeat(2, minmax(0, 278px)); }
-}
-
-@media (max-width: 560px) {
-
-	.imet-section.step-cards.is-style-home.is-cases .step-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
-
-	.imet-section.step-cards.is-style-home.is-cases .step-card { min-height: 240px; }
-
-	.imet-section.step-cards.is-style-home.is-cases .sc-text { padding-inline: var(--wp--preset--spacing--12); }
-
-	.imet-section.step-cards.is-style-home.is-cases .step-card :is(h3, p:not(.sc-tag)) { font-size: .875rem; }
-}
-
 @media (max-width: 640px) {
 
-	.imet-section.step-cards.is-style-home.is-cases .step-grid { grid-template-columns: 1fr; gap: 18px; width: calc(100% - 20px); }
+	.imet-section.step-cards.is-style-home.is-cases .step-grid { gap: var(--wp--preset--spacing--16); width: calc(100% - var(--wp--preset--spacing--40)); }
 
-	.imet-section.step-cards.is-style-home.is-cases .step-card { min-height: var(--wp--custom--size--334); } /* more of the photo above the text */
+	.imet-section.step-cards.is-style-home.is-cases .step-card { flex-basis: 82%; min-height: var(--wp--custom--size--334); } /* one card and a peek of the next */
 
 	.imet-section.step-cards.is-style-home.is-cases .sc-text { padding-inline: var(--wp--preset--spacing--16); }
 
