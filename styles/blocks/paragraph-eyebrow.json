@@ -1,19 +1,20 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/theme.json",
 	"version": 3,
-	"title": "Eyebrow (gold, underlined)",
+	"title": "Eyebrow",
 	"slug": "paragraph-eyebrow",
 	"blockTypes": [
 		"core/paragraph"
 	],
 	"styles": {
 		"color": {
-			"text": "var(--wp--preset--color--gold)"
+			"text": "var(--wp--custom--eyebrow--color)"
 		},
 		"typography": {
-			"fontSize": "var(--wp--preset--font-size--eyebrow)",
-			"fontWeight": "500",
-			"lineHeight": "1.3"
+			"fontFamily": "var(--wp--custom--eyebrow--font-family)",
+			"fontSize": "var(--wp--custom--eyebrow--font-size)",
+			"fontWeight": "var(--wp--custom--eyebrow--font-weight)",
+			"lineHeight": "var(--wp--custom--eyebrow--line-height)"
 		}
 	}
 }

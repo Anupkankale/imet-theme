@@ -49,26 +49,23 @@ $page: ':is(.wp-block-post-content, .is-root-container)';
 	}
 }
 
-// ---- Section header: eyebrow with a gold line, subtitle ---------------------------------------------------------
-.is-style-heading-eyebrow,
-.is-style-paragraph-eyebrow {
-	position: relative;
-	display: table;
-	margin-inline: auto;
-	margin-bottom: var(--wp--preset--spacing--6);
-	padding-bottom: var(--wp--preset--spacing--6);
+// ---- Section header: eyebrow, subtitle -------------------------------------------------------------------------
+// One eyebrow on every page: the "Eyebrow" block style (paragraph or heading) and the .eyebrow-line class used by the
+// IMET blocks read the same theme.json tokens (settings.custom.eyebrow). Change the look there, not here.
+:is(.is-style-heading-eyebrow, .is-style-paragraph-eyebrow, .eyebrow-line) {
+	margin-bottom: 0;
+	color: var(--wp--custom--eyebrow--color);
+	font-family: var(--wp--custom--eyebrow--font-family);
+	font-size: var(--wp--custom--eyebrow--font-size);
+	font-weight: var(--wp--custom--eyebrow--font-weight);
+	line-height: var(--wp--custom--eyebrow--line-height);
 
-	&::after {
-		content: "";
-		position: absolute;
-		bottom: 0;
-		left: 50%;
-		width: var(--wp--custom--size--74);
-		height: var(--wp--custom--size--3);
-		background: var(--wp--preset--color--gold);
-		transform: translateX(-50%);
+	@media (max-width: 640px) {
+		font-size: var(--wp--custom--eyebrow--font-size-mobile);
 	}
 }
+
+:is(.is-style-heading-eyebrow, .is-style-paragraph-eyebrow, .eyebrow-line) + :is(h1, h2, h3, h4, h5, h6) { margin-top: var(--wp--custom--eyebrow--gap); }
 
 .is-style-paragraph-section-sub {
 	max-width: var(--wp--custom--size--1012);

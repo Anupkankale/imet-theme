@@ -23,6 +23,8 @@ $page: ".wp-block-post-content:not(:has(> .imet-section.hero.is-style-home))";
 
 #{$page} > .imet-section :is(.sec-head, .testi-head) > * + * { margin-top: var(--wp--preset--spacing--8); }
 
+#{$page} > .imet-section :is(.sec-head, .testi-head) > :is(.eyebrow-line, .alumni-eyebrow) + * { margin-top: var(--wp--custom--eyebrow--gap); } /* see base.scss */
+
 #{$page} > .imet-section :is(.sec-head, .testi-head) { margin-bottom: var(--wp--preset--spacing--32); }
 
 #{$page} > .imet-section :is(.sec-head, .testi-head) + * { margin-top: 0; }
