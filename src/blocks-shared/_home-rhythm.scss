@@ -4,11 +4,11 @@
    Tokens only. */
 $home: ".wp-block-post-content:has(> .imet-section.hero.is-style-home)";
 
-#{$home} { --imet-section-y: var(--wp--preset--spacing--40); }
+#{$home} { --imet-section-y: var(--wp--preset--spacing--32); } /* less space between sections (UI review) */
 
 @media (max-width: 1024px) {
 
-	#{$home} { --imet-section-y: var(--wp--preset--spacing--32); }
+	#{$home} { --imet-section-y: var(--wp--preset--spacing--26); }
 }
 
 @media (max-width: 640px) {
@@ -17,6 +17,26 @@ $home: ".wp-block-post-content:has(> .imet-section.hero.is-style-home)";
 }
 
 #{$home} > .imet-section:not(.hero, .highlights, .specs, .cost-banner) { padding-block: var(--imet-section-y); }
+
+/* Section headers: eyebrow, title and intro 8px apart, and 32px (24px on phones) to the content, as on the other pages
+   (the gaps ranged from 6px to 24px, block by block). */
+#{$home} > .imet-section :is(.sec-head, .testi-head) > * { margin-block: 0; }
+
+#{$home} > .imet-section :is(.sec-head, .testi-head) > * + * { margin-top: var(--wp--preset--spacing--8); }
+
+#{$home} > .imet-section :is(.sec-head, .testi-head) > :is(.eyebrow-line, .alumni-eyebrow) + * { margin-top: var(--wp--custom--eyebrow--gap); } /* see base.scss */
+
+#{$home} > .imet-section :is(.sec-head, .testi-head) { margin-bottom: var(--wp--preset--spacing--32); }
+
+#{$home} > .imet-section :is(.sec-head, .testi-head) + * { margin-top: 0; }
+
+/* "Top Featured programs" keeps its cards and button inside the header group: they sit 32px under the intro, not 8px. */
+#{$home} > .imet-section.specs .sec-head > :is(.spec-grid, .wp-block-buttons) { margin-top: var(--wp--preset--spacing--32); }
+
+@media (max-width: 640px) {
+
+	#{$home} > .imet-section :is(.sec-head, .testi-head) { margin-bottom: var(--wp--preset--spacing--24); }
+}
 
 /* The fee banner sits close under the "Why choose" form and hands over to the next section's own padding. */
 #{$home} > .imet-section.cost-banner { margin-bottom: 0; }

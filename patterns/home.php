@@ -629,7 +629,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- wp:imet/certificate {"className":"is-style-home"} -->
 <section class="wp-block-imet-certificate alignfull imet-section section cert is-style-home"><!-- wp:group {"className":"imet-container cert-wrap","layout":{"type":"default"}} -->
 <div class="wp-block-group imet-container cert-wrap"><!-- wp:group {"className":"cert-card","layout":{"type":"default"}} -->
-<div class="wp-block-group cert-card"><!-- wp:heading {"className":"title left"} -->
+<div class="wp-block-group cert-card"><!-- wp:paragraph {"className":"eyebrow-line left"} -->
+<p class="eyebrow-line left">Convocation Ceremony</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"className":"title left"} -->
 <h2 class="wp-block-heading title left">Doctorate Convocation Ceremony of IMET Worldwide Celebrating Excellence in Professional Development</h2>
 <!-- /wp:heading -->
 

@@ -162,12 +162,12 @@
 
 .imet-section.tabs.is-style-home .tab-panel[hidden] { display: none; }
 
-.imet-section.tabs.is-style-home .tab-panel:has(.tab-photo) { grid-template-columns: 370px minmax(0, 1fr); grid-template-rows: auto 1fr; column-gap: var(--wp--preset--spacing--40); }
+.imet-section.tabs.is-style-home .tab-panel:has(.tab-photo) { grid-template-columns: var(--wp--custom--size--450) minmax(0, 1fr); grid-template-rows: auto 1fr; /* a wider, shorter photo (UI review) */ column-gap: var(--wp--preset--spacing--40); }
 
 .imet-section.tabs.is-style-home .tab-photo { grid-row: 1 / span 2; margin: 0; }
 
 /* One frame for every photo, so the three tabs line up whatever the image's own size */
-.imet-section.tabs.is-style-home .tab-photo img { width: 100%; height: 100%; min-height: 445px; border-radius: 20px; object-fit: cover; }
+.imet-section.tabs.is-style-home .tab-photo img { width: 100%; height: 100%; min-height: var(--wp--custom--size--334); border-radius: 20px; object-fit: cover; }
 
 .imet-section.tabs.is-style-home .tab-panel ul { display: block; margin-top: var(--wp--preset--spacing--16); }
 

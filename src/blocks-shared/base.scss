@@ -118,11 +118,8 @@ html:has(.imet-section) { scroll-behavior: smooth; }
 .imet-page:has(> .wp-block-imet-hero.is-style-dark) { --imet-title-size: clamp(1.625rem, 1.2rem + 1.3056vw, 2.375rem); } /* → 38px */
 .imet-page:has(> .wp-block-imet-hero.is-style-dark) :is(.imet-section.testimonials, .imet-section.faq) { --imet-title-size: initial; }
 
-/* Home page (its hero uses the "Home" style): 28px section titles, 18px gold eyebrows without the line, as on imetworldwide.com. */
+/* Home page (its hero uses the "Home" style): 28px section titles, as on imetworldwide.com. */
 .imet-page:has(> .wp-block-imet-hero.is-style-home) { --imet-title-size: 1.75rem; } /* 28px */
-.imet-page:has(> .wp-block-imet-hero.is-style-home) .imet-section { --eyebrow-size: 1.125rem; --eyebrow-line: 0; }
-
-.imet-page:has(> .wp-block-imet-hero.is-style-home) .imet-section .eyebrow-line { font-weight: 600; line-height: 1.2; }
 
 .imet-page:has(> .wp-block-imet-hero.is-style-home) .imet-section .title { font-weight: 600; line-height: 1.43; }
 
@@ -270,23 +267,31 @@ section.imet-section[id] { scroll-margin-top: 100px; }
 	.imet-section { font-size: 1rem; }
 }
 
-/* Eyebrow: gold label above a section title (no underline). Centre its parent. Size per section: --eyebrow-size. */
+/* Eyebrow: gold label above a section title, one look on every page and device from the theme.json tokens
+   (settings.custom.eyebrow: font, 18px / 16px on phones, weight, colour, and the gap to the heading). The editor's
+   "Eyebrow" block style uses the same tokens (src/css/shared/_components.scss). Centre its parent. */
 .imet-section :is(.eyebrow-line, .alumni-eyebrow) {
 	position: relative;
-	display: inline-block;
-	margin-bottom: 6px;
-	padding-bottom: 6px;
-	color: var(--gold);
-	font-family: var(--ui);
-	font-size: var(--eyebrow-size, var(--wp--preset--font-size--medium)); /* 18px, 16px on phones (UI review) */
-	font-weight: 500;
-	line-height: 1.3;
+	display: block; /* a block, so no line box adds to the gap; the text follows the header's alignment */
+	margin-bottom: var(--wp--preset--spacing--6);
+	color: var(--wp--custom--eyebrow--color);
+	font-family: var(--wp--custom--eyebrow--font-family);
+	font-size: var(--wp--custom--eyebrow--font-size);
+	font-weight: var(--wp--custom--eyebrow--font-weight);
+	line-height: var(--wp--custom--eyebrow--line-height);
 }
 
 @media (max-width: 640px) {
 
-	.imet-section :is(.eyebrow-line, .alumni-eyebrow) { font-size: var(--eyebrow-size-mobile, var(--wp--preset--font-size--normal)); }
+	.imet-section :is(.eyebrow-line, .alumni-eyebrow) { font-size: var(--wp--custom--eyebrow--font-size-mobile); }
 }
+
+/* Eyebrow → heading: the one gap (UI review: it ranged from 0 to 26px, block by block). The section-header rhythm and the
+   blocks that set their own title margin use the same token. The Location publish banner draws a gold line under its
+   eyebrow and keeps the padding that holds it. */
+.imet-section :is(.eyebrow-line, .alumni-eyebrow):has(+ :is(h1, h2, h3, h4, h5, h6)) { margin-bottom: 0; padding-bottom: 0; }
+
+.imet-section :is(.eyebrow-line, .alumni-eyebrow) + :is(h1, h2, h3, h4, h5, h6) { margin-top: var(--wp--custom--eyebrow--gap); }
 
 /* Wrapper for a centred section header (eyebrow + title + sub) */
 .imet-section .sec-head { text-align: center; }
@@ -296,7 +301,7 @@ section.imet-section[id] { scroll-margin-top: 100px; }
 
 	.imet-section .title.left { text-align: center; }
 
-	.imet-section .eyebrow-line.left { display: table; margin-inline: auto; }
+	.imet-section .eyebrow-line.left { text-align: center; }
 }
 
 /* Previous / next arrows under a row that scrolls sideways (the Home page rows; buttons are added by view.js) */

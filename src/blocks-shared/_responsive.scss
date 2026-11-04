@@ -1,8 +1,6 @@
-/* Small-screen consistency for every page built from IMET blocks. Section titles and eyebrows keep one weight, titles one
+/* Small-screen consistency for every page built from IMET blocks. Section titles keep one weight, titles one
    size, forced desktop line breaks stop leaving a lone word, and controls are at least 44px tall. Tokens only. */
 @media (max-width: 1024px) {
-
-	.imet-section .eyebrow-line { font-weight: 600; }
 
 	.imet-section .title { font-weight: 600; }
 
