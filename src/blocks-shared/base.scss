@@ -290,7 +290,7 @@ section.imet-section[id] { scroll-margin-top: 100px; }
 
 /* Eyebrow → heading: one tight gap on every page and every device (UI review: it ranged from 0 to 26px, block by block).
    --imet-eyebrow-gap is the only value; the section-header rhythm and the blocks that set their own title margin use it.
-   Eyebrows with a gold line drawn under them (Location publish banner, tab cards) keep the padding that holds the line. */
+   The Location publish banner draws a gold line under its eyebrow and keeps the padding that holds it. */
 .imet-section { --imet-eyebrow-gap: var(--wp--preset--spacing--4); }
 
 .imet-section :is(.eyebrow-line, .alumni-eyebrow):has(+ :is(h1, h2, h3, h4, h5, h6)) { margin-bottom: 0; padding-bottom: 0; }

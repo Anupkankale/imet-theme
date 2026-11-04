@@ -133,10 +133,6 @@
 
 /* ---------- Tab panels of expandable cards (.tabs.is-cards): two grey cards per tab, each opening with a ticked lead
    line; they show their first lines and a "Read More" (view.js) unfolds the rest. ---------- */
-.imet-section.tabs.is-cards .eyebrow-line { padding-bottom: var(--wp--preset--spacing--8); }
-
-.imet-section.tabs.is-cards .eyebrow-line::after { content: ""; position: absolute; left: 50%; bottom: 0; width: var(--wp--custom--size--88); height: var(--wp--preset--spacing--2); background: var(--wp--preset--color--gold); transform: translateX(-50%); }
-
 .imet-section.tabs.is-cards .tab-panel { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--wp--preset--spacing--24); align-items: start; padding: 0; background: none; }
 
 .imet-section.tabs.is-cards .tab-panel[hidden] { display: none; }
