@@ -38,8 +38,8 @@
 
 .imet-section.faq.is-card .faq-acc details p {
 	padding: var(--wp--preset--spacing--20) var(--wp--preset--spacing--30) var(--wp--preset--spacing--24);
-	color: var(--wp--preset--color--body-text);
-	font-family: var(--wp--preset--font-family--montserrat);
+	color: var(--wp--preset--color--ink); /* black, like every FAQ answer (UI review) */
+	font-family: var(--ui);
 	font-size: var(--wp--preset--font-size--normal); /* 16px regular, as in the Figma */
 	font-weight: 400;
 	line-height: 1.5; /* the Figma's 100% would set two-line answers solid; 1.5 keeps them readable */
