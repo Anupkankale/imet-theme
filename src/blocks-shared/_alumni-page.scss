@@ -265,14 +265,33 @@
 
 .imet-section .al-note { margin: var(--wp--preset--spacing--12) 0 0; color: var(--wp--preset--color--muted); font-size: var(--wp--preset--font-size--caption); text-align: center; }
 
-/* Sidebar: stays in view while the stories scroll (when it is the shorter column). */
+/* Sidebar: sticky while the stories scroll. It is capped at the screen height (so it is never the taller column, which
+   would leave it nothing to stick against); what does not fit scrolls inside it. Tablets and phones stack it below. */
 .imet-section .al-aside {
 	position: sticky;
 	top: var(--wp--preset--spacing--24);
 	display: flex;
 	flex-direction: column;
 	gap: var(--wp--preset--spacing--20);
+	max-height: calc(100vh - var(--wp--preset--spacing--48));
+	overflow-y: auto;
+	overscroll-behavior: contain;
+	scrollbar-width: thin;
 }
+
+.imet-section .al-aside > * { flex: none; } /* full height inside the capped sidebar; it scrolls instead */
+
+/* While the site header is showing (it slides away on scroll down, header-scroll.js), the sidebar sits below it.
+   Desktop only: tablets and phones stack the sidebar (see below). */
+@media (min-width: 1101px) {
+
+	.wp-site-blocks:has(> header.wp-block-template-part:not(.is-hidden)) .imet-section .al-aside {
+		top: var(--wp--custom--size--110);
+		max-height: calc(100vh - var(--wp--custom--size--110) - var(--wp--preset--spacing--24));
+	}
+}
+
+.imet-section .al-aside { transition: top var(--wp--custom--motion--base) ease; }
 
 .imet-section .al-form {
 	overflow: hidden;
@@ -462,7 +481,7 @@
 
 	.imet-section .al-layout { grid-template-columns: minmax(0, 1fr); }
 
-	.imet-section .al-aside { position: static; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; }
+	.imet-section .al-aside { position: static; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; max-height: none; overflow: visible; }
 
 	.imet-section .al-form { grid-row: span 2; }
 
