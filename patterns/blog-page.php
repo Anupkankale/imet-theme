@@ -128,7 +128,7 @@ foreach ( $imet_blog_tabs as $imet_i => $imet_tab ) :
 <h3 class="wp-block-heading"><?php esc_html_e( 'Explore the knowledge hub with Tags', 'imet-theme' ); ?></h3>
 <!-- /wp:heading -->
 <!-- wp:search {"label":"<?php echo esc_attr__( 'Search articles', 'imet-theme' ); ?>","showLabel":false,"placeholder":"<?php echo esc_attr__( 'Search articles, topics, keywords', 'imet-theme' ); ?>","buttonText":"<?php echo esc_attr__( 'Search', 'imet-theme' ); ?>","buttonPosition":"button-inside","buttonUseIcon":true,"className":"bl-search"} /-->
-<!-- wp:tag-cloud {"smallestFontSize":"10.5pt","largestFontSize":"10.5pt","className":"bl-tags"} /--></div>
+<!-- wp:tag-cloud {"smallestFontSize":"12pt","largestFontSize":"12pt","className":"bl-tags"} /--></div>
 <!-- /wp:group --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group --></section>
