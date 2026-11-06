@@ -2,6 +2,14 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.1 - 2026-11-06
+
+### Changed
+
+- Eyebrow labels look the same on every page: their font, size (18px, 16px on phones), weight, colour and the 4px gap to the heading come from theme.json (`settings.custom.eyebrow`), used by both the `.eyebrow-line` class and the editor's **Eyebrow** block style. The per-page and per-section eyebrow overrides are gone.
+- DBA Course Page: the Program Highlights chips ("AI Ethics & Security", "+30% Salary Growth Potential") are real text over a plain photo instead of being part of the image.
+- "What Our Clients Say" is one pattern, **Clients Testimonials** (`imet-theme/clients-testimonials`), used by the Home, DBA Category, DBA Course and MBA page patterns, and insertable on its own from the IMET sections. Existing pages keep their saved copy until the pattern is inserted.
+
 ## 1.1.0 - 2026-10-29
 
 ### Added
