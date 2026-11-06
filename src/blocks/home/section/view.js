@@ -1,6 +1,10 @@
-/* Alumni Page stories (.al-stories, pattern "Alumni Page"): the topic chips show the cards of one topic (a card's
-   al-cat-<topic> class; "#all" shows every card), and a podcast card plays its YouTube video in place once the visitor
-   agrees (videoConsent, shown over the whole card). Other blank sections have neither, so nothing runs for them. */
+/* Pages built from blank sections:
+   - Alumni Page stories (.al-stories): the topic chips show the cards of one topic (a card's al-cat-<topic> class; "#all"
+     shows every card), and a podcast card plays its YouTube video in place once the visitor agrees (videoConsent, shown
+     over the whole card).
+   - Blog Page (.bl-main): the Doctorate / MBA chips show their own panel of articles (.bl-panel-<slug>). Without
+     JavaScript every panel shows.
+   Other blank sections have none of these, so nothing runs for them. */
 import { __ } from '@wordpress/i18n';
 import { each, videoConsent } from '../../../blocks-shared/view-helpers';
 
@@ -9,10 +13,13 @@ const youtubeId = (url) =>
 		/(?:youtu\.be\/|[?&]v=|\/embed\/|\/shorts\/|\/live\/)([\w-]{11})/
 	) || [])[1];
 
-each('.imet-section.al-stories', (section) => {
-	const chips = [...section.querySelectorAll('.al-chips .wp-block-button')];
-	const cards = [...section.querySelectorAll('.al-card')];
-
+/**
+ * Chips that act as toggle buttons: the chip links ("#topic") get the button role and aria-pressed, and a click marks the
+ * chip active and calls onSelect with its topic.
+ * @param {Element[]}               chips    The chips (.wp-block-button), the active one has .is-active.
+ * @param {(topic: string) => void} onSelect Called with the topic (the link's hash without "#").
+ */
+function chipToggle(chips, onSelect) {
 	chips.forEach((chip) => {
 		const link = chip.querySelector('a');
 		const topic = (link?.getAttribute('href') || '').replace('#', '');
@@ -33,13 +40,36 @@ each('.imet-section.al-stories', (section) => {
 					String(c === chip)
 				);
 			});
+			onSelect(topic);
+		});
+	});
+}
+
+each('.imet-section.bl-main', (section) => {
+	const chips = [...section.querySelectorAll('.bl-tabs .wp-block-button')];
+	const panels = [...section.querySelectorAll('.bl-panel')];
+	const show = (topic) =>
+		panels.forEach((panel) => {
+			panel.hidden = !panel.classList.contains('bl-panel-' + topic);
+		});
+	const first = chips[0]?.querySelector('a')?.getAttribute('href');
+	if (first) {
+		show(first.replace('#', ''));
+	}
+	chipToggle(chips, show);
+});
+
+each('.imet-section.al-stories', (section) => {
+	const cards = [...section.querySelectorAll('.al-card')];
+	chipToggle(
+		[...section.querySelectorAll('.al-chips .wp-block-button')],
+		(topic) =>
 			cards.forEach((card) => {
 				card.hidden =
 					topic !== 'all' &&
 					!card.classList.contains('al-cat-' + topic);
-			});
-		});
-	});
+			})
+	);
 
 	section.querySelectorAll('.al-thumb').forEach((thumb) => {
 		const link = thumb.querySelector('a');
