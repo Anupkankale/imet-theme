@@ -2,6 +2,13 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.2 - 2026-11-06
+
+### Added
+
+- **Alumni Page** pattern (`imet-theme/alumni-page`): a navy hero with three graduate portraits and laurel stats; alumni podcasts (played in place after the YouTube consent notice) and success stories, filtered by topic chips (Doctorate Journey, Leadership Insights, Life After Doctorate); a sidebar with the advisor form, program links and community stats that stays in view on desktop; "More Ways to Explore" link cards; and a closing "Join a Community of Change-Makers" banner. Styles in `src/blocks-shared/_alumni-page.scss`, behaviour in the blank section block's `view.js`.
+- The YouTube consent notice styles moved from the video gallery block to the shared base (`_video-consent.scss`), so any block that plays a video can use them.
+
 ## 1.1.1 - 2026-11-06
 
 ### Changed
