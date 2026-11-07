@@ -1,0 +1,36 @@
+/* DBA Location Page, USA (imet-theme/dba-location-usa). Every rule is scoped to .is-dba-usa, so no other page changes. */
+
+/* ---------- FAQ card that starts with one question (.faq.is-peek): a "+" at the card's corner shows the rest (view.js) ---------- */
+.imet-section.faq.is-card.is-peek .imet-container { position: relative; }
+
+:where(body:not(.editor-styles-wrapper)) .imet-section.faq.is-card.is-peek.is-enhanced .faq-acc:not(.is-expanded) details:nth-of-type(n+2) { display: none; }
+
+/* The "+": a round button at the card's bottom right. It keeps its "See More" text for screen readers. Without
+   JavaScript every question shows, so the button only appears once view.js has marked the block .is-enhanced. */
+.imet-section.faq.is-card.is-peek.is-enhanced .faq-more {
+	display: flex;
+	position: absolute;
+	right: calc((100% - min(var(--wp--custom--size--916), 100%)) / 2 + var(--wp--preset--spacing--16));
+	bottom: var(--wp--preset--spacing--16);
+	margin: 0;
+}
+
+.imet-section.faq.is-card.is-peek.is-enhanced .faq-more.is-hidden { display: none; }
+
+.imet-section.faq.is-card.is-peek .faq-more .wp-block-button__link {
+	width: var(--wp--preset--spacing--34);
+	min-width: 0;
+	height: var(--wp--preset--spacing--34);
+	min-height: 0;
+	padding: 0;
+	overflow: hidden;
+	border: 1px solid var(--wp--preset--color--grey-300);
+	border-radius: 50%;
+	background: var(--wp--preset--color--lavender) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 5v14M5 12h14' fill='none' stroke='%238a8a8a' stroke-width='2.6' stroke-linecap='round'/%3E%3C/svg%3E") center / 60% no-repeat;
+	box-shadow: none;
+	color: transparent;
+	font-size: 0;
+}
+
+/* Room for the "+" under the open answer */
+.imet-section.faq.is-card.is-peek .faq-acc details p { padding-right: var(--wp--preset--spacing--70); }
