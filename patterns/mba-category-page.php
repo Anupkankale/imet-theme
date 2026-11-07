@@ -3,7 +3,7 @@
  * Title: MBA Category Page
  * Slug: imet-theme/mba-category-page
  * Description: The complete Online Master's (MBA) category page, built from IMET blocks.
- * Categories: imet-sections
+ * Categories: imet-pages
  * Keywords: imet, page, mba
  * Block Types: core/post-content
  * Viewport Width: 1440

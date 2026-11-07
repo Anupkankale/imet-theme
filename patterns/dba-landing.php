@@ -3,7 +3,7 @@
  * Title: DBA Category Page
  * Slug: imet-theme/dba-landing
  * Description: The complete Online Doctorate of Business Administration (DBA) category page, built from IMET blocks.
- * Categories: imet-sections
+ * Categories: imet-pages
  * Keywords: imet, page
  * Block Types: core/post-content
  * Viewport Width: 1440
