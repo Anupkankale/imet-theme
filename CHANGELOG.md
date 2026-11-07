@@ -2,6 +2,16 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.5 - 2026-11-07
+
+### Added
+
+- **Shared sections are synced patterns: fix once, shown everywhere.** Offer Banner, Clients Testimonials, CTA: Step Into Your Next Chapter, Our Achievements and Career Table live in WordPress (Patterns > My patterns). The first time an administrator opens wp-admin, the theme creates each one from its hidden source pattern (`SyncedSections`); after that the team owns them and theme updates never overwrite or duplicate them. The Home, DBA Category, DBA Course, MBA and Location page patterns place them by reference. Pages saved earlier keep their own copies until each copy is swapped for the synced pattern once.
+
+### Removed
+
+- The seven IMET page templates from 1.1.4. A page on one of them ignored what the team wrote in the page; synced patterns share sections without that. No live page used them.
+
 ## 1.1.4 - 2026-11-07
 
 ### Added

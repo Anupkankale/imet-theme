@@ -148,44 +148,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 </div>
 <!-- /wp:group --></section>
 <!-- /wp:imet/highlights -->
-<!-- wp:imet/cost-banner -->
-<section class="wp-block-imet-cost-banner imet-section cost-banner"><!-- wp:group {"className":"cost-left","layout":{"type":"default"}} -->
-<div class="wp-block-group cost-left"><!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading">Doctorate (DBA)<br>Program Fee</h3>
-<!-- /wp:heading -->
-<!-- wp:paragraph {"className":"price-tag"} -->
-<p class="price-tag">USD $6500</p>
-<!-- /wp:paragraph -->
-</div>
-<!-- /wp:group -->
-<!-- wp:group {"className":"cost-mid","layout":{"type":"default"}} -->
-<div class="wp-block-group cost-mid"><!-- wp:paragraph {"className":"up-to"} -->
-<p class="up-to">Up to</p>
-<!-- /wp:paragraph -->
-<!-- wp:paragraph {"className":"pct"} -->
-<p class="pct">45%</p>
-<!-- /wp:paragraph -->
-<!-- wp:paragraph {"className":"merit"} -->
-<p class="merit">Merit-Based Scholarship Available</p>
-<!-- /wp:paragraph -->
-</div>
-<!-- /wp:group -->
-<!-- wp:group {"className":"cost-right","layout":{"type":"default"}} -->
-<div class="wp-block-group cost-right"><!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading">Scholarship Opportunity</h3>
-<!-- /wp:heading -->
-<!-- wp:paragraph -->
-<p>(Granted to senior tech professionals based on leadership depth, career trajectory, and visibility potential.)</p>
-<!-- /wp:paragraph -->
-<!-- wp:buttons -->
-<div class="wp-block-buttons"><!-- wp:button {"className":"btn-white btn-sm btn-arrow"} -->
-<div class="wp-block-button btn-white btn-sm btn-arrow"><a class="wp-block-button__link wp-element-button" href="#advisor-form">Check Your Eligibility</a></div>
-<!-- /wp:button -->
-</div>
-<!-- /wp:buttons -->
-</div>
-<!-- /wp:group --></section>
-<!-- /wp:imet/cost-banner -->
+<?php echo IMET\Theme\Modules\Patterns\SyncedSections::block( 'offer-banner' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- block comment built from an ID or a fixed slug. ?>
 <!-- wp:imet/faq {"align":"full","className":"is-card"} -->
 <section class="wp-block-imet-faq alignfull is-card imet-section section faq"><!-- wp:group {"className":"imet-container narrow","layout":{"type":"default"}} -->
 <div class="wp-block-group imet-container narrow"><!-- wp:group {"className":"sec-head","layout":{"type":"default"}} -->
@@ -894,25 +857,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:buttons --></div>
 <!-- /wp:group --></section>
 <!-- /wp:imet/faq -->
-<!-- wp:imet/cta {"align":"full"} -->
-<section class="wp-block-imet-cta alignfull imet-section cta-wrap"><!-- wp:group {"className":"imet-container","layout":{"type":"default"}} -->
-<div class="wp-block-group imet-container"><!-- wp:group {"className":"cta","layout":{"type":"default"}} -->
-<div class="wp-block-group cta"><!-- wp:group {"className":"cta-text","layout":{"type":"default"}} -->
-<div class="wp-block-group cta-text"><!-- wp:heading -->
-<h2 class="wp-block-heading">Step into your next chapter<br>as a <strong>Tech Advisor, CxO, or<br>Boardroom Leader.</strong></h2>
-<!-- /wp:heading -->
-<!-- wp:paragraph {"className":"cta-sub"} -->
-<p class="cta-sub">Discover how the program transformed their careers and enhanced their leadership journey. Gain valuable insights from professionals who have walked the same path.</p>
-<!-- /wp:paragraph -->
-<!-- wp:buttons -->
-<div class="wp-block-buttons"><!-- wp:button {"className":"btn-white btn-lg"} -->
-<div class="wp-block-button btn-white btn-lg"><a class="wp-block-button__link wp-element-button" href="#advisor-form">Talk to a Doctoral Advisor</a></div>
-<!-- /wp:button --></div>
-<!-- /wp:buttons --></div>
-<!-- /wp:group -->
-<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"cta-photo"} -->
-<figure class="wp-block-image size-full cta-photo"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/cta-graduates.jpg" ) ); ?>" alt="IMET DBA graduates at convocation"/></figure>
-<!-- /wp:image --></div>
-<!-- /wp:group --></div>
-<!-- /wp:group --></section>
-<!-- /wp:imet/cta -->
+<?php echo IMET\Theme\Modules\Patterns\SyncedSections::block( 'cta-next-chapter' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- block comment built from an ID or a fixed slug. ?>
