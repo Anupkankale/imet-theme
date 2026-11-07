@@ -21,7 +21,8 @@ use WP_Block_Patterns_Registry;
  *
  * The first time an administrator opens wp-admin, this creates each one from the theme's hidden source pattern. It
  * never updates or duplicates them afterwards (the team owns them from then on), and only recreates one that was
- * deleted for good. The page patterns use block() to place them.
+ * deleted for good. The page patterns use block() to place them. They are filed under "IMET: Shared Sections
+ * (reusable)" in the inserter and in Patterns.
  *
  * @since 1.1.5
  */
@@ -34,6 +35,30 @@ class SyncedSections implements Registrable {
 	 * @var string
 	 */
 	public const OPTION = 'imet_synced_sections';
+
+	/**
+	 * Option holding the version of the setup that last ran (bumped when existing sections need a one-time update).
+	 *
+	 * @since 1.1.6
+	 * @var string
+	 */
+	public const VERSION_OPTION = 'imet_synced_sections_version';
+
+	/**
+	 * Setup version: 2 files every section under the shared category.
+	 *
+	 * @since 1.1.6
+	 * @var string
+	 */
+	public const VERSION = '2';
+
+	/**
+	 * Pattern category (wp_pattern_category term) the shared sections are filed under in the inserter and Patterns.
+	 *
+	 * @since 1.1.6
+	 * @var string
+	 */
+	public const CATEGORY = 'imet-shared';
 
 	/**
 	 * Post meta that marks a synced pattern as a theme section (its value is the section key).
@@ -92,14 +117,16 @@ class SyncedSections implements Registrable {
 			return;
 		}
 
-		$ids = (array) get_option( self::OPTION, [] );
+		$ids     = (array) get_option( self::OPTION, [] );
+		$missing = self::VERSION !== get_option( self::VERSION_OPTION );
 
 		foreach ( array_keys( self::SECTIONS ) as $key ) {
-			if ( empty( $ids[ $key ] ) || ! get_post( (int) $ids[ $key ] ) ) {
-				$this->seed();
+			$missing = $missing || empty( $ids[ $key ] ) || ! get_post( (int) $ids[ $key ] );
+		}
 
-				return;
-			}
+		if ( $missing ) {
+			$this->seed();
+			update_option( self::VERSION_OPTION, self::VERSION, false );
 		}
 	}
 
@@ -114,12 +141,14 @@ class SyncedSections implements Registrable {
 		$ids      = (array) get_option( self::OPTION, [] );
 		$registry = WP_Block_Patterns_Registry::get_instance();
 		$created  = 0;
+		$category = $this->category();
 
 		foreach ( self::SECTIONS as $key => $section ) {
 			$existing = $this->find( $key );
 
 			if ( $existing ) {
 				$ids[ $key ] = $existing;
+				$this->file( $existing, $category );
 				continue;
 			}
 
@@ -147,6 +176,7 @@ class SyncedSections implements Registrable {
 			}
 
 			$ids[ $key ] = (int) $id;
+			$this->file( (int) $id, $category );
 			++$created;
 		}
 
@@ -193,6 +223,39 @@ class SyncedSections implements Registrable {
 		}
 
 		return '<!-- wp:pattern ' . wp_json_encode( [ 'slug' => self::SECTIONS[ $key ]['pattern'] ], JSON_UNESCAPED_SLASHES ) . ' /-->';
+	}
+
+	/**
+	 * The shared sections' pattern category, created when missing.
+	 *
+	 * @since 1.1.6
+	 *
+	 * @return int Term ID, or 0 when it could not be created.
+	 */
+	private function category(): int {
+		$term = get_term_by( 'slug', self::CATEGORY, 'wp_pattern_category' );
+
+		if ( $term ) {
+			return (int) $term->term_id;
+		}
+
+		$made = wp_insert_term( __( 'IMET: Shared Sections (reusable)', 'imet-theme' ), 'wp_pattern_category', [ 'slug' => self::CATEGORY ] );
+
+		return is_wp_error( $made ) ? 0 : (int) $made['term_id'];
+	}
+
+	/**
+	 * Add a synced pattern to the shared category (keeping any category the team gave it).
+	 *
+	 * @since 1.1.6
+	 *
+	 * @param int $id      Synced pattern ID.
+	 * @param int $term_id Category term ID.
+	 */
+	private function file( int $id, int $term_id ): void {
+		if ( $term_id ) {
+			wp_set_object_terms( $id, [ $term_id ], 'wp_pattern_category', true );
+		}
 	}
 
 	/**

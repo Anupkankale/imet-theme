@@ -3,7 +3,7 @@
  * Title: Home (IMET)
  * Slug: imet-theme/home
  * Description: The Home page: hero with graduate cards, "Why choose IMET Worldwide?" with the advisor form, and the fee and scholarship offer.
- * Categories: imet-sections
+ * Categories: imet-pages
  * Keywords: imet, home, hero, offer
  * Block Types: core/post-content
  * Viewport Width: 1440

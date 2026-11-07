@@ -3,7 +3,7 @@
  * Title: Location Page
  * Slug: imet-theme/location-page
  * Description: A DBA location (city or country) page, built from IMET blocks. Replace [City] with the place.
- * Categories: imet-sections
+ * Categories: imet-pages
  * Keywords: imet, page, location, city
  * Block Types: core/post-content
  * Viewport Width: 1440

@@ -3,7 +3,7 @@
  * Title: Alumni Page
  * Slug: imet-theme/alumni-page
  * Description: Alumni stories and community page: a navy hero with graduate portraits and stats, alumni podcasts and success stories filtered by topic beside a sticky advisor form, more ways to explore and a closing call to action.
- * Categories: imet-sections
+ * Categories: imet-pages
  * Keywords: imet, page, alumni, stories, community, podcast
  * Block Types: core/post-content
  * Viewport Width: 1440
