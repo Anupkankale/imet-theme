@@ -2,6 +2,14 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.7 - 2026-11-07
+
+### Changed
+
+- Testimonials glide on their own on every page: "What Our Clients Say" everywhere, and Home's "Our Success Stories" flip cards now move in one row too (four in view, two on tablets, one on phones; hover flips a card and pauses the row).
+- Program cards (Related Programs / Other Doctorate Concentrations, Our Programs) glide on their own at every width in every style, also when all the cards fit on desktop (the five- and six-per-row styles stood still). Hover, focus or the pause button stops them.
+- A new **IMET Testimonials** block (Blocks tab) starts with the real client quotes of "What Our Clients Say" (names, roles, LinkedIn) instead of the old placeholder text. To show the same testimonials on every page, insert the synced **Clients Testimonials** from Patterns > IMET: Shared Sections (reusable).
+
 ## 1.1.6 - 2026-11-07
 
 ### Changed
