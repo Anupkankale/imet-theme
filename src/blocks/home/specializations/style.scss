@@ -83,13 +83,11 @@
 	.imet-section .spec-grid { --per-view: 1.2; }
 }
 
-/* Style "Five per row" (block style, e.g. "Other Doctorate (DBA) Concentrations" on the DBA Course Page): five cards fit
-   the container, so the marquee doesn't start (it only runs when the row overflows). Smaller screens as above. */
+/* Style "Five per row" (block style, e.g. "Other Doctorate (DBA) Concentrations" on the DBA Course Page): five cards per
+   view; the row still glides (view.js moves every program row, UI review). Smaller screens as above. */
 @media (min-width: 1101px) {
 
 	.imet-section.specs.is-style-five .spec-grid { --per-view: 5; width: min(1184px, 100% - 40px); }
-
-	.imet-section.specs.is-style-five .spec-card.is-clone { display: none; } /* all five fit: nothing to loop */
 }
 
 @media (min-width: 641px) {
@@ -241,13 +239,11 @@
 	.imet-section.specs.is-style-home .wp-block-button__link { min-width: 0; width: 100%; }
 }
 
-/* Style "Six per row" (MBA page): six compact cards fit the wide container, so the marquee doesn't start. Smaller
-   screens use the scrolling rows above. */
+/* Style "Six per row" (MBA page): six compact cards per view; the row still glides like every program row (view.js).
+   Smaller screens use the scrolling rows above. */
 @media (min-width: 1101px) {
 
 	.imet-section.specs.is-style-six .spec-grid { --per-view: 6; --gap: var(--wp--preset--spacing--16); width: min(var(--wp--custom--size--1186), 100% - var(--wp--preset--spacing--40)); }
-
-	.imet-section.specs.is-style-six .spec-card.is-clone { display: none; }
 }
 
 .imet-section.specs.is-style-six .spec-card a {
