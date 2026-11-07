@@ -298,53 +298,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 </div>
 <!-- /wp:group --></section>
 <!-- /wp:imet/overview -->
-<!-- wp:imet/achievements {"anchor":"presence"} -->
-<section id="presence" class="wp-block-imet-achievements imet-section achieve"><!-- wp:group {"className":"imet-container achieve-inner","layout":{"type":"default"}} -->
-<div class="wp-block-group imet-container achieve-inner"><!-- wp:heading -->
-<h2 class="wp-block-heading">Our Achievement</h2>
-<!-- /wp:heading -->
-<!-- wp:group {"className":"achieve-stats","layout":{"type":"default"}} -->
-<div class="wp-block-group achieve-stats"><!-- wp:group {"className":"stat","layout":{"type":"default"}} -->
-<div class="wp-block-group stat"><!-- wp:paragraph {"className":"count"} -->
-<p class="count">2,100+</p>
-<!-- /wp:paragraph -->
-<!-- wp:paragraph {"className":"count-label"} -->
-<p class="count-label">Doctorates Enrolled</p>
-<!-- /wp:paragraph -->
-</div>
-<!-- /wp:group -->
-<!-- wp:group {"className":"stat","layout":{"type":"default"}} -->
-<div class="wp-block-group stat"><!-- wp:paragraph {"className":"count"} -->
-<p class="count">25+</p>
-<!-- /wp:paragraph -->
-<!-- wp:paragraph {"className":"count-label"} -->
-<p class="count-label">Countries</p>
-<!-- /wp:paragraph -->
-</div>
-<!-- /wp:group -->
-<!-- wp:group {"className":"stat","layout":{"type":"default"}} -->
-<div class="wp-block-group stat"><!-- wp:paragraph {"className":"count"} -->
-<p class="count">90%</p>
-<!-- /wp:paragraph -->
-<!-- wp:paragraph {"className":"count-label"} -->
-<p class="count-label">Completion Rate</p>
-<!-- /wp:paragraph -->
-</div>
-<!-- /wp:group -->
-<!-- wp:group {"className":"stat","layout":{"type":"default"}} -->
-<div class="wp-block-group stat"><!-- wp:paragraph {"className":"count"} -->
-<p class="count">98%</p>
-<!-- /wp:paragraph -->
-<!-- wp:paragraph {"className":"count-label"} -->
-<p class="count-label">Career Impact</p>
-<!-- /wp:paragraph -->
-</div>
-<!-- /wp:group -->
-</div>
-<!-- /wp:group -->
-</div>
-<!-- /wp:group --></section>
-<!-- /wp:imet/achievements -->
+<?php echo IMET\Theme\Modules\Patterns\SyncedSections::block( 'achievements' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- block comment built from an ID or a fixed slug. ?>
 <!-- wp:imet/who-can-join {"align":"full","anchor":"who-can-join"} -->
 <section id="who-can-join" class="wp-block-imet-who-can-join alignfull imet-section section join"><!-- wp:group {"className":"imet-container","layout":{"type":"default"}} -->
 <div class="wp-block-group imet-container"><!-- wp:group {"className":"sec-head","layout":{"type":"default"}} -->
@@ -436,113 +390,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 </div>
 <!-- /wp:group --></section>
 <!-- /wp:imet/embassy -->
-<!-- wp:imet/career-table {"align":"full","className":"is-four"} -->
-<section class="wp-block-imet-career-table alignfull is-four imet-section section career"><!-- wp:group {"className":"imet-container","layout":{"type":"default"}} -->
-<div class="wp-block-group imet-container"><!-- wp:group {"className":"sec-head","layout":{"type":"default"}} -->
-<div class="wp-block-group sec-head"><!-- wp:paragraph {"className":"eyebrow-line"} -->
-<p class="eyebrow-line">Executive Excellence &amp; Global Recognition</p>
-<!-- /wp:paragraph -->
-<!-- wp:heading {"className":"title"} -->
-<h2 class="wp-block-heading title">Achieve Global Recognition with an Online DBA</h2>
-<!-- /wp:heading -->
-<!-- wp:paragraph {"className":"sub"} -->
-<p class="sub">Elevate your leadership, strengthen executive credibility, expand global visibility, and establish research-driven authority through advanced doctoral business expertise.</p>
-<!-- /wp:paragraph --></div>
-<!-- /wp:group -->
-<!-- wp:group {"className":"career-table","layout":{"type":"default"}} -->
-<div class="wp-block-group career-table"><!-- wp:group {"className":"ct-col","layout":{"type":"default"}} -->
-<div class="wp-block-group ct-col"><!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading">Leadership Positioning</h3>
-<!-- /wp:heading -->
-<!-- wp:paragraph -->
-<p>Earn the doctoral title to strengthen executive credibility across C-suites, boardrooms, and investor networks.</p>
-<!-- /wp:paragraph -->
-<!-- wp:paragraph -->
-<p>Build decision-making models that scale beyond projects into enterprise strategy</p>
-<!-- /wp:paragraph -->
-<!-- wp:paragraph -->
-<p>Lead innovation and transformation initiatives with doctor-level credibility</p>
-<!-- /wp:paragraph -->
-<!-- wp:paragraph -->
-<p>Become eligible for board memberships, think tanks, and teaching roles</p>
-<!-- /wp:paragraph -->
-<!-- wp:paragraph -->
-<p>A research-based leadership legacy that survives longer than your job designation</p>
-<!-- /wp:paragraph -->
-</div>
-<!-- /wp:group -->
-<!-- wp:group {"className":"ct-col","layout":{"type":"default"}} -->
-<div class="wp-block-group ct-col"><!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading">C-Suite Momentum</h3>
-<!-- /wp:heading -->
-<!-- wp:paragraph -->
-<p>Position yourself for CXO, strategic consulting, executive advisory, and influential policy leadership opportunities globally.</p>
-<!-- /wp:paragraph -->
-<!-- wp:paragraph -->
-<p>Make the leap from operational roles to visionary leadership positions</p>
-<!-- /wp:paragraph -->
-<!-- wp:paragraph -->
-<p>Leverage the doctorate for consulting engagements and speaking fees</p>
-<!-- /wp:paragraph -->
-<!-- wp:paragraph -->
-<p>Strengthen your CV for global strategic or advisory mandates</p>
-<!-- /wp:paragraph -->
-<!-- wp:paragraph -->
-<p>Get invited to guest lectures, government panels, and policy boards</p>
-<!-- /wp:paragraph -->
-</div>
-<!-- /wp:group -->
-<!-- wp:group {"className":"ct-col","layout":{"type":"default"}} -->
-<div class="wp-block-group ct-col"><!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading">Digital Visibility &amp; Personal Branding</h3>
-<!-- /wp:heading -->
-<!-- wp:paragraph -->
-<p>Build a powerful LinkedIn presence and improve online discoverability through strategic executive personal branding.</p>
-<!-- /wp:paragraph -->
-<!-- wp:paragraph -->
-<p>Turn your dissertation into a personal brand asset that opens global doors</p>
-<!-- /wp:paragraph -->
-<!-- wp:paragraph -->
-<p>Drive organic reach through thought-led content as “Dr.”</p>
-<!-- /wp:paragraph -->
-<!-- wp:paragraph -->
-<p>Expand your influence through reputation engineering</p>
-<!-- /wp:paragraph -->
-<!-- wp:paragraph -->
-<p>Use the DBA as a platform to monetize expertise</p>
-<!-- /wp:paragraph -->
-</div>
-<!-- /wp:group -->
-<!-- wp:group {"className":"ct-col","layout":{"type":"default"}} -->
-<div class="wp-block-group ct-col"><!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading">Academic Recognition</h3>
-<!-- /wp:heading -->
-<!-- wp:paragraph -->
-<p>Develop scholarly credibility through thesis research, academic publications, citations, and meaningful research collaborations worldwide.</p>
-<!-- /wp:paragraph -->
-<!-- wp:paragraph -->
-<p>Appear in journals, business media, and academic blogs</p>
-<!-- /wp:paragraph -->
-<!-- wp:paragraph -->
-<p>Join international research ecosystems and doctoral alumni networks</p>
-<!-- /wp:paragraph -->
-<!-- wp:paragraph -->
-<p>Build academic credibility without leaving your corporate role</p>
-<!-- /wp:paragraph -->
-<!-- wp:paragraph -->
-<p>Codify your frameworks into IP, whitepapers, or toolkits</p>
-<!-- /wp:paragraph -->
-</div>
-<!-- /wp:group -->
-</div>
-<!-- /wp:group -->
-<!-- wp:buttons {"className":"ct-more"} -->
-<div class="wp-block-buttons ct-more"><!-- wp:button {"className":"btn-light btn-sm"} -->
-<div class="wp-block-button btn-light btn-sm"><a class="wp-block-button__link wp-element-button" href="#">See More</a></div>
-<!-- /wp:button --></div>
-<!-- /wp:buttons --></div>
-<!-- /wp:group --></section>
-<!-- /wp:imet/career-table -->
+<?php echo IMET\Theme\Modules\Patterns\SyncedSections::block( 'career-table' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- block comment built from an ID or a fixed slug. ?>
 <!-- wp:imet/analytics {"align":"full"} -->
 <section class="wp-block-imet-analytics alignfull imet-section section analytics"><!-- wp:group {"className":"imet-container an-grid","layout":{"type":"default"}} -->
 <div class="wp-block-group imet-container an-grid"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"an-visual"} -->
@@ -641,7 +489,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 </div>
 <!-- /wp:group --></section>
 <!-- /wp:imet/cyber-banner -->
-<!-- wp:pattern {"slug":"imet-theme/clients-testimonials"} /-->
+<?php echo IMET\Theme\Modules\Patterns\SyncedSections::block( 'clients-testimonials' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- block comment built from an ID or a fixed slug. ?>
 <!-- wp:imet/certificate {"align":"full"} -->
 <section class="wp-block-imet-certificate alignfull imet-section section cert"><!-- wp:group {"className":"imet-container cert-wrap","layout":{"type":"default"}} -->
 <div class="wp-block-group imet-container cert-wrap"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"cert-photo"} -->
@@ -763,25 +611,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:buttons --></div>
 <!-- /wp:group --></section>
 <!-- /wp:imet/faq -->
-<!-- wp:imet/cta {"align":"full"} -->
-<section class="wp-block-imet-cta alignfull imet-section cta-wrap"><!-- wp:group {"className":"imet-container","layout":{"type":"default"}} -->
-<div class="wp-block-group imet-container"><!-- wp:group {"className":"cta","layout":{"type":"default"}} -->
-<div class="wp-block-group cta"><!-- wp:group {"className":"cta-text","layout":{"type":"default"}} -->
-<div class="wp-block-group cta-text"><!-- wp:heading -->
-<h2 class="wp-block-heading">Step into your next chapter<br>as a <strong>Tech Advisor, CxO, or<br>Boardroom Leader.</strong></h2>
-<!-- /wp:heading -->
-<!-- wp:paragraph {"className":"cta-sub"} -->
-<p class="cta-sub">Discover how the program transformed their careers and enhanced their leadership journey. Gain valuable insights from professionals who have walked the same path.</p>
-<!-- /wp:paragraph -->
-<!-- wp:buttons -->
-<div class="wp-block-buttons"><!-- wp:button {"className":"btn-white btn-lg"} -->
-<div class="wp-block-button btn-white btn-lg"><a class="wp-block-button__link wp-element-button" href="#advisor-form">Talk to a Doctoral Advisor</a></div>
-<!-- /wp:button --></div>
-<!-- /wp:buttons --></div>
-<!-- /wp:group -->
-<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"cta-photo"} -->
-<figure class="wp-block-image size-full cta-photo"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/cta-graduates.jpg" ) ); ?>" alt="IMET DBA graduates at convocation"/></figure>
-<!-- /wp:image --></div>
-<!-- /wp:group --></div>
-<!-- /wp:group --></section>
-<!-- /wp:imet/cta -->
+<?php echo IMET\Theme\Modules\Patterns\SyncedSections::block( 'cta-next-chapter' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- block comment built from an ID or a fixed slug. ?>

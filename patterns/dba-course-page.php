@@ -153,44 +153,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 </div>
 <!-- /wp:group --></section>
 <!-- /wp:imet/highlights -->
-<!-- wp:imet/cost-banner -->
-<section class="wp-block-imet-cost-banner imet-section cost-banner"><!-- wp:group {"className":"cost-left","layout":{"type":"default"}} -->
-<div class="wp-block-group cost-left"><!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading">Doctorate (DBA)<br>Program Fee</h3>
-<!-- /wp:heading -->
-<!-- wp:paragraph {"className":"price-tag"} -->
-<p class="price-tag">USD $6500</p>
-<!-- /wp:paragraph -->
-</div>
-<!-- /wp:group -->
-<!-- wp:group {"className":"cost-mid","layout":{"type":"default"}} -->
-<div class="wp-block-group cost-mid"><!-- wp:paragraph {"className":"up-to"} -->
-<p class="up-to">Up to</p>
-<!-- /wp:paragraph -->
-<!-- wp:paragraph {"className":"pct"} -->
-<p class="pct">45%</p>
-<!-- /wp:paragraph -->
-<!-- wp:paragraph {"className":"merit"} -->
-<p class="merit">Merit-Based Scholarship Available</p>
-<!-- /wp:paragraph -->
-</div>
-<!-- /wp:group -->
-<!-- wp:group {"className":"cost-right","layout":{"type":"default"}} -->
-<div class="wp-block-group cost-right"><!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading">Scholarship Opportunity</h3>
-<!-- /wp:heading -->
-<!-- wp:paragraph -->
-<p>(Granted to senior tech professionals based on leadership depth, career trajectory, and visibility potential.)</p>
-<!-- /wp:paragraph -->
-<!-- wp:buttons -->
-<div class="wp-block-buttons"><!-- wp:button {"className":"btn-white btn-sm btn-arrow"} -->
-<div class="wp-block-button btn-white btn-sm btn-arrow"><a class="wp-block-button__link wp-element-button" href="#advisor-form">Check Your Eligibility</a></div>
-<!-- /wp:button -->
-</div>
-<!-- /wp:buttons -->
-</div>
-<!-- /wp:group --></section>
-<!-- /wp:imet/cost-banner -->
+<?php echo IMET\Theme\Modules\Patterns\SyncedSections::block( 'offer-banner' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- block comment built from an ID or a fixed slug. ?>
 <!-- wp:imet/who-can-join {"align":"full","anchor":"requirements"} -->
 <section id="requirements" class="wp-block-imet-who-can-join alignfull imet-section section join"><!-- wp:group {"className":"imet-container","layout":{"type":"default"}} -->
 <div class="wp-block-group imet-container"><!-- wp:group {"className":"sec-head","layout":{"type":"default"}} -->
@@ -500,7 +463,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 </div>
 <!-- /wp:group --></section>
 <!-- /wp:imet/cyber-banner -->
-<!-- wp:pattern {"slug":"imet-theme/clients-testimonials"} /-->
+<?php echo IMET\Theme\Modules\Patterns\SyncedSections::block( 'clients-testimonials' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- block comment built from an ID or a fixed slug. ?>
 <!-- wp:imet/about-card {"align":"full","anchor":"about"} -->
 <section id="about" class="wp-block-imet-about-card alignfull imet-section section about-card"><!-- wp:group {"className":"imet-container","layout":{"type":"default"}} -->
 <div class="wp-block-group imet-container"><!-- wp:group {"className":"sec-head","layout":{"type":"default"}} -->
