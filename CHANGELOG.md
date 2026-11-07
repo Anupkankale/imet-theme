@@ -6,6 +6,7 @@ All notable changes to this project are documented in this file. The format is b
 
 ### Changed
 
+- Program cards (Related Programs / Other Doctorate Concentrations, Our Programs) glide on their own at every width in every style, also when all the cards fit on desktop (the five- and six-per-row styles stood still). Hover, focus or the pause button stops them.
 - A new **IMET Testimonials** block (Blocks tab) starts with the real client quotes of "What Our Clients Say" (names, roles, LinkedIn) instead of the old placeholder text. To show the same testimonials on every page, insert the synced **Clients Testimonials** from Patterns > IMET: Shared Sections (reusable).
 
 ## 1.1.6 - 2026-11-07
