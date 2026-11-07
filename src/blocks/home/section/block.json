@@ -33,6 +33,7 @@
 		"anchor": ""
 	},
 	"editorScript": "file:./index.js",
+	"viewScript": "file:./view.js",
 	"style": [
 		"imet-base",
 		"file:./style-index.css"

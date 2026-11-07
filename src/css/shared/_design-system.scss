@@ -23,7 +23,7 @@
 
 // Page content and the editor canvas only: the header and footer have their own, smaller buttons. The IMET section
 // blocks use the same button values (src/blocks-shared/_buttons.scss adds the older size aliases).
-$content: ':is(.wp-block-post-content, .is-root-container):not(.imet-footer *, .imet-promo *, .imet-pill *)';
+$content: ':is(.wp-block-post-content, .imet-page-content, .is-root-container):not(.imet-footer *, .imet-promo *, .imet-pill *)';
 
 #{$content} .wp-block-button__link {
 	display: inline-flex;
@@ -174,7 +174,7 @@ $content: ':is(.wp-block-post-content, .is-root-container):not(.imet-footer *, .
 }
 
 // Focus ring: the gold ring the IMET sections use
-:is(.wp-block-post-content, .is-root-container) :is(a, button, summary, [tabindex]):focus-visible {
+:is(.wp-block-post-content, .imet-page-content, .is-root-container) :is(a, button, summary, [tabindex]):focus-visible {
 	outline: var(--wp--custom--border-width--3) solid var(--wp--preset--color--gold);
 	outline-offset: var(--wp--preset--spacing--3);
 	border-radius: var(--wp--preset--border-radius--4);

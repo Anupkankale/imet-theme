@@ -9,6 +9,55 @@
 				"page",
 				"post"
 			]
+		},
+		{
+			"name": "imet-home",
+			"title": "IMET: Home",
+			"postTypes": [
+				"page"
+			]
+		},
+		{
+			"name": "imet-dba-category",
+			"title": "IMET: DBA Category",
+			"postTypes": [
+				"page"
+			]
+		},
+		{
+			"name": "imet-dba-course",
+			"title": "IMET: DBA Course",
+			"postTypes": [
+				"page"
+			]
+		},
+		{
+			"name": "imet-mba-category",
+			"title": "IMET: MBA Category",
+			"postTypes": [
+				"page"
+			]
+		},
+		{
+			"name": "imet-location",
+			"title": "IMET: Location",
+			"postTypes": [
+				"page"
+			]
+		},
+		{
+			"name": "imet-alumni",
+			"title": "IMET: Alumni",
+			"postTypes": [
+				"page"
+			]
+		},
+		{
+			"name": "imet-blog",
+			"title": "IMET: Blog",
+			"postTypes": [
+				"page"
+			]
 		}
 	],
 	"settings": {

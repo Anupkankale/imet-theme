@@ -1,0 +1,532 @@
+/* Alumni Page (pattern imet-theme/alumni-page). Every rule is scoped to the page's own al-* section classes, so the other
+   pages keep their look: .al-hero (navy hero with graduate portraits and laurel stats), .al-stories (topic chips, story
+   cards and the sticky advisor sidebar; view.js of imet/section), .al-explore (more ways to explore) and .al-cta (the
+   closing banner, an imet/cta). This file builds to assets/build/blocks/shared/. Tokens only. */
+
+/* ---------- Hero: navy, a faint convocation photo behind, text and stats on the left, three portraits on the right ---------- */
+.imet-section.al-hero {
+	position: relative;
+	isolation: isolate;
+	overflow: hidden;
+	background: var(--wp--preset--color--navy-deep);
+	color: var(--wp--preset--color--white);
+}
+
+.imet-section.al-hero::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	z-index: -1;
+	background: linear-gradient(90deg, var(--wp--preset--color--navy-deep) 40%, transparent);
+}
+
+.imet-section .al-hero-bg { position: absolute; inset: 0; z-index: -2; margin: 0; opacity: 0.35; }
+
+.imet-section .al-hero-bg img { width: 100%; height: 100%; object-fit: cover; }
+
+.imet-section .al-hero-grid {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) minmax(0, var(--wp--custom--size--544));
+	gap: var(--wp--preset--spacing--40);
+	align-items: center;
+	padding-block: var(--wp--preset--spacing--24);
+}
+
+.imet-section.al-hero h1 {
+	margin: var(--wp--custom--eyebrow--gap) 0 0;
+	color: var(--wp--preset--color--white);
+	font-size: var(--wp--preset--font-size--huge);
+	line-height: 1.15;
+}
+
+.imet-section.al-hero .al-accent { color: var(--wp--preset--color--sky); }
+
+.imet-section .al-lead {
+	max-width: var(--wp--custom--size--544);
+	margin: var(--wp--preset--spacing--16) 0 0;
+	color: var(--wp--preset--color--white);
+	font-size: var(--wp--preset--font-size--medium);
+	line-height: 1.55;
+}
+
+/* Stats between two laurel halves (the image is the left half; the right one is mirrored). */
+.imet-section .al-stats { display: flex; flex-wrap: wrap; gap: var(--wp--preset--spacing--16); margin-top: var(--wp--preset--spacing--30); }
+
+.imet-section .al-stat {
+	position: relative;
+	display: grid;
+	place-content: center;
+	min-width: var(--wp--custom--size--155);
+	min-height: var(--wp--custom--size--88);
+	margin: 0;
+	padding: 0 var(--wp--preset--spacing--36);
+	color: var(--wp--preset--color--white);
+	font-size: var(--wp--preset--font-size--caption);
+	line-height: 1.3;
+	text-align: center;
+}
+
+.imet-section .al-stat strong { display: block; font-family: var(--wp--preset--font-family--montserrat); font-size: var(--wp--preset--font-size--24); line-height: 1.2; }
+
+.imet-section .al-stat::before,
+.imet-section .al-stat::after {
+	content: "";
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	width: var(--wp--preset--spacing--30);
+	background: url(../../../images/imet/laurel.png) center / contain no-repeat;
+}
+
+.imet-section .al-stat::before { left: 0; }
+
+.imet-section .al-stat::after { right: 0; transform: scaleX(-1); }
+
+/* Portraits: three tall cards, name and role over a dark fade, a play mark (they lead to the alumni videos). */
+.imet-section .al-grads { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--wp--preset--spacing--12); }
+
+.imet-section .al-grad {
+	position: relative;
+	overflow: hidden;
+	border-radius: var(--wp--preset--border-radius--12);
+	background: var(--wp--preset--color--navy);
+}
+
+.imet-section .al-grad figure { margin: 0; }
+
+.imet-section .al-grad img { display: block; width: 100%; aspect-ratio: 3 / 4; object-fit: cover; object-position: top; }
+
+.imet-section .al-grad-name { position: absolute; inset: auto 0 0; margin: 0; }
+
+.imet-section .al-grad-name a {
+	display: block;
+	padding: var(--wp--preset--spacing--50) var(--wp--preset--spacing--10) var(--wp--preset--spacing--48);
+	background: linear-gradient(180deg, transparent, var(--wp--preset--color--navy-deep) 60%);
+	color: var(--wp--preset--color--white);
+	font-size: var(--wp--preset--font-size--caption);
+	line-height: 1.35;
+	text-decoration: none;
+}
+
+.imet-section .al-grad-name strong { display: block; font-size: var(--wp--preset--font-size--14); }
+
+.imet-section .al-grad-name a::after {
+	content: "";
+	position: absolute;
+	left: var(--wp--preset--spacing--10);
+	bottom: var(--wp--preset--spacing--10);
+	width: var(--wp--preset--spacing--30);
+	height: var(--wp--preset--spacing--30);
+	border-radius: 50%;
+	background: var(--wp--preset--color--white) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M9 7v10l8-5z' fill='%23031a43'/%3E%3C/svg%3E") center / 60% no-repeat;
+}
+
+.imet-section .al-grad-name a:is(:hover, :focus-visible) strong { text-decoration: underline; }
+
+/* ---------- Stories: chips and story cards on the left, the advisor form and two info boxes on the right ---------- */
+.imet-section .al-layout {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) var(--wp--custom--size--380);
+	gap: var(--wp--preset--spacing--30);
+	align-items: start;
+}
+
+.imet-section .al-bar {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	gap: var(--wp--preset--spacing--16);
+	margin-bottom: var(--wp--preset--spacing--24);
+}
+
+.imet-section .al-chips { gap: var(--wp--preset--spacing--8); }
+
+.imet-section.al-stories .al-chips .wp-block-button__link {
+	padding: var(--wp--preset--spacing--10) var(--wp--preset--spacing--16);
+	border: 1px solid var(--wp--preset--color--line);
+	border-radius: var(--wp--preset--border-radius--8);
+	background: var(--wp--preset--color--white);
+	color: var(--wp--preset--color--ink);
+	font-size: var(--wp--preset--font-size--14);
+	font-weight: 600;
+	line-height: 1.2;
+}
+
+.imet-section.al-stories .al-chips .wp-block-button__link:hover { border-color: var(--wp--preset--color--navy); }
+
+.imet-section.al-stories .al-chips .is-active .wp-block-button__link { border-color: var(--wp--preset--color--navy); background: var(--wp--preset--color--navy); color: var(--wp--preset--color--white); }
+
+.imet-section .al-more-link { margin: 0; font-size: var(--wp--preset--font-size--14); font-weight: 600; }
+
+.imet-section .al-more-link a { color: var(--wp--preset--color--navy); text-decoration: none; }
+
+.imet-section .al-more-link a::after { content: " →"; }
+
+.imet-section .al-more-link a:hover { text-decoration: underline; }
+
+.imet-section .al-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--wp--preset--spacing--20); }
+
+.imet-section .al-card {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	padding-bottom: var(--wp--preset--spacing--16);
+	border: 1px solid var(--wp--preset--color--line);
+	border-radius: var(--wp--preset--border-radius--12);
+	background: var(--wp--preset--color--white);
+	box-shadow: var(--wp--preset--shadow--soft);
+}
+
+.imet-section .al-card[hidden] { display: none; }
+
+.imet-section .al-thumb { position: relative; margin: 0; background: var(--wp--preset--color--navy-deep); }
+
+.imet-section .al-thumb a { display: block; }
+
+/* Story photos (portraits) in a 4:3 frame on the face; videos 16:9, which crops the black bars of YouTube's 4:3 thumbnails. */
+.imet-section .al-thumb img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; object-position: center 30%; }
+
+.imet-section .al-thumb.is-video img { aspect-ratio: 16 / 9; object-position: center; }
+
+.imet-section .al-thumb.is-video a::after {
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: var(--wp--custom--size--42);
+	height: var(--wp--custom--size--42);
+	border-radius: 50%;
+	background: var(--wp--preset--color--white) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M9 7v10l8-5z' fill='%23031a43'/%3E%3C/svg%3E") center / 60% no-repeat;
+	box-shadow: var(--wp--preset--shadow--soft);
+	transform: translate(-50%, -50%);
+}
+
+.imet-section .al-thumb iframe { position: absolute; inset: 0; z-index: 3; width: 100%; height: 100%; border: 0; }
+
+.imet-section .al-thumb.is-playing a::after { display: none; }
+
+/* The consent notice covers the whole card (the thumbnail alone is too small for it). */
+.imet-section .al-card > .imet-video-consent { padding: var(--wp--preset--spacing--16); }
+
+.imet-section .al-badge {
+	position: relative;
+	z-index: 1;
+	align-self: flex-start;
+	margin: calc(-1 * var(--wp--preset--spacing--12)) 0 0 var(--wp--preset--spacing--16);
+	padding: var(--wp--preset--spacing--3) var(--wp--preset--spacing--10);
+	border-radius: var(--wp--preset--border-radius--4);
+	background: var(--wp--preset--color--navy);
+	color: var(--wp--preset--color--white);
+	font-size: var(--wp--preset--font-size--caption);
+	font-weight: 700;
+	text-transform: uppercase;
+}
+
+.imet-section .al-badge.is-story { background: var(--wp--preset--color--gold); }
+
+.imet-section .al-card-title {
+	margin: var(--wp--preset--spacing--12) var(--wp--preset--spacing--16) 0;
+	color: var(--wp--preset--color--ink);
+	font-size: var(--wp--preset--font-size--normal);
+	font-weight: 700;
+	line-height: 1.35;
+}
+
+.imet-section .al-card-text {
+	display: -webkit-box;
+	overflow: hidden;
+	margin: var(--wp--preset--spacing--8) var(--wp--preset--spacing--16) 0;
+	color: var(--wp--preset--color--body-text);
+	font-size: var(--wp--preset--font-size--14);
+	line-height: 1.5;
+	-webkit-line-clamp: 4;
+	-webkit-box-orient: vertical;
+}
+
+.imet-section .al-tags {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--wp--preset--spacing--6);
+	margin: auto var(--wp--preset--spacing--16) 0;
+	padding-top: var(--wp--preset--spacing--12);
+}
+
+.imet-section .al-tags span {
+	padding: var(--wp--preset--spacing--2) var(--wp--preset--spacing--10);
+	border: 1px solid var(--wp--preset--color--line);
+	border-radius: var(--wp--preset--border-radius--pill);
+	color: var(--wp--preset--color--muted);
+	font-size: var(--wp--preset--font-size--caption);
+}
+
+.imet-section .al-all { justify-content: center; margin-top: var(--wp--preset--spacing--32); }
+
+.imet-section .al-note { margin: var(--wp--preset--spacing--12) 0 0; color: var(--wp--preset--color--muted); font-size: var(--wp--preset--font-size--caption); text-align: center; }
+
+/* Sidebar: sticky while the stories scroll. It is capped at the screen height (so it is never the taller column, which
+   would leave it nothing to stick against); what does not fit scrolls inside it. Tablets and phones stack it below. */
+.imet-section .al-aside {
+	position: sticky;
+	top: var(--wp--preset--spacing--24);
+	display: flex;
+	flex-direction: column;
+	gap: var(--wp--preset--spacing--20);
+	max-height: calc(100vh - var(--wp--preset--spacing--48));
+	overflow-y: auto;
+	overscroll-behavior: contain;
+	scrollbar-width: thin;
+}
+
+.imet-section .al-aside > * { flex: none; } /* full height inside the capped sidebar; it scrolls instead */
+
+/* While the site header is showing (it slides away on scroll down, header-scroll.js), the sidebar sits below it.
+   Desktop only: tablets and phones stack the sidebar (see below). */
+@media (min-width: 1101px) {
+
+	.wp-site-blocks:has(> header.wp-block-template-part:not(.is-hidden)) .imet-section .al-aside {
+		top: var(--wp--custom--size--110);
+		max-height: calc(100vh - var(--wp--custom--size--110) - var(--wp--preset--spacing--24));
+	}
+}
+
+.imet-section .al-aside { transition: top var(--wp--custom--motion--base) ease; }
+
+.imet-section .al-form {
+	overflow: hidden;
+	border: 1px solid var(--wp--preset--color--line);
+	border-radius: var(--wp--preset--border-radius--16);
+	background: var(--wp--preset--color--white);
+	box-shadow: var(--wp--preset--shadow--soft);
+}
+
+.imet-section .al-form-head { padding: var(--wp--preset--spacing--20); background: var(--wp--preset--color--navy); color: var(--wp--preset--color--white); }
+
+.imet-section .al-form-head h2 { margin: 0; color: var(--wp--preset--color--white); font-size: var(--wp--preset--font-size--large); }
+
+.imet-section .al-form-head p { margin: var(--wp--preset--spacing--6) 0 0; color: var(--wp--preset--color--white); font-size: var(--wp--preset--font-size--14); line-height: 1.45; }
+
+.imet-section .al-form .imet-advisor-form { padding: var(--wp--preset--spacing--20) var(--wp--preset--spacing--20) 0; }
+
+.imet-section .al-safe {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: var(--wp--preset--spacing--6);
+	margin: 0;
+	padding: var(--wp--preset--spacing--12) var(--wp--preset--spacing--20) var(--wp--preset--spacing--16);
+	color: var(--wp--preset--color--muted);
+	font-size: var(--wp--preset--font-size--caption);
+}
+
+.imet-section .al-safe::before {
+	content: "";
+	width: var(--wp--preset--spacing--14);
+	height: var(--wp--preset--spacing--14);
+	background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect x='5' y='10' width='14' height='11' rx='2' fill='%2315294e'/%3E%3Cpath d='M8 10V7a4 4 0 0 1 8 0v3' fill='none' stroke='%2315294e' stroke-width='2'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+.imet-section .al-box {
+	padding: var(--wp--preset--spacing--20);
+	border: 1px solid var(--wp--preset--color--line);
+	border-radius: var(--wp--preset--border-radius--12);
+	background: var(--wp--preset--color--white);
+}
+
+.imet-section .al-box h3 { margin: 0 0 var(--wp--preset--spacing--12); color: var(--wp--preset--color--ink); font-size: var(--wp--preset--font-size--medium); font-weight: 700; }
+
+/* Program rows: icon, name, one line, chevron. */
+.imet-section .al-prog { margin: 0; border-bottom: 1px solid var(--wp--preset--color--line); }
+
+.imet-section .al-prog a {
+	position: relative;
+	display: block;
+	padding: var(--wp--preset--spacing--12) var(--wp--preset--spacing--24) var(--wp--preset--spacing--12) var(--wp--preset--spacing--50);
+	color: var(--wp--preset--color--muted);
+	font-size: var(--wp--preset--font-size--caption);
+	line-height: 1.4;
+	text-decoration: none;
+}
+
+.imet-section .al-prog strong { display: block; color: var(--wp--preset--color--ink); font-size: var(--wp--preset--font-size--14); }
+
+.imet-section .al-prog a::before {
+	content: "";
+	position: absolute;
+	top: var(--wp--preset--spacing--12);
+	left: 0;
+	width: var(--wp--preset--spacing--36);
+	height: var(--wp--preset--spacing--36);
+	border-radius: var(--wp--preset--border-radius--8);
+	background: var(--wp--preset--color--lavender) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2315294e' stroke-width='1.8' stroke-linejoin='round'%3E%3Cpath d='M2 9l10-5 10 5-10 5z'/%3E%3Cpath d='M6 11v5c3 2 9 2 12 0v-5'/%3E%3C/svg%3E") center / 60% no-repeat;
+}
+
+.imet-section .al-prog a::after { content: "›"; position: absolute; top: 50%; right: var(--wp--preset--spacing--4); color: var(--wp--preset--color--navy); font-size: var(--wp--preset--font-size--large); transform: translateY(-50%); }
+
+.imet-section .al-prog a:is(:hover, :focus-visible) strong { color: var(--wp--preset--color--navy); text-decoration: underline; }
+
+.imet-section .al-programs .wp-block-buttons { margin-top: var(--wp--preset--spacing--16); }
+
+.imet-section .al-mini-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--wp--preset--spacing--8); margin-bottom: var(--wp--preset--spacing--16); }
+
+.imet-section .al-mini-stats p { margin: 0; color: var(--wp--preset--color--muted); font-size: var(--wp--preset--font-size--caption); }
+
+.imet-section .al-mini-stats strong { display: block; color: var(--wp--preset--color--ink); font-size: var(--wp--preset--font-size--large); }
+
+.imet-section .al-linkedin { margin: 0; }
+
+.imet-section .al-linkedin a {
+	position: relative;
+	display: block;
+	padding: var(--wp--preset--spacing--12) var(--wp--preset--spacing--12) var(--wp--preset--spacing--12) var(--wp--preset--spacing--54);
+	border: 1px solid var(--wp--preset--color--line);
+	border-radius: var(--wp--preset--border-radius--10);
+	color: var(--wp--preset--color--muted);
+	font-size: var(--wp--preset--font-size--caption);
+	line-height: 1.4;
+	text-decoration: none;
+}
+
+.imet-section .al-linkedin strong { display: block; color: var(--wp--preset--color--ink); font-size: var(--wp--preset--font-size--14); }
+
+.imet-section .al-linkedin a::before {
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: var(--wp--preset--spacing--12);
+	width: var(--wp--preset--spacing--30);
+	height: var(--wp--preset--spacing--30);
+	border-radius: var(--wp--preset--border-radius--6);
+	background: var(--wp--preset--color--linkedin) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23fff'%3E%3Cpath d='M5 9h3v10H5zM6.5 4.5a1.7 1.7 0 1 1 0 3.4 1.7 1.7 0 0 1 0-3.4zM10 9h2.9v1.4c.4-.8 1.4-1.6 2.9-1.6 3.1 0 3.7 2 3.7 4.7V19h-3v-4.9c0-1.2 0-2.6-1.6-2.6s-1.9 1.2-1.9 2.5v5H10z'/%3E%3C/svg%3E") center / 70% no-repeat;
+	transform: translateY(-50%);
+}
+
+.imet-section .al-linkedin a:is(:hover, :focus-visible) strong { text-decoration: underline; }
+
+/* ---------- More ways to explore: header on the left, four link cards ---------- */
+.imet-section.al-explore { background: var(--wp--custom--gradient--testimonial); }
+
+.imet-section .al-explore-grid {
+	display: grid;
+	grid-template-columns: var(--wp--custom--size--334) minmax(0, 1fr);
+	gap: var(--wp--preset--spacing--40);
+	align-items: center;
+}
+
+.imet-section .al-explore-text { margin: var(--wp--preset--spacing--8) 0 0; color: var(--wp--preset--color--body-text); font-size: var(--wp--preset--font-size--14); line-height: 1.55; }
+
+.imet-section .al-links { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--wp--preset--spacing--16); }
+
+.imet-section .al-link { height: 100%; margin: 0; }
+
+.imet-section .al-link a {
+	position: relative;
+	display: block;
+	height: 100%;
+	box-sizing: border-box;
+	padding: var(--wp--preset--spacing--70) var(--wp--preset--spacing--20) var(--wp--preset--spacing--40);
+	border: 1px solid var(--wp--preset--color--line);
+	border-radius: var(--wp--preset--border-radius--12);
+	background: var(--wp--preset--color--white);
+	color: var(--wp--preset--color--muted);
+	font-size: var(--wp--preset--font-size--caption);
+	line-height: 1.45;
+	text-decoration: none;
+	transition: box-shadow var(--wp--custom--motion--base), transform var(--wp--custom--motion--base);
+}
+
+.imet-section .al-link strong { display: block; margin-bottom: var(--wp--preset--spacing--4); color: var(--wp--preset--color--ink); font-size: var(--wp--preset--font-size--14); }
+
+.imet-section .al-link a::before {
+	content: "";
+	position: absolute;
+	top: var(--wp--preset--spacing--20);
+	left: var(--wp--preset--spacing--20);
+	width: var(--wp--preset--spacing--36);
+	height: var(--wp--preset--spacing--36);
+	border-radius: var(--wp--preset--border-radius--8);
+	background: var(--wp--preset--color--navy) var(--al-icon) center / 55% no-repeat;
+}
+
+.imet-section .al-link a::after { content: "→"; position: absolute; right: var(--wp--preset--spacing--16); bottom: var(--wp--preset--spacing--12); color: var(--wp--preset--color--navy); font-size: var(--wp--preset--font-size--medium); }
+
+.imet-section .al-link a:is(:hover, :focus-visible) { box-shadow: var(--wp--preset--shadow--card); transform: translateY(calc(-1 * var(--wp--preset--spacing--2))); }
+
+.imet-section .al-link.is-details { --al-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round'%3E%3Crect x='5' y='3' width='14' height='18' rx='2'/%3E%3Cpath d='M9 8h6M9 12h6M9 16h4'/%3E%3C/svg%3E"); }
+
+.imet-section .al-link.is-brochure { --al-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 4v11m-5-5 5 5 5-5M5 20h14'/%3E%3C/svg%3E"); }
+
+.imet-section .al-link.is-advisor { --al-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 5h16v11H9l-5 4z'/%3E%3C/svg%3E"); }
+
+.imet-section .al-link.is-stories { --al-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2' stroke-linejoin='round'%3E%3Cpath d='m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z'/%3E%3C/svg%3E"); }
+
+/* ---------- Closing banner (imet/cta): eyebrow, gold "Apply Now" and a plain "or Contact an Advisor" link ---------- */
+.imet-section.al-cta .cta-text .eyebrow-line { margin-bottom: 0; }
+
+.imet-section.al-cta .cta h2 { font-weight: 700; }
+
+.imet-section.al-cta .cta .wp-block-button__link { min-width: 0; }
+
+.imet-section.al-cta .al-or { margin: var(--wp--preset--spacing--10) 0 0; color: var(--wp--preset--color--white); font-size: var(--wp--preset--font-size--14); }
+
+.imet-section.al-cta .al-or a { color: var(--wp--preset--color--white); text-decoration: underline; }
+
+/* ---------- Tablet and phone ---------- */
+@media (max-width: 1100px) {
+
+	.imet-section .al-hero-grid { grid-template-columns: minmax(0, 1fr); }
+
+	.imet-section .al-grads { width: min(var(--wp--custom--size--544), 100%); }
+
+	.imet-section .al-layout { grid-template-columns: minmax(0, 1fr); }
+
+	.imet-section .al-aside { position: static; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; max-height: none; overflow: visible; }
+
+	.imet-section .al-form { grid-row: span 2; }
+
+	.imet-section .al-explore-grid { grid-template-columns: minmax(0, 1fr); }
+}
+
+@media (max-width: 900px) {
+
+	.imet-section .al-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+	.imet-section .al-links { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+	.imet-section.al-explore .al-explore-head { text-align: center; }
+}
+
+@media (max-width: 640px) {
+
+	.imet-section .al-hero-text { text-align: center; }
+
+	.imet-section .al-lead { margin-inline: auto; }
+
+	.imet-section .al-stats { justify-content: center; }
+
+	.imet-section .al-stat { min-width: 0; flex: 1 1 0; padding: 0 var(--wp--preset--spacing--26); }
+
+	.imet-section .al-grads { gap: var(--wp--preset--spacing--8); margin-inline: auto; }
+
+	/* Phones: the name only (the role line would cover the face), the play mark beside it. */
+	.imet-section .al-grad-name a { padding: var(--wp--preset--spacing--30) var(--wp--preset--spacing--6) var(--wp--preset--spacing--8) var(--wp--preset--spacing--34); font-size: 0; }
+
+	.imet-section .al-grad-name strong { font-size: var(--wp--preset--font-size--caption); line-height: 1.25; }
+
+	.imet-section .al-grad-name a::after { left: var(--wp--preset--spacing--6); bottom: var(--wp--preset--spacing--8); width: var(--wp--preset--spacing--22); height: var(--wp--preset--spacing--22); }
+
+	.imet-section .al-bar { justify-content: center; }
+
+	.imet-section .al-chips { flex-wrap: nowrap; overflow-x: auto; justify-content: flex-start; scrollbar-width: none; }
+
+	.imet-section .al-chips .wp-block-button { flex: none; }
+
+	.imet-section .al-grid,
+	.imet-section .al-aside,
+	.imet-section .al-links { grid-template-columns: minmax(0, 1fr); }
+
+	.imet-section .al-form { grid-row: auto; }
+
+	.imet-section.al-cta .al-or { text-align: center; }
+}
