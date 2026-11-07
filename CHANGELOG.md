@@ -6,6 +6,7 @@ All notable changes to this project are documented in this file. The format is b
 
 ### Changed
 
+- Testimonials glide on their own on every page: "What Our Clients Say" everywhere, and Home's "Our Success Stories" flip cards now move in one row too (four in view, two on tablets, one on phones; hover flips a card and pauses the row).
 - Program cards (Related Programs / Other Doctorate Concentrations, Our Programs) glide on their own at every width in every style, also when all the cards fit on desktop (the five- and six-per-row styles stood still). Hover, focus or the pause button stops them.
 - A new **IMET Testimonials** block (Blocks tab) starts with the real client quotes of "What Our Clients Say" (names, roles, LinkedIn) instead of the old placeholder text. To show the same testimonials on every page, insert the synced **Clients Testimonials** from Patterns > IMET: Shared Sections (reusable).
 

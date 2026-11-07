@@ -302,15 +302,22 @@
 
 .imet-section.testimonials.is-stories .testi-head .sub { max-width: var(--wp--custom--size--1102); }
 
+/* One row that glides sideways on its own (view.js): four cards in view, two on tablets, one on phones. */
 .imet-section.testimonials.is-stories .story-grid {
-	display: grid;
-	grid-template-columns: repeat(4, minmax(0, 1fr));
-	gap: var(--wp--preset--spacing--20);
+	--per-view: 4;
+	--gap: var(--wp--preset--spacing--20);
+	display: flex;
+	gap: var(--gap);
 	width: min(var(--wp--style--global--wide-size), 100% - var(--wp--preset--spacing--40));
 	margin: var(--wp--preset--spacing--26) auto 0;
+	overflow-x: auto;
+	scrollbar-width: none;
 }
 
+.imet-section.testimonials.is-stories .story-grid::-webkit-scrollbar { display: none; }
+
 .imet-section.testimonials.is-stories .story-card {
+	flex: 0 0 calc((100% - (var(--per-view) - 1) * var(--gap)) / var(--per-view));
 	aspect-ratio: 1.06;
 	margin: 0;
 	perspective: var(--wp--custom--size--1012);
@@ -412,12 +419,12 @@
 
 @media (max-width: 900px) {
 
-	.imet-section.testimonials.is-stories .story-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+	.imet-section.testimonials.is-stories .story-grid { --per-view: 2; }
 }
 
 @media (max-width: 480px) {
 
-	.imet-section.testimonials.is-stories .story-grid { grid-template-columns: minmax(0, 1fr); }
+	.imet-section.testimonials.is-stories .story-grid { --per-view: 1.15; --gap: var(--wp--preset--spacing--12); }
 }
 
 @media (prefers-reduced-motion: reduce) {
