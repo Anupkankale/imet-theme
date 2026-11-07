@@ -1,0 +1,876 @@
+<?php
+/**
+ * Title: DBA Location Page UI Doctorate Cybersecurity in USA
+ * Slug: imet-theme/dba-location-usa
+ * Description: The DBA in Cybersecurity location page for the USA, built from IMET blocks to the 1440 design.
+ * Categories: imet-pages
+ * Keywords: imet, page, location, usa, cybersecurity
+ * Block Types: core/post-content
+ * Viewport Width: 1440
+ *
+ * @package IMET\Theme
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+?>
+<!-- wp:imet/hero {"align":"full","anchor":"top","className":"is-style-dark is-dba-usa"} -->
+<section id="top" class="wp-block-imet-hero alignfull imet-section hero is-style-dark is-dba-usa"><!-- wp:group {"className":"imet-container hero-grid","layout":{"type":"default"}} -->
+<div class="wp-block-group imet-container hero-grid"><!-- wp:group {"className":"hero-text","layout":{"type":"default"}} -->
+<div class="wp-block-group hero-text"><!-- wp:paragraph {"className":"h-crumbs"} -->
+<p class="h-crumbs"><a href="https://imetworldwide.com/">Home</a> &gt; <a href="https://imetworldwide.com/online-doctorate-programs/">DBA</a> &gt; DBA in Cybersecurity</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"h-rating"} -->
+<p class="h-rating"><strong>★★★★<em>★</em></strong>4.7 (537 reviews)</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":1} -->
+<h1 class="wp-block-heading">Online DBA in<br>Cybersecurity Program</h1>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"hero-lead"} -->
+<p class="hero-lead">Pursue a globally recognized Doctorate Program (DBA), tailored for Senior IT Leaders and CXOs ready to turn their industry experience into thought leadership, boardroom influence, and digital visibility.</p>
+<!-- /wp:paragraph -->
+<!-- wp:group {"className":"h-stats","layout":{"type":"default"}} -->
+<div class="wp-block-group h-stats"><!-- wp:group {"className":"h-stat","layout":{"type":"default"}} -->
+<div class="wp-block-group h-stat"><!-- wp:paragraph {"className":"h-num"} -->
+<p class="h-num">12-24</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"h-label"} -->
+<p class="h-label">Month Program<br>Duration</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"h-stat","layout":{"type":"default"}} -->
+<div class="wp-block-group h-stat"><!-- wp:paragraph {"className":"h-num"} -->
+<p class="h-num">100%</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"h-label"} -->
+<p class="h-label">Online</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"h-stat","layout":{"type":"default"}} -->
+<div class="wp-block-group h-stat"><!-- wp:paragraph {"className":"h-num"} -->
+<p class="h-num"><sub>upto</sub>45%</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"h-label"} -->
+<p class="h-label">Scholarships &amp;<br>Fee</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group --></div>
+<!-- /wp:group -->
+<!-- wp:buttons -->
+<div class="wp-block-buttons"><!-- wp:button {"className":"btn-white btn-lg btn-icon-download"} -->
+<div class="wp-block-button btn-white btn-lg btn-icon-download"><a class="wp-block-button__link wp-element-button" href="#advisor-form">Download Brochure</a></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons --></div>
+<!-- /wp:group -->
+<!-- wp:group {"anchor":"advisor-form","className":"h-form","layout":{"type":"default"}} -->
+<div id="advisor-form" class="wp-block-group h-form"><!-- wp:heading -->
+<h2 class="wp-block-heading">Talk to an Advisor</h2>
+<!-- /wp:heading -->
+<!-- wp:shortcode -->
+[imet_advisor_form]
+<!-- /wp:shortcode --></div>
+<!-- /wp:group --></div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"imet-container","layout":{"type":"default"}} -->
+<div class="wp-block-group imet-container"><!-- wp:group {"className":"ac-card","layout":{"type":"default"}} -->
+<div class="wp-block-group ac-card"><!-- wp:heading {"className":"ac-title"} -->
+<h2 class="wp-block-heading ac-title">Institutional Recognition &amp; Credential Evaluation</h2>
+<!-- /wp:heading -->
+<!-- wp:group {"className":"ac-logos","layout":{"type":"default"}} -->
+<div class="wp-block-group ac-logos"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ac-logo"} -->
+<figure class="wp-block-image size-full ac-logo"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/logo-qatar-mofa.jpg" ) ); ?>" alt="Ministry of Foreign Affairs, State of Qatar"/></figure>
+<!-- /wp:image -->
+<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ac-logo"} -->
+<figure class="wp-block-image size-full ac-logo"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/logo-ministry-education.webp" ) ); ?>" alt="Ministry of Education"/></figure>
+<!-- /wp:image -->
+<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ac-logo"} -->
+<figure class="wp-block-image size-full ac-logo"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/logo-wes.webp" ) ); ?>" alt="World Education Services"/></figure>
+<!-- /wp:image -->
+<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ac-logo"} -->
+<figure class="wp-block-image size-full ac-logo"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/logo-mca.webp" ) ); ?>" alt="Ministry of Corporate Affairs"/></figure>
+<!-- /wp:image -->
+<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ac-logo"} -->
+<figure class="wp-block-image size-full ac-logo"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/logo-mofa.webp" ) ); ?>" alt="Ministry of Foreign Affairs"/></figure>
+<!-- /wp:image -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group --></section>
+<!-- /wp:imet/hero -->
+<!-- wp:imet/subnav {"align":"full","anchor":"subnav","className":"is-dba-usa"} -->
+<nav id="subnav" class="wp-block-imet-subnav alignfull imet-section subnav is-dba-usa"><!-- wp:group {"className":"imet-container subnav-inner","layout":{"type":"default"}} -->
+<div class="wp-block-group imet-container subnav-inner"><!-- wp:paragraph {"className":"subnav-links"} -->
+<p class="subnav-links"><a href="#overview">Program Overview</a><a href="#concentrations">Our Programs</a><a href="#presence">Digital Presence</a><a href="#concentrations">Specializations</a><a href="#who-can-join">Who can Join</a><a href="#who-can-join">DBA v/s Ph.D</a><a href="#faq">FAQ</a></p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group --></nav>
+<!-- /wp:imet/subnav -->
+<!-- wp:imet/highlights {"align":"full","anchor":"overview","className":"is-style-wide is-dba-usa"} -->
+<section id="overview" class="wp-block-imet-highlights alignfull imet-section highlights is-style-wide is-dba-usa"><!-- wp:group {"className":"imet-container hl-grid","layout":{"type":"default"}} -->
+<div class="wp-block-group imet-container hl-grid"><!-- wp:group {"className":"hl-text","layout":{"type":"default"}} -->
+<div class="wp-block-group hl-text"><!-- wp:paragraph {"className":"eyebrow-line left"} -->
+<p class="eyebrow-line left">Overview</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"className":"title left"} -->
+<h2 class="wp-block-heading title left">Program Highlights of DBA in USA</h2>
+<!-- /wp:heading -->
+<!-- wp:list {"className":"hl-list"} -->
+<ul class="wp-block-list hl-list"><!-- wp:list-item -->
+<li><strong>Alumni Network:</strong> Worldwide Network of CXOs, Technologists, and Consultants</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><strong>Thesis Support:</strong> Full guidance on industry-focused cybersecurity research &amp; dissertation.</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><strong>Research Papers:</strong> Publication Assistance for international journals like IEEE, Google Scholar citations.</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><strong>Academic Outcome:</strong> Earn the prestigious ‘Dr.’ prefix and global recognition with an online doctorate in cybersecurity</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><strong>Career Outcome:</strong> Improve leadership impact and stabilise career prospects through visibility.</li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+<!-- wp:buttons -->
+<div class="wp-block-buttons"><!-- wp:button {"className":"btn-navy btn-lg"} -->
+<div class="wp-block-button btn-navy btn-lg"><a class="wp-block-button__link wp-element-button" href="#advisor-form">Talk to a DBA Advisor</a></div>
+<!-- /wp:button -->
+</div>
+<!-- /wp:buttons -->
+</div>
+<!-- /wp:group -->
+<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"hl-visual"} -->
+<figure class="wp-block-image size-full hl-visual"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/loc-highlights.jpg" ) ); ?>" alt="DBA graduate: IEEE, Google Scholar, Scopus, 100% research visibility, one-to-one mentoring"/></figure>
+<!-- /wp:image -->
+</div>
+<!-- /wp:group --></section>
+<!-- /wp:imet/highlights -->
+<?php echo IMET\Theme\Modules\Patterns\SyncedSections::block( 'offer-banner' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- block comment built from an ID or a fixed slug. ?>
+<!-- wp:imet/faq {"align":"full","className":"is-card is-peek is-cost is-dba-usa"} -->
+<section class="wp-block-imet-faq alignfull is-card is-peek is-cost imet-section section faq is-dba-usa"><!-- wp:group {"className":"imet-container narrow","layout":{"type":"default"}} -->
+<div class="wp-block-group imet-container narrow"><!-- wp:group {"className":"sec-head","layout":{"type":"default"}} -->
+<div class="wp-block-group sec-head"><!-- wp:paragraph {"className":"eyebrow-line faq-eyebrow"} -->
+<p class="eyebrow-line faq-eyebrow">MBA Eligibility Criteria</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"className":"title"} -->
+<h2 class="wp-block-heading title">FAQ Related To Program Cost &amp; Scholarship</h2>
+<!-- /wp:heading --></div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"faq-acc","layout":{"type":"default"}} -->
+<div class="wp-block-group faq-acc"><!-- wp:details -->
+<details class="wp-block-details"><summary>Am I eligible for scholarships in online DBA programs?</summary><!-- wp:paragraph -->
+<p>We offer DBA programs with upto 45% scholarship. Also providing financial support based on leadership experience, career growth, and professional achievements.</p>
+<!-- /wp:paragraph -->
+</details>
+<!-- /wp:details -->
+<!-- wp:details -->
+<details class="wp-block-details"><summary>Is this program suitable for experienced professionals?</summary><!-- wp:paragraph -->
+<p>Yes. These online doctorate programs are specifically designed for senior professionals aiming to enhance leadership, research, and strategic thinking.</p>
+<!-- /wp:paragraph -->
+</details>
+<!-- /wp:details -->
+<!-- wp:details -->
+<details class="wp-block-details"><summary>How is scholarship eligibility evaluated?</summary><!-- wp:paragraph -->
+<p>Scholarships are awarded after evaluating professional experience, leadership exposure, and long-term career potential.</p>
+<!-- /wp:paragraph -->
+</details>
+<!-- /wp:details -->
+<!-- wp:details -->
+<details class="wp-block-details"><summary>Will this program support global career opportunities?</summary><!-- wp:paragraph -->
+<p>Yes. A doctorate in business administration online from the UAE is globally recognized and supports international career growth.</p>
+<!-- /wp:paragraph -->
+</details>
+<!-- /wp:details -->
+<!-- wp:details -->
+<details class="wp-block-details"><summary>What learning format should I expect?</summary><!-- wp:paragraph -->
+<p>Participants experience a structured format including case studies, applied research, academic sessions, and leadership-focused discussions.</p>
+<!-- /wp:paragraph -->
+</details>
+<!-- /wp:details -->
+</div>
+<!-- /wp:group -->
+<!-- wp:buttons {"className":"center faq-more"} -->
+<div class="wp-block-buttons center faq-more"><!-- wp:button {"className":"btn-navy btn-sm"} -->
+<div class="wp-block-button btn-navy btn-sm"><a class="wp-block-button__link wp-element-button" href="#faq">See More</a></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons --></div>
+<!-- /wp:group --></section>
+<!-- /wp:imet/faq -->
+<!-- wp:imet/specializations {"align":"full","anchor":"concentrations","className":"is-style-five is-dba-usa"} -->
+<section id="concentrations" class="wp-block-imet-specializations alignfull imet-section section specs is-style-five is-dba-usa"><!-- wp:group {"className":"imet-container sec-head","layout":{"type":"default"}} -->
+<div class="wp-block-group imet-container sec-head"><!-- wp:paragraph {"className":"eyebrow-line"} -->
+<p class="eyebrow-line">Related Programs</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"className":"title"} -->
+<h2 class="wp-block-heading title">Our DBA Specializations</h2>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"sub"} -->
+<p class="sub">IMET Worldwide also provides internationally marketable MBA majors to modern professionals:</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"spec-grid","layout":{"type":"default"}} -->
+<div class="wp-block-group spec-grid"><!-- wp:paragraph {"className":"spec-card"} -->
+<p class="spec-card"><a href="https://imetworldwide.com/online-doctorate-digital-transformation-program/">DBA in Digital Transformation</a></p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"spec-card"} -->
+<p class="spec-card"><a href="https://imetworldwide.com/online-doctorate-dba-artificial-intelligence-ml/">DBA in Artificial Intelligence</a></p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"spec-card"} -->
+<p class="spec-card"><a href="https://imetworldwide.com/online-doctorate-dba-project-management/">DBA in Project Management</a></p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"spec-card"} -->
+<p class="spec-card"><a href="https://imetworldwide.com/online-doctorate-dba-generative-ai/">DBA in Generative AI</a></p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"spec-card"} -->
+<p class="spec-card"><a href="https://imetworldwide.com/online-doctorate-it-governance-risk-compliance/">DBA in IT Governance</a></p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group -->
+<!-- wp:buttons {"className":"center"} -->
+<div class="wp-block-buttons center"><!-- wp:button {"className":"btn-navy btn-md"} -->
+<div class="wp-block-button btn-navy btn-md"><a class="wp-block-button__link wp-element-button" href="#advisor-form">Talk to a Doctoral Advisor</a></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons -->
+</section>
+<!-- /wp:imet/specializations -->
+<!-- wp:imet/faq {"align":"full","className":"is-card is-peek is-explain is-dba-usa"} -->
+<section class="wp-block-imet-faq alignfull is-card is-peek is-explain imet-section section faq is-dba-usa"><!-- wp:group {"className":"imet-container narrow","layout":{"type":"default"}} -->
+<div class="wp-block-group imet-container narrow"><!-- wp:group {"className":"sec-head","layout":{"type":"default"}} -->
+<div class="wp-block-group sec-head"><!-- wp:paragraph {"className":"eyebrow-line faq-eyebrow"} -->
+<p class="eyebrow-line faq-eyebrow">Doctorate Concentrations</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"className":"title"} -->
+<h2 class="wp-block-heading title">Doctorate Concentration Explained</h2>
+<!-- /wp:heading -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"faq-acc","layout":{"type":"default"}} -->
+<div class="wp-block-group faq-acc"><!-- wp:details -->
+<details class="wp-block-details"><summary>Which specializations do you offer for online doctoral programs?</summary><!-- wp:paragraph -->
+<p>Doctoral programs at IMET enable students to choose between IT Governance training as well as advanced studies in AI &amp; Machine Learning and Cybersecurity and Project Management and Data Analytics and Generative AI and Supply Chain Management. Every concentration teaches students advanced capabilities with strategic understandings which empower leaders to boost modern digital business success through security and efficiency and innovation.</p>
+<!-- /wp:paragraph -->
+</details>
+<!-- /wp:details -->
+<!-- wp:details -->
+<details class="wp-block-details"><summary>Doctorate in Cybersecurity</summary><!-- wp:paragraph -->
+<p>Ideal for professionals focused on enterprise security, cyber risk, and governance.</p>
+<!-- /wp:paragraph -->
+</details>
+<!-- /wp:details -->
+<!-- wp:details -->
+<details class="wp-block-details"><summary>Doctorate in Artificial Intelligence (AI/ML)</summary><!-- wp:paragraph -->
+<p>Ideal for leaders applying AI and machine learning to products, operations, and data-driven strategy.</p>
+<!-- /wp:paragraph -->
+</details>
+<!-- /wp:details -->
+<!-- wp:details -->
+<details class="wp-block-details"><summary>Doctorate in Digital Transformation</summary><!-- wp:paragraph -->
+<p>Ideal for executives leading large-scale change across technology, processes, and business models.</p>
+<!-- /wp:paragraph -->
+</details>
+<!-- /wp:details -->
+<!-- wp:details -->
+<details class="wp-block-details"><summary>Doctorate in Project Management</summary><!-- wp:paragraph -->
+<p>Ideal for professionals who run complex programs and portfolios and want strategic, board-level oversight.</p>
+<!-- /wp:paragraph -->
+</details>
+<!-- /wp:details -->
+<!-- wp:details -->
+<details class="wp-block-details"><summary>Doctorate in Generative AI</summary><!-- wp:paragraph -->
+<p>Ideal for innovators building and governing generative AI solutions across the enterprise.</p>
+<!-- /wp:paragraph -->
+</details>
+<!-- /wp:details -->
+<!-- wp:details -->
+<details class="wp-block-details"><summary>Doctorate in IT Governance</summary><!-- wp:paragraph -->
+<p>Ideal for leaders responsible for IT risk, compliance, and aligning technology with business strategy.</p>
+<!-- /wp:paragraph -->
+</details>
+<!-- /wp:details -->
+</div>
+<!-- /wp:group -->
+<!-- wp:buttons {"className":"center faq-more"} -->
+<div class="wp-block-buttons center faq-more"><!-- wp:button {"className":"btn-navy btn-sm"} -->
+<div class="wp-block-button btn-navy btn-sm"><a class="wp-block-button__link wp-element-button" href="#faq">See More</a></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons --></div>
+<!-- /wp:group --></section>
+<!-- /wp:imet/faq -->
+<!-- wp:imet/cta {"className":"is-style-home is-publish is-wide is-dba-usa"} -->
+<section class="wp-block-imet-cta alignfull imet-section cta-wrap is-style-home is-publish is-wide is-dba-usa"><!-- wp:group {"className":"imet-container","layout":{"type":"default"}} -->
+<div class="wp-block-group imet-container"><!-- wp:group {"className":"cta","layout":{"type":"default"}} -->
+<div class="wp-block-group cta"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"cta-bulb"} -->
+<figure class="wp-block-image size-full cta-bulb"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/imet/home-bulb.webp' ) ); ?>" alt="Light bulb"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:group {"className":"cta-text","layout":{"type":"default"}} -->
+<div class="wp-block-group cta-text"><!-- wp:paragraph {"className":"eyebrow-line left"} -->
+<p class="eyebrow-line left">MBA Eligibility Criteria</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Publish your research paper in International journals.</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"className":"cta-sub"} -->
+<p class="cta-sub">Discover real journeys of transformation from professionals who turned experience into influence.</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group -->
+
+<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"cta-photo"} -->
+<figure class="wp-block-image size-full cta-photo"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/imet/home-journals.webp' ) ); ?>" alt="International journals: IEEE, ResearchGate, Elsevier Scopus, Google Scholar, UGC, Web of Science"/></figure>
+<!-- /wp:image --></div>
+<!-- /wp:group --></div>
+<!-- /wp:group --></section>
+<!-- /wp:imet/cta -->
+<!-- wp:imet/achievements {"anchor":"presence","className":"is-light is-dba-usa"} -->
+<section id="presence" class="wp-block-imet-achievements is-light imet-section achieve is-dba-usa"><!-- wp:group {"className":"imet-container achieve-inner","layout":{"type":"default"}} -->
+<div class="wp-block-group imet-container achieve-inner"><!-- wp:heading -->
+<h2 class="wp-block-heading">Our Achievement</h2>
+<!-- /wp:heading -->
+<!-- wp:group {"className":"achieve-stats","layout":{"type":"default"}} -->
+<div class="wp-block-group achieve-stats"><!-- wp:group {"className":"stat","layout":{"type":"default"}} -->
+<div class="wp-block-group stat"><!-- wp:paragraph {"className":"count"} -->
+<p class="count">2,000+</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"count-label"} -->
+<p class="count-label">Doctorates Enrolled</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"stat","layout":{"type":"default"}} -->
+<div class="wp-block-group stat"><!-- wp:paragraph {"className":"count"} -->
+<p class="count">60+</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"count-label"} -->
+<p class="count-label">Countries</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"stat","layout":{"type":"default"}} -->
+<div class="wp-block-group stat"><!-- wp:paragraph {"className":"count"} -->
+<p class="count">90%</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"count-label"} -->
+<p class="count-label">Completion Rate</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"stat","layout":{"type":"default"}} -->
+<div class="wp-block-group stat"><!-- wp:paragraph {"className":"count"} -->
+<p class="count">98%</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"count-label"} -->
+<p class="count-label">Career Impact</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group --></section>
+<!-- /wp:imet/achievements -->
+<!-- wp:imet/tabs {"align":"full","anchor":"who-can-join","className":"is-cards is-dba-usa"} -->
+<section id="who-can-join" class="wp-block-imet-tabs alignfull is-cards imet-section section tabs is-dba-usa"><!-- wp:group {"className":"imet-container","layout":{"type":"default"}} -->
+<div class="wp-block-group imet-container"><!-- wp:group {"className":"sec-head","layout":{"type":"default"}} -->
+<div class="wp-block-group sec-head"><!-- wp:paragraph {"className":"eyebrow-line"} -->
+<p class="eyebrow-line">MBA Eligibility Criteria</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"className":"title"} -->
+<h2 class="wp-block-heading title">Online DBA Doctorate Program for USA Tech Leaders</h2>
+<!-- /wp:heading --></div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"tab-nav","layout":{"type":"default"}} -->
+<div class="wp-block-group tab-nav"><!-- wp:paragraph {"className":"tab-label"} -->
+<p class="tab-label">Who Should Apply</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"tab-label"} -->
+<p class="tab-label">Key Benefit</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"tab-label"} -->
+<p class="tab-label">Program Structure</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"tab-label"} -->
+<p class="tab-label">DBA V/s Phd</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"tab-panels","layout":{"type":"default"}} -->
+<div class="wp-block-group tab-panels"><!-- wp:group {"className":"tab-panel","layout":{"type":"default"}} -->
+<div class="wp-block-group tab-panel"><!-- wp:group {"className":"tab-card","layout":{"type":"default"}} -->
+<div class="wp-block-group tab-card"><!-- wp:paragraph {"className":"tab-card-lead"} -->
+<p class="tab-card-lead"><strong>Strategic Risk Management</strong> – Capability to evaluate, manage, and control cyber risks on an enterprise-wide basis.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p>Reasons to Join a Cyber Security Course in Bangalore:</p>
+<!-- /wp:paragraph -->
+<!-- wp:list {"ordered":true} -->
+<ol class="wp-block-list"><!-- wp:list-item -->
+<li>High Demand for Cybersecurity Professionals:<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>According to the Times of India, India will need over 2 million cybersecurity professionals by 2025. Completing a cyber security course Bangalore gives you access to this booming job market.</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list --></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>Hands-On Skills and Real-World Projects:<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>A quality cyber security training in Bangalore offers practical exposure through live projects, ethical hacking labs, and threat simulation exercises, ensuring you gain industry-ready skills.</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list --></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>Lucrative Career Opportunities:<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>As per AmbitionBox, cybersecurity roles in India offer average salaries ranging from INR 6 LPA for analysts to INR 28 LPA for senior security engineers. Enrolling in a cyber security course in Bangalore opens doors to high-paying jobs.</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list --></li>
+<!-- /wp:list-item --></ol>
+<!-- /wp:list --></div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"tab-card","layout":{"type":"default"}} -->
+<div class="wp-block-group tab-card"><!-- wp:paragraph {"className":"tab-card-lead"} -->
+<p class="tab-card-lead"><strong>Strategic Risk Management</strong> – Capability to evaluate, manage, and control cyber risks on an enterprise-wide basis.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p>Reasons to Join a Cyber Security Course in Bangalore:</p>
+<!-- /wp:paragraph -->
+<!-- wp:list {"ordered":true} -->
+<ol class="wp-block-list"><!-- wp:list-item -->
+<li>High Demand for Cybersecurity Professionals:<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>According to the Times of India, India will need over 2 million cybersecurity professionals by 2025. Completing a cyber security course Bangalore gives you access to this booming job market.</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list --></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>Hands-On Skills and Real-World Projects:<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>A quality cyber security training in Bangalore offers practical exposure through live projects, ethical hacking labs, and threat simulation exercises, ensuring you gain industry-ready skills.</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list --></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>Lucrative Career Opportunities:<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>As per AmbitionBox, cybersecurity roles in India offer average salaries ranging from INR 6 LPA for analysts to INR 28 LPA for senior security engineers. Enrolling in a cyber security course in Bangalore opens doors to high-paying jobs.</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list --></li>
+<!-- /wp:list-item --></ol>
+<!-- /wp:list --></div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"tab-panel","layout":{"type":"default"}} -->
+<div class="wp-block-group tab-panel"><!-- wp:group {"className":"tab-card","layout":{"type":"default"}} -->
+<div class="wp-block-group tab-card"><!-- wp:paragraph {"className":"tab-card-lead"} -->
+<p class="tab-card-lead"><strong>[Placeholder: Key Benefit – card 1 title]</strong> – Replace with a one-line summary.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p>[Placeholder: intro line]</p>
+<!-- /wp:paragraph -->
+<!-- wp:list {"ordered":true} -->
+<ol class="wp-block-list"><!-- wp:list-item -->
+<li>[Placeholder: first point]<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>[Placeholder: detail for the first point, a sentence or two long so the card has something to fold.]</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list --></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>[Placeholder: second point]<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>[Placeholder: detail for the second point.]</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list --></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>[Placeholder: third point]<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>[Placeholder: detail for the third point.]</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list --></li>
+<!-- /wp:list-item --></ol>
+<!-- /wp:list --></div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"tab-card","layout":{"type":"default"}} -->
+<div class="wp-block-group tab-card"><!-- wp:paragraph {"className":"tab-card-lead"} -->
+<p class="tab-card-lead"><strong>[Placeholder: Key Benefit – card 2 title]</strong> – Replace with a one-line summary.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p>[Placeholder: intro line]</p>
+<!-- /wp:paragraph -->
+<!-- wp:list {"ordered":true} -->
+<ol class="wp-block-list"><!-- wp:list-item -->
+<li>[Placeholder: first point]<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>[Placeholder: detail for the first point, a sentence or two long so the card has something to fold.]</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list --></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>[Placeholder: second point]<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>[Placeholder: detail for the second point.]</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list --></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>[Placeholder: third point]<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>[Placeholder: detail for the third point.]</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list --></li>
+<!-- /wp:list-item --></ol>
+<!-- /wp:list --></div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"tab-panel","layout":{"type":"default"}} -->
+<div class="wp-block-group tab-panel"><!-- wp:group {"className":"tab-card","layout":{"type":"default"}} -->
+<div class="wp-block-group tab-card"><!-- wp:paragraph {"className":"tab-card-lead"} -->
+<p class="tab-card-lead"><strong>[Placeholder: Program Structure – card 1 title]</strong> – Replace with a one-line summary.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p>[Placeholder: intro line]</p>
+<!-- /wp:paragraph -->
+<!-- wp:list {"ordered":true} -->
+<ol class="wp-block-list"><!-- wp:list-item -->
+<li>[Placeholder: first point]<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>[Placeholder: detail for the first point, a sentence or two long so the card has something to fold.]</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list --></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>[Placeholder: second point]<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>[Placeholder: detail for the second point.]</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list --></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>[Placeholder: third point]<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>[Placeholder: detail for the third point.]</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list --></li>
+<!-- /wp:list-item --></ol>
+<!-- /wp:list --></div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"tab-card","layout":{"type":"default"}} -->
+<div class="wp-block-group tab-card"><!-- wp:paragraph {"className":"tab-card-lead"} -->
+<p class="tab-card-lead"><strong>[Placeholder: Program Structure – card 2 title]</strong> – Replace with a one-line summary.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p>[Placeholder: intro line]</p>
+<!-- /wp:paragraph -->
+<!-- wp:list {"ordered":true} -->
+<ol class="wp-block-list"><!-- wp:list-item -->
+<li>[Placeholder: first point]<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>[Placeholder: detail for the first point, a sentence or two long so the card has something to fold.]</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list --></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>[Placeholder: second point]<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>[Placeholder: detail for the second point.]</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list --></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>[Placeholder: third point]<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>[Placeholder: detail for the third point.]</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list --></li>
+<!-- /wp:list-item --></ol>
+<!-- /wp:list --></div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"tab-panel","layout":{"type":"default"}} -->
+<div class="wp-block-group tab-panel"><!-- wp:group {"className":"tab-card","layout":{"type":"default"}} -->
+<div class="wp-block-group tab-card"><!-- wp:paragraph {"className":"tab-card-lead"} -->
+<p class="tab-card-lead"><strong>[Placeholder: DBA V/s Phd – card 1 title]</strong> – Replace with a one-line summary.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p>[Placeholder: intro line]</p>
+<!-- /wp:paragraph -->
+<!-- wp:list {"ordered":true} -->
+<ol class="wp-block-list"><!-- wp:list-item -->
+<li>[Placeholder: first point]<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>[Placeholder: detail for the first point, a sentence or two long so the card has something to fold.]</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list --></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>[Placeholder: second point]<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>[Placeholder: detail for the second point.]</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list --></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>[Placeholder: third point]<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>[Placeholder: detail for the third point.]</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list --></li>
+<!-- /wp:list-item --></ol>
+<!-- /wp:list --></div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"tab-card","layout":{"type":"default"}} -->
+<div class="wp-block-group tab-card"><!-- wp:paragraph {"className":"tab-card-lead"} -->
+<p class="tab-card-lead"><strong>[Placeholder: DBA V/s Phd – card 2 title]</strong> – Replace with a one-line summary.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p>[Placeholder: intro line]</p>
+<!-- /wp:paragraph -->
+<!-- wp:list {"ordered":true} -->
+<ol class="wp-block-list"><!-- wp:list-item -->
+<li>[Placeholder: first point]<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>[Placeholder: detail for the first point, a sentence or two long so the card has something to fold.]</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list --></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>[Placeholder: second point]<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>[Placeholder: detail for the second point.]</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list --></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>[Placeholder: third point]<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>[Placeholder: detail for the third point.]</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list --></li>
+<!-- /wp:list-item --></ol>
+<!-- /wp:list --></div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group --></div>
+<!-- /wp:group --></section>
+<!-- /wp:imet/tabs -->
+<!-- wp:imet/about-card {"align":"full","anchor":"about","className":"is-band is-dba-usa"} -->
+<section id="about" class="wp-block-imet-about-card alignfull is-band imet-section section about-card is-dba-usa"><!-- wp:group {"className":"imet-container","layout":{"type":"default"}} -->
+<div class="wp-block-group imet-container"><!-- wp:group {"className":"sec-head","layout":{"type":"default"}} -->
+<div class="wp-block-group sec-head"><!-- wp:paragraph {"className":"eyebrow-line"} -->
+<p class="eyebrow-line">MBA Eligibility Criteria</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"className":"title"} -->
+<h2 class="wp-block-heading title">About IMET Worldwide</h2>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"sub"} -->
+<p class="sub">At IMET Worldwide, learning goes beyond classrooms — we transform your career story through global mentoring, scholarships, and flexible EMI options. With one-on-one guidance, you can proudly earn your “Dr. in Cyber Security” title while publishing on platforms like SCOPUS, Google Scholar, and ResearchGate. We also reshape your professional identity, from LinkedIn and articles to PR, podcasts, and personal websites. Guided by expert mentors, you move from simply posting to being recognized, followed, and featured.</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"about-box","layout":{"type":"default"}} -->
+<div class="wp-block-group about-box"><!-- wp:list {"className":"about-ticks"} -->
+<ul class="wp-block-list about-ticks"><!-- wp:list-item -->
+<li>Globally recognized and professionally valued.</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>Issued under an accredited and affiliated framework.</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>Unique ID for easy verification worldwide.</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>Eligible for MHRD, MCA, and Embassy attestation.</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>Highlights your chosen specialization (e.g., Cybersecurity, AI).</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>Symbol of academic excellence and leadership credibility.</li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+<!-- wp:group {"className":"about-key","layout":{"type":"default"}} -->
+<div class="wp-block-group about-key"><!-- wp:paragraph {"className":"about-key-title"} -->
+<p class="about-key-title">Our key highlights are:</p>
+<!-- /wp:paragraph -->
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>Enrich your candidature with a Dr. in cybersecurity prefix before your name.</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>Publish your research paper in international journals</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>Leadership skills development</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>Enhanced problem-solving skills</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>Public speaking opportunities that enhance your self-branding</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>Global recognition &amp; networking</li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list --></div>
+<!-- /wp:group --></div>
+<!-- /wp:group --></div>
+<!-- /wp:group --></section>
+<!-- /wp:imet/about-card -->
+<!-- wp:imet/analytics {"align":"full","className":"is-dba-usa"} -->
+<section class="wp-block-imet-analytics alignfull imet-section section analytics is-dba-usa"><!-- wp:group {"className":"imet-container an-grid","layout":{"type":"default"}} -->
+<div class="wp-block-group imet-container an-grid"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"an-visual"} -->
+<figure class="wp-block-image size-full an-visual"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/insights.webp" ) ); ?>" alt="Insights analytics: learner countries, salaries and career impact, industries"/></figure>
+<!-- /wp:image -->
+<!-- wp:group {"layout":{"type":"default"}} -->
+<div class="wp-block-group"><!-- wp:paragraph {"className":"eyebrow-line left"} -->
+<p class="eyebrow-line left">Insights</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"className":"title left"} -->
+<h2 class="wp-block-heading title left">Industry Analytics</h2>
+<!-- /wp:heading -->
+<!-- wp:paragraph -->
+<p>Explore industry trends, global opportunities, and potential salary outcomes for DBA graduates across leading sectors and international markets.</p>
+<!-- /wp:paragraph -->
+<!-- wp:list {"className":"dots"} -->
+<ul class="wp-block-list dots"><!-- wp:list-item -->
+<li>Industries: IT, Finance, Consulting, Healthcare, Cybersecurity.</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>Countries: UAE, India, Singapore, Qatar, UK, USA.</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>Salary Impact: DBA graduates earn AED 25,000–60,000/month or higher depending on role and experience.</li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+<!-- wp:buttons -->
+<div class="wp-block-buttons"><!-- wp:button {"className":"btn-navy btn-md"} -->
+<div class="wp-block-button btn-navy btn-md"><a class="wp-block-button__link wp-element-button" href="#advisor-form">Talk to a Doctoral Advisor</a></div>
+<!-- /wp:button -->
+</div>
+<!-- /wp:buttons -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group --></section>
+<!-- /wp:imet/analytics -->
+<!-- wp:imet/cyber-banner {"className":"is-dba-usa"} -->
+<section class="wp-block-imet-cyber-banner imet-section cyber is-dba-usa"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"cy-av cy-1"} -->
+<figure class="wp-block-image size-full cy-av cy-1"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/cyber-1.webp" ) ); ?>" alt=""/></figure>
+<!-- /wp:image -->
+<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"cy-av cy-2"} -->
+<figure class="wp-block-image size-full cy-av cy-2"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/cyber-2.webp" ) ); ?>" alt=""/></figure>
+<!-- /wp:image -->
+<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"cy-av cy-3"} -->
+<figure class="wp-block-image size-full cy-av cy-3"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/cyber-3.webp" ) ); ?>" alt=""/></figure>
+<!-- /wp:image -->
+<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"cy-av cy-4"} -->
+<figure class="wp-block-image size-full cy-av cy-4"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/cyber-4.webp" ) ); ?>" alt=""/></figure>
+<!-- /wp:image -->
+<!-- wp:group {"className":"imet-container cyber-inner","layout":{"type":"default"}} -->
+<div class="wp-block-group imet-container cyber-inner"><!-- wp:heading -->
+<h2 class="wp-block-heading">IMET Worldwide’s Online Doctorate<br>Programs</h2>
+<!-- /wp:heading -->
+<!-- wp:buttons {"className":"btn-row"} -->
+<div class="wp-block-buttons btn-row"><!-- wp:button {"className":"btn-white btn-md btn-icon-search"} -->
+<div class="wp-block-button btn-white btn-md btn-icon-search"><a class="wp-block-button__link wp-element-button" href="#">View Case Studies</a></div>
+<!-- /wp:button -->
+<!-- wp:button {"className":"btn-white btn-md btn-icon-out"} -->
+<div class="wp-block-button btn-white btn-md btn-icon-out"><a class="wp-block-button__link wp-element-button" href="#">View Success Stories</a></div>
+<!-- /wp:button -->
+</div>
+<!-- /wp:buttons -->
+</div>
+<!-- /wp:group --></section>
+<!-- /wp:imet/cyber-banner -->
+<!-- wp:imet/faq {"align":"full","anchor":"faq","className":"is-dba-usa"} -->
+<section id="faq" class="wp-block-imet-faq alignfull imet-section section faq is-dba-usa"><!-- wp:group {"className":"imet-container narrow","layout":{"type":"default"}} -->
+<div class="wp-block-group imet-container narrow"><!-- wp:group {"className":"sec-head","layout":{"type":"default"}} -->
+<div class="wp-block-group sec-head"><!-- wp:paragraph {"className":"eyebrow-line faq-eyebrow"} -->
+<p class="eyebrow-line faq-eyebrow">Frequently Asked Questions</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"className":"title"} -->
+<h2 class="wp-block-heading title">FAQs: Doctor of Business Administration (DBA)</h2>
+<!-- /wp:heading --></div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"faq-acc","layout":{"type":"default"}} -->
+<div class="wp-block-group faq-acc"><!-- wp:details -->
+<details class="wp-block-details"><summary>What does a Doctor of Business Administration do?</summary><!-- wp:paragraph -->
+<p>A Doctor of Business Administration guides strategic planning, advisory roles to C-suite teams, research and practice in universities, publishing research papers and uses academic wisdom to promote business development, innovation and change.</p>
+<!-- /wp:paragraph -->
+</details>
+<!-- /wp:details -->
+<!-- wp:details -->
+<details class="wp-block-details"><summary>What can I do with a Doctorate in Business Administration?</summary><!-- wp:paragraph -->
+<p>Graduates move into C-suite and board roles, consulting and advisory work, university teaching and research, and thought leadership.</p>
+<!-- /wp:paragraph -->
+</details>
+<!-- /wp:details -->
+<!-- wp:details -->
+<details class="wp-block-details"><summary>Is a Doctor of Business Administration worth it?</summary><!-- wp:paragraph -->
+<p>For experienced professionals who want executive credibility, applied research skills and a global network, yes. It is built for people who keep working while they study.</p>
+<!-- /wp:paragraph -->
+</details>
+<!-- /wp:details -->
+<!-- wp:details -->
+<details class="wp-block-details"><summary>What is the least expensive online doctorate?</summary><!-- wp:paragraph -->
+<p>IMET’s online doctorate starts at USD $6500, and merit-based scholarships of up to 45% are available.</p>
+<!-- /wp:paragraph -->
+</details>
+<!-- /wp:details -->
+<!-- wp:details -->
+<details class="wp-block-details"><summary>What is the cost of online doctoral programs?</summary><!-- wp:paragraph -->
+<p>The program fee is USD $6500, with merit-based scholarships of up to 45% and EMI options.</p>
+<!-- /wp:paragraph -->
+</details>
+<!-- /wp:details -->
+<!-- wp:details -->
+<details class="wp-block-details"><summary>How long does the online DBA program take?</summary><!-- wp:paragraph -->
+<p>Our DBA program takes 12–24 months, part-time and 100% online.</p>
+<!-- /wp:paragraph -->
+</details>
+<!-- /wp:details -->
+<!-- wp:details -->
+<details class="wp-block-details"><summary>Is a DBA different from a PhD?</summary><!-- wp:paragraph -->
+<p>Yes. A DBA focuses on applied industry research; a PhD focuses on academic theory and original contribution. See the comparison above.</p>
+<!-- /wp:paragraph -->
+</details>
+<!-- /wp:details -->
+<!-- wp:details -->
+<details class="wp-block-details"><summary>Can I use the "Dr." prefix after completing the DBA?</summary><!-- wp:paragraph -->
+<p>DBA graduates are generally entitled to use the "Dr." title. Check local regulations where you work.</p>
+<!-- /wp:paragraph -->
+</details>
+<!-- /wp:details -->
+<!-- wp:details -->
+<details class="wp-block-details"><summary>What are the admission requirements?</summary><!-- wp:paragraph -->
+<p>Admission is based on professional experience. No GRE or GMAT is required.</p>
+<!-- /wp:paragraph -->
+</details>
+<!-- /wp:details -->
+<!-- wp:details -->
+<details class="wp-block-details"><summary>What research support will I receive?</summary><!-- wp:paragraph -->
+<p>Thesis guidance, executive mentorship, and help publishing in international journals like IEEE, with Google Scholar citations.</p>
+<!-- /wp:paragraph -->
+</details>
+<!-- /wp:details -->
+</div>
+<!-- /wp:group -->
+<!-- wp:buttons {"className":"center faq-more"} -->
+<div class="wp-block-buttons center faq-more"><!-- wp:button {"className":"btn-navy btn-sm"} -->
+<div class="wp-block-button btn-navy btn-sm"><a class="wp-block-button__link wp-element-button" href="#faq">See More</a></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons --></div>
+<!-- /wp:group --></section>
+<!-- /wp:imet/faq -->
+<?php echo IMET\Theme\Modules\Patterns\SyncedSections::block( 'cta-next-chapter' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- block comment built from an ID or a fixed slug. ?>
