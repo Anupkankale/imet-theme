@@ -3,7 +3,7 @@
  * Title: DBA Course Page
  * Slug: imet-theme/dba-course-page
  * Description: The complete DBA course page, built from IMET blocks.
- * Categories: imet-sections
+ * Categories: imet-pages
  * Keywords: imet, page
  * Block Types: core/post-content
  * Viewport Width: 1440

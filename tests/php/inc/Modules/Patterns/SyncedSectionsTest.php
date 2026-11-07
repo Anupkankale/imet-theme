@@ -46,6 +46,7 @@ class SyncedSectionsTest extends TestCase {
 		}
 
 		delete_option( SyncedSections::OPTION );
+		delete_option( SyncedSections::VERSION_OPTION );
 	}
 
 	/**
@@ -119,6 +120,34 @@ class SyncedSectionsTest extends TestCase {
 		$this->assertSame( $id, SyncedSections::id( 'clients-testimonials' ) );
 		$this->assertStringContainsString( 'Edited by the team', get_post( $id )->post_content );
 		$this->assertCount( count( SyncedSections::SECTIONS ), get_posts( [ 'post_type' => 'wp_block', 'meta_key' => SyncedSections::META, 'numberposts' => -1 ] ) ); // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key
+	}
+
+	/**
+	 * Test every synced section is filed under the "IMET: Shared Sections" pattern category.
+	 */
+	public function test_sections_are_in_the_shared_category(): void {
+		( new SyncedSections() )->seed();
+
+		foreach ( array_keys( SyncedSections::SECTIONS ) as $key ) {
+			$this->assertTrue( has_term( SyncedSections::CATEGORY, 'wp_pattern_category', SyncedSections::id( $key ) ), $key );
+		}
+
+		$this->assertSame( 'IMET: Shared Sections (reusable)', get_term_by( 'slug', SyncedSections::CATEGORY, 'wp_pattern_category' )->name );
+	}
+
+	/**
+	 * Test sections made before the category existed get it on the next administrator visit.
+	 */
+	public function test_maybe_seed_files_older_sections(): void {
+		( new SyncedSections() )->seed();
+		$id = SyncedSections::id( 'offer-banner' );
+		wp_set_object_terms( $id, [], 'wp_pattern_category' );
+		delete_option( SyncedSections::VERSION_OPTION );
+
+		wp_set_current_user( self::factory()->user->create( [ 'role' => 'administrator' ] ) );
+		( new SyncedSections() )->maybe_seed();
+
+		$this->assertTrue( has_term( SyncedSections::CATEGORY, 'wp_pattern_category', $id ) );
 	}
 
 	/**
