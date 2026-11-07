@@ -59,11 +59,24 @@ each('.wp-block-imet-testimonials:not(.is-style-home) .testi-grid', (grid) =>
 	})
 );
 
-/* Home page: the client testimonials and the success stories glide sideways on their own (no arrows). */
+/* Home page: the client testimonials and the success stories glide sideways on their own (no arrows), at every width,
+   also when all the cards fit (UI review: every testimonial row moves, like the program cards). */
 each(
 	'.wp-block-imet-testimonials.is-style-home:is(.is-clients, .is-stories) .testi-grid',
 	(grid) =>
-		marquee(grid, [...grid.querySelectorAll('.testi-card')], { speed: 30 })
+		marquee(grid, [...grid.querySelectorAll('.testi-card')], {
+			speed: 30,
+			alwaysMove: true,
+		})
+);
+
+/* Home success stories: the flip cards glide too. Set up before the flip handlers below, so the looping copies flip as
+   well. */
+each('.wp-block-imet-testimonials.is-stories .story-grid', (grid) =>
+	marquee(grid, [...grid.querySelectorAll('.story-card')], {
+		speed: 30,
+		alwaysMove: true,
+	})
 );
 
 // Success stories: touch screens have no hover, so a tap flips the card (taps on its links still follow them).
