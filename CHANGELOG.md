@@ -2,6 +2,12 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.8 - 2026-11-07
+
+### Added
+
+- New pattern **DBA Location Page UI Doctorate Cybersecurity in USA** (`imet-theme/dba-location-usa`), built from existing IMET blocks to the 1440 design. Its design details are scoped to the pattern (`is-dba-usa`), so other pages keep their look. FAQ cards can now start with one question and a "+" that shows the rest (`is-peek`).
+
 ## 1.1.6 - 2026-11-07
 
 ### Changed
