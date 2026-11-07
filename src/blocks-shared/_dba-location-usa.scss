@@ -1,0 +1,6 @@
+/* DBA Location Page, USA (imet-theme/dba-location-usa). Every rule is scoped to .is-dba-usa, so no other page changes. */
+
+/* ---------- FAQ card that starts with one question (.faq.is-peek): a "+" at the card's corner shows the rest (view.js) ---------- */
+.imet-section.faq.is-card.is-peek .imet-container { position: relative; }
+
+:where(body:not(.editor-styles-wrapper)) .imet-section.faq.is-card.is-peek.is-enhanced .faq-acc:not(.is-expanded) details:nth-of-type(n+2) { display: none; }
