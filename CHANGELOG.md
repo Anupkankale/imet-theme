@@ -2,6 +2,14 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.4 - 2026-11-07
+
+### Added
+
+- **Auto-updating page templates**: IMET: Home, IMET: DBA Category, IMET: DBA Course, IMET: MBA Category, IMET: Location, IMET: Alumni and IMET: Blog (Page → Template in the editor). A page that uses one shows its page pattern straight from the theme on every visit, so every theme update reaches it with no editor step; the page's own saved content is not shown. Pick the template once per page. Editing the template in the Site Editor saves a copy that stops the updates until "Clear customizations".
+- Shortcode blocks run their shortcode wherever they render (`ShortcodeBlock`), so the advisor form also appears inside a pattern shown by a template.
+- The page spacing, header clearance and content styles that looked for the page content now also apply to the templates' content area (`.imet-page-content`).
+
 ## 1.1.3 - 2026-11-06
 
 ### Added

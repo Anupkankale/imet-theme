@@ -1,7 +1,7 @@
 /* Page rhythm for every page except Home (Home has its own, in _home-rhythm.scss): one breathing room above and below
    every content section, on every device, instead of a different padding per section. The hero, the sub-navigation
    and the boxed banners (fee, achievements, cyber, wide highlights) keep their own spacing. Tokens only. */
-$page: ".wp-block-post-content:not(:has(> .imet-section.hero.is-style-home))";
+$page: ":is(.wp-block-post-content, .imet-page-content):not(:has(> .imet-section.hero.is-style-home))"; /* page content, or an IMET page template's <main> */
 
 #{$page} { --imet-section-y: var(--wp--preset--spacing--40); }
 
