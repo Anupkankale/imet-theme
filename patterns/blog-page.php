@@ -3,7 +3,7 @@
  * Title: Blog Page
  * Slug: imet-theme/blog-page
  * Description: The blog's main page: a hero with the latest article, the newest Doctorate and MBA articles under two tabs (each with View More to its category), and a sidebar with the advisor form, article search and tags. Used by the posts page template (templates/home.html) and insertable on a page.
- * Categories: imet-sections
+ * Categories: imet-pages
  * Keywords: imet, page, blog, articles, posts
  * Block Types: core/post-content
  * Viewport Width: 1440

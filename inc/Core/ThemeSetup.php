@@ -90,18 +90,28 @@ class ThemeSetup implements Registrable {
 	}
 
 	/**
-	 * Register the pattern category the theme's sections are filed under.
+	 * Register the pattern categories: whole pages apart from single sections (the shared, synced sections have their
+	 * own category, see SyncedSections).
 	 *
 	 * @since 1.0.0
+	 * @since 1.1.6 Adds "IMET: Full Pages".
 	 *
 	 * @action init
 	 */
 	public function register_pattern_categories(): void {
 		register_block_pattern_category(
+			'imet-pages',
+			[
+				'label'       => __( 'IMET: Full Pages', 'imet-theme' ),
+				'description' => __( 'Whole pages in the IMET design (Home, DBA, MBA, Location, Alumni, Blog). Insert one into an empty page.', 'imet-theme' ),
+			]
+		);
+
+		register_block_pattern_category(
 			'imet-sections',
 			[
-				'label'       => __( 'IMET Sections', 'imet-theme' ),
-				'description' => __( 'Page sections built from core blocks in the IMET design.', 'imet-theme' ),
+				'label'       => __( 'IMET: Sections', 'imet-theme' ),
+				'description' => __( 'Single sections in the IMET design to add to a page; each copy is edited on its own page.', 'imet-theme' ),
 			]
 		);
 	}

@@ -117,5 +117,6 @@ class ThemeSetupTest extends TestCase {
 		$this->instance->register_pattern_categories();
 
 		$this->assertTrue( \WP_Block_Pattern_Categories_Registry::get_instance()->is_registered( 'imet-sections' ) );
+		$this->assertTrue( \WP_Block_Pattern_Categories_Registry::get_instance()->is_registered( 'imet-pages' ) );
 	}
 }

@@ -2,6 +2,12 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.6 - 2026-11-07
+
+### Changed
+
+- Patterns are filed in three categories in the inserter and in Patterns: **IMET: Full Pages** (Home, DBA Category, DBA Course, MBA, Location, Alumni, Blog), **IMET: Sections** (single sections, a separate copy on each page) and **IMET: Shared Sections (reusable)** (the synced Offer Banner, Clients Testimonials, CTA, Achievements and Career Table; edit once, shown everywhere). Synced sections made before this get the category on the next administrator visit to wp-admin.
+
 ## 1.1.5 - 2026-11-07
 
 ### Added
