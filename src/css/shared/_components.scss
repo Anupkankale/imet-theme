@@ -5,7 +5,7 @@
 // (colours, radius, padding, shadow, type); the layout and responsive behaviour live here, because WordPress's
 // variation CSS can't hold media queries. Values are shared with the IMET section blocks.
 
-$page: ':is(.wp-block-post-content, .is-root-container)';
+$page: ':is(.wp-block-post-content, .imet-page-content, .is-root-container)';
 
 // ---- Buttons: hover states of the colour styles ----------------------------------------------------------------
 #{$page} .is-style-button-white .wp-block-button__link:is(:hover, :focus-visible) {

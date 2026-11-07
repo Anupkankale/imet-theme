@@ -80,7 +80,7 @@
 .imet-section.bl-main { padding-block: var(--wp--preset--spacing--24) var(--wp--preset--spacing--54); background: var(--wp--preset--color--card); }
 
 /* Same, when the pattern is on a page (the page rhythm would give it 40px above). */
-.wp-block-post-content:not(:has(> .imet-section.hero.is-style-home)) > .imet-section.bl-main { padding-top: var(--wp--preset--spacing--24); }
+:is(.wp-block-post-content, .imet-page-content):not(:has(> .imet-section.hero.is-style-home)) > .imet-section.bl-main { padding-top: var(--wp--preset--spacing--24); }
 
 .imet-section .bl-layout {
 	display: grid;
