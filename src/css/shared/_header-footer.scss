@@ -258,11 +258,14 @@
 .wp-site-blocks > main {
 	padding-top: var(--wp--custom--header--main-clearance);
 
+	&:has(> .imet-section:first-child),
 	&:has(> .wp-block-post-content > .imet-section:first-child) {
 		padding-top: 0;
 	}
 }
 
+// Also when a template puts the sections straight into <main> (the blog: templates/home.html shows the Blog Page pattern).
+.wp-site-blocks > main > .imet-section:first-child,
 .wp-site-blocks .wp-block-post-content > .imet-section:first-child {
 	border-top: var(--wp--custom--header--clearance) solid transparent;
 	background-origin: border-box;

@@ -2,7 +2,7 @@
    one lead size, on every device. Scoped to a page that starts with the Home hero, so the course pages keep their own
    Figma-matched spacing. The hero, "Why choose" and "Top Featured programs" keep the values measured from the Figma.
    Tokens only. */
-$home: ".wp-block-post-content:has(> .imet-section.hero.is-style-home)";
+$home: ":is(.wp-block-post-content, .imet-page-content):has(> .imet-section.hero.is-style-home)"; /* page content, or the IMET: Home template's <main> */
 
 #{$home} { --imet-section-y: var(--wp--preset--spacing--32); } /* less space between sections (UI review) */
 
