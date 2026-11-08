@@ -2,6 +2,12 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.13 - 2026-11-08
+
+### Fixed
+
+- DBA Eligibility Criteria photo: "AI Ethics & Security" and "Cyber Resilience" each sit on one line with a clear gap between them (they touched when the first wrapped to two lines).
+
 ## 1.1.12 - 2026-11-08
 
 ### Added
