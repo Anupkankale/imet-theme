@@ -192,9 +192,13 @@
 	box-shadow: var(--wp--preset--shadow--soft);
 }
 
-.imet-section .join-chip.is-green { top: 18.7cqi; left: 0; width: 37.4cqi; background: var(--wp--preset--color--green); }
+/* The two left labels sit on one line each, as wide as their text, with a clear gap between them (they touched when the
+   first one wrapped to two lines). */
+.imet-section .join-chip:is(.is-green, .is-blue) { width: max-content; max-width: 62cqi; }
 
-.imet-section .join-chip.is-blue { top: 30.5cqi; left: 0.3cqi; width: 32cqi; background: var(--wp--preset--color--blue); }
+.imet-section .join-chip.is-green { top: 18.7cqi; left: 0; background: var(--wp--preset--color--green); }
+
+.imet-section .join-chip.is-blue { top: 30.5cqi; left: 0; background: var(--wp--preset--color--blue); }
 
 .imet-section .join-chip.is-card { top: 48.8cqi; left: 63.7cqi; width: 32.1cqi; padding: 2.4cqi; background: var(--wp--preset--color--white); color: var(--wp--preset--color--ink); }
 
