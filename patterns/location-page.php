@@ -142,9 +142,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:buttons -->
 </div>
 <!-- /wp:group -->
-<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"hl-visual"} -->
-<figure class="wp-block-image size-full hl-visual"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/loc-highlights.jpg" ) ); ?>" alt="DBA graduate: IEEE, Google Scholar, Scopus, 100% research visibility, one-to-one mentoring"/></figure>
-<!-- /wp:image -->
+<?php echo IMET\Theme\Modules\Patterns\SyncedSections::block( 'photo-location' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- block comment built from an ID or a fixed slug. ?>
 </div>
 <!-- /wp:group --></section>
 <!-- /wp:imet/highlights -->

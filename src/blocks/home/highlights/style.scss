@@ -54,6 +54,8 @@
 
 .imet-section .hl-visual { padding-top: 26px; }
 
+.imet-section .hl-visual.photo-chips { padding-top: 0; } /* a photo with labels (photo-chips): the labels are placed against the photo's own box */
+
 .imet-section .hl-visual img { width: 100%; max-width: 472px; margin-left: auto; }
 
 @media (max-width: 1200px) {

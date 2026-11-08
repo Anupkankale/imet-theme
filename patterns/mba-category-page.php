@@ -141,9 +141,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:buttons -->
 </div>
 <!-- /wp:group -->
-<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"hl-visual"} -->
-<figure class="wp-block-image size-full hl-visual"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/mba-highlights.jpg" ) ); ?>" alt="MBA graduates: 3x salary increase, high career ROI, skill expansion"/></figure>
-<!-- /wp:image -->
+<?php echo IMET\Theme\Modules\Patterns\SyncedSections::block( 'photo-mba-highlights' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- block comment built from an ID or a fixed slug. ?>
 </div>
 <!-- /wp:group --></section>
 <!-- /wp:imet/highlights -->
@@ -290,9 +288,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:group -->
 </div>
 <!-- /wp:group -->
-<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ov-visual"} -->
-<figure class="wp-block-image size-full ov-visual"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/mba-usp.jpg" ) ); ?>" alt="MBA graduate: 4.5M+ job openings worldwide, Google Scholar, 100% immediate ROI, career path from business professional to CEO / Managing Director"/></figure>
-<!-- /wp:image -->
+<?php echo IMET\Theme\Modules\Patterns\SyncedSections::block( 'photo-mba-usp' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- block comment built from an ID or a fixed slug. ?>
 </div>
 <!-- /wp:group -->
 </div>

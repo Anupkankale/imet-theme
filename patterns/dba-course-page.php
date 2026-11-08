@@ -195,9 +195,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:details -->
 </div>
 <!-- /wp:group -->
-<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"join-photo"} -->
-<figure class="wp-block-image size-full join-photo"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/course-requirements.webp" ) ); ?>" alt="AI head with a padlock: AI ethics &amp; security, cyber resilience, C-suite reporting 50% direct to board"/></figure>
-<!-- /wp:image -->
+<?php echo IMET\Theme\Modules\Patterns\SyncedSections::block( 'photo-dba-requirements' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- block comment built from an ID or a fixed slug. ?>
 </div>
 <!-- /wp:group -->
 </div>
@@ -301,9 +299,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:group -->
 </div>
 <!-- /wp:group -->
-<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ov-visual"} -->
-<figure class="wp-block-image size-full ov-visual"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/course-benefits.webp" ) ); ?>" alt="Cybersecurity leader: 3.5M+ job openings worldwide, +85% immediate ROI, career path from IT professional to CISO"/></figure>
-<!-- /wp:image -->
+<?php echo IMET\Theme\Modules\Patterns\SyncedSections::block( 'photo-dba-benefits' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- block comment built from an ID or a fixed slug. ?>
 <!-- wp:buttons -->
 <div class="wp-block-buttons"><!-- wp:button {"className":"btn-navy btn-lg"} -->
 <div class="wp-block-button btn-navy btn-lg"><a class="wp-block-button__link wp-element-button" href="#advisor-form">Talk to a DBA Advisor</a></div>

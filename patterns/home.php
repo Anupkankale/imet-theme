@@ -185,9 +185,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <!-- wp:group {"className":"tab-panels","layout":{"type":"default"}} -->
 <div class="wp-block-group tab-panels"><!-- wp:group {"className":"tab-panel","layout":{"type":"default"}} -->
-<div class="wp-block-group tab-panel"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"tab-photo"} -->
-<figure class="wp-block-image size-full tab-photo"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/imet/home-tab-doctorate.webp' ) ); ?>" alt="Online DBA graduate with research visibility on IEEE, Scopus and Google Scholar"/></figure>
-<!-- /wp:image -->
+<div class="wp-block-group tab-panel"><?php echo IMET\Theme\Modules\Patterns\SyncedSections::block( 'photo-home-doctorate' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- block comment built from an ID or a fixed slug. ?>
 
 <!-- wp:list -->
 <ul class="wp-block-list"><!-- wp:list-item -->
@@ -219,9 +217,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:group -->
 
 <!-- wp:group {"className":"tab-panel","layout":{"type":"default"}} -->
-<div class="wp-block-group tab-panel"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"tab-photo"} -->
-<figure class="wp-block-image size-full tab-photo"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/imet/mba-highlights.jpg' ) ); ?>" alt="Online MBA professionals with higher career ROI and skill expansion"/></figure>
-<!-- /wp:image -->
+<div class="wp-block-group tab-panel"><?php echo IMET\Theme\Modules\Patterns\SyncedSections::block( 'photo-home-mba' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- block comment built from an ID or a fixed slug. ?>
 
 <!-- wp:list -->
 <ul class="wp-block-list"><!-- wp:list-item -->
@@ -391,9 +387,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
-<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"sc-photo"} -->
-<figure class="wp-block-image size-full sc-photo"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/imet/home-why-1.webp' ) ); ?>" alt="Why choose IMET's online doctorate and master's program"/></figure>
-<!-- /wp:image --></div>
+<?php echo IMET\Theme\Modules\Patterns\SyncedSections::block( 'photo-why-1' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- block comment built from an ID or a fixed slug. ?>
+</div>
 <!-- /wp:group -->
 
 <!-- wp:group {"className":"step-card","layout":{"type":"default"}} -->
@@ -407,9 +402,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
-<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"sc-photo"} -->
-<figure class="wp-block-image size-full sc-photo"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/imet/home-why-2.webp' ) ); ?>" alt="Executive branding services"/></figure>
-<!-- /wp:image --></div>
+<?php echo IMET\Theme\Modules\Patterns\SyncedSections::block( 'photo-why-2' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- block comment built from an ID or a fixed slug. ?>
+</div>
 <!-- /wp:group -->
 <!-- wp:group {"className":"step-card","layout":{"type":"default"}} -->
 <div class="wp-block-group step-card"><!-- wp:group {"className":"sc-text","layout":{"type":"default"}} -->
@@ -422,9 +416,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
-<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"sc-photo"} -->
-<figure class="wp-block-image size-full sc-photo"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/imet/home-why-3.webp' ) ); ?>" alt="Online, Flexible &amp; Affordable Program"/></figure>
-<!-- /wp:image --></div>
+<?php echo IMET\Theme\Modules\Patterns\SyncedSections::block( 'photo-why-3' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- block comment built from an ID or a fixed slug. ?>
+</div>
 <!-- /wp:group -->
 
 <!-- wp:group {"className":"step-card","layout":{"type":"default"}} -->
@@ -438,9 +431,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
-<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"sc-photo"} -->
-<figure class="wp-block-image size-full sc-photo"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/imet/home-why-4.webp' ) ); ?>" alt="Scholarship for online master degree"/></figure>
-<!-- /wp:image --></div>
+<?php echo IMET\Theme\Modules\Patterns\SyncedSections::block( 'photo-why-4' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- block comment built from an ID or a fixed slug. ?>
+</div>
 <!-- /wp:group -->
 </div>
 <!-- /wp:group --></div>
