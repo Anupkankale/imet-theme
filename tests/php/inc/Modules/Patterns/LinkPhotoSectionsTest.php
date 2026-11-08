@@ -88,6 +88,24 @@ class LinkPhotoSectionsTest extends TestCase {
 	}
 
 	/**
+	 * Test a real photo is not swapped for a section that still shows the placeholder (that would replace a photo with
+	 * a grey box); an inline copy, which already shows the placeholder, is still linked.
+	 */
+	public function test_keeps_a_real_photo_while_the_section_has_the_placeholder(): void {
+		$content = $this->image( 'join-photo', 'course-requirements.webp' );
+		$result  = LinkPhotoSections::link( $content, self::IDS, [ 'photo-dba-requirements' ] );
+
+		$this->assertSame( [], $result['linked'] );
+		$this->assertSame( [ 'photo-dba-requirements' ], $result['waiting'] );
+		$this->assertSame( $content, $result['content'] );
+
+		$group = '<!-- wp:group {"className":"sc-photo photo-chips is-pc-why-1","layout":{"type":"default"}} -->' . "\n"
+			. '<div class="wp-block-group sc-photo photo-chips is-pc-why-1"></div>' . "\n<!-- /wp:group -->";
+
+		$this->assertSame( [ 'photo-why-1' ], LinkPhotoSections::link( $group, self::IDS, [ 'photo-why-1' ] )['linked'] );
+	}
+
+	/**
 	 * Test other images, unknown sections and already linked pages are left alone (running twice is safe).
 	 */
 	public function test_leaves_other_content_alone(): void {
