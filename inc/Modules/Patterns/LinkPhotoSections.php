@@ -160,6 +160,10 @@ class LinkPhotoSections implements Registrable {
 
 			$result = self::link( (string) $post->post_content, $ids, $placeholder );
 
+			if ( $result['unmatched'] ) {
+				\WP_CLI::warning( sprintf( '#%d %s: found but could not match as saved, left as is (link by hand in the editor): %s', $post->ID, $post->post_title, implode( ', ', $result['unmatched'] ) ) );
+			}
+
 			if ( $result['waiting'] ) {
 				$waiting = array_merge( $waiting, $result['waiting'] );
 				\WP_CLI::log( sprintf( '#%d %s: kept its photo, waiting for a real photo in: %s', $post->ID, $post->post_title, implode( ', ', $result['waiting'] ) ) );
@@ -214,12 +218,14 @@ class LinkPhotoSections implements Registrable {
 	 * @param string[]           $placeholder Sections whose synced pattern still shows the placeholder photo: an old
 	 *                                        photo (a real one) is kept for these, and reported as waiting.
 	 *
-	 * @return array{content: string, linked: string[], waiting: string[]} The new content, the sections linked and the
-	 *                                                                    sections kept for want of a real photo.
+	 * @return array{content: string, linked: string[], waiting: string[], unmatched: string[]} The new content, the
+	 *         sections linked, the sections kept for want of a real photo, and the sections found but not saved the
+	 *         standard way (left as is).
 	 */
 	public static function link( string $content, array $ids, array $placeholder = [] ): array {
-		$linked  = [];
-		$waiting = [];
+		$linked    = [];
+		$waiting   = [];
+		$unmatched = [];
 
 		foreach ( self::targets( parse_blocks( $content ) ) as [ $block, $key ] ) {
 			$id = (int) ( $ids[ $key ] ?? 0 );
@@ -237,6 +243,7 @@ class LinkPhotoSections implements Registrable {
 			$at     = strpos( $content, $markup );
 
 			if ( false === $at ) {
+				$unmatched[] = $key; // Saved some other way: left as is, and reported so someone can link it by hand.
 				continue;
 			}
 
@@ -245,9 +252,10 @@ class LinkPhotoSections implements Registrable {
 		}
 
 		return [
-			'content' => $content,
-			'linked'  => $linked,
-			'waiting' => $waiting,
+			'content'   => $content,
+			'linked'    => $linked,
+			'waiting'   => $waiting,
+			'unmatched' => $unmatched,
 		];
 	}
 

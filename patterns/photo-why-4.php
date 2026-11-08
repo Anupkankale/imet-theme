@@ -17,16 +17,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 <!-- wp:group {"className":"sc-photo photo-chips is-pc-why-4","layout":{"type":"default"}} -->
 <div class="wp-block-group sc-photo photo-chips is-pc-why-4"><!-- wp:image {"metadata":{"name":"Photo","bindings":{"__default":{"source":"core/pattern-overrides"}}},"sizeSlug":"full","linkDestination":"none","className":"pc-photo"} -->
-<figure class="wp-block-image size-full pc-photo"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/photo-placeholder.webp" ) ); ?>" alt="Professional in a mentoring session"/></figure>
+<figure class="wp-block-image size-full pc-photo"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/photo-placeholder.webp" ) ); ?>" alt="<?php echo esc_attr__( 'Professional in a mentoring session', 'imet-theme' ); ?>"/></figure>
 <!-- /wp:image -->
 <!-- wp:paragraph {"metadata":{"name":"Label 1","bindings":{"__default":{"source":"core/pattern-overrides"}}},"className":"pc-chip pc-1 is-white num-blue"} -->
-<p class="pc-chip pc-1 is-white num-blue"><strong>IEEE</strong></p>
+<p class="pc-chip pc-1 is-white num-blue"><?php echo wp_kses_post( __( '<strong>IEEE</strong>', 'imet-theme' ) ); ?></p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph {"metadata":{"name":"Label 2","bindings":{"__default":{"source":"core/pattern-overrides"}}},"className":"pc-chip pc-2 is-white num-pink"} -->
-<p class="pc-chip pc-2 is-white num-pink"><strong>1-1</strong> mentoring session</p>
+<p class="pc-chip pc-2 is-white num-pink"><?php echo wp_kses_post( __( '<strong>1-1</strong> mentoring session', 'imet-theme' ) ); ?></p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph {"metadata":{"name":"Label 3","bindings":{"__default":{"source":"core/pattern-overrides"}}},"className":"pc-chip pc-3 is-pink"} -->
-<p class="pc-chip pc-3 is-pink">Embassy-Approved Certificate</p>
+<p class="pc-chip pc-3 is-pink"><?php echo wp_kses_post( __( 'Embassy-Approved Certificate', 'imet-theme' ) ); ?></p>
 <!-- /wp:paragraph -->
 </div>
 <!-- /wp:group -->

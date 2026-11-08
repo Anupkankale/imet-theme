@@ -1,0 +1,329 @@
+{
+	"mba-course-hl": {
+		"ratio": "872 / 800",
+		"fontSize": 3.6,
+		"chips": [
+			{
+				"left": 0,
+				"top": 27,
+				"width": 41,
+				"classes": "is-white has-gold-check"
+			},
+			{
+				"left": 53,
+				"top": 75,
+				"width": 41,
+				"classes": "is-green is-stat"
+			}
+		]
+	},
+	"mba-course-req": {
+		"ratio": "992 / 676",
+		"fontSize": 3.2,
+		"chips": [
+			{
+				"left": 2,
+				"top": 14,
+				"width": 30,
+				"classes": "is-blue"
+			},
+			{
+				"left": 1,
+				"top": 33,
+				"width": 46,
+				"classes": "is-green"
+			},
+			{
+				"left": 63,
+				"top": 64,
+				"width": 30,
+				"classes": "is-white is-stat"
+			}
+		]
+	},
+	"mba-course-ben": {
+		"ratio": "1324 / 897",
+		"fontSize": 2.5,
+		"chips": [
+			{
+				"left": 1,
+				"top": 31,
+				"width": 40,
+				"classes": "is-white num-blue is-row"
+			},
+			{
+				"left": 2,
+				"top": 58,
+				"width": 30,
+				"height": 29,
+				"classes": "is-white is-roi"
+			},
+			{
+				"left": 54,
+				"top": 63,
+				"width": 46,
+				"classes": "is-white is-path"
+			}
+		]
+	},
+	"dba-hl": {
+		"ratio": "1060 / 1014",
+		"fontSize": 3.2,
+		"chips": [
+			{
+				"left": 46,
+				"top": 17,
+				"width": 44,
+				"classes": "is-green is-pill is-row"
+			},
+			{
+				"left": 0,
+				"top": 56,
+				"width": 54,
+				"classes": "is-blue has-check"
+			},
+			{
+				"left": 64,
+				"top": 72,
+				"width": 34,
+				"classes": "is-white"
+			}
+		]
+	},
+	"dba-grad": {
+		"ratio": "1150 / 1020",
+		"fontSize": 2.7,
+		"chips": [
+			{
+				"left": 53,
+				"top": 34,
+				"width": 32,
+				"classes": "is-white num-blue"
+			},
+			{
+				"left": 1,
+				"top": 43,
+				"width": 44,
+				"classes": "is-white num-blue is-row"
+			},
+			{
+				"left": 1,
+				"top": 56,
+				"width": 35,
+				"height": 24,
+				"classes": "is-white is-roi"
+			},
+			{
+				"left": 45,
+				"top": 73,
+				"width": 53,
+				"classes": "is-white is-path"
+			}
+		]
+	},
+	"mba-hl": {
+		"ratio": "760 / 686",
+		"fontSize": 3.4,
+		"chips": [
+			{
+				"left": 49,
+				"top": 19,
+				"width": 38,
+				"classes": "is-green is-pill is-row"
+			},
+			{
+				"left": 7,
+				"top": 58,
+				"width": 48,
+				"classes": "is-blue has-check"
+			},
+			{
+				"left": 59,
+				"top": 70,
+				"width": 36,
+				"classes": "is-white"
+			}
+		]
+	},
+	"mba-usp": {
+		"ratio": "900 / 785",
+		"fontSize": 2.7,
+		"chips": [
+			{
+				"left": 64,
+				"top": 37,
+				"width": 33,
+				"classes": "is-white num-blue"
+			},
+			{
+				"left": 1,
+				"top": 47,
+				"width": 34,
+				"classes": "is-white num-blue is-row"
+			},
+			{
+				"left": 1,
+				"top": 61,
+				"width": 34,
+				"height": 26,
+				"classes": "is-white is-roi"
+			},
+			{
+				"left": 45,
+				"top": 72,
+				"width": 55,
+				"classes": "is-white is-path"
+			}
+		]
+	},
+	"loc-hl": {
+		"ratio": "693 / 760",
+		"fontSize": 3.6,
+		"chips": [
+			{
+				"left": 6,
+				"top": 30,
+				"width": 21,
+				"classes": "is-white num-blue"
+			},
+			{
+				"left": 70,
+				"top": 37,
+				"width": 24,
+				"classes": "is-white num-gold"
+			},
+			{
+				"left": 5,
+				"top": 53,
+				"width": 42,
+				"classes": "is-white num-blue"
+			},
+			{
+				"left": 63,
+				"top": 63,
+				"width": 36,
+				"classes": "is-cream is-stat"
+			},
+			{
+				"left": 9,
+				"top": 77,
+				"width": 41,
+				"classes": "is-lavender"
+			}
+		]
+	},
+	"home-tab": {
+		"ratio": "847 / 1024",
+		"fontSize": 3.2,
+		"chips": [
+			{
+				"left": 6,
+				"top": 37,
+				"width": 20,
+				"classes": "is-white num-blue"
+			},
+			{
+				"left": 70,
+				"top": 44,
+				"width": 25,
+				"classes": "is-white num-gold"
+			},
+			{
+				"left": 4,
+				"top": 59,
+				"width": 37,
+				"classes": "is-white num-blue"
+			},
+			{
+				"left": 63,
+				"top": 68,
+				"width": 34,
+				"classes": "is-cream is-stat"
+			},
+			{
+				"left": 9,
+				"top": 79,
+				"width": 29,
+				"classes": "is-lavender"
+			}
+		]
+	},
+	"why-1": {
+		"ratio": "1024 / 548",
+		"fontSize": 2.8,
+		"chips": [
+			{
+				"left": 13,
+				"top": 40,
+				"width": 32,
+				"classes": "is-white"
+			},
+			{
+				"left": 56,
+				"top": 48,
+				"width": 50,
+				"classes": "is-white num-gold is-stat"
+			}
+		]
+	},
+	"why-2": {
+		"ratio": "1024 / 645",
+		"fontSize": 3.4,
+		"chips": [
+			{
+				"left": 66,
+				"top": 50,
+				"width": 34,
+				"classes": "is-white"
+			},
+			{
+				"left": 2,
+				"top": 69,
+				"width": 59,
+				"classes": "is-green"
+			}
+		]
+	},
+	"why-3": {
+		"ratio": "1024 / 661",
+		"fontSize": 3.6,
+		"chips": [
+			{
+				"left": 3,
+				"top": 69,
+				"width": 38,
+				"classes": "is-blue is-row"
+			},
+			{
+				"left": 57,
+				"top": 67,
+				"width": 42,
+				"classes": "is-white num-blue"
+			}
+		]
+	},
+	"why-4": {
+		"ratio": "1024 / 521",
+		"fontSize": 3.4,
+		"chips": [
+			{
+				"left": 7,
+				"top": 27,
+				"width": 25,
+				"classes": "is-white num-blue"
+			},
+			{
+				"left": 52,
+				"top": 44,
+				"width": 48,
+				"classes": "is-white num-pink"
+			},
+			{
+				"left": 0,
+				"top": 62,
+				"width": 43,
+				"classes": "is-pink"
+			}
+		]
+	}
+}

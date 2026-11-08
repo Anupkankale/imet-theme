@@ -172,7 +172,7 @@ class SyncedSectionsTest extends TestCase {
 		$this->assertNotEmpty( $photo );
 
 		foreach ( $photo as $key ) {
-			$file = dirname( __DIR__, 5 ) . '/patterns/' . $key . '.php';
+			$file = IMET_PATH . '/patterns/' . $key . '.php';
 
 			$this->assertFileExists( $file, $key );
 

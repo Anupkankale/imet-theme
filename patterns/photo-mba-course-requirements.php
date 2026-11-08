@@ -17,16 +17,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 <!-- wp:group {"className":"join-photo photo-chips is-pc-mba-course-req","layout":{"type":"default"}} -->
 <div class="wp-block-group join-photo photo-chips is-pc-mba-course-req"><!-- wp:image {"metadata":{"name":"Photo","bindings":{"__default":{"source":"core/pattern-overrides"}}},"sizeSlug":"full","linkDestination":"none","className":"pc-photo"} -->
-<figure class="wp-block-image size-full pc-photo"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/photo-placeholder.webp" ) ); ?>" alt="Circuit board with a padlock"/></figure>
+<figure class="wp-block-image size-full pc-photo"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/photo-placeholder.webp" ) ); ?>" alt="<?php echo esc_attr__( 'Circuit board with a padlock', 'imet-theme' ); ?>"/></figure>
 <!-- /wp:image -->
 <!-- wp:paragraph {"metadata":{"name":"Label 1","bindings":{"__default":{"source":"core/pattern-overrides"}}},"className":"pc-chip pc-1 is-blue"} -->
-<p class="pc-chip pc-1 is-blue">Cyber Resilience</p>
+<p class="pc-chip pc-1 is-blue"><?php echo wp_kses_post( __( 'Cyber Resilience', 'imet-theme' ) ); ?></p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph {"metadata":{"name":"Label 2","bindings":{"__default":{"source":"core/pattern-overrides"}}},"className":"pc-chip pc-2 is-green"} -->
-<p class="pc-chip pc-2 is-green">Enterprise Risk Alignment</p>
+<p class="pc-chip pc-2 is-green"><?php echo wp_kses_post( __( 'Enterprise Risk Alignment', 'imet-theme' ) ); ?></p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph {"metadata":{"name":"Label 3","bindings":{"__default":{"source":"core/pattern-overrides"}}},"className":"pc-chip pc-3 is-white is-stat"} -->
-<p class="pc-chip pc-3 is-white is-stat"><strong>85%</strong> Management Readiness</p>
+<p class="pc-chip pc-3 is-white is-stat"><?php echo wp_kses_post( __( '<strong>85%</strong> Management Readiness', 'imet-theme' ) ); ?></p>
 <!-- /wp:paragraph -->
 </div>
 <!-- /wp:group -->

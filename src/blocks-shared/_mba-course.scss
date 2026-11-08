@@ -3,8 +3,8 @@
    Sizes and gaps are the design's own measurements at 1440, kept to desktop widths; tablets and phones keep the
    theme's responsive rules. */
 
-/* The repeated class lifts these rules above the shared page rhythm (_page-rhythm.scss), which they refine. */
-$mba: ":is(.wp-block-post-content, .imet-page-content):has(> .imet-section.hero.is-mba-course.is-mba-course)";
+/* As specific as the shared page rhythm (_page-rhythm.scss) and loaded after it (base.scss), so these refine it. */
+$mba: ":is(.wp-block-post-content, .imet-page-content):has(> .imet-section.hero.is-mba-course)";
 
 #{$mba} > .imet-section { --ui: var(--head); }
 
@@ -12,11 +12,11 @@ $mba: ":is(.wp-block-post-content, .imet-page-content):has(> .imet-section.hero.
 
 @media (min-width: 1101px) {
 
-	/* ---------- Section headers: 22px eyebrow with a gold line, 38.5px title, 18px intro ---------- */
+ /* ---------- Section headers: 22px eyebrow with a gold line, 38.5px title, 18px intro ---------- */
 	#{$mba} > .imet-section :is(.eyebrow-line, .alumni-eyebrow) {
 		width: fit-content;
 		margin-inline: auto;
-		padding-bottom: 13px; /* token-ok: design */
+		padding-bottom: var(--wp--custom--size--13);
 		font-family: var(--head);
 		font-size: 22px; /* token-ok: design */
 	}
@@ -29,7 +29,7 @@ $mba: ":is(.wp-block-post-content, .imet-page-content):has(> .imet-section.hero.
 		left: 50%;
 		bottom: 0;
 		width: min(60%, 200px); /* token-ok: design */
-		height: 3px; /* token-ok: design */
+		height: var(--wp--preset--spacing--3);
 		background: var(--wp--preset--color--gold);
 		transform: translateX(-50%);
 	}
@@ -48,9 +48,9 @@ $mba: ":is(.wp-block-post-content, .imet-page-content):has(> .imet-section.hero.
 
 	#{$mba} > .imet-section :is(.sec-head, .testi-head) > .sub {
 		max-width: 900px; /* token-ok: design */
-		margin-top: 6px; /* token-ok: design */
+		margin-top: var(--wp--preset--spacing--6);
 		color: var(--wp--preset--color--ink);
-		font-size: 18px; /* token-ok: design */
+		font-size: var(--wp--preset--font-size--medium);
 		line-height: 28px; /* token-ok: design */
 	}
 
@@ -58,191 +58,191 @@ $mba: ":is(.wp-block-post-content, .imet-page-content):has(> .imet-section.hero.
 	#{$mba} > .imet-section:is(.join, .tabs, .testimonials, .about-card, .embassy, .faq) { border-top: 1px solid var(--wp--preset--color--line); }
 
 	/* ---------- Hero ---------- */
-	#{$mba} > .hero .hero-grid { padding: 0 50px 0 18px; } /* token-ok: design */
+	#{$mba} > .imet-section.hero .hero-grid { padding: 0 var(--wp--preset--spacing--50) 0 var(--wp--preset--spacing--18); }
 
-	#{$mba} > .hero .hero-text > :is(.h-crumbs, .h-rating, h1, .hero-lead) { padding-left: 12px; } /* token-ok: design */
+	#{$mba} > .imet-section.hero .hero-text > :is(.h-crumbs, .h-rating, h1, .hero-lead) { padding-left: var(--wp--preset--spacing--12); }
 
-	#{$mba} > .hero .h-rating { margin-bottom: 8px; } /* token-ok: design */
+	#{$mba} > .imet-section.hero .h-rating { margin-bottom: var(--wp--preset--spacing--8); }
 
-	#{$mba} > .hero h1 { font-size: 37px; line-height: 50px; } /* token-ok: design */
+	#{$mba} > .imet-section.hero h1 { font-size: 37px; line-height: 50px; } /* token-ok: design */
 
-	#{$mba} > .hero .hero-lead { margin: 20px 0 35px; font-size: 19px; line-height: 28px; } /* token-ok: design */
+	#{$mba} > .imet-section.hero .hero-lead { margin: var(--wp--preset--spacing--20) 0 35px; font-size: 19px; line-height: 28px; } /* token-ok: design */
 
-	#{$mba} > .hero .hero-text .wp-block-button__link { min-width: 320px; min-height: 71px; } /* token-ok: design */
+	#{$mba} > .imet-section.hero .hero-text .wp-block-button__link { min-width: 320px; min-height: 71px; } /* token-ok: design */
 
-	#{$mba} > .hero .h-form { --ui: var(--wp--preset--font-family--inter); width: 352px; margin-top: 23px; } /* token-ok: design */
+	#{$mba} > .imet-section.hero .h-form { --ui: var(--wp--preset--font-family--inter); width: 352px; margin-top: var(--wp--preset--spacing--23); } /* token-ok: design */
 
-	#{$mba} > .hero .imet-advisor-form :is(input:not([type="checkbox"]), select) { height: 42px; } /* token-ok: design */
+	#{$mba} > .imet-section.hero .imet-advisor-form :is(input:not([type="checkbox"]), select) { height: var(--wp--custom--size--42); }
 
-	#{$mba} > .hero .imet-advisor-form textarea { min-height: 90px; height: 90px; } /* token-ok: design */
+	#{$mba} > .imet-section.hero .imet-advisor-form textarea { min-height: 90px; height: 90px; } /* token-ok: design */
 
-	#{$mba} > .hero .imet-advisor-form__consent { font-size: 14px; } /* token-ok: design */
+	#{$mba} > .imet-section.hero .imet-advisor-form__consent { font-size: var(--wp--preset--font-size--14); }
 
-	#{$mba} > .hero .imet-advisor-form__submit { min-height: 35px; padding: 6px 20px; font-size: 15px; } /* token-ok: design */
+	#{$mba} > .imet-section.hero .imet-advisor-form__submit { min-height: 35px; padding: var(--wp--preset--spacing--6) var(--wp--preset--spacing--20); font-size: var(--wp--preset--font-size--small); } /* token-ok: design */
 
-	#{$mba} > .hero .imet-container > .ac-card { margin-top: 30px; } /* token-ok: design */
+	#{$mba} > .imet-section.hero .imet-container > .ac-card { margin-top: var(--wp--preset--spacing--30); }
 
-	#{$mba} > .subnav .subnav-links a { min-height: 86px; font-size: 18px; } /* token-ok: design */
+	#{$mba} > .imet-section.subnav .subnav-links a { min-height: 86px; font-size: var(--wp--preset--font-size--medium); } /* token-ok: design */
 
-	#{$mba} > .hero .imet-container > .ac-card {
+	#{$mba} > .imet-section.hero .imet-container > .ac-card {
 		width: min(1068px, 100%); /* token-ok: design */
 		margin-left: clamp(0px, 100% - 1110px, 90px); /* token-ok: design: 90px from the left at 1440 */
-		padding: 17px 32px; /* token-ok: design */
+		padding: var(--wp--preset--spacing--17) var(--wp--preset--spacing--32);
 	}
 
-	#{$mba} > .hero::after { height: 95px; } /* token-ok: design: the gradient ends 63px above the card's bottom */
+	#{$mba} > .imet-section.hero::after { height: 95px; } /* token-ok: design: the gradient ends 63px above the card's bottom */
 
 	/* ---------- Program Highlights: white, four points, the photo at its design size ---------- */
-	#{$mba} > .highlights.is-style-wide { padding: 25px 0 52px; background: none; } /* token-ok: design */
+	#{$mba} > .imet-section.highlights.is-style-wide { padding: var(--wp--preset--spacing--25) 0 52px; background: none; } /* token-ok: design */
 
-	#{$mba} > .highlights .title { font-size: 34px; font-weight: 600; line-height: 41px; } /* token-ok: design */
+	#{$mba} > .imet-section.highlights .title { font-size: 34px; font-weight: 600; line-height: 41px; } /* token-ok: design */
 
-	#{$mba} > .highlights .hl-list { gap: 12px; margin: 20px 0 12px; } /* token-ok: design */
+	#{$mba} > .imet-section.highlights .hl-list { gap: var(--wp--preset--spacing--12); margin: var(--wp--preset--spacing--20) 0 var(--wp--preset--spacing--12); }
 
-	#{$mba} > .highlights .hl-list li { min-height: 0; padding: 0 0 0 44px; font-size: 18px; line-height: 25px; } /* token-ok: design */
+	#{$mba} > .imet-section.highlights .hl-list li { min-height: 0; padding: 0 0 0 var(--wp--custom--size--44); font-size: var(--wp--preset--font-size--medium); line-height: 25px; } /* token-ok: design */
 
-	#{$mba} > .highlights .hl-list li::before { width: 26px; height: 26px; } /* token-ok: design */
+	#{$mba} > .imet-section.highlights .hl-list li::before { width: var(--wp--preset--spacing--26); height: var(--wp--preset--spacing--26); }
 
-	#{$mba} > .highlights .wp-block-button__link { min-width: 384px; min-height: 70px; font-size: 20px; } /* token-ok: design */
+	#{$mba} > .imet-section.highlights .wp-block-button__link { min-width: 384px; min-height: var(--wp--preset--spacing--70); font-size: var(--wp--preset--font-size--large); } /* token-ok: design */
 
-	#{$mba} > .highlights .hl-grid { grid-template-columns: minmax(0, 660px) minmax(0, 1fr); } /* token-ok: design */
+	#{$mba} > .imet-section.highlights .hl-grid { grid-template-columns: minmax(0, 660px) minmax(0, 1fr); } /* token-ok: design */
 
-	#{$mba} > .highlights .hl-visual { align-self: start; width: min(436px, 100%); margin: 7px 12px 0 auto; } /* token-ok: design: 436px at 1440, narrower when the column is */
+	#{$mba} > .imet-section.highlights .hl-visual { align-self: start; width: min(436px, 100%); margin: var(--wp--preset--spacing--7) var(--wp--preset--spacing--12) 0 auto; } /* token-ok: design: 436px at 1440, narrower when the column is */
 
-	#{$mba} > .highlights .eyebrow-line + .title { margin-top: 2px; } /* token-ok: design */
+	#{$mba} > .imet-section.highlights .eyebrow-line + .title { margin-top: var(--wp--preset--spacing--2); }
 
-	#{$mba} > .highlights .hl-visual img { mix-blend-mode: normal; }
+	#{$mba} > .imet-section.highlights .hl-visual img { mix-blend-mode: normal; }
 
 	/* ---------- Fee banner ---------- */
-	#{$mba} > .imet-section.highlights + .imet-section.cost-banner { margin-top: 0; }
+	#{$mba} > .imet-section.highlights.is-style-wide + .imet-section.cost-banner { margin-top: 0; } /* the elements the page rhythm targets, so it refines that rule */
 
-	#{$mba} > .imet-section.cost-banner { margin-bottom: 44px; } /* token-ok: design */
+	#{$mba} > .imet-section.cost-banner { margin-bottom: var(--wp--custom--size--44); }
 
 	#{$mba} > .imet-section.cost-banner + .imet-section.section.join { border-top: 1px solid var(--wp--preset--color--line); }
 
-	#{$mba} > .cost-banner .cost-right p { max-width: 520px; } /* token-ok: design */
+	#{$mba} > .imet-section.cost-banner .cost-right p { max-width: 520px; } /* token-ok: design */
 
-	#{$mba} > .cost-banner .cost-mid .up-to { font-size: 20px; } /* token-ok: design */
+	#{$mba} > .imet-section.cost-banner .cost-mid .up-to { font-size: var(--wp--preset--font-size--large); }
 
-	#{$mba} > .cost-banner .cost-mid .merit { font-size: 22px; line-height: 28px; } /* token-ok: design */
+	#{$mba} > .imet-section.cost-banner .cost-mid .merit { font-size: 22px; line-height: 28px; } /* token-ok: design */
 
-	#{$mba} > .cost-banner .cost-right h3 { font-size: 35px; } /* token-ok: design */
+	#{$mba} > .imet-section.cost-banner .cost-right h3 { font-size: 35px; } /* token-ok: design */
 
-	#{$mba} > .cost-banner .cost-right p { font-family: var(--wp--preset--font-family--inter); font-size: 18px; line-height: 27px; } /* token-ok: design */
+	#{$mba} > .imet-section.cost-banner .cost-right p { font-family: var(--wp--preset--font-family--inter); font-size: var(--wp--preset--font-size--medium); line-height: 27px; } /* token-ok: design */
 
-	#{$mba} > .cost-banner .wp-block-button__link { min-width: 328px; min-height: 49px; font-size: 23px; font-weight: 700; } /* token-ok: design */
+	#{$mba} > .imet-section.cost-banner .wp-block-button__link { min-width: 328px; min-height: 49px; font-size: 23px; font-weight: 700; } /* token-ok: design */
 
 	/* ---------- Section padding (design: rule → eyebrow, content → next rule) ---------- */
-	#{$mba} > .join:not(.is-style-boxed) { padding: 32px 0 106px; } /* token-ok: design */
+	#{$mba} > .imet-section.join:not(.is-style-boxed) { padding: var(--wp--preset--spacing--32) 0 106px; } /* token-ok: design */
 
-	#{$mba} > .specs { padding: 24px 0 60px; } /* token-ok: design */
+	#{$mba} > .imet-section.specs { padding: var(--wp--preset--spacing--24) 0 60px; } /* token-ok: design */
 
-	#{$mba} > .overview { padding: 17px 0 50px; } /* token-ok: design */
+	#{$mba} > .imet-section.overview { padding: var(--wp--preset--spacing--17) 0 var(--wp--preset--spacing--50); }
 
-	#{$mba} > .tabs { padding: 27px 0 32px; } /* token-ok: design */
+	#{$mba} > .imet-section.tabs { padding: var(--wp--custom--size--27) 0 var(--wp--preset--spacing--32); }
 
-	#{$mba} > .testimonials { padding: 28px 0 32px; } /* token-ok: design */
+	#{$mba} > .imet-section.testimonials { padding: 28px 0 var(--wp--preset--spacing--32); } /* token-ok: design */
 
-	#{$mba} > .about-card { padding: 12px 0 32px; } /* token-ok: design */
+	#{$mba} > .imet-section.about-card { padding: var(--wp--preset--spacing--12) 0 var(--wp--preset--spacing--32); }
 
-	#{$mba} > .join.is-style-boxed { padding: 23px 0 22px; } /* token-ok: design */
+	#{$mba} > .imet-section.join.is-style-boxed { padding: var(--wp--preset--spacing--23) 0 var(--wp--preset--spacing--22); }
 
-	#{$mba} > .process { padding: 27px 0 46px; } /* token-ok: design */
+	#{$mba} > .imet-section.process { padding: var(--wp--custom--size--27) 0 46px; } /* token-ok: design */
 
-	#{$mba} > .embassy { padding: 8px 0 32px; } /* token-ok: design */
+	#{$mba} > .imet-section.embassy { padding: var(--wp--preset--spacing--8) 0 var(--wp--preset--spacing--32); }
 
-	#{$mba} > .faq { padding: 18px 0 35px; } /* token-ok: design */
+	#{$mba} > .imet-section.faq { padding: var(--wp--preset--spacing--18) 0 35px; } /* token-ok: design */
 
 	/* Header → content gap, per section */
-	#{$mba} > .join:not(.is-style-boxed) .sec-head { margin-bottom: 40px; } /* token-ok: design */
+	#{$mba} > .imet-section.join:not(.is-style-boxed) .sec-head { margin-bottom: var(--wp--preset--spacing--40); }
 
-	#{$mba} > .specs .sec-head { margin-bottom: 23px; } /* token-ok: design */
+	#{$mba} > .imet-section.specs .sec-head { margin-bottom: var(--wp--preset--spacing--23); }
 
-	#{$mba} > .overview .sec-head { margin-bottom: 12px; } /* token-ok: design */
+	#{$mba} > .imet-section.overview .sec-head { margin-bottom: var(--wp--preset--spacing--12); }
 
-	#{$mba} > .tabs .sec-head { margin-bottom: 25px; } /* token-ok: design */
+	#{$mba} > .imet-section.tabs .sec-head { margin-bottom: var(--wp--preset--spacing--25); }
 
-	#{$mba} > .testimonials .testi-head { margin-bottom: 28px; } /* token-ok: design */
+	#{$mba} > .imet-section.testimonials .testi-head { margin-bottom: 28px; } /* token-ok: design */
 
-	#{$mba} > .about-card .sec-head { margin-bottom: 11px; } /* token-ok: design */
+	#{$mba} > .imet-section.about-card .sec-head { margin-bottom: 11px; } /* token-ok: design */
 
-	#{$mba} > .join.is-style-boxed .sec-head { margin-bottom: 31px; } /* token-ok: design */
+	#{$mba} > .imet-section.join.is-style-boxed .sec-head { margin-bottom: 31px; } /* token-ok: design */
 
-	#{$mba} > .process .sec-head { margin-bottom: 35px; } /* token-ok: design */
+	#{$mba} > .imet-section.process .sec-head { margin-bottom: 35px; } /* token-ok: design */
 
-	#{$mba} > .embassy .sec-head { margin-bottom: 27px; } /* token-ok: design */
+	#{$mba} > .imet-section.embassy .sec-head { margin-bottom: var(--wp--custom--size--27); }
 
-	#{$mba} > .faq .sec-head { margin-bottom: 10px; } /* token-ok: design */
+	#{$mba} > .imet-section.faq .sec-head { margin-bottom: var(--wp--preset--spacing--10); }
 
 	/* Process and alumni: black eyebrows, as in the design */
-	#{$mba} > :is(.process, .embassy) .eyebrow-line { color: var(--wp--preset--color--ink); }
+	#{$mba} > .imet-section:is(.process, .embassy) .eyebrow-line { color: var(--wp--preset--color--ink); }
 
 	/* ---------- Body copy sizes ---------- */
-	#{$mba} > .join .join-acc summary { font-size: 20px; font-weight: 500; } /* token-ok: design */
+	#{$mba} > .imet-section.join .join-acc summary { font-size: var(--wp--preset--font-size--large); font-weight: 500; }
 
-	#{$mba} > .join .join-acc details p { font-size: 16px; line-height: 25px; } /* token-ok: design */
+	#{$mba} > .imet-section.join .join-acc details p { font-size: var(--wp--preset--font-size--normal); line-height: 25px; } /* token-ok: design */
 
-	#{$mba} > .join:not(.is-style-boxed) .join-acc details p { margin-top: -13px; } /* token-ok: design: answer 7px under its question */
+	#{$mba} > .imet-section.join:not(.is-style-boxed) .join-acc details p { margin-top: calc(-1 * var(--wp--custom--size--13)); } /* answer 7px under its question */
 
-	#{$mba} > .join:not(.is-style-boxed) .join-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 496px); } /* token-ok: design: the photo column, 496px at 1440 */
+	#{$mba} > .imet-section.join:not(.is-style-boxed) .join-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 496px); } /* token-ok: design: the photo column, 496px at 1440 */
 
-	#{$mba} > .join:not(.is-style-boxed) .join-photo { width: 100%; margin-top: -10px; } /* token-ok: design */
+	#{$mba} > .imet-section.join:not(.is-style-boxed) .join-photo { width: 100%; margin-top: calc(-1 * var(--wp--preset--spacing--10)); }
 
-	#{$mba} > .join.is-style-boxed .join-acc summary { font-size: 16px; font-weight: 400; } /* token-ok: design */
+	#{$mba} > .imet-section.join.is-style-boxed .join-acc summary { font-size: var(--wp--preset--font-size--normal); font-weight: 400; }
 
-	#{$mba} > .specs .spec-card { font-size: 16px; } /* token-ok: design */
+	#{$mba} > .imet-section.specs .spec-card { font-size: var(--wp--preset--font-size--normal); }
 
-	#{$mba} > .specs .title { font-size: 48px; line-height: 1.15; } /* token-ok: design */
+	#{$mba} > .imet-section.specs .title { font-size: 48px; line-height: 1.15; } /* token-ok: design */
 
-	#{$mba} > .specs .eyebrow-line + .title { margin-top: 2px; } /* token-ok: design */
+	#{$mba} > .imet-section.specs .eyebrow-line + .title { margin-top: var(--wp--preset--spacing--2); }
 
-	#{$mba} > .specs .sec-head > .sub { margin-top: 0; }
+	#{$mba} > .imet-section.specs .sec-head > .sub { margin-top: 0; }
 
-	#{$mba} > .overview .ben-item h3 { font-size: 20px; } /* token-ok: design */
+	#{$mba} > .imet-section.overview .ben-item h3 { font-size: var(--wp--preset--font-size--large); }
 
-	#{$mba} > .overview .ben-item p { font-size: 16px; line-height: 24px; } /* token-ok: design */
+	#{$mba} > .imet-section.overview .ben-item p { font-size: var(--wp--preset--font-size--normal); line-height: 24px; } /* token-ok: design */
 
-	#{$mba} > .tabs .tab-panel li { font-size: 16px; line-height: 25px; } /* token-ok: design */
+	#{$mba} > .imet-section.tabs .tab-panel li { font-size: var(--wp--preset--font-size--normal); line-height: 25px; } /* token-ok: design */
 
-	#{$mba} > .about-card .sec-head > .sub { max-width: 1035px; color: var(--wp--preset--color--text-navy); } /* token-ok: design */
+	#{$mba} > .imet-section.about-card .sec-head > .sub { max-width: 1035px; color: var(--wp--preset--color--text-navy); } /* token-ok: design */
 
-	#{$mba} > .about-card .about-box li { font-size: 18px; } /* token-ok: design */
+	#{$mba} > .imet-section.about-card .about-box li { font-size: var(--wp--preset--font-size--medium); }
 
-	#{$mba} > .process .p-step h3 { font-size: 18px; } /* token-ok: design */
+	#{$mba} > .imet-section.process .p-step h3 { font-size: var(--wp--preset--font-size--medium); }
 
-	#{$mba} > .process .p-step p { font-size: 17px; line-height: 28px; } /* token-ok: design */
+	#{$mba} > .imet-section.process .p-step p { font-size: var(--wp--preset--font-size--body); line-height: 28px; } /* token-ok: design */
 
-	#{$mba} > .faq .faq-acc summary { font-size: 16px; } /* token-ok: design */
+	#{$mba} > .imet-section.faq .faq-acc summary { font-size: var(--wp--preset--font-size--normal); }
 
-	#{$mba} > .faq .faq-acc details p { font-size: 13px; line-height: 22px; } /* token-ok: design */
+	#{$mba} > .imet-section.faq .faq-acc details p { font-size: var(--wp--preset--font-size--caption); line-height: 22px; } /* token-ok: design */
 
-	#{$mba} > :is(.cyber, .cta-wrap) h2 { font-size: 38px; } /* token-ok: design */
+	#{$mba} > .imet-section:is(.cyber, .cta-wrap) h2 { font-size: 38px; } /* token-ok: design */
 
-	#{$mba} > .cyber h2 { line-height: 46px; } /* token-ok: design */
+	#{$mba} > .imet-section.cyber h2 { line-height: 46px; } /* token-ok: design */
 
-	#{$mba} > .cyber .wp-block-button__link { font-size: 18px; } /* token-ok: design */
+	#{$mba} > .imet-section.cyber .wp-block-button__link { font-size: var(--wp--preset--font-size--medium); }
 
 	/* ---------- Layout widths ---------- */
-	#{$mba} > .overview .ov-grid { grid-template-columns: minmax(0, 443px) minmax(0, 662px); column-gap: 0; justify-content: start; padding-left: clamp(0px, 100% - 1128px, 72px); } /* token-ok: design: 72px in at 1440, none when narrower */
+	#{$mba} > .imet-section.overview .ov-grid { grid-template-columns: minmax(0, 443px) minmax(0, 662px); column-gap: 0; justify-content: start; padding-left: clamp(0px, 100% - 1128px, var(--wp--custom--size--72)); } /* token-ok: design: 72px in at 1440, none when narrower */
 
-	#{$mba} > .overview .ov-visual { width: 100%; max-width: 662px; margin-top: -16px; } /* token-ok: design */
+	#{$mba} > .imet-section.overview .ov-visual { width: 100%; max-width: 662px; margin-top: calc(-1 * var(--wp--preset--spacing--16)); } /* token-ok: design */
 
-	#{$mba} > .tabs .tab-panels { width: min(956px, 100%); margin-inline: auto; } /* token-ok: design */
+	#{$mba} > .imet-section.tabs .tab-panels { width: min(956px, 100%); margin-inline: auto; } /* token-ok: design */
 
-	#{$mba} > .tabs .sec-head > .sub { max-width: 940px; } /* token-ok: design */
+	#{$mba} > .imet-section.tabs .sec-head > .sub { max-width: 940px; } /* token-ok: design */
 
-	#{$mba} > .process .process-steps { width: min(1280px, 100vw - 40px); margin-inline: calc((100% - min(1280px, 100vw - 40px)) / 2); } /* token-ok: design */
+	#{$mba} > .imet-section.process .process-steps { width: min(1280px, 100vw - var(--wp--preset--spacing--40)); margin-inline: calc((100% - min(1280px, 100vw - var(--wp--preset--spacing--40))) / 2); } /* token-ok: design */
 
-	#{$mba} > .process .wp-block-button__link { min-width: 384px; min-height: 71px; font-size: 20px; } /* token-ok: design */
+	#{$mba} > .imet-section.process .wp-block-button__link { min-width: 384px; min-height: 71px; font-size: var(--wp--preset--font-size--large); } /* token-ok: design */
 
 	#{$mba} > .imet-section.cta-wrap { padding-top: 0; }
 
-	#{$mba} > .cta-wrap .cta { width: min(1163px, 100%); margin-inline: auto; } /* token-ok: design */
+	#{$mba} > .imet-section.cta-wrap .cta { width: min(1163px, 100%); margin-inline: auto; } /* token-ok: design */
 
 	/* Accordion toggles: a grey circle with a grey sign, open or closed, as in the design */
-	#{$mba} > .join:not(.is-style-boxed) .join-acc details[open]:not(.is-closing) summary { color: var(--wp--preset--color--ink); }
+	#{$mba} > .imet-section.join:not(.is-style-boxed) .join-acc details[open]:not(.is-closing) summary { color: var(--wp--preset--color--ink); }
 
-	#{$mba} > .join:not(.is-style-boxed) .join-acc details[open]:not(.is-closing) summary::after {
+	#{$mba} > .imet-section.join:not(.is-style-boxed) .join-acc details[open]:not(.is-closing) summary::after {
 		background-color: var(--wp--preset--color--grey-200);
 		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath d='M12 15h6' stroke='%23777' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
 	}

@@ -17,16 +17,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 <!-- wp:group {"className":"hl-visual photo-chips is-pc-mba-hl","layout":{"type":"default"}} -->
 <div class="wp-block-group hl-visual photo-chips is-pc-mba-hl"><!-- wp:image {"metadata":{"name":"Photo","bindings":{"__default":{"source":"core/pattern-overrides"}}},"sizeSlug":"full","linkDestination":"none","className":"pc-photo"} -->
-<figure class="wp-block-image size-full pc-photo"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/photo-placeholder.webp" ) ); ?>" alt="Online MBA professionals"/></figure>
+<figure class="wp-block-image size-full pc-photo"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/photo-placeholder.webp" ) ); ?>" alt="<?php echo esc_attr__( 'Online MBA professionals', 'imet-theme' ); ?>"/></figure>
 <!-- /wp:image -->
 <!-- wp:paragraph {"metadata":{"name":"Label 1","bindings":{"__default":{"source":"core/pattern-overrides"}}},"className":"pc-chip pc-1 is-green is-pill is-row"} -->
-<p class="pc-chip pc-1 is-green is-pill is-row"><strong>3x</strong> Salary Increase</p>
+<p class="pc-chip pc-1 is-green is-pill is-row"><?php echo wp_kses_post( __( '<strong>3x</strong> Salary Increase', 'imet-theme' ) ); ?></p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph {"metadata":{"name":"Label 2","bindings":{"__default":{"source":"core/pattern-overrides"}}},"className":"pc-chip pc-2 is-blue has-check"} -->
-<p class="pc-chip pc-2 is-blue has-check">High Career ROI</p>
+<p class="pc-chip pc-2 is-blue has-check"><?php echo wp_kses_post( __( 'High Career ROI', 'imet-theme' ) ); ?></p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph {"metadata":{"name":"Label 3","bindings":{"__default":{"source":"core/pattern-overrides"}}},"className":"pc-chip pc-3 is-white"} -->
-<p class="pc-chip pc-3 is-white">Skill Expansion</p>
+<p class="pc-chip pc-3 is-white"><?php echo wp_kses_post( __( 'Skill Expansion', 'imet-theme' ) ); ?></p>
 <!-- /wp:paragraph -->
 </div>
 <!-- /wp:group -->

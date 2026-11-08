@@ -172,7 +172,7 @@
 .imet-section .ov-visual.has-chips .ov-photo { margin: 0 7% 0 5.9%; }
 
 .imet-section .ov-visual.has-chips img,
-.imet-section.overview.is-style-photo .ov-visual.has-chips img { width: 100%; max-width: none; margin: 0; }
+.imet-section.overview.is-style-photo .ov-visual:is(.has-chips, .photo-chips) img { width: 100%; max-width: none; margin: 0; } /* a photo with labels fills its frame */
 
 /* The two gold triangles beside the photo */
 .imet-section .ov-visual.has-chips::after {
