@@ -2,6 +2,16 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.9 - 2026-11-08
+
+### Added
+
+- New pattern **MBA Course Page** (`imet-theme/mba-course-page`): the Online MBA in Cybersecurity course page from the design, built from existing IMET blocks on the light hero, with four new photos (`mba-course-*.webp`).
+
+### Fixed
+
+- The hero's star rating and breadcrumb hover are readable on the light hero too (they were white); the dark hero is unchanged.
+
 ## 1.1.8 - 2026-11-07
 
 ### Added
