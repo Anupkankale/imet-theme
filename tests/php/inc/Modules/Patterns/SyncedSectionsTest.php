@@ -164,6 +164,28 @@ class SyncedSectionsTest extends TestCase {
 	}
 
 	/**
+	 * Test every photo section is a hidden source pattern whose photo and labels can be overridden per page.
+	 */
+	public function test_photo_sections_allow_overrides(): void {
+		$photo = array_filter( array_keys( SyncedSections::SECTIONS ), static fn( string $key ): bool => str_starts_with( $key, 'photo-' ) );
+
+		$this->assertNotEmpty( $photo );
+
+		foreach ( $photo as $key ) {
+			$file = dirname( __DIR__, 5 ) . '/patterns/' . $key . '.php';
+
+			$this->assertFileExists( $file, $key );
+
+			$source = (string) file_get_contents( $file ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents -- a local theme file.
+
+			$this->assertStringContainsString( 'Inserter: no', $source, $key );
+			$this->assertStringContainsString( 'Slug: ' . SyncedSections::SECTIONS[ $key ]['pattern'], $source, $key );
+			$this->assertStringContainsString( '"source":"core/pattern-overrides"', $source, $key );
+			$this->assertMatchesRegularExpression( '/<!-- wp:image \{[^}]*"metadata":\{"name":"Photo"/', $source, $key );
+		}
+	}
+
+	/**
 	 * Test the block markup points at the synced pattern, or at the source pattern until it exists.
 	 */
 	public function test_block_markup(): void {

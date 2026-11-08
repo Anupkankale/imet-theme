@@ -185,27 +185,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <!-- wp:group {"className":"tab-panels","layout":{"type":"default"}} -->
 <div class="wp-block-group tab-panels"><!-- wp:group {"className":"tab-panel","layout":{"type":"default"}} -->
-<div class="wp-block-group tab-panel"><!-- wp:group {"className":"tab-photo photo-chips is-pc-home-tab","layout":{"type":"default"}} -->
-<div class="wp-block-group tab-photo photo-chips is-pc-home-tab"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"pc-photo"} -->
-<figure class="wp-block-image size-full pc-photo"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/photo-placeholder.webp" ) ); ?>" alt="Online DBA graduate"/></figure>
-<!-- /wp:image -->
-<!-- wp:paragraph {"className":"pc-chip pc-1 is-white num-blue"} -->
-<p class="pc-chip pc-1 is-white num-blue"><strong>IEEE</strong></p>
-<!-- /wp:paragraph -->
-<!-- wp:paragraph {"className":"pc-chip pc-2 is-white num-gold"} -->
-<p class="pc-chip pc-2 is-white num-gold">Elsevier <strong>Scopus</strong></p>
-<!-- /wp:paragraph -->
-<!-- wp:paragraph {"className":"pc-chip pc-3 is-white num-blue"} -->
-<p class="pc-chip pc-3 is-white num-blue"><strong>Google</strong> Scholar</p>
-<!-- /wp:paragraph -->
-<!-- wp:paragraph {"className":"pc-chip pc-4 is-cream is-stat"} -->
-<p class="pc-chip pc-4 is-cream is-stat">Research Visibility <strong>100% ↗</strong></p>
-<!-- /wp:paragraph -->
-<!-- wp:paragraph {"className":"pc-chip pc-5 is-lavender"} -->
-<p class="pc-chip pc-5 is-lavender">1-1 mentoring session</p>
-<!-- /wp:paragraph -->
-</div>
-<!-- /wp:group -->
+<div class="wp-block-group tab-panel"><?php echo IMET\Theme\Modules\Patterns\SyncedSections::block( 'photo-home-doctorate' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- block comment built from an ID or a fixed slug. ?>
 
 <!-- wp:list -->
 <ul class="wp-block-list"><!-- wp:list-item -->
@@ -237,21 +217,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:group -->
 
 <!-- wp:group {"className":"tab-panel","layout":{"type":"default"}} -->
-<div class="wp-block-group tab-panel"><!-- wp:group {"className":"tab-photo photo-chips is-pc-mba-hl","layout":{"type":"default"}} -->
-<div class="wp-block-group tab-photo photo-chips is-pc-mba-hl"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"pc-photo"} -->
-<figure class="wp-block-image size-full pc-photo"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/photo-placeholder.webp" ) ); ?>" alt="Online MBA professionals"/></figure>
-<!-- /wp:image -->
-<!-- wp:paragraph {"className":"pc-chip pc-1 is-green is-pill is-row"} -->
-<p class="pc-chip pc-1 is-green is-pill is-row"><strong>3x</strong> Salary Increase</p>
-<!-- /wp:paragraph -->
-<!-- wp:paragraph {"className":"pc-chip pc-2 is-blue has-check"} -->
-<p class="pc-chip pc-2 is-blue has-check">High Career ROI</p>
-<!-- /wp:paragraph -->
-<!-- wp:paragraph {"className":"pc-chip pc-3 is-white"} -->
-<p class="pc-chip pc-3 is-white">Skill Expansion</p>
-<!-- /wp:paragraph -->
-</div>
-<!-- /wp:group -->
+<div class="wp-block-group tab-panel"><?php echo IMET\Theme\Modules\Patterns\SyncedSections::block( 'photo-home-mba' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- block comment built from an ID or a fixed slug. ?>
 
 <!-- wp:list -->
 <ul class="wp-block-list"><!-- wp:list-item -->
@@ -421,18 +387,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"className":"sc-photo photo-chips is-pc-why-1","layout":{"type":"default"}} -->
-<div class="wp-block-group sc-photo photo-chips is-pc-why-1"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"pc-photo"} -->
-<figure class="wp-block-image size-full pc-photo"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/photo-placeholder.webp" ) ); ?>" alt="Learner studying online"/></figure>
-<!-- /wp:image -->
-<!-- wp:paragraph {"className":"pc-chip pc-1 is-white"} -->
-<p class="pc-chip pc-1 is-white">Research-Driven</p>
-<!-- /wp:paragraph -->
-<!-- wp:paragraph {"className":"pc-chip pc-2 is-white num-gold is-stat"} -->
-<p class="pc-chip pc-2 is-white num-gold is-stat">Flexible Learning <strong>100%</strong></p>
-<!-- /wp:paragraph -->
+<?php echo IMET\Theme\Modules\Patterns\SyncedSections::block( 'photo-why-1' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- block comment built from an ID or a fixed slug. ?>
 </div>
-<!-- /wp:group --></div>
 <!-- /wp:group -->
 
 <!-- wp:group {"className":"step-card","layout":{"type":"default"}} -->
@@ -446,18 +402,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"className":"sc-photo photo-chips is-pc-why-2","layout":{"type":"default"}} -->
-<div class="wp-block-group sc-photo photo-chips is-pc-why-2"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"pc-photo"} -->
-<figure class="wp-block-image size-full pc-photo"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/photo-placeholder.webp" ) ); ?>" alt="Executive learner"/></figure>
-<!-- /wp:image -->
-<!-- wp:paragraph {"className":"pc-chip pc-1 is-white"} -->
-<p class="pc-chip pc-1 is-white">Affordable</p>
-<!-- /wp:paragraph -->
-<!-- wp:paragraph {"className":"pc-chip pc-2 is-green"} -->
-<p class="pc-chip pc-2 is-green">Scholarships Available</p>
-<!-- /wp:paragraph -->
+<?php echo IMET\Theme\Modules\Patterns\SyncedSections::block( 'photo-why-2' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- block comment built from an ID or a fixed slug. ?>
 </div>
-<!-- /wp:group --></div>
 <!-- /wp:group -->
 <!-- wp:group {"className":"step-card","layout":{"type":"default"}} -->
 <div class="wp-block-group step-card"><!-- wp:group {"className":"sc-text","layout":{"type":"default"}} -->
@@ -470,18 +416,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"className":"sc-photo photo-chips is-pc-why-3","layout":{"type":"default"}} -->
-<div class="wp-block-group sc-photo photo-chips is-pc-why-3"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"pc-photo"} -->
-<figure class="wp-block-image size-full pc-photo"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/photo-placeholder.webp" ) ); ?>" alt="Smiling professional"/></figure>
-<!-- /wp:image -->
-<!-- wp:paragraph {"className":"pc-chip pc-1 is-blue is-row"} -->
-<p class="pc-chip pc-1 is-blue is-row"><strong>100%</strong> Online</p>
-<!-- /wp:paragraph -->
-<!-- wp:paragraph {"className":"pc-chip pc-2 is-white num-blue"} -->
-<p class="pc-chip pc-2 is-white num-blue"><strong>Google</strong> Scholar</p>
-<!-- /wp:paragraph -->
+<?php echo IMET\Theme\Modules\Patterns\SyncedSections::block( 'photo-why-3' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- block comment built from an ID or a fixed slug. ?>
 </div>
-<!-- /wp:group --></div>
 <!-- /wp:group -->
 
 <!-- wp:group {"className":"step-card","layout":{"type":"default"}} -->
@@ -495,21 +431,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"className":"sc-photo photo-chips is-pc-why-4","layout":{"type":"default"}} -->
-<div class="wp-block-group sc-photo photo-chips is-pc-why-4"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"pc-photo"} -->
-<figure class="wp-block-image size-full pc-photo"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/photo-placeholder.webp" ) ); ?>" alt="Professional in a mentoring session"/></figure>
-<!-- /wp:image -->
-<!-- wp:paragraph {"className":"pc-chip pc-1 is-white num-blue"} -->
-<p class="pc-chip pc-1 is-white num-blue"><strong>IEEE</strong></p>
-<!-- /wp:paragraph -->
-<!-- wp:paragraph {"className":"pc-chip pc-2 is-white num-pink"} -->
-<p class="pc-chip pc-2 is-white num-pink"><strong>1-1</strong> mentoring session</p>
-<!-- /wp:paragraph -->
-<!-- wp:paragraph {"className":"pc-chip pc-3 is-pink"} -->
-<p class="pc-chip pc-3 is-pink">Embassy-Approved Certificate</p>
-<!-- /wp:paragraph -->
+<?php echo IMET\Theme\Modules\Patterns\SyncedSections::block( 'photo-why-4' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- block comment built from an ID or a fixed slug. ?>
 </div>
-<!-- /wp:group --></div>
 <!-- /wp:group -->
 </div>
 <!-- /wp:group --></div>
