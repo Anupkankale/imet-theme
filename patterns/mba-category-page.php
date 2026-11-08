@@ -141,9 +141,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:buttons -->
 </div>
 <!-- /wp:group -->
-<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"hl-visual"} -->
-<figure class="wp-block-image size-full hl-visual"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/mba-highlights.jpg" ) ); ?>" alt="MBA graduates: 3x salary increase, high career ROI, skill expansion"/></figure>
+<!-- wp:group {"className":"hl-visual photo-chips is-pc-mba-hl","layout":{"type":"default"}} -->
+<div class="wp-block-group hl-visual photo-chips is-pc-mba-hl"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"pc-photo"} -->
+<figure class="wp-block-image size-full pc-photo"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/photo-placeholder.webp" ) ); ?>" alt="Online MBA professionals"/></figure>
 <!-- /wp:image -->
+<!-- wp:paragraph {"className":"pc-chip pc-1 is-green is-pill is-row"} -->
+<p class="pc-chip pc-1 is-green is-pill is-row"><strong>3x</strong> Salary Increase</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"pc-chip pc-2 is-blue has-check"} -->
+<p class="pc-chip pc-2 is-blue has-check">High Career ROI</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"pc-chip pc-3 is-white"} -->
+<p class="pc-chip pc-3 is-white">Skill Expansion</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
 </div>
 <!-- /wp:group --></section>
 <!-- /wp:imet/highlights -->
@@ -290,9 +302,24 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:group -->
 </div>
 <!-- /wp:group -->
-<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ov-visual"} -->
-<figure class="wp-block-image size-full ov-visual"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/mba-usp.jpg" ) ); ?>" alt="MBA graduate: 4.5M+ job openings worldwide, Google Scholar, 100% immediate ROI, career path from business professional to CEO / Managing Director"/></figure>
+<!-- wp:group {"className":"ov-visual photo-chips is-pc-mba-usp","layout":{"type":"default"}} -->
+<div class="wp-block-group ov-visual photo-chips is-pc-mba-usp"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"pc-photo"} -->
+<figure class="wp-block-image size-full pc-photo"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/photo-placeholder.webp" ) ); ?>" alt="MBA graduate"/></figure>
 <!-- /wp:image -->
+<!-- wp:paragraph {"className":"pc-chip pc-1 is-white num-blue"} -->
+<p class="pc-chip pc-1 is-white num-blue"><strong>Google</strong> Scholar</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"pc-chip pc-2 is-white num-blue is-row"} -->
+<p class="pc-chip pc-2 is-white num-blue is-row"><strong>4.5M+</strong> job openings worldwide</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"pc-chip pc-3 is-white is-roi"} -->
+<p class="pc-chip pc-3 is-white is-roi">Immediate ROI <strong>100%</strong></p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"pc-chip pc-4 is-white is-path"} -->
+<p class="pc-chip pc-4 is-white is-path">Business Professional → Business Analyst → Project/Operations Manager → Director of Business Strategy → CEO / Managing Director</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
 </div>
 <!-- /wp:group -->
 </div>

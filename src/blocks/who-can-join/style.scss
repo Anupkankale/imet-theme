@@ -167,3 +167,32 @@
 
 	.imet-section.join.is-style-boxed .join-acc details p { padding: 0 16px 16px; }
 }
+
+/* Photo with chips (DBA Course Page): the labels are real text over a plain photo, so they stay sharp, translate and
+   can be edited. The chips are placed and sized in container units, so they keep their place at every width. */
+.imet-section .join-photo.has-chips { position: relative; container-type: inline-size; }
+
+.imet-section .join-photo.has-chips .join-pic { margin: 0 0 0 4.8%; }
+
+.imet-section.join .join-photo.has-chips img { aspect-ratio: auto; border-radius: 0; object-fit: fill; } /* the photo draws its own rounded frame */
+
+.imet-section .join-chip {
+	position: absolute;
+	margin: 0;
+	padding: 1.9cqi 2.4cqi;
+	border-radius: var(--wp--preset--border-radius--8);
+	color: var(--wp--preset--color--white);
+	font-family: var(--wp--preset--font-family--montserrat);
+	font-size: clamp(var(--wp--preset--font-size--caption), 3.35cqi, var(--wp--preset--font-size--medium));
+	font-weight: 700;
+	line-height: 1.2;
+	box-shadow: var(--wp--preset--shadow--soft);
+}
+
+.imet-section .join-chip.is-green { top: 18.7cqi; left: 0; width: 37.4cqi; background: var(--wp--preset--color--green); }
+
+.imet-section .join-chip.is-blue { top: 30.5cqi; left: 0.3cqi; width: 32cqi; background: var(--wp--preset--color--blue); }
+
+.imet-section .join-chip.is-card { top: 48.8cqi; left: 63.7cqi; width: 32.1cqi; padding: 2.4cqi; background: var(--wp--preset--color--white); color: var(--wp--preset--color--ink); }
+
+.imet-section .join-chip.is-card strong { color: var(--wp--preset--color--green); font-weight: 700; }

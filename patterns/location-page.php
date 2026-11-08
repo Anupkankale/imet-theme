@@ -142,9 +142,27 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:buttons -->
 </div>
 <!-- /wp:group -->
-<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"hl-visual"} -->
-<figure class="wp-block-image size-full hl-visual"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/loc-highlights.jpg" ) ); ?>" alt="DBA graduate: IEEE, Google Scholar, Scopus, 100% research visibility, one-to-one mentoring"/></figure>
+<!-- wp:group {"className":"hl-visual photo-chips is-pc-loc-hl","layout":{"type":"default"}} -->
+<div class="wp-block-group hl-visual photo-chips is-pc-loc-hl"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"pc-photo"} -->
+<figure class="wp-block-image size-full pc-photo"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/photo-placeholder.webp" ) ); ?>" alt="DBA graduate"/></figure>
 <!-- /wp:image -->
+<!-- wp:paragraph {"className":"pc-chip pc-1 is-white num-blue"} -->
+<p class="pc-chip pc-1 is-white num-blue"><strong>IEEE</strong></p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"pc-chip pc-2 is-white num-gold"} -->
+<p class="pc-chip pc-2 is-white num-gold">Elsevier <strong>Scopus</strong></p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"pc-chip pc-3 is-white num-blue"} -->
+<p class="pc-chip pc-3 is-white num-blue"><strong>Google</strong> Scholar</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"pc-chip pc-4 is-cream is-stat"} -->
+<p class="pc-chip pc-4 is-cream is-stat">Research Visibility <strong>100% ↗</strong></p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"pc-chip pc-5 is-lavender"} -->
+<p class="pc-chip pc-5 is-lavender">1-1 mentoring session</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
 </div>
 <!-- /wp:group --></section>
 <!-- /wp:imet/highlights -->
