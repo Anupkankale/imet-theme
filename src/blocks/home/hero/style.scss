@@ -486,12 +486,14 @@
 
 .imet-section .h-crumbs a { color: inherit; }
 
-.imet-section .h-crumbs a:is(:hover, :focus-visible) { color: #fff; text-decoration: underline; }
+.imet-section .h-crumbs a:is(:hover, :focus-visible) { color: var(--wp--preset--color--navy); text-decoration: underline; }
+
+.imet-section.hero.is-style-dark .h-crumbs a:is(:hover, :focus-visible) { color: var(--wp--preset--color--white); }
 
 /* Rating: the stars are text (★), coloured gold with the last one dimmed */
 .imet-section .h-rating {
 	margin-bottom: 12px;
-	color: #fff;
+	color: var(--wp--preset--color--body-text); /* the light hero (MBA Course Page); white on the dark one, below */
 	font-family: var(--ui);
 	font-size: 1.125rem;
 	line-height: 1.4;
@@ -507,6 +509,8 @@
 }
 
 .imet-section .h-rating em { color: rgba(214, 149, 33, .4); font-style: normal; }
+
+.imet-section.hero.is-style-dark .h-rating { color: var(--wp--preset--color--white); }
 
 @media (max-width: 1100px) {
 
