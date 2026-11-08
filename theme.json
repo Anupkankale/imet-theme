@@ -64,6 +64,11 @@
 					"color": "#4a79fb"
 				},
 				{
+					"slug": "pink",
+					"name": "Pink",
+					"color": "#ec3d78"
+				},
+				{
 					"slug": "ink",
 					"name": "Ink",
 					"color": "#000000"

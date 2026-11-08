@@ -2,6 +2,14 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.10 - 2026-11-08
+
+### Changed
+
+- Every photo that had labels drawn into it now carries them as real text (a new "photo with chips" component, `_photo-chips.scss`): Home (doctorate tab, MBA tab, the four "Why choose" cards), DBA Category (highlights, graduate), MBA Category (highlights, USP), MBA Course (highlights, requirements, benefits), Location and DBA USA (highlights). Each uses one shared placeholder photo (`photo-placeholder.webp`) to be replaced in the editor; the frame keeps the original artwork's shape, and the labels are placed and sized with the photo at every width. New colour token `pink`. On narrow photos (phones) the career-path and ROI cards step aside so the short labels stay readable; the step-card text style no longer applies to these labels. Pages saved earlier keep their old images until the section is re-inserted.
+- DBA Course Page: the labels on the Eligibility Criteria photo (AI Ethics & Security, Cyber Resilience, C-Suite Reporting) and the Benefits photo (3.5M+ job openings, Immediate ROI +85%, the career path to CISO) are real text over clean photos (`course-requirements-clean.webp`, `course-benefits-clean.webp`), placed in container units so they keep their place at every width. Pages saved earlier keep their old images until the section is re-inserted.
+- MBA Course Page matched to its 1440 design: Montserrat copy, 22px eyebrows with a gold line, 38px titles, thin rules between sections, the hero, form, highlights, fee banner, requirements, benefits, tabs, process and CTA at the design's sizes and spacing. Scoped to the MBA hero's `is-mba-course` class (`_mba-course.scss`) and to desktop widths, so no other page changes. The pattern's logo card has no title and the highlights list four points, as in the design.
+
 ## 1.1.9 - 2026-11-08
 
 ### Added

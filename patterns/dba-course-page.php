@@ -195,9 +195,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:details -->
 </div>
 <!-- /wp:group -->
-<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"join-photo"} -->
-<figure class="wp-block-image size-full join-photo"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/course-requirements.webp" ) ); ?>" alt="AI head with a padlock: AI ethics &amp; security, cyber resilience, C-suite reporting 50% direct to board"/></figure>
+<!-- wp:group {"className":"join-photo has-chips","layout":{"type":"default"}} -->
+<div class="wp-block-group join-photo has-chips"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"join-pic"} -->
+<figure class="wp-block-image size-full join-pic"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/course-requirements-clean.webp" ) ); ?>" alt="Digital head with a padlock: cybersecurity leadership"/></figure>
 <!-- /wp:image -->
+<!-- wp:paragraph {"className":"join-chip is-green"} -->
+<p class="join-chip is-green">AI Ethics &amp; Security</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"join-chip is-blue"} -->
+<p class="join-chip is-blue">Cyber Resilience</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"join-chip is-card"} -->
+<p class="join-chip is-card">C-Suite Reporting: <strong>50% direct to Board</strong></p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
 </div>
 <!-- /wp:group -->
 </div>
@@ -301,9 +313,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:group -->
 </div>
 <!-- /wp:group -->
-<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ov-visual"} -->
-<figure class="wp-block-image size-full ov-visual"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/course-benefits.webp" ) ); ?>" alt="Cybersecurity leader: 3.5M+ job openings worldwide, +85% immediate ROI, career path from IT professional to CISO"/></figure>
+<!-- wp:group {"className":"ov-visual has-chips","layout":{"type":"default"}} -->
+<div class="wp-block-group ov-visual has-chips"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ov-photo"} -->
+<figure class="wp-block-image size-full ov-photo"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/course-benefits-clean.webp" ) ); ?>" alt="Cybersecurity leader beside a holographic globe"/></figure>
 <!-- /wp:image -->
+<!-- wp:paragraph {"className":"ov-chip is-jobs"} -->
+<p class="ov-chip is-jobs"><strong>3.5M+</strong> Cybersecurity job openings worldwide</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"ov-chip is-roi"} -->
+<p class="ov-chip is-roi">Immediate ROI <strong>+85%</strong></p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"ov-chip is-path"} -->
+<p class="ov-chip is-path">IT Professional → Cybersecurity Specialist → AI &amp; Cloud Security Lead → Cyber Resilience Head → <strong>CISO</strong></p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
 <!-- wp:buttons -->
 <div class="wp-block-buttons"><!-- wp:button {"className":"btn-navy btn-lg"} -->
 <div class="wp-block-button btn-navy btn-lg"><a class="wp-block-button__link wp-element-button" href="#advisor-form">Talk to a DBA Advisor</a></div>

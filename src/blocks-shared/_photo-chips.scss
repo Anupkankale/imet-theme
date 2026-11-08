@@ -1,0 +1,222 @@
+/* Photo with chips: a photo with its labels as real text on top (Group "photo-chips" = Image "pc-photo" + Paragraphs
+   "pc-chip"), so the labels stay sharp, translate and can be edited, and the photo can be swapped in the editor.
+   The frame keeps the original artwork's shape (--pc-ratio), so a replacement photo of any size fills it the same
+   way. Chips are placed in % of the frame and sized in container units, so they keep their place at every width.
+   Used on Home, DBA Category, MBA Category, MBA Course, Location and DBA USA. Tokens only. */
+
+.imet-section .photo-chips.photo-chips {
+	position: relative;
+	width: 100%;
+	padding: 0; /* chips are placed against the photo's own box */
+	container-type: inline-size;
+}
+
+.imet-section .photo-chips.photo-chips > .pc-photo.wp-block-image { margin: 0; }
+
+.imet-section .photo-chips.photo-chips > .pc-photo.wp-block-image img {
+	position: static;
+	display: block;
+	width: 100%;
+	max-width: none;
+	margin: 0;
+	border-radius: var(--wp--preset--border-radius--22);
+	object-fit: cover;
+	mix-blend-mode: normal;
+}
+
+/* The frame's shape. A Home tab photo fills its grid cell instead (the tabs block sizes it). */
+.imet-section .photo-chips.photo-chips:not(.tab-photo) > .pc-photo.wp-block-image img { height: auto; aspect-ratio: var(--pc-ratio); }
+
+.imet-section .pc-chip {
+	position: absolute;
+	z-index: 1;
+	box-sizing: border-box;
+	width: max-content; /* a label is as wide as its text, up to its max-width below; the multi-line cards set a width */
+	margin: 0;
+	padding: calc(var(--pc-fs) * .55) calc(var(--pc-fs) * .8);
+	border-radius: var(--wp--preset--border-radius--8);
+	font-family: var(--wp--preset--font-family--montserrat);
+	font-size: clamp(var(--wp--preset--font-size--caption), var(--pc-fs), var(--wp--preset--font-size--large));
+	font-weight: 600;
+	line-height: 1.25;
+	box-shadow: var(--wp--preset--shadow--soft);
+}
+
+.imet-section .pc-chip strong { font-weight: 700; }
+
+/* Colours */
+.imet-section .pc-chip.is-white { background: var(--wp--preset--color--white); color: var(--wp--preset--color--ink); }
+
+.imet-section .pc-chip.is-green { background: var(--wp--preset--color--green); color: var(--wp--preset--color--white); }
+
+.imet-section .pc-chip.is-blue { background: var(--wp--preset--color--blue); color: var(--wp--preset--color--white); }
+
+.imet-section .pc-chip.is-pink { background: var(--wp--preset--color--pink); color: var(--wp--preset--color--white); }
+
+.imet-section .pc-chip.is-cream { background: var(--wp--preset--color--peach); color: var(--wp--preset--color--ink); }
+
+.imet-section .pc-chip.is-lavender { background: var(--wp--preset--color--lavender); color: var(--wp--preset--color--ink); }
+
+.imet-section .pc-chip :is(strong) { color: inherit; }
+
+.imet-section .pc-chip.is-white strong,
+.imet-section .pc-chip.is-cream strong { color: var(--wp--preset--color--green); }
+
+.imet-section .pc-chip.num-blue strong { color: var(--wp--preset--color--blue); }
+
+.imet-section .pc-chip.num-gold strong { color: var(--wp--preset--color--gold); }
+
+.imet-section .pc-chip.num-pink strong { color: var(--wp--preset--color--pink); }
+
+/* Shapes */
+.imet-section .pc-chip.is-pill { border-radius: var(--wp--preset--border-radius--pill); }
+
+.imet-section .pc-chip.is-row { display: flex; align-items: center; gap: calc(var(--pc-fs) * .5); }
+
+.imet-section .pc-chip.is-row strong { flex: none; font-size: 135%; }
+
+.imet-section .pc-chip.is-stat strong { display: block; font-size: 170%; line-height: 1.15; }
+
+/* Career path: smaller, regular text, the destination in red */
+.imet-section .pc-chip.is-path { font-size: clamp(var(--wp--preset--font-size--caption), calc(var(--pc-fs) * .95), var(--wp--preset--font-size--normal)); font-weight: 500; }
+
+.imet-section .pc-chip.is-path strong { color: var(--wp--preset--color--danger); font-weight: 500; }
+
+/* ROI card: the figure over a rising trend line */
+.imet-section .pc-chip.is-roi {
+	background: var(--wp--preset--color--white) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 50' preserveAspectRatio='none'%3E%3Cpath d='M0 50V47C8 46 12 42 18 36S28 29 34 28 42 16 47 18 54 6 60 12 66 2 71 9 77 0 82 8 88 1 92 9 97 1 100 0V50Z' fill='%23fef3e1'/%3E%3Cpath d='M0 47C8 46 12 42 18 36S28 29 34 28 42 16 47 18 54 6 60 12 66 2 71 9 77 0 82 8 88 1 92 9 97 1 100 0' fill='none' stroke='%23e0a24a' stroke-width='0.8' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E") left bottom / 100% 55% no-repeat;
+}
+
+.imet-section .pc-chip.is-roi strong { display: block; font-size: 170%; line-height: 1.15; }
+
+/* A tick in a circle before the text */
+.imet-section .pc-chip:is(.has-check, .has-gold-check) { display: flex; align-items: center; gap: calc(var(--pc-fs) * .6); }
+
+.imet-section .pc-chip:is(.has-check, .has-gold-check)::before {
+	content: "";
+	flex: none;
+	width: 1.2lh;
+	height: 1.2lh;
+	border-radius: 50%;
+	background: var(--wp--preset--color--white) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='m6 12.5 4 4 8-9' fill='none' stroke='%234a79fb' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 70% no-repeat;
+}
+
+.imet-section .pc-chip.has-gold-check::before {
+	background: var(--wp--preset--color--gold) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='m6 12.5 4 4 8-9' fill='none' stroke='%23fff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 70% no-repeat;
+}
+
+/* A narrow photo (phones, small cards) has no room for the long cards at a readable size: it keeps the short labels and
+   drops the career path and the ROI chart, which would otherwise cover the photo and each other. */
+@container (max-width: 420px) { /* token-ok: container query breakpoint, like a media query */
+
+	.imet-section .pc-chip:is(.is-path, .is-roi) { display: none; }
+}
+
+/* ---------- Positions (left, top, width as a share of the photo; generated from one spec) ---------- */
+.imet-section .photo-chips.is-pc-mba-course-hl { --pc-ratio: 872 / 800; --pc-fs: 3.6cqi; }
+
+.imet-section .photo-chips.is-pc-mba-course-hl .pc-1 { top: 27%; left: 0%; }
+
+.imet-section .photo-chips.is-pc-mba-course-hl .pc-2 { top: 75%; right: 6%; max-width: 47%; }
+
+.imet-section .photo-chips.is-pc-mba-course-req { --pc-ratio: 992 / 676; --pc-fs: 3.2cqi; }
+
+.imet-section .photo-chips.is-pc-mba-course-req .pc-1 { top: 14%; left: 2%; }
+
+.imet-section .photo-chips.is-pc-mba-course-req .pc-2 { top: 33%; left: 1%; }
+
+.imet-section .photo-chips.is-pc-mba-course-req .pc-3 { top: 64%; right: 7%; max-width: 36%; }
+
+.imet-section .photo-chips.is-pc-mba-course-ben { --pc-ratio: 1324 / 897; --pc-fs: 2.5cqi; }
+
+.imet-section .photo-chips.is-pc-mba-course-ben .pc-1 { top: 31%; left: 1%; max-width: 46%; }
+
+.imet-section .photo-chips.is-pc-mba-course-ben .pc-2 { top: 58%; left: 2%; width: 30%; height: 29%; }
+
+.imet-section .photo-chips.is-pc-mba-course-ben .pc-3 { top: 63%; right: 0%; width: 46%; }
+
+.imet-section .photo-chips.is-pc-dba-hl { --pc-ratio: 1060 / 1014; --pc-fs: 3.2cqi; }
+
+.imet-section .photo-chips.is-pc-dba-hl .pc-1 { top: 17%; right: 10%; }
+
+.imet-section .photo-chips.is-pc-dba-hl .pc-2 { top: 56%; left: 0%; }
+
+.imet-section .photo-chips.is-pc-dba-hl .pc-3 { top: 72%; right: 2%; }
+
+.imet-section .photo-chips.is-pc-dba-grad { --pc-ratio: 1150 / 1020; --pc-fs: 2.7cqi; }
+
+.imet-section .photo-chips.is-pc-dba-grad .pc-1 { top: 34%; right: 15%; }
+
+.imet-section .photo-chips.is-pc-dba-grad .pc-2 { top: 43%; left: 1%; max-width: 50%; }
+
+.imet-section .photo-chips.is-pc-dba-grad .pc-3 { top: 56%; left: 1%; width: 35%; height: 24%; }
+
+.imet-section .photo-chips.is-pc-dba-grad .pc-4 { top: 73%; right: 2%; width: 53%; }
+
+.imet-section .photo-chips.is-pc-mba-hl { --pc-ratio: 760 / 686; --pc-fs: 3.4cqi; }
+
+.imet-section .photo-chips.is-pc-mba-hl .pc-1 { top: 19%; right: 13%; }
+
+.imet-section .photo-chips.is-pc-mba-hl .pc-2 { top: 58%; left: 7%; }
+
+.imet-section .photo-chips.is-pc-mba-hl .pc-3 { top: 70%; right: 5%; }
+
+.imet-section .photo-chips.is-pc-mba-usp { --pc-ratio: 900 / 785; --pc-fs: 2.7cqi; }
+
+.imet-section .photo-chips.is-pc-mba-usp .pc-1 { top: 37%; right: 3%; }
+
+.imet-section .photo-chips.is-pc-mba-usp .pc-2 { top: 47%; left: 1%; max-width: 40%; }
+
+.imet-section .photo-chips.is-pc-mba-usp .pc-3 { top: 61%; left: 1%; width: 34%; height: 26%; }
+
+.imet-section .photo-chips.is-pc-mba-usp .pc-4 { top: 72%; right: 0%; width: 55%; }
+
+.imet-section .photo-chips.is-pc-loc-hl { --pc-ratio: 693 / 760; --pc-fs: 3.6cqi; }
+
+.imet-section .photo-chips.is-pc-loc-hl .pc-1 { top: 30%; left: 6%; }
+
+.imet-section .photo-chips.is-pc-loc-hl .pc-2 { top: 37%; right: 6%; }
+
+.imet-section .photo-chips.is-pc-loc-hl .pc-3 { top: 53%; left: 5%; }
+
+.imet-section .photo-chips.is-pc-loc-hl .pc-4 { top: 63%; right: 1%; max-width: 42%; }
+
+.imet-section .photo-chips.is-pc-loc-hl .pc-5 { top: 77%; left: 9%; max-width: 47%; }
+
+.imet-section .photo-chips.is-pc-home-tab { --pc-ratio: 847 / 1024; --pc-fs: 3.2cqi; }
+
+.imet-section .photo-chips.is-pc-home-tab .pc-1 { top: 37%; left: 6%; }
+
+.imet-section .photo-chips.is-pc-home-tab .pc-2 { top: 44%; right: 5%; }
+
+.imet-section .photo-chips.is-pc-home-tab .pc-3 { top: 59%; left: 4%; }
+
+.imet-section .photo-chips.is-pc-home-tab .pc-4 { top: 68%; right: 3%; max-width: 40%; }
+
+.imet-section .photo-chips.is-pc-home-tab .pc-5 { top: 79%; left: 9%; max-width: 35%; }
+
+.imet-section .photo-chips.is-pc-why-1 { --pc-ratio: 1024 / 548; --pc-fs: 2.8cqi; }
+
+.imet-section .photo-chips.is-pc-why-1 .pc-1 { top: 40%; left: 13%; }
+
+.imet-section .photo-chips.is-pc-why-1 .pc-2 { top: 48%; right: 0%; max-width: 56%; }
+
+.imet-section .photo-chips.is-pc-why-2 { --pc-ratio: 1024 / 645; --pc-fs: 3.4cqi; }
+
+.imet-section .photo-chips.is-pc-why-2 .pc-1 { top: 50%; right: 0%; }
+
+.imet-section .photo-chips.is-pc-why-2 .pc-2 { top: 69%; left: 2%; }
+
+.imet-section .photo-chips.is-pc-why-3 { --pc-ratio: 1024 / 661; --pc-fs: 3.6cqi; }
+
+.imet-section .photo-chips.is-pc-why-3 .pc-1 { top: 69%; left: 3%; max-width: 44%; }
+
+.imet-section .photo-chips.is-pc-why-3 .pc-2 { top: 67%; right: 1%; }
+
+.imet-section .photo-chips.is-pc-why-4 { --pc-ratio: 1024 / 521; --pc-fs: 3.4cqi; }
+
+.imet-section .photo-chips.is-pc-why-4 .pc-1 { top: 27%; left: 7%; }
+
+.imet-section .photo-chips.is-pc-why-4 .pc-2 { top: 44%; right: 0%; }
+
+.imet-section .photo-chips.is-pc-why-4 .pc-3 { top: 62%; left: 0%; max-width: 49%; }

@@ -185,9 +185,27 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <!-- wp:group {"className":"tab-panels","layout":{"type":"default"}} -->
 <div class="wp-block-group tab-panels"><!-- wp:group {"className":"tab-panel","layout":{"type":"default"}} -->
-<div class="wp-block-group tab-panel"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"tab-photo"} -->
-<figure class="wp-block-image size-full tab-photo"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/imet/home-tab-doctorate.webp' ) ); ?>" alt="Online DBA graduate with research visibility on IEEE, Scopus and Google Scholar"/></figure>
+<div class="wp-block-group tab-panel"><!-- wp:group {"className":"tab-photo photo-chips is-pc-home-tab","layout":{"type":"default"}} -->
+<div class="wp-block-group tab-photo photo-chips is-pc-home-tab"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"pc-photo"} -->
+<figure class="wp-block-image size-full pc-photo"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/photo-placeholder.webp" ) ); ?>" alt="Online DBA graduate"/></figure>
 <!-- /wp:image -->
+<!-- wp:paragraph {"className":"pc-chip pc-1 is-white num-blue"} -->
+<p class="pc-chip pc-1 is-white num-blue"><strong>IEEE</strong></p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"pc-chip pc-2 is-white num-gold"} -->
+<p class="pc-chip pc-2 is-white num-gold">Elsevier <strong>Scopus</strong></p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"pc-chip pc-3 is-white num-blue"} -->
+<p class="pc-chip pc-3 is-white num-blue"><strong>Google</strong> Scholar</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"pc-chip pc-4 is-cream is-stat"} -->
+<p class="pc-chip pc-4 is-cream is-stat">Research Visibility <strong>100% ↗</strong></p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"pc-chip pc-5 is-lavender"} -->
+<p class="pc-chip pc-5 is-lavender">1-1 mentoring session</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
 
 <!-- wp:list -->
 <ul class="wp-block-list"><!-- wp:list-item -->
@@ -219,9 +237,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:group -->
 
 <!-- wp:group {"className":"tab-panel","layout":{"type":"default"}} -->
-<div class="wp-block-group tab-panel"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"tab-photo"} -->
-<figure class="wp-block-image size-full tab-photo"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/imet/mba-highlights.jpg' ) ); ?>" alt="Online MBA professionals with higher career ROI and skill expansion"/></figure>
+<div class="wp-block-group tab-panel"><!-- wp:group {"className":"tab-photo photo-chips is-pc-mba-hl","layout":{"type":"default"}} -->
+<div class="wp-block-group tab-photo photo-chips is-pc-mba-hl"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"pc-photo"} -->
+<figure class="wp-block-image size-full pc-photo"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/photo-placeholder.webp" ) ); ?>" alt="Online MBA professionals"/></figure>
 <!-- /wp:image -->
+<!-- wp:paragraph {"className":"pc-chip pc-1 is-green is-pill is-row"} -->
+<p class="pc-chip pc-1 is-green is-pill is-row"><strong>3x</strong> Salary Increase</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"pc-chip pc-2 is-blue has-check"} -->
+<p class="pc-chip pc-2 is-blue has-check">High Career ROI</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"pc-chip pc-3 is-white"} -->
+<p class="pc-chip pc-3 is-white">Skill Expansion</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
 
 <!-- wp:list -->
 <ul class="wp-block-list"><!-- wp:list-item -->
@@ -391,9 +421,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
-<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"sc-photo"} -->
-<figure class="wp-block-image size-full sc-photo"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/imet/home-why-1.webp' ) ); ?>" alt="Why choose IMET's online doctorate and master's program"/></figure>
-<!-- /wp:image --></div>
+<!-- wp:group {"className":"sc-photo photo-chips is-pc-why-1","layout":{"type":"default"}} -->
+<div class="wp-block-group sc-photo photo-chips is-pc-why-1"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"pc-photo"} -->
+<figure class="wp-block-image size-full pc-photo"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/photo-placeholder.webp" ) ); ?>" alt="Learner studying online"/></figure>
+<!-- /wp:image -->
+<!-- wp:paragraph {"className":"pc-chip pc-1 is-white"} -->
+<p class="pc-chip pc-1 is-white">Research-Driven</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"pc-chip pc-2 is-white num-gold is-stat"} -->
+<p class="pc-chip pc-2 is-white num-gold is-stat">Flexible Learning <strong>100%</strong></p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group --></div>
 <!-- /wp:group -->
 
 <!-- wp:group {"className":"step-card","layout":{"type":"default"}} -->
@@ -407,9 +446,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
-<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"sc-photo"} -->
-<figure class="wp-block-image size-full sc-photo"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/imet/home-why-2.webp' ) ); ?>" alt="Executive branding services"/></figure>
-<!-- /wp:image --></div>
+<!-- wp:group {"className":"sc-photo photo-chips is-pc-why-2","layout":{"type":"default"}} -->
+<div class="wp-block-group sc-photo photo-chips is-pc-why-2"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"pc-photo"} -->
+<figure class="wp-block-image size-full pc-photo"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/photo-placeholder.webp" ) ); ?>" alt="Executive learner"/></figure>
+<!-- /wp:image -->
+<!-- wp:paragraph {"className":"pc-chip pc-1 is-white"} -->
+<p class="pc-chip pc-1 is-white">Affordable</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"pc-chip pc-2 is-green"} -->
+<p class="pc-chip pc-2 is-green">Scholarships Available</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group --></div>
 <!-- /wp:group -->
 <!-- wp:group {"className":"step-card","layout":{"type":"default"}} -->
 <div class="wp-block-group step-card"><!-- wp:group {"className":"sc-text","layout":{"type":"default"}} -->
@@ -422,9 +470,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
-<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"sc-photo"} -->
-<figure class="wp-block-image size-full sc-photo"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/imet/home-why-3.webp' ) ); ?>" alt="Online, Flexible &amp; Affordable Program"/></figure>
-<!-- /wp:image --></div>
+<!-- wp:group {"className":"sc-photo photo-chips is-pc-why-3","layout":{"type":"default"}} -->
+<div class="wp-block-group sc-photo photo-chips is-pc-why-3"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"pc-photo"} -->
+<figure class="wp-block-image size-full pc-photo"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/photo-placeholder.webp" ) ); ?>" alt="Smiling professional"/></figure>
+<!-- /wp:image -->
+<!-- wp:paragraph {"className":"pc-chip pc-1 is-blue is-row"} -->
+<p class="pc-chip pc-1 is-blue is-row"><strong>100%</strong> Online</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"pc-chip pc-2 is-white num-blue"} -->
+<p class="pc-chip pc-2 is-white num-blue"><strong>Google</strong> Scholar</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group --></div>
 <!-- /wp:group -->
 
 <!-- wp:group {"className":"step-card","layout":{"type":"default"}} -->
@@ -438,9 +495,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
-<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"sc-photo"} -->
-<figure class="wp-block-image size-full sc-photo"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/imet/home-why-4.webp' ) ); ?>" alt="Scholarship for online master degree"/></figure>
-<!-- /wp:image --></div>
+<!-- wp:group {"className":"sc-photo photo-chips is-pc-why-4","layout":{"type":"default"}} -->
+<div class="wp-block-group sc-photo photo-chips is-pc-why-4"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"pc-photo"} -->
+<figure class="wp-block-image size-full pc-photo"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/photo-placeholder.webp" ) ); ?>" alt="Professional in a mentoring session"/></figure>
+<!-- /wp:image -->
+<!-- wp:paragraph {"className":"pc-chip pc-1 is-white num-blue"} -->
+<p class="pc-chip pc-1 is-white num-blue"><strong>IEEE</strong></p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"pc-chip pc-2 is-white num-pink"} -->
+<p class="pc-chip pc-2 is-white num-pink"><strong>1-1</strong> mentoring session</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"pc-chip pc-3 is-pink"} -->
+<p class="pc-chip pc-3 is-pink">Embassy-Approved Certificate</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group --></div>
 <!-- /wp:group -->
 </div>
 <!-- /wp:group --></div>

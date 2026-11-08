@@ -133,9 +133,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:buttons -->
 </div>
 <!-- /wp:group -->
-<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"hl-visual"} -->
-<figure class="wp-block-image size-full hl-visual"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/highlights.webp" ) ); ?>" alt="DBA graduates: promoted to CxO, 15+ top global specializations, skill growth"/></figure>
+<!-- wp:group {"className":"hl-visual photo-chips is-pc-dba-hl","layout":{"type":"default"}} -->
+<div class="wp-block-group hl-visual photo-chips is-pc-dba-hl"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"pc-photo"} -->
+<figure class="wp-block-image size-full pc-photo"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/photo-placeholder.webp" ) ); ?>" alt="DBA graduates"/></figure>
 <!-- /wp:image -->
+<!-- wp:paragraph {"className":"pc-chip pc-1 is-green is-pill is-row"} -->
+<p class="pc-chip pc-1 is-green is-pill is-row"><strong>15+</strong> Top Global Specializations</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"pc-chip pc-2 is-blue has-check"} -->
+<p class="pc-chip pc-2 is-blue has-check">Promoted to CxO</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"pc-chip pc-3 is-white"} -->
+<p class="pc-chip pc-3 is-white">Skill Growth</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
 </div>
 <!-- /wp:group --></section>
 <!-- /wp:imet/highlights -->
@@ -253,9 +265,24 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:group -->
 </div>
 <!-- /wp:group -->
-<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ov-visual"} -->
-<figure class="wp-block-image size-full ov-visual"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/graduate.webp" ) ); ?>" alt="DBA graduate: 3.5M+ cybersecurity job openings worldwide, +85% immediate ROI, career path from IT professional to CISO"/></figure>
+<!-- wp:group {"className":"ov-visual photo-chips is-pc-dba-grad","layout":{"type":"default"}} -->
+<div class="wp-block-group ov-visual photo-chips is-pc-dba-grad"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"pc-photo"} -->
+<figure class="wp-block-image size-full pc-photo"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/photo-placeholder.webp" ) ); ?>" alt="DBA graduate"/></figure>
 <!-- /wp:image -->
+<!-- wp:paragraph {"className":"pc-chip pc-1 is-white num-blue"} -->
+<p class="pc-chip pc-1 is-white num-blue"><strong>Google</strong> Scholar</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"pc-chip pc-2 is-white num-blue is-row"} -->
+<p class="pc-chip pc-2 is-white num-blue is-row"><strong>3.5M+</strong> Cybersecurity job openings worldwide</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"pc-chip pc-3 is-white is-roi"} -->
+<p class="pc-chip pc-3 is-white is-roi">Immediate ROI <strong>+85%</strong></p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"pc-chip pc-4 is-white is-path"} -->
+<p class="pc-chip pc-4 is-white is-path">IT Professional → Cybersecurity Specialist → AI &amp; Cloud Security Lead → Cyber Resilience Head → <strong>CISO</strong></p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
 </div>
 <!-- /wp:group -->
 </div>
