@@ -107,7 +107,7 @@ $mba: ":is(.wp-block-post-content, .imet-page-content):has(> .imet-section.hero.
 
 	#{$mba} > .highlights .hl-grid { grid-template-columns: minmax(0, 660px) minmax(0, 1fr); } /* token-ok: design */
 
-	#{$mba} > .highlights .hl-visual { align-self: start; width: 436px; margin: 7px 12px 0 auto; } /* token-ok: design */
+	#{$mba} > .highlights .hl-visual { align-self: start; width: min(436px, 100%); margin: 7px 12px 0 auto; } /* token-ok: design: 436px at 1440, narrower when the column is */
 
 	#{$mba} > .highlights .eyebrow-line + .title { margin-top: 2px; } /* token-ok: design */
 
@@ -184,7 +184,9 @@ $mba: ":is(.wp-block-post-content, .imet-page-content):has(> .imet-section.hero.
 
 	#{$mba} > .join:not(.is-style-boxed) .join-acc details p { margin-top: -13px; } /* token-ok: design: answer 7px under its question */
 
-	#{$mba} > .join:not(.is-style-boxed) .join-photo { width: 496px; margin-top: -10px; } /* token-ok: design */
+	#{$mba} > .join:not(.is-style-boxed) .join-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 496px); } /* token-ok: design: the photo column, 496px at 1440 */
+
+	#{$mba} > .join:not(.is-style-boxed) .join-photo { width: 100%; margin-top: -10px; } /* token-ok: design */
 
 	#{$mba} > .join.is-style-boxed .join-acc summary { font-size: 16px; font-weight: 400; } /* token-ok: design */
 
@@ -221,9 +223,9 @@ $mba: ":is(.wp-block-post-content, .imet-page-content):has(> .imet-section.hero.
 	#{$mba} > .cyber .wp-block-button__link { font-size: 18px; } /* token-ok: design */
 
 	/* ---------- Layout widths ---------- */
-	#{$mba} > .overview .ov-grid { grid-template-columns: 443px 662px; column-gap: 0; justify-content: start; padding-left: 72px; } /* token-ok: design */
+	#{$mba} > .overview .ov-grid { grid-template-columns: minmax(0, 443px) minmax(0, 662px); column-gap: 0; justify-content: start; padding-left: clamp(0px, 100% - 1128px, 72px); } /* token-ok: design: 72px in at 1440, none when narrower */
 
-	#{$mba} > .overview .ov-visual { width: 662px; margin-top: -16px; } /* token-ok: design */
+	#{$mba} > .overview .ov-visual { width: 100%; max-width: 662px; margin-top: -16px; } /* token-ok: design */
 
 	#{$mba} > .tabs .tab-panels { width: min(956px, 100%); margin-inline: auto; } /* token-ok: design */
 

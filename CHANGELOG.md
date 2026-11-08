@@ -8,6 +8,11 @@ All notable changes to this project are documented in this file. The format is b
 
 - **Photo sections are synced patterns: change once, every page follows.** The 16 photos with labels (DBA Course eligibility and benefits, DBA Category, MBA Category, MBA Course, Location, Home tabs and "Why choose" cards) are synced patterns under "IMET: Shared Sections (reusable)", created on the next administrator visit. Their layout and design are shared; each page can still swap the photo and the label text (pattern overrides). The page patterns place them by reference.
 - New command `wp imet-theme link-photo-sections` links pages saved earlier to these synced sections: it swaps only the old photo block (everything else on the page stays), reports by default and saves with `--yes` (one revision per page).
+- The link command never swaps a real photo for a section that still shows the placeholder: it keeps the page's photo, lists the section as waiting, and links it once the synced pattern has a real photo.
+
+### Fixed
+
+- MBA Course Page: no horizontal scroll between 1101 and 1299px (the highlights, requirements and benefits photos had fixed widths); they keep their design size at 1440 and narrow with their column.
 
 ## 1.1.10 - 2026-11-08
 

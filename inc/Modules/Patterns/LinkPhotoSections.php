@@ -21,6 +21,9 @@ use rtCamp\WPPrimitives\Contracts\Interfaces\Registrable;
  * It only reports by default; `--yes` saves (each page gets a revision, so a page can be rolled back on its own). It is
  * safe to run again: a linked page has nothing left to swap.
  *
+ * A real photo is never swapped for a section that still shows the placeholder photo: that page would lose its photo.
+ * Such sections are listed as waiting; replace the photo in the synced pattern (Patterns > My patterns), then run again.
+ *
  * The command lives in the theme because it links pages to the theme's own synced sections. If other data migrations
  * are added later, move it next to `wp imet migrate` in the imet-core plugin.
  *
@@ -81,6 +84,14 @@ class LinkPhotoSections implements Registrable {
 	];
 
 	/**
+	 * File name of the placeholder photo the synced sections start with.
+	 *
+	 * @since 1.1.11
+	 * @var string
+	 */
+	public const PLACEHOLDER = 'photo-placeholder.webp';
+
+	/**
 	 * Register the WP-CLI command (only under WP-CLI).
 	 *
 	 * @since 1.1.11
@@ -117,9 +128,16 @@ class LinkPhotoSections implements Registrable {
 
 		( new SyncedSections() )->seed(); // The synced sections must exist before pages can point at them.
 
-		$ids = [];
+		$ids         = [];
+		$placeholder = [];
 		foreach ( array_keys( SyncedSections::SECTIONS ) as $key ) {
 			$ids[ $key ] = SyncedSections::id( $key );
+
+			$section = $ids[ $key ] ? get_post( $ids[ $key ] ) : null;
+
+			if ( $section && str_contains( $section->post_content, self::PLACEHOLDER ) ) {
+				$placeholder[] = $key;
+			}
 		}
 
 		$posts = $args ? array_map( 'intval', $args ) : get_posts(
@@ -131,6 +149,7 @@ class LinkPhotoSections implements Registrable {
 			]
 		);
 		$changed = 0;
+		$waiting = [];
 
 		foreach ( $posts as $id ) {
 			$post = get_post( (int) $id );
@@ -139,7 +158,12 @@ class LinkPhotoSections implements Registrable {
 				continue;
 			}
 
-			$result = self::link( (string) $post->post_content, $ids );
+			$result = self::link( (string) $post->post_content, $ids, $placeholder );
+
+			if ( $result['waiting'] ) {
+				$waiting = array_merge( $waiting, $result['waiting'] );
+				\WP_CLI::log( sprintf( '#%d %s: kept its photo, waiting for a real photo in: %s', $post->ID, $post->post_title, implode( ', ', $result['waiting'] ) ) );
+			}
 
 			if ( ! $result['linked'] ) {
 				continue;
@@ -165,6 +189,10 @@ class LinkPhotoSections implements Registrable {
 			}
 		}
 
+		if ( $waiting ) {
+			\WP_CLI::warning( sprintf( 'Still the placeholder photo, so not linked where a page has a real one: %s. Replace the photo in these synced patterns (Patterns > My patterns), then run again.', implode( ', ', array_unique( $waiting ) ) ) );
+		}
+
 		if ( ! $changed ) {
 			\WP_CLI::success( 'Nothing to link.' );
 			return;
@@ -181,18 +209,27 @@ class LinkPhotoSections implements Registrable {
 	 *
 	 * @since 1.1.11
 	 *
-	 * @param string             $content Post content.
-	 * @param array<string, int> $ids     Section key => synced pattern ID (0 or missing = not linked).
+	 * @param string             $content     Post content.
+	 * @param array<string, int> $ids         Section key => synced pattern ID (0 or missing = not linked).
+	 * @param string[]           $placeholder Sections whose synced pattern still shows the placeholder photo: an old
+	 *                                        photo (a real one) is kept for these, and reported as waiting.
 	 *
-	 * @return array{content: string, linked: string[]} The new content and the sections linked, in page order.
+	 * @return array{content: string, linked: string[], waiting: string[]} The new content, the sections linked and the
+	 *                                                                    sections kept for want of a real photo.
 	 */
-	public static function link( string $content, array $ids ): array {
-		$linked = [];
+	public static function link( string $content, array $ids, array $placeholder = [] ): array {
+		$linked  = [];
+		$waiting = [];
 
 		foreach ( self::targets( parse_blocks( $content ) ) as [ $block, $key ] ) {
 			$id = (int) ( $ids[ $key ] ?? 0 );
 
 			if ( ! $id ) {
+				continue;
+			}
+
+			if ( 'core/image' === $block['blockName'] && in_array( $key, $placeholder, true ) ) {
+				$waiting[] = $key;
 				continue;
 			}
 
@@ -210,6 +247,7 @@ class LinkPhotoSections implements Registrable {
 		return [
 			'content' => $content,
 			'linked'  => $linked,
+			'waiting' => $waiting,
 		];
 	}
 
