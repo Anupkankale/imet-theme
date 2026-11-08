@@ -81,6 +81,9 @@
 /* A fixed 3:2 frame, so any photo an editor swaps in fills it the same way (the boxed style keeps its photo's own shape) */
 .imet-section.join:not(.is-style-boxed) .join-photo img { aspect-ratio: 3 / 2; object-fit: cover; }
 
+/* A photo with labels (photo-chips) keeps its own frame shape, which places the labels */
+.imet-section.join:not(.is-style-boxed) .join-photo.photo-chips img { aspect-ratio: var(--pc-ratio); }
+
 .imet-section.join .wp-block-buttons.center { margin-top: 10px; }
 
 @media (max-width: 900px) {

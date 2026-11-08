@@ -2,6 +2,22 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.12 - 2026-11-08
+
+### Added
+
+- Before publishing, the editor lists any photo on the page that is still the placeholder, including inside shared photo sections (it only warns; publishing is not blocked).
+- `bin/photo-chips.js` + `bin/photo-chips.json`: the label positions of the photo sections come from one committed spec (`npm run photo-chips`; `npm run lint:photo-chips` fails when the SCSS is out of date, and is part of `lint:all`).
+- `bin/verify-blocks.js`, `bin/shoot.js` and `bin/audit-layout.js` take `--channel chrome` to use the installed Chrome instead of Playwright's own browser.
+
+### Changed
+
+- The photo section labels and alt text are translatable (`imet-theme`); the English output is unchanged.
+- `wp imet-theme link-photo-sections` reports a section it found but could not match as saved, instead of skipping it silently.
+- No specificity hacks left in the photo and MBA Course styles: each conflict is settled in the block that owns the slot (highlights, tabs, overview, who-can-join). The Home tab photo now fills its cell on desktop and keeps the tabs block's 370px / 207px size on tablets and phones; on very narrow photos only the short labels show.
+- MBA Course styles use the theme's tokens wherever one matches (77 values); the remaining raw values are design-only sizes.
+- AGENTS.md: AI tools may commit to a feature branch, push it and open a PR when the developer explicitly asks; merging to `main` stays a developer action.
+
 ## 1.1.11 - 2026-11-08
 
 ### Changed

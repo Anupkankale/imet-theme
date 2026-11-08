@@ -17,16 +17,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 <!-- wp:group {"className":"hl-visual photo-chips is-pc-dba-hl","layout":{"type":"default"}} -->
 <div class="wp-block-group hl-visual photo-chips is-pc-dba-hl"><!-- wp:image {"metadata":{"name":"Photo","bindings":{"__default":{"source":"core/pattern-overrides"}}},"sizeSlug":"full","linkDestination":"none","className":"pc-photo"} -->
-<figure class="wp-block-image size-full pc-photo"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/photo-placeholder.webp" ) ); ?>" alt="DBA graduates"/></figure>
+<figure class="wp-block-image size-full pc-photo"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/photo-placeholder.webp" ) ); ?>" alt="<?php echo esc_attr__( 'DBA graduates', 'imet-theme' ); ?>"/></figure>
 <!-- /wp:image -->
 <!-- wp:paragraph {"metadata":{"name":"Label 1","bindings":{"__default":{"source":"core/pattern-overrides"}}},"className":"pc-chip pc-1 is-green is-pill is-row"} -->
-<p class="pc-chip pc-1 is-green is-pill is-row"><strong>15+</strong> Top Global Specializations</p>
+<p class="pc-chip pc-1 is-green is-pill is-row"><?php echo wp_kses_post( __( '<strong>15+</strong> Top Global Specializations', 'imet-theme' ) ); ?></p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph {"metadata":{"name":"Label 2","bindings":{"__default":{"source":"core/pattern-overrides"}}},"className":"pc-chip pc-2 is-blue has-check"} -->
-<p class="pc-chip pc-2 is-blue has-check">Promoted to CxO</p>
+<p class="pc-chip pc-2 is-blue has-check"><?php echo wp_kses_post( __( 'Promoted to CxO', 'imet-theme' ) ); ?></p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph {"metadata":{"name":"Label 3","bindings":{"__default":{"source":"core/pattern-overrides"}}},"className":"pc-chip pc-3 is-white"} -->
-<p class="pc-chip pc-3 is-white">Skill Growth</p>
+<p class="pc-chip pc-3 is-white"><?php echo wp_kses_post( __( 'Skill Growth', 'imet-theme' ) ); ?></p>
 <!-- /wp:paragraph -->
 </div>
 <!-- /wp:group -->

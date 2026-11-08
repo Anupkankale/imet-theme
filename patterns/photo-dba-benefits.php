@@ -17,16 +17,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 <!-- wp:group {"className":"ov-visual has-chips","layout":{"type":"default"}} -->
 <div class="wp-block-group ov-visual has-chips"><!-- wp:image {"metadata":{"name":"Photo","bindings":{"__default":{"source":"core/pattern-overrides"}}},"sizeSlug":"full","linkDestination":"none","className":"ov-photo"} -->
-<figure class="wp-block-image size-full ov-photo"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/course-benefits-clean.webp" ) ); ?>" alt="Cybersecurity leader beside a holographic globe"/></figure>
+<figure class="wp-block-image size-full ov-photo"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/course-benefits-clean.webp" ) ); ?>" alt="<?php echo esc_attr__( 'Cybersecurity leader beside a holographic globe', 'imet-theme' ); ?>"/></figure>
 <!-- /wp:image -->
 <!-- wp:paragraph {"metadata":{"name":"Label 1","bindings":{"__default":{"source":"core/pattern-overrides"}}},"className":"ov-chip is-jobs"} -->
-<p class="ov-chip is-jobs"><strong>3.5M+</strong> Cybersecurity job openings worldwide</p>
+<p class="ov-chip is-jobs"><?php echo wp_kses_post( __( '<strong>3.5M+</strong> Cybersecurity job openings worldwide', 'imet-theme' ) ); ?></p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph {"metadata":{"name":"Label 2","bindings":{"__default":{"source":"core/pattern-overrides"}}},"className":"ov-chip is-roi"} -->
-<p class="ov-chip is-roi">Immediate ROI <strong>+85%</strong></p>
+<p class="ov-chip is-roi"><?php echo wp_kses_post( __( 'Immediate ROI <strong>+85%</strong>', 'imet-theme' ) ); ?></p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph {"metadata":{"name":"Label 3","bindings":{"__default":{"source":"core/pattern-overrides"}}},"className":"ov-chip is-path"} -->
-<p class="ov-chip is-path">IT Professional → Cybersecurity Specialist → AI &amp; Cloud Security Lead → Cyber Resilience Head → <strong>CISO</strong></p>
+<p class="ov-chip is-path"><?php echo wp_kses_post( __( 'IT Professional → Cybersecurity Specialist → AI &amp; Cloud Security Lead → Cyber Resilience Head → <strong>CISO</strong>', 'imet-theme' ) ); ?></p>
 <!-- /wp:paragraph -->
 </div>
 <!-- /wp:group -->

@@ -106,6 +106,22 @@ class LinkPhotoSectionsTest extends TestCase {
 	}
 
 	/**
+	 * Test a section found on the page but not saved the standard way is reported, not swapped silently or skipped.
+	 */
+	public function test_reports_a_section_it_cannot_match(): void {
+		// A raw "&" in the block attributes: WordPress would write it as \u0026, so the saved text is not found as is.
+		$content = '<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"join-photo","metadata":{"name":"A & B"}} -->' . "\n"
+			. '<figure class="wp-block-image size-full join-photo"><img src="https://example.com/wp-content/themes/imet-theme/assets/images/imet/course-requirements.webp" alt="x"/></figure>' . "\n"
+			. '<!-- /wp:image -->';
+
+		$result = LinkPhotoSections::link( $content, self::IDS );
+
+		$this->assertSame( [], $result['linked'] );
+		$this->assertSame( [ 'photo-dba-requirements' ], $result['unmatched'] );
+		$this->assertSame( $content, $result['content'] );
+	}
+
+	/**
 	 * Test other images, unknown sections and already linked pages are left alone (running twice is safe).
 	 */
 	public function test_leaves_other_content_alone(): void {

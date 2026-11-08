@@ -17,13 +17,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 <!-- wp:group {"className":"hl-visual photo-chips is-pc-mba-course-hl","layout":{"type":"default"}} -->
 <div class="wp-block-group hl-visual photo-chips is-pc-mba-course-hl"><!-- wp:image {"metadata":{"name":"Photo","bindings":{"__default":{"source":"core/pattern-overrides"}}},"sizeSlug":"full","linkDestination":"none","className":"pc-photo"} -->
-<figure class="wp-block-image size-full pc-photo"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/photo-placeholder.webp" ) ); ?>" alt="Cybersecurity on a screen"/></figure>
+<figure class="wp-block-image size-full pc-photo"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/photo-placeholder.webp" ) ); ?>" alt="<?php echo esc_attr__( 'Cybersecurity on a screen', 'imet-theme' ); ?>"/></figure>
 <!-- /wp:image -->
 <!-- wp:paragraph {"metadata":{"name":"Label 1","bindings":{"__default":{"source":"core/pattern-overrides"}}},"className":"pc-chip pc-1 is-white has-gold-check"} -->
-<p class="pc-chip pc-1 is-white has-gold-check">Cyber Risk Director</p>
+<p class="pc-chip pc-1 is-white has-gold-check"><?php echo wp_kses_post( __( 'Cyber Risk Director', 'imet-theme' ) ); ?></p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph {"metadata":{"name":"Label 2","bindings":{"__default":{"source":"core/pattern-overrides"}}},"className":"pc-chip pc-2 is-green is-stat"} -->
-<p class="pc-chip pc-2 is-green is-stat"><strong>4.8M</strong> Global Job Gap</p>
+<p class="pc-chip pc-2 is-green is-stat"><?php echo wp_kses_post( __( '<strong>4.8M</strong> Global Job Gap', 'imet-theme' ) ); ?></p>
 <!-- /wp:paragraph -->
 </div>
 <!-- /wp:group -->

@@ -9,7 +9,7 @@
  * run and always deleted afterwards.
  *
  *   node bin/verify-blocks.js [--url http://imetworld.local] [--wp "wp --path=/path/to/site"]
- *                             [--playwright /path/to/node_modules/playwright] [page ids...]
+ *                             [--playwright /path/to/node_modules/playwright] [--channel chrome] [page ids...]
  *
  * Without ids it checks every page and post that contains an `imet/` block.
  */
@@ -48,7 +48,9 @@ const pass = `Pw-${Math.random().toString(36).slice(2)}-x9!`;
 	sh(
 		`${wp} user create ${user} ${user}@example.com --role=administrator --user_pass='${pass}'`
 	);
-	const browser = await chromium.launch();
+	const browser = await chromium.launch(
+		option('channel', '') ? { channel: option('channel', '') } : {} // e.g. --channel chrome: the installed Chrome instead of Playwright's own browser
+	);
 	let failed = 0;
 	try {
 		const page = await (

@@ -4,7 +4,7 @@
 /**
  * Layout audit: opens a page at desktop, laptop, tablet and phone widths and reports what breaks the layout rhythm.
  *
- *   node bin/audit-layout.js <page id or url> [--playwright /path] [--url http://imetworld.local] [--json out.json]
+ *   node bin/audit-layout.js <page id or url> [--playwright /path] [--channel chrome] [--url http://imetworld.local] [--json out.json]
  *
  * Per viewport it reports: horizontal overflow, each section's padding, height and side gutters, heading sizes,
  * the font sizes / families in use per tag, text boxes that overflow their parent, and tap targets under 44 px.
@@ -146,7 +146,9 @@ const measure = () => {
 };
 
 (async () => {
-	const browser = await chromium.launch();
+	const browser = await chromium.launch(
+		option('channel', '') ? { channel: option('channel', '') } : {} // e.g. --channel chrome: the installed Chrome instead of Playwright's own browser
+	);
 	const report = {};
 	for (const [name, width, height] of viewports) {
 		const page = await (

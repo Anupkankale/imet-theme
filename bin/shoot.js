@@ -4,7 +4,7 @@
 /**
  * Full-page screenshots of published pages at 1440 and 390 px, for before/after comparison.
  *
- *   node bin/shoot.js <out-dir> [--playwright /path] [--url http://imetworld.local] <page ids...>
+ *   node bin/shoot.js <out-dir> [--playwright /path] [--channel chrome] [--url http://imetworld.local] <page ids...>
  *
  * Compare two runs with `node bin/shoot.js --compare <dir-a> <dir-b>` (byte-identical PNGs = no visual change).
  */
@@ -43,7 +43,9 @@ const ids = args.filter(
 
 (async () => {
 	fs.mkdirSync(out, { recursive: true });
-	const browser = await chromium.launch();
+	const browser = await chromium.launch(
+		option('channel', '') ? { channel: option('channel', '') } : {} // e.g. --channel chrome: the installed Chrome instead of Playwright's own browser
+	);
 	for (const [name, width] of [
 		['desktop', 1440],
 		['phone', 390],
