@@ -136,18 +136,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:buttons -->
 </div>
 <!-- /wp:group -->
-<!-- wp:group {"className":"hl-visual photo-chips is-pc-mba-course-hl","layout":{"type":"default"}} -->
-<div class="wp-block-group hl-visual photo-chips is-pc-mba-course-hl"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"pc-photo"} -->
-<figure class="wp-block-image size-full pc-photo"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/photo-placeholder.webp" ) ); ?>" alt="Cybersecurity on a screen"/></figure>
-<!-- /wp:image -->
-<!-- wp:paragraph {"className":"pc-chip pc-1 is-white has-gold-check"} -->
-<p class="pc-chip pc-1 is-white has-gold-check">Cyber Risk Director</p>
-<!-- /wp:paragraph -->
-<!-- wp:paragraph {"className":"pc-chip pc-2 is-green is-stat"} -->
-<p class="pc-chip pc-2 is-green is-stat"><strong>4.8M</strong> Global Job Gap</p>
-<!-- /wp:paragraph -->
-</div>
-<!-- /wp:group -->
+<?php echo IMET\Theme\Modules\Patterns\SyncedSections::block( 'photo-mba-course-highlights' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- block comment built from an ID or a fixed slug. ?>
 </div>
 <!-- /wp:group --></section>
 <!-- /wp:imet/highlights -->
@@ -193,21 +182,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:details -->
 </div>
 <!-- /wp:group -->
-<!-- wp:group {"className":"join-photo photo-chips is-pc-mba-course-req","layout":{"type":"default"}} -->
-<div class="wp-block-group join-photo photo-chips is-pc-mba-course-req"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"pc-photo"} -->
-<figure class="wp-block-image size-full pc-photo"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/photo-placeholder.webp" ) ); ?>" alt="Circuit board with a padlock"/></figure>
-<!-- /wp:image -->
-<!-- wp:paragraph {"className":"pc-chip pc-1 is-blue"} -->
-<p class="pc-chip pc-1 is-blue">Cyber Resilience</p>
-<!-- /wp:paragraph -->
-<!-- wp:paragraph {"className":"pc-chip pc-2 is-green"} -->
-<p class="pc-chip pc-2 is-green">Enterprise Risk Alignment</p>
-<!-- /wp:paragraph -->
-<!-- wp:paragraph {"className":"pc-chip pc-3 is-white is-stat"} -->
-<p class="pc-chip pc-3 is-white is-stat"><strong>85%</strong> Management Readiness</p>
-<!-- /wp:paragraph -->
-</div>
-<!-- /wp:group -->
+<?php echo IMET\Theme\Modules\Patterns\SyncedSections::block( 'photo-mba-course-requirements' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- block comment built from an ID or a fixed slug. ?>
 </div>
 <!-- /wp:group -->
 </div>
@@ -314,21 +289,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:group -->
 </div>
 <!-- /wp:group -->
-<!-- wp:group {"className":"ov-visual photo-chips is-pc-mba-course-ben","layout":{"type":"default"}} -->
-<div class="wp-block-group ov-visual photo-chips is-pc-mba-course-ben"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"pc-photo"} -->
-<figure class="wp-block-image size-full pc-photo"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/photo-placeholder.webp" ) ); ?>" alt="IMET graduate"/></figure>
-<!-- /wp:image -->
-<!-- wp:paragraph {"className":"pc-chip pc-1 is-white num-blue is-row"} -->
-<p class="pc-chip pc-1 is-white num-blue is-row"><strong>3.5M+</strong> Cybersecurity job openings worldwide</p>
-<!-- /wp:paragraph -->
-<!-- wp:paragraph {"className":"pc-chip pc-2 is-white is-roi"} -->
-<p class="pc-chip pc-2 is-white is-roi">Immediate ROI <strong>+85%</strong></p>
-<!-- /wp:paragraph -->
-<!-- wp:paragraph {"className":"pc-chip pc-3 is-white is-path"} -->
-<p class="pc-chip pc-3 is-white is-path">IT Professional → Cybersecurity Specialist → AI &amp; Cloud Security Lead → Cyber Resilience Head → <strong>CISO</strong></p>
-<!-- /wp:paragraph -->
-</div>
-<!-- /wp:group -->
+<?php echo IMET\Theme\Modules\Patterns\SyncedSections::block( 'photo-mba-course-benefits' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- block comment built from an ID or a fixed slug. ?>
 <!-- wp:buttons -->
 <div class="wp-block-buttons"><!-- wp:button {"className":"btn-navy btn-lg"} -->
 <div class="wp-block-button btn-navy btn-lg"><a class="wp-block-button__link wp-element-button" href="#advisor-form">Talk to a DBA Advisor</a></div>

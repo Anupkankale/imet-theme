@@ -2,6 +2,13 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.11 - 2026-11-08
+
+### Changed
+
+- **Photo sections are synced patterns: change once, every page follows.** The 16 photos with labels (DBA Course eligibility and benefits, DBA Category, MBA Category, MBA Course, Location, Home tabs and "Why choose" cards) are synced patterns under "IMET: Shared Sections (reusable)", created on the next administrator visit. Their layout and design are shared; each page can still swap the photo and the label text (pattern overrides). The page patterns place them by reference.
+- New command `wp imet-theme link-photo-sections` links pages saved earlier to these synced sections: it swaps only the old photo block (everything else on the page stays), reports by default and saves with `--yes` (one revision per page).
+
 ## 1.1.10 - 2026-11-08
 
 ### Changed
