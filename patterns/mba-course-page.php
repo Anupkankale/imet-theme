@@ -15,8 +15,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 ?>
-<!-- wp:imet/hero {"align":"full","anchor":"top"} -->
-<section id="top" class="wp-block-imet-hero alignfull imet-section hero"><!-- wp:group {"className":"imet-container hero-grid","layout":{"type":"default"}} -->
+<!-- wp:imet/hero {"align":"full","anchor":"top","className":"is-mba-course"} -->
+<section id="top" class="wp-block-imet-hero alignfull imet-section hero is-mba-course"><!-- wp:group {"className":"imet-container hero-grid","layout":{"type":"default"}} -->
 <div class="wp-block-group imet-container hero-grid"><!-- wp:group {"className":"hero-text","layout":{"type":"default"}} -->
 <div class="wp-block-group hero-text"><!-- wp:paragraph {"className":"h-crumbs"} -->
 <p class="h-crumbs"><a href="https://imetworldwide.com/">Home</a> &gt; <a href="https://imetworldwide.com/online-masters-mba-degree-programs/">MBA</a> &gt; MBA in Cybersecurity</p>
@@ -73,10 +73,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:group -->
 <!-- wp:group {"className":"imet-container","layout":{"type":"default"}} -->
 <div class="wp-block-group imet-container"><!-- wp:group {"className":"ac-card","layout":{"type":"default"}} -->
-<div class="wp-block-group ac-card"><!-- wp:heading {"className":"ac-title"} -->
-<h2 class="wp-block-heading ac-title">Institutional Recognition &amp; Credential Evaluation</h2>
-<!-- /wp:heading -->
-<!-- wp:group {"className":"ac-logos","layout":{"type":"default"}} -->
+<div class="wp-block-group ac-card"><!-- wp:group {"className":"ac-logos","layout":{"type":"default"}} -->
 <div class="wp-block-group ac-logos"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ac-logo"} -->
 <figure class="wp-block-image size-full ac-logo"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/logo-qatar-mofa.jpg" ) ); ?>" alt="Ministry of Foreign Affairs, State of Qatar"/></figure>
 <!-- /wp:image -->
@@ -124,9 +121,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 <li><strong>Thesis Support:</strong> Full guidance on industry-focused cybersecurity research &amp; dissertation.</li>
 <!-- /wp:list-item -->
 <!-- wp:list-item -->
-<li><strong>Research Papers:</strong> Publication Assistance for international journals like IEEE, Google Scholar citations.</li>
-<!-- /wp:list-item -->
-<!-- wp:list-item -->
 <li><strong>Academic Outcome:</strong> Earn the prestigious ‘Dr.’ prefix and global recognition with an online doctorate in cybersecurity.</li>
 <!-- /wp:list-item -->
 <!-- wp:list-item -->
@@ -142,9 +136,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:buttons -->
 </div>
 <!-- /wp:group -->
-<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"hl-visual"} -->
-<figure class="wp-block-image size-full hl-visual"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/mba-course-highlights.webp" ) ); ?>" alt="Cybersecurity on screen: Cyber Risk Director, 4.8M global job gap" width="872" height="800"/></figure>
-<!-- /wp:image -->
+<?php echo IMET\Theme\Modules\Patterns\SyncedSections::block( 'photo-mba-course-highlights' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- block comment built from an ID or a fixed slug. ?>
 </div>
 <!-- /wp:group --></section>
 <!-- /wp:imet/highlights -->
@@ -159,7 +151,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <h2 class="wp-block-heading title">Cyber Security Course Requirements</h2>
 <!-- /wp:heading -->
 <!-- wp:paragraph {"className":"sub"} -->
-<p class="sub">The Doctoral (DBA) program in cybersecurity is designed for experienced professionals who aim to combine leadership, research, and strategic expertise in cybersecurity. Cybersecurity degree requirements include:</p>
+<p class="sub">The Doctoral (DBA) program in cybersecurity is designed for experienced professionals who aim to combine leadership, research, and strategic expertise in cybersecurity.<br>Cybersecurity degree requirements include:</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 <!-- wp:group {"className":"join-grid","layout":{"type":"default"}} -->
@@ -190,9 +182,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:details -->
 </div>
 <!-- /wp:group -->
-<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"join-photo"} -->
-<figure class="wp-block-image size-full join-photo"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/mba-course-requirements.webp" ) ); ?>" alt="Circuit-board padlock: cyber resilience, enterprise risk alignment, 85% management readiness"/></figure>
-<!-- /wp:image -->
+<?php echo IMET\Theme\Modules\Patterns\SyncedSections::block( 'photo-mba-course-requirements' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- block comment built from an ID or a fixed slug. ?>
 </div>
 <!-- /wp:group -->
 </div>
@@ -236,7 +226,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:paragraph -->
 <!-- wp:heading {"className":"title"} -->
 <h2 class="wp-block-heading title">Benefits of enrolling in doctorate in<br>cybersecurity program</h2>
-<!-- /wp:heading --></div>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"sub"} -->
+<p class="sub">The Doctor of Business Administration (DBA) empowers professionals to elevate leadership through applied research, innovation, and strategic influence.</p>
+<!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 <!-- wp:group {"className":"ov-grid","layout":{"type":"default"}} -->
 <div class="wp-block-group ov-grid"><!-- wp:group {"className":"benefit-list","layout":{"type":"default"}} -->
@@ -296,9 +289,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:group -->
 </div>
 <!-- /wp:group -->
-<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ov-visual"} -->
-<figure class="wp-block-image size-full ov-visual"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/mba-course-benefits.webp" ) ); ?>" alt="IMET graduate: 3.5M+ cybersecurity job openings, +85% immediate ROI, career path to CISO"/></figure>
-<!-- /wp:image -->
+<?php echo IMET\Theme\Modules\Patterns\SyncedSections::block( 'photo-mba-course-benefits' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- block comment built from an ID or a fixed slug. ?>
 <!-- wp:buttons -->
 <div class="wp-block-buttons"><!-- wp:button {"className":"btn-navy btn-lg"} -->
 <div class="wp-block-button btn-navy btn-lg"><a class="wp-block-button__link wp-element-button" href="#advisor-form">Talk to a DBA Advisor</a></div>

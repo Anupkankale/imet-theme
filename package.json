@@ -1,6 +1,6 @@
 {
 	"name": "imet-theme",
-	"version": "1.1.9",
+	"version": "1.1.12",
 	"description": "Block theme for IMET Worldwide: design system, section blocks, patterns and templates.",
 	"author": "Anup Kankale (https://anupkankale.com)",
 	"license": "GPL-2.0-or-later",
@@ -67,7 +67,7 @@
 		"release:bump": "wp-tooling release:bump",
 		"release:changelog": "wp-tooling release:changelog",
 		"sync-ai": "node bin/sync-ai.js",
-		"lint:all": "npm-run-all --parallel lint:css lint:js lint:php lint:package-json lint:tokens",
+		"lint:all": "npm-run-all --parallel lint:css lint:js lint:php lint:package-json lint:tokens lint:photo-chips",
 		"lint:css": "wp-scripts lint-style \"src/**/*.{css,scss}\"",
 		"lint:css:fix": "npm run lint:css -- --fix",
 		"lint:js": "wp-scripts lint-js .",
@@ -88,7 +88,9 @@
 		"test:js:watch": "npm run test:js -- --watch",
 		"test:php": "wp-env run --config=.wp-env.tests.json cli --env-cwd=/var/www/html/wp-content/themes/${PWD##*/} composer exec 'phpunit --do-not-cache-result --verbose'",
 		"wp-env": "wp-env",
-		"lint:tokens": "node ./bin/audit-tokens.js"
+		"lint:tokens": "node ./bin/audit-tokens.js",
+		"lint:photo-chips": "node ./bin/photo-chips.js --check",
+		"photo-chips": "node ./bin/photo-chips.js"
 	},
 	"overrides": {
 		"webpack-dev-server": "5.2.6",

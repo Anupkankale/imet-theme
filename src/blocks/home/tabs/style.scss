@@ -169,6 +169,15 @@
 /* One frame for every photo, so the three tabs line up whatever the image's own size */
 .imet-section.tabs.is-style-home .tab-photo img { width: 100%; height: 100%; min-height: var(--wp--custom--size--334); border-radius: 20px; object-fit: cover; }
 
+/* A photo with labels (photo-chips) fills the cell the same way: its frame takes the cell's height, so the labels stay
+   on the photo (from 901px; narrower, the photo keeps its own shape, below). */
+@media (min-width: 901px) {
+
+	.imet-section.tabs.is-style-home .tab-photo.photo-chips > .pc-photo { height: 100%; }
+
+	.imet-section.tabs.is-style-home .tab-photo.photo-chips img { aspect-ratio: auto; }
+}
+
 .imet-section.tabs.is-style-home .tab-panel ul { display: block; margin-top: var(--wp--preset--spacing--16); }
 
 .imet-section.tabs.is-style-home .tab-panel li { position: relative; margin-bottom: var(--wp--preset--spacing--16); padding: 0 var(--wp--preset--spacing--40) 0 var(--wp--preset--spacing--20); color: #fff; font-size: .875rem; line-height: 1.57; }
@@ -205,6 +214,8 @@
 
 	.imet-section.tabs.is-style-home .tab-photo img { max-width: 370px; min-height: 0; aspect-ratio: 370 / 445; margin-inline: auto; }
 
+	.imet-section.tabs.is-style-home .tab-photo.photo-chips { max-width: 370px; margin-inline: auto; } /* a photo with labels: the frame takes the photo's size, so the labels stay on it */
+
 	.imet-section.tabs.is-style-home .tab-panel { padding: var(--wp--preset--spacing--12) var(--wp--preset--spacing--18) var(--wp--preset--spacing--32); }
 }
 
@@ -224,6 +235,8 @@
 	.imet-section.tabs.is-style-home .tab-label { flex: 1 1 100%; max-width: none; padding: 8px 20px; text-align: center; }
 
 	.imet-section.tabs.is-style-home .tab-photo img { width: 207px; }
+
+	.imet-section.tabs.is-style-home .tab-photo.photo-chips { max-width: 207px; }
 
 	.imet-section.tabs.is-style-home .tab-panel { padding: 36px 18px 32px; }
 }

@@ -133,9 +133,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:buttons -->
 </div>
 <!-- /wp:group -->
-<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"hl-visual"} -->
-<figure class="wp-block-image size-full hl-visual"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/highlights.webp" ) ); ?>" alt="DBA graduates: promoted to CxO, 15+ top global specializations, skill growth"/></figure>
-<!-- /wp:image -->
+<?php echo IMET\Theme\Modules\Patterns\SyncedSections::block( 'photo-dba-highlights' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- block comment built from an ID or a fixed slug. ?>
 </div>
 <!-- /wp:group --></section>
 <!-- /wp:imet/highlights -->
@@ -253,9 +251,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:group -->
 </div>
 <!-- /wp:group -->
-<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ov-visual"} -->
-<figure class="wp-block-image size-full ov-visual"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/graduate.webp" ) ); ?>" alt="DBA graduate: 3.5M+ cybersecurity job openings worldwide, +85% immediate ROI, career path from IT professional to CISO"/></figure>
-<!-- /wp:image -->
+<?php echo IMET\Theme\Modules\Patterns\SyncedSections::block( 'photo-dba-graduate' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- block comment built from an ID or a fixed slug. ?>
 </div>
 <!-- /wp:group -->
 </div>

@@ -2,6 +2,42 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.12 - 2026-11-08
+
+### Added
+
+- Before publishing, the editor lists any photo on the page that is still the placeholder, including inside shared photo sections (it only warns; publishing is not blocked).
+- `bin/photo-chips.js` + `bin/photo-chips.json`: the label positions of the photo sections come from one committed spec (`npm run photo-chips`; `npm run lint:photo-chips` fails when the SCSS is out of date, and is part of `lint:all`).
+- `bin/verify-blocks.js`, `bin/shoot.js` and `bin/audit-layout.js` take `--channel chrome` to use the installed Chrome instead of Playwright's own browser.
+
+### Changed
+
+- The photo section labels and alt text are translatable (`imet-theme`); the English output is unchanged.
+- `wp imet-theme link-photo-sections` reports a section it found but could not match as saved, instead of skipping it silently.
+- No specificity hacks left in the photo and MBA Course styles: each conflict is settled in the block that owns the slot (highlights, tabs, overview, who-can-join). The Home tab photo now fills its cell on desktop and keeps the tabs block's 370px / 207px size on tablets and phones; on very narrow photos only the short labels show.
+- MBA Course styles use the theme's tokens wherever one matches (77 values); the remaining raw values are design-only sizes.
+- AGENTS.md: AI tools may commit to a feature branch, push it and open a PR when the developer explicitly asks; merging to `main` stays a developer action.
+
+## 1.1.11 - 2026-11-08
+
+### Changed
+
+- **Photo sections are synced patterns: change once, every page follows.** The 16 photos with labels (DBA Course eligibility and benefits, DBA Category, MBA Category, MBA Course, Location, Home tabs and "Why choose" cards) are synced patterns under "IMET: Shared Sections (reusable)", created on the next administrator visit. Their layout and design are shared; each page can still swap the photo and the label text (pattern overrides). The page patterns place them by reference.
+- New command `wp imet-theme link-photo-sections` links pages saved earlier to these synced sections: it swaps only the old photo block (everything else on the page stays), reports by default and saves with `--yes` (one revision per page).
+- The link command never swaps a real photo for a section that still shows the placeholder: it keeps the page's photo, lists the section as waiting, and links it once the synced pattern has a real photo.
+
+### Fixed
+
+- MBA Course Page: no horizontal scroll between 1101 and 1299px (the highlights, requirements and benefits photos had fixed widths); they keep their design size at 1440 and narrow with their column.
+
+## 1.1.10 - 2026-11-08
+
+### Changed
+
+- Every photo that had labels drawn into it now carries them as real text (a new "photo with chips" component, `_photo-chips.scss`): Home (doctorate tab, MBA tab, the four "Why choose" cards), DBA Category (highlights, graduate), MBA Category (highlights, USP), MBA Course (highlights, requirements, benefits), Location and DBA USA (highlights). Each uses one shared placeholder photo (`photo-placeholder.webp`) to be replaced in the editor; the frame keeps the original artwork's shape, and the labels are placed and sized with the photo at every width. New colour token `pink`. On narrow photos (phones) the career-path and ROI cards step aside so the short labels stay readable; the step-card text style no longer applies to these labels. Pages saved earlier keep their old images until the section is re-inserted.
+- DBA Course Page: the labels on the Eligibility Criteria photo (AI Ethics & Security, Cyber Resilience, C-Suite Reporting) and the Benefits photo (3.5M+ job openings, Immediate ROI +85%, the career path to CISO) are real text over clean photos (`course-requirements-clean.webp`, `course-benefits-clean.webp`), placed in container units so they keep their place at every width. Pages saved earlier keep their old images until the section is re-inserted.
+- MBA Course Page matched to its 1440 design: Montserrat copy, 22px eyebrows with a gold line, 38px titles, thin rules between sections, the hero, form, highlights, fee banner, requirements, benefits, tabs, process and CTA at the design's sizes and spacing. Scoped to the MBA hero's `is-mba-course` class (`_mba-course.scss`) and to desktop widths, so no other page changes. The pattern's logo card has no title and the highlights list four points, as in the design.
+
 ## 1.1.9 - 2026-11-08
 
 ### Added

@@ -16,8 +16,10 @@ use WP_Block_Patterns_Registry;
  * Class SyncedSections
  *
  * The sections that several pages share (offer banner, client testimonials, the closing call to action, achievements,
- * the career table) live in WordPress as synced patterns (Patterns > My patterns). Every page shows the same one, so an
- * edit made on any page, or in the pattern itself, changes all of them.
+ * the career table, and every photo with labels on it) live in WordPress as synced patterns (Patterns > My patterns).
+ * Every page shows the same one, so an edit made on any page, or in the pattern itself, changes all of them. The photo
+ * sections ("photo-*") let each page override the photo and the label text (pattern overrides); their layout and
+ * design stay shared.
  *
  * The first time an administrator opens wp-admin, this creates each one from the theme's hidden source pattern. It
  * never updates or duplicates them afterwards (the team owns them from then on), and only recreates one that was
@@ -45,12 +47,12 @@ class SyncedSections implements Registrable {
 	public const VERSION_OPTION = 'imet_synced_sections_version';
 
 	/**
-	 * Setup version: 2 files every section under the shared category.
+	 * Setup version: 2 files every section under the shared category; 3 adds the photo sections.
 	 *
 	 * @since 1.1.6
 	 * @var string
 	 */
-	public const VERSION = '2';
+	public const VERSION = '3';
 
 	/**
 	 * Pattern category (wp_pattern_category term) the shared sections are filed under in the inserter and Patterns.
@@ -71,7 +73,7 @@ class SyncedSections implements Registrable {
 	/**
 	 * The shared sections: key => title of the synced pattern and the theme pattern it starts from.
 	 *
-	 * @since 1.1.5
+	 * @since 1.1.5 The photo sections since 1.1.11.
 	 * @var array<string, array{title: string, pattern: string}>
 	 */
 	public const SECTIONS = [
@@ -94,6 +96,69 @@ class SyncedSections implements Registrable {
 		'career-table'         => [
 			'title'   => 'Career Table',
 			'pattern' => 'imet-theme/career-table',
+		],		'photo-dba-requirements'        => [
+			'title'   => 'Photo: DBA Eligibility Criteria',
+			'pattern' => 'imet-theme/photo-dba-requirements',
+		],
+		'photo-dba-benefits'            => [
+			'title'   => 'Photo: DBA Benefits',
+			'pattern' => 'imet-theme/photo-dba-benefits',
+		],
+		'photo-dba-highlights'          => [
+			'title'   => 'Photo: DBA Category Highlights',
+			'pattern' => 'imet-theme/photo-dba-highlights',
+		],
+		'photo-dba-graduate'            => [
+			'title'   => 'Photo: DBA Category Graduate',
+			'pattern' => 'imet-theme/photo-dba-graduate',
+		],
+		'photo-mba-highlights'          => [
+			'title'   => 'Photo: MBA Highlights',
+			'pattern' => 'imet-theme/photo-mba-highlights',
+		],
+		'photo-mba-usp'                 => [
+			'title'   => 'Photo: MBA USP',
+			'pattern' => 'imet-theme/photo-mba-usp',
+		],
+		'photo-mba-course-highlights'   => [
+			'title'   => 'Photo: MBA Course Highlights',
+			'pattern' => 'imet-theme/photo-mba-course-highlights',
+		],
+		'photo-mba-course-requirements' => [
+			'title'   => 'Photo: MBA Course Requirements',
+			'pattern' => 'imet-theme/photo-mba-course-requirements',
+		],
+		'photo-mba-course-benefits'     => [
+			'title'   => 'Photo: MBA Course Benefits',
+			'pattern' => 'imet-theme/photo-mba-course-benefits',
+		],
+		'photo-location'                => [
+			'title'   => 'Photo: Location Highlights',
+			'pattern' => 'imet-theme/photo-location',
+		],
+		'photo-home-doctorate'          => [
+			'title'   => 'Photo: Home Doctorate Tab',
+			'pattern' => 'imet-theme/photo-home-doctorate',
+		],
+		'photo-home-mba'                => [
+			'title'   => 'Photo: Home MBA Tab',
+			'pattern' => 'imet-theme/photo-home-mba',
+		],
+		'photo-why-1'                   => [
+			'title'   => 'Photo: Why Choose 1 (Research-Driven)',
+			'pattern' => 'imet-theme/photo-why-1',
+		],
+		'photo-why-2'                   => [
+			'title'   => 'Photo: Why Choose 2 (Affordable)',
+			'pattern' => 'imet-theme/photo-why-2',
+		],
+		'photo-why-3'                   => [
+			'title'   => 'Photo: Why Choose 3 (100% Online)',
+			'pattern' => 'imet-theme/photo-why-3',
+		],
+		'photo-why-4'                   => [
+			'title'   => 'Photo: Why Choose 4 (Mentoring)',
+			'pattern' => 'imet-theme/photo-why-4',
 		],
 	];
 
