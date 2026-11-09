@@ -2,6 +2,12 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.14 - 2026-11-09
+
+### Fixed
+
+- MBA Course Page spacing: every section has the same room above and below (40px, it ranged from 8px to 106px) and every section header sits 32px above its content (it ranged from 10px to 45px), as on the other pages. The opened requirements answer no longer overlaps its question, and no photo is pulled up into the element above.
+
 ## 1.1.13 - 2026-11-08
 
 ### Fixed
