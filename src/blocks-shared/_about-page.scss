@@ -21,6 +21,11 @@ $navy: var(--wp--preset--color--navy);
 .imet-section .ab-more a::after { content: " →"; }
 
 /* ---------- Hero: lavender to cream, text left, a card with logos and labels right ---------- */
+
+/* Room for the floating header above, and below the card (the page rhythm's 40px is too tight for a hero). Written in
+   the page rhythm's own context (_page-rhythm.scss), so it refines that rule. */
+:is(.wp-block-post-content, .imet-page-content):not(:has(> .imet-section.hero.is-style-home)) > .imet-section.section.ab-hero { padding: var(--wp--custom--size--110) 0 var(--wp--preset--spacing--54); }
+
 .imet-section.ab-hero {
 	background: linear-gradient(180deg, var(--wp--preset--color--lavender), var(--wp--preset--color--cream));
 	border-top: 0;
@@ -38,7 +43,7 @@ $navy: var(--wp--preset--color--navy);
 
 .imet-section .ab-avatars-img { margin: 0; }
 
-.imet-section .ab-avatars-img img { width: var(--wp--custom--size--214); height: auto; }
+.imet-section .ab-avatars-img img { width: var(--wp--custom--size--214); height: auto; mix-blend-mode: multiply; } /* the cut-out's light background takes the hero's colour */
 
 .imet-section .ab-avatars-count {
 	display: grid;
@@ -64,8 +69,8 @@ $navy: var(--wp--preset--color--navy);
 	position: relative;
 	display: grid;
 	place-items: center;
-	min-height: var(--wp--custom--size--260);
-	padding: var(--wp--preset--spacing--48);
+	min-height: var(--wp--custom--size--334);
+	padding: var(--wp--preset--spacing--54) var(--wp--preset--spacing--70);
 	border-radius: var(--wp--preset--border-radius--22);
 	background: var(--wp--preset--color--white);
 	box-shadow: var(--wp--preset--shadow--card);
@@ -82,8 +87,8 @@ $navy: var(--wp--preset--color--navy);
 .imet-section .ab-chip.is-green strong { display: block; }
 
 .imet-section .ab-chip.is-years {
-	right: var(--wp--preset--spacing--10);
-	bottom: var(--wp--preset--spacing--10);
+	right: calc(-1 * var(--wp--preset--spacing--16));
+	bottom: calc(-1 * var(--wp--preset--spacing--16));
 	display: grid;
 	place-content: center;
 	width: var(--wp--custom--size--110);
@@ -97,7 +102,7 @@ $navy: var(--wp--preset--color--navy);
 
 .imet-section .ab-chip.is-years strong { font-size: var(--wp--preset--font-size--xx-large); line-height: 1; }
 
-.imet-section .ab-chip.is-accred { left: calc(-1 * var(--wp--preset--spacing--14)); bottom: var(--wp--preset--spacing--10); background: var(--wp--preset--color--white); }
+.imet-section .ab-chip.is-accred { left: calc(-1 * var(--wp--preset--spacing--20)); bottom: calc(-1 * var(--wp--preset--spacing--20)); background: var(--wp--preset--color--white); }
 
 .imet-section .ab-accred-title { margin: 0 0 var(--wp--preset--spacing--6); color: var(--wp--preset--color--ink); }
 
@@ -130,7 +135,7 @@ $navy: var(--wp--preset--color--navy);
 .imet-section .ab-usp-card.is-navy :is(h3, p) { color: var(--wp--preset--color--white); }
 
 /* ---------- Mission, vision and values ---------- */
-.imet-section .ab-mv { margin-top: var(--wp--preset--spacing--16); padding: var(--wp--preset--spacing--12) var(--wp--preset--spacing--12) var(--wp--preset--spacing--16); border-radius: var(--wp--preset--border-radius--8); background: linear-gradient(180deg, var(--wp--preset--color--cream), var(--wp--preset--color--lavender)); }
+.imet-section .ab-mv { margin-top: var(--wp--preset--spacing--16); padding: var(--wp--preset--spacing--20) var(--wp--preset--spacing--24); border-radius: var(--wp--preset--border-radius--8); background: linear-gradient(180deg, var(--wp--preset--color--cream), var(--wp--preset--color--lavender)); }
 
 .imet-section .ab-mv h3 { position: relative; margin-bottom: var(--wp--preset--spacing--12); padding-bottom: var(--wp--preset--spacing--6); color: var(--wp--preset--color--ink); font-size: var(--wp--preset--font-size--large); }
 
@@ -170,9 +175,9 @@ $navy: var(--wp--preset--color--navy);
 .imet-section .ab-gain-circle img { width: 100%; max-width: var(--wp--custom--size--450); margin-inline: auto; }
 
 /* ---------- Partner centres ---------- */
-.imet-section .ab-loc-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--wp--preset--spacing--10); margin-top: var(--wp--preset--spacing--16); }
+.imet-section .ab-loc-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--wp--preset--spacing--12); margin-top: var(--wp--preset--spacing--24); }
 
-.imet-section .ab-loc { padding: var(--wp--preset--spacing--12) var(--wp--preset--spacing--16); border-radius: var(--wp--preset--border-radius--4); background: var(--wp--preset--color--card); }
+.imet-section .ab-loc { padding: var(--wp--preset--spacing--16) var(--wp--preset--spacing--20); border-radius: var(--wp--preset--border-radius--4); background: var(--wp--preset--color--card); }
 
 .imet-section .ab-loc p { color: var(--wp--preset--color--ink); font-size: var(--wp--preset--font-size--small); line-height: 1.45; }
 
@@ -210,22 +215,22 @@ $navy: var(--wp--preset--color--navy);
 .imet-section .ab-gc.is-navy :is(h3, p) { color: var(--wp--preset--color--white); }
 
 /* ---------- Event gallery ---------- */
-.imet-section .ab-gallery-box { padding: var(--wp--preset--spacing--16); border: 1px solid var(--wp--preset--color--gold-soft); border-radius: var(--wp--preset--border-radius--12); background: var(--wp--preset--color--cream); box-shadow: var(--wp--preset--shadow--soft); }
+.imet-section .ab-gallery-box { padding: var(--wp--preset--spacing--24); border: 1px solid var(--wp--preset--color--gold-soft); border-radius: var(--wp--preset--border-radius--12); background: var(--wp--preset--color--cream); box-shadow: var(--wp--preset--shadow--soft); }
 
-.imet-section .ab-gallery-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: var(--wp--preset--spacing--12); margin-bottom: var(--wp--preset--spacing--16); }
+.imet-section .ab-gallery-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: var(--wp--preset--spacing--12); margin-bottom: var(--wp--preset--spacing--20); }
 
 .imet-section .ab-gallery-head h3 { color: var(--wp--preset--color--gold); font-size: var(--wp--preset--font-size--x-large); }
 
 .imet-section .ab-gallery-more a { text-decoration: underline; }
 
-.imet-section .ab-gallery-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--wp--preset--spacing--8); }
+.imet-section .ab-gallery-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--wp--preset--spacing--12); }
 
 .imet-section .ab-photo { margin: 0; }
 
 .imet-section .ab-photo img { width: 100%; aspect-ratio: 3 / 2; border-radius: var(--wp--preset--border-radius--8); object-fit: cover; }
 
 /* ---------- Mentors ---------- */
-.imet-section .ab-mentor-wrap { display: grid; grid-template-columns: var(--wp--custom--size--214) minmax(0, 1fr); gap: var(--wp--preset--spacing--30); align-items: center; width: min(var(--wp--custom--size--916), 100%); margin-inline: auto; }
+.imet-section .ab-mentor-wrap { padding-bottom: var(--wp--preset--spacing--24); display: grid; grid-template-columns: var(--wp--custom--size--214) minmax(0, 1fr); gap: var(--wp--preset--spacing--30); align-items: center; width: min(var(--wp--custom--size--916), 100%); margin-inline: auto; }
 
 .imet-section .ab-mentor-lead { position: relative; }
 
