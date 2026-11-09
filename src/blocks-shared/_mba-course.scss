@@ -58,9 +58,7 @@ $mba: ":is(.wp-block-post-content, .imet-page-content):has(> .imet-section.hero.
 	#{$mba} > .imet-section:is(.join, .tabs, .testimonials, .about-card, .embassy, .faq) { border-top: 1px solid var(--wp--preset--color--line); }
 
 	/* ---------- Hero ---------- */
-	#{$mba} > .imet-section.hero .hero-grid { padding: 0 var(--wp--preset--spacing--50) 0 var(--wp--preset--spacing--18); }
 
-	#{$mba} > .imet-section.hero .hero-text > :is(.h-crumbs, .h-rating, h1, .hero-lead) { padding-left: var(--wp--preset--spacing--12); }
 
 	#{$mba} > .imet-section.hero .h-rating { margin-bottom: var(--wp--preset--spacing--8); }
 
@@ -116,9 +114,7 @@ $mba: ":is(.wp-block-post-content, .imet-page-content):has(> .imet-section.hero.
 	/* ---------- Fee banner ---------- */
 	#{$mba} > .imet-section.highlights.is-style-wide + .imet-section.cost-banner { margin-top: 0; } /* the elements the page rhythm targets, so it refines that rule */
 
-	#{$mba} > .imet-section.cost-banner { margin-bottom: var(--wp--custom--size--44); }
 
-	#{$mba} > .imet-section.cost-banner + .imet-section.section.join { border-top: 1px solid var(--wp--preset--color--line); }
 
 	#{$mba} > .imet-section.cost-banner .cost-right p { max-width: 520px; } /* token-ok: design */
 
