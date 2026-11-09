@@ -2,6 +2,12 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.15 - 2026-11-09
+
+### Added
+
+- New pattern **About Us Page** (`imet-theme/about-page`, under IMET: Full Pages), from the design: hero with logo card and labels as text, main USPs, mission and vision, what you gain, partner centres with the world map, six photo cards, the Dubai convocation gallery, mentors and FAQs. Built from IMET Section blocks and the FAQ block; styles in `_about-page.scss`, scoped to its own section classes. 25 photos cut from the design (`about-*.webp`).
+
 ## 1.1.14 - 2026-11-09
 
 ### Fixed
