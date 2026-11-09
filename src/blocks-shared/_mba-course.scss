@@ -93,7 +93,7 @@ $mba: ":is(.wp-block-post-content, .imet-page-content):has(> .imet-section.hero.
 	#{$mba} > .imet-section.hero::after { height: 95px; } /* token-ok: design: the gradient ends 63px above the card's bottom */
 
 	/* ---------- Program Highlights: white, four points, the photo at its design size ---------- */
-	#{$mba} > .imet-section.highlights.is-style-wide { padding: var(--wp--preset--spacing--25) 0 52px; background: none; } /* token-ok: design */
+	#{$mba} > .imet-section.highlights.is-style-wide { background: none; }
 
 	#{$mba} > .imet-section.highlights .title { font-size: 34px; font-weight: 600; line-height: 41px; } /* token-ok: design */
 
@@ -132,47 +132,8 @@ $mba: ":is(.wp-block-post-content, .imet-page-content):has(> .imet-section.hero.
 
 	#{$mba} > .imet-section.cost-banner .wp-block-button__link { min-width: 328px; min-height: 49px; font-size: 23px; font-weight: 700; } /* token-ok: design */
 
-	/* ---------- Section padding (design: rule → eyebrow, content → next rule) ---------- */
-	#{$mba} > .imet-section.join:not(.is-style-boxed) { padding: var(--wp--preset--spacing--32) 0 106px; } /* token-ok: design */
-
-	#{$mba} > .imet-section.specs { padding: var(--wp--preset--spacing--24) 0 60px; } /* token-ok: design */
-
-	#{$mba} > .imet-section.overview { padding: var(--wp--preset--spacing--17) 0 var(--wp--preset--spacing--50); }
-
-	#{$mba} > .imet-section.tabs { padding: var(--wp--custom--size--27) 0 var(--wp--preset--spacing--32); }
-
-	#{$mba} > .imet-section.testimonials { padding: 28px 0 var(--wp--preset--spacing--32); } /* token-ok: design */
-
-	#{$mba} > .imet-section.about-card { padding: var(--wp--preset--spacing--12) 0 var(--wp--preset--spacing--32); }
-
-	#{$mba} > .imet-section.join.is-style-boxed { padding: var(--wp--preset--spacing--23) 0 var(--wp--preset--spacing--22); }
-
-	#{$mba} > .imet-section.process { padding: var(--wp--custom--size--27) 0 46px; } /* token-ok: design */
-
-	#{$mba} > .imet-section.embassy { padding: var(--wp--preset--spacing--8) 0 var(--wp--preset--spacing--32); }
-
-	#{$mba} > .imet-section.faq { padding: var(--wp--preset--spacing--18) 0 35px; } /* token-ok: design */
-
-	/* Header → content gap, per section */
-	#{$mba} > .imet-section.join:not(.is-style-boxed) .sec-head { margin-bottom: var(--wp--preset--spacing--40); }
-
-	#{$mba} > .imet-section.specs .sec-head { margin-bottom: var(--wp--preset--spacing--23); }
-
-	#{$mba} > .imet-section.overview .sec-head { margin-bottom: var(--wp--preset--spacing--12); }
-
-	#{$mba} > .imet-section.tabs .sec-head { margin-bottom: var(--wp--preset--spacing--25); }
-
-	#{$mba} > .imet-section.testimonials .testi-head { margin-bottom: 28px; } /* token-ok: design */
-
-	#{$mba} > .imet-section.about-card .sec-head { margin-bottom: 11px; } /* token-ok: design */
-
-	#{$mba} > .imet-section.join.is-style-boxed .sec-head { margin-bottom: 31px; } /* token-ok: design */
-
-	#{$mba} > .imet-section.process .sec-head { margin-bottom: 35px; } /* token-ok: design */
-
-	#{$mba} > .imet-section.embassy .sec-head { margin-bottom: var(--wp--custom--size--27); }
-
-	#{$mba} > .imet-section.faq .sec-head { margin-bottom: var(--wp--preset--spacing--10); }
+	/* Section padding and header → content gaps: the shared page rhythm (_page-rhythm.scss: the same room above and below
+	   every section, 32px from a header to its content), as on every other page. */
 
 	/* Process and alumni: black eyebrows, as in the design */
 	#{$mba} > .imet-section:is(.process, .embassy) .eyebrow-line { color: var(--wp--preset--color--ink); }
@@ -182,11 +143,10 @@ $mba: ":is(.wp-block-post-content, .imet-page-content):has(> .imet-section.hero.
 
 	#{$mba} > .imet-section.join .join-acc details p { font-size: var(--wp--preset--font-size--normal); line-height: 25px; } /* token-ok: design */
 
-	#{$mba} > .imet-section.join:not(.is-style-boxed) .join-acc details p { margin-top: calc(-1 * var(--wp--custom--size--13)); } /* answer 7px under its question */
 
 	#{$mba} > .imet-section.join:not(.is-style-boxed) .join-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 496px); } /* token-ok: design: the photo column, 496px at 1440 */
 
-	#{$mba} > .imet-section.join:not(.is-style-boxed) .join-photo { width: 100%; margin-top: calc(-1 * var(--wp--preset--spacing--10)); }
+	#{$mba} > .imet-section.join:not(.is-style-boxed) .join-photo { width: 100%; }
 
 	#{$mba} > .imet-section.join.is-style-boxed .join-acc summary { font-size: var(--wp--preset--font-size--normal); font-weight: 400; }
 
@@ -225,7 +185,7 @@ $mba: ":is(.wp-block-post-content, .imet-page-content):has(> .imet-section.hero.
 	/* ---------- Layout widths ---------- */
 	#{$mba} > .imet-section.overview .ov-grid { grid-template-columns: minmax(0, 443px) minmax(0, 662px); column-gap: 0; justify-content: start; padding-left: clamp(0px, 100% - 1128px, var(--wp--custom--size--72)); } /* token-ok: design: 72px in at 1440, none when narrower */
 
-	#{$mba} > .imet-section.overview .ov-visual { width: 100%; max-width: 662px; margin-top: calc(-1 * var(--wp--preset--spacing--16)); } /* token-ok: design */
+	#{$mba} > .imet-section.overview .ov-visual { width: 100%; max-width: 662px; } /* token-ok: design */
 
 	#{$mba} > .imet-section.tabs .tab-panels { width: min(956px, 100%); margin-inline: auto; } /* token-ok: design */
 
