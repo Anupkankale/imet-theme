@@ -2,6 +2,12 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.17 - 2026-11-09
+
+### Fixed
+
+- MBA course pages (MBA Cybersecurity, Project Management, Data Analytics): the fee banner has the same 40px above and below (it was 85px below, with an extra divider line), and the hero's three stats sit on one row (the third wrapped; the hero no longer has extra side padding, so it lines up with the sections below, as on the DBA pages).
+
 ## 1.1.16 - 2026-11-09
 
 ### Fixed
