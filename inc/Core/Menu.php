@@ -41,6 +41,7 @@ class Menu implements Registrable {
 				'footer-mba'       => esc_html__( 'Footer: Online Master’s (MBA)', 'imet-theme' ),
 				'footer-dba'       => esc_html__( 'Footer: Online Doctorate (DBA)', 'imet-theme' ),
 				'footer-countries' => esc_html__( 'Footer: Doctorate Programs by Country', 'imet-theme' ),
+				'blog'             => esc_html__( 'Blog: Category bar (single articles)', 'imet-theme' ),
 			]
 		);
 	}
