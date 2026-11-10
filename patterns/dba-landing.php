@@ -578,7 +578,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 </div>
 <!-- /wp:group --></section>
 <!-- /wp:imet/cyber-banner -->
-<?php echo IMET\Theme\Modules\Patterns\SyncedSections::block( 'clients-testimonials' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- block comment built from an ID or a fixed slug. ?>
+<?php echo IMET\Theme\Modules\Patterns\SyncedSections::block( 'dba-testimonials' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- block comment built from an ID or a fixed slug. ?>
 <!-- wp:imet/certificate {"align":"full"} -->
 <section class="wp-block-imet-certificate alignfull imet-section section cert"><!-- wp:group {"className":"imet-container cert-wrap","layout":{"type":"default"}} -->
 <div class="wp-block-group imet-container cert-wrap"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"cert-photo"} -->

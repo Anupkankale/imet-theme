@@ -2,6 +2,14 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.20 - 2026-11-10
+
+### Changed
+
+- LinkedIn testimonials ("What Our Clients Say") come in three shared versions that writers edit separately in Patterns > My patterns (IMET: Shared Sections): **Testimonials – Global** (the old "Clients Testimonials", renamed; used on Home), **Testimonials – MBA** and **Testimonials – DBA**. The MBA and DBA ones start as a copy of the Global one as it is today (the MBA intro says "online MBA experience"); after that each changes only its own pages. A title the team already changed is kept.
+- The MBA page patterns (MBA category, MBA course) place the MBA version, the DBA page patterns (DBA landing, DBA course) the DBA version.
+- Existing pages switch once, automatically, the first time an administrator opens wp-admin after the update (`SplitTestimonials`): pages whose address has "mba" in it move to the MBA version, "dba" or "doctorate" to the DBA version, every other page (Home) keeps the Global one. Only that block changes, and each page gets a revision.
+
 ## 1.1.19 - 2026-11-10
 
 ### Fixed
