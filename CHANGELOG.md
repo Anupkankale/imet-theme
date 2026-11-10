@@ -2,6 +2,16 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.18 - 2026-11-10
+
+### Added
+
+- Blog article template (`templates/single.html`), from the "DBA file 16/10" design: a navy "IMET BLOG" category bar (new menu location "Blog: Category bar", seeded with Cybersecurity, AI & Data, Doctorate, MBA, Career Growth and Leadership; the article's own categories are underlined), breadcrumbs and "Back to all Blogs", the featured image beside the title, byline, "Share this Resource" on LinkedIn and coloured tag chips; then the article beside the advisor form, a table of contents built from the article's H2 headings (the one being read is marked) and Follow Us; under the article an author box (avatar, name, bio, and their LinkedIn when the Website field of their profile is a LinkedIn address) and "Our Related Blogs" (three articles from the same categories).
+- Article parts for editors (patterns in IMET: Sections): Blog: TL;DR box, Blog: Program card, Blog: Contact banner, Blog: Recommended reading; a "Comparison" style for tables; quotes and tables in articles follow the design.
+- `SinglePost` (`[imet_share_linkedin]`, `[imet_author_linkedin]`, related-articles query).
+- Design review (Figma notes): larger featured image (603×290 beside a 485px title column), byline and tags on the left with "Share this Resource" over the LinkedIn logo on the right, the official LinkedIn logo (`linkedin-logo.svg`), a table of contents with a slim always-visible scrollbar that fades out while more items wait below.
+- Responsive: from 1100px down the title block stacks its byline, tags and share, the table of contents moves above the article and the advisor form follows it; "Back to all Blogs" has a 44px tap area. Checked at 1440, 1280, 1100, 1024, 900, 768, 640, 390 and 320px with no horizontal overflow.
+
 ## 1.1.17 - 2026-11-09
 
 ### Fixed

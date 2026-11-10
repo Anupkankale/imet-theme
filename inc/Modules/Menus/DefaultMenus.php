@@ -299,6 +299,35 @@ class DefaultMenus {
 					],
 				],
 			],
+			'blog'             => [
+				'name'  => 'Blog Categories',
+				'items' => [
+					[
+						'title' => 'Cybersecurity',
+						'url'   => '/category/cybersecurity/',
+					],
+					[
+						'title' => 'AI & Data',
+						'url'   => '/category/ai-data/',
+					],
+					[
+						'title' => 'Doctorate',
+						'url'   => '/category/doctorate-blogs/',
+					],
+					[
+						'title' => 'MBA',
+						'url'   => '/category/mba/',
+					],
+					[
+						'title' => 'Career Growth',
+						'url'   => '/category/career-growth/',
+					],
+					[
+						'title' => 'Leadership',
+						'url'   => '/category/leadership/',
+					],
+				],
+			],
 		];
 	}
 }

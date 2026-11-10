@@ -47,6 +47,7 @@ class Main {
 		Modules\Typography\LineBreaks::class,
 		Modules\Menus\MenuSeeder::class,
 		Modules\Menus\MenuRenderer::class,
+		Modules\Blog\SinglePost::class,
 	];
 
 	/**
