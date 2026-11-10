@@ -96,6 +96,9 @@
 	align-items: center;
 }
 
+/* No featured image: the title block takes the article column's width (it squeezed into the image's half before). */
+.imet-section .bp-head:not(:has(.bp-cover)) { grid-template-columns: minmax(0, 1fr) var(--wp--custom--size--334); }
+
 .imet-section .bp-cover { margin: 0; }
 
 .imet-section .bp-cover img { width: 100%; height: auto; aspect-ratio: 603 / 290; object-fit: cover; }
@@ -539,6 +542,8 @@
 @media (max-width: 1100px) {
 
 	.imet-section .bp-layout { grid-template-columns: minmax(0, 1fr); }
+
+	.imet-section .bp-head:not(:has(.bp-cover)) { grid-template-columns: minmax(0, 1fr); }
 
 	/* One column: the table of contents moves above the article (at the end it would be no help), the advisor form and
 	   Follow Us follow the article. The sidebar wrappers step aside so their parts are items of the column. */
