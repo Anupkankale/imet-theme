@@ -47,12 +47,13 @@ class SyncedSections implements Registrable {
 	public const VERSION_OPTION = 'imet_synced_sections_version';
 
 	/**
-	 * Setup version: 2 files every section under the shared category; 3 adds the photo sections.
+	 * Setup version: 2 files every section under the shared category; 3 adds the photo sections; 4 adds the MBA and DBA
+	 * testimonials and prefixes the testimonials' titles.
 	 *
 	 * @since 1.1.6
 	 * @var string
 	 */
-	public const VERSION = '3';
+	public const VERSION = '4';
 
 	/**
 	 * Pattern category (wp_pattern_category term) the shared sections are filed under in the inserter and Patterns.
@@ -71,10 +72,13 @@ class SyncedSections implements Registrable {
 	public const META = '_imet_section';
 
 	/**
-	 * The shared sections: key => title of the synced pattern and the theme pattern it starts from.
+	 * The shared sections: key => title of the synced pattern and the theme pattern it starts from. Optional:
+	 * `copy` starts it as a copy of another section's synced pattern as the team has edited it (the theme pattern only
+	 * when that one doesn't exist), `replace` swaps text in that copy, and `was` is an older title that is renamed to
+	 * `title` (a title the team chose is kept).
 	 *
-	 * @since 1.1.5 The photo sections since 1.1.11.
-	 * @var array<string, array{title: string, pattern: string}>
+	 * @since 1.1.5 The photo sections since 1.1.11; the MBA and DBA testimonials since 1.1.20.
+	 * @var array<string, array{title: string, pattern: string, copy?: string, replace?: array<string, string>, was?: string}>
 	 */
 	public const SECTIONS = [
 		'offer-banner'         => [
@@ -82,8 +86,20 @@ class SyncedSections implements Registrable {
 			'pattern' => 'imet-theme/offer-banner',
 		],
 		'clients-testimonials' => [
-			'title'   => 'Clients Testimonials',
+			'title'   => 'Global – LinkedIn Testimonials',
 			'pattern' => 'imet-theme/clients-testimonials',
+			'was'     => 'Clients Testimonials',
+		],
+		'mba-testimonials'     => [
+			'title'   => 'MBA – LinkedIn Testimonials',
+			'pattern' => 'imet-theme/mba-testimonials',
+			'copy'    => 'clients-testimonials',
+			'replace' => [ 'during their DBA doctor of business administration online experience' => 'during their online MBA experience' ],
+		],
+		'dba-testimonials'     => [
+			'title'   => 'DBA – LinkedIn Testimonials',
+			'pattern' => 'imet-theme/dba-testimonials',
+			'copy'    => 'clients-testimonials',
 		],
 		'cta-next-chapter'     => [
 			'title'   => 'CTA: Step Into Your Next Chapter',
@@ -204,7 +220,6 @@ class SyncedSections implements Registrable {
 	 */
 	public function seed(): int {
 		$ids      = (array) get_option( self::OPTION, [] );
-		$registry = WP_Block_Patterns_Registry::get_instance();
 		$created  = 0;
 		$category = $this->category();
 
@@ -214,12 +229,13 @@ class SyncedSections implements Registrable {
 			if ( $existing ) {
 				$ids[ $key ] = $existing;
 				$this->file( $existing, $category );
+				$this->rename( $existing, $section );
 				continue;
 			}
 
-			$pattern = $registry->get_registered( $section['pattern'] );
+			$content = $this->source( $section, $ids );
 
-			if ( ! $pattern || empty( $pattern['content'] ) ) {
+			if ( '' === $content ) {
 				continue;
 			}
 
@@ -229,7 +245,7 @@ class SyncedSections implements Registrable {
 						'post_type'    => 'wp_block',
 						'post_status'  => 'publish',
 						'post_title'   => $section['title'],
-						'post_content' => (string) $pattern['content'],
+						'post_content' => $content,
 						'meta_input'   => [ self::META => $key ],
 					]
 				),
@@ -297,6 +313,49 @@ class SyncedSections implements Registrable {
 	 *
 	 * @return int Term ID, or 0 when it could not be created.
 	 */
+	/**
+	 * What a new section starts with: a copy of another section's synced pattern (as edited), else the theme pattern.
+	 *
+	 * @param array<string, mixed> $section The section.
+	 * @param array<string, mixed> $ids     Synced pattern IDs found so far, by key.
+	 *
+	 * @return string Block markup, or '' when there is none.
+	 */
+	private function source( array $section, array $ids ): string {
+		$copy = isset( $section['copy'] ) ? get_post( (int) ( $ids[ (string) $section['copy'] ] ?? 0 ) ) : null;
+
+		if ( $copy && 'wp_block' === $copy->post_type && '' !== $copy->post_content ) {
+			$replace = (array) ( $section['replace'] ?? [] );
+
+			return strtr( (string) $copy->post_content, array_map( 'strval', $replace ) );
+		}
+
+		$pattern = WP_Block_Patterns_Registry::get_instance()->get_registered( (string) $section['pattern'] );
+
+		return $pattern && ! empty( $pattern['content'] ) ? (string) $pattern['content'] : '';
+	}
+
+	/**
+	 * Give a section its current title when it still has the older one (a title the team chose is kept).
+	 *
+	 * @param int                  $id      Synced pattern ID.
+	 * @param array<string, mixed> $section The section.
+	 */
+	private function rename( int $id, array $section ): void {
+		if ( empty( $section['was'] ) || get_the_title( $id ) !== $section['was'] ) {
+			return;
+		}
+
+		wp_update_post(
+			wp_slash(
+				[
+					'ID'         => $id,
+					'post_title' => (string) $section['title'],
+				]
+			)
+		);
+	}
+
 	private function category(): int {
 		$term = get_term_by( 'slug', self::CATEGORY, 'wp_pattern_category' );
 
