@@ -1,8 +1,8 @@
 <?php
 /**
- * Title: DBA – LinkedIn Testimonials
+ * Title: Testimonials – DBA
  * Slug: imet-theme/dba-testimonials
- * Description: "What Our Clients Say" for the DBA (doctorate) pages. The source of the synced pattern "DBA – LinkedIn Testimonials" (Patterns > My patterns), which the theme creates once as a copy of the Global one; edit that one and it changes on every DBA page. Hidden from the inserter so no unsynced copy is added by mistake.
+ * Description: "What Our Clients Say" for the DBA (doctorate) pages. The source of the synced pattern "Testimonials – DBA" (Patterns > My patterns), which the theme creates once as a copy of the Global one; edit that one and it changes on every DBA page. Hidden from the inserter so no unsynced copy is added by mistake.
  * Categories: imet-sections
  * Keywords: imet, section, testimonials, clients, reviews, linkedin, dba, doctorate, shared
  * Inserter: no

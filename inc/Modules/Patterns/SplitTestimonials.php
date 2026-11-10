@@ -14,8 +14,8 @@ use rtCamp\WPPrimitives\Contracts\Interfaces\Registrable;
 /**
  * Class SplitTestimonials
  *
- * Until 1.1.20 every page showed the one shared testimonials section ("Global – LinkedIn Testimonials"). The MBA and
- * DBA pages now have their own ("MBA – / DBA – LinkedIn Testimonials", see SyncedSections). The first time an
+ * Until 1.1.20 every page showed the one shared testimonials section ("Testimonials – Global"). The MBA and
+ * DBA pages now have their own ("Testimonials – MBA / – DBA", see SyncedSections). The first time an
  * administrator opens wp-admin after the update, this points the pages saved earlier at their own section: a page
  * whose address has "mba" in it moves to the MBA one, "dba" or "doctorate" to the DBA one, every other page (Home)
  * keeps the Global one. Only that one block reference changes; WordPress keeps a revision of each page. It runs once.
