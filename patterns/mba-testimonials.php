@@ -1,8 +1,8 @@
 <?php
 /**
- * Title: MBA – LinkedIn Testimonials
+ * Title: Testimonials – MBA
  * Slug: imet-theme/mba-testimonials
- * Description: "What Our Clients Say" for the MBA pages. The source of the synced pattern "MBA – LinkedIn Testimonials" (Patterns > My patterns), which the theme creates once as a copy of the Global one; edit that one and it changes on every MBA page. Hidden from the inserter so no unsynced copy is added by mistake.
+ * Description: "What Our Clients Say" for the MBA pages. The source of the synced pattern "Testimonials – MBA" (Patterns > My patterns), which the theme creates once as a copy of the Global one; edit that one and it changes on every MBA page. Hidden from the inserter so no unsynced copy is added by mistake.
  * Categories: imet-sections
  * Keywords: imet, section, testimonials, clients, reviews, linkedin, mba, shared
  * Inserter: no

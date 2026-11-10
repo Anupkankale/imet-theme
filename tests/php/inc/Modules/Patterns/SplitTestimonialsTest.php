@@ -133,8 +133,8 @@ class SplitTestimonialsTest extends TestCase {
 
 		$synced->seed();
 
-		$this->assertSame( 'Global – LinkedIn Testimonials', get_the_title( $global ) );
-		$this->assertSame( 'MBA – LinkedIn Testimonials', get_the_title( SyncedSections::id( 'mba-testimonials' ) ) );
+		$this->assertSame( 'Testimonials – Global', get_the_title( $global ) );
+		$this->assertSame( 'Testimonials – MBA', get_the_title( SyncedSections::id( 'mba-testimonials' ) ) );
 		$this->assertStringContainsString( 'Edited quote during their online MBA experience', get_post( SyncedSections::id( 'mba-testimonials' ) )->post_content );
 		$this->assertStringContainsString( 'Edited quote during their DBA doctor', get_post( SyncedSections::id( 'dba-testimonials' ) )->post_content );
 	}

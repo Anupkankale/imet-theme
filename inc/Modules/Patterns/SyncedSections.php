@@ -86,18 +86,18 @@ class SyncedSections implements Registrable {
 			'pattern' => 'imet-theme/offer-banner',
 		],
 		'clients-testimonials' => [
-			'title'   => 'Global – LinkedIn Testimonials',
+			'title'   => 'Testimonials – Global',
 			'pattern' => 'imet-theme/clients-testimonials',
 			'was'     => 'Clients Testimonials',
 		],
 		'mba-testimonials'     => [
-			'title'   => 'MBA – LinkedIn Testimonials',
+			'title'   => 'Testimonials – MBA',
 			'pattern' => 'imet-theme/mba-testimonials',
 			'copy'    => 'clients-testimonials',
 			'replace' => [ 'during their DBA doctor of business administration online experience' => 'during their online MBA experience' ],
 		],
 		'dba-testimonials'     => [
-			'title'   => 'DBA – LinkedIn Testimonials',
+			'title'   => 'Testimonials – DBA',
 			'pattern' => 'imet-theme/dba-testimonials',
 			'copy'    => 'clients-testimonials',
 		],
