@@ -43,6 +43,7 @@ class Main {
 		Modules\Shortcodes\CurrentYear::class,
 		Modules\Shortcodes\ShortcodeBlock::class,
 		Modules\Patterns\SyncedSections::class,
+		Modules\Patterns\SplitTestimonials::class,
 		Modules\Patterns\LinkPhotoSections::class,
 		Modules\Typography\LineBreaks::class,
 		Modules\Menus\MenuSeeder::class,

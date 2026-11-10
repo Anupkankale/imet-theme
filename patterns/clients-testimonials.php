@@ -1,8 +1,8 @@
 <?php
 /**
- * Title: Clients Testimonials
+ * Title: Global – LinkedIn Testimonials
  * Slug: imet-theme/clients-testimonials
- * Description: "What Our Clients Say": three client quotes with name, role and LinkedIn, gliding sideways, and a View More link. The source of the synced pattern "Clients Testimonials" (Patterns > My patterns), which the theme creates once; edit that one and it changes on every page. Hidden from the inserter so no unsynced copy is added by mistake.
+ * Description: "What Our Clients Say": three client quotes with name, role and LinkedIn, gliding sideways, and a View More link. The source of the synced pattern "Global – LinkedIn Testimonials" (Patterns > My patterns), which the theme creates once; edit that one and it changes on every page that uses it (Home). The MBA and DBA pages have their own copies (MBA – / DBA – LinkedIn Testimonials). Hidden from the inserter so no unsynced copy is added by mistake.
  * Categories: imet-sections
  * Keywords: imet, section, testimonials, clients, reviews, shared
  * Inserter: no
