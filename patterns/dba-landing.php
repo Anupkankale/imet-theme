@@ -307,7 +307,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- wp:group {"className":"b-card b-alumni dark","layout":{"type":"default"}} -->
 <div class="wp-block-group b-card b-alumni dark"><!-- wp:group {"className":"b-alumni-top","layout":{"type":"default"}} -->
 <div class="wp-block-group b-alumni-top"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"b-avatars"} -->
-<figure class="wp-block-image size-full b-avatars"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/bento-avatars.webp" ) ); ?>" alt="50+ alumni"/></figure>
+<figure class="wp-block-image size-full b-avatars"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/bento-avatars-500.webp" ) ); ?>" alt="500+ alumni"/></figure>
 <!-- /wp:image -->
 <!-- wp:paragraph {"className":"big"} -->
 <p class="big">500+</p>
