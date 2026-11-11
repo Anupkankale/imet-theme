@@ -276,16 +276,22 @@
 }
 
 // ---- Footer ---------------------------------------------------------------------------------------------------
-// Geometry follows the live site at 1440px: tabs at 80px, content columns 334 + 40 + 826 wide, 28px line height,
-// white bottom strip 82px tall.
+// Design: "IMET Worldwide Main file (12) / Group 6" (1440px). Navy-night band: five page tabs (Accreditation in gold),
+// then the about column (380px: logo, text, bullets, Follow Us + LinkedIn, Refer & Earn) beside the link columns
+// (Main Menu · Courses by Category + Master's (MBA) Programs · Doctorate (DBA) Programs with a Popular badge) and the
+// four offices over a faint world map; under both, the doctorate programs grouped by country. White recognition strip
+// at the bottom. Link lists are menus (MenuRenderer, imet-menu-<location>); on phones the link groups collapse.
 
 $footer-icon-pin: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 384 512'%3E%3Cpath d='M172 501C27 291 0 269 0 192 0 86 86 0 192 0s192 86 192 192c0 77-27 99-172 309a24 24 0 0 1-40 0zm20-229a80 80 0 1 0 0-160 80 80 0 0 0 0 160z'/%3E%3C/svg%3E");
 $footer-icon-caret: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 512'%3E%3Cpath d='M31.3 192h257.4c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8a20 20 0 0 1-28.2 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z'/%3E%3C/svg%3E");
-$footer-icon-phone: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath d='M164 25c-9-22-33-34-56-28L34 29C14 38 0 58 0 80c0 238 194 432 432 432 22 0 42-14 51-34l22-74c6-23-6-47-28-56l-48-20c-19-8-41-2-54 14l-31 38C281 359 153 231 112 160l38-31c16-13 22-35 14-54z'/%3E%3C/svg%3E");
 
 .imet-footer {
+	// The design's thin blue dividers.
+	--footer-rule: color-mix(in srgb, var(--wp--preset--color--blue) 45%, var(--wp--preset--color--navy-night));
+
+	font-family: var(--wp--preset--font-family--inter);
 	font-size: var(--wp--preset--font-size--normal);
-	line-height: var(--wp--custom--line-height--28);
+	line-height: 1.5;
 
 	a {
 		color: inherit;
@@ -299,40 +305,61 @@ $footer-icon-phone: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000
 
 	:where(p, li) {
 		margin: 0;
-		line-height: var(--wp--custom--line-height--28);
 	}
 
-	&-tabs {
-		gap: var(--wp--preset--spacing--20);
-		margin: 0;
-		padding: var(--wp--preset--spacing--80) var(--wp--preset--spacing--20) 0;
-
-		.wp-block-button__link {
-			padding: var(--wp--preset--spacing--10) var(--wp--preset--spacing--20);
-			border: 1px solid var(--wp--preset--color--white);
-			border-radius: var(--wp--preset--border-radius--7);
-			font-size: var(--wp--preset--font-size--14);
-			font-weight: 400;
-			letter-spacing: var(--wp--custom--letter-spacing--1);
-			line-height: var(--wp--custom--line-height--21);
-		}
+	:where(h2, h3, summary) {
+		color: var(--wp--preset--color--white);
+		font-family: var(--wp--preset--font-family--montserrat);
 	}
 
 	&-inner {
-		padding: var(--wp--preset--spacing--32) var(--wp--preset--spacing--20) var(--wp--preset--spacing--20);
+		padding: var(--wp--preset--spacing--40) var(--wp--preset--spacing--20) var(--wp--preset--spacing--48);
 	}
 
-	&-top {
-		gap: var(--wp--preset--spacing--40);
-		align-items: flex-start;
-		margin: 0;
+	// ---- Page tabs ----
+	&-tabs {
+		gap: var(--wp--preset--spacing--20);
+		margin: 0 0 var(--wp--preset--spacing--40);
+
+		.wp-block-button__link {
+			padding: var(--wp--preset--spacing--5) var(--wp--preset--spacing--10);
+			border: 1px solid var(--wp--preset--color--white);
+			border-radius: var(--wp--preset--border-radius--3);
+			background: transparent;
+			color: var(--wp--preset--color--white);
+			font-family: var(--wp--preset--font-family--montserrat);
+			font-size: var(--wp--preset--font-size--medium);
+			font-weight: 500;
+			line-height: 1.4;
+
+			&:hover,
+			&:focus-visible {
+				background: color-mix(in srgb, var(--wp--preset--color--white) 12%, transparent);
+				text-decoration: none;
+			}
+		}
+
+		.imet-footer-tab-accent .wp-block-button__link {
+			background: var(--wp--preset--color--gold);
+			color: var(--wp--preset--color--navy-night);
+
+			&:hover,
+			&:focus-visible {
+				background: var(--wp--preset--color--gold-dark);
+			}
+		}
+	}
+
+	// ---- About column beside the links ----
+	&-main {
+		display: grid;
+		grid-template-columns: var(--wp--custom--size--380) minmax(0, 1fr);
+		column-gap: var(--wp--preset--spacing--40);
+		align-items: start;
 
 		@media (max-width: #{$bp-footer}) {
-			flex-wrap: wrap !important;
-
-			> .wp-block-column {
-				flex-basis: 100% !important;
-			}
+			grid-template-columns: minmax(0, 1fr);
+			row-gap: var(--wp--preset--spacing--40);
 		}
 	}
 
@@ -341,8 +368,8 @@ $footer-icon-phone: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000
 		align-items: center;
 		justify-content: center;
 		box-sizing: border-box;
-		width: var(--wp--custom--size--110);
-		height: var(--wp--custom--size--102);
+		width: var(--wp--custom--size--74);
+		height: var(--wp--custom--size--74);
 		border-radius: var(--wp--preset--border-radius--8);
 		background: var(--wp--preset--color--white);
 
@@ -352,88 +379,138 @@ $footer-icon-phone: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000
 		}
 
 		.wp-block-site-logo img {
-			width: var(--wp--custom--size--84);
+			width: var(--wp--custom--size--62);
 			height: auto;
 		}
 	}
 
 	&-brand {
-		margin: var(--wp--preset--spacing--10) 0 0;
+		margin: var(--wp--preset--spacing--16) 0 0;
 		font-size: var(--wp--preset--font-size--29);
 		font-weight: 600;
-		line-height: var(--wp--custom--line-height--35);
+		line-height: 1.2;
 	}
 
 	&-about {
-		margin: var(--wp--preset--spacing--10) 0;
+		margin: var(--wp--preset--spacing--10) 0 var(--wp--preset--spacing--16);
+		font-size: var(--wp--preset--font-size--small);
+		line-height: 1.6;
 	}
 
 	&-bullets {
 		margin: 0;
-		padding-left: var(--wp--preset--spacing--40);
+		padding-left: var(--wp--preset--spacing--16);
+		font-size: var(--wp--preset--font-size--small);
+		line-height: 1.6;
 		list-style: disc;
 	}
 
-	&-refer {
-		margin-top: var(--wp--preset--spacing--10);
+	&-follow {
+		gap: var(--wp--preset--spacing--12);
+		margin-top: var(--wp--preset--spacing--20);
 		padding-top: var(--wp--preset--spacing--20);
-		border-top: 1px solid var(--wp--preset--color--white);
+		border-top: 1px solid var(--footer-rule);
 
-		.wp-block-buttons {
-			margin: 0;
-		}
-
-		.wp-block-button__link {
-			padding: var(--wp--preset--spacing--12) var(--wp--preset--spacing--24);
-			border: 1px solid var(--wp--preset--color--navy-footer);
-			border-radius: var(--wp--preset--border-radius--5);
+		.imet-footer-follow-label {
 			font-size: var(--wp--preset--font-size--14);
-			font-weight: 600;
-			line-height: var(--wp--custom--line-height--18);
-		}
-
-		p {
-			margin-top: var(--wp--preset--spacing--24);
+			font-weight: 700;
 		}
 	}
 
-	&-h {
-		margin: 0 0 var(--wp--preset--spacing--10);
-		font-size: var(--wp--preset--font-size--medium);
-		font-weight: 700;
-		line-height: var(--wp--custom--line-height--28);
+	&-linkedin {
+		margin: 0;
+		line-height: 0;
+
+		&.wp-block-image img {
+			width: var(--wp--custom--size--88);
+			height: auto;
+		}
+	}
+
+	&-refer {
+		margin-top: var(--wp--preset--spacing--24);
+		padding-bottom: var(--wp--preset--spacing--20);
+		border-bottom: 1px solid var(--footer-rule);
+
+		p {
+			font-size: var(--wp--preset--font-size--medium);
+		}
+
+		.wp-block-buttons {
+			margin: var(--wp--preset--spacing--16) 0 0;
+		}
+
+		.wp-block-button .wp-block-button__link {
+			padding: var(--wp--preset--spacing--10) var(--wp--preset--spacing--16);
+			border-radius: var(--wp--preset--border-radius--4);
+			font-size: var(--wp--preset--font-size--medium);
+			font-weight: 500;
+			line-height: 1.4;
+		}
+	}
+
+	// ---- Links, then offices over a world map ----
+	&-right {
+		position: relative;
+		isolation: isolate;
 	}
 
 	&-links {
 		display: grid;
-		grid-template-columns: 1fr 2fr 2fr;
-		gap: var(--wp--preset--spacing--10);
+		grid-template-columns: max-content max-content minmax(0, 1fr); // each list on one line, as in the design
+		gap: var(--wp--preset--spacing--30) var(--wp--preset--spacing--36);
 		align-items: start;
-		padding-bottom: var(--wp--preset--spacing--20);
-		border-bottom: 1px solid var(--wp--preset--color--white);
+		padding-bottom: var(--wp--preset--spacing--70);
+		border-bottom: 1px solid var(--footer-rule);
 
+		// Narrower screens: shared columns, the links wrap.
+		@media (max-width: #{$bp-footer-wide - 1}) {
+			grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr) minmax(0, 1.2fr);
+			column-gap: var(--wp--preset--spacing--20);
+		}
+
+		// Phone: one stack of boxed rows, in the phone design's order (Main Menu, Courses, Doctorate, MBA).
 		@media (max-width: #{$bp-tablet - 1}) {
-			grid-template-columns: 1fr;
-			gap: 0;
+			display: flex;
+			flex-direction: column;
+			align-items: stretch;
+			gap: var(--wp--preset--spacing--10);
 			padding-bottom: 0;
 			border-bottom: 0;
+
+			> .wp-block-group {
+				display: contents;
+			}
+
+			.imet-footer-acc-main { order: 1; }
+
+			.imet-footer-acc-courses { order: 2; }
+
+			.imet-footer-acc-dba { order: 3; }
+
+			.imet-footer-acc-mba { order: 4; }
 		}
 	}
 
-	// Link groups are Details blocks. From 768px up they read as plain headings over open lists (the script keeps
-	// them open); on phones they are the collapsible rows of the live site (350 x 42, caret on the right).
+	// Labels only the phone layout shows ("Quick Links", "Our Presence").
+	&-mobile-label {
+		display: none;
+	}
+
+	// Link groups are Details blocks. From 768px up they read as headings over open lists (the script keeps them
+	// open); on phones they are collapsible rows with a caret.
 	&-acc {
-		// The global FAQ look of the Details block (padding, rule, 18px text) is for page content, not the footer.
+		// The global FAQ look of the Details block is for page content, not the footer.
 		padding: 0;
 		border: 0;
-		font-size: var(--wp--preset--font-size--normal);
+		font-size: var(--wp--preset--font-size--small);
 
 		> summary {
 			display: block;
-			margin: 0 0 var(--wp--preset--spacing--10);
+			margin: 0 0 var(--wp--preset--spacing--6);
 			font-size: var(--wp--preset--font-size--medium);
 			font-weight: 700;
-			line-height: var(--wp--custom--line-height--28);
+			line-height: 1.4;
 			list-style: none;
 			cursor: default;
 			pointer-events: none;
@@ -448,15 +525,13 @@ $footer-icon-phone: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000
 		}
 
 		& + & {
-			margin-top: var(--wp--preset--spacing--30);
-		}
-
-		.imet-footer-list {
-			margin: 0;
+			margin-top: var(--wp--preset--spacing--24);
 		}
 
 		@media (max-width: #{$bp-tablet - 1}) {
-			margin: 0 var(--wp--preset--spacing--10);
+			padding: 0 var(--wp--preset--spacing--12);
+			border: 1px solid var(--footer-rule);
+			border-radius: var(--wp--preset--border-radius--6);
 
 			& + & {
 				margin-top: 0;
@@ -466,12 +541,12 @@ $footer-icon-phone: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000
 				display: flex;
 				align-items: center;
 				justify-content: space-between;
+				gap: var(--wp--preset--spacing--10);
 				box-sizing: border-box;
-				min-height: var(--wp--custom--size--42);
+				min-height: var(--wp--custom--size--44);
 				margin: 0;
-				padding: var(--wp--preset--spacing--10);
-				font-size: var(--wp--preset--font-size--normal);
-				line-height: var(--wp--custom--line-height--22-4);
+				padding: var(--wp--preset--spacing--10) 0;
+				font-size: var(--wp--preset--font-size--14);
 				cursor: pointer;
 				pointer-events: auto;
 
@@ -480,6 +555,7 @@ $footer-icon-phone: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000
 					flex: none;
 					width: var(--wp--custom--size--9);
 					height: var(--wp--custom--size--15);
+					margin-left: auto;
 					background: currentcolor;
 					mask: $footer-icon-caret center / contain no-repeat;
 				}
@@ -490,186 +566,172 @@ $footer-icon-phone: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000
 			}
 
 			.imet-footer-list {
-				padding: var(--wp--preset--spacing--10);
-				text-align: left;
-
-				a {
-					display: block;
-				}
-
-				li {
-					margin: var(--wp--preset--spacing--5) 0 0;
-					padding-bottom: var(--wp--preset--spacing--5);
-					line-height: var(--wp--custom--line-height--22-4);
-
-					&:first-child {
-						margin-top: 0;
-					}
-
-					&:last-child {
-						padding-bottom: 0;
-					}
-				}
+				padding: 0 0 var(--wp--preset--spacing--12);
 			}
 		}
 	}
 
 	&-list {
-		margin: 0 0 var(--wp--preset--spacing--30);
+		margin: 0;
 		padding: 0;
 		list-style: none;
 
-		li {
-			margin-bottom: var(--wp--preset--spacing--5);
-
-			&:last-child {
-				margin-bottom: 0;
-			}
+		li + li {
+			margin-top: var(--wp--preset--spacing--4);
 		}
 
-		&:last-child {
-			margin-bottom: 0;
+		@media (max-width: #{$bp-tablet - 1}) {
+
+			a {
+				display: block;
+				padding-block: var(--wp--preset--spacing--6);
+			}
+
+			li + li {
+				margin-top: 0;
+			}
 		}
 	}
 
-	&-contact {
-		display: grid;
-		grid-template-columns: 572fr 245fr;
-		column-gap: var(--wp--preset--spacing--9);
-		margin-top: var(--wp--preset--spacing--20);
+	// Doctorate column: bulleted, underlined links.
+	&-list-dba {
+		padding-left: var(--wp--preset--spacing--20);
+		list-style: disc;
 
-		@media (max-width: #{$bp-tablet - 1}) {
-			display: flex;
-			flex-direction: column;
-			gap: var(--wp--preset--spacing--24);
-			margin-top: var(--wp--preset--spacing--30);
+		a {
+			text-decoration: underline;
+			text-underline-offset: var(--wp--custom--size--3);
+		}
 
-			> .imet-footer-advisor {
-				order: -1;
-			}
+		li + li {
+			margin-top: var(--wp--preset--spacing--2);
+		}
+	}
+
+	&-badge {
+		display: inline-block;
+		margin-left: var(--wp--preset--spacing--12);
+		padding: var(--wp--preset--spacing--2) var(--wp--preset--spacing--6);
+		border-radius: var(--wp--preset--border-radius--3);
+		background: var(--wp--preset--color--gold-soft);
+		color: var(--wp--preset--color--gold-dark);
+		font-family: var(--wp--preset--font-family--inter);
+		font-size: var(--wp--preset--font-size--caption);
+		font-weight: 600;
+		letter-spacing: var(--wp--custom--letter-spacing--1);
+		line-height: 1.4;
+		text-transform: uppercase;
+		vertical-align: middle;
+
+		&::before {
+			content: "*";
 		}
 	}
 
 	&-offices {
+		position: relative;
 		display: grid;
-		grid-template-columns: 1fr 1fr;
-		gap: var(--wp--preset--spacing--10) 0;
-		align-content: start;
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+		gap: var(--wp--preset--spacing--20);
+		padding-top: var(--wp--preset--spacing--24);
+
+		@media (max-width: #{$bp-footer-wide - 1}) {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
 
 		@media (max-width: #{$bp-narrow}) {
-			grid-template-columns: 1fr;
+			grid-template-columns: minmax(0, 1fr);
 		}
 	}
 
-	&-office .imet-footer-h {
-		margin-bottom: var(--wp--preset--spacing--10);
+	// Faint world map behind the offices (an image in the markup, loaded lazily; assets/images/imet/world-map.svg),
+	// reaching down beside the about column. Out of the grid's flow.
+	&-map {
+		position: absolute;
+		top: var(--wp--preset--spacing--24);
+		right: 0;
+		left: 0;
+		z-index: -1;
+		margin: 0;
+		pointer-events: none;
+
+		&.wp-block-image img {
+			width: 100%;
+			height: var(--wp--custom--size--260);
+			object-fit: contain;
+			object-position: center top;
+			opacity: 0.08;
+			filter: invert(1);
+		}
 	}
 
-	&-address,
-	&-phone {
+	&-h {
+		margin: 0 0 var(--wp--preset--spacing--8);
+		font-size: var(--wp--preset--font-size--large);
+		font-weight: 600;
+		line-height: 1.3;
+	}
+
+	&-address {
 		position: relative;
 		padding-left: var(--wp--preset--spacing--23);
+		font-size: var(--wp--preset--font-size--small);
+		line-height: 1.5;
 
 		&::before {
 			content: "";
 			position: absolute;
-			top: var(--wp--preset--spacing--7);
+			top: var(--wp--preset--spacing--4);
 			left: 0;
 			width: var(--wp--custom--size--14);
 			height: var(--wp--custom--size--14);
 			background: currentcolor;
-			mask: center / contain no-repeat;
+			mask: $footer-icon-pin center / contain no-repeat;
 		}
 	}
 
-	&-address::before {
-		mask-image: $footer-icon-pin;
-	}
-
-	&-phone {
-		margin-top: var(--wp--preset--spacing--10);
-
-		&::before {
-			mask-image: $footer-icon-phone;
-		}
-	}
-
-	&-advisor-cta {
-		margin: 0;
-
-		.wp-block-button {
-			width: 100%;
-		}
-
-		.wp-block-button__link {
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			box-sizing: border-box;
-			width: 100%;
-			height: var(--wp--custom--size--40);
-			padding: 0 var(--wp--preset--spacing--24);
-			border: 1px solid var(--wp--preset--color--white);
-			border-radius: var(--wp--preset--border-radius--3);
-			font-size: var(--wp--preset--font-size--14);
-			font-weight: 600;
-			line-height: var(--wp--custom--line-height--18);
-		}
-	}
-
-	&-follow {
-		gap: var(--wp--preset--spacing--20);
-		padding-right: var(--wp--preset--spacing--10);
-		margin-top: var(--wp--custom--size--155); // where the live site's enquiry form sits
-
-		@media (max-width: #{$bp-footer}) {
-			margin-top: var(--wp--preset--spacing--24);
-		}
-
-		.imet-footer-h {
-			margin: 0;
-			line-height: var(--wp--custom--line-height--18);
-		}
-
-		.wp-block-social-links {
-			margin: 0;
-		}
-
-		.wp-social-link {
-			width: var(--wp--custom--size--50);
-			height: var(--wp--custom--size--50);
-			border-radius: 10%;
-			background: var(--wp--preset--color--linkedin);
-		}
-
-		.wp-block-social-link-anchor {
-			padding: var(--wp--custom--size--12-5);
-		}
-
-		svg {
-			width: var(--wp--custom--size--25);
-			height: var(--wp--custom--size--25);
-		}
-	}
-
-	&-countries-title {
-		margin-top: var(--wp--preset--spacing--26);
-	}
-
+	// ---- Doctorate programs by country ----
+	// One Details block: on phones the "Doctorate Programs by Country" row; from 768px up always open, no heading.
 	&-countries {
+		margin-top: var(--wp--preset--spacing--30);
+
+		@media (min-width: #{$bp-tablet}) {
+
+			.imet-footer-acc-countries > summary {
+				display: none;
+			}
+		}
+	}
+
+	&-country-h {
+		display: inline-block;
+		margin: var(--wp--preset--spacing--24) 0 var(--wp--preset--spacing--10);
+		padding-bottom: var(--wp--preset--spacing--4);
+		border-bottom: var(--wp--custom--size--2) solid var(--wp--preset--color--white);
+		font-size: var(--wp--preset--font-size--normal);
+		font-weight: 700;
+		line-height: 1.4;
+
+		&:first-child {
+			margin-top: 0;
+		}
+	}
+
+	&-country-list {
 		display: flex;
 		flex-wrap: wrap;
+		row-gap: var(--wp--preset--spacing--4);
 		margin: 0;
 		padding: 0;
 		list-style: none;
 
-		li {
-			margin: 0 var(--wp--preset--spacing--25) 0 0;
-			padding-right: var(--wp--preset--spacing--25);
-			border-right: 1px solid var(--wp--preset--color--white);
+		li::after {
+			content: "|";
+			margin-inline: var(--wp--preset--spacing--6);
 		}
 	}
 
+	// ---- White recognition strip ----
 	&-bottom {
 		box-sizing: border-box;
 		min-height: var(--wp--custom--size--82);
@@ -703,57 +765,263 @@ $footer-icon-phone: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000
 		}
 	}
 
-	// Phone: centred, tabs two per row, country links as rows (live site).
+	// ---- Phone: the phone design's order ----
+	// Logo beside the name, about text, Follow Us, Quick Links (boxed rows), Doctorate Programs by Country, Our
+	// Presence (offices as boxed rows with a flag), the referral, the page tabs as a list, then the copyright on navy
+	// over the recognition logos. The column wrappers step aside (display: contents) so every part is a grid item.
 	@media (max-width: #{$bp-tablet - 1}) {
 
-		&-tabs {
-			padding-top: var(--wp--preset--spacing--40);
-		}
-
 		&-inner {
-			padding-inline: var(--wp--preset--spacing--10);
+			display: grid;
+			grid-template-areas:
+				"logo brand"
+				"about about"
+				"follow follow"
+				"quick quick"
+				"links links"
+				"countries countries"
+				"presence presence"
+				"offices offices"
+				"refer refer"
+				"tabs tabs";
+			grid-template-columns: auto minmax(0, 1fr);
+			column-gap: var(--wp--preset--spacing--12);
+			align-items: center;
+			padding: var(--wp--preset--spacing--24) var(--wp--preset--spacing--16);
 		}
 
-		&-top > .wp-block-column {
-			text-align: center;
+		// The constrained layout centres its children with auto side margins (core marks them !important), which
+		// shrinks a grid item to its content; a full width leaves the margins nothing to take.
+		#{&}-inner > * {
+			box-sizing: border-box;
+			width: 100%;
+		}
+
+		:is(&-main, &-about-col, &-right) {
+			display: contents;
 		}
 
 		&-logo {
-			margin-inline: auto;
+			grid-area: logo;
+			width: var(--wp--custom--size--50);
+			height: var(--wp--custom--size--50);
+			border-radius: var(--wp--preset--border-radius--6);
+
+			.wp-block-site-logo img {
+				width: var(--wp--custom--size--42);
+			}
+		}
+
+		&-brand {
+			grid-area: brand;
+			margin: 0;
+			font-size: var(--wp--preset--font-size--large);
+		}
+
+		&-about {
+			grid-area: about;
+			margin: var(--wp--preset--spacing--12) 0 0;
+			font-size: var(--wp--preset--font-size--caption);
 		}
 
 		&-bullets {
-			text-align: left;
-		}
-
-		&-refer .wp-block-buttons {
-			justify-content: center;
+			display: none;
 		}
 
 		&-follow {
-			justify-content: center !important;
-			padding-right: 0;
+			grid-area: follow;
+			gap: var(--wp--preset--spacing--8);
+			margin-top: var(--wp--preset--spacing--12);
+			padding: 0 0 var(--wp--preset--spacing--16);
+			border-top: 0;
+			border-bottom: 1px solid var(--footer-rule);
 		}
 
-		&-advisor {
+		&-mobile-label {
+			display: block;
+			margin-top: var(--wp--preset--spacing--16);
+			margin-bottom: var(--wp--preset--spacing--10);
+			font-size: var(--wp--preset--font-size--14);
+			font-weight: 700;
+		}
+
+		&-quick {
+			grid-area: quick;
+		}
+
+		&-links {
+			grid-area: links;
+		}
+
+		&-countries {
+			grid-area: countries;
+			margin-top: var(--wp--preset--spacing--10);
+			padding-bottom: var(--wp--preset--spacing--16);
+			border-bottom: 1px solid var(--footer-rule);
+		}
+
+		&-country-h {
+			margin-top: var(--wp--preset--spacing--12);
+			font-size: var(--wp--preset--font-size--14);
+		}
+
+		&-country-list {
+			display: block;
+			margin-bottom: var(--wp--preset--spacing--4);
+			font-size: var(--wp--preset--font-size--14);
+
+			li {
+				padding-block: var(--wp--preset--spacing--4);
+				border-bottom: 1px solid var(--footer-rule);
+			}
+
+			li::after {
+				content: none;
+			}
+		}
+
+		&-presence {
+			grid-area: presence;
+		}
+
+		&-offices {
+			grid-area: offices;
+			grid-template-columns: minmax(0, 1fr);
+			gap: var(--wp--preset--spacing--8);
+			padding-top: 0;
+		}
+
+		&-map {
+			top: 0;
+		}
+
+		// Each office: a boxed row with its round flag, the address and phone.
+		&-office {
+			display: flex;
+			align-items: center;
+			gap: var(--wp--preset--spacing--10);
+			padding: var(--wp--preset--spacing--8) var(--wp--preset--spacing--12);
+			border: 1px solid var(--footer-rule);
+			border-radius: var(--wp--preset--border-radius--6);
+
+			&::before {
+				content: "";
+				flex: none;
+				width: var(--wp--custom--size--22);
+				height: var(--wp--custom--size--22);
+				border-radius: 50%;
+				background: var(--flag) center / cover no-repeat;
+			}
+
+			.imet-footer-h {
+				display: none;
+			}
+		}
+
+		&-office-ae { --flag: url(../../../assets/images/imet/flag-ae.png); }
+
+		&-office-us { --flag: url(../../../assets/images/imet/flag-us.png); }
+
+		&-office-sg { --flag: url(../../../assets/images/imet/flag-sg.png); }
+
+		&-office-gb { --flag: url(../../../assets/images/imet/flag-gb.png); }
+
+		&-address {
+			padding-left: 0;
+			font-size: var(--wp--preset--font-size--caption);
+
+			&::before {
+				content: none;
+			}
+		}
+
+		&-refer {
+			grid-area: refer;
+			margin-top: var(--wp--preset--spacing--24);
+			padding-bottom: var(--wp--preset--spacing--20);
+			text-align: center;
+
+			p {
+				font-size: var(--wp--preset--font-size--14);
+				font-weight: 600;
+			}
+
+			.wp-block-buttons {
+				justify-content: center;
+				margin-top: var(--wp--preset--spacing--12);
+			}
+
+			.wp-block-button .wp-block-button__link {
+				padding: var(--wp--preset--spacing--6) var(--wp--preset--spacing--14);
+				font-size: var(--wp--preset--font-size--caption);
+			}
+		}
+
+		// Page tabs: a list, Accreditation as a gold bar, then the design's order.
+		&-tabs {
+			grid-area: tabs;
+			flex-direction: column;
+			align-items: stretch;
+			gap: 0;
+			margin: var(--wp--preset--spacing--16) 0 0;
+
+			.wp-block-button {
+				width: 100%;
+			}
+
+			.wp-block-button:nth-child(4) { order: 2; }
+
+			.wp-block-button:nth-child(3) { order: 3; }
+
+			.wp-block-button:nth-child(5) { order: 4; }
+
+			.wp-block-button:nth-child(2) { order: 5; }
+
+			.wp-block-button .wp-block-button__link {
+				width: 100%;
+				box-sizing: border-box;
+				padding: var(--wp--preset--spacing--8) var(--wp--preset--spacing--14);
+				border: 0;
+				border-bottom: 1px solid var(--footer-rule);
+				border-radius: 0;
+				font-size: var(--wp--preset--font-size--14);
+				text-align: left;
+			}
+
+			.imet-footer-tab-accent .wp-block-button__link {
+				border-radius: var(--wp--preset--border-radius--3);
+			}
+		}
+
+		// Copyright on the navy band, the logos in one row on white.
+		&-bottom {
+			padding: 0;
+
+			> .wp-block-group {
+				flex-direction: column;
+				align-items: stretch;
+				gap: 0;
+			}
+		}
+
+		&-copy {
+			padding: var(--wp--preset--spacing--12) var(--wp--preset--spacing--16);
+			border-top: 1px solid var(--footer-rule);
+			background: var(--wp--preset--color--navy-night);
+			color: var(--wp--preset--color--white);
+			font-size: var(--wp--preset--font-size--caption);
 			text-align: center;
 		}
 
-		&-office {
-			text-align: left;
-		}
+		&-logos {
+			flex-wrap: nowrap;
+			justify-content: space-between;
+			gap: var(--wp--preset--spacing--8);
+			padding: var(--wp--preset--spacing--10) var(--wp--preset--spacing--16);
 
-		&-countries li {
-			box-sizing: border-box;
-			width: 100%;
-			margin: 0;
-			padding: var(--wp--preset--spacing--4) 0 var(--wp--preset--spacing--3);
-			border-right: 0;
-			border-bottom: 1px solid color-mix(in srgb, var(--wp--preset--color--white) 50%, transparent);
-		}
-
-		&-bottom {
-			text-align: left;
+			.wp-block-image img {
+				width: var(--wp--custom--size--50);
+			}
 		}
 	}
 }

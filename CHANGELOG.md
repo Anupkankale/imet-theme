@@ -2,6 +2,20 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.23 - 2026-11-11
+
+### Changed
+
+- New footer from the design ("IMET Worldwide Main file (12)"): darker navy band (new colour `navy-night`); five page tabs left-aligned with Accreditation in gold (adds Success Stories); the about column with Follow Us + the LinkedIn logo and Refer & Earn; link columns Main Menu · Courses by Category + Master's (MBA) Programs · Doctorate (DBA) Programs with a Popular badge and underlined links; the four offices with phone numbers over a faint world map (`world-map.svg`, public domain); doctorate programs grouped by country (USA, UK, Canada, UAE, West Africa) with a heading each. The "Book Free Mentorship Session" block is gone, as in the design.
+- Footer on phones follows the phone design: logo beside the name, about text, Follow Us; "Quick Links" as boxed rows (Main Menu, Courses by Category, Doctorate (DBA), Master's (MBA), Doctorate Programs by Country); "Our Presence" as boxed rows with round flags; the referral centred; the page tabs as a list with Accreditation as a gold bar; the copyright on navy over one row of recognition logos. Same content as desktop, reordered in CSS.
+- Menus: "Footer: Doctorate Programs by Country" becomes five locations, one per country heading (`footer-usa`, `footer-uk`, `footer-canada`, `footer-uae`, `footer-west-africa`), seeded on the next wp-admin visit (MenuSeeder version 3).
+
+## 1.1.22 - 2026-11-11
+
+### Changed
+
+- Blog addresses follow the old site: articles at `/blogs/<article>/` (Settings > Permalinks: `/blogs/%postname%/`), categories at `/blogs/category/<category>/`. The IMET BLOG bar's built-in links and the seeded "Blog Categories" menu point to `/blogs/category/…`.
+
 ## 1.1.21 - 2026-11-11
 
 ### Added
