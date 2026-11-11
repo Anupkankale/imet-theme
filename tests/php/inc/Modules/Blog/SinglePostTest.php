@@ -99,6 +99,7 @@ class SinglePostTest extends TestCase {
 	public function test_related_query_vars(): void {
 		$category = self::factory()->category->create();
 		$post_id  = self::factory()->post->create( [ 'post_category' => [ $category ] ] );
+		self::factory()->post->create( [ 'post_category' => [ $category ] ] );
 		$this->go_to( get_permalink( $post_id ) );
 
 		$block = new WP_Block(
@@ -111,6 +112,26 @@ class SinglePostTest extends TestCase {
 		$this->assertSame( [ $post_id ], $vars['post__not_in'] );
 		$this->assertSame( [ $category ], $vars['category__in'] );
 		$this->assertSame( 3, $vars['posts_per_page'] );
+	}
+
+	/**
+	 * Test a post alone in its categories gets the latest other posts instead of an empty section.
+	 */
+	public function test_related_falls_back_to_latest_posts(): void {
+		$category = self::factory()->category->create();
+		$post_id  = self::factory()->post->create( [ 'post_category' => [ $category ] ] );
+		self::factory()->post->create();
+		$this->go_to( get_permalink( $post_id ) );
+
+		$block = new WP_Block(
+			[ 'blockName' => 'core/post-template' ],
+			[ 'query' => [ 'imetRelated' => true ] ]
+		);
+
+		$vars = $this->instance->related_query_vars( [ 'posts_per_page' => 3 ], $block );
+
+		$this->assertSame( [ $post_id ], $vars['post__not_in'] );
+		$this->assertArrayNotHasKey( 'category__in', $vars );
 	}
 
 	/**

@@ -2,6 +2,17 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.21 - 2026-11-11
+
+### Added
+
+- Blog author box: two fields in Users > Profile ("Blog author box"): **Job title**, shown under the author's name, and **Author photo** (an image address, used instead of the Gravatar picture). Bio and LinkedIn stay WordPress's own Biographical Info and Website fields (`AuthorProfile`).
+
+### Fixed
+
+- "Our Related Blogs" no longer disappears when an article is the only one in its category: it then shows the latest articles.
+- Author box: the name is centred beside the photo when there is no job title, and an empty bio takes no space.
+
 ## 1.1.20 - 2026-11-10
 
 ### Changed

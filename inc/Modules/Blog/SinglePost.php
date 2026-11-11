@@ -20,7 +20,7 @@ use rtCamp\WPPrimitives\Contracts\Interfaces\Registrable;
  * - `[imet_author_linkedin]`: the post author's LinkedIn profile, taken from the Website field of their user profile
  *   (printed only when that address is a linkedin.com one).
  * - "Our Related Blogs": a Query Loop whose `query` attribute has `"imetRelated": true` lists posts from the current
- *   post's categories, without the post itself.
+ *   post's categories, without the post itself (the latest posts when no other post shares a category).
  *
  * @since 1.1.18
  */
@@ -116,8 +116,28 @@ class SinglePost implements Registrable {
 		$query['ignore_sticky_posts'] = true;
 		$categories                   = wp_get_post_categories( $post_id );
 
-		if ( is_array( $categories ) && [] !== $categories ) {
-			$query['category__in'] = array_map( 'intval', $categories );
+		if ( ! is_array( $categories ) || [] === $categories ) {
+			return $query;
+		}
+
+		$categories = array_map( 'intval', $categories );
+
+		// Only when another post shares a category: a post alone in its categories shows the latest posts instead, so
+		// the section isn't empty (and hidden) on a new blog.
+		$others = get_posts(
+			[
+				'category__in'           => $categories,
+				'post__not_in'           => [ $post_id ], // phpcs:ignore WordPressVIPMinimum.Performance.WPQueryParams.PostNotIn_post__not_in -- one ID, one post.
+				'numberposts'            => 1,
+				'fields'                 => 'ids',
+				'no_found_rows'          => true,
+				'update_post_meta_cache' => false,
+				'update_post_term_cache' => false,
+			]
+		);
+
+		if ( [] !== $others ) {
+			$query['category__in'] = $categories;
 		}
 
 		return $query;
