@@ -49,6 +49,7 @@ class Main {
 		Modules\Menus\MenuSeeder::class,
 		Modules\Menus\MenuRenderer::class,
 		Modules\Blog\SinglePost::class,
+		Modules\Blog\AuthorProfile::class,
 	];
 
 	/**
