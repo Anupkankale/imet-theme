@@ -83,7 +83,11 @@
 
 .imet-section .b-global :is(h3, h4) { white-space: nowrap; }
 
-.imet-section .b-map { position: absolute; right: 10px; top: 50%; width: 62%; margin: 0; opacity: .3; transform: translateY(-50%); pointer-events: none; }
+/* The map sits in the lower right, clear of the title and text (UI review: its pins sat on "Global Accreditation" and
+   on the text); the text keeps to the left of it. */
+.imet-section .b-map { position: absolute; right: var(--wp--preset--spacing--12); bottom: var(--wp--preset--spacing--8); width: 40%; margin: 0; opacity: .3; pointer-events: none; }
+
+.imet-section .b-global .b-text p { max-width: 62%; }
 
 .imet-section .b-map img { width: 100%; }
 
