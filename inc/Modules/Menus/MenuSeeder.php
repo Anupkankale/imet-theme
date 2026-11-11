@@ -38,7 +38,7 @@ class MenuSeeder implements Registrable {
 	 *
 	 * @var string
 	 */
-	public const VERSION = '2';
+	public const VERSION = '3';
 
 	/**
 	 * Register hooks.
