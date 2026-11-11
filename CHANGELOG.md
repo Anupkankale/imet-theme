@@ -4,13 +4,21 @@ All notable changes to this project are documented in this file. The format is b
 
 ## 1.1.31 - 2026-11-11
 
-### Fixed
-
-- MBA course pages (Cybersecurity, PMP, Data Analytics), Benefits section: 40px between the benefit cards and the photo on desktop (it was 0, so the cards touched the photo frame; that 0 suited the first artwork, which had white space at its left edge).
-- USP bento grid (DBA pages), from the design review: the badge on the alumni avatars says **500+** (was 50+), matching the big number (new file `bento-avatars-500.webp` so browsers don't keep showing the cached 50+; the old file name holds the same picture for pages saved earlier); the Global Accreditation map sits in the card's lower right with its pins clear of the title and text, which no longer runs under it.
 ### Changed
 
 - Every hero has a "Download Brochure" button with the download icon (it goes to the advisor form, as on the program pages): Home and DBA Category swap their advisor button for it; About Us and the Alumni page get one under the hero text (white on the dark Alumni hero), with 30px above it (`hero-brochure`). Page patterns updated; saved pages are updated separately.
+
+## 1.1.30 - 2026-11-11
+
+### Fixed
+
+- USP bento grid (DBA pages), from the design review: the badge on the alumni avatars says **500+** (was 50+), matching the big number (new file `bento-avatars-500.webp` so browsers don't keep showing the cached 50+; the old file name holds the same picture for pages saved earlier); the Global Accreditation map sits in the card's lower right with its pins clear of the title and text, which no longer runs under it.
+
+## 1.1.29 - 2026-11-11
+
+### Fixed
+
+- MBA course pages (Cybersecurity, PMP, Data Analytics), Benefits section: 40px between the benefit cards and the photo on desktop (it was 0, so the cards touched the photo frame; that 0 suited the first artwork, which had white space at its left edge).
 
 ## 1.1.28 - 2026-11-11
 
