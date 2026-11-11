@@ -2,6 +2,18 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.27 - 2026-11-11
+
+### Changed
+
+- "Our USPs" benefit list (Overview block, default style; DBA and MBA pages): more breathing space, as in the Figma reference. Cards have 12px above and below the text (was 5px), 8px between the title and the description (was 2px), description line height 1.6 (was 1.45), 12px between cards (was 10px). The "Photo" style is unchanged. Token ratchet baseline lowered.
+
+## 1.1.26 - 2026-11-11
+
+### Changed
+
+- Blog articles: the "Talk to an Advisor" form stays in view while the article scrolls (the whole sidebar is sticky, 110px from the top so it clears the floating header). The sidebar never gets taller than the screen: the form keeps its size and the table of contents list shrinks (to about three items on short screens) and scrolls inside. Below 1100px, where the sidebar sits under the article, nothing changes.
+
 ## 1.1.25 - 2026-11-11
 
 ### Fixed
