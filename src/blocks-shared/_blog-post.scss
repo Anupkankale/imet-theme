@@ -441,10 +441,11 @@
 /* ---------- Author box ---------- */
 .imet-section .bp-author {
 	display: grid;
-	grid-template-areas: "avatar name linkedin bio";
+	grid-template-areas: "avatar name linkedin bio" "avatar role linkedin bio";
 	grid-template-columns: auto minmax(0, var(--wp--custom--size--155)) auto minmax(0, 1fr);
+	grid-template-rows: auto auto;
 	align-items: center;
-	gap: var(--wp--preset--spacing--16);
+	gap: 0 var(--wp--preset--spacing--16); /* no row gap: the job title sits right under the name */
 	margin-top: var(--wp--preset--spacing--24);
 	padding: var(--wp--preset--spacing--14) var(--wp--preset--spacing--16);
 	background: var(--wp--preset--color--lavender);
@@ -454,9 +455,18 @@
 
 .imet-section .bp-author .wp-block-post-author__avatar { grid-area: avatar; margin: 0; }
 
+.imet-section .bp-author .wp-block-post-author__avatar img { width: var(--wp--custom--size--74); height: var(--wp--custom--size--74); object-fit: cover; }
+
 .imet-section .bp-author .wp-block-post-author__avatar img { border-radius: 50%; }
 
-.imet-section .bp-author .wp-block-post-author__name { grid-area: name; margin: 0; color: var(--wp--preset--color--navy); font-family: var(--head); font-size: var(--wp--preset--font-size--large); font-weight: 700; }
+/* Name over the job title (AuthorProfile), both beside the photo; without a job title the name sits in the middle. */
+.imet-section .bp-author .wp-block-post-author__role { grid-area: role; align-self: start; margin: var(--wp--preset--spacing--4) 0 0; color: var(--wp--preset--color--ink); font-size: var(--wp--preset--font-size--14); line-height: 1.4; }
+
+.imet-section .bp-author:has(.wp-block-post-author__role) .wp-block-post-author__name { grid-area: name; align-self: end; }
+
+.imet-section .bp-author .wp-block-post-author__bio:empty { display: none; }
+
+.imet-section .bp-author .wp-block-post-author__name { grid-area: name; grid-row: name-start / role-end; align-self: center; margin: 0; color: var(--wp--preset--color--navy); font-family: var(--head); font-size: var(--wp--preset--font-size--large); font-weight: 700; }
 
 .imet-section .bp-author .wp-block-post-author__bio { grid-area: bio; margin: 0; color: var(--wp--preset--color--ink); font-size: var(--wp--preset--font-size--normal); line-height: 1.5; }
 
@@ -567,7 +577,9 @@
 
 	.imet-section .bp-head { grid-template-columns: minmax(0, 1fr); gap: var(--wp--preset--spacing--20); }
 
-	.imet-section .bp-author { grid-template-areas: "avatar name linkedin" "bio bio bio"; grid-template-columns: auto minmax(0, 1fr) auto; }
+	.imet-section .bp-author { grid-template-areas: "avatar name linkedin" "avatar role linkedin" "bio bio bio"; grid-template-columns: auto minmax(0, 1fr) auto; grid-template-rows: auto auto auto; }
+
+	.imet-section .bp-author .wp-block-post-author__bio { margin-top: var(--wp--preset--spacing--12); }
 
 	.imet-section .bp-rel-grid.wp-block-post-template { grid-template-columns: minmax(0, 1fr); }
 }
