@@ -2,6 +2,12 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.30 - 2026-11-11
+
+### Changed
+
+- Every hero has a "Download Brochure" button with the download icon (it goes to the advisor form, as on the program pages): Home and DBA Category swap their advisor button for it; About Us and the Alumni page get one under the hero text (white on the dark Alumni hero), with 30px above it (`hero-brochure`). Page patterns updated; saved pages are updated separately.
+
 ## 1.1.28 - 2026-11-11
 
 ### Changed
