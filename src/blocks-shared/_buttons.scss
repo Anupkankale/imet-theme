@@ -192,3 +192,7 @@
 	-webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 4v11m-5-5 5 5 5-5M5 20h14'/%3E%3C/svg%3E") center / contain no-repeat;
 	mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 4v11m-5-5 5 5 5-5M5 20h14'/%3E%3C/svg%3E") center / contain no-repeat;
 }
+
+/* "Download Brochure" added under a hero's text (Additional CSS class "hero-brochure" on the Buttons block): room above
+   it, whatever sits there (avatars and rating on About Us, stats on the Alumni page). */
+.imet-section .wp-block-buttons.hero-brochure { margin-top: var(--wp--preset--spacing--30); }

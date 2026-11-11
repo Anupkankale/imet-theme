@@ -55,8 +55,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 </div>
 <!-- /wp:group -->
 <!-- wp:buttons -->
-<div class="wp-block-buttons"><!-- wp:button {"className":"btn-navy btn-lg"} -->
-<div class="wp-block-button btn-navy btn-lg"><a class="wp-block-button__link wp-element-button" href="#advisor-form">Talk to a DBA Advisor</a></div>
+<div class="wp-block-buttons"><!-- wp:button {"className":"btn-navy btn-lg btn-icon-download"} -->
+<div class="wp-block-button btn-navy btn-lg btn-icon-download"><a class="wp-block-button__link wp-element-button" href="#advisor-form">Download Brochure</a></div>
 <!-- /wp:button -->
 </div>
 <!-- /wp:buttons -->
