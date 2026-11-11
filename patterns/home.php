@@ -30,8 +30,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:paragraph -->
 
 <!-- wp:buttons -->
-<div class="wp-block-buttons"><!-- wp:button {"className":"btn-navy btn-md"} -->
-<div class="wp-block-button btn-navy btn-md"><a class="wp-block-button__link wp-element-button" href="#advisor-form">Talk to an Advisor</a></div>
+<div class="wp-block-buttons"><!-- wp:button {"className":"btn-navy btn-md btn-icon-download"} -->
+<div class="wp-block-button btn-navy btn-md btn-icon-download"><a class="wp-block-button__link wp-element-button" href="#advisor-form">Download Brochure</a></div>
 <!-- /wp:button --></div>
 <!-- /wp:buttons --></div>
 <!-- /wp:group -->
