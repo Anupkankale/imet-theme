@@ -44,6 +44,11 @@
 					"color": "#14234b"
 				},
 				{
+					"slug": "navy-night",
+					"name": "Navy (footer, night)",
+					"color": "#081834"
+				},
+				{
 					"slug": "gold",
 					"name": "Gold",
 					"color": "#cf9123"

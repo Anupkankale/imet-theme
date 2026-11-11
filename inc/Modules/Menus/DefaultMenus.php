@@ -238,17 +238,9 @@ class DefaultMenus {
 					],
 				],
 			],
-			'footer-countries' => [
-				'name'  => 'Footer: Doctorate Programs by Country',
+			'footer-usa'         => [
+				'name'  => 'Footer: Doctorate Programs In USA',
 				'items' => [
-					[
-						'title' => 'Doctorate (DBA) in UAE',
-						'url'   => '/online-doctorate-degree-certificate-uae/',
-					],
-					[
-						'title' => 'Doctorate (DBA) in Canada',
-						'url'   => '/online-doctorate-dba-program-in-canada/',
-					],
 					[
 						'title' => 'Doctorate (DBA) in USA',
 						'url'   => '/doctorate-in-usa/',
@@ -265,6 +257,11 @@ class DefaultMenus {
 						'title' => 'Doctorate (DBA) in Artificial Intelligence USA',
 						'url'   => '/dba-in-artificial-intelligence-usa/',
 					],
+				],
+			],
+			'footer-uk'          => [
+				'name'  => 'Footer: Doctorate Programs In UK',
+				'items' => [
 					[
 						'title' => 'Doctorate (DBA) in UK',
 						'url'   => '/online-doctorate-business-administration-dba-programs-uk/',
@@ -281,6 +278,29 @@ class DefaultMenus {
 						'title' => 'Doctorate (DBA) in Artificial Intelligence UK',
 						'url'   => '/doctorate-dba-in-artificial-intelligence-uk/',
 					],
+				],
+			],
+			'footer-canada'      => [
+				'name'  => 'Footer: Doctorate Programs In Canada',
+				'items' => [
+					[
+						'title' => 'Doctorate (DBA) in Canada',
+						'url'   => '/online-doctorate-dba-program-in-canada/',
+					],
+				],
+			],
+			'footer-uae'         => [
+				'name'  => 'Footer: Doctorate Programs In UAE',
+				'items' => [
+					[
+						'title' => 'Doctorate (DBA) in UAE',
+						'url'   => '/online-doctorate-degree-certificate-uae/',
+					],
+				],
+			],
+			'footer-west-africa' => [
+				'name'  => 'Footer: Doctorate Programs In West Africa',
+				'items' => [
 					[
 						'title' => 'Doctorate (DBA) in Nigeria',
 						'url'   => '/online-doctorate-business-administration-dba-programs-nigeria/',
@@ -299,7 +319,7 @@ class DefaultMenus {
 					],
 				],
 			],
-			'blog'             => [
+			'blog' => [
 				'name'  => 'Blog Categories',
 				'items' => [
 					[
