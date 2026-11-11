@@ -2,6 +2,18 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.25 - 2026-11-11
+
+### Fixed
+
+- "Talk to an Advisor" form: even 10px spacing between every field. The Shortcode block's auto-paragraphs wrapped some fields in `<p>` (extra space above the phone and the checkbox, none between Email, LinkedIn URL and Message or before Submit); they no longer affect the layout. Applies wherever the form is used.
+
+## 1.1.24 - 2026-11-11
+
+### Changed
+
+- Blog articles: headings inside the article are smaller: H2 25px at every width (new font size `25`), H3 20px, H4 18px. Only the article body of blog posts; the article title and other pages are unchanged.
+
 ## 1.1.23 - 2026-11-11
 
 ### Changed

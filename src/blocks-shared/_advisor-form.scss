@@ -9,6 +9,13 @@
 	margin: 0;
 }
 
+/* The form is placed with a Shortcode block, whose auto-paragraphs wrap some fields in <p> (and leave an empty one):
+   their margins made the gaps uneven and the fields inside one <p> touched. The paragraphs step aside so every field
+   is a grid item with the same gap; a stray <br> takes no room. */
+.imet-advisor-form__form > p { display: contents; }
+
+.imet-advisor-form__form br { display: none; }
+
 /* Labels exist for screen readers; the placeholder is the visible hint. */
 .imet-advisor-form__label {
 	position: absolute;
