@@ -2,6 +2,12 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.29 - 2026-11-11
+
+### Fixed
+
+- USP bento grid (DBA pages), from the design review: the badge on the alumni avatars says **500+** (was 50+), matching the big number; the Global Accreditation map sits in the card's lower right with its pins clear of the title and text, which no longer runs under it.
+
 ## 1.1.28 - 2026-11-11
 
 ### Changed
