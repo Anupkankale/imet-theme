@@ -2,6 +2,12 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.26 - 2026-11-11
+
+### Changed
+
+- Blog articles: the "Talk to an Advisor" form stays in view while the article scrolls (the whole sidebar is sticky, 110px from the top so it clears the floating header). The sidebar never gets taller than the screen: the form keeps its size and the table of contents list shrinks (to about three items on short screens) and scrolls inside. Below 1100px, where the sidebar sits under the article, nothing changes.
+
 ## 1.1.25 - 2026-11-11
 
 ### Fixed
