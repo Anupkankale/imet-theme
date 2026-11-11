@@ -6,7 +6,7 @@ All notable changes to this project are documented in this file. The format is b
 
 ### Fixed
 
-- USP bento grid (DBA pages), from the design review: the badge on the alumni avatars says **500+** (was 50+), matching the big number; the Global Accreditation map sits in the card's lower right with its pins clear of the title and text, which no longer runs under it.
+- USP bento grid (DBA pages), from the design review: the badge on the alumni avatars says **500+** (was 50+), matching the big number (new file `bento-avatars-500.webp` so browsers don't keep showing the cached 50+; the old file name holds the same picture for pages saved earlier); the Global Accreditation map sits in the card's lower right with its pins clear of the title and text, which no longer runs under it.
 
 ## 1.1.28 - 2026-11-11
 
