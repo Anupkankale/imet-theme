@@ -166,7 +166,7 @@ $mba: ":is(.wp-block-post-content, .imet-page-content):has(> .imet-section.hero.
 	#{$mba} > .imet-section.cyber .wp-block-button__link { font-size: var(--wp--preset--font-size--medium); }
 
 	/* ---------- Layout widths ---------- */
-	#{$mba} > .imet-section.overview .ov-grid { grid-template-columns: minmax(0, 443px) minmax(0, 662px); column-gap: 0; justify-content: start; padding-left: clamp(0px, 100% - 1128px, var(--wp--custom--size--72)); } /* token-ok: design: 72px in at 1440, none when narrower */
+	#{$mba} > .imet-section.overview .ov-grid { grid-template-columns: minmax(0, 443px) minmax(0, 662px); column-gap: var(--wp--preset--spacing--40); /* the photo frame fills its column, so the list needs room beside it */ justify-content: start; padding-left: clamp(0px, 100% - 1128px, var(--wp--custom--size--72)); } /* token-ok: design: 72px in at 1440, none when narrower */
 
 	#{$mba} > .imet-section.overview .ov-visual { width: 100%; max-width: 662px; } /* token-ok: design */
 
