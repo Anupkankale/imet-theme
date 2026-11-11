@@ -259,11 +259,11 @@
 
 .imet-section .bp-content :is(h2, h3, h4) { margin-block: var(--wp--preset--spacing--34) var(--wp--preset--spacing--14); font-weight: 700; scroll-margin-top: calc(var(--wp--custom--header--clearance) + var(--wp--preset--spacing--20)); }
 
-.imet-section .bp-content h2 { font-size: var(--wp--preset--font-size--xx-large); }
+.imet-section .bp-content h2 { font-size: var(--wp--preset--font-size--25); } /* 25px at every width (blog articles only) */
 
-.imet-section .bp-content h3 { font-size: var(--wp--preset--font-size--card-title); }
+.imet-section .bp-content h3 { font-size: var(--wp--preset--font-size--large); }
 
-.imet-section .bp-content h4 { font-size: var(--wp--preset--font-size--large); }
+.imet-section .bp-content h4 { font-size: var(--wp--preset--font-size--medium); }
 
 .imet-section .bp-content > :first-child { margin-top: 0; }
 

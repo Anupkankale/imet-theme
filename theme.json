@@ -424,6 +424,11 @@
 					"size": "1.5rem"
 				},
 				{
+					"slug": "25",
+					"name": "25px",
+					"size": "1.5625rem"
+				},
+				{
 					"slug": "29",
 					"name": "29px",
 					"size": "1.8125rem"
