@@ -2,6 +2,12 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.28 - 2026-11-11
+
+### Changed
+
+- The small gold labels above section headings ("eyebrows") no longer have a gold line under them: removed on the MBA course pages (MBA Cybersecurity, PMP, Data Analytics) and from the Location publish banner, with the space that held the line. The labels themselves stay.
+
 ## 1.1.27 - 2026-11-11
 
 ### Changed
