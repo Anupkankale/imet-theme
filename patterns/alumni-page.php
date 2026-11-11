@@ -40,7 +40,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- wp:paragraph {"className":"al-stat"} -->
 <p class="al-stat"><strong>18+</strong> Years since inception</p>
 <!-- /wp:paragraph --></div>
-<!-- /wp:group --></div>
+<!-- /wp:group -->
+<!-- wp:buttons {"className":"hero-brochure"} -->
+<div class="wp-block-buttons hero-brochure"><!-- wp:button {"className":"btn-white btn-lg btn-icon-download"} -->
+<div class="wp-block-button btn-white btn-lg btn-icon-download"><a class="wp-block-button__link wp-element-button" href="#advisor-form">Download Brochure</a></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons --></div>
 <!-- /wp:group -->
 <!-- wp:group {"className":"al-grads","layout":{"type":"default"}} -->
 <div class="wp-block-group al-grads"><!-- wp:group {"className":"al-grad","layout":{"type":"default"}} -->
