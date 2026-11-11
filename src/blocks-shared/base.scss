@@ -123,7 +123,7 @@ html:has(.imet-section) { scroll-behavior: smooth; }
 
 .imet-page:has(> .wp-block-imet-hero.is-style-home) .imet-section .title { font-weight: 600; line-height: 1.43; }
 
-/* Section header (Figma): eyebrow-line (22px, gold line) → title (35px) → sub (18px). Centred unless .left. */
+/* Section header (Figma): eyebrow-line (22px) → title (35px) → sub (18px). Centred unless .left. No line under the eyebrow. */
 .imet-section .title {
 	font-size: var(--imet-title-size, clamp(1.625rem, 1.2rem + 1.25vw, 2.1875rem)); /* 26px → 35px */
 	font-weight: 600;
@@ -295,8 +295,7 @@ section.imet-section[id] { scroll-margin-top: 100px; }
 }
 
 /* Eyebrow → heading: the one gap (UI review: it ranged from 0 to 26px, block by block). The section-header rhythm and the
-   blocks that set their own title margin use the same token. The Location publish banner draws a gold line under its
-   eyebrow and keeps the padding that holds it. */
+   blocks that set their own title margin use the same token. */
 .imet-section :is(.eyebrow-line, .alumni-eyebrow):has(+ :is(h1, h2, h3, h4, h5, h6)) { margin-bottom: 0; padding-bottom: 0; }
 
 .imet-section :is(.eyebrow-line, .alumni-eyebrow) + :is(h1, h2, h3, h4, h5, h6) { margin-top: var(--wp--custom--eyebrow--gap); }

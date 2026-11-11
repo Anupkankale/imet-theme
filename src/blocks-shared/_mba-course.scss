@@ -12,29 +12,16 @@ $mba: ":is(.wp-block-post-content, .imet-page-content):has(> .imet-section.hero.
 
 @media (min-width: 1101px) {
 
- /* ---------- Section headers: 22px eyebrow with a gold line, 38.5px title, 18px intro ---------- */
+ /* ---------- Section headers: 22px eyebrow, 38.5px title, 18px intro ---------- */
+	// The eyebrow without the gold line under it (UI review, 2026-11-11).
 	#{$mba} > .imet-section :is(.eyebrow-line, .alumni-eyebrow) {
 		width: fit-content;
 		margin-inline: auto;
-		padding-bottom: var(--wp--custom--size--13);
 		font-family: var(--head);
 		font-size: 22px; /* token-ok: design */
 	}
 
 	#{$mba} > .imet-section .eyebrow-line.left { margin-left: 0; }
-
-	#{$mba} > .imet-section :is(.eyebrow-line, .alumni-eyebrow)::after {
-		content: "";
-		position: absolute;
-		left: 50%;
-		bottom: 0;
-		width: min(60%, 200px); /* token-ok: design */
-		height: var(--wp--preset--spacing--3);
-		background: var(--wp--preset--color--gold);
-		transform: translateX(-50%);
-	}
-
-	#{$mba} > .imet-section .eyebrow-line.left::after { left: 0; transform: none; }
 
 	#{$mba} > .imet-section :is(.sec-head, .testi-head) > :is(.eyebrow-line, .alumni-eyebrow) + *,
 	#{$mba} > .imet-section .eyebrow-line + :is(h1, h2, h3) { margin-top: 11px; } /* token-ok: design */
