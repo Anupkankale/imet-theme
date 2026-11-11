@@ -28,7 +28,7 @@
 	.imet-section .ov-grid > .wp-block-buttons { grid-column: auto; justify-content: center; margin-top: 0; }
 }
 
-.imet-section .benefit-list { display: grid; gap: 10px; }
+.imet-section .benefit-list { display: grid; gap: var(--wp--preset--spacing--12); }
 
 .imet-section .ben-item {
 	position: relative;
@@ -36,7 +36,7 @@
 	flex-direction: column;
 	justify-content: center;
 	min-height: 72px;
-	padding: 5px 12px 5px 81px;
+	padding: var(--wp--preset--spacing--12) var(--wp--preset--spacing--16) var(--wp--preset--spacing--12) 81px; /* room around the text (UI review) */
 	border: 1px solid var(--line);
 	border-radius: 4px;
 	transition: box-shadow .2s ease;
@@ -72,9 +72,9 @@
 }
 
 .imet-section .ben-item p {
-	font-size: 0.875rem; /* 14px */
-	line-height: 1.45;
-	margin-top: 2px;
+	font-size: var(--wp--preset--font-size--14);
+	line-height: 1.6;
+	margin-top: var(--wp--preset--spacing--8); /* breathing space under the title (UI review) */
 	color: #333;
 }
 
