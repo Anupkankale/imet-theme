@@ -157,10 +157,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- wp:imet/who-can-join {"align":"full","anchor":"requirements"} -->
 <section id="requirements" class="wp-block-imet-who-can-join alignfull imet-section section join"><!-- wp:group {"className":"imet-container","layout":{"type":"default"}} -->
 <div class="wp-block-group imet-container"><!-- wp:group {"className":"sec-head","layout":{"type":"default"}} -->
-<div class="wp-block-group sec-head"><!-- wp:paragraph {"className":"eyebrow-line"} -->
-<p class="eyebrow-line">Eligibility Criteria</p>
-<!-- /wp:paragraph -->
-<!-- wp:heading {"className":"title"} -->
+<div class="wp-block-group sec-head"><!-- wp:heading {"className":"title"} -->
 <h2 class="wp-block-heading title">Cyber Security Course Requirements</h2>
 <!-- /wp:heading -->
 <!-- wp:paragraph {"className":"sub"} -->
@@ -203,10 +200,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:imet/who-can-join -->
 <!-- wp:imet/specializations {"align":"full","anchor":"concentrations","className":"is-style-five"} -->
 <section id="concentrations" class="wp-block-imet-specializations alignfull imet-section section specs is-style-five"><!-- wp:group {"className":"imet-container sec-head","layout":{"type":"default"}} -->
-<div class="wp-block-group imet-container sec-head"><!-- wp:paragraph {"className":"eyebrow-line"} -->
-<p class="eyebrow-line">Related Programs</p>
-<!-- /wp:paragraph -->
-<!-- wp:heading {"className":"title"} -->
+<div class="wp-block-group imet-container sec-head"><!-- wp:heading {"className":"title"} -->
 <h2 class="wp-block-heading title">Other Doctorate (DBA) Concentrations</h2>
 <!-- /wp:heading -->
 <!-- wp:paragraph {"className":"sub"} -->
@@ -234,10 +228,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- wp:imet/overview {"align":"full","anchor":"benefits","className":"is-style-photo"} -->
 <section id="benefits" class="wp-block-imet-overview alignfull imet-section section overview is-style-photo"><!-- wp:group {"className":"imet-container","layout":{"type":"default"}} -->
 <div class="wp-block-group imet-container"><!-- wp:group {"className":"sec-head","layout":{"type":"default"}} -->
-<div class="wp-block-group sec-head"><!-- wp:paragraph {"className":"eyebrow-line ov-eyebrow"} -->
-<p class="eyebrow-line ov-eyebrow">Benefits of DBA in cybersecurity</p>
-<!-- /wp:paragraph -->
-<!-- wp:heading {"className":"title"} -->
+<div class="wp-block-group sec-head"><!-- wp:heading {"className":"title"} -->
 <h2 class="wp-block-heading title">Benefits of enrolling in doctorate in<br>cybersecurity program</h2>
 <!-- /wp:heading --></div>
 <!-- /wp:group -->
@@ -313,10 +304,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- wp:imet/tabs {"align":"full","anchor":"learn-more"} -->
 <section id="learn-more" class="wp-block-imet-tabs alignfull imet-section section tabs"><!-- wp:group {"className":"imet-container","layout":{"type":"default"}} -->
 <div class="wp-block-group imet-container"><!-- wp:group {"className":"sec-head","layout":{"type":"default"}} -->
-<div class="wp-block-group sec-head"><!-- wp:paragraph {"className":"eyebrow-line"} -->
-<p class="eyebrow-line">Others Programs</p>
-<!-- /wp:paragraph -->
-<!-- wp:heading {"className":"title"} -->
+<div class="wp-block-group sec-head"><!-- wp:heading {"className":"title"} -->
 <h2 class="wp-block-heading title">Learn More About the DBA Cybersecurity Programs</h2>
 <!-- /wp:heading -->
 <!-- wp:paragraph {"className":"sub"} -->
@@ -463,10 +451,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- wp:imet/about-card {"align":"full","anchor":"about"} -->
 <section id="about" class="wp-block-imet-about-card alignfull imet-section section about-card"><!-- wp:group {"className":"imet-container","layout":{"type":"default"}} -->
 <div class="wp-block-group imet-container"><!-- wp:group {"className":"sec-head","layout":{"type":"default"}} -->
-<div class="wp-block-group sec-head"><!-- wp:paragraph {"className":"eyebrow-line"} -->
-<p class="eyebrow-line">About Us</p>
-<!-- /wp:paragraph -->
-<!-- wp:heading {"className":"title"} -->
+<div class="wp-block-group sec-head"><!-- wp:heading {"className":"title"} -->
 <h2 class="wp-block-heading title">About IMET Worldwide</h2>
 <!-- /wp:heading -->
 <!-- wp:paragraph {"className":"sub"} -->
@@ -527,10 +512,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- wp:imet/who-can-join {"align":"full","anchor":"curriculum","className":"is-style-boxed"} -->
 <section id="curriculum" class="wp-block-imet-who-can-join alignfull imet-section section join is-style-boxed"><!-- wp:group {"className":"imet-container","layout":{"type":"default"}} -->
 <div class="wp-block-group imet-container"><!-- wp:group {"className":"sec-head","layout":{"type":"default"}} -->
-<div class="wp-block-group sec-head"><!-- wp:paragraph {"className":"eyebrow-line"} -->
-<p class="eyebrow-line">Curriculum</p>
-<!-- /wp:paragraph -->
-<!-- wp:heading {"className":"title"} -->
+<div class="wp-block-group sec-head"><!-- wp:heading {"className":"title"} -->
 <h2 class="wp-block-heading title">DBA in Cybersecurity — Curriculum<br>(12–24 Months)</h2>
 <!-- /wp:heading -->
 <!-- wp:paragraph {"className":"sub"} -->
@@ -574,10 +556,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- wp:imet/process {"align":"full","anchor":"admission"} -->
 <section id="admission" class="wp-block-imet-process alignfull imet-section section process"><!-- wp:group {"className":"imet-container","layout":{"type":"default"}} -->
 <div class="wp-block-group imet-container"><!-- wp:group {"className":"sec-head","layout":{"type":"default"}} -->
-<div class="wp-block-group sec-head"><!-- wp:paragraph {"className":"eyebrow-line"} -->
-<p class="eyebrow-line">Admission</p>
-<!-- /wp:paragraph -->
-<!-- wp:heading {"className":"title"} -->
+<div class="wp-block-group sec-head"><!-- wp:heading {"className":"title"} -->
 <h2 class="wp-block-heading title">Admission Process</h2>
 <!-- /wp:heading --></div>
 <!-- /wp:group -->
@@ -625,10 +604,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- wp:imet/step-cards {"align":"full","anchor":"research-steps"} -->
 <section id="research-steps" class="wp-block-imet-step-cards alignfull imet-section section step-cards"><!-- wp:group {"className":"imet-container","layout":{"type":"default"}} -->
 <div class="wp-block-group imet-container"><!-- wp:group {"className":"sec-head","layout":{"type":"default"}} -->
-<div class="wp-block-group sec-head"><!-- wp:paragraph {"className":"eyebrow-line"} -->
-<p class="eyebrow-line">Steps</p>
-<!-- /wp:paragraph -->
-<!-- wp:heading {"className":"title"} -->
+<div class="wp-block-group sec-head"><!-- wp:heading {"className":"title"} -->
 <h2 class="wp-block-heading title">DBA Cybersecurity Research Steps</h2>
 <!-- /wp:heading -->
 <!-- wp:paragraph {"className":"sub"} -->
@@ -738,10 +714,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- wp:imet/embassy {"align":"full","anchor":"alumni","className":"is-style-logos"} -->
 <section id="alumni" class="wp-block-imet-embassy alignfull imet-section section embassy is-style-logos"><!-- wp:group {"className":"imet-container","layout":{"type":"default"}} -->
 <div class="wp-block-group imet-container"><!-- wp:group {"className":"sec-head","layout":{"type":"default"}} -->
-<div class="wp-block-group sec-head"><!-- wp:paragraph {"className":"eyebrow-line"} -->
-<p class="eyebrow-line">Our Alumni</p>
-<!-- /wp:paragraph -->
-<!-- wp:heading {"className":"title"} -->
+<div class="wp-block-group sec-head"><!-- wp:heading {"className":"title"} -->
 <h2 class="wp-block-heading title">Our Alumni at Top Organizations</h2>
 <!-- /wp:heading -->
 <!-- wp:paragraph {"className":"sub"} -->
@@ -770,10 +743,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- wp:imet/faq {"align":"full","anchor":"faq","className":"is-style-compact"} -->
 <section id="faq" class="wp-block-imet-faq alignfull imet-section section faq is-style-compact"><!-- wp:group {"className":"imet-container narrow","layout":{"type":"default"}} -->
 <div class="wp-block-group imet-container narrow"><!-- wp:group {"className":"sec-head","layout":{"type":"default"}} -->
-<div class="wp-block-group sec-head"><!-- wp:paragraph {"className":"eyebrow-line faq-eyebrow"} -->
-<p class="eyebrow-line faq-eyebrow">Doctorate (DBA) Frequently Asked Questions (FAQs)</p>
-<!-- /wp:paragraph -->
-<!-- wp:heading {"className":"title"} -->
+<div class="wp-block-group sec-head"><!-- wp:heading {"className":"title"} -->
 <h2 class="wp-block-heading title">Doctorate in Cybersecurity Certificate Program</h2>
 <!-- /wp:heading --></div>
 <!-- /wp:group -->

@@ -18,10 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- wp:imet/section {"anchor":"top","className":"ab-hero"} -->
 <section id="top" class="wp-block-imet-section alignfull imet-section section imet-blank ab-hero"><!-- wp:group {"className":"imet-container ab-hero-grid","layout":{"type":"default"}} -->
 <div class="wp-block-group imet-container ab-hero-grid"><!-- wp:group {"className":"ab-hero-text","layout":{"type":"default"}} -->
-<div class="wp-block-group ab-hero-text"><!-- wp:paragraph {"className":"eyebrow-line left"} -->
-<p class="eyebrow-line left">Imet Worldwide</p>
-<!-- /wp:paragraph -->
-<!-- wp:heading {"level":1} -->
+<div class="wp-block-group ab-hero-text"><!-- wp:heading {"level":1} -->
 <h1 class="wp-block-heading">Building Professional Excellence Through Global Academic Pathways.</h1>
 <!-- /wp:heading -->
 <!-- wp:paragraph {"className":"hero-lead"} -->
@@ -72,10 +69,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- wp:imet/section {"className":"ab-usp"} -->
 <section class="wp-block-imet-section alignfull imet-section section imet-blank ab-usp"><!-- wp:group {"className":"imet-container","layout":{"type":"default"}} -->
 <div class="wp-block-group imet-container"><!-- wp:group {"className":"sec-head","layout":{"type":"default"}} -->
-<div class="wp-block-group sec-head"><!-- wp:paragraph {"className":"eyebrow-line"} -->
-<p class="eyebrow-line">Our Main USP</p>
-<!-- /wp:paragraph -->
-<!-- wp:heading {"className":"title"} -->
+<div class="wp-block-group sec-head"><!-- wp:heading {"className":"title"} -->
 <h2 class="wp-block-heading title">A legacy of learning.<br>A framework for global recognition.</h2>
 <!-- /wp:heading -->
 <!-- wp:paragraph {"className":"sub"} -->
@@ -130,10 +124,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <section id="mission" class="wp-block-imet-section alignfull imet-section section imet-blank ab-mission"><!-- wp:group {"className":"imet-container ab-two","layout":{"type":"default"}} -->
 <div class="wp-block-group imet-container ab-two"><!-- wp:group {"className":"ab-mission-text","layout":{"type":"default"}} -->
 <div class="wp-block-group ab-mission-text"><!-- wp:group {"className":"sec-head is-left","layout":{"type":"default"}} -->
-<div class="wp-block-group sec-head is-left"><!-- wp:paragraph {"className":"eyebrow-line left"} -->
-<p class="eyebrow-line left">What Drives Us</p>
-<!-- /wp:paragraph -->
-<!-- wp:heading {"className":"title left"} -->
+<div class="wp-block-group sec-head is-left"><!-- wp:heading {"className":"title left"} -->
 <h2 class="wp-block-heading title left">Mission, vision and values</h2>
 <!-- /wp:heading -->
 <!-- wp:paragraph {"className":"sub left"} -->
@@ -193,10 +184,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <section class="wp-block-imet-section alignfull imet-section section imet-blank ab-gain-intro"><!-- wp:group {"className":"imet-container ab-two","layout":{"type":"default"}} -->
 <div class="wp-block-group imet-container ab-two"><!-- wp:group {"className":"ab-gain-text","layout":{"type":"default"}} -->
 <div class="wp-block-group ab-gain-text"><!-- wp:group {"className":"sec-head is-left","layout":{"type":"default"}} -->
-<div class="wp-block-group sec-head is-left"><!-- wp:paragraph {"className":"eyebrow-line left"} -->
-<p class="eyebrow-line left">What Drives Us</p>
-<!-- /wp:paragraph -->
-<!-- wp:heading {"className":"title left"} -->
+<div class="wp-block-group sec-head is-left"><!-- wp:heading {"className":"title left"} -->
 <h2 class="wp-block-heading title left">What you gain with IMET</h2>
 <!-- /wp:heading -->
 <!-- wp:paragraph {"className":"sub left"} -->
@@ -231,10 +219,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <section id="centers" class="wp-block-imet-section alignfull imet-section section imet-blank ab-map"><!-- wp:group {"className":"imet-container ab-two","layout":{"type":"default"}} -->
 <div class="wp-block-group imet-container ab-two"><!-- wp:group {"className":"ab-map-text","layout":{"type":"default"}} -->
 <div class="wp-block-group ab-map-text"><!-- wp:group {"className":"sec-head is-left","layout":{"type":"default"}} -->
-<div class="wp-block-group sec-head is-left"><!-- wp:paragraph {"className":"eyebrow-line left"} -->
-<p class="eyebrow-line left">Global Map</p>
-<!-- /wp:paragraph -->
-<!-- wp:heading {"className":"title left"} -->
+<div class="wp-block-group sec-head is-left"><!-- wp:heading {"className":"title left"} -->
 <h2 class="wp-block-heading title left">Study from anywhere</h2>
 <!-- /wp:heading -->
 <!-- wp:paragraph {"className":"sub left"} -->
@@ -302,10 +287,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- wp:imet/section {"className":"ab-gain"} -->
 <section class="wp-block-imet-section alignfull imet-section section imet-blank ab-gain"><!-- wp:group {"className":"imet-container","layout":{"type":"default"}} -->
 <div class="wp-block-group imet-container"><!-- wp:group {"className":"sec-head","layout":{"type":"default"}} -->
-<div class="wp-block-group sec-head"><!-- wp:paragraph {"className":"eyebrow-line"} -->
-<p class="eyebrow-line">Gain with IMET</p>
-<!-- /wp:paragraph -->
-<!-- wp:heading {"className":"title"} -->
+<div class="wp-block-group sec-head"><!-- wp:heading {"className":"title"} -->
 <h2 class="wp-block-heading title">What you gain with IMET</h2>
 <!-- /wp:heading -->
 <!-- wp:paragraph {"className":"sub"} -->
@@ -413,10 +395,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- wp:imet/section {"anchor":"gallery","className":"ab-gallery"} -->
 <section id="gallery" class="wp-block-imet-section alignfull imet-section section imet-blank ab-gallery"><!-- wp:group {"className":"imet-container","layout":{"type":"default"}} -->
 <div class="wp-block-group imet-container"><!-- wp:group {"className":"sec-head is-left","layout":{"type":"default"}} -->
-<div class="wp-block-group sec-head is-left"><!-- wp:paragraph {"className":"eyebrow-line left"} -->
-<p class="eyebrow-line left">Event Gallery</p>
-<!-- /wp:paragraph -->
-<!-- wp:heading {"className":"title left"} -->
+<div class="wp-block-group sec-head is-left"><!-- wp:heading {"className":"title left"} -->
 <h2 class="wp-block-heading title left">IMET Worldwide Convocation - August 2026</h2>
 <!-- /wp:heading -->
 <!-- wp:paragraph {"className":"sub left"} -->
@@ -476,10 +455,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- wp:imet/section {"anchor":"mentors","className":"ab-mentors"} -->
 <section id="mentors" class="wp-block-imet-section alignfull imet-section section imet-blank ab-mentors"><!-- wp:group {"className":"imet-container","layout":{"type":"default"}} -->
 <div class="wp-block-group imet-container"><!-- wp:group {"className":"sec-head","layout":{"type":"default"}} -->
-<div class="wp-block-group sec-head"><!-- wp:paragraph {"className":"eyebrow-line"} -->
-<p class="eyebrow-line">Mentor</p>
-<!-- /wp:paragraph -->
-<!-- wp:heading {"className":"title"} -->
+<div class="wp-block-group sec-head"><!-- wp:heading {"className":"title"} -->
 <h2 class="wp-block-heading title">Who We Support</h2>
 <!-- /wp:heading -->
 <!-- wp:paragraph {"className":"sub"} -->
@@ -545,10 +521,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- wp:imet/faq {"align":"full","anchor":"faq"} -->
 <section id="faq" class="wp-block-imet-faq alignfull imet-section section faq"><!-- wp:group {"className":"imet-container narrow","layout":{"type":"default"}} -->
 <div class="wp-block-group imet-container narrow"><!-- wp:group {"className":"sec-head","layout":{"type":"default"}} -->
-<div class="wp-block-group sec-head"><!-- wp:paragraph {"className":"eyebrow-line faq-eyebrow"} -->
-<p class="eyebrow-line faq-eyebrow">Doctorate (DBA) Frequently Asked Questions (FAQs)</p>
-<!-- /wp:paragraph -->
-<!-- wp:heading {"className":"title"} -->
+<div class="wp-block-group sec-head"><!-- wp:heading {"className":"title"} -->
 <h2 class="wp-block-heading title">DBA &amp; MBA certificate Program</h2>
 <!-- /wp:heading --></div>
 <!-- /wp:group -->

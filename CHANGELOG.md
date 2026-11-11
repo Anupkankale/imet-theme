@@ -2,6 +2,12 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.28 - 2026-11-11
+
+### Removed
+
+- The small gold labels above section headings (paragraphs with class `eyebrow-line`, e.g. "Overview", "Our USPs", "Eligibility Criteria") are gone from every page pattern and block default (99 in 29 files), so new pages don't get them. On the live site the 169 labels in 18 pages and 4 synced sections were removed with WP-CLI on 2026-11-11 (database backup and a per-page JSON backup in `~/backups` on the server). Their styles stay in the CSS, unused.
+
 ## 1.1.27 - 2026-11-11
 
 ### Changed

@@ -112,10 +112,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- wp:imet/highlights {"align":"full","anchor":"overview"} -->
 <section id="overview" class="wp-block-imet-highlights alignfull imet-section highlights"><!-- wp:group {"className":"imet-container hl-grid","layout":{"type":"default"}} -->
 <div class="wp-block-group imet-container hl-grid"><!-- wp:group {"className":"hl-text","layout":{"type":"default"}} -->
-<div class="wp-block-group hl-text"><!-- wp:paragraph {"className":"eyebrow-line left"} -->
-<p class="eyebrow-line left">Overview</p>
-<!-- /wp:paragraph -->
-<!-- wp:heading {"className":"title left"} -->
+<div class="wp-block-group hl-text"><!-- wp:heading {"className":"title left"} -->
 <h2 class="wp-block-heading title left">Program Highlights</h2>
 <!-- /wp:heading -->
 <!-- wp:list {"className":"hl-list"} -->
@@ -147,10 +144,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:imet/highlights -->
 <!-- wp:imet/specializations {"align":"full","anchor":"specializations","className":"is-style-six"} -->
 <section id="specializations" class="wp-block-imet-specializations alignfull is-style-six imet-section section specs"><!-- wp:group {"className":"imet-container sec-head","layout":{"type":"default"}} -->
-<div class="wp-block-group imet-container sec-head"><!-- wp:paragraph {"className":"eyebrow-line"} -->
-<p class="eyebrow-line">Flagship Programs</p>
-<!-- /wp:paragraph -->
-<!-- wp:heading {"className":"title"} -->
+<div class="wp-block-group imet-container sec-head"><!-- wp:heading {"className":"title"} -->
 <h2 class="wp-block-heading title">Our Doctorate (MBA) Specializations</h2>
 <!-- /wp:heading -->
 <!-- wp:paragraph {"className":"sub"} -->
@@ -220,10 +214,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- wp:imet/overview {"align":"full","anchor":"programs"} -->
 <section id="programs" class="wp-block-imet-overview alignfull imet-section section overview"><!-- wp:group {"className":"imet-container","layout":{"type":"default"}} -->
 <div class="wp-block-group imet-container"><!-- wp:group {"className":"sec-head","layout":{"type":"default"}} -->
-<div class="wp-block-group sec-head"><!-- wp:paragraph {"className":"eyebrow-line ov-eyebrow"} -->
-<p class="eyebrow-line ov-eyebrow">Our USPs</p>
-<!-- /wp:paragraph -->
-<!-- wp:heading {"className":"title"} -->
+<div class="wp-block-group sec-head"><!-- wp:heading {"className":"title"} -->
 <h2 class="wp-block-heading title">Get Accredited Online Doctorate Programs<br>and Earn Global Recognition</h2>
 <!-- /wp:heading -->
 <!-- wp:paragraph {"className":"sub"} -->
@@ -298,10 +289,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- wp:imet/who-can-join {"align":"full","anchor":"who-can-join"} -->
 <section id="who-can-join" class="wp-block-imet-who-can-join alignfull imet-section section join"><!-- wp:group {"className":"imet-container","layout":{"type":"default"}} -->
 <div class="wp-block-group imet-container"><!-- wp:group {"className":"sec-head","layout":{"type":"default"}} -->
-<div class="wp-block-group sec-head"><!-- wp:paragraph {"className":"eyebrow-line"} -->
-<p class="eyebrow-line">Who Can Join</p>
-<!-- /wp:paragraph -->
-<!-- wp:heading {"className":"title"} -->
+<div class="wp-block-group sec-head"><!-- wp:heading {"className":"title"} -->
 <h2 class="wp-block-heading title">Who Should Enroll in the IMET Online MBA Program?</h2>
 <!-- /wp:heading -->
 <!-- wp:paragraph {"className":"sub"} -->
@@ -352,10 +340,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- wp:imet/embassy {"align":"full"} -->
 <section class="wp-block-imet-embassy alignfull imet-section section embassy"><!-- wp:group {"className":"imet-container","layout":{"type":"default"}} -->
 <div class="wp-block-group imet-container"><!-- wp:group {"className":"sec-head","layout":{"type":"default"}} -->
-<div class="wp-block-group sec-head"><!-- wp:paragraph {"className":"eyebrow-line"} -->
-<p class="eyebrow-line">Recognized Worldwide</p>
-<!-- /wp:paragraph -->
-<!-- wp:heading {"className":"title"} -->
+<div class="wp-block-group sec-head"><!-- wp:heading {"className":"title"} -->
 <h2 class="wp-block-heading title">Internationally Validated Doctorate<br>Programs With Embassy Affiliations</h2>
 <!-- /wp:heading -->
 <!-- wp:paragraph {"className":"sub"} -->
@@ -393,10 +378,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <figure class="wp-block-image size-full an-visual"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/insights.webp" ) ); ?>" alt="Insights analytics: learner countries, salaries and career impact, industries"/></figure>
 <!-- /wp:image -->
 <!-- wp:group {"layout":{"type":"default"}} -->
-<div class="wp-block-group"><!-- wp:paragraph {"className":"eyebrow-line left"} -->
-<p class="eyebrow-line left">Insights</p>
-<!-- /wp:paragraph -->
-<!-- wp:heading {"className":"title left"} -->
+<div class="wp-block-group"><!-- wp:heading {"className":"title left"} -->
 <h2 class="wp-block-heading title left">Industry Analytics</h2>
 <!-- /wp:heading -->
 <!-- wp:paragraph -->
@@ -427,10 +409,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:imet/analytics -->
 <!-- wp:imet/alumni-video {"align":"full"} -->
 <section class="wp-block-imet-alumni-video alignfull imet-section section alumni"><!-- wp:group {"className":"imet-container","layout":{"type":"default"}} -->
-<div class="wp-block-group imet-container"><!-- wp:paragraph {"className":"eyebrow-line"} -->
-<p class="eyebrow-line">What Our Clients Say</p>
-<!-- /wp:paragraph -->
-<!-- wp:heading {"className":"title"} -->
+<div class="wp-block-group imet-container"><!-- wp:heading {"className":"title"} -->
 <h2 class="wp-block-heading title">Doctorate of Business Administration (MBA) Alumni Speak</h2>
 <!-- /wp:heading -->
 <!-- wp:paragraph {"className":"sub"} -->
@@ -492,10 +471,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <figure class="wp-block-image size-full cert-photo"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/mba-certificate.jpg" ) ); ?>" alt="IMET MBA graduate holding her certificate"/></figure>
 <!-- /wp:image -->
 <!-- wp:group {"className":"cert-card","layout":{"type":"default"}} -->
-<div class="wp-block-group cert-card"><!-- wp:paragraph {"className":"eyebrow-line left"} -->
-<p class="eyebrow-line left">Doctoral Excellence</p>
-<!-- /wp:paragraph -->
-<!-- wp:heading {"className":"title left"} -->
+<div class="wp-block-group cert-card"><!-- wp:heading {"className":"title left"} -->
 <h2 class="wp-block-heading title left">Online Master’s Administration<br>(MBA) Certification</h2>
 <!-- /wp:heading -->
 <!-- wp:paragraph {"className":"cert-sub"} -->
@@ -530,10 +506,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- wp:imet/faq {"align":"full","anchor":"faq"} -->
 <section id="faq" class="wp-block-imet-faq alignfull imet-section section faq"><!-- wp:group {"className":"imet-container narrow","layout":{"type":"default"}} -->
 <div class="wp-block-group imet-container narrow"><!-- wp:group {"className":"sec-head","layout":{"type":"default"}} -->
-<div class="wp-block-group sec-head"><!-- wp:paragraph {"className":"eyebrow-line faq-eyebrow"} -->
-<p class="eyebrow-line faq-eyebrow">Frequently Asked Questions (FAQs)</p>
-<!-- /wp:paragraph -->
-<!-- wp:heading {"className":"title"} -->
+<div class="wp-block-group sec-head"><!-- wp:heading {"className":"title"} -->
 <h2 class="wp-block-heading title">FAQs: Doctor of Business Administration (MBA)</h2>
 <!-- /wp:heading --></div>
 <!-- /wp:group -->

@@ -17,10 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 <!-- wp:imet/testimonials {"align":"full"} -->
 <section class="wp-block-imet-testimonials alignfull imet-section section testimonials"><!-- wp:group {"className":"imet-container testi-head","layout":{"type":"default"}} -->
-<div class="wp-block-group imet-container testi-head"><!-- wp:paragraph {"className":"eyebrow-line"} -->
-<p class="eyebrow-line">Clients Testimonials</p>
-<!-- /wp:paragraph -->
-<!-- wp:heading {"className":"title"} -->
+<div class="wp-block-group imet-container testi-head"><!-- wp:heading {"className":"title"} -->
 <h2 class="wp-block-heading title">What Our Clients Say</h2>
 <!-- /wp:heading -->
 <!-- wp:paragraph {"className":"sub"} -->

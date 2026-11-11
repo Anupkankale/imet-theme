@@ -21,10 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:image -->
 <!-- wp:group {"className":"imet-container al-hero-grid","layout":{"type":"default"}} -->
 <div class="wp-block-group imet-container al-hero-grid"><!-- wp:group {"className":"al-hero-text","layout":{"type":"default"}} -->
-<div class="wp-block-group al-hero-text"><!-- wp:paragraph {"className":"eyebrow-line left"} -->
-<p class="eyebrow-line left">Alumni Stories &amp; Global Community</p>
-<!-- /wp:paragraph -->
-<!-- wp:heading {"level":1} -->
+<div class="wp-block-group al-hero-text"><!-- wp:heading {"level":1} -->
 <h1 class="wp-block-heading">Real Leaders. Real Journeys.<br><span class="al-accent">Global Impact.</span></h1>
 <!-- /wp:heading -->
 <!-- wp:paragraph {"className":"al-lead"} -->
@@ -266,10 +263,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- wp:imet/section {"className":"al-explore"} -->
 <section class="wp-block-imet-section alignfull imet-section section imet-blank al-explore"><!-- wp:group {"className":"imet-container al-explore-grid","layout":{"type":"default"}} -->
 <div class="wp-block-group imet-container al-explore-grid"><!-- wp:group {"className":"al-explore-head","layout":{"type":"default"}} -->
-<div class="wp-block-group al-explore-head"><!-- wp:paragraph {"className":"eyebrow-line left"} -->
-<p class="eyebrow-line left">More Ways to Explore</p>
-<!-- /wp:paragraph -->
-<!-- wp:heading {"className":"title left"} -->
+<div class="wp-block-group al-explore-head"><!-- wp:heading {"className":"title left"} -->
 <h2 class="wp-block-heading title left">Your Next Step Starts Here</h2>
 <!-- /wp:heading -->
 <!-- wp:paragraph {"className":"al-explore-text"} -->
@@ -296,10 +290,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <section class="wp-block-imet-cta alignfull imet-section cta-wrap al-cta"><!-- wp:group {"className":"imet-container","layout":{"type":"default"}} -->
 <div class="wp-block-group imet-container"><!-- wp:group {"className":"cta","layout":{"type":"default"}} -->
 <div class="wp-block-group cta"><!-- wp:group {"className":"cta-text","layout":{"type":"default"}} -->
-<div class="wp-block-group cta-text"><!-- wp:paragraph {"className":"eyebrow-line left"} -->
-<p class="eyebrow-line left">Global Doctorate. Real-World Impact.</p>
-<!-- /wp:paragraph -->
-<!-- wp:heading -->
+<div class="wp-block-group cta-text"><!-- wp:heading -->
 <h2 class="wp-block-heading">Join a Community of Change-Makers</h2>
 <!-- /wp:heading -->
 <!-- wp:paragraph {"className":"cta-sub"} -->

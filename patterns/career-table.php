@@ -18,10 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- wp:imet/career-table {"align":"full","className":"is-four"} -->
 <section class="wp-block-imet-career-table alignfull is-four imet-section section career"><!-- wp:group {"className":"imet-container","layout":{"type":"default"}} -->
 <div class="wp-block-group imet-container"><!-- wp:group {"className":"sec-head","layout":{"type":"default"}} -->
-<div class="wp-block-group sec-head"><!-- wp:paragraph {"className":"eyebrow-line"} -->
-<p class="eyebrow-line">Executive Excellence &amp; Global Recognition</p>
-<!-- /wp:paragraph -->
-<!-- wp:heading {"className":"title"} -->
+<div class="wp-block-group sec-head"><!-- wp:heading {"className":"title"} -->
 <h2 class="wp-block-heading title">Achieve Global Recognition with an Online DBA</h2>
 <!-- /wp:heading -->
 <!-- wp:paragraph {"className":"sub"} -->

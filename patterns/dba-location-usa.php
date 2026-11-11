@@ -110,10 +110,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- wp:imet/highlights {"align":"full","anchor":"overview","className":"is-style-wide is-dba-usa"} -->
 <section id="overview" class="wp-block-imet-highlights alignfull imet-section highlights is-style-wide is-dba-usa"><!-- wp:group {"className":"imet-container hl-grid","layout":{"type":"default"}} -->
 <div class="wp-block-group imet-container hl-grid"><!-- wp:group {"className":"hl-text","layout":{"type":"default"}} -->
-<div class="wp-block-group hl-text"><!-- wp:paragraph {"className":"eyebrow-line left"} -->
-<p class="eyebrow-line left">Overview</p>
-<!-- /wp:paragraph -->
-<!-- wp:heading {"className":"title left"} -->
+<div class="wp-block-group hl-text"><!-- wp:heading {"className":"title left"} -->
 <h2 class="wp-block-heading title left">Program Highlights of DBA in USA</h2>
 <!-- /wp:heading -->
 <!-- wp:list {"className":"hl-list"} -->
@@ -150,10 +147,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- wp:imet/faq {"align":"full","className":"is-card is-peek is-cost is-dba-usa"} -->
 <section class="wp-block-imet-faq alignfull is-card is-peek is-cost imet-section section faq is-dba-usa"><!-- wp:group {"className":"imet-container narrow","layout":{"type":"default"}} -->
 <div class="wp-block-group imet-container narrow"><!-- wp:group {"className":"sec-head","layout":{"type":"default"}} -->
-<div class="wp-block-group sec-head"><!-- wp:paragraph {"className":"eyebrow-line faq-eyebrow"} -->
-<p class="eyebrow-line faq-eyebrow">MBA Eligibility Criteria</p>
-<!-- /wp:paragraph -->
-<!-- wp:heading {"className":"title"} -->
+<div class="wp-block-group sec-head"><!-- wp:heading {"className":"title"} -->
 <h2 class="wp-block-heading title">FAQ Related To Program Cost &amp; Scholarship</h2>
 <!-- /wp:heading --></div>
 <!-- /wp:group -->
@@ -199,10 +193,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:imet/faq -->
 <!-- wp:imet/specializations {"align":"full","anchor":"concentrations","className":"is-style-five is-dba-usa"} -->
 <section id="concentrations" class="wp-block-imet-specializations alignfull imet-section section specs is-style-five is-dba-usa"><!-- wp:group {"className":"imet-container sec-head","layout":{"type":"default"}} -->
-<div class="wp-block-group imet-container sec-head"><!-- wp:paragraph {"className":"eyebrow-line"} -->
-<p class="eyebrow-line">Related Programs</p>
-<!-- /wp:paragraph -->
-<!-- wp:heading {"className":"title"} -->
+<div class="wp-block-group imet-container sec-head"><!-- wp:heading {"className":"title"} -->
 <h2 class="wp-block-heading title">Our DBA Specializations</h2>
 <!-- /wp:heading -->
 <!-- wp:paragraph {"className":"sub"} -->
@@ -236,10 +227,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- wp:imet/faq {"align":"full","className":"is-card is-peek is-explain is-dba-usa"} -->
 <section class="wp-block-imet-faq alignfull is-card is-peek is-explain imet-section section faq is-dba-usa"><!-- wp:group {"className":"imet-container narrow","layout":{"type":"default"}} -->
 <div class="wp-block-group imet-container narrow"><!-- wp:group {"className":"sec-head","layout":{"type":"default"}} -->
-<div class="wp-block-group sec-head"><!-- wp:paragraph {"className":"eyebrow-line faq-eyebrow"} -->
-<p class="eyebrow-line faq-eyebrow">Doctorate Concentrations</p>
-<!-- /wp:paragraph -->
-<!-- wp:heading {"className":"title"} -->
+<div class="wp-block-group sec-head"><!-- wp:heading {"className":"title"} -->
 <h2 class="wp-block-heading title">Doctorate Concentration Explained</h2>
 <!-- /wp:heading -->
 </div>
@@ -304,10 +292,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:image -->
 
 <!-- wp:group {"className":"cta-text","layout":{"type":"default"}} -->
-<div class="wp-block-group cta-text"><!-- wp:paragraph {"className":"eyebrow-line left"} -->
-<p class="eyebrow-line left">MBA Eligibility Criteria</p>
-<!-- /wp:paragraph -->
-
+<div class="wp-block-group cta-text">
 <!-- wp:heading -->
 <h2 class="wp-block-heading">Publish your research paper in International journals.</h2>
 <!-- /wp:heading -->
@@ -373,10 +358,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- wp:imet/tabs {"align":"full","anchor":"who-can-join","className":"is-cards is-dba-usa"} -->
 <section id="who-can-join" class="wp-block-imet-tabs alignfull is-cards imet-section section tabs is-dba-usa"><!-- wp:group {"className":"imet-container","layout":{"type":"default"}} -->
 <div class="wp-block-group imet-container"><!-- wp:group {"className":"sec-head","layout":{"type":"default"}} -->
-<div class="wp-block-group sec-head"><!-- wp:paragraph {"className":"eyebrow-line"} -->
-<p class="eyebrow-line">MBA Eligibility Criteria</p>
-<!-- /wp:paragraph -->
-<!-- wp:heading {"className":"title"} -->
+<div class="wp-block-group sec-head"><!-- wp:heading {"className":"title"} -->
 <h2 class="wp-block-heading title">Online DBA Doctorate Program for USA Tech Leaders</h2>
 <!-- /wp:heading --></div>
 <!-- /wp:group -->
@@ -663,10 +645,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- wp:imet/about-card {"align":"full","anchor":"about","className":"is-band is-dba-usa"} -->
 <section id="about" class="wp-block-imet-about-card alignfull is-band imet-section section about-card is-dba-usa"><!-- wp:group {"className":"imet-container","layout":{"type":"default"}} -->
 <div class="wp-block-group imet-container"><!-- wp:group {"className":"sec-head","layout":{"type":"default"}} -->
-<div class="wp-block-group sec-head"><!-- wp:paragraph {"className":"eyebrow-line"} -->
-<p class="eyebrow-line">MBA Eligibility Criteria</p>
-<!-- /wp:paragraph -->
-<!-- wp:heading {"className":"title"} -->
+<div class="wp-block-group sec-head"><!-- wp:heading {"className":"title"} -->
 <h2 class="wp-block-heading title">About IMET Worldwide</h2>
 <!-- /wp:heading -->
 <!-- wp:paragraph {"className":"sub"} -->
@@ -730,10 +709,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <figure class="wp-block-image size-full an-visual"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/insights.webp" ) ); ?>" alt="Insights analytics: learner countries, salaries and career impact, industries"/></figure>
 <!-- /wp:image -->
 <!-- wp:group {"layout":{"type":"default"}} -->
-<div class="wp-block-group"><!-- wp:paragraph {"className":"eyebrow-line left"} -->
-<p class="eyebrow-line left">Insights</p>
-<!-- /wp:paragraph -->
-<!-- wp:heading {"className":"title left"} -->
+<div class="wp-block-group"><!-- wp:heading {"className":"title left"} -->
 <h2 class="wp-block-heading title left">Industry Analytics</h2>
 <!-- /wp:heading -->
 <!-- wp:paragraph -->
@@ -794,10 +770,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- wp:imet/faq {"align":"full","anchor":"faq","className":"is-dba-usa"} -->
 <section id="faq" class="wp-block-imet-faq alignfull imet-section section faq is-dba-usa"><!-- wp:group {"className":"imet-container narrow","layout":{"type":"default"}} -->
 <div class="wp-block-group imet-container narrow"><!-- wp:group {"className":"sec-head","layout":{"type":"default"}} -->
-<div class="wp-block-group sec-head"><!-- wp:paragraph {"className":"eyebrow-line faq-eyebrow"} -->
-<p class="eyebrow-line faq-eyebrow">Frequently Asked Questions</p>
-<!-- /wp:paragraph -->
-<!-- wp:heading {"className":"title"} -->
+<div class="wp-block-group sec-head"><!-- wp:heading {"className":"title"} -->
 <h2 class="wp-block-heading title">FAQs: Doctor of Business Administration (DBA)</h2>
 <!-- /wp:heading --></div>
 <!-- /wp:group -->

@@ -41,9 +41,6 @@ foreach (
 <div class="wp-block-group imet-container bl-hero-text"><!-- wp:paragraph {"className":"bl-crumbs"} -->
 <p class="bl-crumbs"><a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php esc_html_e( 'Home', 'imet-theme' ); ?></a> &gt; <?php esc_html_e( 'Blog', 'imet-theme' ); ?></p>
 <!-- /wp:paragraph -->
-<!-- wp:paragraph {"className":"eyebrow-line"} -->
-<p class="eyebrow-line"><?php esc_html_e( 'Blog', 'imet-theme' ); ?></p>
-<!-- /wp:paragraph -->
 <!-- wp:heading {"level":1} -->
 <h1 class="wp-block-heading"><?php esc_html_e( 'Ideas for leaders who are ready for what’s next.', 'imet-theme' ); ?></h1>
 <!-- /wp:heading -->

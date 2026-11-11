@@ -104,10 +104,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- wp:imet/highlights {"align":"full","anchor":"overview"} -->
 <section id="overview" class="wp-block-imet-highlights alignfull imet-section highlights"><!-- wp:group {"className":"imet-container hl-grid","layout":{"type":"default"}} -->
 <div class="wp-block-group imet-container hl-grid"><!-- wp:group {"className":"hl-text","layout":{"type":"default"}} -->
-<div class="wp-block-group hl-text"><!-- wp:paragraph {"className":"eyebrow-line left"} -->
-<p class="eyebrow-line left">Overview</p>
-<!-- /wp:paragraph -->
-<!-- wp:heading {"className":"title left"} -->
+<div class="wp-block-group hl-text"><!-- wp:heading {"className":"title left"} -->
 <h2 class="wp-block-heading title left">Program Highlights</h2>
 <!-- /wp:heading -->
 <!-- wp:list {"className":"hl-list"} -->
@@ -147,10 +144,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:imet/subnav -->
 <!-- wp:imet/specializations {"align":"full","anchor":"specializations"} -->
 <section id="specializations" class="wp-block-imet-specializations alignfull imet-section section specs"><!-- wp:group {"className":"imet-container sec-head","layout":{"type":"default"}} -->
-<div class="wp-block-group imet-container sec-head"><!-- wp:paragraph {"className":"eyebrow-line"} -->
-<p class="eyebrow-line">Our Programs</p>
-<!-- /wp:paragraph -->
-<!-- wp:heading {"className":"title"} -->
+<div class="wp-block-group imet-container sec-head"><!-- wp:heading {"className":"title"} -->
 <h2 class="wp-block-heading title">Our DBA Doctorate Specializations</h2>
 <!-- /wp:heading -->
 <!-- wp:paragraph {"className":"sub"} -->
@@ -183,10 +177,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- wp:imet/overview {"align":"full","anchor":"programs"} -->
 <section id="programs" class="wp-block-imet-overview alignfull imet-section section overview"><!-- wp:group {"className":"imet-container","layout":{"type":"default"}} -->
 <div class="wp-block-group imet-container"><!-- wp:group {"className":"sec-head","layout":{"type":"default"}} -->
-<div class="wp-block-group sec-head"><!-- wp:paragraph {"className":"eyebrow-line ov-eyebrow"} -->
-<p class="eyebrow-line ov-eyebrow">What is a Doctor of Business Administration (DBA)?</p>
-<!-- /wp:paragraph -->
-<!-- wp:heading {"className":"title"} -->
+<div class="wp-block-group sec-head"><!-- wp:heading {"className":"title"} -->
 <h2 class="wp-block-heading title">Get Accredited Online Doctorate (DBA)<br>Degree Programs &amp; Earn Global Recognition</h2>
 <!-- /wp:heading -->
 <!-- wp:paragraph {"className":"sub"} -->
@@ -262,10 +253,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- wp:imet/usp-bento {"align":"full","anchor":"usp"} -->
 <section id="usp" class="wp-block-imet-usp-bento alignfull imet-section section usp"><!-- wp:group {"className":"imet-container","layout":{"type":"default"}} -->
 <div class="wp-block-group imet-container"><!-- wp:group {"className":"sec-head","layout":{"type":"default"}} -->
-<div class="wp-block-group sec-head"><!-- wp:paragraph {"className":"eyebrow-line"} -->
-<p class="eyebrow-line">Our USP's</p>
-<!-- /wp:paragraph -->
-<!-- wp:heading {"className":"title"} -->
+<div class="wp-block-group sec-head"><!-- wp:heading {"className":"title"} -->
 <h2 class="wp-block-heading title">Doctorate for Visionaries, Built on<br>Business Realities</h2>
 <!-- /wp:heading -->
 <!-- wp:paragraph {"className":"sub"} -->
@@ -378,10 +366,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- wp:imet/embassy {"align":"full"} -->
 <section class="wp-block-imet-embassy alignfull imet-section section embassy"><!-- wp:group {"className":"imet-container","layout":{"type":"default"}} -->
 <div class="wp-block-group imet-container"><!-- wp:group {"className":"sec-head","layout":{"type":"default"}} -->
-<div class="wp-block-group sec-head"><!-- wp:paragraph {"className":"eyebrow-line"} -->
-<p class="eyebrow-line">Our USP's</p>
-<!-- /wp:paragraph -->
-<!-- wp:heading {"className":"title"} -->
+<div class="wp-block-group sec-head"><!-- wp:heading {"className":"title"} -->
 <h2 class="wp-block-heading title">Online Doctor of Business Administration<br>(DBA) Program</h2>
 <!-- /wp:heading -->
 <!-- wp:paragraph {"className":"sub"} -->
@@ -415,10 +400,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- wp:imet/dba-vs-phd {"align":"full","anchor":"dba-vs-phd"} -->
 <section id="dba-vs-phd" class="wp-block-imet-dba-vs-phd alignfull imet-section section vs"><!-- wp:group {"className":"imet-container","layout":{"type":"default"}} -->
 <div class="wp-block-group imet-container"><!-- wp:group {"className":"sec-head","layout":{"type":"default"}} -->
-<div class="wp-block-group sec-head"><!-- wp:paragraph {"className":"eyebrow-line"} -->
-<p class="eyebrow-line">Our USP's</p>
-<!-- /wp:paragraph -->
-<!-- wp:heading {"className":"title"} -->
+<div class="wp-block-group sec-head"><!-- wp:heading {"className":"title"} -->
 <h2 class="wp-block-heading title">Why is the <strong>DBA v/s Phd</strong> Program the Top<br>Business Leaders?</h2>
 <!-- /wp:heading -->
 <!-- wp:paragraph {"className":"sub"} -->
@@ -434,10 +416,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- wp:imet/who-can-join {"align":"full","anchor":"who-can-join"} -->
 <section id="who-can-join" class="wp-block-imet-who-can-join alignfull imet-section section join"><!-- wp:group {"className":"imet-container","layout":{"type":"default"}} -->
 <div class="wp-block-group imet-container"><!-- wp:group {"className":"sec-head","layout":{"type":"default"}} -->
-<div class="wp-block-group sec-head"><!-- wp:paragraph {"className":"eyebrow-line"} -->
-<p class="eyebrow-line">Who can Join</p>
-<!-- /wp:paragraph -->
-<!-- wp:heading {"className":"title"} -->
+<div class="wp-block-group sec-head"><!-- wp:heading {"className":"title"} -->
 <h2 class="wp-block-heading title">Who Can Join Our Online DBA Programs?</h2>
 <!-- /wp:heading -->
 <!-- wp:paragraph {"className":"sub"} -->
@@ -486,10 +465,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <figure class="wp-block-image size-full an-visual"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/insights.webp" ) ); ?>" alt="Insights analytics: learner countries, salaries and career impact, industries"/></figure>
 <!-- /wp:image -->
 <!-- wp:group {"layout":{"type":"default"}} -->
-<div class="wp-block-group"><!-- wp:paragraph {"className":"eyebrow-line left"} -->
-<p class="eyebrow-line left">Insights</p>
-<!-- /wp:paragraph -->
-<!-- wp:heading {"className":"title left"} -->
+<div class="wp-block-group"><!-- wp:heading {"className":"title left"} -->
 <h2 class="wp-block-heading title left">Industry Analytics</h2>
 <!-- /wp:heading -->
 <!-- wp:list {"className":"dots"} -->
@@ -517,10 +493,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:imet/analytics -->
 <!-- wp:imet/alumni-video {"align":"full"} -->
 <section class="wp-block-imet-alumni-video alignfull imet-section section alumni"><!-- wp:group {"className":"imet-container","layout":{"type":"default"}} -->
-<div class="wp-block-group imet-container"><!-- wp:paragraph {"className":"eyebrow-line"} -->
-<p class="eyebrow-line">What Our Clients Say</p>
-<!-- /wp:paragraph -->
-<!-- wp:heading {"className":"title"} -->
+<div class="wp-block-group imet-container"><!-- wp:heading {"className":"title"} -->
 <h2 class="wp-block-heading title">Doctorate of Business Administration (DBA) Alumni Speak</h2>
 <!-- /wp:heading -->
 <!-- wp:paragraph {"className":"sub"} -->
@@ -585,10 +558,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <figure class="wp-block-image size-full cert-photo"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/cert-graduate.jpg" ) ); ?>" alt="IMET DBA graduate holding his certificate"/></figure>
 <!-- /wp:image -->
 <!-- wp:group {"className":"cert-card","layout":{"type":"default"}} -->
-<div class="wp-block-group cert-card"><!-- wp:paragraph {"className":"eyebrow-line left"} -->
-<p class="eyebrow-line left">Who can Join</p>
-<!-- /wp:paragraph -->
-<!-- wp:heading {"className":"title left"} -->
+<div class="wp-block-group cert-card"><!-- wp:heading {"className":"title left"} -->
 <h2 class="wp-block-heading title left">Doctorate of Business<br>Administration (DBA) Certification</h2>
 <!-- /wp:heading -->
 <!-- wp:paragraph {"className":"cert-sub"} -->
@@ -620,10 +590,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- wp:imet/faq {"align":"full","anchor":"faq"} -->
 <section id="faq" class="wp-block-imet-faq alignfull imet-section section faq"><!-- wp:group {"className":"imet-container narrow","layout":{"type":"default"}} -->
 <div class="wp-block-group imet-container narrow"><!-- wp:group {"className":"sec-head","layout":{"type":"default"}} -->
-<div class="wp-block-group sec-head"><!-- wp:paragraph {"className":"eyebrow-line faq-eyebrow"} -->
-<p class="eyebrow-line faq-eyebrow">Frequently Asked Questions (FAQs)</p>
-<!-- /wp:paragraph -->
-<!-- wp:heading {"className":"title"} -->
+<div class="wp-block-group sec-head"><!-- wp:heading {"className":"title"} -->
 <h2 class="wp-block-heading title">Online Doctorate of Business Administration<br>(DBA) Programs</h2>
 <!-- /wp:heading --></div>
 <!-- /wp:group -->
