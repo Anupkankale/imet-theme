@@ -184,16 +184,31 @@
 
 .imet-section .bp-article { min-width: 0; }
 
-.imet-section .bp-aside { display: flex; flex-direction: column; gap: var(--wp--preset--spacing--20); }
-
-/* The form card is the Blog Page's (.bl-form, _blog-page.scss). Table of contents and Follow Us stay in view. */
-.imet-section .bp-sticky {
+/* The whole sidebar stays in view while the article scrolls: the advisor form (the Blog Page's card, .bl-form in
+   _blog-page.scss), then the table of contents and Follow Us. It is never taller than the screen: the form keeps its
+   size and the table of contents list gives up height (it scrolls inside, with its fade). */
+.imet-section .bp-aside {
+	--bp-sticky-top: var(--wp--custom--header--main-clearance); /* clears the floating header, also when it slides back in */
 	position: sticky;
-	top: calc(var(--wp--custom--header--clearance) + var(--wp--preset--spacing--16));
+	top: var(--bp-sticky-top);
+	align-self: start;
 	display: flex;
 	flex-direction: column;
 	gap: var(--wp--preset--spacing--20);
+	max-height: calc(100vh - var(--bp-sticky-top) - var(--wp--preset--spacing--16));
 }
+
+.imet-section .bp-aside > :is(.bl-form, .bp-follow) { flex: none; }
+
+.imet-section .bp-sticky {
+	display: flex;
+	flex: 0 1 auto;
+	flex-direction: column;
+	gap: var(--wp--preset--spacing--20);
+	min-height: 0;
+}
+
+.imet-section .bp-sticky > .bp-follow { flex: none; }
 
 .imet-section .bp-toc {
 	display: none;
@@ -203,11 +218,13 @@
 	background: var(--wp--preset--color--white);
 }
 
-.imet-section .bp-toc.is-ready { display: block; }
+.imet-section .bp-toc.is-ready { display: flex; flex: 0 1 auto; flex-direction: column; min-height: 0; }
 
 .imet-section .bp-toc h3 { margin: 0 0 var(--wp--preset--spacing--12); font-size: var(--wp--preset--font-size--medium); font-weight: 700; }
 
 .imet-section .bp-toc-list {
+	flex: 0 1 auto;
+	min-height: var(--wp--custom--size--110); /* about three items, however short the screen */
 	max-height: var(--wp--custom--size--260);
 	margin: 0;
 	padding: 0 var(--wp--preset--spacing--4) 0 0;
