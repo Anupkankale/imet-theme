@@ -304,27 +304,27 @@ class DefaultMenus {
 				'items' => [
 					[
 						'title' => 'Cybersecurity',
-						'url'   => '/category/cybersecurity/',
+						'url'   => '/blogs/category/cybersecurity/',
 					],
 					[
 						'title' => 'AI & Data',
-						'url'   => '/category/ai-data/',
+						'url'   => '/blogs/category/ai-data/',
 					],
 					[
 						'title' => 'Doctorate',
-						'url'   => '/category/doctorate-blogs/',
+						'url'   => '/blogs/category/doctorate-blogs/',
 					],
 					[
 						'title' => 'MBA',
-						'url'   => '/category/mba/',
+						'url'   => '/blogs/category/mba/',
 					],
 					[
 						'title' => 'Career Growth',
-						'url'   => '/category/career-growth/',
+						'url'   => '/blogs/category/career-growth/',
 					],
 					[
 						'title' => 'Leadership',
-						'url'   => '/category/leadership/',
+						'url'   => '/blogs/category/leadership/',
 					],
 				],
 			],
