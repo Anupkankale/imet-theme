@@ -116,7 +116,7 @@ jobs:
             echo "deploy=false" >> "$GITHUB_OUTPUT"
             echo "::notice::Skipped: main has moved on to ${head:0:7}; that run deploys the newer version."
           fi
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         if: github.event_name != 'push' || steps.newest.outputs.deploy == 'true'
         with:
           name: dist
