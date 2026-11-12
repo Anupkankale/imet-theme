@@ -2,6 +2,12 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.35 - 2026-11-12
+
+### Added
+
+- Success Stories page (pattern "Success Stories Page", IMET: Full Pages), from the design: hero with the convocation photo under the blog's gradient wash and "Read Latest Article"; story cards (posts in the "Success Stories" category, every post until that category exists) with the author in gold ("by: …"), beside the sticky advisor form; a "Related Programs" band with links to the DBA and MBA programs; three more stories and View More; a "Case Studies of our Alumni" box with three alumni cards (photos cropped from the design, `ss-case-1..3.webp`). Built on the Blog page's layout (`_success-stories.scss` adds only the new parts).
+
 ## 1.1.34 - 2026-11-12
 
 ### Changed
