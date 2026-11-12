@@ -1,0 +1,135 @@
+/* Success Stories page (pattern imet-theme/success-stories-page). It is the Blog page's layout (bl-hero, bl-main,
+   bl-card, bl-aside, _blog-page.scss) with three additions, all scoped to ss-* classes: the gold "by: …" author line on
+   the story cards, the Related Programs band and the Case Studies box. Design: "IMET Worldwide Main file (14)".
+   Tokens only, except the case cards' three pastel backgrounds from the design. */
+
+/* Hero: the group photo sits a little lower so the graduates' faces show under the text. */
+.imet-section.ss-hero .bl-hero-bg img { object-position: center 30%; }
+
+/* Story cards: the author in gold in place of the categories ("by: Dr. …"). */
+.imet-section .bl-card .ss-by {
+	margin: var(--wp--preset--spacing--12) var(--wp--preset--spacing--12) 0;
+	color: var(--wp--preset--color--gold);
+	font-size: var(--wp--preset--font-size--small);
+	font-weight: 500;
+}
+
+.imet-section .bl-card .ss-by::before { content: "by: "; }
+
+/* The column holds two rows of cards with the band between them, then View More and the Case Studies box. */
+.imet-section .ss-col { display: flex; flex-direction: column; }
+
+.imet-section .ss-col > .ss-query + .ss-programs,
+.imet-section .ss-col > .ss-programs + .ss-query { margin-top: var(--wp--preset--spacing--20); }
+
+/* ---------- Related Programs band ---------- */
+.imet-section .ss-programs {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) auto;
+	align-items: center;
+	gap: var(--wp--preset--spacing--24);
+	padding: var(--wp--preset--spacing--20) var(--wp--preset--spacing--24);
+	background: linear-gradient(180deg, var(--wp--preset--color--peach), var(--wp--preset--color--sky));
+}
+
+.imet-section .ss-programs h2 {
+	margin: var(--wp--custom--eyebrow--gap) 0 0;
+	color: var(--wp--preset--color--ink);
+	font-size: var(--wp--preset--font-size--x-large);
+	font-weight: 600;
+	line-height: 1.25;
+}
+
+.imet-section .ss-programs-links { display: flex; flex-direction: column; gap: var(--wp--preset--spacing--10); }
+
+.imet-section .ss-program-link { margin: 0; }
+
+.imet-section .ss-program-link a {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: var(--wp--preset--spacing--20);
+	min-width: var(--wp--custom--size--155);
+	padding: var(--wp--preset--spacing--10) var(--wp--preset--spacing--12);
+	border-radius: var(--wp--preset--border-radius--4);
+	background: var(--wp--preset--color--white);
+	color: var(--wp--preset--color--ink);
+	font-family: var(--head);
+	font-size: var(--wp--preset--font-size--medium);
+	font-weight: 600;
+	line-height: 1.25;
+	text-decoration: none;
+}
+
+.imet-section .ss-program-link a::after {
+	content: "";
+	flex: none;
+	width: var(--wp--custom--size--22);
+	height: var(--wp--custom--size--22);
+	background: currentcolor;
+	mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M4 12h15m-6-7 7 7-7 7' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+.imet-section .ss-program-link a:is(:hover, :focus-visible) { color: var(--wp--preset--color--navy); box-shadow: var(--wp--preset--shadow--card); }
+
+/* ---------- Case Studies box ---------- */
+.imet-section .ss-cases {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+	align-items: center;
+	gap: var(--wp--preset--spacing--30);
+	margin-top: var(--wp--preset--spacing--40);
+	padding: var(--wp--preset--spacing--24) var(--wp--preset--spacing--40);
+	border-radius: var(--wp--preset--border-radius--16);
+	background: var(--wp--preset--color--navy);
+	color: var(--wp--preset--color--white);
+}
+
+.imet-section .ss-cases h2 {
+	margin: var(--wp--custom--eyebrow--gap) 0 0;
+	color: var(--wp--preset--color--white);
+	font-size: var(--wp--preset--font-size--xx-large);
+	font-weight: 600;
+	line-height: 1.2;
+}
+
+.imet-section .ss-cases-text > p:not(.eyebrow-line) { margin-top: var(--wp--preset--spacing--12); color: var(--wp--preset--color--white); font-size: var(--wp--preset--font-size--medium); }
+
+.imet-section .ss-cases-text .wp-block-buttons { margin-top: var(--wp--preset--spacing--20); }
+
+.imet-section .ss-case-list { display: flex; flex-direction: column; gap: var(--wp--preset--spacing--12); }
+
+.imet-section .ss-case {
+	display: grid;
+	grid-template-columns: var(--wp--custom--size--82) minmax(0, 1fr);
+	align-items: center;
+	gap: var(--wp--preset--spacing--12);
+	overflow: hidden;
+	padding-right: var(--wp--preset--spacing--12);
+	color: var(--wp--preset--color--ink);
+}
+
+.imet-section .ss-case.is-1 { background: #f1e1ff; } /* token-ok: design pastel */
+
+.imet-section .ss-case.is-2 { background: #e5fff3; } /* token-ok: design pastel */
+
+.imet-section .ss-case.is-3 { background: #ffedcd; } /* token-ok: design pastel */
+
+.imet-section .ss-case-photo { align-self: end; margin: 0; line-height: 0; }
+
+.imet-section .ss-case-photo img { width: 100%; height: auto; }
+
+.imet-section .ss-case-text { padding-block: var(--wp--preset--spacing--10); }
+
+.imet-section .ss-case-text p { margin: 0; color: var(--wp--preset--color--ink); font-size: var(--wp--preset--font-size--14); line-height: 1.35; }
+
+.imet-section .ss-case-text .ss-case-name { margin-top: var(--wp--preset--spacing--8); font-family: var(--head); font-weight: 700; }
+
+/* ---------- Tablets and phones ---------- */
+@media (max-width: 900px) {
+
+	.imet-section .ss-programs,
+	.imet-section .ss-cases { grid-template-columns: minmax(0, 1fr); }
+
+	.imet-section .ss-cases { padding: var(--wp--preset--spacing--24); }
+}
