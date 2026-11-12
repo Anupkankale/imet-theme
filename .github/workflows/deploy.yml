@@ -35,7 +35,7 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           ref: ${{ inputs.ref || github.sha }}
           persist-credentials: false
@@ -93,7 +93,7 @@ jobs:
       cancel-in-progress: false
     steps:
       # Only for the deploy action itself; the code to deploy comes from the build artifact.
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           sparse-checkout: .github/actions
           persist-credentials: false
