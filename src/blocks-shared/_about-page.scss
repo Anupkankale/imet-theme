@@ -43,7 +43,10 @@ $navy: var(--wp--preset--color--navy);
 
 .imet-section .ab-avatars-img { margin: 0; }
 
-.imet-section .ab-avatars-img img { width: var(--wp--custom--size--214); height: auto; mix-blend-mode: multiply; } /* the cut-out's light background takes the hero's colour */
+.imet-section .ab-avatars-img img { width: var(--wp--custom--size--214); height: auto; } /* the "18+" circle is part of the picture (about-hero-avatars-18.webp) */
+
+/* Pages saved before the new picture still have a separate "18+" circle; the picture now carries it. */
+.imet-section .ab-avatars:has(img[src*="about-hero-avatars-18"]) .ab-avatars-count { display: none; }
 
 .imet-section .ab-avatars-count {
 	display: grid;
@@ -110,10 +113,32 @@ $navy: var(--wp--preset--color--navy);
 
 .imet-section .ab-accred-logos img { width: var(--wp--custom--size--155); height: auto; }
 
-/* ---------- Main USP: three cards, the first navy ---------- */
+/* ---------- Main USP: cards (the first navy) gliding sideways ---------- */
 .imet-section.ab-usp { background: linear-gradient(180deg, var(--wp--preset--color--cream), var(--wp--preset--color--white)); }
 
 .imet-section .ab-usp-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--wp--preset--spacing--20); }
+
+/* On the site the cards are one row that glides sideways and loops (the blank section's view.js, marquee()): three in
+   view, the next one coming in from the right (Figma). Hover, focus or touch pauses it; a swipe still works. The
+   editor keeps the grid so every card can be edited. */
+:where(body:not(.editor-styles-wrapper)) .imet-section .ab-usp-grid {
+	--per-view: 3;
+	--gap: var(--wp--preset--spacing--20);
+	display: flex;
+	gap: var(--gap);
+	overflow-x: auto;
+	overscroll-behavior-x: contain;
+	padding-block: var(--wp--preset--spacing--10) var(--wp--preset--spacing--24); /* room for the navy card's shadow */
+	scrollbar-width: none;
+}
+
+:where(body:not(.editor-styles-wrapper)) .imet-section .ab-usp-grid::-webkit-scrollbar { display: none; }
+
+:where(body:not(.editor-styles-wrapper)) .imet-section .ab-usp-grid > .ab-usp-card {
+	flex: 0 0 calc((100% - (var(--per-view) - 1) * var(--gap)) / var(--per-view));
+	min-width: 0;
+	box-sizing: border-box;
+}
 
 .imet-section .ab-usp-card {
 	display: flex;
@@ -257,6 +282,8 @@ $navy: var(--wp--preset--color--navy);
 
 	.imet-section .ab-usp-grid { grid-template-columns: 1fr; }
 
+	:where(body:not(.editor-styles-wrapper)) .imet-section .ab-usp-grid { --per-view: 2; }
+
 	.imet-section .ab-gallery-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 
@@ -282,4 +309,9 @@ $navy: var(--wp--preset--color--navy);
 	.imet-section .ab-chip.is-green { right: 0; }
 
 	.imet-section .ab-chip.is-accred { left: 0; }
+}
+
+@media (max-width: 640px) {
+
+	:where(body:not(.editor-styles-wrapper)) .imet-section .ab-usp-grid { --per-view: 1.16; }
 }
