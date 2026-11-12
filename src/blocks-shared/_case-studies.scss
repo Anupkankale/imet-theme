@@ -1,0 +1,137 @@
+/* Case Studies page (pattern imet-theme/case-studies-page). The Blog / Success Stories layout (bl-hero, bl-main,
+   bl-aside, ss-programs, _blog-page.scss, _success-stories.scss) with what the design adds, scoped to cs-* classes: a
+   light hero with alumni avatars floating on a dashed arc, person cards, and a Success Stories banner.
+   Design: "IMET Worldwide Main file (16)". Tokens only, except the avatar ring colours from the design. */
+
+/* ---------- Hero: lavender to cream, dashed arc, floating avatars ---------- */
+.imet-section.cs-hero { background: linear-gradient(180deg, var(--wp--preset--color--lavender), var(--wp--preset--color--peach)); }
+
+/* No photo behind this hero: a dashed white arc instead of the Blog page's wash. */
+.imet-section.cs-hero::before {
+	inset: calc(-1 * var(--wp--custom--header--clearance)) 4% 0;
+	border: var(--wp--custom--size--3) dashed color-mix(in srgb, var(--wp--preset--color--white) 85%, transparent);
+	border-bottom: 0;
+	border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+	background: none;
+}
+
+.imet-section .cs-avatars { position: absolute; inset: 0 auto 0 50%; z-index: -1; width: min(var(--wp--style--global--wide-size), 100% - var(--wp--preset--spacing--40)); margin: 0; transform: translateX(-50%); pointer-events: none; } /* the text's column, so the avatars keep clear of the text at any width */
+
+.imet-section .cs-avatar { position: absolute; width: var(--size, var(--wp--custom--size--50)); margin: 0; }
+
+.imet-section .cs-avatar img { display: block; width: 100%; height: auto; border-radius: 50%; }
+
+/* A small coloured dot beside each avatar, as in the design. */
+.imet-section .cs-avatar::after {
+	content: "";
+	position: absolute;
+	right: calc(-1 * var(--wp--preset--spacing--10));
+	bottom: var(--wp--preset--spacing--4);
+	width: var(--wp--custom--size--13);
+	height: var(--wp--custom--size--13);
+	border-radius: 50%;
+	background: var(--dot, var(--wp--preset--color--pink));
+}
+
+.imet-section .cs-avatar.is-1 { top: 12%; left: 16%; --dot: var(--wp--preset--color--green); }
+
+.imet-section .cs-avatar.is-2 { top: 28%; left: 2%; --dot: var(--wp--preset--color--gold); }
+
+.imet-section .cs-avatar.is-3 { top: 54%; left: 3%; --size: var(--wp--custom--size--62); --dot: var(--wp--preset--color--pink); }
+
+.imet-section .cs-avatar.is-4 { top: 11%; right: 10%; --size: var(--wp--custom--size--62); --dot: var(--wp--preset--color--pink); }
+
+.imet-section .cs-avatar.is-5 { top: 12%; right: 0%; --size: var(--wp--custom--size--42); --dot: var(--wp--preset--color--green); }
+
+.imet-section .cs-avatar.is-6 { top: 46%; right: 2%; --size: var(--wp--custom--size--82); --dot: var(--wp--preset--color--blue); }
+
+/* ---------- Person cards ---------- */
+.imet-section .cs-query .wp-block-post-template.cs-grid {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: var(--wp--preset--spacing--20);
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.imet-section .cs-card {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	box-sizing: border-box;
+	overflow: hidden;
+	padding-bottom: var(--wp--preset--spacing--14);
+	border: 1px solid var(--wp--preset--color--grey-200);
+	border-radius: var(--wp--preset--border-radius--16);
+	background: var(--wp--preset--color--card);
+}
+
+.imet-section .cs-photo { margin: 0; }
+
+.imet-section .cs-photo img { display: block; width: 100%; height: auto; object-fit: cover; object-position: center top; }
+
+.imet-section .cs-card .cs-name {
+	margin: var(--wp--preset--spacing--12) var(--wp--preset--spacing--14) 0;
+	color: var(--wp--preset--color--ink);
+	font-family: var(--head);
+	font-size: var(--wp--preset--font-size--medium);
+	font-weight: 700;
+}
+
+.imet-section .cs-text { margin: var(--wp--preset--spacing--4) var(--wp--preset--spacing--14) 0; }
+
+.imet-section .cs-text .wp-block-post-excerpt__excerpt { margin: 0; color: var(--wp--preset--color--grey-light); font-size: var(--wp--preset--font-size--small); line-height: 1.55; }
+
+.imet-section .cs-text .wp-block-post-excerpt__more-text { display: inline; margin: 0 0 0 var(--wp--preset--spacing--4); font-size: var(--wp--preset--font-size--caption); }
+
+.imet-section .cs-text .wp-block-post-excerpt__more-link { color: var(--wp--preset--color--ink); text-decoration: underline; }
+
+.imet-section .cs-text p.wp-block-post-excerpt__more-text { display: inline-block; }
+
+.imet-section .cs-query + .ss-programs,
+.imet-section .ss-programs + .cs-query { margin-top: var(--wp--preset--spacing--20); }
+
+/* ---------- Success Stories banner ---------- */
+.imet-section .cs-banner {
+	margin-top: var(--wp--preset--spacing--40);
+	padding: var(--wp--preset--spacing--20) var(--wp--preset--spacing--24) var(--wp--preset--spacing--24);
+	border-radius: var(--wp--preset--border-radius--16);
+	background: var(--wp--preset--color--navy);
+	color: var(--wp--preset--color--white);
+}
+
+.imet-section .cs-banner h2 { margin: var(--wp--custom--eyebrow--gap) 0 0; color: var(--wp--preset--color--white); font-size: var(--wp--preset--font-size--xx-large); font-weight: 700; line-height: 1.2; }
+
+.imet-section .cs-banner-foot { display: flex; flex-wrap: wrap; align-items: center; gap: var(--wp--preset--spacing--12) var(--wp--preset--spacing--30); margin-top: var(--wp--preset--spacing--20); }
+
+.imet-section .cs-banner-foot .wp-block-buttons { margin: 0; }
+
+.imet-section .cs-banner-foot p { margin: 0; color: var(--wp--preset--color--white); font-size: var(--wp--preset--font-size--normal); }
+
+/* ---------- Tablets and phones ---------- */
+@media (max-width: 1240px) {
+
+	/* Below the full 1200px column the text spans most of the width: two avatars stay, low in the corners beside the
+	   button. */
+	.imet-section .cs-avatar:not(.is-1, .is-4) { display: none; }
+
+	.imet-section .cs-avatar.is-1 { top: auto; bottom: 10%; left: 2%; }
+
+	.imet-section .cs-avatar.is-4 { top: auto; right: 2%; bottom: 10%; }
+}
+
+@media (max-width: 900px) {
+
+	.imet-section .cs-query .wp-block-post-template.cs-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 640px) {
+
+	/* Phones: the text needs the whole width, so the avatars go; the dashed arc stays. */
+	.imet-section .cs-avatars { display: none; }
+
+	.imet-section.cs-hero::before { inset-inline: -20%; }
+
+	.imet-section .cs-query .wp-block-post-template.cs-grid { grid-template-columns: minmax(0, 1fr); }
+}
