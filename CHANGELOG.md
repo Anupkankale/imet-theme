@@ -6,7 +6,7 @@ All notable changes to this project are documented in this file. The format is b
 
 ### Added
 
-- Accreditation page (pattern "Accreditation Page", IMET: Full Pages), from the design: "Our Accreditation Framework" hero on the navy-to-gold gradient with "Speak to Career Advisor" and a strip of the five recognition logos over its bottom edge; "Globally Recognized. Credible. Career-Ready."; one section per accreditation (WES, MOFA UAE, MCA India, Ministry of Education India, MOFA Qatar: title with its gold part, logo, description); a "Ready to Get Globally Recognized?" band; a Contact Us card (email and contact page), which the hero button scrolls to. Uses the logos already in the theme (`_accreditation-page.scss`).
+- Accreditation page (pattern "Accreditation Page", IMET: Full Pages), from the design: "Our Accreditation Framework" hero on the navy-to-gold gradient with "Speak to Career Advisor" and a strip of the five recognition logos over its bottom edge; "Globally Recognized. Credible. Career-Ready."; one section per accreditation (WES, MOFA UAE, MCA India, Ministry of Education India, MOFA Qatar: title with its gold part, logo, description); a "Ready to Get Globally Recognized?" band; a Contact Us card (email and contact page), which the hero button scrolls to. Uses the logos already in the theme (`_accreditation-page.scss`). Type kept compact (UI review): hero title 35px, headings 29px (24px on phones), text 17px.
 
 ## 1.1.34 - 2026-11-12
 
