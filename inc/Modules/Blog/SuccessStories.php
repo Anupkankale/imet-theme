@@ -15,9 +15,10 @@ use rtCamp\WPPrimitives\Contracts\Interfaces\Registrable;
 /**
  * Class SuccessStories
  *
- * The Success Stories page lists posts in the "Success Stories" category (Query Loops whose `query` attribute has
- * `"imetStories": true`, see patterns/success-stories-page.php). While that category has no published post yet, the
- * loops list the latest posts instead, so the page keeps its layout; the first story put in the category takes over.
+ * The Success Stories and Case Studies pages list posts in their own category (Query Loops whose `query` attribute
+ * has `"imetStories": true`, see patterns/success-stories-page.php and case-studies-page.php). While a loop's category
+ * has no published post yet, the loop lists the latest posts instead, so the page keeps its layout; the first post
+ * filed in the category takes over.
  *
  * @since 1.1.38
  */
@@ -55,15 +56,37 @@ class SuccessStories implements Registrable {
 			return $query;
 		}
 
-		$term = get_term_by( 'slug', self::CATEGORY, 'category' );
+		// The loop's own category (Success Stories, Case Studies, ...): kept while it has a published post.
+		$terms = $this->category_ids( (array) $query['tax_query'] );
 
-		if ( $term instanceof \WP_Term && $this->has_stories( (int) $term->term_id ) ) {
-			return $query;
+		foreach ( $terms as $term_id ) {
+			if ( $this->has_stories( $term_id ) ) {
+				return $query;
+			}
 		}
 
 		unset( $query['tax_query'] );
 
 		return $query;
+	}
+
+	/**
+	 * The category IDs a tax query filters on.
+	 *
+	 * @param array<int|string, mixed> $tax_query The tax query.
+	 *
+	 * @return array<int, int> Category IDs.
+	 */
+	private function category_ids( array $tax_query ): array {
+		$ids = [];
+
+		foreach ( $tax_query as $clause ) {
+			if ( is_array( $clause ) && 'category' === ( $clause['taxonomy'] ?? '' ) ) {
+				$ids = array_merge( $ids, array_map( 'intval', (array) ( $clause['terms'] ?? [] ) ) );
+			}
+		}
+
+		return $ids;
 	}
 
 	/**
