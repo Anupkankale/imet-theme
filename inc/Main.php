@@ -50,6 +50,7 @@ class Main {
 		Modules\Menus\MenuRenderer::class,
 		Modules\Blog\SinglePost::class,
 		Modules\Blog\AuthorProfile::class,
+		Modules\Blog\SuccessStories::class,
 	];
 
 	/**
