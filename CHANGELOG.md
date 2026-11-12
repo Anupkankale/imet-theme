@@ -2,6 +2,16 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.38 - 2026-11-12
+
+### Changed
+
+- Success Stories page, from the design review: the hero uses the design's convocation photo (`ss-hero-bg.webp`, from the Figma original) under a round gradient that keeps the text readable and the graduates visible at the sides; new hero copy ("Real leaders. Real journeys. Real impact.", "Read Latest Story"); the author is the story card's eyebrow ("BY …" in the eyebrow face); each alumni case card links to the case studies and lifts on hover; "Read story" on the cards.
+
+### Fixed
+
+- Success Stories page: while the "Success Stories" category has no published post, the story rows show the latest posts instead of collapsing (`SuccessStories`, Query Loops flagged `imetStories`); the first story filed in the category takes over.
+
 ## 1.1.37 - 2026-11-12
 
 ### Added
