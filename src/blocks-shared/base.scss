@@ -166,6 +166,7 @@ html:has(.imet-section) { scroll-behavior: smooth; }
 @include meta.load-css('alumni-page');
 @include meta.load-css('blog-page');
 @include meta.load-css('blog-post');
+@include meta.load-css('success-stories');
 @include meta.load-css('about-page');
 @include meta.load-css('photo-chips');
 @include meta.load-css('mba-course');
