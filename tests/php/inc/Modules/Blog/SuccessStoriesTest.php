@@ -86,6 +86,27 @@ class SuccessStoriesTest extends TestCase {
 	}
 
 	/**
+	 * Any flagged loop works the same with its own category (e.g. Case Studies).
+	 */
+	public function test_other_category_falls_back_too(): void {
+		$cases = self::factory()->category->create( [ 'slug' => 'case-studies' ] );
+		$vars  = [
+			'tax_query' => [
+				[
+					'taxonomy' => 'category',
+					'terms'    => [ $cases ],
+				],
+			],
+		];
+
+		$this->assertArrayNotHasKey( 'tax_query', $this->instance->query_vars( $vars, $this->block( true ) ) );
+
+		self::factory()->post->create( [ 'post_category' => [ $cases ] ] );
+
+		$this->assertSame( $vars, $this->instance->query_vars( $vars, $this->block( true ) ) );
+	}
+
+	/**
 	 * Other loops are left alone.
 	 */
 	public function test_other_loops_are_untouched(): void {

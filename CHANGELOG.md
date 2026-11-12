@@ -2,6 +2,20 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.40 - 2026-11-12
+
+### Added
+
+- Case Studies page (pattern "Case Studies Page", IMET: Full Pages), from the design: a light hero (lavender to cream, dashed arc) with six alumni avatars floating around the text (anchored to the text column so they never cover it; two below 1240px, none on phones) and "Read Latest Case Study"; person cards (photo, name, short text, Read More: posts in the "Case Studies" category) beside the sticky advisor form; the Related Programs band; three more case studies with View More; a Success Stories banner. Images cropped from the design (`cs-card.webp`, `cs-avatar-1..6.webp`).
+
+### Changed
+
+- `SuccessStories`: the "latest posts while the category is empty" fallback now works for any flagged loop's own category (Success Stories, Case Studies).
+
+### Fixed
+
+- Token audit: a comment in `_success-stories.scss` listed hex colours on a wrapped line, which the audit counted as raw values.
+
 ## 1.1.39 - 2026-11-12
 
 ### Changed
