@@ -2,6 +2,12 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.39 - 2026-11-12
+
+### Changed
+
+- Success Stories hero: the Figma's "Rectangle 4448" gradient over the photo (#FFE6BA at 32% → #FBE6C0 → #D1E9F9 → #CCE9FF at 41%, left to right), nearly solid behind the text so it reads clearly; replaces the round wash.
+
 ## 1.1.38 - 2026-11-12
 
 ### Changed
