@@ -2,6 +2,12 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.35 - 2026-11-12
+
+### Fixed
+
+- DBA Course page (live): the Program Highlights picture was broken. The page was saved before 1.0.x replaced `course-highlights-v3.webp` with a photo plus text chips, and still points at the old file, which had been deleted; the file is back in the theme, so pages saved earlier show it again.
+
 ## 1.1.34 - 2026-11-12
 
 ### Changed
