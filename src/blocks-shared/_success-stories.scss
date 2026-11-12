@@ -3,18 +3,31 @@
    the story cards, the Related Programs band and the Case Studies box. Design: "IMET Worldwide Main file (14)".
    Tokens only, except the case cards' three pastel backgrounds from the design. */
 
-/* Hero: the group photo sits a little lower so the graduates' faces show under the text. */
-.imet-section.ss-hero .bl-hero-bg img { object-position: center 30%; }
+/* Hero: the convocation photo (from the design, ss-hero-bg.webp) under a round wash (UI review: "gradient which is
+   circular"): warm and light in the middle behind the text, fading to the clear photo at the edges, blue towards the
+   right. It replaces the Blog page's straight wash. */
+.imet-section.ss-hero .bl-hero-bg img { object-position: center 35%; }
 
-/* Story cards: the author in gold in place of the categories ("by: Dr. …"). */
-.imet-section .bl-card .ss-by {
-	margin: var(--wp--preset--spacing--12) var(--wp--preset--spacing--12) 0;
-	color: var(--wp--preset--color--gold);
-	font-size: var(--wp--preset--font-size--small);
-	font-weight: 500;
+.imet-section.ss-hero::before {
+	background:
+		radial-gradient(ellipse 48% 62% at 50% 52%, rgb(255 255 255 / 0.82), rgb(255 230 186 / 0.62) 45%, rgb(209 233 249 / 0.38) 75%, rgb(204 233 255 / 0.12) 100%); /* token-ok: design wash (#FFE6BA, #D1E9F9, #CCE9FF) */
 }
 
-.imet-section .bl-card .ss-by::before { content: "by: "; }
+/* Story cards: the author as the card's eyebrow (UI review), in the theme's eyebrow face and gold, above the title. */
+.imet-section .bl-card .ss-by {
+	margin: var(--wp--preset--spacing--14) var(--wp--preset--spacing--12) 0;
+	color: var(--wp--custom--eyebrow--color);
+	font-family: var(--wp--custom--eyebrow--font-family);
+	font-size: var(--wp--preset--font-size--14);
+	font-weight: var(--wp--custom--eyebrow--font-weight);
+	letter-spacing: var(--wp--custom--letter-spacing--1);
+	line-height: 1.3;
+	text-transform: uppercase;
+}
+
+.imet-section .bl-card .ss-by::before { content: "By "; }
+
+.imet-section .bl-card .ss-by + .bl-title { margin-top: var(--wp--preset--spacing--6); }
 
 /* The column holds two rows of cards with the band between them, then View More and the Case Studies box. */
 .imet-section .ss-col { display: flex; flex-direction: column; }
@@ -124,6 +137,27 @@
 .imet-section .ss-case-text p { margin: 0; color: var(--wp--preset--color--ink); font-size: var(--wp--preset--font-size--14); line-height: 1.35; }
 
 .imet-section .ss-case-text .ss-case-name { margin-top: var(--wp--preset--spacing--8); font-family: var(--head); font-weight: 700; }
+
+/* Each alumni card opens the case studies (UI review: "side banner into case study"): the name's link covers the
+   whole card, which lifts on hover. */
+.imet-section .ss-case { position: relative; transition: transform var(--wp--custom--motion--fast) ease, box-shadow var(--wp--custom--motion--fast) ease; }
+
+.imet-section .ss-case-name a { color: inherit; text-decoration: none; }
+
+.imet-section .ss-case-name a::after { content: ""; position: absolute; inset: 0; }
+
+.imet-section .ss-case:hover { box-shadow: var(--wp--preset--shadow--card); transform: translateY(calc(-1 * var(--wp--preset--spacing--3))); }
+
+.imet-section .ss-case-name a:focus-visible { outline: none; }
+
+.imet-section .ss-case:has(a:focus-visible) { outline: var(--wp--custom--size--2) solid var(--wp--preset--color--gold); outline-offset: var(--wp--custom--size--2); }
+
+@media (prefers-reduced-motion: reduce) {
+
+	.imet-section .ss-case { transition: none; }
+
+	.imet-section .ss-case:hover { transform: none; }
+}
 
 /* ---------- Tablets and phones ---------- */
 @media (max-width: 900px) {

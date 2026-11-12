@@ -2,7 +2,7 @@
 /**
  * Title: Success Stories Page
  * Slug: imet-theme/success-stories-page
- * Description: Success stories: a hero with the latest story, story cards (posts in the "Success Stories" category, author shown as "by: …") beside a sticky advisor form, a Related Programs band, more stories with View More, and a "Case Studies of our Alumni" box.
+ * Description: Success stories: a hero (convocation photo under a round gradient) with the latest story, story cards (posts in the "Success Stories" category, author shown as "by: …") beside a sticky advisor form, a Related Programs band, more stories with View More, and a "Case Studies of our Alumni" box.
  * Categories: imet-pages
  * Keywords: imet, page, success stories, alumni, case studies, stories
  * Block Types: core/post-content
@@ -44,6 +44,7 @@ $imet_ss_stories = static function ( int $query_id, int $per_page, int $offset )
 	if ( $imet_ss_term ) {
 		$query['taxQuery'] = array( 'category' => array( (int) $imet_ss_term->term_id ) );
 	}
+	$query['imetStories'] = true; // Latest posts while the category is still empty (SuccessStories).
 	?>
 <!-- wp:query <?php echo wp_json_encode( array( 'queryId' => $query_id, 'query' => $query, 'className' => 'bl-query ss-query' ) ); ?> -->
 <div class="wp-block-query bl-query ss-query"><!-- wp:post-template {"className":"bl-grid","layout":{"type":"grid","columnCount":3}} -->
@@ -52,7 +53,7 @@ $imet_ss_stories = static function ( int $query_id, int $per_page, int $offset )
 <!-- wp:post-author-name {"className":"ss-by"} /-->
 <!-- wp:post-title {"level":3,"isLink":true,"className":"bl-title"} /-->
 <!-- wp:post-excerpt {"excerptLength":12,"className":"bl-excerpt"} /-->
-<!-- wp:read-more {"content":"<?php echo esc_attr__( 'Read article', 'imet-theme' ); ?>","className":"bl-read"} /--></div>
+<!-- wp:read-more {"content":"<?php echo esc_attr__( 'Read story', 'imet-theme' ); ?>","className":"bl-read"} /--></div>
 <!-- /wp:group -->
 <!-- /wp:post-template --></div>
 <!-- /wp:query -->
@@ -61,7 +62,7 @@ $imet_ss_stories = static function ( int $query_id, int $per_page, int $offset )
 ?>
 <!-- wp:imet/section {"className":"bl-hero ss-hero"} -->
 <section class="wp-block-imet-section alignfull imet-section section imet-blank bl-hero ss-hero"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"bl-hero-bg"} -->
-<figure class="wp-block-image size-full bl-hero-bg"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/imet/home-convocation.webp' ) ); ?>" alt=""/></figure>
+<figure class="wp-block-image size-full bl-hero-bg"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/imet/ss-hero-bg.webp' ) ); ?>" alt=""/></figure>
 <!-- /wp:image -->
 <!-- wp:group {"className":"imet-container bl-hero-text","layout":{"type":"default"}} -->
 <div class="wp-block-group imet-container bl-hero-text"><!-- wp:paragraph {"className":"bl-crumbs"} -->
@@ -71,10 +72,10 @@ $imet_ss_stories = static function ( int $query_id, int $per_page, int $offset )
 <p class="eyebrow-line"><?php esc_html_e( 'Success Stories', 'imet-theme' ); ?></p>
 <!-- /wp:paragraph -->
 <!-- wp:heading {"level":1} -->
-<h1 class="wp-block-heading"><?php esc_html_e( 'Ideas for leaders who are ready for what’s next.', 'imet-theme' ); ?></h1>
+<h1 class="wp-block-heading"><?php esc_html_e( 'Real leaders. Real journeys. Real impact.', 'imet-theme' ); ?></h1>
 <!-- /wp:heading -->
 <!-- wp:paragraph {"className":"bl-lead"} -->
-<p class="bl-lead"><?php esc_html_e( 'Explore practical perspectives on AI, cybersecurity, business leadership and doctoral research, created for professionals who want to turn experience into meaningful impact.', 'imet-theme' ); ?></p>
+<p class="bl-lead"><?php esc_html_e( 'See how senior IT leaders, CXOs and entrepreneurs turned their IMET Doctorate or MBA into boardroom roles, published research and global recognition.', 'imet-theme' ); ?></p>
 <!-- /wp:paragraph -->
 <?php
 $imet_ss_latest = array(
@@ -93,10 +94,11 @@ $imet_ss_latest = array(
 if ( $imet_ss_term ) {
 	$imet_ss_latest['taxQuery'] = array( 'category' => array( (int) $imet_ss_term->term_id ) );
 }
+$imet_ss_latest['imetStories'] = true;
 ?>
 <!-- wp:query <?php echo wp_json_encode( array( 'queryId' => 40, 'query' => $imet_ss_latest, 'className' => 'bl-latest' ) ); ?> -->
 <div class="wp-block-query bl-latest"><!-- wp:post-template -->
-<!-- wp:read-more {"content":"<?php echo esc_attr__( 'Read Latest Article', 'imet-theme' ); ?>","className":"bl-latest-btn"} /-->
+<!-- wp:read-more {"content":"<?php echo esc_attr__( 'Read Latest Story', 'imet-theme' ); ?>","className":"bl-latest-btn"} /-->
 <!-- /wp:post-template --></div>
 <!-- /wp:query --></div>
 <!-- /wp:group --></section>
@@ -161,7 +163,7 @@ foreach ( array( 1, 2, 3 ) as $imet_ss_n ) :
 <p><?php esc_html_e( 'Achieving New Heights with the Power of a Doctorate.', 'imet-theme' ); ?></p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph {"className":"ss-case-name"} -->
-<p class="ss-case-name"><?php esc_html_e( 'Dr. Ernesto Rufino Jr.', 'imet-theme' ); ?></p>
+<p class="ss-case-name"><a href="<?php echo esc_url( home_url( '/case-studies/' ) ); ?>"><?php esc_html_e( 'Dr. Ernesto Rufino Jr.', 'imet-theme' ); ?></a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group -->
