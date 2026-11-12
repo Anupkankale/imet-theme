@@ -2,6 +2,12 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.33 - 2026-11-12
+
+### Changed
+
+- Blog page: the sidebar (advisor form, search, tags) stays in view while the articles scroll, just below the header (desktop, from 1101px). Each tab shows up to 12 articles (was 6) so the sidebar has room to stay pinned; "View More" still opens the full category.
+
 ## 1.1.32 - 2026-11-11
 
 ### Changed

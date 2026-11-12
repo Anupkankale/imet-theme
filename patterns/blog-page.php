@@ -72,7 +72,7 @@ foreach (
 <?php
 foreach ( $imet_blog_tabs as $imet_i => $imet_tab ) :
 	$imet_query = array(
-		'perPage'  => 6,
+		'perPage'  => 12,
 		'pages'    => 1,
 		'offset'   => 0,
 		'postType' => 'post',

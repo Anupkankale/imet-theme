@@ -172,6 +172,14 @@
 /* Sidebar: the advisor form in an outlined card, then search and tags. */
 .imet-section .bl-aside { display: flex; flex-direction: column; gap: var(--wp--preset--spacing--32); }
 
+/* The sidebar (advisor form, search, tags) stays in view while the articles scroll, just below the floating header.
+   It is never cut or scrolled inside: on a screen shorter than the sidebar its last tags come into view at the end of
+   the articles. Desktop only: below 1100px it sits under the articles. */
+@media (min-width: 1101px) {
+
+	.imet-section .bl-aside { position: sticky; top: var(--wp--custom--header--main-clearance); }
+}
+
 .imet-section .bl-form {
 	padding: var(--wp--preset--spacing--16) var(--wp--preset--spacing--16) var(--wp--preset--spacing--20);
 	border: var(--wp--custom--size--2) solid var(--wp--preset--color--ink);
