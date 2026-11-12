@@ -3,14 +3,13 @@
    the story cards, the Related Programs band and the Case Studies box. Design: "IMET Worldwide Main file (14)".
    Tokens only, except the case cards' three pastel backgrounds from the design. */
 
-/* Hero: the convocation photo (from the design, ss-hero-bg.webp) under a round wash (UI review: "gradient which is
-   circular"): warm and light in the middle behind the text, fading to the clear photo at the edges, blue towards the
-   right. It replaces the Blog page's straight wash. */
+/* Hero: the convocation photo (from the design, ss-hero-bg.webp) under the Figma's "Rectangle 4448" gradient, left to
+   right: #FFE6BA at 32% (the photo shows at the left), #FBE6C0 and #D1E9F9 nearly solid behind the text so it reads
+   clearly (UI review), #CCE9FF at 41% (the photo shows at the right). */
 .imet-section.ss-hero .bl-hero-bg img { object-position: center 35%; }
 
 .imet-section.ss-hero::before {
-	background:
-		radial-gradient(ellipse 48% 62% at 50% 52%, rgb(255 255 255 / 0.82), rgb(255 230 186 / 0.62) 45%, rgb(209 233 249 / 0.38) 75%, rgb(204 233 255 / 0.12) 100%); /* token-ok: design wash (#FFE6BA, #D1E9F9, #CCE9FF) */
+	background: linear-gradient(90deg, rgb(255 230 186 / 0.32) 0%, rgb(251 230 192 / 0.88) 30%, rgb(209 233 249 / 0.88) 60%, rgb(204 233 255 / 0.41) 100%); /* token-ok: design gradient (#FFE6BA, #FBE6C0, #D1E9F9, #CCE9FF) */
 }
 
 /* Story cards: the author as the card's eyebrow (UI review), in the theme's eyebrow face and gold, above the title. */
