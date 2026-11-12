@@ -2,6 +2,13 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.34 - 2026-11-12
+
+### Changed
+
+- About Us, Main USP: the cards are one row that glides sideways and loops (three in view on desktop, two on tablets, one and a bit on phones; hover, focus or touch pauses it), with a fourth card, "17 years institute", as in the Figma. The editor keeps the grid.
+- About Us hero: the new graduates picture with the "18+" circle built in (`about-hero-avatars-18.webp`, from the design); the separate 18+ circle is hidden where the new picture is used.
+
 ## 1.1.33 - 2026-11-12
 
 ### Changed

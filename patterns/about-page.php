@@ -30,11 +30,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- wp:group {"className":"ab-proof","layout":{"type":"default"}} -->
 <div class="wp-block-group ab-proof"><!-- wp:group {"className":"ab-avatars","layout":{"type":"default"}} -->
 <div class="wp-block-group ab-avatars"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ab-avatars-img"} -->
-<figure class="wp-block-image size-full ab-avatars-img"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/imet/about-hero-avatars.webp' ) ); ?>" alt="IMET graduates"/></figure>
+<figure class="wp-block-image size-full ab-avatars-img"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/imet/about-hero-avatars-18.webp' ) ); ?>" alt="18+ IMET graduates"/></figure>
 <!-- /wp:image -->
-<!-- wp:paragraph {"className":"ab-avatars-count"} -->
-<p class="ab-avatars-count">18+</p>
-<!-- /wp:paragraph -->
 </div>
 <!-- /wp:group -->
 <!-- wp:paragraph {"className":"h-rating"} -->
@@ -122,6 +119,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:paragraph -->
 <!-- wp:paragraph {"className":"ab-more"} -->
 <p class="ab-more"><a href="/alumni-page/">View More</a></p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ab-usp-card","layout":{"type":"default"}} -->
+<div class="wp-block-group ab-usp-card"><!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">17 years institute</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph -->
+<p>For professionals, credibility matters. IMET’s institutional journey, academic ecosystem and international documentation pathways support every learner.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"ab-more"} -->
+<p class="ab-more"><a href="/why-choose-imet/">View More</a></p>
 <!-- /wp:paragraph -->
 </div>
 <!-- /wp:group -->
