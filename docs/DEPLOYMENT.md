@@ -3,6 +3,9 @@
 > **Current flow (simplified):** one branch. Every push to `main` builds and deploys to the site whose secrets are in the
 > `staging` GitHub environment. There is no `develop` deploy and no production job; the sections below that mention
 > production or `develop` are history. To roll back, Actions → Deploy → Run workflow with an older tag or commit as `ref`.
+>
+> Merges close together: an automatic deploy checks, right before uploading, that its commit is still the newest on
+> `main`; if not, it skips and the newer run deploys, so an older build can never land on top of a newer one.
 
 Two repositories deploy to the same WordPress site, each with its own copy of the same workflow:
 
