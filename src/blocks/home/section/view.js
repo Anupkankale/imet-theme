@@ -11,6 +11,7 @@
 import { __ } from '@wordpress/i18n';
 import {
 	each,
+	marquee,
 	reduceMotion,
 	videoConsent,
 } from '../../../blocks-shared/view-helpers';
@@ -225,3 +226,11 @@ each('.imet-section.bp-main', (section) => {
 	window.addEventListener('resize', onScroll, { passive: true });
 	mark();
 });
+
+/* About Us, Main USP: the cards glide sideways and loop, like the testimonials; hover, focus or touch pauses them. */
+each('.imet-section .ab-usp-grid', (grid) =>
+	marquee(grid, [...grid.querySelectorAll(':scope > .ab-usp-card')], {
+		speed: 30,
+		alwaysMove: true,
+	})
+);
