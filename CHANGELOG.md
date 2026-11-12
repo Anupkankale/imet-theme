@@ -2,6 +2,12 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.37 - 2026-11-12
+
+### Added
+
+- Accreditation page (pattern "Accreditation Page", IMET: Full Pages), from the design: "Our Accreditation Framework" hero on the navy-to-gold gradient with "Speak to Career Advisor" and a strip of the five recognition logos over its bottom edge; "Globally Recognized. Credible. Career-Ready."; one section per accreditation (WES, MOFA UAE, MCA India, Ministry of Education India, MOFA Qatar: title with its gold part, logo, description); a "Ready to Get Globally Recognized?" band; a Contact Us card (email and contact page), which the hero button scrolls to. Uses the logos already in the theme (`_accreditation-page.scss`).
+
 ## 1.1.34 - 2026-11-12
 
 ### Changed
