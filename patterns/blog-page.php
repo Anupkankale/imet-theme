@@ -35,7 +35,7 @@ foreach (
 ?>
 <!-- wp:imet/section {"className":"bl-hero"} -->
 <section class="wp-block-imet-section alignfull imet-section section imet-blank bl-hero"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"bl-hero-bg"} -->
-<figure class="wp-block-image size-full bl-hero-bg"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/imet/home-hero-bg.webp' ) ); ?>" alt=""/></figure>
+<figure class="wp-block-image size-full bl-hero-bg"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/imet/blog-hero-bg.webp' ) ); ?>" alt=""/></figure>
 <!-- /wp:image -->
 <!-- wp:group {"className":"imet-container bl-hero-text","layout":{"type":"default"}} -->
 <div class="wp-block-group imet-container bl-hero-text"><!-- wp:paragraph {"className":"bl-crumbs"} -->

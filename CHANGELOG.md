@@ -2,6 +2,12 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.32 - 2026-11-11
+
+### Changed
+
+- Blog page banner, from the Figma: the new photo (colleagues at a sticky-note wall, `blog-hero-bg.webp`, 1920px, 121 KB) under the design's gradient wash, warm peach on the left to light blue on the right, light enough that the people stay visible, with a soft white lift behind the text.
+
 ## 1.1.31 - 2026-11-11
 
 ### Changed
