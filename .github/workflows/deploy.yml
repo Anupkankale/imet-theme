@@ -97,11 +97,32 @@ jobs:
         with:
           sparse-checkout: .github/actions
           persist-credentials: false
+      # Two merges close together run two deploys; the queue below lets them run one after the other, but the older
+      # one can still be the last to finish and put its build over the newer one (it happened with #79/#80). A push
+      # deploy only goes ahead while its commit is still the newest on main; otherwise the newer run deploys.
+      # Manual runs (Run workflow, e.g. a rollback to an older tag) always deploy.
+      - name: Skip if a newer commit is already on main
+        id: newest
+        if: github.event_name == 'push'
+        run: |
+          head=$(git ls-remote "https://github.com/${GITHUB_REPOSITORY}" refs/heads/main | cut -f1)
+          if [ -z "$head" ]; then
+            echo "::error::Could not read the head of main; not deploying."
+            exit 1
+          fi
+          if [ "$head" = "$GITHUB_SHA" ]; then
+            echo "deploy=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "deploy=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::Skipped: main has moved on to ${head:0:7}; that run deploys the newer version."
+          fi
       - uses: actions/download-artifact@v4
+        if: github.event_name != 'push' || steps.newest.outputs.deploy == 'true'
         with:
           name: dist
           path: ${{ runner.temp }}/dist
       - uses: ./.github/actions/deploy-hostinger
+        if: github.event_name != 'push' || steps.newest.outputs.deploy == 'true'
         with:
           source: ${{ runner.temp }}/dist
           kind: ${{ env.TARGET_KIND }}
