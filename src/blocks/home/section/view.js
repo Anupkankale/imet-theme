@@ -1,6 +1,6 @@
 /* Pages built from blank sections:
-   - Alumni Page stories (.al-stories): the topic chips show the cards of one topic (a card's al-cat-<topic> class; "#all"
-     shows every card), and a podcast card plays its YouTube video in place once the visitor agrees (videoConsent, shown
+   - Alumni Page stories (.al-stories, also the Convocation page): the topic chips show the cards of one topic (a card's
+     al-cat-<topic> class; "#all" shows every card; the Convocation page's "Video by city" menu does the same per city), and a podcast card plays its YouTube video in place once the visitor agrees (videoConsent, shown
      over the whole card).
    - Blog Page (.bl-main): the Doctorate / MBA chips show their own panel of articles (.bl-panel-<slug>). Without
      JavaScript every panel shows.
@@ -69,15 +69,42 @@ each('.imet-section.bl-main', (section) => {
 
 each('.imet-section.al-stories', (section) => {
 	const cards = [...section.querySelectorAll('.al-card')];
-	chipToggle(
-		[...section.querySelectorAll('.al-chips .wp-block-button')],
-		(topic) =>
-			cards.forEach((card) => {
-				card.hidden =
-					topic !== 'all' &&
-					!card.classList.contains('al-cat-' + topic);
-			})
-	);
+	const chips = [...section.querySelectorAll('.al-chips .wp-block-button')];
+	const empty = section.querySelector('.cv-empty');
+	const show = (topic) => {
+		let shown = 0;
+		cards.forEach((card) => {
+			card.hidden =
+				topic !== 'all' && !card.classList.contains('al-cat-' + topic);
+			shown += card.hidden ? 0 : 1;
+		});
+		// Convocation page: a city with no video yet says so instead of showing nothing.
+		if (empty) {
+			empty.hidden = shown > 0;
+		}
+	};
+	if (empty) {
+		empty.hidden = true;
+	}
+	chipToggle(chips, show);
+
+	// Convocation page: "Video by city" lists the cities; picking one shows that city's videos (cards with
+	// al-cat-<city>) and marks the Video chip.
+	section.querySelectorAll('.cv-cities a[href^="#"]').forEach((link) => {
+		link.addEventListener('click', (e) => {
+			e.preventDefault();
+			chips.forEach((chip) => {
+				const on = chip.classList.contains('cv-chip-video');
+				chip.classList.toggle('is-active', on);
+				chip.querySelector('a')?.setAttribute(
+					'aria-pressed',
+					String(on)
+				);
+			});
+			show(link.getAttribute('href').slice(1));
+			link.closest('details')?.removeAttribute('open');
+		});
+	});
 
 	section.querySelectorAll('.al-thumb').forEach((thumb) => {
 		const link = thumb.querySelector('a');
