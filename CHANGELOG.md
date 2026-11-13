@@ -2,6 +2,12 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.47 - 2026-11-13
+
+### Fixed
+
+- Hero stats (DBA, MBA, location heroes): the number and label no longer run into the laurels. The text was pulled 12px over each laurel, which the darker laurel hid; with the lighter one it read as broken. The text now sits between the laurels (54px, 34px on phones), as on the old site.
+
 ## 1.1.46 - 2026-11-13
 
 ### Changed
