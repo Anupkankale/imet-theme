@@ -2,6 +2,12 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.42 - 2026-11-13
+
+### Fixed
+
+- FAQ: questions and answers are always left-aligned (on the DBA page the list sat inside the centred header and the answers had been saved as "centred", so their lines centred under a left-aligned question); answers are 15px (were 13.5px, 13px on the MBA course pages), line height 1.65.
+
 ## 1.1.41 - 2026-11-13
 
 ### Changed
