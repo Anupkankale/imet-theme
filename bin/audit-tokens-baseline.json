@@ -4,7 +4,7 @@
 	"src/blocks/analytics/style.scss": 11,
 	"src/blocks/career-table/style.scss": 30,
 	"src/blocks/cyber-banner/style.scss": 32,
-	"src/blocks/dba-vs-phd/style.scss": 55,
+	"src/blocks/dba-vs-phd/style.scss": 44,
 	"src/blocks/float-contact/style.scss": 18,
 	"src/blocks/global/alumni-video/style.scss": 110,
 	"src/blocks/global/cta/style.scss": 81,
