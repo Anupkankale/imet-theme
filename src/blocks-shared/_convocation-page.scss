@@ -1,0 +1,179 @@
+/* Convocation page (pattern imet-theme/convocation-page). Reuses the Alumni page's stories layout (.al-stories.is-v2:
+   cards, chips, sidebar, _alumni-page.scss), the laurel stats (.al-stat), the Related Programs band and the case
+   studies box (_success-stories.scss); adds, scoped to cv-* classes: the hero with the speaker, the Convocation
+   Highlights card over the hero's edge, the city menu of the filter and two-per-row cards.
+   Design: "IMET Worldwide Main file (18)". Tokens only. */
+
+/* ---------- Hero: blurred ceremony photo, navy on the left to gold on the right, the speaker on the right ---------- */
+.imet-section.cv-hero {
+	position: relative;
+	isolation: isolate;
+	overflow: visible;
+	padding-block: var(--wp--preset--spacing--48) 0;
+	background: var(--wp--preset--color--white); /* below the photo, under the highlights card */
+	color: var(--wp--preset--color--white);
+}
+
+.imet-section .cv-hero-bg { position: absolute; inset: 0 0 var(--wp--custom--size--88); z-index: -2; overflow: hidden; margin: 0; background: var(--wp--preset--color--navy-deep); }
+
+.imet-section .cv-hero-bg img { width: 100%; height: 100%; object-fit: cover; filter: blur(var(--wp--preset--spacing--4)); transform: scale(1.04); }
+
+.imet-section.cv-hero::before {
+	content: "";
+	position: absolute;
+	inset: 0 0 var(--wp--custom--size--88);
+	z-index: -1;
+	background: linear-gradient(90deg, rgb(21 41 78 / 0.95) 25%, rgb(21 41 78 / 0.55) 55%, rgb(207 145 35 / 0.55)); /* token-ok: navy to gold wash (design) */
+}
+
+/* The speaker: a cut-out on the right, fading into the wash on its left edge. */
+.imet-section .cv-speaker {
+	position: absolute;
+	right: max(0px, (100% - var(--wp--style--global--wide-size)) / 2 - var(--wp--preset--spacing--40));
+	bottom: var(--wp--custom--size--88);
+	z-index: -1;
+	width: min(46%, var(--wp--custom--size--544));
+	margin: 0;
+
+	/* The cut-out carries its own background: it fades out at the left, the top and the right, so only the speaker
+	   stands out from the wash. */
+	mask-image:
+		linear-gradient(90deg, transparent, var(--wp--preset--color--ink) 24%, var(--wp--preset--color--ink) 82%, transparent),
+		linear-gradient(180deg, transparent, var(--wp--preset--color--ink) 20%);
+	mask-composite: intersect;
+}
+
+.imet-section .cv-speaker img { display: block; width: 100%; height: auto; }
+
+.imet-section .cv-hero-text { padding-bottom: var(--wp--preset--spacing--40); }
+
+.imet-section.cv-hero h1 { max-width: var(--wp--custom--size--544); margin: 0; color: var(--wp--preset--color--white); font-size: var(--wp--preset--font-size--huge); line-height: 1.2; }
+
+.imet-section.cv-hero .al-stats { margin-top: var(--wp--preset--spacing--30); }
+
+/* ---------- Convocation Highlights: a white card over the hero's bottom edge ---------- */
+.imet-section .cv-highlights {
+	position: relative;
+	box-sizing: border-box;
+	width: min(var(--wp--custom--size--826), 100% - var(--wp--preset--spacing--40));
+	padding: var(--wp--preset--spacing--20) var(--wp--preset--spacing--24) var(--wp--preset--spacing--24);
+	border: var(--wp--custom--size--2) solid var(--wp--preset--color--gold);
+	border-radius: var(--wp--preset--border-radius--22);
+	background: var(--wp--preset--color--white);
+	box-shadow: var(--wp--preset--shadow--raised);
+	color: var(--wp--preset--color--ink);
+	text-align: center;
+}
+
+.imet-section .cv-highlights-title {
+	display: flex;
+	align-items: center;
+	gap: var(--wp--preset--spacing--20);
+	margin: 0;
+	color: var(--wp--preset--color--ink);
+	font-size: var(--wp--preset--font-size--card-title);
+	font-weight: 600;
+}
+
+.imet-section .cv-highlights-title::before,
+.imet-section .cv-highlights-title::after { content: ""; flex: 1; height: 1px; background: var(--wp--preset--color--grey-900); }
+
+.imet-section .cv-hl-list { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--wp--preset--spacing--12) var(--wp--preset--spacing--30); margin-top: var(--wp--preset--spacing--16); }
+
+.imet-section .cv-hl {
+	display: flex;
+	align-items: center;
+	gap: var(--wp--preset--spacing--10);
+	margin: 0;
+	color: var(--wp--preset--color--ink);
+	font-family: var(--head);
+	font-size: var(--wp--preset--font-size--medium);
+	font-weight: 500;
+}
+
+/* Gold line icons (cap, globe, medal, trophy, handshake). */
+.imet-section .cv-hl::before { content: ""; flex: none; width: var(--wp--custom--size--26); height: var(--wp--custom--size--26); background: var(--wp--preset--color--gold); mask: var(--icon) center / contain no-repeat; }
+
+.imet-section .cv-hl.is-cap { --icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linejoin='round'%3E%3Cpath d='m2 9 10-5 10 5-10 5z'/%3E%3Cpath d='M6 11v5c3 2 9 2 12 0v-5M22 9v6'/%3E%3C/svg%3E"); }
+
+.imet-section .cv-hl.is-globe { --icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2'%3E%3Ccircle cx='12' cy='12' r='9'/%3E%3Cpath d='M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18'/%3E%3C/svg%3E"); }
+
+.imet-section .cv-hl.is-medal { --icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='15' r='6'/%3E%3Cpath d='M8 10 5 2h5l2 5 2-5h5l-3 8'/%3E%3C/svg%3E"); }
+
+.imet-section .cv-hl.is-trophy { --icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linejoin='round'%3E%3Cpath d='M7 4h10v5a5 5 0 0 1-10 0zM7 6H4a3 3 0 0 0 3 4M17 6h3a3 3 0 0 1-3 4M12 14v4M8 21h8'/%3E%3C/svg%3E"); }
+
+.imet-section .cv-hl.is-hands { --icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linejoin='round'%3E%3Cpath d='m2 12 5-5 4 2 4-2 7 5-6 6-4-3-3 3z'/%3E%3Cpath d='m11 9-3 3 2 2 3-3'/%3E%3C/svg%3E"); }
+
+/* ---------- Main: centred overview, the filter, cards two per row ---------- */
+.imet-section.al-stories.cv-main { padding-top: var(--wp--preset--spacing--48); }
+
+.imet-section .cv-intro { text-align: center; }
+
+.imet-section .cv-filter { display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: center; gap: var(--wp--preset--spacing--10); margin-bottom: var(--wp--preset--spacing--24); }
+
+.imet-section .cv-filter .al-chips { margin: 0; }
+
+/* "Video by city": a small menu (a Details element) with the cities. */
+.imet-section .cv-cities { position: relative; }
+
+.imet-section .cv-cities summary {
+	padding: var(--wp--preset--spacing--10) var(--wp--preset--spacing--16);
+	border-radius: var(--wp--preset--border-radius--6);
+	background: var(--wp--preset--color--line);
+	color: var(--wp--preset--color--ink);
+	font-weight: 500;
+	list-style: none;
+	cursor: pointer;
+}
+
+.imet-section .cv-cities summary::-webkit-details-marker { display: none; }
+
+.imet-section .cv-cities summary::after { content: "▾"; margin-left: var(--wp--preset--spacing--8); }
+
+.imet-section .cv-cities ul {
+	position: absolute;
+	top: calc(100% + var(--wp--preset--spacing--4));
+	left: 0;
+	z-index: 5;
+	min-width: 100%;
+	margin: 0;
+	padding: var(--wp--preset--spacing--4) 0;
+	border-radius: var(--wp--preset--border-radius--6);
+	background: var(--wp--preset--color--white);
+	box-shadow: var(--wp--preset--shadow--dropdown);
+	list-style: none;
+}
+
+.imet-section .cv-cities a { display: block; padding: var(--wp--preset--spacing--6) var(--wp--preset--spacing--16); color: var(--wp--preset--color--ink); text-decoration: none; }
+
+.imet-section .cv-cities a:is(:hover, :focus-visible) { background: var(--wp--preset--color--card); }
+
+.imet-section .cv-empty { margin: 0 0 var(--wp--preset--spacing--24); color: var(--wp--preset--color--muted); text-align: center; }
+
+.imet-section .cv-empty[hidden] { display: none; }
+
+.imet-section .al-grid.cv-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+.imet-section .cv-card .al-card-title { padding-bottom: var(--wp--preset--spacing--16); }
+
+.imet-section .cv-photo img { aspect-ratio: 16 / 9; object-fit: cover; }
+
+.imet-section .cv-main .ss-programs,
+.imet-section .cv-main .ss-cases { margin-block: var(--wp--preset--spacing--24); }
+
+/* ---------- Tablets and phones ---------- */
+@media (max-width: 1100px) {
+
+	.imet-section .cv-speaker { width: 42%; opacity: 0.5; }
+}
+
+@media (max-width: 640px) {
+
+	.imet-section .cv-speaker { display: none; }
+
+	.imet-section.cv-hero h1 { font-size: var(--wp--preset--font-size--x-large); }
+
+	.imet-section .al-grid.cv-grid { grid-template-columns: minmax(0, 1fr); }
+
+	.imet-section .cv-hl { font-size: var(--wp--preset--font-size--normal); }
+}
