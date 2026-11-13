@@ -76,7 +76,7 @@
 
 .imet-section.faq.is-style-compact .faq-acc details[open] summary { padding-bottom: 2px; }
 
-.imet-section.faq.is-style-compact .faq-acc details p { padding-bottom: 20px; font-size: 0.90625rem; line-height: 1.9; }
+.imet-section.faq.is-style-compact .faq-acc details p { padding-bottom: 20px; font-size: var(--wp--preset--font-size--small); line-height: 1.65; } /* 15px, as every FAQ answer (UI review) */
 
 .imet-section.faq.is-style-compact .faq-more .wp-block-button__link { min-width: 171px; min-height: 56px; font-size: 1.125rem; }
 
