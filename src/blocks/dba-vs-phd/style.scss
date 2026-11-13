@@ -5,7 +5,7 @@
 
 .imet-section.vs .title { margin-bottom: 11px; }
 
-.imet-section.vs .sub { margin-bottom: 62px; }
+.imet-section.vs .sub { max-width: var(--wp--custom--size--916); margin-inline: auto; margin-bottom: 62px; }
 
 .imet-section .vs-table {
 	position: relative;
@@ -45,10 +45,11 @@
 .imet-section .vs-table table::after {
 	content: "";
 	position: absolute;
-	top: -56px;
-	left: calc(100% * 746 / 1156 + 6px);
-	width: 42px;
-	height: 52px;
+	top: calc(-1 * var(--wp--preset--spacing--24)); /* on the card's top-right corner, clear of the intro text (UI review) */
+	left: calc(100% * 746 / 1156 - var(--wp--preset--spacing--14));
+	z-index: 2;
+	width: var(--wp--custom--size--26);
+	height: var(--wp--custom--size--33);
 	background: url(../../../images/imet/spark.png) center / contain no-repeat;
 }
 
@@ -58,11 +59,11 @@
 	z-index: 1;
 	display: flex;
 	align-items: center;
-	gap: 22px;
-	min-height: 72px;
-	padding: 14px 0;
+	gap: var(--wp--preset--spacing--16);
+	min-height: var(--wp--custom--size--72);
+	padding: var(--wp--preset--spacing--16) 0;
 	border: 0;
-	font-size: 1.125rem; /* 18px */
+	font-size: var(--wp--preset--font-size--normal); /* 16px, was 18px (UI review) */
 	line-height: 1.5;
 	color: var(--text-navy);
 	text-align: left;
@@ -90,12 +91,12 @@
 
 .imet-section .vs-table td:nth-child(1) {
 	color: #000;
-	font-weight: 500;
-	gap: 24px;
+	font-weight: 600;
+	gap: var(--wp--preset--spacing--16);
 	border-bottom: 1px solid var(--line);
 }
 
-.imet-section .vs-table td:nth-child(2) { padding-inline: 22px 18px; align-items: flex-start; }
+.imet-section .vs-table td:nth-child(2) { padding-inline: var(--wp--preset--spacing--22) var(--wp--preset--spacing--18); } /* centred like the label and the PhD answer, so each row reads straight across (UI review) */
 
 .imet-section .vs-table td:nth-child(3) { padding-left: 24px; border-bottom: 1px solid var(--line); }
 
@@ -112,7 +113,6 @@
 .imet-section .vs-table td:nth-child(2)::before {
 	width: 22px;
 	height: 22px;
-	margin-top: 3px;
 	background-image: url(../../../images/imet/tick-green.svg);
 }
 
