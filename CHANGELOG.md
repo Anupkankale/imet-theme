@@ -2,6 +2,12 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.41 - 2026-11-13
+
+### Changed
+
+- Alumni page redesigned from the design ("IMET Worldwide Main file (17)"): a rounded navy hero box with "Our Alumni Shaping Global Leadership", "Driving Leadership Across Global Institutions", the laurel stats, Download Brochure and three graduate cards (cut-outs on pastel, `al-grad-1..3.webp`); then "A Milestone Worth Celebrating" with the three podcast cards (YouTube plays in place), the Related Programs band, the three success-story cards, See More and the alumni case studies box; beside them Follow Us with the LinkedIn logo, the sticky advisor form and the page tabs (Accreditation in gold). The topic chips, the "More Ways to Explore" section and the closing banner are gone, as in the design. Styles under `.is-v2`, so a page saved before keeps its look until it is rebuilt.
+
 ## 1.1.40 - 2026-11-12
 
 ### Added
