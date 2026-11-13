@@ -2,6 +2,12 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.46 - 2026-11-13
+
+### Changed
+
+- Hero laurels ("wings" beside the stats): the old site's lighter gold laurel (`laurel-light.png`) replaces the darker `laurel.png`, on every page that has them: the DBA, MBA and location heroes (imet/hero block) and the Alumni and Convocation heroes (`.al-stat`).
+
 ## 1.1.45 - 2026-11-13
 
 ### Added
