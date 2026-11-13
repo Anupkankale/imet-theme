@@ -14,7 +14,7 @@
 	line-height: 1.22;
 }
 
-.imet-section .faq-acc { display: grid; width: min(984px, 100%); margin-inline: auto; }
+.imet-section .faq-acc { display: grid; width: min(984px, 100%); margin-inline: auto; text-align: left; } /* questions and answers read from the left, also inside a centred header (UI review) */
 
 .imet-section .faq-acc details { border-bottom: 1px solid #bdbdbd; }
 
@@ -43,9 +43,13 @@
 .imet-section .faq-acc details p {
 	padding: 0 60px 14px 0;
 	color: var(--wp--preset--color--ink); /* answers in black (UI review) */
-	font-size: 0.84375rem; /* 13.5px */
-	line-height: 1.63;
+	font-size: var(--wp--preset--font-size--small); /* 15px, was 13.5px (UI review) */
+	line-height: 1.65;
 }
+
+/* An answer saved as "centred" in the editor still lines up under its question. */
+.imet-section .faq-acc details :is(p, ul, ol, li).has-text-align-center,
+.imet-section .faq-acc details :is(p, ul, ol, li) { text-align: left; }
 
 /* First 5 questions; "See More" shows the rest */
 
