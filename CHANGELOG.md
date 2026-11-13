@@ -2,6 +2,12 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.45 - 2026-11-13
+
+### Added
+
+- Convocation page (pattern "Convocation Page", IMET: Full Pages), from the design ("IMET Worldwide Main file (18)"): a hero on the blurred ceremony photo, navy to gold, with the speaker (`cv-hero-speaker.webp`), "Celebrating Achievement Convocation Ceremony", the laurel stats (18+, 450+, 98%) and Download Brochure; a "Convocation Highlights" card over its edge (five items with gold icons); "A Milestone Worth Celebrating" with a filter (All, Video, Photos and a "Video by city" menu with Dubai, London, Singapore, India) over the four ceremony videos from the old page (YouTube plays in place) and four ceremony photos, the Related Programs band, See More and the alumni case studies; the Alumni page's sidebar (Follow Us, the sticky advisor form, the page tabs). Reuses the Alumni, Success Stories and Blog components; `_convocation-page.scss` adds only the new parts.
+
 ## 1.1.44 - 2026-11-13
 
 ### Fixed

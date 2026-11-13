@@ -169,6 +169,7 @@ html:has(.imet-section) { scroll-behavior: smooth; }
 @include meta.load-css('accreditation-page');
 @include meta.load-css('success-stories');
 @include meta.load-css('case-studies');
+@include meta.load-css('convocation-page');
 @include meta.load-css('about-page');
 @include meta.load-css('photo-chips');
 @include meta.load-css('mba-course');
