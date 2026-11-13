@@ -2,6 +2,12 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.44 - 2026-11-13
+
+### Fixed
+
+- DBA vs PhD comparison: the gold spark sits on the DBA card's top-right corner instead of over the intro text; the DBA answers are centred in their rows like the labels and PhD answers, so each row reads straight across; text 16px (was 18px) with row labels in 600; intro capped at 916px wide.
+
 ## 1.1.43 - 2026-11-13
 
 ### Changed
