@@ -18,5 +18,13 @@ Before reading source files to answer questions about architecture, symbols, cal
 
 Regenerate after large changes; recipe in [docs/internal/knowledge-graph.md](docs/internal/knowledge-graph.md).
 
+### Rules for using the graph
+
+- Use the graph to LOCATE code; always read the files before editing or explaining them.
+- If the graph and the source disagree, trust the source and run `graphify update .`.
+- After adding/removing/renaming PHP classes or blocks, run `graphify update .`.
+
+Install (once, by a developer: the agent can't install it, because the PyPI package `graphifyy` installs a command named `graphify`): `scripts/graphify/install.sh`, then `graphify install` to register the `/graphify` skill. See [scripts/graphify/README.md](scripts/graphify/README.md).
+
 Claude-specific notes:
 - _(none currently; keep Claude overrides here if they ever diverge from AGENTS.md)_
