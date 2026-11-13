@@ -55,10 +55,11 @@
 	margin: 0 0 27px -7px;
 }
 
-/* Each stat: laurel | number + label | mirrored laurel. The laurels are decoration, so they live in CSS. */
+/* Each stat: laurel | number + label | mirrored laurel. The laurels are decoration, so they live in CSS; the text sits
+   between them, clear of the leaves. */
 .imet-section .h-stat {
 	display: grid;
-	grid-template-columns: 66px auto 66px;
+	grid-template-columns: 54px auto 54px;
 	align-items: center;
 }
 
@@ -66,8 +67,8 @@
 .imet-section .h-stat::after {
 	content: "";
 	grid-row: 1 / span 2;
-	width: 66px;
-	aspect-ratio: 132 / 204;
+	width: 54px;
+	aspect-ratio: 71 / 111;
 	background: url(../../../../images/imet/laurel-light.png) center / contain no-repeat;
 }
 
@@ -81,7 +82,7 @@
 	z-index: 1;
 	text-align: center;
 	white-space: nowrap;
-	margin: 0 -12px;
+	margin: 0 4px;
 }
 
 .imet-section .h-num {
@@ -398,14 +399,14 @@
 
 	.imet-section.hero { padding-top: 24px; }
 
-	.imet-section .h-stat { grid-template-columns: 40px auto 40px; }
+	.imet-section .h-stat { grid-template-columns: 34px auto 34px; }
 
 	.imet-section .h-stat::before,
 	.imet-section .h-stat::after {
-		width: 40px;
+		width: 34px;
 	}
 
-	.imet-section .h-stat p { margin: 0 -14px; min-width: 78px; }
+	.imet-section .h-stat p { margin: 0 2px; min-width: 78px; }
 
 	.imet-section .h-num { font-size: 1.5rem; }
 
