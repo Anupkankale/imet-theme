@@ -157,7 +157,7 @@ $mba: ":is(.wp-block-post-content, .imet-page-content):has(> .imet-section.hero.
 
 	#{$mba} > .imet-section.faq .faq-acc summary { font-size: var(--wp--preset--font-size--normal); }
 
-	#{$mba} > .imet-section.faq .faq-acc details p { font-size: var(--wp--preset--font-size--caption); line-height: 22px; } /* token-ok: design */
+	#{$mba} > .imet-section.faq .faq-acc details p { font-size: var(--wp--preset--font-size--small); line-height: 1.65; } /* same as every FAQ answer (UI review) */
 
 	#{$mba} > .imet-section:is(.cyber, .cta-wrap) h2 { font-size: 38px; } /* token-ok: design */
 
