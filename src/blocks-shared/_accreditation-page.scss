@@ -34,8 +34,9 @@
 
 .imet-section .ac-hero-cta { justify-content: center; margin-top: var(--wp--preset--spacing--32); }
 
-/* Logo strip: a white card half over the hero's bottom edge (the hero keeps room for its top half). */
-.imet-section .ac-logos {
+/* Logo strip: a white card half over the hero's bottom edge (the hero keeps room for its top half). Scoped to .ac-hero:
+   the program heroes have their own .ac-logos inside .ac-card (hero/style.scss), which these rules must not reach. */
+.imet-section.ac-hero .ac-logos {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -47,11 +48,11 @@
 	box-shadow: var(--wp--preset--shadow--card);
 }
 
-.imet-section .ac-logos .wp-block-image { flex: 1 1 0; margin: 0; padding-inline: var(--wp--preset--spacing--16); text-align: center; }
+.imet-section.ac-hero .ac-logos .wp-block-image { flex: 1 1 0; margin: 0; padding-inline: var(--wp--preset--spacing--16); text-align: center; }
 
-.imet-section .ac-logos .wp-block-image + .wp-block-image { border-left: 1px solid var(--wp--preset--color--grey-900); }
+.imet-section.ac-hero .ac-logos .wp-block-image + .wp-block-image { border-left: 1px solid var(--wp--preset--color--grey-900); }
 
-.imet-section .ac-logos img { width: auto; max-width: 100%; height: var(--wp--custom--size--82); margin-inline: auto; object-fit: contain; }
+.imet-section.ac-hero .ac-logos img { width: auto; max-width: 100%; height: var(--wp--custom--size--82); margin-inline: auto; object-fit: contain; }
 
 /* On a page the section rhythm (_page-rhythm.scss, 40px above and below every section) is more specific; the hero and
    the section after it need their own room for the logo strip's overlap, so they are set under the same selector. */
@@ -144,24 +145,24 @@ $ac-page: ":is(.wp-block-post-content, .imet-page-content):not(:has(> .imet-sect
 
 	/* The logo strip wraps into rows, so it is taller: it sits inside the hero instead of over its edge, and the
 	   dividers go. */
-	.imet-section .ac-logos { flex-wrap: wrap; justify-content: center; gap: var(--wp--preset--spacing--16); margin-bottom: 0; }
+	.imet-section.ac-hero .ac-logos { flex-wrap: wrap; justify-content: center; gap: var(--wp--preset--spacing--16); margin-bottom: 0; }
 
 	.wp-site-blocks .imet-section.section.ac-hero { padding-bottom: var(--wp--preset--spacing--24); }
 
 	.imet-section.section.ac-main { padding-top: var(--wp--preset--spacing--40); }
 
-	.imet-section .ac-logos .wp-block-image { flex: 0 1 calc(33% - var(--wp--preset--spacing--16)); padding-inline: 0; }
+	.imet-section.ac-hero .ac-logos .wp-block-image { flex: 0 1 calc(33% - var(--wp--preset--spacing--16)); padding-inline: 0; }
 
-	.imet-section .ac-logos .wp-block-image + .wp-block-image { border-left: 0; }
+	.imet-section.ac-hero .ac-logos .wp-block-image + .wp-block-image { border-left: 0; }
 
-	.imet-section .ac-logos img { height: var(--wp--custom--size--62); }
+	.imet-section.ac-hero .ac-logos img { height: var(--wp--custom--size--62); }
 
 	.imet-section .ac-item { grid-template-columns: minmax(0, 1fr); }
 }
 
 @media (max-width: 640px) {
 
-	.imet-section .ac-logos .wp-block-image { flex-basis: calc(50% - var(--wp--preset--spacing--16)); }
+	.imet-section.ac-hero .ac-logos .wp-block-image { flex-basis: calc(50% - var(--wp--preset--spacing--16)); }
 
 	.imet-section .ac-crumbs { font-size: var(--wp--preset--font-size--normal); }
 

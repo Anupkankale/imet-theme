@@ -2,6 +2,12 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.53 - 2026-11-14
+
+### Fixed
+
+- "Institutional Recognition & Credential Evaluation" logo strip on the program and location heroes (DBA, MBA, course, location pages): it hung 46px out of the bottom of its white card, under the next section, in an extra white box with dark dividers. The Accreditation page's logo-strip rules (`.ac-logos`, `_accreditation-page.scss`) were not scoped and reached these heroes; they are now limited to that page's hero (`.ac-hero`).
+
 ## 1.1.52 - 2026-11-14
 
 ### Fixed
