@@ -2,6 +2,12 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.50 - 2026-11-14
+
+### Fixed
+
+- Program fee / scholarship band (imet/cost-banner: Home, DBA and MBA category and course pages): the "45%" ribbon now sits in the middle. The fee and scholarship sides are the same width (they were 402px and the rest, so the ribbon sat 95px left of centre on desktop), with the same 20px padding on both sides of the scholarship text (it was 22px / 40px). The ribbon stretches with the card, so its point stays 30px above the bottom when the text wraps.
+
 ## 1.1.49 - 2026-11-14
 
 ### Changed
