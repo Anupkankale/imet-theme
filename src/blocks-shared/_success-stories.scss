@@ -109,15 +109,16 @@
 
 .imet-section .ss-cases-text .wp-block-buttons { margin-top: var(--wp--preset--spacing--20); }
 
-.imet-section .ss-case-list { display: flex; flex-direction: column; gap: var(--wp--preset--spacing--12); }
+.imet-section .ss-case-list { display: flex; flex-direction: column; gap: var(--wp--preset--spacing--32); } /* room for the heads above each row */
 
+/* As in the design: a large cut-out photo on the row's bottom edge, the head rising above the row (.is-cutout); a photo
+   with its own background stays inside the row. */
 .imet-section .ss-case {
 	display: grid;
-	grid-template-columns: var(--wp--custom--size--82) minmax(0, 1fr);
+	grid-template-columns: 40% minmax(0, 1fr);
 	align-items: center;
-	gap: var(--wp--preset--spacing--12);
-	overflow: hidden;
-	padding-right: var(--wp--preset--spacing--12);
+	gap: var(--wp--preset--spacing--16);
+	padding-right: var(--wp--preset--spacing--16);
 	color: var(--wp--preset--color--ink);
 }
 
@@ -127,9 +128,22 @@
 
 .imet-section .ss-case.is-3 { background: #ffedcd; } /* token-ok: design pastel */
 
-.imet-section .ss-case-photo { align-self: end; margin: 0; line-height: 0; }
+.imet-section .ss-case-photo { align-self: end; margin: 0 0 0 var(--wp--preset--spacing--10); line-height: 0; }
 
-.imet-section .ss-case-photo img { width: 100%; height: auto; }
+.imet-section .ss-case.is-cutout .ss-case-photo { position: relative; align-self: stretch; }
+
+/* The photo is the row's height plus 24px, standing on its bottom edge: the head always rises above the row. */
+.imet-section .ss-case.is-cutout .ss-case-photo img {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: calc(100% + var(--wp--preset--spacing--24));
+	object-fit: contain;
+	object-position: center bottom;
+}
+
+.imet-section .ss-case-photo img { display: block; width: 100%; height: auto; }
 
 .imet-section .ss-case-text { padding-block: var(--wp--preset--spacing--10); }
 
