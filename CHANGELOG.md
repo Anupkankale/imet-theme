@@ -2,6 +2,12 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.49 - 2026-11-14
+
+### Changed
+
+- Location pages' "Program Insights" tabs (imet/tabs, `.is-cards`): laid out like the DBA and MBA pages' tabs. One grey panel per tab with its two cards side by side as columns, each opening with a green-ticked lead line, in Montserrat, the whole text shown. The cards' own grey boxes, the fold and the "Read More" / "Read Less" button (and its script in tabs/view.js) are gone. CSS only for the content: every location page keeps its saved text.
+
 ## 1.1.48 - 2026-11-14
 
 ### Fixed
