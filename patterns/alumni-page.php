@@ -196,35 +196,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:button --></div>
 <!-- /wp:buttons --></div>
 <!-- /wp:group -->
-<!-- wp:group {"className":"ss-case-list","layout":{"type":"default"}} -->
-<div class="wp-block-group ss-case-list">
-<?php
-// Three alumni case studies (from the old site's Case Studies): photo, doctorate, name linking to the case study PDF
-// (in the Media Library).
-$imet_al_cases = array(
-	array( 'rufino', __( 'Doctorate in Digital Transformation & Cybersecurity', 'imet-theme' ), __( 'Dr. Ernesto Rufino Jr.', 'imet-theme' ), '/wp-content/uploads/2026/11/Rufino-Case-Study_compressed.pdf' ),
-	array( 'srijit-nair', __( 'Doctorate in Artificial Intelligence & Cybersecurity', 'imet-theme' ), __( 'Dr. Srijit Nair', 'imet-theme' ), '/wp-content/uploads/2026/11/Srijit-Nair-Case-Study_compressed.pdf' ),
-	array( 'sona-saha-das', __( 'Doctorate in Artificial Intelligence & Data Governance', 'imet-theme' ), __( 'Dr. Sona Saha Das', 'imet-theme' ), '/wp-content/uploads/2026/11/SONA-Saha-Das-Case-Study_compressed.pdf' ),
-);
-foreach ( $imet_al_cases as $imet_ss_i => $imet_ss_case ) :
-	$imet_ss_n = $imet_ss_i + 1;
-	?>
-<!-- wp:group {"className":"ss-case is-<?php echo (int) $imet_ss_n; ?>","layout":{"type":"default"}} -->
-<div class="wp-block-group ss-case is-<?php echo (int) $imet_ss_n; ?>"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ss-case-photo"} -->
-<figure class="wp-block-image size-full ss-case-photo"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/imet/ss-case-' . $imet_ss_case[0] . '.webp' ) ); ?>" alt="<?php echo esc_attr( $imet_ss_case[2] ); ?>" width="300" height="270"/></figure>
-<!-- /wp:image -->
-<!-- wp:group {"className":"ss-case-text","layout":{"type":"default"}} -->
-<div class="wp-block-group ss-case-text"><!-- wp:paragraph -->
-<p><?php echo esc_html( $imet_ss_case[1] ); ?></p>
-<!-- /wp:paragraph -->
-<!-- wp:paragraph {"className":"ss-case-name"} -->
-<p class="ss-case-name"><a href="<?php echo esc_url( home_url( $imet_ss_case[3] ) ); ?>" target="_blank" rel="noreferrer noopener"><?php echo esc_html( $imet_ss_case[2] ); ?></a></p>
-<!-- /wp:paragraph --></div>
-<!-- /wp:group --></div>
-<!-- /wp:group -->
-<?php endforeach; ?>
-</div>
-<!-- /wp:group --></div>
+<?php require get_theme_file_path( 'inc/pattern-parts/alumni-cases.php' ); ?></div>
 <!-- /wp:group --></div>
 <!-- /wp:group -->
 <!-- wp:group {"className":"al-aside","layout":{"type":"default"}} -->

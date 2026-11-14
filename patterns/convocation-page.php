@@ -196,7 +196,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <p class="eyebrow-line left"><?php esc_html_e( 'Case Studies of our Alumni', 'imet-theme' ); ?></p>
 <!-- /wp:paragraph -->
 <!-- wp:heading -->
-<h2 class="wp-block-heading"><?php esc_html_e( 'Publish your research paper in International', 'imet-theme' ); ?></h2>
+<h2 class="wp-block-heading"><?php esc_html_e( 'Publish your research paper in International Journals', 'imet-theme' ); ?></h2>
 <!-- /wp:heading -->
 <!-- wp:paragraph -->
 <p><?php esc_html_e( 'Discover real journeys of transformation from IMET alumni who turned their doctoral research into global recognition.', 'imet-theme' ); ?></p>
@@ -207,27 +207,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:button --></div>
 <!-- /wp:buttons --></div>
 <!-- /wp:group -->
-<!-- wp:group {"className":"ss-case-list","layout":{"type":"default"}} -->
-<div class="wp-block-group ss-case-list">
-<?php
-foreach ( array( 1, 2, 3 ) as $imet_ss_n ) :
-	?>
-<!-- wp:group {"className":"ss-case is-<?php echo (int) $imet_ss_n; ?>","layout":{"type":"default"}} -->
-<div class="wp-block-group ss-case is-<?php echo (int) $imet_ss_n; ?>"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ss-case-photo"} -->
-<figure class="wp-block-image size-full ss-case-photo"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/imet/ss-case-' . (int) $imet_ss_n . '.webp' ) ); ?>" alt="" width="300" height="270"/></figure>
-<!-- /wp:image -->
-<!-- wp:group {"className":"ss-case-text","layout":{"type":"default"}} -->
-<div class="wp-block-group ss-case-text"><!-- wp:paragraph -->
-<p><?php esc_html_e( 'Achieving New Heights with the Power of a Doctorate.', 'imet-theme' ); ?></p>
-<!-- /wp:paragraph -->
-<!-- wp:paragraph {"className":"ss-case-name"} -->
-<p class="ss-case-name"><a href="<?php echo esc_url( home_url( '/case-studies/' ) ); ?>"><?php esc_html_e( 'Dr. Ernesto Rufino Jr.', 'imet-theme' ); ?></a></p>
-<!-- /wp:paragraph --></div>
-<!-- /wp:group --></div>
-<!-- /wp:group -->
-<?php endforeach; ?>
-</div>
-<!-- /wp:group --></div>
+<?php require get_theme_file_path( 'inc/pattern-parts/alumni-cases.php' ); ?></div>
 <!-- /wp:group --></div>
 <!-- /wp:group -->
 <!-- wp:group {"className":"al-aside","layout":{"type":"default"}} -->
