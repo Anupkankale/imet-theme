@@ -9,7 +9,7 @@
 .imet-section.cost-banner {
 	position: relative;
 	display: grid;
-	grid-template-columns: 402px 205px minmax(0, 1fr);
+	grid-template-columns: minmax(0, 1fr) 205px minmax(0, 1fr); /* fee and scholarship sides the same width: the ribbon sits in the middle */
 	--cb-width: min(1200px, 100% + 2 * var(--wp--style--root--padding-left, 0px) - 40px); /* 100% is the padded content box inside the theme */
 
 	width: var(--cb-width);
@@ -74,11 +74,11 @@
 	line-height: 1.5;
 }
 
-/* White ribbon: from 23px above the card to a point 30px above its bottom */
+/* White ribbon: from 23px above the card to a point 30px above its bottom, however tall the card grows */
 .imet-section .cost-mid {
-	align-self: start;
-	height: 242px;
+	align-self: stretch;
 	margin-top: -23px;
+	margin-bottom: var(--wp--preset--spacing--30);
 	padding: 10px 12px 40px;
 	background: #fff;
 	color: var(--navy);
@@ -103,7 +103,7 @@
 
 .imet-section .cost-mid .merit { margin-top: 8px; color: #000; font-size: 1.1875rem; font-weight: 500; line-height: 1.2; }
 
-.imet-section .cost-right { padding: 24px 40px 26px 22px; }
+.imet-section .cost-right { padding: var(--wp--preset--spacing--24) var(--wp--preset--spacing--20) var(--wp--preset--spacing--26); } /* the same space on both sides, as the fee side (20px) */
 
 .imet-section .cost-right h3 { color: #fff; font-size: clamp(1.5rem, 0.7143rem + 1.6369vw, 2.1875rem); font-weight: 700; } /* → 35px */
 .imet-section .cost-right p {
@@ -126,7 +126,7 @@
 
 @media (max-width: 1200px) {
 
-	.imet-section.cost-banner { grid-template-columns: 1fr 190px 1.2fr; }
+	.imet-section.cost-banner { grid-template-columns: minmax(0, 1fr) 190px minmax(0, 1fr); }
 }
 
 @media (max-width: 900px) {
