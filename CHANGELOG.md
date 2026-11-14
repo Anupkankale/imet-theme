@@ -2,6 +2,13 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.48 - 2026-11-14
+
+### Fixed
+
+- Hero laurels: the light laurel (`laurel-light.png`) is drawn the other way round from the old one (its bottom curves left), so the wreaths splayed outward. The left half is now the mirrored one, and both halves curve in under the text (imet/hero block and `.al-stat`).
+- Alumni and Convocation stats on phones: they no longer squeeze into equal thirds, which pushed the labels onto the laurels; they keep their width and wrap, as the DBA hero does. Laurels are 24px there, inside the padding.
+
 ## 1.1.47 - 2026-11-13
 
 ### Fixed

@@ -72,9 +72,10 @@
 	background: url(../../../../images/imet/laurel-light.png) center / contain no-repeat;
 }
 
-.imet-section .h-stat::before { grid-column: 1; }
+/* laurel-light.png is the right half (its bottom curves left): the left one is mirrored, so both curve in under the text. */
+.imet-section .h-stat::before { grid-column: 1; transform: scaleX(-1); }
 
-.imet-section .h-stat::after { grid-column: 3; transform: scaleX(-1); }
+.imet-section .h-stat::after { grid-column: 3; }
 
 .imet-section .h-stat p {
 	grid-column: 2;
