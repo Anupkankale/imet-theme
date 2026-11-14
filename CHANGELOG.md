@@ -2,6 +2,12 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.55 - 2026-11-14
+
+### Changed
+
+- "Case Studies of our Alumni" box (Alumni, Convocation and Success Stories pages): Dr. Ernesto Rufino Jr. and Dr. Sona Saha Das use the design's cut-out photos (`ss-case-rufino-v2.webp`, `ss-case-sona-saha-das-v2.webp`, full head in frame; new file names so browsers do not keep the old ones).
+
 ## 1.1.54 - 2026-11-14
 
 ### Fixed
