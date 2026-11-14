@@ -14,9 +14,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 $imet_al_cases = [
-	[ 'rufino', __( 'Doctorate in Digital Transformation & Cybersecurity', 'imet-theme' ), __( 'Dr. Ernesto Rufino Jr.', 'imet-theme' ), '/wp-content/uploads/2026/11/Rufino-Case-Study_compressed.pdf' ],
+	[ 'rufino-v2', __( 'Doctorate in Digital Transformation & Cybersecurity', 'imet-theme' ), __( 'Dr. Ernesto Rufino Jr.', 'imet-theme' ), '/wp-content/uploads/2026/11/Rufino-Case-Study_compressed.pdf' ],
 	[ 'srijit-nair', __( 'Doctorate in Artificial Intelligence & Cybersecurity', 'imet-theme' ), __( 'Dr. Srijit Nair', 'imet-theme' ), '/wp-content/uploads/2026/11/Srijit-Nair-Case-Study_compressed.pdf' ],
-	[ 'sona-saha-das', __( 'Doctorate in Artificial Intelligence & Data Governance', 'imet-theme' ), __( 'Dr. Sona Saha Das', 'imet-theme' ), '/wp-content/uploads/2026/11/SONA-Saha-Das-Case-Study_compressed.pdf' ],
+	[ 'sona-saha-das-v2', __( 'Doctorate in Artificial Intelligence & Data Governance', 'imet-theme' ), __( 'Dr. Sona Saha Das', 'imet-theme' ), '/wp-content/uploads/2026/11/SONA-Saha-Das-Case-Study_compressed.pdf' ],
 ];
 ?>
 <!-- wp:group {"className":"ss-case-list","layout":{"type":"default"}} -->
