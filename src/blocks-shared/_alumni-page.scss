@@ -491,6 +491,9 @@
 
 @media (max-width: 900px) {
 
+	/* The section header centres with its eyebrow (base.scss). */
+	.imet-section .al-intro { text-align: center; }
+
 	.imet-section .al-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
 	.imet-section .al-links { grid-template-columns: repeat(2, minmax(0, 1fr)); }

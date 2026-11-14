@@ -176,7 +176,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:group -->
 <!-- wp:buttons {"className":"al-all"} -->
 <div class="wp-block-buttons al-all"><!-- wp:button {"className":"btn-navy btn-md"} -->
-<div class="wp-block-button btn-navy btn-md"><a class="wp-block-button__link wp-element-button" href="/alumni-speak/"><?php esc_html_e( 'See More', 'imet-theme' ); ?></a></div>
+<div class="wp-block-button btn-navy btn-md"><a class="wp-block-button__link wp-element-button" href="<?php echo esc_url( home_url( '/success-stories/' ) ); ?>"><?php esc_html_e( 'See More', 'imet-theme' ); ?></a></div>
 <!-- /wp:button --></div>
 <!-- /wp:buttons -->
 <!-- wp:group {"className":"ss-cases","layout":{"type":"default"}} -->
@@ -185,7 +185,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <p class="eyebrow-line left"><?php esc_html_e( 'Case Studies of our Alumni', 'imet-theme' ); ?></p>
 <!-- /wp:paragraph -->
 <!-- wp:heading -->
-<h2 class="wp-block-heading"><?php esc_html_e( 'Publish your research paper in International', 'imet-theme' ); ?></h2>
+<h2 class="wp-block-heading"><?php esc_html_e( 'Publish your research paper in International Journals', 'imet-theme' ); ?></h2>
 <!-- /wp:heading -->
 <!-- wp:paragraph -->
 <p><?php esc_html_e( 'Discover real journeys of transformation from IMET alumni who turned their doctoral research into global recognition.', 'imet-theme' ); ?></p>
@@ -199,18 +199,26 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- wp:group {"className":"ss-case-list","layout":{"type":"default"}} -->
 <div class="wp-block-group ss-case-list">
 <?php
-foreach ( array( 1, 2, 3 ) as $imet_ss_n ) :
+// Three alumni case studies (from the old site's Case Studies): photo, doctorate, name linking to the case study PDF
+// (in the Media Library).
+$imet_al_cases = array(
+	array( 'rufino', __( 'Doctorate in Digital Transformation & Cybersecurity', 'imet-theme' ), __( 'Dr. Ernesto Rufino Jr.', 'imet-theme' ), '/wp-content/uploads/2026/11/Rufino-Case-Study_compressed.pdf' ),
+	array( 'srijit-nair', __( 'Doctorate in Artificial Intelligence & Cybersecurity', 'imet-theme' ), __( 'Dr. Srijit Nair', 'imet-theme' ), '/wp-content/uploads/2026/11/Srijit-Nair-Case-Study_compressed.pdf' ),
+	array( 'sona-saha-das', __( 'Doctorate in Artificial Intelligence & Data Governance', 'imet-theme' ), __( 'Dr. Sona Saha Das', 'imet-theme' ), '/wp-content/uploads/2026/11/SONA-Saha-Das-Case-Study_compressed.pdf' ),
+);
+foreach ( $imet_al_cases as $imet_ss_i => $imet_ss_case ) :
+	$imet_ss_n = $imet_ss_i + 1;
 	?>
 <!-- wp:group {"className":"ss-case is-<?php echo (int) $imet_ss_n; ?>","layout":{"type":"default"}} -->
 <div class="wp-block-group ss-case is-<?php echo (int) $imet_ss_n; ?>"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ss-case-photo"} -->
-<figure class="wp-block-image size-full ss-case-photo"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/imet/ss-case-' . (int) $imet_ss_n . '.webp' ) ); ?>" alt="" width="300" height="270"/></figure>
+<figure class="wp-block-image size-full ss-case-photo"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/imet/ss-case-' . $imet_ss_case[0] . '.webp' ) ); ?>" alt="<?php echo esc_attr( $imet_ss_case[2] ); ?>" width="300" height="270"/></figure>
 <!-- /wp:image -->
 <!-- wp:group {"className":"ss-case-text","layout":{"type":"default"}} -->
 <div class="wp-block-group ss-case-text"><!-- wp:paragraph -->
-<p><?php esc_html_e( 'Achieving New Heights with the Power of a Doctorate.', 'imet-theme' ); ?></p>
+<p><?php echo esc_html( $imet_ss_case[1] ); ?></p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph {"className":"ss-case-name"} -->
-<p class="ss-case-name"><a href="<?php echo esc_url( home_url( '/case-studies/' ) ); ?>"><?php esc_html_e( 'Dr. Ernesto Rufino Jr.', 'imet-theme' ); ?></a></p>
+<p class="ss-case-name"><a href="<?php echo esc_url( home_url( $imet_ss_case[3] ) ); ?>" target="_blank" rel="noreferrer noopener"><?php echo esc_html( $imet_ss_case[2] ); ?></a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group -->
@@ -237,14 +245,14 @@ foreach ( array( 1, 2, 3 ) as $imet_ss_n ) :
 <!-- /wp:shortcode --></div>
 <!-- /wp:group -->
 <!-- wp:buttons {"className":"al-tabs"} -->
-<div class="wp-block-buttons al-tabs"><!-- wp:button {"className":"al-tab is-accent"} -->
-<div class="wp-block-button al-tab is-accent"><a class="wp-block-button__link wp-element-button" href="/accreditation-and-recognition/">Accreditation</a></div>
+<div class="wp-block-buttons al-tabs"><!-- wp:button {"className":"al-tab"} -->
+<div class="wp-block-button al-tab"><a class="wp-block-button__link wp-element-button" href="/accreditation-and-recognition/">Accreditation</a></div>
 <!-- /wp:button -->
 <!-- wp:button {"className":"al-tab"} -->
 <div class="wp-block-button al-tab"><a class="wp-block-button__link wp-element-button" href="/case-studies/">Case Studies</a></div>
 <!-- /wp:button -->
-<!-- wp:button {"className":"al-tab"} -->
-<div class="wp-block-button al-tab"><a class="wp-block-button__link wp-element-button" href="/alumni-speak/">Alumni Speak</a></div>
+<!-- wp:button {"className":"al-tab is-accent"} -->
+<div class="wp-block-button al-tab is-accent"><a class="wp-block-button__link wp-element-button" href="/alumni-page/" aria-current="page">Alumni Speak</a></div>
 <!-- /wp:button -->
 <!-- wp:button {"className":"al-tab"} -->
 <div class="wp-block-button al-tab"><a class="wp-block-button__link wp-element-button" href="/success-stories/">Success Stories</a></div>
