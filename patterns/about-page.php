@@ -41,7 +41,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:group -->
 <!-- wp:buttons {"className":"hero-brochure"} -->
 <div class="wp-block-buttons hero-brochure"><!-- wp:button {"className":"btn-navy btn-lg btn-icon-download"} -->
-<div class="wp-block-button btn-navy btn-lg btn-icon-download"><a class="wp-block-button__link wp-element-button" href="#advisor-form">Download Brochure</a></div>
+<div class="wp-block-button btn-navy btn-lg btn-icon-download"><a class="wp-block-button__link wp-element-button" href="<?php echo esc_url( home_url( '/dba-category/#advisor-form' ) ); ?>">Download Brochure</a></div>
 <!-- /wp:button --></div>
 <!-- /wp:buttons -->
 </div>
