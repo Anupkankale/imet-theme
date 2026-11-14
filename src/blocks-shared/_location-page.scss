@@ -122,38 +122,27 @@
 	.imet-section.cta-wrap.is-style-home.is-publish.is-wide .cta-photo { flex: none; margin: 0; } /* stacked, a flex basis would turn into a fixed height */
 }
 
-/* ---------- Tab panels of expandable cards (.tabs.is-cards): two grey cards per tab, each opening with a ticked lead
-   line; they show their first lines and a "Read More" (view.js) unfolds the rest. ---------- */
-.imet-section.tabs.is-cards .tab-panel { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--wp--preset--spacing--24); align-items: start; padding: 0; background: none; }
+/* ---------- Tab panels of cards (.tabs.is-cards): laid out like the DBA and MBA pages' tabs. One grey panel per tab
+   (the plain .tab-panel, tabs/style.scss), its cards side by side in two columns, each opening with a ticked lead
+   line, the whole text shown. ---------- */
+.imet-section.tabs.is-cards .tab-panel { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--wp--preset--spacing--24) var(--wp--preset--spacing--40); align-items: start; }
 
 .imet-section.tabs.is-cards .tab-panel[hidden] { display: none; }
 
-.imet-section.tabs.is-cards .tab-card {
-	display: flex;
-	flex-direction: column;
-	padding: var(--wp--preset--spacing--24);
-	border-radius: var(--wp--preset--border-radius--22);
-	background: var(--wp--preset--color--card);
-	color: var(--wp--preset--color--grey-900);
-	font-size: var(--wp--preset--font-size--small);
-	line-height: 1.6;
-	transition: box-shadow .2s ease;
-}
+/* The text hangs off the tick: every line in the card starts where the lead's text starts. */
+.imet-section.tabs.is-cards .tab-card { padding-left: var(--wp--preset--spacing--30); color: var(--wp--preset--color--grey-900); font-family: var(--wp--preset--font-family--montserrat); font-size: var(--wp--preset--font-size--normal); line-height: 1.56; }
 
-@media (hover: hover) {
+.imet-section.tabs.is-cards .tab-card > :first-child { margin-top: 0; }
 
-	.imet-section.tabs.is-cards .tab-card:hover { box-shadow: var(--wp--preset--shadow--dropdown); }
-}
-
-/* The text hangs off the tick: every line in the card starts where the lead's text starts */
-.imet-section.tabs.is-cards .tab-card-body { padding-left: var(--wp--preset--spacing--26); }
+.imet-section.tabs.is-cards .tab-card > * + * { margin-top: var(--wp--preset--spacing--4); }
 
 .imet-section.tabs.is-cards .tab-card-lead { position: relative; }
 
-.imet-section.tabs.is-cards .tab-card-lead::before { content: ""; position: absolute; left: calc(-1 * var(--wp--preset--spacing--26)); top: var(--wp--preset--spacing--3); width: var(--wp--preset--spacing--17); height: var(--wp--preset--spacing--17); background: url(../../../images/imet/tick-green.svg) /* this file builds to assets/build/blocks/shared/ */ center / contain no-repeat; }
+.imet-section.tabs.is-cards .tab-card-lead::before { content: ""; position: absolute; left: calc(-1 * var(--wp--preset--spacing--30)); top: var(--wp--preset--spacing--4); width: var(--wp--preset--spacing--17); height: var(--wp--preset--spacing--17); background: url(../../../images/imet/tick-green.svg) /* this file builds to assets/build/blocks/shared/ */ center / contain no-repeat; }
 
 .imet-section.tabs.is-cards .tab-card-lead strong { color: var(--wp--preset--color--ink); font-weight: 600; }
 
+/* Lists inside a card: plain numbers and bullets, not the panel's ticked two-column list. */
 .imet-section.tabs.is-cards .tab-card :is(ol, ul) { display: block; margin: 0; padding-left: var(--wp--preset--spacing--20); }
 
 .imet-section.tabs.is-cards .tab-card ol { list-style: decimal; }
@@ -164,32 +153,8 @@
 
 .imet-section.tabs.is-cards .tab-card li::before { content: none; }
 
-/* Folded: the first lines, fading out into the card */
-.imet-section.tabs.is-cards .tab-card.is-foldable:not(.is-open) .tab-card-body {
-	max-height: calc(var(--wp--preset--spacing--24) * 7);
-	overflow: hidden;
-	-webkit-mask-image: linear-gradient(180deg, var(--wp--preset--color--ink) 70%, transparent);
-	mask-image: linear-gradient(180deg, var(--wp--preset--color--ink) 70%, transparent);
-}
-
-.imet-section.tabs.is-cards .tab-card-more {
-	align-self: flex-end;
-	margin-top: var(--wp--preset--spacing--12);
-	padding: var(--wp--preset--spacing--4) 0;
-	border: 0;
-	background: none;
-	color: var(--wp--preset--color--ink);
-	font-family: var(--wp--preset--font-family--montserrat);
-	font-size: var(--wp--preset--font-size--small);
-	font-weight: 600;
-	line-height: 1.4;
-	cursor: pointer;
-}
-
-.imet-section.tabs.is-cards .tab-card-more:focus-visible { outline: var(--wp--preset--spacing--3) solid var(--wp--preset--color--gold); outline-offset: var(--wp--preset--spacing--2); }
-
 @media (max-width: 900px) {
 
-	.imet-section.tabs.is-cards .tab-panel { grid-template-columns: minmax(0, 1fr); }
+	.imet-section.tabs.is-cards .tab-panel { grid-template-columns: minmax(0, 1fr); row-gap: var(--wp--preset--spacing--18); }
 }
 
