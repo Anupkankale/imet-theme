@@ -6,9 +6,8 @@ All notable changes to this project are documented in this file. The format is b
 
 ### Fixed
 
+- "Case Studies of our Alumni" box (Alumni, Convocation and Success Stories pages): the three rows showed the same placeholder ("Achieving New Heights with the Power of a Doctorate." / "Dr. Ernesto Rufino Jr.") under three stock photos cut off at the top of the head. They now show three real alumni case studies from the old site, each with their own photo, cropped with room above the head (`ss-case-rufino.webp`, `ss-case-srijit-nair.webp`, `ss-case-sona-saha-das.webp`; the old `ss-case-1/2/3.webp` are removed), their doctorate, and their name linking to their case study PDF (Media Library). One shared markup file, `inc/pattern-parts/alumni-cases.php` (outside `patterns/`, which WordPress scans for patterns), included by the three patterns. The heading read "Publish your research paper in International"; it now ends "… in International Journals".
 - Alumni page (pattern "Alumni Page"):
-  - "Case Studies of our Alumni": the three rows showed the same placeholder ("Achieving New Heights with the Power of a Doctorate." / "Dr. Ernesto Rufino Jr.") under three different photos. They now show three real alumni case studies from the old site, each with their own photo (`ss-case-rufino.webp`, `ss-case-srijit-nair.webp`, `ss-case-sona-saha-das.webp`), their doctorate, and their name linking to their case study PDF (Media Library).
-  - The heading read "Publish your research paper in International"; it now ends "… in International Journals".
   - "See More" under the stories pointed at `/alumni-speak/`, which leads back to this page; it now opens Success Stories.
   - The side buttons highlighted "Accreditation"; the highlighted one is now the current page, "Alumni Speak" (`aria-current="page"`, linking to `/alumni-page/`).
 - Tablets and phones: the section headers of the Alumni, Success Stories and Convocation pages ("Overview", "Related Programs", "Case Studies of our Alumni") centre their heading, text and button with the eyebrow, which already centred.
