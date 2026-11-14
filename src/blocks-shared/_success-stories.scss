@@ -165,4 +165,9 @@
 	.imet-section .ss-cases { grid-template-columns: minmax(0, 1fr); }
 
 	.imet-section .ss-cases { padding: var(--wp--preset--spacing--24); }
+
+	/* One column: the eyebrow centres (base.scss), so its heading, text and button centre with it. */
+	.imet-section :is(.ss-programs-text, .ss-cases-text) { text-align: center; }
+
+	.imet-section .ss-cases-text .wp-block-buttons { justify-content: center; }
 }
