@@ -217,14 +217,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:shortcode --></div>
 <!-- /wp:group -->
 <!-- wp:buttons {"className":"al-tabs"} -->
-<div class="wp-block-buttons al-tabs"><!-- wp:button {"className":"al-tab"} -->
-<div class="wp-block-button al-tab"><a class="wp-block-button__link wp-element-button" href="/accreditation-and-recognition/">Accreditation</a></div>
+<div class="wp-block-buttons al-tabs"><!-- wp:button {"className":"al-tab is-accent"} -->
+<div class="wp-block-button al-tab is-accent"><a class="wp-block-button__link wp-element-button" href="/accreditation-and-recognition/">Accreditation</a></div>
 <!-- /wp:button -->
 <!-- wp:button {"className":"al-tab"} -->
 <div class="wp-block-button al-tab"><a class="wp-block-button__link wp-element-button" href="/case-studies/">Case Studies</a></div>
 <!-- /wp:button -->
-<!-- wp:button {"className":"al-tab is-accent"} -->
-<div class="wp-block-button al-tab is-accent"><a class="wp-block-button__link wp-element-button" href="/alumni-page/" aria-current="page">Alumni Speak</a></div>
+<!-- wp:button {"className":"al-tab"} -->
+<div class="wp-block-button al-tab"><a class="wp-block-button__link wp-element-button" href="/alumni-page/" aria-current="page">Alumni Speak</a></div>
 <!-- /wp:button -->
 <!-- wp:button {"className":"al-tab"} -->
 <div class="wp-block-button al-tab"><a class="wp-block-button__link wp-element-button" href="/success-stories/">Success Stories</a></div>
