@@ -7,6 +7,7 @@ All notable changes to this project are documented in this file. The format is b
 ### Changed
 
 - "Case Studies of our Alumni" box (Alumni, Convocation and Success Stories pages): Dr. Ernesto Rufino Jr. and Dr. Sona Saha Das use the design's cut-out photos (`ss-case-rufino-v2.webp`, `ss-case-sona-saha-das-v2.webp`, full head in frame; new file names so browsers do not keep the old ones).
+- The same box laid out as in the design: a larger photo column (40%), the cut-out photos standing on each row's bottom edge with the head rising 24px above the row (`.is-cutout`; a photo with its own background stays inside its row), more room between rows, and the design's order (lavender, mint, peach rows: Dr. Srijit Nair until the design's first alumnus is named, Dr. Sona Saha Das, Dr. Ernesto Rufino Jr.).
 
 ## 1.1.54 - 2026-11-14
 
