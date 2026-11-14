@@ -49,7 +49,7 @@
 	line-height: 1.55;
 }
 
-/* Stats between two laurel halves (the image is the left half; the right one is mirrored). */
+/* Stats between two laurel halves. */
 .imet-section .al-stats { display: flex; flex-wrap: wrap; gap: var(--wp--preset--spacing--16); margin-top: var(--wp--preset--spacing--30); }
 
 .imet-section .al-stat {
@@ -78,9 +78,10 @@
 	background: url(../../../images/imet/laurel-light.png) center / contain no-repeat;
 }
 
-.imet-section .al-stat::before { left: 0; }
+/* laurel-light.png is the right half (its bottom curves left): the left one is mirrored. */
+.imet-section .al-stat::before { left: 0; transform: scaleX(-1); }
 
-.imet-section .al-stat::after { right: 0; transform: scaleX(-1); }
+.imet-section .al-stat::after { right: 0; }
 
 /* Portraits: three tall cards, name and role over a dark fade, a play mark (they lead to the alumni videos). */
 .imet-section .al-grads { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--wp--preset--spacing--12); }
@@ -505,7 +506,10 @@
 
 	.imet-section .al-stats { justify-content: center; }
 
-	.imet-section .al-stat { min-width: 0; flex: 1 1 0; padding: 0 var(--wp--preset--spacing--26); }
+	.imet-section .al-stat { min-width: 0; padding: 0 var(--wp--preset--spacing--26); } /* natural width: they wrap rather than squeeze the text onto the laurels */
+
+	.imet-section .al-stat::before,
+	.imet-section .al-stat::after { width: var(--wp--preset--spacing--24); } /* inside the padding, clear of the text */
 
 	.imet-section .al-grads { gap: var(--wp--preset--spacing--8); margin-inline: auto; }
 
