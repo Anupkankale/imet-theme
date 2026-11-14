@@ -2,6 +2,15 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.56 - 2026-11-14
+
+### Changed
+
+- Alumni page, matched to the design ("IMET Worldwide Main file (22)"):
+  - "Case Studies of our Alumni" box (also on Convocation and Success Stories): the design's proportions. A wide text column and a narrow (300px) column of compact case rows; the heading one size smaller (x-large); row text at caption size; the cut-out photos fill their row's height plus 12px, so the head always rises above the row.
+  - Related Programs band: the standard heading size (the Alumni-only smaller size is removed) and narrow (214px) bold links whose text wraps to two lines, as in the design; on tablets and phones the links still span the band.
+  - Side buttons: "Accreditation" is the gold one again, as in the design ("Alumni Speak" keeps `aria-current`).
+
 ## 1.1.55 - 2026-11-14
 
 ### Changed

@@ -583,7 +583,15 @@
 
 .imet-section.al-stories.is-v2 .al-main > .ss-programs { margin-block: var(--wp--preset--spacing--24); }
 
-.imet-section.al-stories.is-v2 .ss-programs h2 { font-size: var(--wp--preset--font-size--card-title); }
+/* Related Programs band (design): the standard heading size (_success-stories.scss) and narrow bold links whose text
+   wraps to two lines. */
+.imet-section.al-stories.is-v2 .ss-program-link a { box-sizing: border-box; width: var(--wp--custom--size--214); gap: var(--wp--preset--spacing--8); font-weight: 700; }
+
+@media (max-width: 900px) {
+
+	/* One column: the links span the band again (easy to tap), one line each. */
+	.imet-section.al-stories.is-v2 .ss-program-link a { width: auto; }
+}
 
 .imet-section.al-stories.is-v2 .al-all { margin-top: var(--wp--preset--spacing--24); }
 
