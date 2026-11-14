@@ -1,0 +1,6 @@
+# Kept out of the knowledge graph (gitignore syntax): CI config, release notes, agent tooling and build scripts are not
+# theme code, and their nodes crowded the graph.
+.github/
+CHANGELOG.md
+.claude/
+bin/

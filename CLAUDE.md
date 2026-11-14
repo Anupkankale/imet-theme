@@ -11,12 +11,20 @@ Claude Code skills live in [`.claude/skills/`](.claude/skills/):
 
 A knowledge graph of this theme (optionally extended to `wp-primitives` and `wp-tooling`) is committed at [`graphify-out/graph.json`](graphify-out/graph.json) (human summary in [`graphify-out/GRAPH_REPORT.md`](graphify-out/GRAPH_REPORT.md)), built with the official [Graphify](https://graphify.net) utility.
 
-Before reading source files to answer questions about architecture, symbols, call paths, or how the theme wires together, query the graph first to save tokens:
+Use the graph to find where code lives, then follow the rules below.
 
 - Use the `/graphify` skill, or the CLI: `graphify query "<question>"`, `graphify path "A" "B"`, `graphify explain "<symbol>"`, `graphify affected "<symbol>"`.
-- The graph is structural (tree-sitter, local, no API key). Read files only when the graph does not answer.
+- The graph is structural (tree-sitter, local, no API key).
 
 Regenerate after large changes; recipe in [docs/internal/knowledge-graph.md](docs/internal/knowledge-graph.md).
+
+### Rules for using the graph
+
+- Use the graph to LOCATE code; always read the files before editing or explaining them.
+- If the graph and the source disagree, trust the source and run `graphify update .`.
+- After adding/removing/renaming PHP classes or blocks, run `graphify update .`.
+
+Install (once): `scripts/graphify/install.sh`, then `graphify install` to register the `/graphify` skill. Graphify needs a newer Python than macOS’s built-in 3.9; if the installer fails, run `brew install uv` first, then rerun it. See [scripts/graphify/README.md](scripts/graphify/README.md).
 
 Claude-specific notes:
 - _(none currently; keep Claude overrides here if they ever diverge from AGENTS.md)_
