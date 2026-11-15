@@ -1,0 +1,51 @@
+/* Text pages (pattern imet-theme/text-page: Privacy Policy, Why Choose IMET, Contact, Resources, ...): the
+   Accreditation hero (navy to gold, breadcrumb, title, lead; _accreditation-page.scss) without its logo strip, then the
+   text, styled like a blog article (.bp-content, _blog-post.scss), on a white card beside the sticky advisor form
+   (.bl-layout, _blog-page.scss). Tokens only. */
+
+/* No logo strip under this hero: it keeps room below its text. On a page the Accreditation hero's page rule
+   (_accreditation-page.scss) is the one to outrank. */
+$tp-page: ":is(.wp-block-post-content, .imet-page-content):not(:has(> .imet-section.hero.is-style-home))";
+
+.wp-site-blocks .imet-section.section.ac-hero.tp-hero,
+#{$tp-page} > .imet-section.ac-hero.tp-hero { padding-bottom: var(--wp--preset--spacing--48); }
+
+.imet-section .tp-body {
+	padding: var(--wp--preset--spacing--32);
+	border-radius: var(--wp--preset--border-radius--16);
+	background: var(--wp--preset--color--white);
+}
+
+.imet-section .tp-body .wp-block-buttons { margin-block: var(--wp--preset--spacing--16) var(--wp--preset--spacing--24); }
+
+/* Questions (core/details): a line between them, the question in bold, the answer below it. */
+.imet-section .tp-body .wp-block-details {
+	margin: 0;
+	padding-block: var(--wp--preset--spacing--14);
+	border-bottom: 1px solid var(--wp--preset--color--line);
+}
+
+.imet-section .tp-body .wp-block-details summary { color: var(--wp--preset--color--ink); font-weight: 700; cursor: pointer; }
+
+.imet-section .tp-body .wp-block-details > :not(summary) { margin: var(--wp--preset--spacing--8) 0 0; }
+
+/* Testimonial cards keep their own look (styles/blocks/quote-testimonial.json) inside the article styles: no gold
+   rule, normal text, room under the quote mark. */
+.imet-section .tp-body .wp-block-quote.is-style-quote-testimonial {
+	padding: var(--wp--preset--spacing--48) var(--wp--preset--spacing--18) var(--wp--preset--spacing--24) var(--wp--preset--spacing--24);
+	border-left: 0;
+	background: var(--wp--custom--gradient--testimonial);
+}
+
+.imet-section .tp-body .wp-block-quote.is-style-quote-testimonial p { color: var(--wp--preset--color--grey-900); font-size: var(--wp--preset--font-size--normal); font-style: normal; line-height: 1.5; }
+
+.imet-section .tp-body .wp-block-quote.is-style-quote-testimonial cite { margin-top: auto; padding-top: var(--wp--preset--spacing--18); color: var(--wp--preset--color--grey-light); font-size: var(--wp--preset--font-size--caption); font-weight: 400; }
+
+.imet-section .tp-body .wp-block-quote.is-style-quote-testimonial cite strong { color: var(--wp--preset--color--ink); }
+
+.imet-section .tp-body .wp-block-quote.is-style-quote-testimonial cite a { color: inherit; text-decoration: none; }
+
+@media (max-width: 640px) {
+
+	.imet-section .tp-body { padding: var(--wp--preset--spacing--20); }
+}
