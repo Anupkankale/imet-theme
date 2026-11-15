@@ -2,6 +2,12 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.57 - 2026-11-15
+
+### Changed
+
+- Links follow the pages' live addresses (the pages move from the redevelopment's short slugs back to the live site's URLs): the Alumni page is `/alumni-speak/` (About, Alumni and Convocation patterns, footer button), About Us "Download Brochure" opens `/online-doctorate-business-administration-dba-programs/#advisor-form`, and the footer fallback lists and default menus use the real live USA, UAE and Canada addresses instead of the old footer's `/doctorate-in-usa/` and similar, which were never pages.
+
 ## 1.1.56 - 2026-11-14
 
 ### Changed
