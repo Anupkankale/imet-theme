@@ -143,6 +143,17 @@
 	color: var(--wp--preset--color--navy);
 }
 
+.imet-advisor-form__download {
+	margin: 0 0 var(--wp--preset--spacing--10);
+	padding: var(--wp--preset--spacing--8) var(--wp--preset--spacing--10);
+	border: 1px solid var(--wp--preset--color--gold);
+	border-radius: var(--wp--preset--border-radius--8);
+	background: var(--wp--preset--color--cream);
+	color: var(--wp--preset--color--navy);
+	font-size: var(--wp--preset--font-size--14);
+	line-height: 1.4;
+}
+
 .imet-advisor-form__notice.is-error {
 	border-color: var(--wp--preset--color--danger);
 	background: var(--wp--preset--color--white);
