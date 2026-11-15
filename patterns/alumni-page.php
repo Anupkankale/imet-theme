@@ -224,7 +224,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <div class="wp-block-button al-tab"><a class="wp-block-button__link wp-element-button" href="/case-studies/">Case Studies</a></div>
 <!-- /wp:button -->
 <!-- wp:button {"className":"al-tab"} -->
-<div class="wp-block-button al-tab"><a class="wp-block-button__link wp-element-button" href="/alumni-page/" aria-current="page">Alumni Speak</a></div>
+<div class="wp-block-button al-tab"><a class="wp-block-button__link wp-element-button" href="/alumni-speak/" aria-current="page">Alumni Speak</a></div>
 <!-- /wp:button -->
 <!-- wp:button {"className":"al-tab"} -->
 <div class="wp-block-button al-tab"><a class="wp-block-button__link wp-element-button" href="/success-stories/">Success Stories</a></div>
