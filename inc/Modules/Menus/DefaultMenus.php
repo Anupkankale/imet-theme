@@ -243,19 +243,19 @@ class DefaultMenus {
 				'items' => [
 					[
 						'title' => 'Doctorate (DBA) in USA',
-						'url'   => '/doctorate-in-usa/',
+						'url'   => '/online-doctorate-business-administration-dba-programs-usa/',
 					],
 					[
 						'title' => 'Doctorate (DBA) in Cybersecurity USA',
-						'url'   => '/dba-in-cybersecurity-usa/',
+						'url'   => '/online-doctorate-cybersecurity-certificate-program-usa/',
 					],
 					[
 						'title' => 'Doctorate (DBA) in Project Management USA',
-						'url'   => '/dba-in-project-management-usa/',
+						'url'   => '/online-doctorate-dba-project-management-usa/',
 					],
 					[
 						'title' => 'Doctorate (DBA) in Artificial Intelligence USA',
-						'url'   => '/dba-in-artificial-intelligence-usa/',
+						'url'   => '/online-doctorate-dba-artificial-intelligence-ml-usa/',
 					],
 				],
 			],
@@ -285,7 +285,7 @@ class DefaultMenus {
 				'items' => [
 					[
 						'title' => 'Doctorate (DBA) in Canada',
-						'url'   => '/online-doctorate-dba-program-in-canada/',
+						'url'   => '/online-doctorate-business-administration-dba-programs-canada/',
 					],
 				],
 			],
@@ -294,7 +294,7 @@ class DefaultMenus {
 				'items' => [
 					[
 						'title' => 'Doctorate (DBA) in UAE',
-						'url'   => '/online-doctorate-degree-certificate-uae/',
+						'url'   => '/online-doctorate-business-administration-dba-programs-uae/',
 					],
 				],
 			],
