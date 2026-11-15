@@ -2,6 +2,13 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.58 - 2026-11-15
+
+### Added
+
+- "Text Page" pattern (IMET: Full Pages) and `_text-page.scss`: the Accreditation hero (breadcrumb, title, lead) with room below its text, then the text on a white card styled like a blog article (headings, lists, tables, questions as `core/details`) beside the sticky advisor form. Testimonial cards keep their own look inside it. Used for the pages rebuilt from the live site: Privacy Policy, Why Choose IMET, Contact, Assessment, Resources, Refer & Earn, Testimonials.
+- Advisor form: a note naming the requested file for gated downloads (`.imet-advisor-form__download`, imet-core).
+
 ## 1.1.57 - 2026-11-15
 
 ### Changed
