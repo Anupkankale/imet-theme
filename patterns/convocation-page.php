@@ -187,7 +187,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:group -->
 <!-- wp:buttons {"className":"al-all"} -->
 <div class="wp-block-buttons al-all"><!-- wp:button {"className":"btn-navy btn-md"} -->
-<div class="wp-block-button btn-navy btn-md"><a class="wp-block-button__link wp-element-button" href="/alumni-page/"><?php esc_html_e( 'See More', 'imet-theme' ); ?></a></div>
+<div class="wp-block-button btn-navy btn-md"><a class="wp-block-button__link wp-element-button" href="/alumni-speak/"><?php esc_html_e( 'See More', 'imet-theme' ); ?></a></div>
 <!-- /wp:button --></div>
 <!-- /wp:buttons -->
 <!-- wp:group {"className":"ss-cases","layout":{"type":"default"}} -->

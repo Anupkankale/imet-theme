@@ -41,7 +41,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:group -->
 <!-- wp:buttons {"className":"hero-brochure"} -->
 <div class="wp-block-buttons hero-brochure"><!-- wp:button {"className":"btn-navy btn-lg btn-icon-download"} -->
-<div class="wp-block-button btn-navy btn-lg btn-icon-download"><a class="wp-block-button__link wp-element-button" href="<?php echo esc_url( home_url( '/dba-category/#advisor-form' ) ); ?>">Download Brochure</a></div>
+<div class="wp-block-button btn-navy btn-lg btn-icon-download"><a class="wp-block-button__link wp-element-button" href="<?php echo esc_url( home_url( '/online-doctorate-business-administration-dba-programs/#advisor-form' ) ); ?>">Download Brochure</a></div>
 <!-- /wp:button --></div>
 <!-- /wp:buttons -->
 </div>
@@ -118,7 +118,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <p>For professionals, credibility matters. IMET’s institutional journey, academic ecosystem and international documentation pathways support every learner.</p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph {"className":"ab-more"} -->
-<p class="ab-more"><a href="/alumni-page/">View More</a></p>
+<p class="ab-more"><a href="/alumni-speak/">View More</a></p>
 <!-- /wp:paragraph -->
 </div>
 <!-- /wp:group -->
@@ -444,7 +444,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <h3 class="wp-block-heading">IMET Worldwide Dubai Convocation - August 2026</h3>
 <!-- /wp:heading -->
 <!-- wp:paragraph {"className":"ab-gallery-more"} -->
-<p class="ab-gallery-more"><a href="/alumni-page/">View More</a></p>
+<p class="ab-gallery-more"><a href="/alumni-speak/">View More</a></p>
 <!-- /wp:paragraph -->
 </div>
 <!-- /wp:group -->
