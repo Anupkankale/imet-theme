@@ -59,16 +59,17 @@
 
 .imet-section .testi-role { font-size: 0.8125rem; font-weight: 400; line-height: 1.45; color: #8a8a8a; }
 
-/* LinkedIn: the paragraph's link (to the person's profile) shown as the LinkedIn logo */
-.imet-section .testi-linkedin { flex-shrink: 0; margin-right: 6px; line-height: 0; } /* logo 24px from the card edge */
+/* LinkedIn: the paragraph's link (to the person's profile) shown as the LinkedIn logo. The link is a 44px tall tap
+   target around the 22px logo, pulled back so the card's foot keeps its height. */
+.imet-section .testi-linkedin { flex-shrink: 0; margin: calc(-1 * var(--wp--preset--spacing--10)) 6px calc(-1 * var(--wp--preset--spacing--10)) 0; line-height: 0; } /* logo 24px from the card edge */
 .imet-section .testi-linkedin a {
 	display: block;
 	width: 71px;
-	height: 22px;
+	height: var(--wp--custom--size--44);
 	overflow: hidden;
 	color: transparent;
 	font-size: 0;
-	background: url(../../../../images/imet/linkedin.png) center / contain no-repeat;
+	background: url(../../../../images/imet/linkedin.png) center / 71px auto no-repeat;
 }
 
 /* "View More": text-link button, right-aligned under the cards */
@@ -237,7 +238,7 @@
 
 .imet-section.testimonials.is-style-home .testi-card::before { content: none; }
 
-.imet-section.testimonials.is-style-home .testi-linkedin a { width: 66px; height: 20px; }
+.imet-section.testimonials.is-style-home .testi-linkedin a { width: 66px; background-size: 66px auto; }
 
 /* Client testimonials */
 .imet-section.testimonials.is-style-home.is-clients { padding-top: 30px; }

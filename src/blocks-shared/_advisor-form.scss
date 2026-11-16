@@ -105,7 +105,7 @@
 	line-height: 1.5;
 }
 
-.imet-advisor-form__consent input { flex: 0 0 auto; margin-top: var(--wp--preset--spacing--3); }
+.imet-advisor-form__consent input { flex: 0 0 auto; width: var(--wp--custom--size--20); height: var(--wp--custom--size--20); margin: 0; }
 
 .imet-advisor-form__submit {
 	justify-self: start;
