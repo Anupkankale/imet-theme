@@ -149,7 +149,7 @@
 .imet-section .bp-share .bp-linkedin img { height: var(--wp--custom--size--26); }
 
 /* LinkedIn logo (assets/images/imet/linkedin-logo.svg): the share link, the author link and Follow Us. */
-.imet-section .bp-linkedin { display: inline-block; line-height: 0; }
+.imet-section .bp-linkedin { display: inline-flex; align-items: center; min-height: var(--wp--custom--size--44); line-height: 0; } /* 44px tap target */
 
 .imet-section .bp-linkedin img { width: auto; height: var(--wp--custom--size--22); }
 

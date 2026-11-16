@@ -14,6 +14,7 @@ $tp-page: ":is(.wp-block-post-content, .imet-page-content):not(:has(> .imet-sect
 	padding: var(--wp--preset--spacing--32);
 	border-radius: var(--wp--preset--border-radius--16);
 	background: var(--wp--preset--color--white);
+	overflow-wrap: break-word; /* long e-mail addresses and links wrap inside the card on phones */
 }
 
 .imet-section .tp-body .wp-block-buttons { margin-block: var(--wp--preset--spacing--16) var(--wp--preset--spacing--24); }
@@ -21,11 +22,12 @@ $tp-page: ":is(.wp-block-post-content, .imet-page-content):not(:has(> .imet-sect
 /* Questions (core/details): a line between them, the question in bold, the answer below it. */
 .imet-section .tp-body .wp-block-details {
 	margin: 0;
-	padding-block: var(--wp--preset--spacing--14);
+	padding-block: var(--wp--preset--spacing--4);
 	border-bottom: 1px solid var(--wp--preset--color--line);
 }
 
-.imet-section .tp-body .wp-block-details summary { color: var(--wp--preset--color--ink); font-weight: 700; cursor: pointer; }
+/* The question is the tap target: the row's room sits inside it (44px or more). */
+.imet-section .tp-body .wp-block-details summary { padding-block: var(--wp--preset--spacing--10); color: var(--wp--preset--color--ink); font-weight: 700; cursor: pointer; }
 
 .imet-section .tp-body .wp-block-details > :not(summary) { margin: var(--wp--preset--spacing--8) 0 0; }
 
