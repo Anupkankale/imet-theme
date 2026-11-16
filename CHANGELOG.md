@@ -2,6 +2,13 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.60 - 2026-11-17
+
+### Fixed
+
+- Phones, "Who can join" photo with labels (DBA course pages): the photo collapsed to no width under 900px (auto margins on a grid item that is an inline-size container), leaving one label printed over the next section. It now keeps its width.
+- Phones, overview photo labels (DBA course pages, DBA landing page): the "job openings" label no longer covers the ROI card; in narrow photos it is anchored above the card and grows upward.
+
 ## 1.1.59 - 2026-11-16
 
 ### Added
