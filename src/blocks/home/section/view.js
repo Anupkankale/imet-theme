@@ -261,3 +261,12 @@ each('.imet-section .ab-usp-grid', (grid) =>
 		alwaysMove: true,
 	})
 );
+
+/* Testimonials page: the learner cards glide sideways and loop, also when they all fit; hover, focus or touch pauses
+   them. */
+each('.imet-section.tm-page .tm-row', (row) =>
+	marquee(row, [...row.querySelectorAll(':scope > .tm-card')], {
+		speed: 30,
+		alwaysMove: true,
+	})
+);

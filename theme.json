@@ -231,7 +231,8 @@
 				"testimonial": "linear-gradient(135deg, #eaebff, #fef3e1)",
 				"specs": "linear-gradient(180deg, #fdf3e3 0%, #d1defe 100%)",
 				"hero": "linear-gradient(135deg, #eaebff, #fef3e1)",
-				"programs": "linear-gradient(90deg, #fbf7dc, #d2d2fe)"
+				"programs": "linear-gradient(90deg, #fbf7dc, #d2d2fe)",
+				"learners": "linear-gradient(90deg, #d2d2fe, #fbf7dc)"
 			},
 			"scroller": {
 				"gap": "26px",
@@ -289,7 +290,9 @@
 				"450": "450px",
 				"544": "544px",
 				"916": "916px",
-				"1186": "1186px"
+				"1186": "1186px",
+				"304": "304px",
+				"416": "416px"
 			},
 			"lineHeight": {
 				"18": "18px",
@@ -729,6 +732,11 @@
 					"slug": "dropdown",
 					"name": "Dropdown",
 					"shadow": "0 8px 24px rgba(0, 0, 0, 0.15)"
+				},
+				{
+					"slug": "float",
+					"name": "Float (testimonial card)",
+					"shadow": "0 18px 40px -24px rgba(21, 41, 78, 0.45)"
 				}
 			]
 		}
