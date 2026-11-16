@@ -2,6 +2,13 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.59 - 2026-11-16
+
+### Added
+
+- "Testimonials Page" pattern (IMET: Full Pages) and `_testimonials-page.scss`: a centred heading (eyebrow, title, lead) on a lavender-to-cream band and a full-width row of learner cards (photo, name, role, LinkedIn badge, quote) that glides sideways and loops (the shared `marquee`, with its pause button; hover, focus or touch pauses it; scrolls by hand without JavaScript or with reduced motion). Duplicate a card to add a learner. Four learner photos (`testimonial-*.webp`).
+- Tokens: gradient `learners`, shadow `float`, sizes `304` and `416`.
+
 ## 1.1.58 - 2026-11-15
 
 ### Added
