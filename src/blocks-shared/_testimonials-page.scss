@@ -1,0 +1,139 @@
+/* Testimonials page (pattern imet-theme/testimonials-page). Every rule is scoped to the page's tm-* classes: one
+   lavender-to-cream band with a centred heading (eyebrow, title, lead) and a full-width row of learner cards (photo,
+   name, role, LinkedIn badge, quote) that glides sideways and loops (view.js of imet/section; hover, focus or touch
+   pauses it). Without JavaScript, or for people who ask for less motion, the row scrolls by hand. Tokens only. */
+
+.imet-section.tm-page { background: var(--wp--custom--gradient--learners); }
+
+/* As the page's first section the band carries the floating header's clearance (a transparent top border); the
+   gradient stays inside it, as on the other pages' heroes. On a page the shared section rhythm (_page-rhythm.scss) is
+   the rule to outrank. */
+$tm-page: ":is(.wp-block-post-content, .imet-page-content):not(:has(> .imet-section.hero.is-style-home))";
+
+.wp-site-blocks .imet-section.section.tm-page { background-clip: padding-box; }
+
+.wp-site-blocks .imet-section.section.tm-page,
+#{$tm-page} > .imet-section.tm-page { padding-block: var(--wp--preset--spacing--70) var(--wp--preset--spacing--48); }
+
+/* ---------- Heading ---------- */
+.imet-section .tm-head { text-align: center; }
+
+.imet-section.tm-page h1 {
+	margin: var(--wp--preset--spacing--12) 0 0;
+	color: var(--wp--preset--color--grey-900);
+	font-size: var(--wp--preset--font-size--huge);
+	font-weight: 600;
+	line-height: 1.1;
+	text-wrap: balance;
+}
+
+.imet-section .tm-lead {
+	max-width: var(--wp--custom--size--544);
+	margin: var(--wp--preset--spacing--20) auto 0;
+	color: var(--wp--preset--color--muted);
+	font-size: var(--wp--preset--font-size--medium);
+	line-height: 1.55;
+	text-wrap: pretty;
+}
+
+/* ---------- Row of cards: edge to edge, room below for the cards' shadow ---------- */
+.imet-section .tm-row {
+	display: flex;
+	align-items: stretch;
+	gap: var(--wp--preset--spacing--24);
+	margin-top: var(--wp--preset--spacing--48);
+	padding: 0 var(--wp--preset--spacing--24) var(--wp--preset--spacing--48);
+	overflow-x: auto;
+	overscroll-behavior-x: contain;
+	scrollbar-width: none;
+}
+
+.imet-section .tm-row::-webkit-scrollbar { display: none; }
+
+.imet-section .tm-card {
+	display: flex;
+	flex: 0 0 var(--wp--custom--size--416);
+	flex-direction: column;
+	margin: 0;
+	overflow: hidden;
+	border-radius: var(--wp--preset--border-radius--22);
+	background: var(--wp--preset--color--white);
+	box-shadow: var(--wp--preset--shadow--float);
+}
+
+.imet-section .tm-photo { margin: 0; aspect-ratio: 16 / 10; overflow: hidden; }
+
+.imet-section .tm-photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+.imet-section .tm-body {
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	gap: var(--wp--preset--spacing--12);
+	padding: var(--wp--preset--spacing--24);
+	text-align: left;
+}
+
+.imet-section .tm-top { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--wp--preset--spacing--16); }
+
+.imet-section .tm-who { min-width: 0; }
+
+.imet-section.tm-page .tm-name {
+	margin: 0;
+	color: var(--wp--preset--color--grey-900);
+	font-size: var(--wp--preset--font-size--medium);
+	font-weight: 600;
+	line-height: 1.375;
+}
+
+.imet-section .tm-role {
+	margin: var(--wp--preset--spacing--4) 0 0;
+	color: var(--wp--preset--color--muted);
+	font-size: var(--wp--preset--font-size--caption);
+	font-weight: 500;
+	line-height: 1.35;
+}
+
+.imet-section .tm-quote { margin: 0; color: var(--wp--preset--color--body-text); font-size: var(--wp--preset--font-size--14); line-height: 1.625; }
+
+/* LinkedIn: the paragraph's link (to the person's profile) shown as a dark badge with the "in" mark. The link is a
+   44px tap target; the badge inside it is 32px, pulled into the card's corner. */
+.imet-section .tm-linkedin { flex-shrink: 0; margin: calc(-1 * var(--wp--preset--spacing--6)); line-height: 0; }
+
+.imet-section .tm-linkedin a {
+	position: relative;
+	display: block;
+	width: var(--wp--custom--size--44);
+	height: var(--wp--custom--size--44);
+	overflow: hidden;
+	color: transparent;
+	font-size: 0;
+}
+
+.imet-section .tm-linkedin a::before {
+	content: "";
+	position: absolute;
+	inset: var(--wp--preset--spacing--6);
+	border-radius: var(--wp--preset--border-radius--6);
+	background: var(--wp--preset--color--grey-900) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' d='M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z'/%3E%3C/svg%3E") center / 50% no-repeat;
+	transition: background-color var(--wp--custom--motion--fast) ease;
+}
+
+.imet-section .tm-linkedin a:is(:hover, :focus-visible)::before { background-color: var(--wp--preset--color--linkedin); }
+
+@media (max-width: 640px) {
+
+	.wp-site-blocks .imet-section.section.tm-page,
+	#{$tm-page} > .imet-section.tm-page { padding-block: var(--wp--preset--spacing--40) var(--wp--preset--spacing--24); }
+
+	.imet-section .tm-row { gap: var(--wp--preset--spacing--16); margin-top: var(--wp--preset--spacing--32); padding-inline: var(--wp--preset--spacing--16); }
+
+	.imet-section .tm-card { flex-basis: min(var(--wp--custom--size--304), 86vw); }
+
+	.imet-section .tm-body { padding: var(--wp--preset--spacing--20); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+	.imet-section .tm-linkedin a::before { transition: none; }
+}
