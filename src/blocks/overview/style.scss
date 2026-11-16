@@ -205,6 +205,13 @@
 
 .imet-section .ov-chip.is-jobs strong { flex: none; color: var(--wp--preset--color--blue); font-size: 2.8cqi; }
 
+/* Narrow photos (phones): the text stops shrinking at the caption size, so the label wraps and grows. Anchor its
+   bottom edge just above the ROI card, so it grows upward and no longer covers that card. */
+@container (max-width: 480px) { /* token-ok: container query breakpoint, like a media query */
+
+	.imet-section .ov-chip.is-jobs { top: 37.3cqi; transform: translateY(-100%); }
+}
+
 /* ROI card: the figure over a rising trend line (SVG), as in the design */
 .imet-section .ov-chip.is-roi {
 	top: 38.3cqi;

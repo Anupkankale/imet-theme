@@ -90,7 +90,9 @@
 
 	.imet-section .join-grid { grid-template-columns: 1fr; }
 
-	.imet-section .join-photo { max-width: 480px; margin-inline: auto; }
+	/* width: 100% keeps the photo from shrinking to nothing: with auto margins a grid item sizes to its content, and
+	   a photo with chips (an inline-size container) has no content width, so only its labels were left showing. */
+	.imet-section .join-photo { width: 100%; max-width: 480px; margin-inline: auto; }
 }
 
 @media (max-width: 640px) {
