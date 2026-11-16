@@ -108,19 +108,22 @@
 		padding-inline: var(--wp--preset--spacing--34) !important;
 	}
 
+	// The logo keeps its size: as a flex item it used to give way first when the menu grew (it shrank to 20px).
+	.wp-block-site-logo { flex: none; }
+
 	.wp-block-site-logo img {
 		width: var(--wp--custom--size--63);
 		height: auto;
 	}
 
-	// The menu starts 165px after the logo at 1440px (145 + the 20px flex gap) (as on the live site), closing up on narrower screens so it
-	// never runs into the button.
+	// The menu sits in the middle of the room between the logo and the button, however many items it has (the menu is
+	// edited in Appearance > Menus, so its width is not fixed).
 	nav.imet-nav {
 		flex: 0 1 auto;
 		margin: 0 0 0 auto; // below the breakpoint the hamburger sits at the right edge
 
 		@media (min-width: $bp-nav) {
-			margin: 0 auto 0 var(--wp--custom--header--nav-offset);
+			margin: 0 auto;
 		}
 	}
 
@@ -216,7 +219,7 @@
 		display: none;
 	}
 
-	// Menu overlay up to $bp-nav (core switches at 600px; five items plus the button need more room).
+	// Menu overlay up to $bp-nav (core switches at 600px; six items plus the button need more room).
 	@media (max-width: #{$bp-nav - 1}) {
 
 		// Hamburger: a 33px tinted square, as on the live site.
@@ -1024,4 +1027,13 @@ $footer-icon-caret: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000
 			}
 		}
 	}
+}
+
+// Footer "Follow Us": the LinkedIn logo is 22px tall, so its link gets a 44px tap target, pulled back so the row keeps
+// its height. Last in the file: it outranks the footer's plain link rules above.
+.imet-footer .imet-footer-follow .imet-footer-linkedin a {
+	display: inline-flex;
+	align-items: center;
+	min-height: var(--wp--custom--size--44);
+	margin-block: calc(-1 * var(--wp--preset--spacing--10));
 }

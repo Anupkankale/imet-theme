@@ -2,6 +2,15 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.61 - 2026-11-17
+
+### Fixed
+
+- Header logo: it no longer shrinks when the menu is wide (it dropped to 20px at 1440px and around 1100px with the six-item menu). The logo keeps its size, the menu sits in the middle of the room between the logo and the button, and the menu collapses into the overlay below 1200px (was 1060px). The `navOffset` token is removed.
+- Phones, small text: "upto" in the hero stats (0.5em, 12px on phones) and the figure on the overview photo's "job openings" label (never under 13px).
+- Tap targets (44px): the footer LinkedIn logo, the LinkedIn links on testimonial cards and blog articles, the questions on text pages; the advisor form's consent checkbox is 20px.
+- Text pages: long e-mail addresses and links wrap inside the card.
+
 ## 1.1.60 - 2026-11-17
 
 ### Fixed

@@ -203,7 +203,7 @@
 
 .imet-section .ov-chip.is-jobs { top: 25.1cqi; left: 0.5cqi; display: flex; align-items: center; gap: 1.4cqi; width: 39.2cqi; }
 
-.imet-section .ov-chip.is-jobs strong { flex: none; color: var(--wp--preset--color--blue); font-size: 2.8cqi; }
+.imet-section .ov-chip.is-jobs strong { flex: none; color: var(--wp--preset--color--blue); font-size: max(2.8cqi, var(--wp--preset--font-size--caption)); } /* never under 13px */
 
 /* Narrow photos (phones): the text stops shrinking at the caption size, so the label wraps and grows. Anchor its
    bottom edge just above the ROI card, so it grows upward and no longer covers that card. */
