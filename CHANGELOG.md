@@ -2,6 +2,12 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.67 - 2026-11-17
+
+### Added
+
+- `home-why-research.webp`: the new picture for the "Personalized Research Guidance" card in the Home page's "Why Choose IMET Worldwide" section (the page's own content points at it).
+
 ## 1.1.66 - 2026-11-17
 
 ### Changed
