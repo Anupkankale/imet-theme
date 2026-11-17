@@ -2,6 +2,16 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.68 - 2026-11-17
+
+### Added
+
+- `home-why-brand.webp`: the new picture for the "Digital Presence & Brand Visibility" card in the Home page's "Why Choose IMET Worldwide" section (the page's own content points at it).
+
+### Fixed
+
+- Home, "Why Choose IMET Worldwide" cards on phones: the pictures are shown whole. A generic rule held them to 180px high, which cut the bottom (and the labels drawn in the picture) off the taller new pictures.
+
 ## 1.1.67 - 2026-11-17
 
 ### Added
