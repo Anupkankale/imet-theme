@@ -1,0 +1,12 @@
+/* DBA category page (pattern imet-theme/dba-landing; its hero is the default style, the one hero without an is-style-*
+   class). Phones only: the page is long, so the photos of four sections are left out there (Overview, Our USPs, Who
+   can Join, Doctoral Excellence); the text, lists and buttons of those sections stay. Other pages keep their photos. */
+$dba: ":is(.wp-block-post-content, .imet-page-content):has(> .imet-section.hero:not([class*='is-style-']):not(.is-mba-course))";
+
+@media (max-width: 640px) {
+
+	#{$dba} > .imet-section.highlights .hl-visual,
+	#{$dba} > .imet-section.overview .ov-visual,
+	#{$dba} > .imet-section.join .join-photo,
+	#{$dba} > .imet-section.cert .cert-photo { display: none; }
+}
