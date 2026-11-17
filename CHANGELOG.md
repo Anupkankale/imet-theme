@@ -2,6 +2,13 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.63 - 2026-11-17
+
+### Fixed
+
+- "Executive Growth Pathways" cards (`imet/usp-bento`), on tablets and phones: the Flexibility and Executive Guidance text no longer runs over the photo (the text keeps clear of the photo's width, and the photos are 110px wide under 1000px); the Industry-Focused, Global Recognition and Executive Guidance titles wrap instead of being cut off at the card's edge under 1000px.
+- Industry-Focused card: the tags behind the text fade out towards the text, so it stays readable.
+
 ## 1.1.62 - 2026-11-17
 
 ### Fixed
