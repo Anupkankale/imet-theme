@@ -46,7 +46,9 @@
 
 .imet-section .b-flex .b-text { max-width: 320px; }
 
-.imet-section .b-flex .b-img { position: absolute; top: 0; right: 0; bottom: 0; width: 148px; }
+/* align-self: stretch, or the card-wide flex-end above keeps the absolutely placed photo at its own height, sitting at
+   the bottom with a gap above it, instead of filling the card from top to bottom. */
+.imet-section .b-flex .b-img { position: absolute; top: 0; right: 0; bottom: 0; width: 148px; align-self: stretch; }
 
 .imet-section .b-flex .b-img img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
 
