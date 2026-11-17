@@ -44,7 +44,9 @@
 /* Flexibility: photo fills the right side */
 .imet-section .b-flex { grid-area: flex; }
 
-.imet-section .b-flex .b-text { max-width: 320px; }
+/* The text keeps clear of the photo (its width) at every card width, instead of a fixed text width that ran over the
+   photo once the card got narrower than the design's. */
+.imet-section .b-flex .b-text { margin-right: 148px; }
 
 /* align-self: stretch, or the card-wide flex-end above keeps the absolutely placed photo at its own height, sitting at
    the bottom with a gap above it, instead of filling the card from top to bottom. */
@@ -59,7 +61,16 @@
 
 .imet-section .b-industry :is(h3, h4) { white-space: nowrap; }
 
-.imet-section .b-tags { position: absolute; inset: 0 0 0 auto; width: 74%; margin: 0; opacity: .35; }
+/* The tags fade out towards the left, where the text is, so the text stays easy to read. */
+.imet-section .b-tags {
+	position: absolute;
+	inset: 0 0 0 auto;
+	width: 74%;
+	margin: 0;
+	opacity: .35;
+	-webkit-mask-image: linear-gradient(to right, transparent 10%, var(--wp--preset--color--ink) 70%);
+	mask-image: linear-gradient(to right, transparent 10%, var(--wp--preset--color--ink) 70%);
+}
 
 .imet-section .b-tags img { width: 100%; height: 100%; object-fit: cover; object-position: left center; }
 
@@ -107,7 +118,7 @@
 /* Mentorship: cut-out photo at the bottom right */
 .imet-section .b-mentor { grid-area: ment; }
 
-.imet-section .b-mentor .b-text { max-width: 330px; }
+.imet-section .b-mentor .b-text { margin-right: 140px; } /* clear of the photo (132px + its 8px inset) */
 
 .imet-section .b-mentor :is(h3, h4) { white-space: nowrap; }
 
@@ -120,13 +131,19 @@
 @media (max-width: 1000px) {
 
 	.imet-section .bento { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+	/* Narrower cards: the titles may wrap (they were cut off at the card's edge), and the two photos get narrower so
+	   the text beside them keeps a readable width. */
+	.imet-section :is(.b-industry, .b-mentor, .b-global) :is(h3, h4) { white-space: normal; }
+
+	.imet-section :is(.b-flex, .b-mentor) .b-img { width: var(--wp--custom--size--110); }
+
+	.imet-section :is(.b-flex, .b-mentor) .b-text { margin-right: var(--wp--custom--size--110); padding-right: var(--wp--preset--spacing--10); }
 }
 
 @media (max-width: 700px) {
 
 	.imet-section .bento { grid-template-columns: 1fr; grid-template-areas: "flex" "ind" "alum" "glob" "roi" "ment"; }
-
-	.imet-section :is(.b-industry, .b-mentor, .b-global) :is(h3, h4) { white-space: normal; }
 }
 
 /* Phones: every .section gets the same vertical rhythm (overrides the padding above). */
