@@ -2,6 +2,12 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.62 - 2026-11-17
+
+### Fixed
+
+- "Executive Growth Pathways" cards (`imet/usp-bento`): the Flexibility card's photo fills the card from top to bottom again (it kept its own height and left a gap above it).
+
 ## 1.1.61 - 2026-11-17
 
 ### Fixed
