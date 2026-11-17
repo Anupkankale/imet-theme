@@ -2,6 +2,12 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.70 - 2026-11-18
+
+### Fixed
+
+- Fee banner (`imet/cost-banner`) on desktop: the cap-and-diploma picture stays inside the card's fee side; it no longer rises above the card's top edge or shows through the "45%" ribbon and the scholarship text. The scholarship side is centred top-to-bottom with even room on both sides, and its heading tops out at 32px so it fits on one line beside the ribbon.
+
 ## 1.1.69 - 2026-11-17
 
 ### Added
