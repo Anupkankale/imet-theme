@@ -246,7 +246,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <!-- wp:group {"className":"tab-panel","layout":{"type":"default"}} -->
 <div class="wp-block-group tab-panel"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"tab-photo"} -->
-<figure class="wp-block-image size-full tab-photo"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/imet/join-graduates.jpg' ) ); ?>" alt="IMET Worldwide graduates celebrating their diplomas"/></figure>
+<figure class="wp-block-image size-full tab-photo"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/imet/home-programs-diploma.webp' ) ); ?>" alt="Diploma programme learner"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:list -->

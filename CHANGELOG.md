@@ -2,6 +2,12 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.66 - 2026-11-17
+
+### Changed
+
+- Home, "Our Programs" tabs: new Doctorate, MBA and Diploma photos (`home-programs-*.webp`). A plain photo in a tab is now shown whole, in its own shape, centred beside the list (it used to be cropped to one fixed frame, which cut off labels that are part of the picture); on phones a tall photo is held to 255px high and a wide one takes the panel's width. The photo-with-labels group is unchanged.
+
 ## 1.1.65 - 2026-11-17
 
 ### Changed
