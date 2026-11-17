@@ -23,6 +23,7 @@
 
 .imet-section .cost-left {
 	position: relative;
+	overflow: hidden; /* the cap picture stays inside the card: not above its top edge, not under the ribbon */
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -32,17 +33,18 @@
 	border-radius: 24px 0 0 24px;
 }
 
-/* Cap, diploma and book (decoration), placed as in the Figma: it starts under "Program Fee" (47% into the price
-   column), runs in under the white ribbon to just past it (115% of the column's width) and sits 9px above the card's
-   bottom; the cap's top rises behind the title. Muted so the price stays readable; the ribbon and the text sit above it. */
+/* Cap, diploma and book (decoration): kept inside the fee column (clipped by its overflow), in its bottom-right
+   corner, so it never rises above the card or shows through the scholarship side. Muted so the price stays readable;
+   the text sits above it. */
 .imet-section .cost-left::before {
 	content: "";
 	position: absolute;
-	left: 47%;
-	bottom: var(--wp--preset--spacing--9);
-	width: 115%;
+	right: 0;
+	bottom: 0;
+	width: 80%;
+	max-height: 100%;
 	aspect-ratio: 760 / 339;
-	background: url(../../../../images/imet/cost-cap-v2.webp) center / contain no-repeat;
+	background: url(../../../../images/imet/cost-cap-v2.webp) right bottom / contain no-repeat;
 	opacity: .55;
 	-webkit-mask-image: linear-gradient(90deg, transparent, #000 20%);
 	mask-image: linear-gradient(90deg, transparent, #000 20%);
@@ -103,9 +105,15 @@
 
 .imet-section .cost-mid .merit { margin-top: 8px; color: #000; font-size: 1.1875rem; font-weight: 500; line-height: 1.2; }
 
-.imet-section .cost-right { padding: var(--wp--preset--spacing--24) var(--wp--preset--spacing--20) var(--wp--preset--spacing--26); } /* the same space on both sides, as the fee side (20px) */
+/* Scholarship side: centred top-to-bottom in the card, with room off the ribbon and off the card's right edge. */
+.imet-section .cost-right {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding: var(--wp--preset--spacing--24) var(--wp--preset--spacing--30);
+}
 
-.imet-section .cost-right h3 { color: #fff; font-size: clamp(1.5rem, 0.7143rem + 1.6369vw, 2.1875rem); font-weight: 700; } /* → 35px */
+.imet-section .cost-right h3 { margin: 0; color: #fff; font-size: clamp(1.5rem, 0.7143rem + 1.6369vw, 2rem); font-weight: 700; } /* → 32px: one line beside the ribbon */
 .imet-section .cost-right p {
 	max-width: 480px;
 	margin: 8px 0 18px;
