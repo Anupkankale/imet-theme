@@ -2,6 +2,12 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.65 - 2026-11-17
+
+### Changed
+
+- DBA course pages (Cybersecurity, AI/ML, Digital Transformation, Project Management, Generative AI, IT Governance, DBA Course), phones (640px and under): the photos of the Program Highlights, Requirements, Benefits and Curriculum sections are left out, as on the DBA category page; about 1,300px shorter. Location pages and the MBA pages keep their photos.
+
 ## 1.1.64 - 2026-11-17
 
 ### Changed
