@@ -141,7 +141,9 @@
 
 .imet-section.step-cards.is-style-home .step-card p:not(.sc-tag, .pc-chip) { margin-left: 25px; font-size: .875rem; line-height: 1.71; }
 
-.imet-section.step-cards.is-style-home .sc-photo { position: static; border-radius: 0 0 20px 20px; }
+/* height: auto, so the picture is never cut: on phones a generic rule makes step photos 180px tall, which cut the
+   bottom off the Home pictures (their labels are part of the picture). */
+.imet-section.step-cards.is-style-home .sc-photo { position: static; height: auto; border-radius: 0 0 20px 20px; }
 
 .imet-section.step-cards.is-style-home .sc-photo img { position: static; width: 100%; height: auto; }
 
