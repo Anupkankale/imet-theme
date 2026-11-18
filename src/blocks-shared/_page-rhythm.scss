@@ -3,16 +3,16 @@
    and the boxed banners (fee, achievements, cyber, wide highlights) keep their own spacing. Tokens only. */
 $page: ":is(.wp-block-post-content, .imet-page-content):not(:has(> .imet-section.hero.is-style-home))"; /* page content, or an IMET page template's <main> */
 
-#{$page} { --imet-section-y: var(--wp--preset--spacing--40); }
+#{$page} { --imet-section-y: var(--wp--preset--spacing--48); }
 
 @media (max-width: 1024px) {
 
-	#{$page} { --imet-section-y: var(--wp--preset--spacing--32); }
+	#{$page} { --imet-section-y: var(--wp--preset--spacing--40); }
 }
 
 @media (max-width: 640px) {
 
-	#{$page} { --imet-section-y: var(--wp--preset--spacing--24); }
+	#{$page} { --imet-section-y: var(--wp--preset--spacing--32); }
 }
 
 #{$page} > .imet-section:is(.section, .highlights, .cta-wrap) { padding-block: var(--imet-section-y); }
