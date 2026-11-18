@@ -40,6 +40,8 @@ class ThemeSetup implements Registrable {
 		add_theme_support( 'responsive-embeds' );
 		add_theme_support( 'align-wide' );
 
+		add_theme_support( 'editor-styles' ); // Without it add_editor_style() is ignored in the iframed editor.
+
 		// The header and footer styles, so the editors see them as they are on the site.
 		if ( file_exists( IMET_PATH . '/assets/build/css/editor/editor.css' ) ) {
 			add_editor_style( 'assets/build/css/editor/editor.css' );

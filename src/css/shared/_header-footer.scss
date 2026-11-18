@@ -194,21 +194,32 @@ $nav-icon-caret: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/sv
 		}
 	}
 
-	.has-child .wp-block-navigation__submenu-container {
+	// The dropdown panel: square, no inner padding (a row's own background then reaches both edges), and sized by
+	// the longest label. .imet-nav plus the repeated class because core's editor rules for the selected submenu are
+	// four classes deep and load after these.
+	.imet-nav .has-child .wp-block-navigation__submenu-container.wp-block-navigation__submenu-container {
 		width: max-content;
-		min-width: var(--wp--custom--size--260);
-		max-width: var(--wp--custom--size--380);
-		padding: var(--wp--preset--spacing--8);
-		border: 1px solid var(--wp--preset--color--line);
-		border-radius: var(--wp--custom--radius);
+		padding: 0;
+		border: 0;
+		border-radius: 0;
 		box-shadow: var(--wp--preset--shadow--dropdown);
 		background: var(--wp--preset--color--white);
 		color: var(--wp--preset--color--body-text);
 
 		.wp-block-navigation-item__content {
-			padding: var(--wp--preset--spacing--10) var(--wp--preset--spacing--14);
-			white-space: normal;
-			font-size: var(--wp--preset--font-size--small);
+			padding: var(--wp--preset--spacing--12) var(--wp--preset--spacing--20);
+			white-space: nowrap;
+			font-size: var(--wp--preset--font-size--14);
+		}
+
+		// Desktop only: in the mobile overlay the submenus are a plain indented list, with no hover band.
+		@media (min-width: $bp-nav) {
+
+			.wp-block-navigation-item__content:focus-visible,
+			.wp-block-navigation-item:hover > .wp-block-navigation-item__content {
+				background: var(--wp--preset--color--navy-footer);
+				color: var(--wp--preset--color--white); // no weight change: the label keeps its width on hover
+			}
 		}
 	}
 
@@ -242,6 +253,7 @@ $nav-icon-caret: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/sv
 			box-shadow: none;
 			background: transparent;
 
+			// stylelint-disable-next-line no-descending-specificity -- the open-panel rule above is the more specific one, on purpose
 			.wp-block-navigation-item__content {
 				padding: var(--wp--preset--spacing--6) 0;
 				font-size: var(--wp--preset--font-size--small);
