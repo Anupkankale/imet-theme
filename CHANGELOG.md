@@ -2,6 +2,19 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.75 - 2026-11-19
+
+### Changed
+
+- Header, desktop dropdown (PR #122, Stephen Baraik): square panel with no inner padding, sized to its longest label, with labels on one line. The gold hover rule and black label stay, and the mobile overlay is unchanged. `editor-styles` theme support so the editor preview matches.
+- Fee banner (PR #123, Stephen Baraik): the composition is centred. The cap artwork sits behind the "45%" ribbon with a fade on both edges, the ribbon sits fully inside the card, and the fee and scholarship groups are both centred. This replaces 1.1.71's left-aligned fee title and price.
+- PR #124 (Qatar MOFA logo first on the DBA category pattern) merged. Its change already shipped in 1.1.74.
+
+### Fixed
+
+- Browser test for the fee banner: it checks that the cap artwork (now the card's `::before`, centred with a transform) stays inside the card, instead of checking that the fee column clips it.
+- `package-lock.json` version in step with `package.json`.
+
 ## 1.1.74 - 2026-11-19
 
 ### Fixed
