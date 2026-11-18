@@ -9,7 +9,7 @@
 .imet-section.cost-banner {
 	position: relative;
 	display: grid;
-	grid-template-columns: minmax(0, 1fr) 205px minmax(0, 1fr); /* fee and scholarship sides the same width: the ribbon sits in the middle */
+	grid-template-columns: minmax(0, 1fr) 205px minmax(0, 1fr); /* the ribbon keeps its width, centred between two equal sides */
 	--cb-width: min(1200px, 100% + 2 * var(--wp--style--root--padding-left, 0px) - 40px); /* 100% is the padded content box inside the theme */
 
 	width: var(--cb-width);
@@ -32,20 +32,20 @@
 	border-radius: 24px 0 0 24px;
 }
 
-/* Cap, diploma and book (decoration), placed as in the Figma: it starts under "Program Fee" (47% into the price
-   column), runs in under the white ribbon to just past it (115% of the column's width) and sits 9px above the card's
-   bottom; the cap's top rises behind the title. Muted so the price stays readable; the ribbon and the text sit above it. */
-.imet-section .cost-left::before {
+/* Cap, diploma and book (decoration): centred behind the white ribbon, so it peeks out the same amount on both sides,
+   and sits 9px above the card's bottom. Muted so the text stays readable; the ribbon and the text sit above it. */
+.imet-section.cost-banner::before {
 	content: "";
 	position: absolute;
-	left: 47%;
+	left: 50%;
 	bottom: var(--wp--preset--spacing--9);
-	width: 115%;
+	width: min(560px, 70%);
 	aspect-ratio: 760 / 339;
+	transform: translateX(-50%);
 	background: url(../../../../images/imet/cost-cap-v2.webp) center / contain no-repeat;
 	opacity: .55;
-	-webkit-mask-image: linear-gradient(90deg, transparent, #000 20%);
-	mask-image: linear-gradient(90deg, transparent, #000 20%);
+	-webkit-mask-image: linear-gradient(90deg, transparent, #000 15%, #000 85%, transparent);
+	mask-image: linear-gradient(90deg, transparent, #000 15%, #000 85%, transparent);
 	pointer-events: none;
 }
 
@@ -74,10 +74,10 @@
 	line-height: 1.5;
 }
 
-/* White ribbon: from 23px above the card to a point 30px above its bottom, however tall the card grows */
+/* White ribbon: flush with the card's top, to a point 30px above its bottom however tall the card grows */
 .imet-section .cost-mid {
 	align-self: stretch;
-	margin-top: -23px;
+	margin-top: 0;
 	margin-bottom: var(--wp--preset--spacing--30);
 	padding: 10px 12px 40px;
 	background: #fff;
@@ -103,12 +103,21 @@
 
 .imet-section .cost-mid .merit { margin-top: 8px; color: #000; font-size: 1.1875rem; font-weight: 500; line-height: 1.2; }
 
-.imet-section .cost-right { padding: var(--wp--preset--spacing--24) var(--wp--preset--spacing--20) var(--wp--preset--spacing--26); } /* the same space on both sides, as the fee side (20px) */
+.imet-section .cost-right {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 20px 20px 24px;
+	text-align: center;
+} /* the same space on both sides, as the fee side (20px) */
 
-.imet-section .cost-right h3 { color: #fff; font-size: clamp(1.5rem, 0.7143rem + 1.6369vw, 2.1875rem); font-weight: 700; } /* → 35px */
+.imet-section .cost-right .wp-block-buttons { justify-content: center; }
+
+.imet-section .cost-right h3 { max-width: 420px; color: #fff; font-size: clamp(1.5rem, 0.7143rem + 1.6369vw, 2.1875rem); font-weight: 700; } /* → 35px */
 .imet-section .cost-right p {
-	max-width: 480px;
-	margin: 8px 0 18px;
+	max-width: 420px;
+	margin: 8px auto 18px;
 	color: #fff;
 	font-family: var(--ui);
 	font-size: 0.96875rem; /* 15.5px */
@@ -135,11 +144,9 @@
 
 	.imet-section .cost-left { border-radius: 24px 24px 0 0; }
 
-	.imet-section .cost-left::before { display: none; } /* stacked: no ribbon to tuck under, and it would sit behind the text */
+	.imet-section.cost-banner::before { display: none; } /* stacked: no ribbon to tuck under, and it would sit behind the text */
 
 	.imet-section .cost-left, .imet-section .cost-right { padding: 28px 20px; }
-
-	.imet-section .cost-right .wp-block-buttons { justify-content: center; }
 
 	.imet-section .cost-mid { width: 220px; height: auto; margin: 0 auto; padding-top: 12px; }
 
@@ -166,7 +173,7 @@
 .imet-section.cost-banner.is-style-home .cost-left h3 { font-size: 1.5625rem; line-height: 1.52; } /* 25px */
 .imet-section.cost-banner.is-style-home .price-tag { margin-top: 20px; padding: 0 12px; border: 2px solid #ffd385; border-radius: 10px; color: #ffd385; font-size: 1.25rem; line-height: 2.2; }
 
-.imet-section.cost-banner.is-style-home .cost-mid { height: 220px; margin-top: -1px; padding: 10px 10px 36px; }
+.imet-section.cost-banner.is-style-home .cost-mid { height: 220px; padding: 10px 10px 36px; }
 
 .imet-section.cost-banner.is-style-home .cost-mid .up-to { font-size: .9375rem; line-height: 1.33; }
 
