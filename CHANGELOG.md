@@ -2,6 +2,13 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.72 - 2026-11-18
+
+### Fixed
+
+- Home "Publish your research paper" banner on tablets and phones: the journals graphic (IEEE, Google Scholar, Scopus, UGC, Web of Science) shows in full instead of being cut off at the bottom, and the card no longer leaves empty space under it. The desktop layout is unchanged.
+- Footer "Doctorate Programs In …" rows: no stray "|" after the last link.
+
 ## 1.1.71 - 2026-11-18
 
 ### Added
