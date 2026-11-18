@@ -1,6 +1,6 @@
 {
 	"name": "imet-theme",
-	"version": "1.1.70",
+	"version": "1.1.71",
 	"description": "Block theme for IMET Worldwide: design system, section blocks, patterns and templates.",
 	"author": "Anup Kankale (https://anupkankale.com)",
 	"license": "GPL-2.0-or-later",
@@ -86,6 +86,7 @@
 		"test": "npm-run-all --parallel test:js test:php",
 		"test:js": "wp-scripts test-unit-jest --config=tests/js/jest.config.js --passWithNoTests",
 		"test:js:watch": "npm run test:js -- --watch",
+		"test:e2e": "playwright test --config=tests/e2e/playwright.config.js",
 		"test:php": "wp-env run --config=.wp-env.tests.json cli --env-cwd=/var/www/html/wp-content/themes/${PWD##*/} composer exec 'phpunit --do-not-cache-result --verbose'",
 		"wp-env": "wp-env",
 		"lint:tokens": "node ./bin/audit-tokens.js",
