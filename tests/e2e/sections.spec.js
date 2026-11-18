@@ -113,3 +113,60 @@ test.describe('Home success stories', () => {
 		}
 	});
 });
+
+test.describe('About Us, What you gain with IMET', () => {
+	test('hovering a chip or an orbit icon switches the card', async ({
+		page,
+	}, testInfo) => {
+		await page.goto('/about-us/');
+		const section = page.locator('.ab-gain-intro');
+		await section.scrollIntoViewIfNeeded();
+		await expect(section).toHaveClass(/is-ready/);
+
+		const chips = section.locator('.ab-gain-chip');
+		const nodes = section.locator('.ab-orbit-node');
+		await expect(chips).toHaveCount(6);
+		await expect(nodes).toHaveCount(6);
+
+		const active = section.locator('.ab-gain-panel.is-active h3');
+
+		// Touch screens have no hover: a tap does it.
+		const pick = (el) =>
+			testInfo.project.use.hasTouch ? el.click() : el.hover();
+
+		await pick(chips.nth(2));
+		await expect(active).toHaveText('Public speaking');
+		await expect(chips.nth(2)).toHaveAttribute('aria-selected', 'true');
+		await expect(nodes.nth(2)).toHaveClass(/is-active/);
+
+		await pick(nodes.nth(4));
+		await expect(active).toHaveText('EMI and scholarships');
+		await expect(chips.nth(4)).toHaveAttribute('aria-selected', 'true');
+	});
+});
+
+test.describe('About Us, Study from anywhere', () => {
+	test('region chips and partner cards select countries on the map', async ({
+		page,
+	}, testInfo) => {
+		await page.goto('/about-us/');
+		const section = page.locator('section.ab-map');
+		await section.scrollIntoViewIfNeeded();
+		await expect(section).toHaveClass(/is-ready/);
+
+		const chips = section.locator('.pm-chip');
+		await expect(chips).toHaveCount(4);
+		const tag = section.locator('.pm-tag-title');
+		const pick = (el) =>
+			testInfo.project.use.hasTouch ? el.click() : el.hover();
+
+		await pick(chips.nth(3));
+		await expect(tag).toHaveText('Singapore · Australia');
+		await expect(chips.nth(3)).toHaveAttribute('aria-pressed', 'true');
+		await expect(section.locator('.pm-pin.pm-on')).toHaveCount(2);
+
+		await pick(section.locator('.ab-loc', { hasText: 'Netherlands' }));
+		await expect(tag).toHaveText('Netherlands');
+		await expect(section.locator('.pm-svg > path.pm-on')).toHaveCount(1);
+	});
+});

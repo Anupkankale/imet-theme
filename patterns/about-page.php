@@ -218,25 +218,68 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:paragraph -->
 </div>
 <!-- /wp:group -->
-<!-- wp:group {"className":"ab-dr-card","layout":{"type":"default"}} -->
-<div class="wp-block-group ab-dr-card"><!-- wp:heading {"level":3} -->
+<!-- wp:group {"className":"ab-gain-panels","layout":{"type":"default"}} -->
+<div class="wp-block-group ab-gain-panels">
+<!-- wp:group {"className":"ab-gain-panel ab-gain-doctorate","layout":{"type":"default"}} -->
+<div class="wp-block-group ab-gain-panel ab-gain-doctorate"><!-- wp:heading {"level":3} -->
 <h3 class="wp-block-heading">The Dr. title</h3>
 <!-- /wp:heading -->
 <!-- wp:paragraph -->
 <p>Take the next step toward a doctoral qualification that can reflect your expertise, research, and professional journey.</p>
-<!-- /wp:paragraph -->
+<!-- /wp:paragraph --></div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ab-gain-panel ab-gain-research","layout":{"type":"default"}} -->
+<div class="wp-block-group ab-gain-panel ab-gain-research"><!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">Research publication</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph -->
+<p>Solve real-world business and technology challenges through research, and publish it in SCOPUS and IEEE indexed journals with your mentor’s support.</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ab-gain-panel ab-gain-speaking","layout":{"type":"default"}} -->
+<div class="wp-block-group ab-gain-panel ab-gain-speaking"><!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">Public speaking</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph -->
+<p>Present your research at conferences, podcasts and industry events, and build a voice that boardrooms listen to.</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ab-gain-panel ab-gain-flexible","layout":{"type":"default"}} -->
+<div class="wp-block-group ab-gain-panel ab-gain-flexible"><!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">Flexible online study</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph -->
+<p>A 12–24 month online program built around your work, so you earn your doctorate without a break in your career.</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ab-gain-panel ab-gain-scholarship","layout":{"type":"default"}} -->
+<div class="wp-block-group ab-gain-panel ab-gain-scholarship"><!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">EMI and scholarships</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph -->
+<p>Merit-based scholarships of up to 45% and EMI options make the program easier to fund.</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ab-gain-panel ab-gain-branding","layout":{"type":"default"}} -->
+<div class="wp-block-group ab-gain-panel ab-gain-branding"><!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">Personal branding</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph -->
+<p>Turn your research into a professional brand across LinkedIn, Google Scholar, ResearchGate and the media.</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group -->
 </div>
 <!-- /wp:group -->
 <!-- wp:buttons -->
-<div class="wp-block-buttons"><!-- wp:button {"className":"btn-light btn-lg"} -->
-<div class="wp-block-button btn-light btn-lg"><a class="wp-block-button__link wp-element-button" href="/online-doctorate-business-administration-dba-programs/">Explore programs</a></div>
+<div class="wp-block-buttons"><!-- wp:button {"className":"btn-navy btn-lg"} -->
+<div class="wp-block-button btn-navy btn-lg"><a class="wp-block-button__link wp-element-button" href="/online-doctorate-business-administration-dba-programs/">Explore programs</a></div>
 <!-- /wp:button --></div>
 <!-- /wp:buttons -->
 </div>
 <!-- /wp:group -->
-<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ab-gain-circle"} -->
-<figure class="wp-block-image size-full ab-gain-circle"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/imet/about-gain-circle.webp' ) ); ?>" alt="IMET: doctorate, research, public speaking, scholarships and branding"/></figure>
-<!-- /wp:image -->
+<!-- wp:group {"className":"ab-orbit","layout":{"type":"default"}} -->
+<div class="wp-block-group ab-orbit"><!-- wp:site-logo {"width":200,"isLink":false,"className":"ab-orbit-logo"} /--></div>
+<!-- /wp:group -->
 </div>
 <!-- /wp:group -->
 </section>
