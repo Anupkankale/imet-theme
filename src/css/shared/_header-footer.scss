@@ -149,21 +149,55 @@
 		margin-inline-start: var(--wp--preset--spacing--12);
 	}
 
-	.has-child .wp-block-navigation__submenu-container {
-		width: max-content;
-		min-width: var(--wp--custom--size--260);
-		max-width: var(--wp--custom--size--380);
-		padding: var(--wp--preset--spacing--8);
-		border: 1px solid var(--wp--preset--color--line);
-		border-radius: var(--wp--custom--radius);
+	// The gold rule belongs to the open item, not to its dropdown: drawn on the top-level item (see
+	// .wp-block-navigation-item.has-child below) it stops at that item, instead of running on under the next label.
+	// .imet-nav in the selector so these win over core editor rules of equal specificity (the iframed canvas loads
+	// the block styles after the theme editor styles). The class is repeated because core's selected-submenu rule in
+	// the canvas (.wp-block-navigation .has-child.is-selected > ...) carries four classes too.
+	.imet-nav .has-child .wp-block-navigation__submenu-container.wp-block-navigation__submenu-container {
+		width: max-content; // sized by the longest label, so the panel follows the menu it opens
+		padding: 0;
+		border: 0;
+		border-radius: 0;
 		box-shadow: var(--wp--preset--shadow--dropdown);
 		background: var(--wp--preset--color--white);
 		color: var(--wp--preset--color--body-text);
 
 		.wp-block-navigation-item__content {
-			padding: var(--wp--preset--spacing--10) var(--wp--preset--spacing--14);
-			white-space: normal;
-			font-size: var(--wp--preset--font-size--small);
+			padding: var(--wp--preset--spacing--12) var(--wp--preset--spacing--20);
+			white-space: nowrap;
+			font-size: var(--wp--preset--font-size--14);
+		}
+
+		.wp-block-navigation-item__content:focus-visible,
+		.wp-block-navigation-item:hover > .wp-block-navigation-item__content {
+			background: var(--wp--preset--color--navy-footer);
+			color: var(--wp--preset--color--white); // no weight change: the label keeps its width on hover
+		}
+	}
+
+	// The gold rule over an open dropdown. It spans the item, not the panel, so it never reaches the neighbouring
+	// label; the panel starts at the item's bottom edge, so the rule also reads as the panel's top border.
+	.imet-nav .wp-block-navigation__container > .wp-block-navigation-item.has-child {
+		position: relative;
+		padding-bottom: var(--wp--preset--spacing--12); // hover room down to the panel; the negative margin keeps the row height
+		margin-bottom: calc(-1 * var(--wp--preset--spacing--12));
+
+		&::after {
+			content: "";
+			position: absolute;
+			right: 0;
+			bottom: 0; // the item's padding-bottom above starts the panel, so the rule sits in the gap
+			left: 0;
+			height: var(--wp--preset--spacing--4);
+			background: var(--wp--preset--color--gold);
+			opacity: 0;
+			pointer-events: none;
+		}
+
+		&:hover::after,
+		&:focus-within::after {
+			opacity: 1;
 		}
 	}
 
@@ -197,6 +231,7 @@
 			box-shadow: none;
 			background: transparent;
 
+			// stylelint-disable-next-line no-descending-specificity -- the open-panel rule above is the more specific one, on purpose
 			.wp-block-navigation-item__content {
 				padding: var(--wp--preset--spacing--6) 0;
 				font-size: var(--wp--preset--font-size--small);
