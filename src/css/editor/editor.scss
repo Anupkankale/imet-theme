@@ -1,4 +1,14 @@
+/* stylelint-disable selector-class-pattern -- WordPress core block class names use BEM (wp-block-navigation__submenu-container). */
 // Block editor styles: the header and footer parts as they look on the site.
 @use "../shared/header-footer";
 @use "../shared/design-system";
 @use "../shared/components";
+
+// Core pins the open submenu in the canvas with !important rules on the selected state
+// (.wp-block-navigation .has-child.is-selected > ...), which wraps the labels. The long selector and !important
+// match it, so the editor preview keeps the panel at the front end size. Front end: see shared/header-footer.
+.imet-pill .imet-nav.imet-menu-primary .wp-block-navigation__responsive-container-content .has-child
+.wp-block-navigation__submenu-container.wp-block-navigation__submenu-container {
+	width: max-content !important;
+	min-width: 0 !important; // core also enforces a floor, which would stop the smaller menus shrinking to their content
+}

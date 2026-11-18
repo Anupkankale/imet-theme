@@ -1,5 +1,8 @@
 @use "breakpoints" as *;
 
+// Solid caret for the header menu's dropdown items (Font Awesome "caret-down" shape, as on the live site).
+$nav-icon-caret: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 512'%3E%3Cpath d='M31.3 192h257.4c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8a20 20 0 0 1-28.2 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z'/%3E%3C/svg%3E");
+
 /* stylelint-disable selector-class-pattern -- WordPress core block class names use BEM (wp-block-button__link). */
 // Header and footer. Shared by the front end (frontend/styles.scss) and the block editor (editor/editor.scss).
 // Layout and colours live in the block markup (parts/header.html, parts/promo-bar.html, parts/footer.html); this is only what blocks
@@ -149,21 +152,74 @@
 		margin-inline-start: var(--wp--preset--spacing--12);
 	}
 
-	.has-child .wp-block-navigation__submenu-container {
+	// Desktop menu, as on the live site: a solid caret (not core's chevron) in the text colour, and on hover a 3px
+	// gold line across the whole item near the bar's bottom edge, the text turning black.
+	@media (min-width: $bp-nav) {
+
+		.imet-nav .wp-block-navigation__submenu-icon {
+			width: var(--wp--custom--size--15);
+			height: var(--wp--custom--size--15);
+			background: currentcolor;
+			-webkit-mask: $nav-icon-caret center / contain no-repeat;
+			mask: $nav-icon-caret center / contain no-repeat;
+
+			svg { display: none; }
+		}
+
+		// The items reach down to 6px above the bar's bottom, so the line sits where the live one does and the
+		// dropdown opens just under it.
+		.imet-nav .wp-block-navigation__responsive-container-content > .wp-block-navigation__container > .wp-block-navigation-item {
+			position: relative;
+			padding-block: var(--wp--preset--spacing--25);
+
+			&::after {
+				content: "";
+				position: absolute;
+				inset: auto 0 0;
+				height: var(--wp--custom--border-width--3);
+				background: var(--wp--preset--color--gold);
+				opacity: 0;
+				transition: opacity var(--wp--custom--motion--base) ease;
+				pointer-events: none;
+			}
+
+			&:is(:hover, :focus-within) {
+				color: var(--wp--preset--color--ink);
+
+				&::after { opacity: 1; }
+			}
+
+			// The dropdown keeps its own colours.
+			.wp-block-navigation__submenu-container { color: var(--wp--preset--color--body-text); }
+		}
+	}
+
+	// The dropdown panel: square, no inner padding (a row's own background then reaches both edges), and sized by
+	// the longest label. .imet-nav plus the repeated class because core's editor rules for the selected submenu are
+	// four classes deep and load after these.
+	.imet-nav .has-child .wp-block-navigation__submenu-container.wp-block-navigation__submenu-container {
 		width: max-content;
-		min-width: var(--wp--custom--size--260);
-		max-width: var(--wp--custom--size--380);
-		padding: var(--wp--preset--spacing--8);
-		border: 1px solid var(--wp--preset--color--line);
-		border-radius: var(--wp--custom--radius);
+		padding: 0;
+		border: 0;
+		border-radius: 0;
 		box-shadow: var(--wp--preset--shadow--dropdown);
 		background: var(--wp--preset--color--white);
 		color: var(--wp--preset--color--body-text);
 
 		.wp-block-navigation-item__content {
-			padding: var(--wp--preset--spacing--10) var(--wp--preset--spacing--14);
-			white-space: normal;
-			font-size: var(--wp--preset--font-size--small);
+			padding: var(--wp--preset--spacing--12) var(--wp--preset--spacing--20);
+			white-space: nowrap;
+			font-size: var(--wp--preset--font-size--14);
+		}
+
+		// Desktop only: in the mobile overlay the submenus are a plain indented list, with no hover band.
+		@media (min-width: $bp-nav) {
+
+			.wp-block-navigation-item__content:focus-visible,
+			.wp-block-navigation-item:hover > .wp-block-navigation-item__content {
+				background: var(--wp--preset--color--navy-footer);
+				color: var(--wp--preset--color--white); // no weight change: the label keeps its width on hover
+			}
 		}
 	}
 
@@ -197,6 +253,7 @@
 			box-shadow: none;
 			background: transparent;
 
+			// stylelint-disable-next-line no-descending-specificity -- the open-panel rule above is the more specific one, on purpose
 			.wp-block-navigation-item__content {
 				padding: var(--wp--preset--spacing--6) 0;
 				font-size: var(--wp--preset--font-size--small);
