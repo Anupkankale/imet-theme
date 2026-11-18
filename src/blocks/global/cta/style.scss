@@ -145,7 +145,7 @@
 
 	.imet-section.cta-wrap.is-style-home.is-publish .cta-text { flex: none; margin: 20px 0 0; }
 
-	.imet-section.cta-wrap.is-style-home.is-publish .cta-photo { width: 100%; margin: 20px 0 0; }
+	.imet-section.cta-wrap.is-style-home.is-publish .cta-photo { flex: none; width: min(100%, var(--wp--custom--size--380)); height: auto; margin: 20px auto 0; } /* the whole journals graphic: the stacked card's 240px photo height cut its bottom off on tablets, and the row layout's 308px flex basis became empty height in the column */
 
 	.imet-section.cta-wrap.is-style-home.is-final .cta { flex-direction: column; align-items: flex-start; gap: 20px; padding: 28px 24px; }
 

@@ -773,10 +773,10 @@ $footer-icon-caret: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000
 		padding: 0;
 		list-style: none;
 
-		li::after {
+		li:not(:last-child)::after {
 			content: "|";
 			margin-inline: var(--wp--preset--spacing--6);
-		}
+		} // a divider between links, none after the last one
 	}
 
 	// ---- White recognition strip ----
