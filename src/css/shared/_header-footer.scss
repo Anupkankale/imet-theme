@@ -169,35 +169,43 @@
 			font-size: var(--wp--preset--font-size--14);
 		}
 
-		.wp-block-navigation-item__content:focus-visible,
-		.wp-block-navigation-item:hover > .wp-block-navigation-item__content {
-			background: var(--wp--preset--color--navy-footer);
-			color: var(--wp--preset--color--white); // no weight change: the label keeps its width on hover
+		// Desktop only: in the mobile overlay the submenus are a plain indented list, with no hover band.
+		@media (min-width: $bp-nav) {
+
+			.wp-block-navigation-item__content:focus-visible,
+			.wp-block-navigation-item:hover > .wp-block-navigation-item__content {
+				background: var(--wp--preset--color--navy-footer);
+				color: var(--wp--preset--color--white); // no weight change: the label keeps its width on hover
+			}
 		}
 	}
 
 	// The gold rule over an open dropdown. It spans the item, not the panel, so it never reaches the neighbouring
 	// label; the panel starts at the item's bottom edge, so the rule also reads as the panel's top border.
-	.imet-nav .wp-block-navigation__container > .wp-block-navigation-item.has-child {
-		position: relative;
-		padding-bottom: var(--wp--preset--spacing--12); // hover room down to the panel; the negative margin keeps the row height
-		margin-bottom: calc(-1 * var(--wp--preset--spacing--12));
+	// Desktop only: the mobile overlay is opened, not hovered, so a rule there would sit under one item at random.
+	@media (min-width: $bp-nav) {
 
-		&::after {
-			content: "";
-			position: absolute;
-			right: 0;
-			bottom: 0; // the item's padding-bottom above starts the panel, so the rule sits in the gap
-			left: 0;
-			height: var(--wp--preset--spacing--4);
-			background: var(--wp--preset--color--gold);
-			opacity: 0;
-			pointer-events: none;
-		}
+		.imet-nav .wp-block-navigation__container > .wp-block-navigation-item.has-child {
+			position: relative;
+			padding-bottom: var(--wp--preset--spacing--12); // hover room down to the panel; the negative margin keeps the row height
+			margin-bottom: calc(-1 * var(--wp--preset--spacing--12));
 
-		&:hover::after,
-		&:focus-within::after {
-			opacity: 1;
+			&::after {
+				content: "";
+				position: absolute;
+				right: 0;
+				bottom: 0; // the item's padding-bottom above starts the panel, so the rule sits in the gap
+				left: 0;
+				height: var(--wp--preset--spacing--4);
+				background: var(--wp--preset--color--gold);
+				opacity: 0;
+				pointer-events: none;
+			}
+
+			&:hover::after,
+			&:focus-within::after {
+				opacity: 1;
+			}
 		}
 	}
 
