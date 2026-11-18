@@ -13,7 +13,7 @@ test.describe('fee banner', () => {
 		'/online-doctorate-dba-generative-ai/',
 		'/online-masters-mba-cybersecurity-program/',
 	]) {
-		test(`${path}: the cap picture stays in the card, the scholarship side is centred`, async ({
+		test(`${path}: the cap picture stays in the card, the scholarship side is centred top to bottom`, async ({
 			page,
 		}, testInfo) => {
 			test.skip(
@@ -26,7 +26,6 @@ test.describe('fee banner', () => {
 			await banner.scrollIntoViewIfNeeded();
 
 			const result = await banner.evaluate((node) => {
-				const left = node.querySelector('.cost-left');
 				const right = node.querySelector('.cost-right');
 				const box = right.getBoundingClientRect();
 				const kids = [...right.children].filter(
@@ -35,8 +34,24 @@ test.describe('fee banner', () => {
 				const first = kids[0].getBoundingClientRect();
 				const last = kids[kids.length - 1].getBoundingClientRect();
 
+				// The cap artwork is the card's ::before (behind the ribbon): its box, relative to the card.
+				const art = getComputedStyle(node, '::before');
+				const card = node.getBoundingClientRect();
+				// left/top don't include the transform (it is centred with translateX(-50%)), so add its shift.
+				const shift =
+					art.transform === 'none'
+						? { m41: 0, m42: 0 }
+						: new window.DOMMatrixReadOnly(art.transform);
+				const artLeft = parseFloat(art.left) + shift.m41;
+				const artTop = parseFloat(art.top) + shift.m42;
+
 				return {
-					clips: getComputedStyle(left).overflow,
+					art: {
+						left: artLeft,
+						top: artTop,
+						right: card.width - (artLeft + parseFloat(art.width)),
+						bottom: card.height - (artTop + parseFloat(art.height)),
+					},
 					above: first.top - box.top,
 					below: box.bottom - last.bottom,
 					edge:
@@ -49,8 +64,14 @@ test.describe('fee banner', () => {
 				};
 			});
 
-			// The fee side clips its decoration, so the picture can't rise above the card or show on the other side.
-			expect(result.clips).toMatch(/hidden|clip/);
+			// The cap picture stays inside the card: not above its top edge or past its sides (3px allowed: the faded,
+			// semi-transparent artwork's box may graze the top edge).
+			for (const [side, gap] of Object.entries(result.art)) {
+				expect(
+					gap,
+					`cap picture past the card's ${side}`
+				).toBeGreaterThanOrEqual(-3);
+			}
 			// Centred top to bottom (within a few pixels) and clear of the card's right edge.
 			expect(Math.abs(result.above - result.below)).toBeLessThanOrEqual(
 				6
