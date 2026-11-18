@@ -119,6 +119,58 @@ class AssetsEnqueueTest extends TestCase {
 	}
 
 	/**
+	 * About Us, "What you gain with IMET": the orbit script loads only for the IMET Section with the ab-gain-intro class.
+	 */
+	public function test_gain_orbit_enqueues_only_for_its_section(): void {
+		$assets = $this->registered_assets();
+
+		$assets->enqueue_block_specific_assets(
+			'<section></section>',
+			[
+				'blockName' => 'imet/section',
+				'attrs'     => [ 'className' => 'ab-map' ],
+			]
+		);
+		$this->assertFalse( wp_script_is( 'imet-gain-orbit', 'enqueued' ) );
+
+		$markup = $assets->enqueue_block_specific_assets(
+			'<section></section>',
+			[
+				'blockName' => 'imet/section',
+				'attrs'     => [ 'className' => 'ab-gain-intro' ],
+			]
+		);
+		$this->assertSame( '<section></section>', $markup );
+		$this->assertTrue( wp_script_is( 'imet-gain-orbit', 'enqueued' ) );
+	}
+
+	/**
+	 * About Us, "Study from anywhere": the map script loads only for the IMET Section with the ab-map class (not
+	 * ab-map-text and the like).
+	 */
+	public function test_partner_map_enqueues_only_for_its_section(): void {
+		$assets = $this->registered_assets();
+
+		$assets->enqueue_block_specific_assets(
+			'<section></section>',
+			[
+				'blockName' => 'imet/section',
+				'attrs'     => [ 'className' => 'ab-map-text' ],
+			]
+		);
+		$this->assertFalse( wp_script_is( 'imet-partner-map', 'enqueued' ) );
+
+		$assets->enqueue_block_specific_assets(
+			'<section></section>',
+			[
+				'blockName' => 'imet/section',
+				'attrs'     => [ 'className' => 'ab-map' ],
+			]
+		);
+		$this->assertTrue( wp_script_is( 'imet-partner-map', 'enqueued' ) );
+	}
+
+	/**
 	 * Other blocks, and blocks without a name, enqueue nothing.
 	 */
 	public function test_other_blocks_enqueue_nothing(): void {
@@ -247,7 +299,7 @@ class AssetsEnqueueTest extends TestCase {
 	 * @return Assets Assets with its handles registered.
 	 */
 	private function registered_assets(): Assets {
-		foreach ( [ 'js/frontend/core-navigation.js', 'js/frontend/footer-accordion.js', 'js/frontend/header-scroll.js', 'css/frontend/core-navigation.css', 'css/frontend/styles.css', 'css/frontend/tailwind.css' ] as $relative ) {
+		foreach ( [ 'js/frontend/core-navigation.js', 'js/frontend/footer-accordion.js', 'js/frontend/header-scroll.js', 'js/frontend/gain-orbit.js', 'js/frontend/partner-map.js', 'css/frontend/core-navigation.css', 'css/frontend/styles.css', 'css/frontend/tailwind.css' ] as $relative ) {
 			$file = untrailingslashit( IMET_PATH ) . '/assets/build/' . $relative;
 
 			if ( ! file_exists( $file ) ) {

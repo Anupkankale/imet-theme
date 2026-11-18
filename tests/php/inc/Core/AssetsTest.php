@@ -118,35 +118,6 @@ class AssetsTest extends TestCase {
 	}
 
 	/**
-	 * The About Us orbit script loads only for the IMET Section with the ab-gain-intro class.
-	 */
-	public function test_gain_orbit_enqueued_only_for_its_section(): void {
-		$this->write_build_asset( 'js/frontend/gain-orbit.js' );
-		$this->instance->register_assets();
-
-		$this->instance->enqueue_block_specific_assets( '<section></section>', [ 'blockName' => 'imet/section', 'attrs' => [ 'className' => 'ab-map' ] ] );
-		$this->assertFalse( wp_script_is( 'imet-gain-orbit', 'enqueued' ) );
-
-		$markup = $this->instance->enqueue_block_specific_assets( '<section></section>', [ 'blockName' => 'imet/section', 'attrs' => [ 'className' => 'ab-gain-intro' ] ] );
-		$this->assertTrue( wp_script_is( 'imet-gain-orbit', 'enqueued' ) );
-		$this->assertSame( '<section></section>', $markup );
-	}
-
-	/**
-	 * The About Us partner map script loads only for the IMET Section with the ab-map class (not ab-map-text and the like).
-	 */
-	public function test_partner_map_enqueued_only_for_its_section(): void {
-		$this->write_build_asset( 'js/frontend/partner-map.js' );
-		$this->instance->register_assets();
-
-		$this->instance->enqueue_block_specific_assets( '', [ 'blockName' => 'imet/section', 'attrs' => [ 'className' => 'ab-map-text' ] ] );
-		$this->assertFalse( wp_script_is( 'imet-partner-map', 'enqueued' ) );
-
-		$this->instance->enqueue_block_specific_assets( '', [ 'blockName' => 'imet/section', 'attrs' => [ 'className' => 'ab-map' ] ] );
-		$this->assertTrue( wp_script_is( 'imet-partner-map', 'enqueued' ) );
-	}
-
-	/**
 	 * Write a fixture file under the theme's built-assets directory.
 	 *
 	 * @param string $relative Path relative to assets/build (e.g. js/frontend/core-navigation.js).
