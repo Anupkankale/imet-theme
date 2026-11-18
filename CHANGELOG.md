@@ -2,6 +2,29 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.71 - 2026-11-18
+
+### Added
+
+- Playwright browser tests (`npm run test:e2e`, in `tests/e2e/`), run in Chrome at four sizes (1440, 1024, 768 and 390px) against staging, or any site via `BASE_URL`. They check 22 pages for sideways scrolling, content past the screen edge and broken images, plus the header menu (same items as imetworldwide.com, hover line, carets, phone menu), the fee banner, the Home success-story cards and the advisor form (rendered, required fields; it never submits a lead). Results go to `artifacts/e2e/` (git-ignored).
+
+### Changed
+
+- Fee banner: "Doctorate (DBA) Program Fee" and the price are left-aligned (40px in from the card's edge) instead of centred, on desktop and laptop. On phones and small tablets, where the banner stacks, they stay centred like the rest of the card.
+- More room between sections on every page: 48px above and below each section on desktop, 40px on tablets and 32px on phones (Home was 32, 26 and 24px; the other pages 40, 32 and 24px). The hero, highlights, featured programs and fee banner keep their own spacing.
+- Header menu on desktop, as on imetworldwide.com: hovering an item shows a 3px gold line across it near the bar's bottom edge and turns its text black, and the dropdown arrows are solid carets in the text colour instead of thin chevrons. The dropdown opens just under the line. The phone and tablet menu is unchanged.
+- Patterns and the Specializations block link to pages with relative URLs (`/success-stories/`) instead of the hard-coded `https://imetworldwide.com/…`, so links stay on whichever site shows them. Three old addresses point straight at the page they redirect to. Two blog posts and the case-study PDF, which only exist on imetworldwide.com, keep the live domain at their current addresses.
+
+### Fixed
+
+- Home, "Our Success Stories" cards: the story on a card's back no longer loses its LinkedIn and "Read More" links. Four cards per row only from 1180px (three from 901px), and one card with a peek of the next below 640px (it was below 481px), so the back always fits its text.
+
+## 1.1.70 - 2026-11-18
+
+### Fixed
+
+- Fee banner (`imet/cost-banner`) on desktop: the cap-and-diploma picture stays inside the card's fee side; it no longer rises above the card's top edge or shows through the "45%" ribbon and the scholarship text. The scholarship side is centred top-to-bottom with even room on both sides, and its heading tops out at 32px so it fits on one line beside the ribbon.
+
 ## 1.1.69 - 2026-11-17
 
 ### Added
