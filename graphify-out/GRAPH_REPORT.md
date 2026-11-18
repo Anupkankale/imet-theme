@@ -1,15 +1,15 @@
-# Graph Report - imet-theme  (2026-11-13)
+# Graph Report - imet-theme  (2026-11-17)
 
 ## Corpus Check
 - cluster-only mode — file stats not available
 
 ## Summary
-- 2265 nodes · 2913 edges · 203 communities (108 shown, 95 thin omitted)
+- 2270 nodes · 2915 edges · 211 communities (106 shown, 105 thin omitted)
 - Extraction: 97% EXTRACTED · 3% INFERRED · 0% AMBIGUOUS · INFERRED: 85 edges (avg confidence: 0.87)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `545d3779`
+- Built from commit: `ad1d138b`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -23,7 +23,7 @@
 - settings
 - Development guide
 - LinkPhotoSectionsTest
-- SplitTestimonials
+- TestCase
 - AssetsHmrTest
 - Assets
 - Util
@@ -38,17 +38,16 @@
 - Asset Building Process
 - padding
 - blocks
-- subnav/index.js
+- AssetsEnqueueTest
 - typography
 - getPluginName
 - Templates
-- align
+- AssetsTest
 - size
-- imet
+- CurrentYear
 - BlocksTest
 - devDependencies
 - index.md
-- imet
 - ref_fs
 - alumni-video/block.json
 - faq/block.json
@@ -59,7 +58,7 @@
 - Getting started
 - LoggerTest
 - ThemeSetup
-- supports
+- Local development
 - section/block.json
 - .stylelintrc.json
 - specializations/block.json
@@ -140,13 +139,18 @@
 - CleanBuildPlugin
 - CssAssetMetadataPlugin
 - CssAssetRtlPlugin
+- imet
 - Deployment: GitHub → Hostinger
-- rtCamp\WPPrimitives\Contracts\Interfaces\Registrable
+- supports
+- align
 - group-scroller.json
 - group-testimonial-grid.json
 - group-video-gallery.json
+- supports
+- imet
+- supports
+- section
 - SKILLS.md: how the IMET theme is built
-- 6. Recipes
 - eyebrow
 - header
 - IMET design system
@@ -159,13 +163,12 @@
 - spacing
 - ImetBlocktheme
 - Tailwind CSS
-- supports
 - footer-accordion.js
 - header-scroll.js
 
 ## God Nodes (most connected - your core abstractions)
 1. `TestCase` - 49 edges
-2. `size` - 47 edges
+2. `size` - 49 edges
 3. `scripts` - 35 edges
 4. `Assets` - 31 edges
 5. `registerSectionBlock()` - 30 edges
@@ -176,6 +179,8 @@
 10. `FeatureRegistry` - 16 edges
 
 ## Surprising Connections (you probably didn't know these)
+- `Check a change` --references--> `MenuTest`  [INFERRED]
+  docs/local-development.md → tests/php/inc/Core/MenuTest.php
 - `Key principles (full detail in the files above)` --references--> `Main`  [INFERRED]
   AGENTS.md → inc/Main.php
 - `3. rtCamp rules to follow (details in AGENTS.md)` --references--> `Main`  [INFERRED]
@@ -184,13 +189,11 @@
   DEVELOPMENT.md → tests/php/TestCase.php
 - `How it is organised` --references--> `registerSectionBlock()`  [INFERRED]
   README.md → src/blocks-shared/section-block.js
-- `Structure` --references--> `Assets`  [INFERRED]
-  AGENTS.md → inc/Core/Assets.php
 
 ## Import Cycles
 - None detected.
 
-## Communities (203 total, 95 thin omitted)
+## Communities (211 total, 105 thin omitted)
 
 ### Community 0 - "fontSize"
 Cohesion: 0.14
@@ -220,10 +223,6 @@ Nodes (37): custom, customDuotone, customGradient, defaultDuotone, defaultGradie
 Cohesion: 0.29
 Nodes (7): Adding a new class, Before adding code, Conditional registration, Content that outlives the theme, Development guide, Picking a base, Troubleshooting
 
-### Community 11 - "Assets"
-Cohesion: 0.07
-Nodes (4): Assets, AssetsEnqueueTest, AssetsTailwindTest, AssetsTest
-
 ### Community 13 - "view-helpers.js"
 Cohesion: 0.11
 Nodes (15): @wordpress/i18n@6.29.0, @wordpress/i18n, animate(), io, load(), play(), FLAGS, accordion() (+7 more)
@@ -237,8 +236,12 @@ Cohesion: 0.12
 Nodes (17): Advanced, Block dev server port, Blocks (`start:blocks` + Fast Refresh), Configuration, Disabling the BrowserSync client only, Enabling / disabling HMR, How It Works, HTTPS (+9 more)
 
 ### Community 18 - "Main"
-Cohesion: 0.14
-Nodes (3): Components, Main, MainTest
+Cohesion: 0.19
+Nodes (3): Components, Logger, Main
+
+### Community 19 - "SyncedSections"
+Cohesion: 0.08
+Nodes (6): Images, SplitTestimonials, SyncedSections, 4. WordPress best practice we hold ourselves to, SplitTestimonialsTest, SyncedSectionsTest
 
 ### Community 20 - "install.sh script"
 Cohesion: 0.27
@@ -256,10 +259,6 @@ Nodes (15): core/post-comments, core/pullquote, core/quote, spacing, typography,
 Cohesion: 0.18
 Nodes (13): core/buttons, core/navigation, core/post-content, core/separator, spacing, typography, spacing, color (+5 more)
 
-### Community 24 - "subnav/index.js"
-Cohesion: 0.33
-Nodes (4): default, type, attributes, align
-
 ### Community 25 - "typography"
 Cohesion: 0.22
 Nodes (11): typography, typography, heading, color, typography, typography, typography, fontFamily (+3 more)
@@ -268,29 +267,17 @@ Nodes (11): typography, typography, heading, color, typography, typography, typo
 Cohesion: 0.33
 Nodes (6): getPluginName(), isNotOneOfPlugins(), isNotPlugin(), isPlugin(), setCssOutputPath(), withoutFastRefresh()
 
-### Community 28 - "align"
-Cohesion: 0.50
-Nodes (4): default, type, attributes, align
-
 ### Community 29 - "size"
 Cohesion: 0.04
-Nodes (47): size, 1012, 102, 103, 110, 1102, 1186, 12-5 (+39 more)
-
-### Community 30 - "imet"
-Cohesion: 0.50
-Nodes (4): imet, anchor, className, tagName
+Nodes (49): size, 1012, 102, 103, 110, 1102, 1186, 12-5 (+41 more)
 
 ### Community 31 - "BlocksTest"
-Cohesion: 0.11
+Cohesion: 0.10
 Nodes (3): Blocks, Defaults, BlocksTest
 
 ### Community 32 - "devDependencies"
 Cohesion: 0.11
 Nodes (19): devDependencies, @babel/core@7.29.7, browser-sync@3.0.4, css-minimizer-webpack-plugin@8.0.0, @eslint-community/eslint-plugin-eslint-comments@4.8.1, eslint-plugin-jest@29.16.6, eslint-plugin-react-hooks@7.1.1, jest@30.5.2 (+11 more)
-
-### Community 34 - "imet"
-Cohesion: 0.50
-Nodes (4): imet, anchor, className, tagName
 
 ### Community 35 - "ref_fs"
 Cohesion: 0.25
@@ -324,9 +311,9 @@ Nodes (8): copy-webpack-plugin@14.0.0, @wordpress/scripts@36.0.0, copy-webpack-p
 Cohesion: 0.33
 Nodes (6): 1. Get the theme, 2. Install dependencies, 3. Start WordPress and activate the theme, 4. Make a visible edit, Getting started, Prerequisites
 
-### Community 45 - "supports"
-Cohesion: 0.50
-Nodes (4): supports, align, anchor, html
+### Community 45 - "Local development"
+Cohesion: 0.29
+Nodes (7): Automatic frontend reload, Build for delivery, Check a change, Edit source and see the result, Local development, Start and stop WordPress, Troubleshooting
 
 ### Community 46 - "section/block.json"
 Cohesion: 0.07
@@ -365,8 +352,8 @@ Cohesion: 0.83
 Nodes (3): have(), log(), uninstall.sh script
 
 ### Community 62 - "career-table/block.json"
-Cohesion: 0.07
-Nodes (25): default, type, apiVersion, attributes, align, category, description, editorScript (+17 more)
+Cohesion: 0.11
+Nodes (17): apiVersion, category, description, editorScript, icon, imet, anchor, className (+9 more)
 
 ### Community 63 - "cta/block.json"
 Cohesion: 0.07
@@ -389,20 +376,20 @@ Cohesion: 0.07
 Nodes (25): default, type, apiVersion, attributes, align, category, description, editorScript (+17 more)
 
 ### Community 71 - "subnav/block.json"
-Cohesion: 0.14
-Nodes (13): apiVersion, category, description, editorScript, icon, keywords, name, $schema (+5 more)
+Cohesion: 0.07
+Nodes (25): default, type, apiVersion, attributes, align, category, description, editorScript (+17 more)
 
 ### Community 75 - "about-card/block.json"
-Cohesion: 0.08
-Nodes (24): default, type, apiVersion, attributes, align, category, description, editorScript (+16 more)
+Cohesion: 0.11
+Nodes (16): default, type, apiVersion, attributes, align, category, description, editorScript (+8 more)
 
 ### Community 76 - "dba-vs-phd/block.json"
 Cohesion: 0.08
 Nodes (24): default, type, apiVersion, attributes, align, category, description, editorScript (+16 more)
 
 ### Community 77 - "float-contact/block.json"
-Cohesion: 0.08
-Nodes (24): default, type, apiVersion, attributes, align, category, description, editorScript (+16 more)
+Cohesion: 0.11
+Nodes (16): default, type, apiVersion, attributes, align, category, description, editorScript (+8 more)
 
 ### Community 78 - "process/block.json"
 Cohesion: 0.08
@@ -453,20 +440,16 @@ Cohesion: 0.10
 Nodes (20): blockTypes, color, radius, style, width, background, bottom, left (+12 more)
 
 ### Community 93 - "cyber-banner/block.json"
-Cohesion: 0.12
-Nodes (15): apiVersion, category, description, editorScript, icon, keywords, name, $schema (+7 more)
-
-### Community 95 - "AuthorProfile"
-Cohesion: 0.21
-Nodes (3): AuthorProfile, AuthorProfileTest, TestCase
+Cohesion: 0.10
+Nodes (19): apiVersion, category, description, editorScript, icon, imet, anchor, className (+11 more)
 
 ### Community 96 - "MenuRenderer"
 Cohesion: 0.05
 Nodes (10): DefaultMenus, MenuRenderer, MenuSeeder, NavWalker, LineBreaks, Menu links (header and footer), MenuRendererTest, MenuSeederTest (+2 more)
 
 ### Community 97 - "analytics/block.json"
-Cohesion: 0.12
-Nodes (16): apiVersion, category, description, editorScript, icon, imet, anchor, className (+8 more)
+Cohesion: 0.08
+Nodes (24): default, type, apiVersion, attributes, align, category, description, editorScript (+16 more)
 
 ### Community 98 - "embassy/block.json"
 Cohesion: 0.07
@@ -485,12 +468,8 @@ Cohesion: 0.17
 Nodes (16): border, color, defaultRadiusSizes, radius, radiusSizes, style, width, :active (+8 more)
 
 ### Community 108 - "custom"
-Cohesion: 0.12
-Nodes (16): gradient, letterSpacing, motion, radius, section, hero, programs, specs (+8 more)
-
-### Community 110 - "Video"
-Cohesion: 0.10
-Nodes (4): Images, Video, 4. WordPress best practice we hold ourselves to, MediaTest
+Cohesion: 0.15
+Nodes (13): gradient, letterSpacing, motion, radius, hero, learners, programs, specs (+5 more)
 
 ### Community 112 - "heading-eyebrow.json"
 Cohesion: 0.14
@@ -544,13 +523,21 @@ Nodes (11): blockTypes, color, background, text, $schema, slug, styles, border (
 Cohesion: 0.17
 Nodes (11): blockTypes, color, radius, style, width, $schema, slug, styles (+3 more)
 
-### Community 129 - "Menu"
-Cohesion: 0.14
-Nodes (9): Automatic frontend reload, Build for delivery, Check a change, Edit source and see the result, Local development, Start and stop WordPress, Troubleshooting, Menu (+1 more)
+### Community 135 - "imet"
+Cohesion: 0.50
+Nodes (4): imet, anchor, className, tagName
 
 ### Community 136 - "Deployment: GitHub → Hostinger"
 Cohesion: 0.22
 Nodes (9): a. Hostinger: turn on SSH, b. Laptop: create a dedicated deploy key, c. Test the login and collect the values, d. Where staging lives, Deployment: GitHub → Hostinger, e. GitHub setup (per repository), f. First deploy, g. Rollback (+1 more)
+
+### Community 137 - "supports"
+Cohesion: 0.50
+Nodes (4): supports, align, anchor, html
+
+### Community 139 - "align"
+Cohesion: 0.50
+Nodes (4): default, type, attributes, align
 
 ### Community 140 - "group-scroller.json"
 Cohesion: 0.22
@@ -564,21 +551,33 @@ Nodes (8): blockTypes, $schema, slug, blockGap, styles, spacing, title, version
 Cohesion: 0.22
 Nodes (8): blockTypes, $schema, slug, blockGap, styles, spacing, title, version
 
-### Community 147 - "SKILLS.md: how the IMET theme is built"
-Cohesion: 0.25
-Nodes (8): 1. The one rule: the theme owns presentation, 2. Folder map, 3. rtCamp rules to follow (details in AGENTS.md), 5. Token rules (no magic numbers), 7. Commands, 8. Checklists, 9. Don't, SKILLS.md: how the IMET theme is built
+### Community 143 - "supports"
+Cohesion: 0.50
+Nodes (4): supports, align, anchor, html
 
-### Community 148 - "6. Recipes"
-Cohesion: 0.25
-Nodes (8): 6. Recipes, Add a block style variation, Add a design token, Add a feature class, Add a pattern, Add or change a section block, Header, footer, menu and the offer bar, The Home pattern and the advisor form
+### Community 144 - "imet"
+Cohesion: 0.50
+Nodes (4): imet, anchor, className, tagName
+
+### Community 145 - "supports"
+Cohesion: 0.50
+Nodes (4): supports, align, anchor, html
+
+### Community 146 - "section"
+Cohesion: 0.50
+Nodes (4): section, gap, padding, paddingTall
+
+### Community 147 - "SKILLS.md: how the IMET theme is built"
+Cohesion: 0.12
+Nodes (16): 1. The one rule: the theme owns presentation, 2. Folder map, 3. rtCamp rules to follow (details in AGENTS.md), 5. Token rules (no magic numbers), 6. Recipes, 7. Commands, 8. Checklists, 9. Don't (+8 more)
 
 ### Community 150 - "eyebrow"
 Cohesion: 0.25
 Nodes (8): eyebrow, color, fontFamily, fontSize, fontSizeMobile, fontWeight, gap, lineHeight
 
 ### Community 151 - "header"
-Cohesion: 0.25
-Nodes (8): header, clearance, clearancePhone, mainClearance, navOffset, pillHeight, pillWidth, promoHeight
+Cohesion: 0.29
+Nodes (7): header, clearance, clearancePhone, mainClearance, pillHeight, pillWidth, promoHeight
 
 ### Community 152 - "IMET design system"
 Cohesion: 0.29
@@ -620,29 +619,25 @@ Nodes (4): Command reference, Further reading, ImetBlocktheme, Shared dependenci
 Cohesion: 0.50
 Nodes (4): Setup, Tailwind CSS, Verify a change, What to edit
 
-### Community 168 - "supports"
-Cohesion: 0.50
-Nodes (4): supports, align, anchor, html
-
 ## Knowledge Gaps
 - **1 isolated node(s):** `@rtcamp/stylelint-config`
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 1252 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
-- **95 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 1257 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **105 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `registerSectionBlock()` connect `section-block.js` to `subnav/index.js`, `ImetBlocktheme`, `alumni-video/block.json`, `faq/block.json`, `testimonials/block.json`, `hero/block.json`, `section/block.json`, `specializations/block.json`, `step-cards/block.json`, `tabs/block.json`, `who-can-join/block.json`, `career-table/block.json`, `cta/block.json`, `certificate/block.json`, `highlights/block.json`, `about-card/block.json`, `dba-vs-phd/block.json`, `float-contact/block.json`, `process/block.json`, `usp-bento/block.json`, `overview/block.json`, `embassy/block.json`?**
-  _High betweenness centrality (0.205) - this node is a cross-community bridge._
+- **Why does `registerSectionBlock()` connect `section-block.js` to `ImetBlocktheme`, `alumni-video/block.json`, `faq/block.json`, `testimonials/block.json`, `hero/block.json`, `section/block.json`, `specializations/block.json`, `step-cards/block.json`, `tabs/block.json`, `who-can-join/block.json`, `cta/block.json`, `certificate/block.json`, `highlights/block.json`, `subnav/block.json`, `about-card/block.json`, `dba-vs-phd/block.json`, `float-contact/block.json`, `process/block.json`, `usp-bento/block.json`, `overview/block.json`, `analytics/block.json`, `embassy/block.json`?**
+  _High betweenness centrality (0.224) - this node is a cross-community bridge._
 - **What connects `@rtcamp/stylelint-config` to the rest of the system?**
   _1 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `fontSize` be split into smaller, more focused modules?**
   _Cohesion score 0.1422924901185771 - nodes in this community are weakly interconnected._
 - **Why does `ImetBlocktheme` connect `ImetBlocktheme` to `index.md`?**
-  _High betweenness centrality (0.173) - this node is a cross-community bridge._
+  _High betweenness centrality (0.183) - this node is a cross-community bridge._
 - **Should `composer.json` be split into smaller, more focused modules?**
   _Cohesion score 0.045454545454545456 - nodes in this community are weakly interconnected._
 - **Why does `How it is organised` connect `ImetBlocktheme` to `section-block.js`?**
-  _High betweenness centrality (0.168) - this node is a cross-community bridge._
+  _High betweenness centrality (0.182) - this node is a cross-community bridge._
 - **Should `webpack.config.js` be split into smaller, more focused modules?**
   _Cohesion score 0.06451612903225806 - nodes in this community are weakly interconnected._

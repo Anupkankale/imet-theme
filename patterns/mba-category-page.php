@@ -159,19 +159,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:group -->
 <!-- wp:group {"className":"spec-grid","layout":{"type":"default"}} -->
 <div class="wp-block-group spec-grid"><!-- wp:paragraph {"className":"spec-card"} -->
-<p class="spec-card"><a href="https://imetworldwide.com/online-doctorate-cybersecurity-certificate-program/">Doctorate in Cybersecurity</a></p>
+<p class="spec-card"><a href="/online-doctorate-cybersecurity-certificate-program/">Doctorate in Cybersecurity</a></p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph {"className":"spec-card"} -->
-<p class="spec-card"><a href="https://imetworldwide.com/online-doctorate-digital-transformation-program/">Doctorate in Digital Transformation</a></p>
+<p class="spec-card"><a href="/online-doctorate-digital-transformation-program/">Doctorate in Digital Transformation</a></p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph {"className":"spec-card"} -->
-<p class="spec-card"><a href="https://imetworldwide.com/online-doctorate-dba-artificial-intelligence-ml/">Doctorate in AI/ML</a></p>
+<p class="spec-card"><a href="/online-doctorate-dba-artificial-intelligence-ml/">Doctorate in AI/ML</a></p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph {"className":"spec-card"} -->
-<p class="spec-card"><a href="https://imetworldwide.com/online-doctorate-dba-project-management/">Doctorate in Project Management</a></p>
+<p class="spec-card"><a href="/online-doctorate-dba-project-management/">Doctorate in Project Management</a></p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph {"className":"spec-card"} -->
-<p class="spec-card"><a href="https://imetworldwide.com/online-doctorate-it-governance-risk-compliance/">Doctorate in IT Governance</a></p>
+<p class="spec-card"><a href="/online-doctorate-it-governance-risk-compliance/">Doctorate in IT Governance</a></p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph {"className":"spec-card"} -->
 <p class="spec-card"><a href="https://imetworldwide.com/online-doctorate-supply-chain-management/">Doctorate in Supply Chain Management</a></p>
