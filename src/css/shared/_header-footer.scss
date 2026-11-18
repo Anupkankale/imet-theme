@@ -508,7 +508,7 @@ $footer-icon-caret: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000
 		grid-template-columns: max-content max-content minmax(0, 1fr); // each list on one line, as in the design
 		gap: var(--wp--preset--spacing--30) var(--wp--preset--spacing--36);
 		align-items: start;
-		padding-bottom: var(--wp--preset--spacing--70);
+		padding-bottom: var(--wp--preset--spacing--30); // the same room either side of the rule (the offices sit 24px under it; this was 70px)
 		border-bottom: 1px solid var(--footer-rule);
 
 		// Narrower screens: shared columns, the links wrap.
@@ -641,20 +641,7 @@ $footer-icon-caret: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000
 		}
 	}
 
-	// Doctorate column: bulleted, underlined links.
-	&-list-dba {
-		padding-left: var(--wp--preset--spacing--20);
-		list-style: disc;
-
-		a {
-			text-decoration: underline;
-			text-underline-offset: var(--wp--custom--size--3);
-		}
-
-		li + li {
-			margin-top: var(--wp--preset--spacing--2);
-		}
-	}
+	// Doctorate column: plain links like the other columns (it had bullets and underlines of its own).
 
 	&-badge {
 		display: inline-block;
@@ -739,14 +726,42 @@ $footer-icon-caret: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000
 	}
 
 	// ---- Doctorate programs by country ----
-	// One Details block: on phones the "Doctorate Programs by Country" row; from 768px up always open, no heading.
+	// One Details block: on phones the "Doctorate Programs by Country" row; from 768px up always open, one heading
+	// ("Doctorate Programs by Country") over one wrapping line of links, divided by "|" (the per-country headings and
+	// separate rows are for the phone accordion only).
 	&-countries {
 		margin-top: var(--wp--preset--spacing--30);
 
 		@media (min-width: #{$bp-tablet}) {
 
 			.imet-footer-acc-countries > summary {
+				margin-bottom: var(--wp--preset--spacing--12);
+				pointer-events: none;
+				list-style: none;
+
+				&::-webkit-details-marker {
+					display: none;
+				}
+			}
+
+			.imet-footer-country-h {
 				display: none;
+			}
+
+			.imet-footer-country-list {
+				display: inline;
+
+				li {
+					display: inline;
+					line-height: 2;
+					white-space: nowrap;
+				}
+
+				// Divider after every link but the very last one (each country's last link included, so the countries run on).
+				&:not(:last-of-type) li:last-child::after {
+					content: "|";
+					margin-inline: var(--wp--preset--spacing--6);
+				}
 			}
 		}
 	}

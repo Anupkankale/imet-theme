@@ -2,6 +2,24 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.73 - 2026-11-18
+
+### Added
+
+- About Us, "What you gain with IMET": an interactive section in the style of leadershipprograms.ca/about. Six icons on a ring around the IMET logo, a numbered card and a row of chips (The Dr. title, Research publication, Public speaking, Flexible online study, EMI and scholarships, Personal branding). Hovering, focusing or clicking a chip or an icon shows its card. The card steps through all six every 4 seconds until someone interacts, and never with reduced motion. The chips are a keyboard tab list (arrow keys, Home, End). Without JavaScript all six cards show. The script (`src/js/frontend/gain-orbit.js`) loads only on a page with this section. It replaces the static circle picture and the single "The Dr. title" card. Saved copies of the About Us page need the new section content.
+- About Us, "Study from anywhere": an interactive partner-centre map in the style of leadershipprograms.ca. Region chips (North America, Europe, Middle East, Asia Pacific) sit above the theme's world map. Partner countries are tinted, the selected region's countries turn navy with labelled, pulsing pins, and dashed routes run from Dubai. A label card shows the region, its countries and its centres. Hovering, focusing or clicking a chip, a pin or a partner-centre card selects its region. The map steps through the regions every 4.5 seconds until someone interacts, and never with reduced motion. The script (`src/js/frontend/partner-map.js`) swaps out the existing map picture, so the page's saved content needs no change. Without JavaScript the picture stays. On desktop the map takes the wider column, and on phones the label card sits under the map.
+- Browser tests for both About Us sections.
+
+### Fixed
+
+- About Us, "Explore programs" button: navy (`btn-navy`), like the page's other buttons, instead of light grey.
+
+### Changed
+
+- Footer, tablet and desktop: "Doctorate Programs by Country" is one heading over one wrapping line of links divided by "|", instead of five separate country headings and rows. Phones keep the accordion with a heading per country.
+- Footer: the "Doctorate (DBA) Programs" links are plain like the other columns (no bullets or underlines). The POPULAR badge stays.
+- Footer: 30px under the link columns instead of 70px, so the rule sits evenly between the links and the office addresses.
+
 ## 1.1.72 - 2026-11-18
 
 ### Fixed
