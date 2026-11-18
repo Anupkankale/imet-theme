@@ -418,12 +418,20 @@
 
 .imet-section.testimonials.is-stories .story-links a:is(:hover, :focus-visible) { color: var(--wp--preset--color--gold-soft); }
 
+/* Small laptops and landscape tablets: four cards were too small for the story on their backs (the LinkedIn and
+   "Read More" links were cut off below 1180px), so three show at a time. */
+@media (max-width: 1179px) {
+
+	.imet-section.testimonials.is-stories .story-grid { --per-view: 3; }
+}
+
 @media (max-width: 900px) {
 
 	.imet-section.testimonials.is-stories .story-grid { --per-view: 2; }
 }
 
-@media (max-width: 480px) {
+/* Phones (and large phones up to 639px, where two cards were too small for the story): one card and a peek. */
+@media (max-width: 639px) {
 
 	.imet-section.testimonials.is-stories .story-grid { --per-view: 1.15; --gap: var(--wp--preset--spacing--12); }
 }

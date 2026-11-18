@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <section id="top" class="wp-block-imet-hero alignfull imet-section hero is-mba-course"><!-- wp:group {"className":"imet-container hero-grid","layout":{"type":"default"}} -->
 <div class="wp-block-group imet-container hero-grid"><!-- wp:group {"className":"hero-text","layout":{"type":"default"}} -->
 <div class="wp-block-group hero-text"><!-- wp:paragraph {"className":"h-crumbs"} -->
-<p class="h-crumbs"><a href="https://imetworldwide.com/">Home</a> &gt; <a href="https://imetworldwide.com/online-masters-mba-degree-programs/">MBA</a> &gt; MBA in Cybersecurity</p>
+<p class="h-crumbs"><a href="/">Home</a> &gt; <a href="/online-masters-mba-degree-programs/">MBA</a> &gt; MBA in Cybersecurity</p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph {"className":"h-rating"} -->
 <p class="h-rating"><strong>★★★★<em>★</em></strong>4.7 (537 reviews)</p>
@@ -202,19 +202,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:group -->
 <!-- wp:group {"className":"spec-grid","layout":{"type":"default"}} -->
 <div class="wp-block-group spec-grid"><!-- wp:paragraph {"className":"spec-card"} -->
-<p class="spec-card"><a href="https://imetworldwide.com/online-doctorate-digital-transformation-program/">DBA in Digital Transformation</a></p>
+<p class="spec-card"><a href="/online-doctorate-digital-transformation-program/">DBA in Digital Transformation</a></p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph {"className":"spec-card"} -->
-<p class="spec-card"><a href="https://imetworldwide.com/online-doctorate-dba-artificial-intelligence-ml/">DBA in Artificial Intelligence</a></p>
+<p class="spec-card"><a href="/online-doctorate-dba-artificial-intelligence-ml/">DBA in Artificial Intelligence</a></p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph {"className":"spec-card"} -->
-<p class="spec-card"><a href="https://imetworldwide.com/online-doctorate-dba-project-management/">DBA in Project Management</a></p>
+<p class="spec-card"><a href="/online-doctorate-dba-project-management/">DBA in Project Management</a></p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph {"className":"spec-card"} -->
-<p class="spec-card"><a href="https://imetworldwide.com/online-doctorate-dba-generative-ai/">DBA in Generative AI</a></p>
+<p class="spec-card"><a href="/online-doctorate-dba-generative-ai/">DBA in Generative AI</a></p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph {"className":"spec-card"} -->
-<p class="spec-card"><a href="https://imetworldwide.com/online-doctorate-it-governance-risk-compliance/">DBA in IT Governance</a></p>
+<p class="spec-card"><a href="/online-doctorate-it-governance-risk-compliance/">DBA in IT Governance</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --></section>
 <!-- /wp:imet/specializations -->

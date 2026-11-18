@@ -40,3 +40,6 @@ _tailwind-theme.css
 !/graphify-out/GRAPH_REPORT.md
 # Personal Claude Code settings (machine-specific, e.g. live SSH access)
 .claude/settings.local.json
+
+# Playwright browser test results and report (npm run test:e2e)
+/artifacts/e2e/
