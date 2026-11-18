@@ -1,5 +1,8 @@
 @use "breakpoints" as *;
 
+// Solid caret for the header menu's dropdown items (Font Awesome "caret-down" shape, as on the live site).
+$nav-icon-caret: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 512'%3E%3Cpath d='M31.3 192h257.4c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8a20 20 0 0 1-28.2 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z'/%3E%3C/svg%3E");
+
 /* stylelint-disable selector-class-pattern -- WordPress core block class names use BEM (wp-block-button__link). */
 // Header and footer. Shared by the front end (frontend/styles.scss) and the block editor (editor/editor.scss).
 // Layout and colours live in the block markup (parts/header.html, parts/promo-bar.html, parts/footer.html); this is only what blocks
@@ -149,13 +152,53 @@
 		margin-inline-start: var(--wp--preset--spacing--12);
 	}
 
-	// The gold rule belongs to the open item, not to its dropdown: drawn on the top-level item (see
-	// .wp-block-navigation-item.has-child below) it stops at that item, instead of running on under the next label.
-	// .imet-nav in the selector so these win over core editor rules of equal specificity (the iframed canvas loads
-	// the block styles after the theme editor styles). The class is repeated because core's selected-submenu rule in
-	// the canvas (.wp-block-navigation .has-child.is-selected > ...) carries four classes too.
+	// Desktop menu, as on the live site: a solid caret (not core's chevron) in the text colour, and on hover a 3px
+	// gold line across the whole item near the bar's bottom edge, the text turning black.
+	@media (min-width: $bp-nav) {
+
+		.imet-nav .wp-block-navigation__submenu-icon {
+			width: var(--wp--custom--size--15);
+			height: var(--wp--custom--size--15);
+			background: currentcolor;
+			-webkit-mask: $nav-icon-caret center / contain no-repeat;
+			mask: $nav-icon-caret center / contain no-repeat;
+
+			svg { display: none; }
+		}
+
+		// The items reach down to 6px above the bar's bottom, so the line sits where the live one does and the
+		// dropdown opens just under it.
+		.imet-nav .wp-block-navigation__responsive-container-content > .wp-block-navigation__container > .wp-block-navigation-item {
+			position: relative;
+			padding-block: var(--wp--preset--spacing--25);
+
+			&::after {
+				content: "";
+				position: absolute;
+				inset: auto 0 0;
+				height: var(--wp--custom--border-width--3);
+				background: var(--wp--preset--color--gold);
+				opacity: 0;
+				transition: opacity var(--wp--custom--motion--base) ease;
+				pointer-events: none;
+			}
+
+			&:is(:hover, :focus-within) {
+				color: var(--wp--preset--color--ink);
+
+				&::after { opacity: 1; }
+			}
+
+			// The dropdown keeps its own colours.
+			.wp-block-navigation__submenu-container { color: var(--wp--preset--color--body-text); }
+		}
+	}
+
+	// The dropdown panel: square, no inner padding (a row's own background then reaches both edges), and sized by
+	// the longest label. .imet-nav plus the repeated class because core's editor rules for the selected submenu are
+	// four classes deep and load after these.
 	.imet-nav .has-child .wp-block-navigation__submenu-container.wp-block-navigation__submenu-container {
-		width: max-content; // sized by the longest label, so the panel follows the menu it opens
+		width: max-content;
 		padding: 0;
 		border: 0;
 		border-radius: 0;
@@ -176,35 +219,6 @@
 			.wp-block-navigation-item:hover > .wp-block-navigation-item__content {
 				background: var(--wp--preset--color--navy-footer);
 				color: var(--wp--preset--color--white); // no weight change: the label keeps its width on hover
-			}
-		}
-	}
-
-	// The gold rule over an open dropdown. It spans the item, not the panel, so it never reaches the neighbouring
-	// label; the panel starts at the item's bottom edge, so the rule also reads as the panel's top border.
-	// Desktop only: the mobile overlay is opened, not hovered, so a rule there would sit under one item at random.
-	@media (min-width: $bp-nav) {
-
-		.imet-nav .wp-block-navigation__container > .wp-block-navigation-item.has-child {
-			position: relative;
-			padding-bottom: var(--wp--preset--spacing--12); // hover room down to the panel; the negative margin keeps the row height
-			margin-bottom: calc(-1 * var(--wp--preset--spacing--12));
-
-			&::after {
-				content: "";
-				position: absolute;
-				right: 0;
-				bottom: 0; // the item's padding-bottom above starts the panel, so the rule sits in the gap
-				left: 0;
-				height: var(--wp--preset--spacing--4);
-				background: var(--wp--preset--color--gold);
-				opacity: 0;
-				pointer-events: none;
-			}
-
-			&:hover::after,
-			&:focus-within::after {
-				opacity: 1;
 			}
 		}
 	}

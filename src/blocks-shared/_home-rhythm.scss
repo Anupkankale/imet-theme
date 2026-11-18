@@ -4,16 +4,16 @@
    Tokens only. */
 $home: ":is(.wp-block-post-content, .imet-page-content):has(> .imet-section.hero.is-style-home)"; /* page content, or the IMET: Home template's <main> */
 
-#{$home} { --imet-section-y: var(--wp--preset--spacing--32); } /* less space between sections (UI review) */
+#{$home} { --imet-section-y: var(--wp--preset--spacing--48); } /* more room between sections (it was 32px and read as cramped) */
 
 @media (max-width: 1024px) {
 
-	#{$home} { --imet-section-y: var(--wp--preset--spacing--26); }
+	#{$home} { --imet-section-y: var(--wp--preset--spacing--40); }
 }
 
 @media (max-width: 640px) {
 
-	#{$home} { --imet-section-y: var(--wp--preset--spacing--24); }
+	#{$home} { --imet-section-y: var(--wp--preset--spacing--32); }
 }
 
 #{$home} > .imet-section:not(.hero, .highlights, .specs, .cost-banner) { padding-block: var(--imet-section-y); }

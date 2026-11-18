@@ -189,23 +189,23 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <!-- wp:list -->
 <ul class="wp-block-list"><!-- wp:list-item -->
-<li><strong><a href="https://imetworldwide.com/online-doctorate-digital-transformation-program/">DBA in Digital Transformation</a></strong>Equip yourself to lead large-scale change initiatives that integrate emerging technologies, process automation, and innovation strategies.</li>
+<li><strong><a href="/online-doctorate-digital-transformation-program/">DBA in Digital Transformation</a></strong>Equip yourself to lead large-scale change initiatives that integrate emerging technologies, process automation, and innovation strategies.</li>
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
-<li><strong><a href="https://imetworldwide.com/online-doctorate-cybersecurity-certificate-program/">DBA in Cybersecurity</a></strong>Gain strategic mastery over enterprise security frameworks, governance models, and threat intelligence.</li>
+<li><strong><a href="/online-doctorate-cybersecurity-certificate-program/">DBA in Cybersecurity</a></strong>Gain strategic mastery over enterprise security frameworks, governance models, and threat intelligence.</li>
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
-<li><strong><a href="https://imetworldwide.com/online-doctorate-dba-artificial-intelligence-ml/">DBA in AI/ML</a></strong>Drive AI-driven innovation by combining business leadership with deep AI/ML application knowledge.</li>
+<li><strong><a href="/online-doctorate-dba-artificial-intelligence-ml/">DBA in AI/ML</a></strong>Drive AI-driven innovation by combining business leadership with deep AI/ML application knowledge.</li>
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
-<li><strong><a href="https://imetworldwide.com/online-doctorate-dba-project-management/">DBA in Project Management</a></strong>Advance beyond operational project delivery to strategic oversight of complex, global initiatives.</li>
+<li><strong><a href="/online-doctorate-dba-project-management/">DBA in Project Management</a></strong>Advance beyond operational project delivery to strategic oversight of complex, global initiatives.</li>
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
-<li><strong><a href="https://imetworldwide.com/online-doctorate-it-governance-risk-compliance/">DBA in IT Governance</a></strong>A DBA in IT Governance develops expertise in managing IT risks, compliance, and strategic technology leadership effectively.</li>
+<li><strong><a href="/online-doctorate-it-governance-risk-compliance/">DBA in IT Governance</a></strong>A DBA in IT Governance develops expertise in managing IT risks, compliance, and strategic technology leadership effectively.</li>
 <!-- /wp:list-item --></ul>
 <!-- /wp:list -->
 
@@ -221,25 +221,25 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <!-- wp:list -->
 <ul class="wp-block-list"><!-- wp:list-item -->
-<li><strong><a href="https://imetworldwide.com/online-masters-mba-cybersecurity/">MBA in Cybersecurity</a></strong>Lead enterprises in protecting digital assets with strategic and technical cybersecurity expertise.</li>
+<li><strong><a href="/online-masters-mba-cybersecurity-program/">MBA in Cybersecurity</a></strong>Lead enterprises in protecting digital assets with strategic and technical cybersecurity expertise.</li>
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
-<li><strong><a href="https://imetworldwide.com/online-masters-mba-project-management-program/">MBA in Project Management</a></strong>Drive project success with advanced leadership and organizational management skills.</li>
+<li><strong><a href="/online-masters-mba-project-management-program/">MBA in Project Management</a></strong>Drive project success with advanced leadership and organizational management skills.</li>
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
-<li><strong><a href="https://imetworldwide.com/best-online-masters-mba-degree-data-analytics/">MBA in Data Analytics</a></strong>Gain expertise in turning complex data into actionable business insights.</li>
+<li><strong><a href="/online-masters-mba-degree-data-analytics-program/">MBA in Data Analytics</a></strong>Gain expertise in turning complex data into actionable business insights.</li>
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
-<li><strong><a href="https://imetworldwide.com/mba-supply-chain-management-online-programs-career-scope-and-salary-in-2025/">MBA in Supply Chain Management</a></strong>Optimize global supply chains to enhance efficiency and innovation.</li>
+<li><strong><a href="https://imetworldwide.com/blogs/online-mba-supply-chain-management-2025/">MBA in Supply Chain Management</a></strong>Optimize global supply chains to enhance efficiency and innovation.</li>
 <!-- /wp:list-item --></ul>
 <!-- /wp:list -->
 
 <!-- wp:buttons -->
 <div class="wp-block-buttons"><!-- wp:button {"className":"btn-white btn-sm"} -->
-<div class="wp-block-button btn-white btn-sm"><a class="wp-block-button__link wp-element-button" href="https://imetworldwide.com/online-masters-mba-cybersecurity-program/">Learn More</a></div>
+<div class="wp-block-button btn-white btn-sm"><a class="wp-block-button__link wp-element-button" href="/online-masters-mba-cybersecurity-program/">Learn More</a></div>
 <!-- /wp:button --></div>
 <!-- /wp:buttons --></div>
 <!-- /wp:group -->
@@ -265,7 +265,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <!-- wp:buttons -->
 <div class="wp-block-buttons"><!-- wp:button {"className":"btn-white btn-sm"} -->
-<div class="wp-block-button btn-white btn-sm"><a class="wp-block-button__link wp-element-button" href="https://imetworldwide.com/how-online-diploma-programs-can-boost-your-career-without-quitting-your-job/">Learn More</a></div>
+<div class="wp-block-button btn-white btn-sm"><a class="wp-block-button__link wp-element-button" href="https://imetworldwide.com/blogs/how-online-diploma-programs-can-boost-your-career-without-quitting-your-job/">Learn More</a></div>
 <!-- /wp:button --></div>
 <!-- /wp:buttons --></div>
 <!-- /wp:group --></div>
@@ -333,25 +333,25 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <!-- wp:group {"className":"spec-grid","layout":{"type":"default"}} -->
 <div class="wp-block-group spec-grid"><!-- wp:paragraph {"className":"spec-card"} -->
-<p class="spec-card"><a href="https://imetworldwide.com/online-doctorate-cybersecurity-certificate-program/"><span class="sp-title">Doctorate in CyberSecurity</span><span class="sp-desc">Develop board-level authority in cyber risk, governance, and enterprise security strategy.</span></a></p>
+<p class="spec-card"><a href="/online-doctorate-cybersecurity-certificate-program/"><span class="sp-title">Doctorate in CyberSecurity</span><span class="sp-desc">Develop board-level authority in cyber risk, governance, and enterprise security strategy.</span></a></p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph {"className":"spec-card"} -->
-<p class="spec-card"><a href="https://imetworldwide.com/online-masters-mba-cybersecurity/"><span class="sp-title">MBA in Cybersecurity</span><span class="sp-desc">Build managerial and business-driven cybersecurity leadership for modern enterprises.</span></a></p>
+<p class="spec-card"><a href="/online-masters-mba-cybersecurity-program/"><span class="sp-title">MBA in Cybersecurity</span><span class="sp-desc">Build managerial and business-driven cybersecurity leadership for modern enterprises.</span></a></p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph {"className":"spec-card"} -->
-<p class="spec-card"><a href="https://imetworldwide.com/online-doctorate-digital-transformation-program/"><span class="sp-title">Doctorate in Digital Transformation</span><span class="sp-desc">Lead large-scale digital change by aligning technology, strategy, and organizational impact.</span></a></p>
+<p class="spec-card"><a href="/online-doctorate-digital-transformation-program/"><span class="sp-title">Doctorate in Digital Transformation</span><span class="sp-desc">Lead large-scale digital change by aligning technology, strategy, and organizational impact.</span></a></p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph {"className":"spec-card"} -->
-<p class="spec-card"><a href="https://imetworldwide.com/online-masters-mba-project-management-program/"><span class="sp-title">MBA in Project Management</span><span class="sp-desc">Master structured delivery, stakeholder control, and execution of complex business initiatives.</span></a></p>
+<p class="spec-card"><a href="/online-masters-mba-project-management-program/"><span class="sp-title">MBA in Project Management</span><span class="sp-desc">Master structured delivery, stakeholder control, and execution of complex business initiatives.</span></a></p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph {"className":"spec-card"} -->
-<p class="spec-card"><a href="https://imetworldwide.com/online-doctorate-dba-artificial-intelligence-ml/"><span class="sp-title">Doctorate in AI/ML</span><span class="sp-desc">Establish thought leadership in AI strategy, advanced analytics, and intelligent enterprise systems.</span></a></p>
+<p class="spec-card"><a href="/online-doctorate-dba-artificial-intelligence-ml/"><span class="sp-title">Doctorate in AI/ML</span><span class="sp-desc">Establish thought leadership in AI strategy, advanced analytics, and intelligent enterprise systems.</span></a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
 <!-- wp:buttons -->
 <div class="wp-block-buttons"><!-- wp:button {"className":"btn-navy btn-md"} -->
-<div class="wp-block-button btn-navy btn-md"><a class="wp-block-button__link wp-element-button" href="https://imetworldwide.com/online-doctorate-business-administration-dba-programs/">View More</a></div>
+<div class="wp-block-button btn-navy btn-md"><a class="wp-block-button__link wp-element-button" href="/online-doctorate-business-administration-dba-programs/">View More</a></div>
 <!-- /wp:button --></div>
 <!-- /wp:buttons --></div>
 <!-- /wp:group --></section>
@@ -597,7 +597,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <!-- wp:buttons -->
 <div class="wp-block-buttons"><!-- wp:button {"className":"btn-navy btn-sm"} -->
-<div class="wp-block-button btn-navy btn-sm"><a class="wp-block-button__link wp-element-button" href="https://imetworldwide.com/convocation-ceremony/">View More</a></div>
+<div class="wp-block-button btn-navy btn-sm"><a class="wp-block-button__link wp-element-button" href="/convocation-ceremony/">View More</a></div>
 <!-- /wp:button --></div>
 <!-- /wp:buttons --></div>
 <!-- /wp:group -->
@@ -642,7 +642,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"sc-more"} -->
-<p class="sc-more"><a href="https://imetworldwide.com/success-stories/">Read More</a></p>
+<p class="sc-more"><a href="/success-stories/">Read More</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
@@ -662,7 +662,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"sc-more"} -->
-<p class="sc-more"><a href="https://imetworldwide.com/success-stories/">Read More</a></p>
+<p class="sc-more"><a href="/success-stories/">Read More</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
@@ -682,7 +682,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"sc-more"} -->
-<p class="sc-more"><a href="https://imetworldwide.com/success-stories/">Read More</a></p>
+<p class="sc-more"><a href="/success-stories/">Read More</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
@@ -702,7 +702,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"sc-more"} -->
-<p class="sc-more"><a href="https://imetworldwide.com/wp-content/uploads/2025/10/Case-Study-Dr.-Sona-Saha-Das-2.pdf">Read More</a></p>
+<p class="sc-more"><a href="https://imetworldwide.com/wp-content/uploads/2026/02/SONA-Saha-Das-Case-Study_compressed.pdf">Read More</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
@@ -769,7 +769,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <p class="story-linkedin"><a href="https://www.linkedin.com/" target="_blank" rel="noreferrer noopener">LinkedIn</a></p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph {"className":"story-more"} -->
-<p class="story-more"><a href="https://imetworldwide.com/success-stories/">Read More</a></p>
+<p class="story-more"><a href="/success-stories/">Read More</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group --></div>
@@ -794,7 +794,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <p class="story-linkedin"><a href="https://www.linkedin.com/" target="_blank" rel="noreferrer noopener">LinkedIn</a></p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph {"className":"story-more"} -->
-<p class="story-more"><a href="https://imetworldwide.com/success-stories/">Read More</a></p>
+<p class="story-more"><a href="/success-stories/">Read More</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group --></div>
@@ -819,7 +819,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <p class="story-linkedin"><a href="https://www.linkedin.com/in/shijinprasad/" target="_blank" rel="noreferrer noopener">LinkedIn</a></p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph {"className":"story-more"} -->
-<p class="story-more"><a href="https://imetworldwide.com/success-stories/">Read More</a></p>
+<p class="story-more"><a href="/success-stories/">Read More</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group --></div>
@@ -841,7 +841,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:paragraph -->
 <!-- wp:group {"className":"story-links","layout":{"type":"default"}} -->
 <div class="wp-block-group story-links"><!-- wp:paragraph {"className":"story-more"} -->
-<p class="story-more"><a href="https://imetworldwide.com/wp-content/uploads/2025/10/Case-Study-Dr.-Sona-Saha-Das-2.pdf">Read More</a></p>
+<p class="story-more"><a href="https://imetworldwide.com/wp-content/uploads/2026/02/SONA-Saha-Das-Case-Study_compressed.pdf">Read More</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group --></div>
