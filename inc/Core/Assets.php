@@ -93,6 +93,8 @@ class Assets extends AssetLoader implements Registrable, Shareable {
 		$this->register_style( $this->handle( 'core-navigation' ), 'css/frontend/core-navigation' );
 		$this->register_script( $this->handle( 'footer-accordion' ), 'js/frontend/footer-accordion' );
 		$this->register_script( $this->handle( 'header-scroll' ), 'js/frontend/header-scroll' );
+		$this->register_script( $this->handle( 'gain-orbit' ), 'js/frontend/gain-orbit' );
+		$this->register_script( $this->handle( 'partner-map' ), 'js/frontend/partner-map' );
 		$this->register_style( $this->handle( 'styles' ), 'css/frontend/styles' );
 
 		if ( $this->is_tailwind_enabled() ) {
@@ -122,6 +124,16 @@ class Assets extends AssetLoader implements Registrable, Shareable {
 		// The footer's link groups are Details blocks that collapse on phones.
 		if ( ! empty( $block['blockName'] ) && 'core/details' === $block['blockName'] && str_contains( (string) ( $block['attrs']['className'] ?? '' ), 'imet-footer-acc' ) ) {
 			wp_enqueue_script( $this->handle( 'footer-accordion' ) );
+		}
+
+		// About Us, "What you gain with IMET": the interactive orbit (an IMET Section with the ab-gain-intro class).
+		if ( ! empty( $block['blockName'] ) && 'imet/section' === $block['blockName'] && str_contains( (string) ( $block['attrs']['className'] ?? '' ), 'ab-gain-intro' ) ) {
+			wp_enqueue_script( $this->handle( 'gain-orbit' ) );
+		}
+
+		// About Us, "Study from anywhere": the interactive partner-centre map (an IMET Section with the ab-map class).
+		if ( ! empty( $block['blockName'] ) && 'imet/section' === $block['blockName'] && in_array( 'ab-map', explode( ' ', (string) ( $block['attrs']['className'] ?? '' ) ), true ) ) {
+			wp_enqueue_script( $this->handle( 'partner-map' ) );
 		}
 
 		return $markup;
