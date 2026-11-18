@@ -80,7 +80,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:heading -->
 <!-- wp:group {"className":"ac-logos","layout":{"type":"default"}} -->
 <div class="wp-block-group ac-logos"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ac-logo"} -->
-<figure class="wp-block-image size-full ac-logo"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/logo-singapore.webp" ) ); ?>" alt="Singapore"/></figure>
+<figure class="wp-block-image size-full ac-logo"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/logo-qatar-mofa.jpg" ) ); ?>" alt="Ministry of Foreign Affairs, State of Qatar"/></figure>
 <!-- /wp:image -->
 <!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ac-logo"} -->
 <figure class="wp-block-image size-full ac-logo"><img src="<?php echo esc_url( get_theme_file_uri( "assets/images/imet/logo-ministry-education.webp" ) ); ?>" alt="Ministry of Education"/></figure>
