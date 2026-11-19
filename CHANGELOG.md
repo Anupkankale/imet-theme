@@ -2,6 +2,15 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.76 - 2026-11-19
+
+### Added
+
+- Contact Us page (`/contact/`) uses a Contact Form 7 form ("Contact Us") instead of the theme's advisor form. It has the same fields: full name, country code and phone, email, LinkedIn URL, message, and the WhatsApp opt-in. Messages are emailed to zocdeveloper@gmail.com with Reply-To set to the visitor, and they aren't saved in WordPress. Requires the Contact Form 7 plugin.
+- Theme styles for Contact Form 7 forms (`src/blocks-shared/_contact-form-7.scss`), matching the advisor form: fields, a joined country code and number, the opt-in, the submit button, the error under each field, and a green or red result message. They apply to any Contact Form 7 form.
+- `bin/wp-cli/contact-form-7.php`: creates or updates the "Contact Us" form on any site (`wp eval-file …`) and prints its shortcode.
+- Browser test for the contact form (renders, labels, rejects an empty submission, never sends).
+
 ## 1.1.75 - 2026-11-19
 
 ### Changed
