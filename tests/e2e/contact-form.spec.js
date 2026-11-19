@@ -37,3 +37,40 @@ test('/contact/: Contact Form 7 form renders and requires its fields', async ({
 	await expect(form.locator('.wpcf7-not-valid-tip')).toHaveCount(3);
 	await expect(form.locator('.wpcf7-response-output')).toBeVisible();
 });
+
+test('/contact/: offices, email and phone cards; on phones the form follows the header', async ({
+	page,
+}, testInfo) => {
+	await page.goto('/contact/');
+
+	await expect(page.locator('.ct-office')).toHaveCount(4);
+	await expect(
+		page.locator('.ct-quick a[href^="mailto:"]').first()
+	).toBeVisible();
+	await expect(
+		page.locator('.ct-quick a[href^="tel:"]').first()
+	).toBeVisible();
+
+	// Each office card shows its flag (a background image that loaded).
+	const flags = await page.locator('.ct-office').evaluateAll((cards) =>
+		cards.map(
+			(card) =>
+				// eslint-disable-next-line no-undef -- runs in the browser
+				getComputedStyle(card, '::before').backgroundImage
+		)
+	);
+	for (const flag of flags) {
+		expect(flag).toContain('flag-');
+	}
+
+	// One column below 900px: header, then the form, then the cards.
+	if (['tablet', 'phone'].includes(testInfo.project.name)) {
+		const top = (selector) =>
+			page
+				.locator(selector)
+				.first()
+				.evaluate((el) => el.getBoundingClientRect().top);
+		expect(await top('.ct-form')).toBeLessThan(await top('.ct-quick'));
+		expect(await top('.ct-intro')).toBeLessThan(await top('.ct-form'));
+	}
+});
