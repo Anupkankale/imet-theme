@@ -223,31 +223,146 @@ $nav-icon-caret: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/sv
 		}
 	}
 
-	// The open overlay (phones and tablets): a plain list, sub-menus indented under their parent.
-	.wp-block-navigation__responsive-container.is-menu-open {
+	// The open overlay (below $bp-nav): a menu panel. Phones get the whole screen; from $bp-phone it is a panel that
+	// slides in from the right over the dimmed page (a tap on the dimmed page closes it: core-navigation.js). A top row
+	// with the logo and the close button, then the groups as an accordion (closed until their arrow, or for a group
+	// with no page of its own its label, is tapped), then the Contact Us button. The logo row and the button are added
+	// by core-navigation.js.
+	// One step stronger than core's own white-overlay rule
+	// (.wp-block-navigation:not(.has-background) .wp-block-navigation__responsive-container.is-menu-open:not(.disable-default-overlay)).
+	.imet-nav .wp-block-navigation__responsive-container.wp-block-navigation__responsive-container.is-menu-open:not(.disable-default-overlay) {
+		padding: 0;
+		background: var(--wp--preset--color--white);
 		color: var(--wp--preset--color--body-text);
 
+		@media (min-width: $bp-phone) {
+			background: color-mix(in srgb, var(--wp--preset--color--navy-night) 55%, transparent);
+			animation: none; // the panel slides in, the dimmed page just appears
+		}
+
+		// The panel.
+		.wp-block-navigation__responsive-close {
+			max-width: none;
+			min-height: 100%;
+			margin: 0;
+			background: var(--wp--preset--color--white);
+
+			@media (min-width: $bp-phone) {
+				width: min(100%, var(--wp--custom--size--416));
+				margin-left: auto;
+				box-shadow: var(--wp--preset--shadow--dropdown);
+				animation: imet-nav-panel-in var(--wp--custom--motion--base) ease-out;
+			}
+		}
+
+		.wp-block-navigation__responsive-dialog { position: relative; }
+
+		// Top row: the logo, and the close button in the same row.
+		.imet-nav-head {
+			display: flex;
+			align-items: center;
+			min-height: var(--wp--custom--size--72);
+			padding: var(--wp--preset--spacing--12) var(--wp--custom--size--72) var(--wp--preset--spacing--12) var(--wp--preset--spacing--20);
+			border-bottom: 1px solid var(--wp--preset--color--line);
+
+			.imet-nav-logo {
+				width: var(--wp--custom--size--50);
+				height: auto;
+			}
+		}
+
+		.wp-block-navigation__responsive-container-close {
+			top: calc((var(--wp--custom--size--72) - var(--wp--custom--size--44)) / 2);
+			right: var(--wp--preset--spacing--16);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: var(--wp--custom--size--44);
+			height: var(--wp--custom--size--44);
+			border-radius: 50%;
+			background: var(--wp--preset--color--card);
+			color: var(--wp--preset--color--ink);
+
+			svg {
+				width: var(--wp--custom--size--22);
+				height: var(--wp--custom--size--22);
+			}
+		}
+
 		.wp-block-navigation__responsive-container-content {
-			padding: var(--wp--preset--spacing--40) var(--wp--preset--spacing--20) var(--wp--preset--spacing--20);
+			padding: var(--wp--preset--spacing--8) var(--wp--preset--spacing--20) 0;
 		}
 
 		.wp-block-navigation__container {
-			gap: var(--wp--preset--spacing--8);
-			align-items: flex-start;
+			gap: 0;
+			align-items: stretch;
+			width: 100%;
 		}
 
-		.imet-nav .wp-block-navigation-item,
-		.wp-block-navigation__responsive-container-content > .wp-block-navigation__container > .wp-block-navigation-item {
-			padding-inline: 0;
+		// A group: its label and arrow on one row, its links under them when open.
+		.wp-block-navigation__container > .wp-block-navigation-item {
+			display: grid;
+			grid-template-columns: minmax(0, 1fr) auto;
+			align-items: center;
+			width: 100%;
+			padding: 0;
+			border-bottom: 1px solid var(--wp--preset--color--line);
 			font-size: var(--wp--preset--font-size--body);
 			font-weight: 600;
+
+			> .wp-block-navigation-item__content {
+				display: flex;
+				align-items: center;
+				min-height: var(--wp--custom--size--50);
+				color: var(--wp--preset--color--ink);
+				white-space: normal;
+			}
+
+			> .wp-block-navigation-item__content:not([href]) { cursor: pointer; }
+
+			&.current-menu-item > .wp-block-navigation-item__content { color: var(--wp--preset--color--gold-dark); }
+		}
+
+		// The arrow: a 44px button, turned when the group is open (core hides it in the overlay).
+		.wp-block-navigation__submenu-icon.wp-block-navigation-submenu__toggle {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: var(--wp--custom--size--44);
+			height: var(--wp--custom--size--44);
+			margin: 0;
+			padding: 0;
+			border-radius: 50%;
+			color: var(--wp--preset--color--navy);
+			cursor: pointer;
+
+			svg {
+				width: var(--wp--custom--size--13);
+				height: var(--wp--custom--size--13);
+				transform: none; // core turns it with transform when aria-expanded is true; the theme turns it below
+				transition: rotate var(--wp--custom--motion--base) ease;
+			}
+
+		}
+
+		.has-child.imet-open > .wp-block-navigation-submenu__toggle {
+			background: var(--wp--preset--color--lavender);
+
+			svg { rotate: 180deg; }
+		}
+
+		// Closed groups hide their links (core shows every list in the overlay). Only once the script runs the accordion.
+		&.imet-accordion .wp-block-navigation-item.has-child:not(.imet-open) > .wp-block-navigation__submenu-container.wp-block-navigation__submenu-container {
+			display: none;
 		}
 
 		.has-child .wp-block-navigation__submenu-container {
+			grid-column: 1 / -1;
 			width: auto;
 			min-width: 0;
 			max-width: none;
-			padding: var(--wp--preset--spacing--4) 0 var(--wp--preset--spacing--8) var(--wp--preset--spacing--16);
+			margin: 0;
+			padding: 0 0 var(--wp--preset--spacing--10) var(--wp--preset--spacing--12);
 			border: 0;
 			border-radius: 0;
 			box-shadow: none;
@@ -255,10 +370,58 @@ $nav-icon-caret: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/sv
 
 			// stylelint-disable-next-line no-descending-specificity -- the open-panel rule above is the more specific one, on purpose
 			.wp-block-navigation-item__content {
-				padding: var(--wp--preset--spacing--6) 0;
+				display: flex;
+				align-items: center;
+				min-height: var(--wp--custom--size--44);
+				padding: 0 var(--wp--preset--spacing--12);
+				border-left: var(--wp--custom--size--2) solid var(--wp--preset--color--line);
+				color: var(--wp--preset--color--body-text);
 				font-size: var(--wp--preset--font-size--small);
 				font-weight: 500;
+				white-space: normal;
 			}
+		}
+
+		// The page you are on: gold text and a gold bar.
+		.has-child .wp-block-navigation__submenu-container .current-menu-item > .wp-block-navigation-item__content {
+			border-left-color: var(--wp--preset--color--gold);
+			color: var(--wp--preset--color--gold-dark);
+		}
+
+		// Contact Us, under the menu.
+		.imet-nav-foot {
+			padding: var(--wp--preset--spacing--24) var(--wp--preset--spacing--20);
+
+			.imet-nav-cta {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				box-sizing: border-box;
+				width: 100%;
+				min-height: var(--wp--custom--size--50);
+				border: 0;
+				border-radius: var(--wp--preset--border-radius--5);
+				background: var(--wp--preset--color--navy-footer);
+				color: var(--wp--preset--color--white);
+				font-size: var(--wp--preset--font-size--normal);
+				font-weight: 600;
+				text-decoration: none;
+			}
+		}
+
+		:is(a, button):focus-visible {
+			outline: var(--wp--custom--size--2) solid var(--wp--preset--color--gold);
+			outline-offset: var(--wp--custom--size--2);
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+
+		.wp-block-navigation__responsive-container.is-menu-open {
+
+			.wp-block-navigation__responsive-close { animation: none; }
+
+			.wp-block-navigation__submenu-icon svg { transition: none; }
 		}
 	}
 
@@ -273,6 +436,12 @@ $nav-icon-caret: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/sv
 
 	// "Contact Us" lives in the menu too, but only shows inside the overlay.
 	.imet-nav-contact {
+		display: none;
+	}
+
+	// The overlay's logo row and Contact Us button (added by core-navigation.js) only show in the open overlay: on
+	// desktop the same markup is the menu bar.
+	.wp-block-navigation__responsive-container:not(.is-menu-open) :is(.imet-nav-head, .imet-nav-foot) {
 		display: none;
 	}
 
@@ -1108,4 +1277,11 @@ $footer-icon-caret: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000
 	align-items: center;
 	min-height: var(--wp--custom--size--44);
 	margin-block: calc(-1 * var(--wp--preset--spacing--10));
+}
+
+@keyframes imet-nav-panel-in {
+
+	from { translate: 100% 0; }
+
+	to { translate: 0 0; }
 }
