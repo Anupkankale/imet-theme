@@ -2,6 +2,18 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.79 - 2026-11-19
+
+### Changed
+
+- Contact Us page redesigned (new pattern `imet-theme/contact-page`, styles in `src/blocks-shared/_contact-page.scss`). It was a text page with bulleted office lists, the same email four times, an empty "24×7 Support" heading and a bold intro. Now:
+  - a "24×7 Support" header with the title and intro;
+  - email and phone cards, with clickable `mailto:` and `tel:` links;
+  - the four offices (Dubai, Singapore, USA, UK) as cards with their round flags;
+  - the Contact Form 7 form in a card that stays in view while the left column scrolls.
+  On tablets and phones it's one column, with the form straight after the header. The form is placed by title (`[contact-form-7 title="Contact Us"]`), so the pattern works on any site. The title reads "Talk to a Mentor: Book Your 1:1 Mentoring Session" (was "Talk to Mentor! Fill The Form To Book 1:1 Mentoring Session").
+- Browser test for the Contact page layout: 4 office cards with flags, email and phone links, and the form order on phones.
+
 ## 1.1.78 - 2026-11-19
 
 ### Fixed
