@@ -134,3 +134,5 @@ jobs:
           known-hosts: ${{ secrets.SSH_KNOWN_HOSTS }}
           wp-path: ${{ secrets.WP_PATH }}
           site-url: ${{ vars.SITE_URL }}
+          # The environment's PHP for WP-CLI, when the server's default is older than the site's (see the action).
+          php-bin: ${{ vars.WP_CLI_PHP }}
