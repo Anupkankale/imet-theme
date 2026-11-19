@@ -2,7 +2,9 @@
 /**
  * WP-CLI: create or update the "Contact Us" Contact Form 7 form, with the same fields as the theme's advisor form.
  *
- * Usage (Contact Form 7 active): wp eval-file wp-content/themes/imet-theme/bin/wp-cli/contact-form-7.php
+ * Usage (Contact Form 7 active): wp eval 'require "wp-content/themes/imet-theme/bin/wp-cli/contact-form-7.php";'
+ * (not `wp eval-file`, which rejects the strict_types declaration). Contact Form 7 6.2+ needs PHP 8.3: where the
+ * command line's PHP is older (Hostinger: 8.2), run WP-CLI with /opt/alt/php83/usr/bin/php.
  * Running it again updates the same form. It prints the shortcode to place on the Contact Us page. The styles are
  * in src/blocks-shared/_contact-form-7.scss, keyed to the imet-cf7-* classes used here.
  *
