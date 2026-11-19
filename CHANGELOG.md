@@ -2,6 +2,18 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.80 - 2026-11-20
+
+### Changed
+
+- Mobile and tablet menu (below 1200px) redesigned. It was a white page listing all 24 links at once, with no logo, a bare close icon in the corner, no Contact Us, and 30px-high links.
+  - Phones: a full-screen menu. Tablets and laptops (640–1199px): a 416px panel that slides in from the right over the dimmed page, and a tap on the dimmed page closes it.
+  - A top row with the logo and a round 44px close button.
+  - The four groups (Online Doctorate, Online Master's, Discover, Resources) as an accordion: one open at a time, with an arrow that turns. The group holding the current page opens with the menu. Discover and Resources, which have no page of their own, also open from their label.
+  - Every link is at least 44px tall. The current page is gold, with a gold bar. A full-width navy Contact Us button sits under the menu.
+  The logo row, the accordion and the button come from `src/js/frontend/core-navigation.js`. Without it, every link shows as before. The desktop menu is unchanged.
+- Browser tests for the mobile menu: logo, close and Contact Us; groups opening one at a time; the dimmed page closing the panel.
+
 ## 1.1.79 - 2026-11-19
 
 ### Changed
