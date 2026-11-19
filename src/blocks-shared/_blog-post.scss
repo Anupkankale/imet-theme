@@ -289,6 +289,54 @@
 
 .imet-section .bp-content :is(ul, ol) { padding-left: var(--wp--preset--spacing--24); }
 
+/* Questions and expandable sections (core/details, e.g. the FAQs of articles copied from imetworldwide.com): a line
+   between them, the question in bold with an arrow that turns when open, the answer below it. Like the text pages'
+   questions (_text-page.scss), with the arrow so they read as something to open. */
+.imet-section .bp-content > .wp-block-details {
+	margin-block: 0;
+	border-bottom: 1px solid var(--wp--preset--color--line);
+}
+
+.imet-section .bp-content > .wp-block-details:not(.wp-block-details + .wp-block-details) { border-top: 1px solid var(--wp--preset--color--line); }
+
+.imet-section .bp-content > .wp-block-details:not(:has(+ .wp-block-details)) { margin-bottom: var(--wp--preset--spacing--20); }
+
+/* The question is the tap target: the row's room sits inside it (44px or more). */
+.imet-section .bp-content .wp-block-details summary {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: var(--wp--preset--spacing--12);
+	padding-block: var(--wp--preset--spacing--12);
+	color: var(--wp--preset--color--ink);
+	font-weight: 700;
+	list-style: none;
+	cursor: pointer;
+}
+
+.imet-section .bp-content .wp-block-details summary::-webkit-details-marker { display: none; }
+
+.imet-section .bp-content .wp-block-details summary::after {
+	content: "";
+	flex: none;
+	width: var(--wp--custom--size--14);
+	height: var(--wp--custom--size--14);
+	background: currentcolor;
+	mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") center / contain no-repeat;
+	transition: rotate var(--wp--custom--motion--base) ease;
+}
+
+.imet-section .bp-content .wp-block-details[open] summary::after { rotate: 180deg; }
+
+.imet-section .bp-content .wp-block-details summary:focus-visible { outline: var(--wp--custom--size--2) solid var(--wp--preset--color--gold); outline-offset: var(--wp--custom--size--2); }
+
+.imet-section .bp-content .wp-block-details > :not(summary) { margin: 0 0 var(--wp--preset--spacing--12); }
+
+@media (prefers-reduced-motion: reduce) {
+
+	.imet-section .bp-content .wp-block-details summary::after { transition: none; }
+}
+
 .imet-section .bp-content ul { list-style: disc; }
 
 .imet-section .bp-content ol { list-style: decimal; }
