@@ -31,6 +31,13 @@ inputs:
   site-url:
     description: Public URL of the site to smoke test.
     required: true
+  php-bin:
+    description: >
+      PHP command-line binary that runs WP-CLI on the server (empty = the server's default php). Set it when the
+      command line's default PHP is older than the site's and a plugin refuses to load under it (Hostinger: the CLI
+      defaults to 8.2 while the site runs 8.3, and Contact Form 7 6.2+ needs 8.3), e.g. /opt/alt/php83/usr/bin/php.
+    required: false
+    default: ''
 
 runs:
   using: composite
@@ -42,8 +49,10 @@ runs:
         NAME: ${{ inputs.name }}
         WP_PATH: ${{ inputs.wp-path }}
         SITE_URL: ${{ inputs.site-url }}
+        PHP_BIN: ${{ inputs.php-bin }}
       run: |
         set -euo pipefail
+        [[ -z "$PHP_BIN" || "$PHP_BIN" =~ ^/[A-Za-z0-9/._-]+$ ]] || { echo "::error::php-bin must be an absolute path"; exit 1; }
         [[ "$KIND" == "themes" || "$KIND" == "plugins" ]] || { echo "::error::kind must be themes or plugins"; exit 1; }
         [[ "$NAME" =~ ^[a-z0-9][a-z0-9-]*$ ]] || { echo "::error::invalid folder name"; exit 1; }
         [[ "$WP_PATH" == /* && "$WP_PATH" != "/" ]] || { echo "::error::WP_PATH must be an absolute path"; exit 1; }
@@ -110,9 +119,17 @@ runs:
         HOST: ${{ inputs.host }}
         SSH_USER: ${{ inputs.user }}
         WP_PATH: ${{ inputs.wp-path }}
+        PHP_BIN: ${{ inputs.php-bin }}
       run: |
-        ssh $SSH_OPTS "$SSH_USER@$HOST" bash -s -- "$WP_PATH" <<'REMOTE' || echo "::warning::cache purge failed (deploy continues)"
+        ssh $SSH_OPTS "$SSH_USER@$HOST" bash -s -- "$WP_PATH" "$PHP_BIN" <<'REMOTE' || echo "::warning::cache purge failed (deploy continues)"
         cd "$1" || exit 1
+        # WP-CLI under the PHP the site needs (input php-bin), or the server's default php.
+        php_bin="${2:-}"
+        if [ -n "$php_bin" ]; then
+          [ -x "$php_bin" ] || { echo "php-bin not found on the server: $php_bin"; exit 1; }
+          wp_bin="$(command -v wp)"
+          wp() { "$php_bin" "$wp_bin" "$@"; }
+        fi
         # WordPress caches each theme's pattern list in a site transient until the theme version changes: clear it so
         # patterns added by this deploy show up right away (delete_pattern_cache() exists since WordPress 6.4).
         wp eval 'foreach ( wp_get_themes() as $theme ) { if ( method_exists( $theme, "delete_pattern_cache" ) ) { $theme->delete_pattern_cache(); } }' 2>/dev/null || true
@@ -152,11 +169,16 @@ runs:
         HOST: ${{ inputs.host }}
         SSH_USER: ${{ inputs.user }}
         WP_PATH: ${{ inputs.wp-path }}
+        PHP_BIN: ${{ inputs.php-bin }}
       run: |
         set -uo pipefail
-        ssh $SSH_OPTS "$SSH_USER@$HOST" bash -s -- "$WP_PATH" "$WP_PATH/wp-content/$KIND" "$NAME" <<'REMOTE'
+        ssh $SSH_OPTS "$SSH_USER@$HOST" bash -s -- "$WP_PATH" "$WP_PATH/wp-content/$KIND" "$NAME" "$PHP_BIN" <<'REMOTE'
         set -uo pipefail
-        wp_path="$1"; cd "$2"; name="$3"
+        wp_path="$1"; cd "$2"; name="$3"; php_bin="${4:-}"
+        if [ -n "$php_bin" ] && [ -x "$php_bin" ]; then
+          wp_bin="$(command -v wp)"
+          wp() { "$php_bin" "$wp_bin" "$@"; }
+        fi
         if [ -d ".$name.previous" ]; then
           mv "$name" ".$name.failed" && mv ".$name.previous" "$name" && rm -rf ".$name.failed"
           echo "Rolled back to the previous version."

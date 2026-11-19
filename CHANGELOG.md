@@ -2,6 +2,12 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.77 - 2026-11-19
+
+### Fixed
+
+- Deploy: the cache purge after each deploy runs WP-CLI under the PHP the site needs. Since Contact Form 7 6.2 (which needs PHP 8.3) went on staging, WP-CLI under the server's default command-line PHP (8.2) stopped at a fatal error, so deploys left the cache unpurged (the deploy itself still passed). The deploy action has a new optional `php-bin` input, used by the purge and rollback steps and read from the environment variable `WP_CLI_PHP` (staging: `/opt/alt/php83/usr/bin/php`). Without it, nothing changes.
+
 ## 1.1.76 - 2026-11-19
 
 ### Added
