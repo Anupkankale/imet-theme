@@ -186,5 +186,72 @@ test.describe('header menu', () => {
 				overlay.getByText(label, { exact: true }).first()
 			).toBeVisible();
 		}
+
+		// Logo row, close button and the Contact Us button.
+		await expect(
+			overlay.locator('.imet-nav-head .imet-nav-logo')
+		).toBeVisible();
+		await expect(
+			overlay.locator('.wp-block-navigation__responsive-container-close')
+		).toBeVisible();
+		await expect(overlay.locator('.imet-nav-cta')).toHaveAttribute(
+			'href',
+			/\/contact\/$/
+		);
+	});
+
+	test('smaller screens: menu groups open one at a time', async ({
+		page,
+	}, testInfo) => {
+		test.skip(
+			testInfo.project.name === 'desktop',
+			'the hamburger shows below 1200px'
+		);
+
+		await page
+			.locator('.wp-block-navigation__responsive-container-open')
+			.first()
+			.click();
+		const overlay = page.locator(
+			'.wp-block-navigation__responsive-container.is-menu-open'
+		);
+		const groups = overlay.locator(
+			'.wp-block-navigation__container > .has-child'
+		);
+		const lists = overlay.locator(
+			'.wp-block-navigation__container > .has-child > .wp-block-navigation__submenu-container'
+		);
+
+		// On the home page no group holds the current page: all closed.
+		await expect(lists.filter({ visible: true })).toHaveCount(0);
+
+		// The arrow opens a group.
+		await groups
+			.nth(0)
+			.locator(':scope > .wp-block-navigation-submenu__toggle')
+			.click();
+		await expect(lists.nth(0)).toBeVisible();
+		await expect(
+			lists.nth(0).getByText('DBA in Cybersecurity')
+		).toBeVisible();
+
+		// "Discover" has no page of its own: its label opens it, and the first group closes.
+		await groups
+			.nth(2)
+			.locator(':scope > .wp-block-navigation-item__content')
+			.click();
+		await expect(lists.nth(2)).toBeVisible();
+		await expect(lists.nth(0)).toBeHidden();
+		await expect(
+			groups
+				.nth(2)
+				.locator(':scope > .wp-block-navigation-submenu__toggle')
+		).toHaveAttribute('aria-expanded', 'true');
+
+		// From 640px the menu is a panel: a tap on the dimmed page beside it closes the menu.
+		if (testInfo.project.name !== 'phone') {
+			await page.mouse.click(10, 300);
+			await expect(overlay).toHaveCount(0);
+		}
 	});
 });
