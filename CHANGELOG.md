@@ -2,6 +2,12 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.78 - 2026-11-19
+
+### Fixed
+
+- Blog articles: questions and expandable sections (core Details blocks) are styled as an accordion. Each question is bold, with a dividing line and an arrow that turns when it opens. Before, they read as plain text. The FAQs of the articles copied from imetworldwide.com use them (109 across 106 posts).
+
 ## 1.1.77 - 2026-11-19
 
 ### Fixed
