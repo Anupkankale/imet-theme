@@ -74,3 +74,20 @@ test('/contact/: offices, email and phone cards; on phones the form follows the 
 		expect(await top('.ct-intro')).toBeLessThan(await top('.ct-form'));
 	}
 });
+
+test('footer: "Get tech news" sign-up renders and requires an email', async ({
+	page,
+}) => {
+	await page.goto('/about-us/');
+	const news = page.locator('.imet-footer-news');
+	await news.scrollIntoViewIfNeeded();
+	await expect(news.getByText('Get tech news')).toBeVisible();
+
+	const form = news.locator('form.wpcf7-form');
+	await expect(form.getByLabel('Email')).toBeVisible();
+
+	// Empty: rejected, nothing sent.
+	await form.locator('.wpcf7-submit').click();
+	await expect(form).toHaveAttribute('data-status', 'invalid');
+	await expect(form.locator('.wpcf7-not-valid-tip')).toHaveCount(1);
+});
