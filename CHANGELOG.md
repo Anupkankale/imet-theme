@@ -2,6 +2,19 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.82 - 2026-11-20
+
+### Fixed
+
+- Section bar (imet/subnav), laptops and tablets: below 1200px the links are slimmer (14px padding, 15px text), so all seven fit at 1024px. Before, the last one was cut off at the edge. Where the bar still scrolls sideways (tablets, phones), the edge with more links behind it fades out, and the active link scrolls into view. When two links point at the same section (location pages: "Our Programs" and "Specializations"), only the first lights up.
+- About Us, "Study from anywhere": on laptops (900–1199px) the two columns are even again and long web addresses wrap, so the partner cards' addresses stay inside the cards. They ran past the edges at 1024px.
+- Buttons that went nowhere (`href="#"`) in the theme's patterns and block defaults:
+  - View Case Studies → `/case-studies/`
+  - View Success Stories → `/success-stories/`
+  - the testimonials' View More → `/testimonials/`
+  - the Scrolling section's 8 program links → their program pages
+  The pages already on the site were fixed in their saved content.
+
 ## 1.1.81 - 2026-11-20
 
 ### Changed

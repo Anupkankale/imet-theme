@@ -86,7 +86,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:group -->
 <!-- wp:buttons {"className":"testi-more"} -->
 <div class="wp-block-buttons testi-more"><!-- wp:button {"className":"btn-link btn-lg"} -->
-<div class="wp-block-button btn-link btn-lg"><a class="wp-block-button__link wp-element-button" href="#">View More</a></div>
+<div class="wp-block-button btn-link btn-lg"><a class="wp-block-button__link wp-element-button" href="/testimonials/">View More</a></div>
 <!-- /wp:button --></div>
 <!-- /wp:buttons --></div>
 <!-- /wp:group --></section>

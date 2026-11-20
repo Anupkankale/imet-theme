@@ -568,10 +568,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:heading -->
 <!-- wp:buttons {"className":"btn-row"} -->
 <div class="wp-block-buttons btn-row"><!-- wp:button {"className":"btn-white btn-md btn-icon-search"} -->
-<div class="wp-block-button btn-white btn-md btn-icon-search"><a class="wp-block-button__link wp-element-button" href="#">View Case Studies</a></div>
+<div class="wp-block-button btn-white btn-md btn-icon-search"><a class="wp-block-button__link wp-element-button" href="/case-studies/">View Case Studies</a></div>
 <!-- /wp:button -->
 <!-- wp:button {"className":"btn-white btn-md btn-icon-out"} -->
-<div class="wp-block-button btn-white btn-md btn-icon-out"><a class="wp-block-button__link wp-element-button" href="#">View Success Stories</a></div>
+<div class="wp-block-button btn-white btn-md btn-icon-out"><a class="wp-block-button__link wp-element-button" href="/success-stories/">View Success Stories</a></div>
 <!-- /wp:button -->
 </div>
 <!-- /wp:buttons -->

@@ -52,6 +52,22 @@
 	}
 }
 
+/* Laptops and tablets: slimmer links, so seven of them fit at 1024px (the last one was cut off at the edge). */
+@media (max-width: 1199px) {
+
+	.imet-section .subnav-links a { padding-inline: var(--wp--preset--spacing--14); font-size: var(--wp--preset--font-size--small); }
+
+	.imet-section .subnav-links a:first-child { padding-inline: var(--wp--preset--spacing--14); }
+}
+
+/* When the bar still scrolls sideways (tablets, phones), the edge with more links behind it fades out (subnav view.js
+   sets the classes), so a cut-off link reads as "scroll for more". */
+.imet-section.subnav.has-more-right .subnav-inner { -webkit-mask-image: linear-gradient(90deg, var(--wp--preset--color--ink) 85%, transparent); mask-image: linear-gradient(90deg, var(--wp--preset--color--ink) 85%, transparent); }
+
+.imet-section.subnav.has-more-left .subnav-inner { -webkit-mask-image: linear-gradient(90deg, transparent, var(--wp--preset--color--ink) 15%); mask-image: linear-gradient(90deg, transparent, var(--wp--preset--color--ink) 15%); }
+
+.imet-section.subnav.has-more-left.has-more-right .subnav-inner { -webkit-mask-image: linear-gradient(90deg, transparent, var(--wp--preset--color--ink) 12%, var(--wp--preset--color--ink) 88%, transparent); mask-image: linear-gradient(90deg, transparent, var(--wp--preset--color--ink) 12%, var(--wp--preset--color--ink) 88%, transparent); }
+
 @media (max-width: 782px) {
 
 	.admin-bar .imet-section.subnav { top: 0; }

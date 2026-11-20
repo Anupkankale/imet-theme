@@ -57,7 +57,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"},"style":{"spacing":{"margin":{"top":"var:preset|spacing|36"}}}} -->
 <div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--36)">
 <!-- wp:button {"className":"is-style-button-link btn-sm"} -->
-<div class="wp-block-button is-style-button-link btn-sm"><a class="wp-block-button__link wp-element-button" href="#">View More</a></div>
+<div class="wp-block-button is-style-button-link btn-sm"><a class="wp-block-button__link wp-element-button" href="/testimonials/">View More</a></div>
 <!-- /wp:button -->
 </div>
 <!-- /wp:buttons -->
