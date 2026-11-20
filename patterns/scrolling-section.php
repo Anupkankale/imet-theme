@@ -36,49 +36,49 @@ if ( ! defined( 'ABSPATH' ) ) {
 <div class="wp-block-group is-style-group-scroller">
 <!-- wp:group {"className":"is-style-group-spec-card","layout":{"type":"default"}} -->
 <div class="wp-block-group is-style-group-spec-card"><!-- wp:paragraph -->
-<p><a href="#">DBA in Cybersecurity</a></p>
+<p><a href="<?php echo esc_url( home_url( '/online-doctorate-cybersecurity-certificate-program/' ) ); ?>">DBA in Cybersecurity</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
 <!-- wp:group {"className":"is-style-group-spec-card","layout":{"type":"default"}} -->
 <div class="wp-block-group is-style-group-spec-card"><!-- wp:paragraph -->
-<p><a href="#">DBA in AI / ML</a></p>
+<p><a href="<?php echo esc_url( home_url( '/online-doctorate-dba-artificial-intelligence-ml/' ) ); ?>">DBA in AI / ML</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
 <!-- wp:group {"className":"is-style-group-spec-card","layout":{"type":"default"}} -->
 <div class="wp-block-group is-style-group-spec-card"><!-- wp:paragraph -->
-<p><a href="#">DBA in Digital Transformation</a></p>
+<p><a href="<?php echo esc_url( home_url( '/online-doctorate-digital-transformation-program/' ) ); ?>">DBA in Digital Transformation</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
 <!-- wp:group {"className":"is-style-group-spec-card","layout":{"type":"default"}} -->
 <div class="wp-block-group is-style-group-spec-card"><!-- wp:paragraph -->
-<p><a href="#">DBA in Project Management</a></p>
+<p><a href="<?php echo esc_url( home_url( '/online-doctorate-dba-project-management/' ) ); ?>">DBA in Project Management</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
 <!-- wp:group {"className":"is-style-group-spec-card","layout":{"type":"default"}} -->
 <div class="wp-block-group is-style-group-spec-card"><!-- wp:paragraph -->
-<p><a href="#">DBA in Generative AI</a></p>
+<p><a href="<?php echo esc_url( home_url( '/online-doctorate-dba-generative-ai/' ) ); ?>">DBA in Generative AI</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
 <!-- wp:group {"className":"is-style-group-spec-card","layout":{"type":"default"}} -->
 <div class="wp-block-group is-style-group-spec-card"><!-- wp:paragraph -->
-<p><a href="#">DBA in IT Governance</a></p>
+<p><a href="<?php echo esc_url( home_url( '/online-doctorate-it-governance-risk-compliance/' ) ); ?>">DBA in IT Governance</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
 <!-- wp:group {"className":"is-style-group-spec-card","layout":{"type":"default"}} -->
 <div class="wp-block-group is-style-group-spec-card"><!-- wp:paragraph -->
-<p><a href="#">MBA in Cybersecurity</a></p>
+<p><a href="<?php echo esc_url( home_url( '/online-masters-mba-cybersecurity-program/' ) ); ?>">MBA in Cybersecurity</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
 <!-- wp:group {"className":"is-style-group-spec-card","layout":{"type":"default"}} -->
 <div class="wp-block-group is-style-group-spec-card"><!-- wp:paragraph -->
-<p><a href="#">MBA in Data Analytics</a></p>
+<p><a href="<?php echo esc_url( home_url( '/online-masters-mba-degree-data-analytics-program/' ) ); ?>">MBA in Data Analytics</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 </div>
