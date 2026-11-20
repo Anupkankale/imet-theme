@@ -557,7 +557,7 @@ $footer-icon-caret: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000
 			background: transparent;
 			color: var(--wp--preset--color--white);
 			font-family: var(--wp--preset--font-family--montserrat);
-			font-size: var(--wp--preset--font-size--medium);
+			font-size: var(--wp--preset--font-size--small);
 			font-weight: 500;
 			line-height: 1.4;
 
@@ -615,21 +615,21 @@ $footer-icon-caret: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000
 
 	&-brand {
 		margin: var(--wp--preset--spacing--16) 0 0;
-		font-size: var(--wp--preset--font-size--29);
+		font-size: var(--wp--preset--font-size--24);
 		font-weight: 600;
 		line-height: 1.2;
 	}
 
 	&-about {
 		margin: var(--wp--preset--spacing--10) 0 var(--wp--preset--spacing--16);
-		font-size: var(--wp--preset--font-size--small);
+		font-size: var(--wp--preset--font-size--14);
 		line-height: 1.6;
 	}
 
 	&-bullets {
 		margin: 0;
 		padding-left: var(--wp--preset--spacing--16);
-		font-size: var(--wp--preset--font-size--small);
+		font-size: var(--wp--preset--font-size--14);
 		line-height: 1.6;
 		list-style: disc;
 	}
@@ -662,7 +662,7 @@ $footer-icon-caret: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000
 		border-bottom: 1px solid var(--footer-rule);
 
 		p {
-			font-size: var(--wp--preset--font-size--medium);
+			font-size: var(--wp--preset--font-size--small);
 		}
 
 		.wp-block-buttons {
@@ -672,8 +672,8 @@ $footer-icon-caret: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000
 		.wp-block-button .wp-block-button__link {
 			padding: var(--wp--preset--spacing--10) var(--wp--preset--spacing--16);
 			border-radius: var(--wp--preset--border-radius--4);
-			font-size: var(--wp--preset--font-size--medium);
-			font-weight: 500;
+			font-size: var(--wp--preset--font-size--small);
+			font-weight: 600;
 			line-height: 1.4;
 		}
 	}
@@ -718,6 +718,9 @@ $footer-icon-caret: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000
 			.imet-footer-acc-dba { order: 3; }
 
 			.imet-footer-acc-mba { order: 4; }
+
+			// The newsletter comes after the link groups on phones (it sits in the Doctorate column on wider screens).
+			.imet-footer-news { order: 5; margin-top: var(--wp--preset--spacing--16); }
 		}
 	}
 
@@ -732,12 +735,12 @@ $footer-icon-caret: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000
 		// The global FAQ look of the Details block is for page content, not the footer.
 		padding: 0;
 		border: 0;
-		font-size: var(--wp--preset--font-size--small);
+		font-size: var(--wp--preset--font-size--14);
 
 		> summary {
 			display: block;
-			margin: 0 0 var(--wp--preset--spacing--6);
-			font-size: var(--wp--preset--font-size--medium);
+			margin: 0 0 var(--wp--preset--spacing--8);
+			font-size: var(--wp--preset--font-size--normal);
 			font-weight: 700;
 			line-height: 1.4;
 			list-style: none;
@@ -822,11 +825,75 @@ $footer-icon-caret: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000
 		}
 	}
 
-	// Doctorate column: plain links like the other columns (it had bullets and underlines of its own).
+	// Doctorate column: bulleted, underlined links (design).
+	&-list-dba {
+		padding-left: var(--wp--preset--spacing--20);
+		list-style: disc;
+
+		a {
+			text-decoration: underline;
+			text-underline-offset: var(--wp--custom--size--3);
+		}
+
+		li + li {
+			margin-top: var(--wp--preset--spacing--2);
+		}
+	}
+
+	// "Get tech news": a heading, a line and the newsletter form (Contact Form 7 "Newsletter": email + Submit) under the
+	// Doctorate column. The form's fields come from _contact-form-7.scss; here only the footer's colours and layout.
+	&-news {
+		margin-top: var(--wp--preset--spacing--24);
+
+		.imet-footer-news-title {
+			margin: 0;
+			font-size: var(--wp--preset--font-size--normal);
+			font-weight: 700;
+			line-height: 1.4;
+		}
+
+		.imet-footer-news-text {
+			margin: var(--wp--preset--spacing--4) 0 var(--wp--preset--spacing--12);
+			font-size: var(--wp--preset--font-size--caption);
+			opacity: 0.85;
+		}
+
+		.wpcf7-form { gap: var(--wp--preset--spacing--8); }
+
+		.wpcf7-form input[type="email"] {
+			max-width: var(--wp--custom--size--260);
+			border-color: var(--wp--preset--color--white);
+		}
+
+		.wpcf7-form .wpcf7-submit {
+			min-width: var(--wp--custom--size--135);
+			background: var(--wp--preset--color--white);
+			color: var(--wp--preset--color--navy-night);
+			font-size: var(--wp--preset--font-size--normal);
+		}
+
+		.wpcf7-form .wpcf7-submit:hover { background: var(--wp--preset--color--gold-soft); }
+
+		.wpcf7-form .wpcf7-not-valid-tip { color: var(--wp--preset--color--gold-soft); }
+
+		.wpcf7 form.wpcf7-form .wpcf7-response-output {
+			max-width: var(--wp--custom--size--260);
+			border-color: var(--wp--preset--color--gold-soft);
+			background: transparent;
+			color: var(--wp--preset--color--white);
+			font-size: var(--wp--preset--font-size--caption);
+		}
+
+		.wpcf7 form.wpcf7-form.sent .wpcf7-response-output {
+			border-color: var(--wp--preset--color--green);
+			background: transparent;
+			color: var(--wp--preset--color--white);
+		}
+	}
 
 	&-badge {
 		display: inline-block;
-		margin-left: var(--wp--preset--spacing--12);
+		margin-left: var(--wp--preset--spacing--8);
 		padding: var(--wp--preset--spacing--2) var(--wp--preset--spacing--6);
 		border-radius: var(--wp--preset--border-radius--3);
 		background: var(--wp--preset--color--gold-soft);
@@ -834,15 +901,12 @@ $footer-icon-caret: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000
 		font-family: var(--wp--preset--font-family--inter);
 		font-size: var(--wp--preset--font-size--caption);
 		font-weight: 600;
-		letter-spacing: var(--wp--custom--letter-spacing--1);
 		line-height: 1.4;
 		text-transform: uppercase;
 		vertical-align: middle;
-
-		&::before {
-			content: "*";
-		}
+		white-space: nowrap; // with the heading on one line from 1200px up (design: no asterisk, no letter spacing)
 	}
+
 
 	&-offices {
 		position: relative;
@@ -883,15 +947,15 @@ $footer-icon-caret: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000
 
 	&-h {
 		margin: 0 0 var(--wp--preset--spacing--8);
-		font-size: var(--wp--preset--font-size--large);
-		font-weight: 600;
+		font-size: var(--wp--preset--font-size--normal);
+		font-weight: 700;
 		line-height: 1.3;
 	}
 
 	&-address {
 		position: relative;
 		padding-left: var(--wp--preset--spacing--23);
-		font-size: var(--wp--preset--font-size--small);
+		font-size: var(--wp--preset--font-size--14);
 		line-height: 1.5;
 
 		&::before {
@@ -907,42 +971,15 @@ $footer-icon-caret: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000
 	}
 
 	// ---- Doctorate programs by country ----
-	// One Details block: on phones the "Doctorate Programs by Country" row; from 768px up always open, one heading
-	// ("Doctorate Programs by Country") over one wrapping line of links, divided by "|" (the per-country headings and
-	// separate rows are for the phone accordion only).
+	// One Details block: on phones the "Doctorate Programs by Country" row; from 768px up always open, no summary, a
+	// heading per country over its row of links divided by "|" (design).
 	&-countries {
 		margin-top: var(--wp--preset--spacing--30);
 
 		@media (min-width: #{$bp-tablet}) {
 
 			.imet-footer-acc-countries > summary {
-				margin-bottom: var(--wp--preset--spacing--12);
-				pointer-events: none;
-				list-style: none;
-
-				&::-webkit-details-marker {
-					display: none;
-				}
-			}
-
-			.imet-footer-country-h {
 				display: none;
-			}
-
-			.imet-footer-country-list {
-				display: inline;
-
-				li {
-					display: inline;
-					line-height: 2;
-					white-space: nowrap;
-				}
-
-				// Divider after every link but the very last one (each country's last link included, so the countries run on).
-				&:not(:last-of-type) li:last-child::after {
-					content: "|";
-					margin-inline: var(--wp--preset--spacing--6);
-				}
 			}
 		}
 	}
@@ -952,7 +989,7 @@ $footer-icon-caret: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000
 		margin: var(--wp--preset--spacing--24) 0 var(--wp--preset--spacing--10);
 		padding-bottom: var(--wp--preset--spacing--4);
 		border-bottom: var(--wp--custom--size--2) solid var(--wp--preset--color--white);
-		font-size: var(--wp--preset--font-size--normal);
+		font-size: var(--wp--preset--font-size--small);
 		font-weight: 700;
 		line-height: 1.4;
 
@@ -967,6 +1004,7 @@ $footer-icon-caret: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000
 		row-gap: var(--wp--preset--spacing--4);
 		margin: 0;
 		padding: 0;
+		font-size: var(--wp--preset--font-size--14);
 		list-style: none;
 
 		li:not(:last-child)::after {
@@ -976,6 +1014,8 @@ $footer-icon-caret: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000
 	}
 
 	// ---- White recognition strip ----
+	&-copy { font-size: var(--wp--preset--font-size--small); }
+
 	&-bottom {
 		box-sizing: border-box;
 		min-height: var(--wp--custom--size--82);

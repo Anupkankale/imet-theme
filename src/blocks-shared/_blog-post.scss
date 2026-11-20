@@ -459,6 +459,22 @@
 
 .imet-section .bp-cta-img img { width: 100%; height: 100%; object-fit: cover; }
 
+/* The course-list version of the card (the "Explore Our Top-Rated Courses" call-out in posts copied from
+   imetworldwide.com): a compact list of links, and the photo at its own shape at the bottom of its column, so the taller
+   card doesn't crop it. */
+.imet-section .bp-cta-text .bp-cta-list {
+	margin: 0 0 var(--wp--preset--spacing--16);
+	padding-left: var(--wp--preset--spacing--20);
+	font-size: var(--wp--preset--font-size--small);
+	line-height: 1.45;
+}
+
+.imet-section .bp-cta-text .bp-cta-list li + li { margin-top: var(--wp--preset--spacing--4); }
+
+.imet-section .bp-cta-courses .bp-cta-img { align-self: end; height: auto; }
+
+.imet-section .bp-cta-courses .bp-cta-img img { height: auto; }
+
 /* Contact banner (pattern blog-skills-banner): blue gradient, title left, two points and a white button right. */
 .imet-section .bp-banner {
 	display: grid;
@@ -657,6 +673,8 @@
 	.imet-section :is(.bp-cta-card, .bp-banner, .bp-reading) { grid-template-columns: minmax(0, 1fr); }
 
 	.imet-section .bp-cta-img img { aspect-ratio: 4 / 3; }
+
+	.imet-section .bp-cta-courses .bp-cta-img img { aspect-ratio: 16 / 9; object-position: center 20%; }
 
 	.imet-section .bp-banner { padding: var(--wp--preset--spacing--20); }
 }
