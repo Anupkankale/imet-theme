@@ -32,7 +32,6 @@
 /.deployignore
 /.npmrc
 /.wp-scaffold.json
-/.vipgoci*
 /.claude
 /phpcs.xml*
 /phpstan*

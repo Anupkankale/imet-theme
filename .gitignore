@@ -43,3 +43,6 @@ _tailwind-theme.css
 
 # Playwright browser test results and report (npm run test:e2e)
 /artifacts/e2e/
+
+# Playwright MCP browser session logs (local only)
+/.playwright-mcp/
