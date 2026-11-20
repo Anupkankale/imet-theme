@@ -367,11 +367,14 @@ $navy: var(--wp--preset--color--navy);
 
 .imet-section .pm-chip.is-active { background: $navy; color: var(--wp--preset--color--white); }
 
-/* The map gets the wider column. */
-@media (min-width: 901px) {
+/* The map gets the wider column on desktop; on laptops the columns are even, so the partner cards keep room for their web
+   addresses (they ran past the card edges at 1024px). */
+@media (min-width: 1200px) {
 
 	.imet-section.ab-map .ab-two { grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr); }
 }
+
+.imet-section .ab-loc p { overflow-wrap: anywhere; }
 
 .imet-section .pm-stage { position: relative; padding: var(--wp--preset--spacing--12); }
 
