@@ -2,6 +2,24 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.81 - 2026-11-20
+
+### Changed
+
+- Footer, as in the new design:
+  - The "Doctorate (DBA) Programs" column has bulleted, underlined links again, with the POPULAR badge on the heading's line (no asterisk).
+  - "Doctorate Programs by Country" is a heading per country (USA, UK, Canada, UAE, West Africa) over its row of links, instead of one combined list.
+  - A new "Get tech news" sign-up under the Doctorate column: an email field and a white Submit button (Contact Form 7 form "Newsletter", created by `bin/wp-cli/contact-form-7.php`; sign-ups are emailed to zocdeveloper@gmail.com). On phones it sits after the link groups.
+  - More compact type: tabs and links 14–15px, column and office headings 16px, "IMET Worldwide" 24px.
+  - Copyright: "© 2018 to <year> imetworldwide.com. All rights reserved".
+  - The footer template part has a saved copy on each site, which needs the new markup.
+- Browser test for the footer sign-up (renders, needs an email, never sends).
+
+### Fixed
+
+- Page links under archives and search results (core Query Pagination): they ran together as "1234". Each number is now a 40px square with space between, the current page navy, and Previous/Next in navy.
+- Blog program card, course-list version (`.bp-cta-courses`, used in the posts copied from imetworldwide.com): a compact list of the 8 course links with room under it. The photo keeps its own shape at the bottom of its column, so it's no longer cropped. On phones it's a 16:9 strip, so the card is about 150px shorter.
+
 ## 1.1.80 - 2026-11-20
 
 ### Changed

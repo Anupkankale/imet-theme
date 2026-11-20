@@ -311,3 +311,55 @@ $page: ':is(.wp-block-post-content, .imet-page-content, .is-root-container)';
 	border-bottom: 1px solid var(--wp--preset--color--line);
 	font-size: var(--wp--preset--font-size--medium);
 }
+
+// ---- Page links under a list of posts (archives, search; core Query Pagination) ------------------------------------
+// Core leaves the numbers as bare links side by side ("1234"): each number is a 40px square, the current one navy.
+.wp-block-query-pagination {
+	gap: var(--wp--preset--spacing--12);
+	align-items: center;
+	margin-top: var(--wp--preset--spacing--32);
+	font-size: var(--wp--preset--font-size--small);
+}
+
+.wp-block-query-pagination-numbers {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--wp--preset--spacing--6);
+}
+
+.wp-block-query-pagination-numbers .page-numbers {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: var(--wp--custom--size--40);
+	height: var(--wp--custom--size--40);
+	box-sizing: border-box;
+	padding: 0 var(--wp--preset--spacing--8);
+	border: 1px solid var(--wp--preset--color--line);
+	border-radius: var(--wp--preset--border-radius--8);
+	color: var(--wp--preset--color--navy);
+	font-weight: 600;
+	text-decoration: none;
+}
+
+.wp-block-query-pagination-numbers a.page-numbers:is(:hover, :focus-visible) { border-color: var(--wp--preset--color--navy); }
+
+.wp-block-query-pagination-numbers .page-numbers.current {
+	border-color: var(--wp--preset--color--navy);
+	background: var(--wp--preset--color--navy);
+	color: var(--wp--preset--color--white);
+}
+
+.wp-block-query-pagination-numbers .page-numbers.dots { border-color: transparent; }
+
+.wp-block-query-pagination :is(.wp-block-query-pagination-previous, .wp-block-query-pagination-next) {
+	display: inline-flex;
+	align-items: center;
+	min-height: var(--wp--custom--size--40);
+	color: var(--wp--preset--color--navy);
+	font-weight: 600;
+	text-decoration: none;
+}
+
+.wp-block-query-pagination :is(.wp-block-query-pagination-previous, .wp-block-query-pagination-next):is(:hover, :focus-visible) { text-decoration: underline; }
+
