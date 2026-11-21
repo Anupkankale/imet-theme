@@ -468,16 +468,15 @@ body:has(.wp-site-blocks > header.is-hidden) .imet-section .bp-aside {
 /* Program card (pattern blog-program-cta): text on a light blue panel beside a photo. */
 .imet-section .bp-cta-card {
 	display: grid;
-	grid-template-columns: minmax(0, 421fr) minmax(0, 198fr); /* text beside a 198px photo at 620px (design) */
-	overflow: hidden;
-	max-width: var(--wp--custom--size--620); /* design */
+	grid-template-columns: minmax(0, 1fr) var(--wp--custom--size--214); /* the text, then the photo */
+	overflow: hidden; /* the full width of the article column, as the banner below it */
 	border: 1px solid var(--wp--preset--color--sky);
 	border-radius: var(--wp--preset--border-radius--8);
 	background: color-mix(in srgb, var(--wp--preset--color--sky) 55%, var(--wp--preset--color--white)); /* light blue, as the author box */
 }
 
-/* Spaced so the card is about 237px tall: the photo (584 x 700) then fills its 198px column without losing its edges,
-   where the IEEE and Scopus badges are (design). */
+/* Compact spacing (design): the card stays about as tall as the photo (584 x 700) is at its column's width, so the
+   photo keeps its edges, where the IEEE and Scopus badges are; any trim comes off the bottom (photo anchored at the top). */
 .imet-section .bp-cta-text { padding: var(--wp--preset--spacing--16) var(--wp--preset--spacing--24); }
 
 .imet-section .bp-cta-title {
