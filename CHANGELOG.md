@@ -2,6 +2,13 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.90 - 2026-11-22
+
+### Changed
+
+- Blog page, to the design: the breadcrumbs, the article cards and the sidebar run 1102px wide like the blog article (cards beside a 313px sidebar, 26px apart; before 1200px and 334px). The card titles are 17px, so a title takes about three lines instead of four or five and the cards are shorter. Only the Blog page: Success Stories, Case Studies and the text pages built on the same layout keep their width.
+- Blog article, "Doctorate in Business Administration for IT Leaders" card: the full width of the article column, like the banner below it (was 620px), with compact spacing (less padding, 44px button). The graduate photo is anchored at the top, so the IEEE and Scopus badges at its edges always show; the 620px size token is gone again.
+
 ## 1.1.89 - 2026-11-21
 
 ### Changed
