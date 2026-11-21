@@ -296,54 +296,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:paragraph -->
 </div>
 <!-- /wp:group -->
-<!-- wp:group {"className":"ab-loc-grid","layout":{"type":"default"}} -->
-<div class="wp-block-group ab-loc-grid"><!-- wp:group {"className":"ab-loc","layout":{"type":"default"}} -->
-<div class="wp-block-group ab-loc"><!-- wp:paragraph {"className":"ab-loc-country"} -->
-<p class="ab-loc-country"><a href="https://www.mba4managers.com" target="_blank" rel="noopener">Dubai (UAE)</a></p>
-<!-- /wp:paragraph -->
-<!-- wp:paragraph -->
-<p>MBA4Managers, Bur Dubai<br>www.mba4managers.com</p>
-<!-- /wp:paragraph -->
-</div>
-<!-- /wp:group -->
-<!-- wp:group {"className":"ab-loc","layout":{"type":"default"}} -->
-<div class="wp-block-group ab-loc"><!-- wp:paragraph {"className":"ab-loc-country"} -->
-<p class="ab-loc-country"><a href="https://www.zoctech.com" target="_blank" rel="noopener">Singapore</a></p>
-<!-- /wp:paragraph -->
-<!-- wp:paragraph -->
-<p>ZOC Learnings, Circular Road, Singapore<br>www.zoctech.com</p>
-<!-- /wp:paragraph -->
-</div>
-<!-- /wp:group -->
-<!-- wp:group {"className":"ab-loc","layout":{"type":"default"}} -->
-<div class="wp-block-group ab-loc"><!-- wp:paragraph {"className":"ab-loc-country"} -->
-<p class="ab-loc-country"><a href="https://www.hobnobglobal.in" target="_blank" rel="noopener">Australia</a></p>
-<!-- /wp:paragraph -->
-<!-- wp:paragraph -->
-<p>Hobnobglobal, Melbourne<br>www.hobnobglobal.in</p>
-<!-- /wp:paragraph -->
-</div>
-<!-- /wp:group -->
-<!-- wp:group {"className":"ab-loc","layout":{"type":"default"}} -->
-<div class="wp-block-group ab-loc"><!-- wp:paragraph {"className":"ab-loc-country"} -->
-<p class="ab-loc-country"><a href="https://www.theagileschool.org" target="_blank" rel="noopener">Canada</a></p>
-<!-- /wp:paragraph -->
-<!-- wp:paragraph -->
-<p>Agile School, Canada<br>www.theagileschool.org</p>
-<!-- /wp:paragraph -->
-</div>
-<!-- /wp:group -->
-<!-- wp:group {"className":"ab-loc","layout":{"type":"default"}} -->
-<div class="wp-block-group ab-loc"><!-- wp:paragraph {"className":"ab-loc-country"} -->
-<p class="ab-loc-country"><a href="https://www.animaacademy.com" target="_blank" rel="noopener">Netherlands</a></p>
-<!-- /wp:paragraph -->
-<!-- wp:paragraph -->
-<p>Anima Academy, Netherlands<br>www.animaacademy.com</p>
-<!-- /wp:paragraph -->
-</div>
-<!-- /wp:group -->
-</div>
-<!-- /wp:group -->
 </div>
 <!-- /wp:group -->
 <!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ab-map-img"} -->
