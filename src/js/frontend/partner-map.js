@@ -2,11 +2,10 @@
  * About Us, "Study from anywhere": an interactive map of the partner centres (as on leadershipprograms.ca).
  *
  * The markup is core blocks: the partner-centre cards (.ab-loc) and a map picture (.ab-map-img). This script swaps the
- * picture for the theme's world map (assets/images/imet/world-map.svg, loaded next to the picture), with a row of region
- * chips above it, a pin for every centre, dashed routes from Dubai, and a label card. Hovering, focusing or clicking a
- * chip, a pin or a partner-centre card selects its region: its countries turn navy and its pins are labelled. The map
- * also steps through the regions every few seconds until someone interacts (not with reduced motion). Without
- * JavaScript, or if the map can't load, the picture stays.
+ * picture for the theme's world map (assets/images/imet/world-map.svg, loaded next to the picture), with a pin for every
+ * centre and dashed routes from Dubai. Hovering, focusing or clicking a pin or a partner-centre card selects its region:
+ * its countries turn navy and its pins are labelled. The map also steps through the regions every few seconds until
+ * someone interacts (not with reduced motion). Without JavaScript, or if the map can't load, the picture stays.
  */
 
 const SECTION = '.ab-map';
@@ -161,34 +160,15 @@ const build = (section, figure, source) => {
 		parts[key] = { countries, line, pin };
 	});
 
-	// The card: region chips, the map, and the label for the selected region.
+	// The card holding the map.
 	const card = document.createElement('div');
 	card.className = 'pm-card';
-
-	const chips = document.createElement('div');
-	chips.className = 'pm-chips';
-	chips.setAttribute('role', 'group');
-	chips.setAttribute('aria-label', 'Partner centres by region');
-
-	const buttons = REGIONS.map((region) => {
-		const button = document.createElement('button');
-		button.type = 'button';
-		button.className = 'pm-chip';
-		button.textContent = region.name;
-		chips.append(button);
-		return button;
-	});
 
 	const stage = document.createElement('div');
 	stage.className = 'pm-stage';
 	stage.append(svg);
 
-	const label = document.createElement('div');
-	label.className = 'pm-tag';
-	label.setAttribute('aria-live', 'polite');
-	stage.append(label);
-
-	card.append(chips, stage);
+	card.append(stage);
 	figure.replaceWith(card);
 
 	// The partner-centre cards beside the map select their region too.
@@ -220,32 +200,9 @@ const build = (section, figure, source) => {
 			part.line?.classList.toggle('pm-on', on);
 			part.pin.classList.toggle('pm-on', on);
 		});
-		buttons.forEach((button, i) => {
-			button.classList.toggle('is-active', i === active);
-			button.setAttribute(
-				'aria-pressed',
-				i === active ? 'true' : 'false'
-			);
-		});
 		cards.forEach((item, i) =>
 			item.classList.toggle('is-active', cardRegions[i] === active)
 		);
-
-		const names = region.centres.map((k) => CENTRES[k].label).join(' · ');
-		const partners = region.centres
-			.map((k) => CENTRES[k].partner)
-			.join(' · ');
-		label.innerHTML = '';
-		const kicker = document.createElement('span');
-		kicker.className = 'pm-tag-kicker';
-		kicker.textContent = `${String(active + 1).padStart(2, '0')} · ${region.name}`;
-		const title = document.createElement('strong');
-		title.className = 'pm-tag-title';
-		title.textContent = names;
-		const sub = document.createElement('span');
-		sub.className = 'pm-tag-sub';
-		sub.textContent = partners;
-		label.append(kicker, title, sub);
 	};
 
 	const pause = () => {
@@ -277,7 +234,6 @@ const build = (section, figure, source) => {
 			show(region);
 		});
 	};
-	buttons.forEach(bind);
 	cards.forEach((item, i) => bind(item, cardRegions[i]));
 	Object.entries(parts).forEach(([key, part]) =>
 		bind(part.pin, regionOf(key))
