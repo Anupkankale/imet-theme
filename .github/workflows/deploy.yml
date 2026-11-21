@@ -1,6 +1,9 @@
 name: Deploy
 
-# One branch: every push to main deploys to the site (the "staging" environment holds its SSH secrets).
+# One branch: every push to main deploys to staging (the "staging" environment holds its SSH secrets).
+# Production (imetworldwide.com, the "production" environment) is manual only: Actions → Deploy → Run workflow on main,
+# environment "production", once that version looks right on staging. Skipped until the repository variable
+# PRODUCTION_ENABLED is "true".
 # Rollback: Actions → Deploy → Run workflow and give an older tag or commit as "ref".
 
 on:
@@ -14,6 +17,7 @@ on:
         type: choice
         options:
           - staging
+          - production
         required: true
       ref:
         description: Tag, branch or commit to deploy (empty = the branch this run was started from). Use an older tag to roll back.
@@ -135,4 +139,38 @@ jobs:
           wp-path: ${{ secrets.WP_PATH }}
           site-url: ${{ vars.SITE_URL }}
           # The environment's PHP for WP-CLI, when the server's default is older than the site's (see the action).
+          php-bin: ${{ vars.WP_CLI_PHP }}
+
+  production:
+    name: Deploy to production
+    needs: build
+    # Manual runs only (never on push), and skipped (no SSH) until PRODUCTION_ENABLED is "true". The production
+    # environment only accepts runs from main.
+    if: vars.PRODUCTION_ENABLED == 'true' && github.event_name == 'workflow_dispatch' && inputs.environment == 'production'
+    runs-on: ubuntu-latest
+    environment: production
+    concurrency:
+      group: deploy-production
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: .github/actions
+          persist-credentials: false
+      - uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: ${{ runner.temp }}/dist
+      - uses: ./.github/actions/deploy-hostinger
+        with:
+          source: ${{ runner.temp }}/dist
+          kind: ${{ env.TARGET_KIND }}
+          name: ${{ env.TARGET_NAME }}
+          host: ${{ secrets.SSH_HOST }}
+          port: ${{ secrets.SSH_PORT }}
+          user: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_KEY }}
+          known-hosts: ${{ secrets.SSH_KNOWN_HOSTS }}
+          wp-path: ${{ secrets.WP_PATH }}
+          site-url: ${{ vars.SITE_URL }}
           php-bin: ${{ vars.WP_CLI_PHP }}
