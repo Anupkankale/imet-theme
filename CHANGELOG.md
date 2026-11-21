@@ -2,6 +2,12 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.91 - 2026-11-22
+
+### Removed
+
+- Footer: the Singapore logo from the row of recognition logos (Ministry of Education, WES, Ministry of Corporate Affairs and the UAE Ministry of Foreign Affairs stay). Removed from `parts/footer.html`, and hidden by CSS where a saved copy of the footer (Site Editor) still has it, so it is gone on the live site too.
+
 ## 1.1.90 - 2026-11-22
 
 ### Changed
