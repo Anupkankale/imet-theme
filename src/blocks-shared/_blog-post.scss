@@ -439,7 +439,7 @@ body:has(.wp-site-blocks > header.is-hidden) .imet-section .bp-aside {
 	padding-bottom: var(--wp--preset--spacing--8);
 	border-bottom: 1px solid var(--wp--preset--color--grey-300);
 	color: var(--wp--preset--color--ink);
-	font-family: var(--head);
+	font-family: var(--wp--preset--font-family--serif);
 	font-size: var(--wp--preset--font-size--card-title);
 	font-weight: 700;
 }
@@ -462,15 +462,18 @@ body:has(.wp-site-blocks > header.is-hidden) .imet-section .bp-aside {
 
 .imet-section .bp-tldr li + li { margin-top: 0; }
 
+/* A one-point TL;DR (a one-sentence excerpt, templates/single.html via SinglePost) runs the full width. */
+.imet-section .bp-tldr ol:has(> li:only-child) { grid-template-columns: minmax(0, 1fr); }
+
 /* Program card (pattern blog-program-cta): text on a light blue panel beside a photo. */
 .imet-section .bp-cta-card {
 	display: grid;
-	grid-template-columns: minmax(0, 1fr) var(--wp--custom--size--214);
+	grid-template-columns: minmax(0, 421fr) minmax(0, 198fr); /* text beside a 198px photo at 620px (design) */
 	overflow: hidden;
-	max-width: var(--wp--custom--size--826);
+	max-width: var(--wp--custom--size--620); /* design */
 	border: 1px solid var(--wp--preset--color--sky);
 	border-radius: var(--wp--preset--border-radius--8);
-	background: var(--wp--preset--color--lavender);
+	background: color-mix(in srgb, var(--wp--preset--color--sky) 55%, var(--wp--preset--color--white)); /* light blue, as the author box */
 }
 
 .imet-section .bp-cta-text { padding: var(--wp--preset--spacing--20) var(--wp--preset--spacing--24); }
@@ -519,11 +522,11 @@ body:has(.wp-site-blocks > header.is-hidden) .imet-section .bp-aside {
 	max-width: var(--wp--custom--size--826);
 	padding: var(--wp--preset--spacing--24) var(--wp--preset--spacing--40);
 	box-sizing: border-box;
-	background: linear-gradient(90deg, var(--wp--preset--color--navy), var(--wp--preset--color--blue));
+	background: linear-gradient(90deg, color-mix(in srgb, var(--wp--preset--color--blue) 75%, var(--wp--preset--color--navy-deep)), var(--wp--preset--color--blue)); /* blue to lighter blue (design) */
 	color: var(--wp--preset--color--white);
 }
 
-.imet-section .bp-banner-title { margin: 0; color: var(--wp--preset--color--white); font-family: var(--head); font-size: var(--wp--preset--font-size--x-large); font-weight: 700; line-height: 1.2; }
+.imet-section .bp-banner-title { margin: 0; color: var(--wp--preset--color--white); font-family: var(--wp--preset--font-family--serif); font-size: var(--wp--preset--font-size--x-large); font-weight: 700; line-height: 1.2; }
 
 .imet-section .bp-banner ul { margin: 0 0 var(--wp--preset--spacing--12); padding-left: var(--wp--preset--spacing--20); }
 

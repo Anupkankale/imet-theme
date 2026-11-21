@@ -21,6 +21,11 @@ use rtCamp\WPPrimitives\Contracts\Interfaces\Registrable;
  *   (IMET's LinkedIn page when that address isn't a linkedin.com one).
  * - "Our Related Blogs": a Query Loop whose `query` attribute has `"imetRelated": true` lists posts from the current
  *   post's categories, without the post itself (the latest posts when no other post shares a category).
+ * - The article parts of the design, added to every post's body (`.bp-content`) unless the post already has its own:
+ *   the TL;DR box from the excerpt at the top, the program card before the 2nd heading, the "Build job-ready skills"
+ *   banner before the 4th and "Recommended Blog/Reading" (the newest other post) before the 6th; at the end when the
+ *   post has fewer headings.
+ * - The tag chips under the title (`.bp-tags`) show the post's categories when it has no tags.
  *
  * @since 1.1.18
  */
@@ -43,6 +48,95 @@ class SinglePost implements Registrable {
 		add_shortcode( 'imet_share_linkedin', [ $this, 'share_linkedin' ] );
 		add_shortcode( 'imet_author_linkedin', [ $this, 'author_linkedin' ] );
 		add_filter( 'query_loop_block_query_vars', [ $this, 'related_query_vars' ], 10, 2 );
+		add_filter( 'render_block_core/post-content', [ $this, 'article_parts' ], 10, 2 );
+		add_filter( 'render_block_core/post-terms', [ $this, 'tags_or_categories' ], 10, 2 );
+	}
+
+	/**
+	 * Adds the design's article parts to a post's body: the TL;DR box at the top, then the program card, the contact
+	 * banner and the recommended article before the 2nd, 4th and 6th headings. A part the post already has is skipped.
+	 *
+	 * @since 1.1.89
+	 *
+	 * @param string               $content The rendered post content.
+	 * @param array<string, mixed> $block   The parsed block.
+	 *
+	 * @return string The content with the parts added.
+	 */
+	public function article_parts( string $content, array $block ): string {
+		$class = (string) ( $block['attrs']['className'] ?? '' );
+		$post  = get_post();
+
+		if ( ! str_contains( $class, 'bp-content' ) || ! $post || 'post' !== $post->post_type ) {
+			return $content;
+		}
+
+		$parts = [
+			'bp-cta-card' => 2,
+			'bp-banner'   => 4,
+			'bp-reading'  => 6,
+		];
+
+		$inserts = [];
+
+		foreach ( $parts as $part => $heading ) {
+			if ( str_contains( $content, $part ) ) {
+				continue;
+			}
+
+			$html = 'bp-reading' === $part ? $this->recommended( $post->ID ) : $this->pattern( 'bp-cta-card' === $part ? 'blog-program-cta' : 'blog-skills-banner' );
+
+			if ( '' !== $html ) {
+				$inserts[ $heading ] = $html;
+			}
+		}
+
+		$content = $this->insert_before_headings( $content, $inserts );
+
+		if ( ! str_contains( $content, 'bp-tldr' ) ) {
+			$tldr = $this->tldr( $post->post_excerpt );
+
+			// First thing inside the post content wrapper.
+			if ( '' !== $tldr && 1 === preg_match( '/^\s*<div\b[^>]*>/', $content, $wrapper ) ) {
+				$content = substr_replace( $content, $tldr, strlen( $wrapper[0] ), 0 );
+			}
+		}
+
+		return $content;
+	}
+
+	/**
+	 * The post's categories as the tag chips, for a post without tags.
+	 *
+	 * @since 1.1.89
+	 *
+	 * @param string               $content The rendered Post Terms block.
+	 * @param array<string, mixed> $block   The parsed block.
+	 *
+	 * @return string The chips.
+	 */
+	public function tags_or_categories( string $content, array $block ): string {
+		$class = (string) ( $block['attrs']['className'] ?? '' );
+
+		if ( '' !== trim( $content ) || 'post_tag' !== ( $block['attrs']['term'] ?? '' ) || ! str_contains( $class, 'bp-tags' ) ) {
+			return $content;
+		}
+
+		$links = [];
+
+		foreach ( get_the_category() as $category ) {
+			if ( 'uncategorized' === $category->slug ) {
+				continue;
+			}
+
+			$links[] = sprintf( '<a href="%1$s" rel="tag">%2$s</a>', esc_url( get_category_link( $category ) ), esc_html( $category->name ) );
+		}
+
+		if ( [] === $links ) {
+			return $content;
+		}
+
+		return '<div class="taxonomy-category bp-tags wp-block-post-terms">' . implode( '', $links ) . '</div>';
 	}
 
 	/**
@@ -150,6 +244,119 @@ class SinglePost implements Registrable {
 		}
 
 		return $query;
+	}
+
+	/**
+	 * Puts each piece of markup in front of the post's nth H2 (1-based), or at the end when there are fewer headings.
+	 *
+	 * @param string             $content Rendered post content.
+	 * @param array<int, string> $inserts Markup by heading number.
+	 *
+	 * @return string The content.
+	 */
+	private function insert_before_headings( string $content, array $inserts ): string {
+		if ( [] === $inserts ) {
+			return $content;
+		}
+
+		preg_match_all( '/<h2\b/i', $content, $matches, PREG_OFFSET_CAPTURE );
+		$offsets = array_column( $matches[0], 1 );
+		$tail    = '';
+
+		krsort( $inserts ); // From the last heading back, so the earlier offsets stay right.
+
+		foreach ( $inserts as $heading => $html ) {
+			if ( ! isset( $offsets[ $heading - 1 ] ) ) {
+				$tail = $html . $tail;
+				continue;
+			}
+
+			$content = substr_replace( $content, $html, (int) $offsets[ $heading - 1 ], 0 );
+		}
+
+		if ( '' === $tail ) {
+			return $content;
+		}
+
+		// Inside the post content wrapper, after its last child.
+		$end = strrpos( $content, '</div>' );
+
+		return false === $end ? $content . $tail : substr_replace( $content, $tail, $end, 0 );
+	}
+
+	/**
+	 * The TL;DR box: each line of the excerpt is a point (or each sentence, when it is one line).
+	 *
+	 * @param string $excerpt The post's handwritten excerpt.
+	 *
+	 * @return string Markup, or '' without an excerpt.
+	 */
+	private function tldr( string $excerpt ): string {
+		$excerpt = trim( wp_strip_all_tags( $excerpt ) );
+
+		if ( '' === $excerpt ) {
+			return '';
+		}
+
+		$points = preg_split( '/\R+/', $excerpt );
+		$points = is_array( $points ) && count( $points ) > 1 ? $points : preg_split( '/(?<=[.!?])\s+(?=\p{Lu})/u', $excerpt );
+		$items  = '';
+
+		foreach ( (array) $points as $point ) {
+			$point = trim( (string) $point );
+
+			if ( '' !== $point ) {
+				$items .= '<li>' . esc_html( $point ) . '</li>';
+			}
+		}
+
+		return '<div class="wp-block-group bp-tldr"><p class="bp-tldr-title">' . esc_html__( 'TL;DR', 'imet-theme' ) . '</p><ol class="wp-block-list">' . $items . '</ol></div>';
+	}
+
+	/**
+	 * A theme pattern, rendered.
+	 *
+	 * @param string $slug Pattern slug without the theme prefix.
+	 *
+	 * @return string Markup, or '' when the pattern isn't registered.
+	 */
+	private function pattern( string $slug ): string {
+		$pattern = \WP_Block_Patterns_Registry::get_instance()->get_registered( 'imet-theme/' . $slug );
+
+		return is_array( $pattern ) && isset( $pattern['content'] ) ? do_blocks( (string) $pattern['content'] ) : '';
+	}
+
+	/**
+	 * "Recommended Blog/Reading" for the newest other post: its title and featured image, both linked.
+	 *
+	 * @param int $post_id The current post.
+	 *
+	 * @return string Markup, or '' when there is no other post.
+	 */
+	private function recommended( int $post_id ): string {
+		$others = get_posts(
+			[
+				'post__not_in'     => [ $post_id ], // phpcs:ignore WordPressVIPMinimum.Performance.WPQueryParams.PostNotIn_post__not_in -- one ID, one post.
+				'numberposts'      => 1,
+				'suppress_filters' => false,
+			]
+		);
+
+		if ( [] === $others ) {
+			return '';
+		}
+
+		$other = $others[0];
+		$url   = (string) get_permalink( $other );
+		$image = get_the_post_thumbnail( $other, 'medium_large', [ 'alt' => '' ] );
+
+		return sprintf(
+			'<div class="wp-block-group bp-reading"><div class="wp-block-group bp-reading-text"><p class="bp-reading-label">%1$s</p><p><a href="%2$s">%3$s</a></p></div>%4$s</div>',
+			esc_html__( 'Recommended Blog/Reading', 'imet-theme' ),
+			esc_url( $url ),
+			esc_html( get_the_title( $other ) ),
+			'' === $image ? '' : '<figure class="wp-block-image bp-reading-img"><a href="' . esc_url( $url ) . '" tabindex="-1">' . $image . '</a></figure>'
+		);
 	}
 
 	/**
