@@ -476,11 +476,13 @@ body:has(.wp-site-blocks > header.is-hidden) .imet-section .bp-aside {
 	background: color-mix(in srgb, var(--wp--preset--color--sky) 55%, var(--wp--preset--color--white)); /* light blue, as the author box */
 }
 
-.imet-section .bp-cta-text { padding: var(--wp--preset--spacing--20) var(--wp--preset--spacing--24); }
+/* Spaced so the card is about 237px tall: the photo (584 x 700) then fills its 198px column without losing its edges,
+   where the IEEE and Scopus badges are (design). */
+.imet-section .bp-cta-text { padding: var(--wp--preset--spacing--16) var(--wp--preset--spacing--24); }
 
 .imet-section .bp-cta-title {
-	margin: 0 0 var(--wp--preset--spacing--10);
-	padding-bottom: var(--wp--preset--spacing--10);
+	margin: 0 0 var(--wp--preset--spacing--8);
+	padding-bottom: var(--wp--preset--spacing--8);
 	border-bottom: 1px solid var(--wp--preset--color--grey-300);
 	color: var(--wp--preset--color--ink);
 	font-family: var(--head);
@@ -489,13 +491,15 @@ body:has(.wp-site-blocks > header.is-hidden) .imet-section .bp-aside {
 	line-height: 1.25;
 }
 
-.imet-section .bp-cta-text p { margin: 0 0 var(--wp--preset--spacing--16); }
+.imet-section .bp-cta-text p { margin: 0 0 var(--wp--preset--spacing--12); }
+
+.imet-section .bp-cta-card:not(.bp-cta-courses) .wp-block-button__link { min-height: var(--wp--custom--size--44); padding-block: 0; }
 
 .imet-section .bp-cta-text .wp-block-buttons { margin: 0; }
 
 .imet-section .bp-cta-img { height: 100%; margin: 0; }
 
-.imet-section .bp-cta-img img { width: 100%; height: 100%; object-fit: cover; }
+.imet-section .bp-cta-img img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
 
 /* The course-list version of the card (the "Explore Our Top-Rated Courses" call-out in posts copied from
    imetworldwide.com): a compact list of links, and the photo at its own shape at the bottom of its column, so the taller
