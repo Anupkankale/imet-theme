@@ -7,6 +7,7 @@ All notable changes to this project are documented in this file. The format is b
 ### Changed
 
 - Blog page, to the design: the breadcrumbs, the article cards and the sidebar run 1102px wide like the blog article (cards beside a 313px sidebar, 26px apart; before 1200px and 334px). The card titles are 17px, so a title takes about three lines instead of four or five and the cards are shorter. Only the Blog page: Success Stories, Case Studies and the text pages built on the same layout keep their width.
+- Blog article, "Doctorate in Business Administration for IT Leaders" card: about 240px tall as in the design (less padding, 44px button), so the graduate photo fills its column without cutting off the IEEE and Scopus badges at its edges.
 
 ## 1.1.89 - 2026-11-21
 
