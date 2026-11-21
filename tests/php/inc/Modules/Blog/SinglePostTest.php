@@ -104,7 +104,8 @@ class SinglePostTest extends TestCase {
 
 		$this->assertSame( 1, substr_count( $html, 'bp-banner' ) );
 		$this->assertGreaterThan( strpos( $html, 'Text 1' ), strpos( $html, 'bp-cta-card' ) );
-		$this->assertStringEndsWith( '</div></div>', $html );
+		$this->assertStringEndsWith( '</div>', $html ); // The parts stay inside the post content wrapper.
+		$this->assertLessThan( strrpos( $html, '</div>' ), strrpos( $html, 'bp-cta-card' ) );
 		$this->assertStringContainsString( '<ol class="wp-block-list"><li>One sentence only.</li></ol>', $html );
 	}
 
