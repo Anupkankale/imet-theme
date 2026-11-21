@@ -288,63 +288,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 <section id="centers" class="wp-block-imet-section alignfull imet-section section imet-blank ab-map"><!-- wp:group {"className":"imet-container ab-two","layout":{"type":"default"}} -->
 <div class="wp-block-group imet-container ab-two"><!-- wp:group {"className":"ab-map-text","layout":{"type":"default"}} -->
 <div class="wp-block-group ab-map-text"><!-- wp:group {"className":"sec-head is-left","layout":{"type":"default"}} -->
-<div class="wp-block-group sec-head is-left"><!-- wp:paragraph {"className":"eyebrow-line left"} -->
-<p class="eyebrow-line left">Global Map</p>
-<!-- /wp:paragraph -->
-<!-- wp:heading {"className":"title left"} -->
+<div class="wp-block-group sec-head is-left"><!-- wp:heading {"className":"title left"} -->
 <h2 class="wp-block-heading title left">Study from anywhere</h2>
 <!-- /wp:heading -->
 <!-- wp:paragraph {"className":"sub left"} -->
 <p class="sub left">Learn with IMET Worldwide through our partner centres around the world.</p>
 <!-- /wp:paragraph -->
-</div>
-<!-- /wp:group -->
-<!-- wp:group {"className":"ab-loc-grid","layout":{"type":"default"}} -->
-<div class="wp-block-group ab-loc-grid"><!-- wp:group {"className":"ab-loc","layout":{"type":"default"}} -->
-<div class="wp-block-group ab-loc"><!-- wp:paragraph {"className":"ab-loc-country"} -->
-<p class="ab-loc-country"><a href="https://www.mba4managers.com" target="_blank" rel="noopener">Dubai (UAE)</a></p>
-<!-- /wp:paragraph -->
-<!-- wp:paragraph -->
-<p>MBA4Managers, Bur Dubai<br>www.mba4managers.com</p>
-<!-- /wp:paragraph -->
-</div>
-<!-- /wp:group -->
-<!-- wp:group {"className":"ab-loc","layout":{"type":"default"}} -->
-<div class="wp-block-group ab-loc"><!-- wp:paragraph {"className":"ab-loc-country"} -->
-<p class="ab-loc-country"><a href="https://www.zoctech.com" target="_blank" rel="noopener">Singapore</a></p>
-<!-- /wp:paragraph -->
-<!-- wp:paragraph -->
-<p>ZOC Learnings, Circular Road, Singapore<br>www.zoctech.com</p>
-<!-- /wp:paragraph -->
-</div>
-<!-- /wp:group -->
-<!-- wp:group {"className":"ab-loc","layout":{"type":"default"}} -->
-<div class="wp-block-group ab-loc"><!-- wp:paragraph {"className":"ab-loc-country"} -->
-<p class="ab-loc-country"><a href="https://www.hobnobglobal.in" target="_blank" rel="noopener">Australia</a></p>
-<!-- /wp:paragraph -->
-<!-- wp:paragraph -->
-<p>Hobnobglobal, Melbourne<br>www.hobnobglobal.in</p>
-<!-- /wp:paragraph -->
-</div>
-<!-- /wp:group -->
-<!-- wp:group {"className":"ab-loc","layout":{"type":"default"}} -->
-<div class="wp-block-group ab-loc"><!-- wp:paragraph {"className":"ab-loc-country"} -->
-<p class="ab-loc-country"><a href="https://www.theagileschool.org" target="_blank" rel="noopener">Canada</a></p>
-<!-- /wp:paragraph -->
-<!-- wp:paragraph -->
-<p>Agile School, Canada<br>www.theagileschool.org</p>
-<!-- /wp:paragraph -->
-</div>
-<!-- /wp:group -->
-<!-- wp:group {"className":"ab-loc","layout":{"type":"default"}} -->
-<div class="wp-block-group ab-loc"><!-- wp:paragraph {"className":"ab-loc-country"} -->
-<p class="ab-loc-country"><a href="https://www.animaacademy.com" target="_blank" rel="noopener">Netherlands</a></p>
-<!-- /wp:paragraph -->
-<!-- wp:paragraph -->
-<p>Anima Academy, Netherlands<br>www.animaacademy.com</p>
-<!-- /wp:paragraph -->
-</div>
-<!-- /wp:group -->
 </div>
 <!-- /wp:group -->
 </div>
