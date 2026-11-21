@@ -2,6 +2,12 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.88 - 2026-11-21
+
+### Changed
+
+- About Us, "What you gain with IMET": the six cards follow the design. Each photo sits on the right at its own shape and fades into the card (grey or navy) from its left edge, with the text running over the faded part; headings fit on one line; 12px corners. Research publication: the logo collage sits low on the right, crisp, with the design's "ResearchGate" and "Web of Science" badges added (hidden on phones, where they would cover the text). A short gold line under "Gain with IMET", and a narrower intro.
+
 ## 1.1.87 - 2026-11-21
 
 ### Removed
