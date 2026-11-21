@@ -2,6 +2,17 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.89 - 2026-11-21
+
+### Changed
+
+- Blog article, to the "DBA file 16/10" design at 1440px: the columns are 1102px wide, lined up with the header's logo and Contact button (article 769px, 20px gap, 313px sidebar; before 1200px). "IMET BLOG" is in the serif font on the darker footer navy, the category links in Montserrat 15px with a thin gold underline. The title starts level with the top of the photo, and its column reaches a little past the sidebar so "Detection & Prevention" keeps one line. The tag chips are smaller and sit on one row. The share icon sits on a light pink square. The article text is 16px on 24px lines with 24px between paragraphs (headings stay 25px). The advisor form card in the sidebar is tighter (rounder corners, fields 9px apart).
+- Blog article, "Our Related Blogs": under the article and the sidebar, 916px wide as in the design, so each title takes about three lines instead of five or six.
+- Blog article: every post now shows the design's article parts without anyone editing it. The TL;DR box at the top is built from the post's excerpt (each line of the excerpt is a numbered point; one sentence fills the width). The "Doctorate in Business Administration for IT Leaders" card goes before the 2nd heading, the "Build job-ready skills with IMET" banner before the 4th, and "Recommended Blog/Reading" (the newest other post, with its title and image) before the 6th; at the end of a shorter post. A post that already has one of these parts keeps its own and doesn't get a second.
+- Blog article: a post without tags shows its categories as the coloured chips under the title, so the chips are never missing.
+- Blog article parts to the design: "TL;DR" and "Build job-ready skills with IMET" in the serif font, the banner blue to lighter blue, the program card 620px wide on light blue with a 198px photo.
+- New size tokens `313` and `620`.
+
 ## 1.1.88 - 2026-11-21
 
 ### Changed
