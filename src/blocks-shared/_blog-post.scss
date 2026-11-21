@@ -1,7 +1,7 @@
 /* Single blog article (templates/single.html) and the article parts editors insert into a post (patterns blog-*).
    Sections: .bp-nav (navy "IMET BLOG" category bar, menu location "blog"), .bp-hero (breadcrumbs, featured image beside
    the title, byline, LinkedIn share, tag chips) and .bp-main (the article with its author box and related articles,
-   beside the advisor form, the table of contents built by the blank section's view.js, and Follow Us).
+   beside the advisor form, the table of contents built by the blank section's view.js).
    Design: "DBA file 16/10 / Desktop - 1 final". Tokens only. */
 
 /* ---------- Sections ---------- */
@@ -148,7 +148,7 @@
 
 .imet-section .bp-share .bp-linkedin img { height: var(--wp--custom--size--26); }
 
-/* LinkedIn logo (assets/images/imet/linkedin-logo.svg): the share link, the author link and Follow Us. */
+/* LinkedIn logo (assets/images/imet/linkedin-logo.svg): the share link and the author link. */
 .imet-section .bp-linkedin { display: inline-flex; align-items: center; min-height: var(--wp--custom--size--44); line-height: 0; } /* 44px tap target */
 
 .imet-section .bp-linkedin img { width: auto; height: var(--wp--custom--size--22); }
@@ -185,7 +185,7 @@
 .imet-section .bp-article { min-width: 0; }
 
 /* The whole sidebar stays in view while the article scrolls: the advisor form (the Blog Page's card, .bl-form in
-   _blog-page.scss), then the table of contents and Follow Us. It is never taller than the screen: the form keeps its
+   _blog-page.scss), then the table of contents. It is never taller than the screen: the form keeps its
    size and the table of contents list gives up height (it scrolls inside, with its fade). */
 .imet-section .bp-aside {
 	--bp-sticky-top: var(--wp--custom--header--main-clearance); /* clears the floating header, also when it slides back in */
@@ -196,9 +196,26 @@
 	flex-direction: column;
 	gap: var(--wp--preset--spacing--20);
 	max-height: calc(100vh - var(--bp-sticky-top) - var(--wp--preset--spacing--16));
+
+	/* Position and height move together, so the bottom stays put while the header slides. */
+	transition: top var(--wp--custom--motion--base) ease, max-height var(--wp--custom--motion--base) ease;
 }
 
-.imet-section .bp-aside > :is(.bl-form, .bp-follow) { flex: none; }
+/* While the header is slid away (header-scroll.js), the 110px header gap is empty: the sidebar moves up under the top
+   edge (and the admin bar), and slides back down with the header. */
+body:has(.wp-site-blocks > header.is-hidden) .imet-section .bp-aside {
+
+	/* A unit is needed: a unitless 0 makes the calc() invalid. */
+	/* stylelint-disable-next-line length-zero-no-unit */
+	--bp-sticky-top: calc(var(--wp-admin--admin-bar--height, 0px) + var(--wp--preset--spacing--16));
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+	.imet-section .bp-aside { transition: none; }
+}
+
+.imet-section .bp-aside > .bl-form { flex: none; }
 
 .imet-section .bp-sticky {
 	display: flex;
@@ -207,8 +224,6 @@
 	gap: var(--wp--preset--spacing--20);
 	min-height: 0;
 }
-
-.imet-section .bp-sticky > .bp-follow { flex: none; }
 
 .imet-section .bp-toc {
 	display: none;
@@ -262,10 +277,6 @@
 .imet-section .bp-toc-list a:hover { color: var(--wp--preset--color--ink); }
 
 .imet-section .bp-toc-list a.is-active { border-left-color: var(--wp--preset--color--danger); color: var(--wp--preset--color--ink); }
-
-.imet-section .bp-follow p { margin: 0 0 var(--wp--preset--spacing--4); color: var(--wp--preset--color--ink); font-size: var(--wp--preset--font-size--normal); }
-
-.imet-section .bp-follow .bp-linkedin img { height: var(--wp--custom--size--27); }
 
 /* ---------- Article body (what editors write) ---------- */
 .imet-section .bp-content { color: var(--wp--preset--color--body-text); font-size: var(--wp--preset--font-size--body); line-height: 1.65; }
@@ -526,17 +537,17 @@
 	grid-template-columns: auto minmax(0, var(--wp--custom--size--155)) auto minmax(0, 1fr);
 	grid-template-rows: auto auto;
 	align-items: center;
-	gap: 0 var(--wp--preset--spacing--16); /* no row gap: the job title sits right under the name */
+	gap: 0 var(--wp--preset--spacing--20); /* no row gap: the job title sits right under the name */
 	margin-top: var(--wp--preset--spacing--24);
-	padding: var(--wp--preset--spacing--14) var(--wp--preset--spacing--16);
-	background: var(--wp--preset--color--lavender);
+	padding: var(--wp--preset--spacing--24) var(--wp--preset--spacing--30);
+	background: color-mix(in srgb, var(--wp--preset--color--sky) 55%, var(--wp--preset--color--white)); /* light blue (design) */
 }
 
 .imet-section .bp-author :is(.wp-block-post-author, .wp-block-post-author__content) { display: contents; }
 
-.imet-section .bp-author .wp-block-post-author__avatar { grid-area: avatar; margin: 0; }
+.imet-section .bp-author .wp-block-post-author__avatar { grid-area: avatar; margin: 0 var(--wp--preset--spacing--12) 0 0; }
 
-.imet-section .bp-author .wp-block-post-author__avatar img { width: var(--wp--custom--size--74); height: var(--wp--custom--size--74); object-fit: cover; }
+.imet-section .bp-author .wp-block-post-author__avatar img { width: var(--wp--custom--size--82); height: var(--wp--custom--size--82); object-fit: cover; }
 
 .imet-section .bp-author .wp-block-post-author__avatar img { border-radius: 50%; }
 
@@ -547,9 +558,9 @@
 
 .imet-section .bp-author .wp-block-post-author__bio:empty { display: none; }
 
-.imet-section .bp-author .wp-block-post-author__name { grid-area: name; grid-row: name-start / role-end; align-self: center; margin: 0; color: var(--wp--preset--color--navy); font-family: var(--head); font-size: var(--wp--preset--font-size--large); font-weight: 700; }
+.imet-section .bp-author .wp-block-post-author__name { grid-area: name; grid-row: name-start / role-end; align-self: center; margin: 0; color: color-mix(in srgb, var(--wp--preset--color--blue) 65%, var(--wp--preset--color--navy)); font-family: var(--wp--preset--font-family--serif); font-size: var(--wp--preset--font-size--24); font-weight: 700; line-height: 1.2; }
 
-.imet-section .bp-author .wp-block-post-author__bio { grid-area: bio; margin: 0; color: var(--wp--preset--color--ink); font-size: var(--wp--preset--font-size--normal); line-height: 1.5; }
+.imet-section .bp-author .wp-block-post-author__bio { grid-area: bio; margin: 0; color: var(--wp--preset--color--ink); font-size: var(--wp--preset--font-size--normal); line-height: 1.45; }
 
 .imet-section .bp-author > p:has(.bp-author-linkedin) {
 	grid-area: linkedin;
@@ -557,18 +568,18 @@
 	display: flex;
 	align-items: center;
 	margin: 0;
-	padding-left: var(--wp--preset--spacing--8);
+	padding-left: var(--wp--preset--spacing--12);
 	border-left: 1px solid var(--wp--preset--color--grey-300);
 }
 
 /* The logo reads bottom to top, as in the design. */
-.imet-section .bp-author-linkedin { position: relative; width: var(--wp--custom--size--26); height: var(--wp--custom--size--102); }
+.imet-section .bp-author-linkedin { position: relative; width: var(--wp--custom--size--27); height: var(--wp--custom--size--110); }
 
 .imet-section .bp-author-linkedin img {
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	width: var(--wp--custom--size--102);
+	width: var(--wp--custom--size--110);
 	max-width: none;
 	height: auto;
 	transform: translate(-50%, -50%) rotate(-90deg);
@@ -636,8 +647,8 @@
 
 	.imet-section .bp-head:not(:has(.bp-cover)) { grid-template-columns: minmax(0, 1fr); }
 
-	/* One column: the table of contents moves above the article (at the end it would be no help), the advisor form and
-	   Follow Us follow the article. The sidebar wrappers step aside so their parts are items of the column. */
+	/* One column: the table of contents moves above the article (at the end it would be no help), the advisor form
+	   follows the article. The sidebar wrappers step aside so their parts are items of the column. */
 	.imet-section :is(.bp-aside, .bp-sticky) { display: contents; }
 
 	.imet-section .bp-layout > * { min-width: 0; }
@@ -645,8 +656,6 @@
 	.imet-section .bp-toc { order: -1; }
 
 	.imet-section .bp-layout .bl-form { order: 1; width: min(100%, var(--wp--custom--size--544)); box-sizing: border-box; }
-
-	.imet-section .bp-follow { order: 2; }
 
 	/* Beside the image the title column is narrow: byline, tags and share each get their own line. */
 	.imet-section .bp-head-text { grid-template-areas: "title" "byline" "tags" "share"; grid-template-columns: minmax(0, 1fr); }
