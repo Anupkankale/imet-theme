@@ -13,7 +13,6 @@
  * External dependencies
  */
 const path = require('path');
-const { execFileSync } = require('child_process');
 
 /**
  * Internal dependencies
@@ -27,7 +26,7 @@ if (argv.includes('--help') || argv.includes('-h')) {
 		`Usage: npm run init -- [options]   (or: node bin/init.js [options])
 
 Set up or manage this theme via the shared @rtcamp/wp-tooling init engine.
-Runs npm run sync-ai after successful changes; status/help are read-only.
+Status and help are read-only.
 
 Options:
   --name="Theme Name"       Theme name (required with --yes during setup).
@@ -62,21 +61,6 @@ run(config, { root: path.resolve(__dirname, '..') })
 			process.exit(process.exitCode || 0);
 		}
 
-		// Keep the shared AI instruction files in sync after a successful init.
-		// Done here (not in the npm script) so `npm run init -- <flags>` forwards
-		// the flags to this script instead of to a chained `sync-ai`.
-		try {
-			execFileSync(
-				process.execPath,
-				[path.join(__dirname, 'sync-ai.js')],
-				{ stdio: 'inherit' }
-			);
-		} catch (err) {
-			console.error(
-				'\ninit succeeded but `sync-ai` failed; run `npm run sync-ai` manually.'
-			);
-			console.error(err.message);
-		}
 		process.exit(process.exitCode || 0);
 	})
 	.catch((err) => {

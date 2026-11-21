@@ -34,10 +34,6 @@ Third-party assets:
   [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/). It draws the flags in the advisor form's country-code list,
   which Windows browsers otherwise show as letters ("AE").
 
-**AI assistance.** This theme was built with AI coding assistants (Claude Code), and commits made with one say so in a
-`Co-Authored-By` trailer. I set the architecture, matched the Figma designs, and reviewed, tested and deployed every
-change. `AGENTS.md`, `CLAUDE.md` and `.claude/skills/` are the instructions those assistants work from.
-
 ## How it is organised
 
 | Path | What it is |
@@ -54,8 +50,7 @@ change. `AGENTS.md`, `CLAUDE.md` and `.claude/skills/` are the instructions thos
 | `bin/` | `audit-tokens.js`, `verify-blocks.js`, `shoot.js`. |
 | `tests/` | PHPUnit (`tests/php`, mirrors `inc/`) and Jest (`tests/js`). |
 
-Architecture, rules and recipes: **[SKILLS.md](SKILLS.md)**. Token table and documented exceptions:
-[docs/design-system.md](docs/design-system.md). Deployment: [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md).
+Token table and documented exceptions: [docs/design-system.md](docs/design-system.md). Deployment: [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md).
 
 ## Develop
 
