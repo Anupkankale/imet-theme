@@ -1,8 +1,11 @@
 # Deployment: GitHub → Hostinger
 
-> **Current flow (simplified):** one branch. Every push to `main` builds and deploys to the site whose secrets are in the
-> `staging` GitHub environment. There is no `develop` deploy and no production job; the sections below that mention
-> production or `develop` are history. To roll back, Actions → Deploy → Run workflow with an older tag or commit as `ref`.
+> **Current flow (simplified):** one branch. Every push to `main` builds and deploys to staging (the site whose secrets
+> are in the `staging` GitHub environment). **Production** (imetworldwide.com, the `production` environment, limited to
+> `main`) is **manual only**: once a version looks right on staging, Actions → Deploy → Run workflow on `main` with
+> environment `production`. It is skipped while the repository variable `PRODUCTION_ENABLED` is not `true`. There is no
+> `develop` branch; the sections below that mention `develop` are history. To roll back, Run workflow with an older tag
+> or commit as `ref`. Deploys never activate a theme: on cutover day activate it in the live wp-admin.
 >
 > Merges close together: an automatic deploy checks, right before uploading, that its commit is still the newest on
 > `main`; if not, it skips and the newer run deploys, so an older build can never land on top of a newer one.
