@@ -145,6 +145,10 @@ const build = (section, figure, source) => {
 			class: 'pm-pin',
 			transform: `translate(${x} ${y})`,
 		});
+		// A country too small to see on this map (Singapore) gets a disc instead, which turns navy like a country.
+		if (!countries.length) {
+			pin.append(el('circle', { class: 'pm-spot', r: 15 }));
+		}
 		pin.append(
 			el('circle', { class: 'pm-halo', r: 13 }),
 			el('circle', { class: 'pm-dot', r: 5.5 })
