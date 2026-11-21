@@ -1038,12 +1038,6 @@ $footer-icon-caret: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000
 			margin: 0;
 		}
 
-		// The Singapore logo is gone (removed from parts/footer.html); hidden too where a saved copy of the footer
-		// (Site Editor) still has it.
-		.wp-block-image:has(img[src*="recognition-singapore"]) {
-			display: none;
-		}
-
 		.wp-block-image img {
 			display: block;
 			width: var(--wp--custom--size--103);
