@@ -2,6 +2,16 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.86 - 2026-11-21
+
+### Changed
+
+- About Us, "Study from anywhere" map: the Singapore disc only shows (navy) while Asia Pacific is selected. Before, it showed as a light-blue blob in the sea the rest of the time.
+
+### Removed
+
+- About Us pattern: the "Global Map" label above "Study from anywhere". The live About Us page was edited directly too (backup on the server in `~/imet-backups/`).
+
 ## 1.1.85 - 2026-11-21
 
 ### Fixed
