@@ -397,10 +397,11 @@ $navy: var(--wp--preset--color--navy);
 
 .imet-section .pm-pin { cursor: pointer; }
 
-/* Singapore: too small to draw, so a disc in the partner-country colour stands in for it and turns navy with its region. */
-.imet-section .pm-spot { fill: color-mix(in srgb, var(--wp--preset--color--blue) 30%, var(--wp--preset--color--sky)); stroke: var(--wp--preset--color--white); stroke-width: 1.5; transition: fill var(--wp--custom--motion--base) ease; }
+/* Singapore: too small to draw, so a navy disc stands in for it while its region is selected (hidden otherwise, so the
+   map shows a plain pin like the other centres). */
+.imet-section .pm-spot { fill: $navy; stroke: var(--wp--preset--color--white); stroke-width: 1.5; opacity: 0; transition: opacity var(--wp--custom--motion--base) ease; }
 
-.imet-section .pm-pin.pm-on .pm-spot { fill: $navy; }
+.imet-section .pm-pin.pm-on .pm-spot { opacity: 1; }
 
 .imet-section .pm-halo { fill: color-mix(in srgb, $navy 14%, transparent); transform-box: fill-box; transform-origin: center; }
 
