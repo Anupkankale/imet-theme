@@ -288,10 +288,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <section id="centers" class="wp-block-imet-section alignfull imet-section section imet-blank ab-map"><!-- wp:group {"className":"imet-container ab-two","layout":{"type":"default"}} -->
 <div class="wp-block-group imet-container ab-two"><!-- wp:group {"className":"ab-map-text","layout":{"type":"default"}} -->
 <div class="wp-block-group ab-map-text"><!-- wp:group {"className":"sec-head is-left","layout":{"type":"default"}} -->
-<div class="wp-block-group sec-head is-left"><!-- wp:paragraph {"className":"eyebrow-line left"} -->
-<p class="eyebrow-line left">Global Map</p>
-<!-- /wp:paragraph -->
-<!-- wp:heading {"className":"title left"} -->
+<div class="wp-block-group sec-head is-left"><!-- wp:heading {"className":"title left"} -->
 <h2 class="wp-block-heading title left">Study from anywhere</h2>
 <!-- /wp:heading -->
 <!-- wp:paragraph {"className":"sub left"} -->
