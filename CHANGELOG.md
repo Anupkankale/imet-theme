@@ -50,7 +50,6 @@ All notable changes to this project are documented in this file. The format is b
 - Leftovers from the theme-elementary starter that nothing uses:
   - `.vipgoci_phpcs_skip_folders`: settings for WordPress VIP's CI, which this theme doesn't use.
   - `inc/Abstracts/AbstractThemeFeature.php` and its test: no class extends it.
-- `.playwright-mcp/` (local browser session logs) is now in `.gitignore`.
 
 ## 1.1.82 - 2026-11-20
 
@@ -597,7 +596,6 @@ All notable changes to this project are documented in this file. The format is b
 - `wp imet-theme link-photo-sections` reports a section it found but could not match as saved, instead of skipping it silently.
 - No specificity hacks left in the photo and MBA Course styles: each conflict is settled in the block that owns the slot (highlights, tabs, overview, who-can-join). The Home tab photo now fills its cell on desktop and keeps the tabs block's 370px / 207px size on tablets and phones; on very narrow photos only the short labels show.
 - MBA Course styles use the theme's tokens wherever one matches (77 values); the remaining raw values are design-only sizes.
-- AGENTS.md: AI tools may commit to a feature branch, push it and open a PR when the developer explicitly asks; merging to `main` stays a developer action.
 
 ## 1.1.11 - 2026-11-08
 
@@ -732,7 +730,6 @@ All notable changes to this project are documented in this file. The format is b
 ### Added
 
 - `inc/Modules/Blocks` (block registration, default content), `inc/Modules/Media` (image loading hints, YouTube thumbnails).
-- `SKILLS.md` and the `imet-theme` Claude skill: architecture, rules and recipes.
 - `bin/verify-blocks.js` (editor validity of `imet/*` blocks), `bin/shoot.js` (before/after screenshots) and a token ratchet (`bin/audit-tokens-baseline.json`).
 - Companion plugin `imet-core` (FAQ schema, `wp imet migrate`).
 

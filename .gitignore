@@ -34,21 +34,5 @@ phpcs.xml
 # Tailwind theme
 _tailwind-theme.css
 
-# Local-only developer tooling (kept on the machine, never pushed)
-/.claude/
-/graphify-out/
-/.graphifyignore
-/AGENTS.md
-/CLAUDE.md
-/SKILLS.md
-/.github/instructions/
-/.github/copilot-instructions.md
-/.github/workflows/copilot-code-review.yml
-/scripts/graphify/
-/docs/internal/knowledge-graph.md
-
 # Playwright browser test results and report (npm run test:e2e)
 /artifacts/e2e/
-
-# Playwright MCP browser session logs (local only)
-/.playwright-mcp/

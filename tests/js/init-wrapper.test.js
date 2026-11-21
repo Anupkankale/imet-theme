@@ -18,10 +18,6 @@ describe('init wrapper', () => {
 			path.join(root, 'bin/scaffold.config.js'),
 			'module.exports = {};'
 		);
-		fs.writeFileSync(
-			path.join(root, 'bin/sync-ai.js'),
-			"require('fs').writeFileSync('synced', 'yes');"
-		);
 		engine = path.join(root, 'node_modules/@rtcamp/wp-tooling');
 		fs.mkdirSync(engine, { recursive: true });
 		fs.writeFileSync(
@@ -46,17 +42,12 @@ describe('init wrapper', () => {
 		});
 	};
 
-	it('syncs after a successful mutation', () => {
+	it('exits 0 after a successful run', () => {
 		expect(run('').status).toBe(0);
-		expect(fs.existsSync(path.join(root, 'synced'))).toBe(true);
 	});
-	it.each([1, 130])(
-		'preserves exit %i and does not sync on failure/cancellation',
-		(code) => {
-			expect(run(`process.exitCode = ${code};`).status).toBe(code);
-			expect(fs.existsSync(path.join(root, 'synced'))).toBe(false);
-		}
-	);
+	it.each([1, 130])('preserves exit %i on failure/cancellation', (code) => {
+		expect(run(`process.exitCode = ${code};`).status).toBe(code);
+	});
 	it.each([['--list'], ['--list', '--json']])(
 		'keeps status read-only with %j',
 		(...args) => {
@@ -66,12 +57,10 @@ describe('init wrapper', () => {
 			);
 			expect(result.status).toBe(0);
 			expect(JSON.parse(result.stdout)).toEqual({ features: [] });
-			expect(fs.existsSync(path.join(root, 'synced'))).toBe(false);
 		}
 	);
 	it('returns failure when the engine throws', () => {
 		expect(run("throw new Error('fixture failure');").status).toBe(1);
-		expect(fs.existsSync(path.join(root, 'synced'))).toBe(false);
 	});
 	it.each(['--help', '-h'])(
 		'shows help without calling the engine for %s',
@@ -79,7 +68,6 @@ describe('init wrapper', () => {
 			const result = run("throw new Error('must not execute');", [flag]);
 			expect(result.status).toBe(0);
 			expect(result.stdout).toContain('--features');
-			expect(fs.existsSync(path.join(root, 'synced'))).toBe(false);
 		}
 	);
 });
