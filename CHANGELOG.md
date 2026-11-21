@@ -2,6 +2,14 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.89 - 2026-11-21
+
+### Changed
+
+- Blog article, to the "DBA file 16/10" design at 1440px: the columns are 1102px wide, lined up with the header's logo and Contact button (article 769px, 20px gap, 313px sidebar; before 1200px). "IMET BLOG" is in the serif font on the darker footer navy, the category links in Montserrat 15px with a thin gold underline. The title starts level with the top of the photo, and its column reaches a little past the sidebar so "Detection & Prevention" keeps one line. The tag chips are smaller and sit on one row. The share icon sits on a light pink square. The article text is 16px on 24px lines with 24px between paragraphs (headings stay 25px). The advisor form card in the sidebar is tighter (rounder corners, fields 9px apart).
+- Blog article, "Our Related Blogs": under the article and the sidebar, 916px wide as in the design, so each title takes about three lines instead of five or six.
+- New size token `313`.
+
 ## 1.1.88 - 2026-11-21
 
 ### Changed
