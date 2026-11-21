@@ -10,6 +10,7 @@ All notable changes to this project are documented in this file. The format is b
 
 ### Removed
 
+- About Us, "Study from anywhere": the five partner-centre cards beside the map (Dubai, Singapore, Australia, Canada, Netherlands). They repeated what the map already shows. The map works without them.
 - About Us pattern: the "Global Map" label above "Study from anywhere". The live About Us page was edited directly too (backup on the server in `~/imet-backups/`).
 
 ## 1.1.85 - 2026-11-21
