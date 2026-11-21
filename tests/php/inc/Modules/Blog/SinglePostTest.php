@@ -74,9 +74,9 @@ class SinglePostTest extends TestCase {
 	}
 
 	/**
-	 * Test the author link uses a LinkedIn website and ignores any other website.
+	 * Test the author link uses a LinkedIn website, and IMET's LinkedIn page for any other website or none.
 	 */
-	public function test_author_link_needs_a_linkedin_website(): void {
+	public function test_author_link_falls_back_to_imet_linkedin(): void {
 		$author  = self::factory()->user->create( [ 'user_url' => 'https://www.linkedin.com/in/someone/' ] );
 		$post_id = self::factory()->post->create( [ 'post_author' => $author ] );
 		$this->go_to( get_permalink( $post_id ) );
@@ -90,7 +90,17 @@ class SinglePostTest extends TestCase {
 			]
 		);
 
-		$this->assertSame( '', $this->instance->author_linkedin() );
+		$this->assertStringContainsString( 'href="' . SinglePost::IMET_LINKEDIN . '"', $this->instance->author_linkedin() );
+		$this->assertStringContainsString( 'IMET Worldwide on LinkedIn', $this->instance->author_linkedin() );
+
+		wp_update_user(
+			[
+				'ID'       => $author,
+				'user_url' => '',
+			]
+		);
+
+		$this->assertStringContainsString( 'href="' . SinglePost::IMET_LINKEDIN . '"', $this->instance->author_linkedin() );
 	}
 
 	/**

@@ -2,6 +2,18 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.84 - 2026-11-21
+
+### Changed
+
+- Blog article, author box: restyled to the design. Light-blue background, the author's name in a blue serif font (new "Serif" font family in `theme.json`: Georgia, nothing to download), a larger photo, more padding, and a slightly larger sideways LinkedIn logo.
+- Blog article, author box: the LinkedIn logo and its divider always show. When the author's Website field isn't a LinkedIn address, the logo links to IMET's LinkedIn page. Before, the logo was missing for authors without a LinkedIn link.
+- Blog article, sidebar: while the header is slid away (scrolling down), the advisor form moves up to 16px from the top of the screen instead of keeping the 110px header gap, and slides back down with the header. The sidebar's height changes with it, so the bottom doesn't jump.
+
+### Removed
+
+- Blog article, sidebar: "Follow Us" and its LinkedIn logo (the site footer still has Follow Us).
+
 ## 1.1.83 - 2026-11-20
 
 ### Removed

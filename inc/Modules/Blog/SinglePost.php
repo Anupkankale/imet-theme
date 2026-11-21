@@ -18,13 +18,21 @@ use rtCamp\WPPrimitives\Contracts\Interfaces\Registrable;
  * Fills the bits of templates/single.html that a block template can't express on its own:
  * - `[imet_share_linkedin]`: "Share this Resource" link that shares the current post on LinkedIn.
  * - `[imet_author_linkedin]`: the post author's LinkedIn profile, taken from the Website field of their user profile
- *   (printed only when that address is a linkedin.com one).
+ *   (IMET's LinkedIn page when that address isn't a linkedin.com one).
  * - "Our Related Blogs": a Query Loop whose `query` attribute has `"imetRelated": true` lists posts from the current
  *   post's categories, without the post itself (the latest posts when no other post shares a category).
  *
  * @since 1.1.18
  */
 class SinglePost implements Registrable {
+
+	/**
+	 * IMET's LinkedIn page: the author box's link when the author has no LinkedIn profile.
+	 *
+	 * @since 1.1.84
+	 * @var string
+	 */
+	public const IMET_LINKEDIN = 'https://www.linkedin.com/school/imetworldwide/';
 
 	/**
 	 * Register hooks.
@@ -63,11 +71,12 @@ class SinglePost implements Registrable {
 	}
 
 	/**
-	 * The post author's LinkedIn profile link.
+	 * The post author's LinkedIn profile link, or IMET's LinkedIn page when the author's Website isn't a LinkedIn one
+	 * (the author box always shows the logo, as in the design).
 	 *
 	 * @since 1.1.18
 	 *
-	 * @return string Link markup, or '' when the author has no LinkedIn website.
+	 * @return string Link markup, or '' away from a post.
 	 */
 	public function author_linkedin(): string {
 		$post = get_post();
@@ -80,7 +89,7 @@ class SinglePost implements Registrable {
 		$host = (string) wp_parse_url( $url, PHP_URL_HOST );
 
 		if ( 'linkedin.com' !== $host && ! str_ends_with( $host, '.linkedin.com' ) ) {
-			return '';
+			return $this->linkedin_link( self::IMET_LINKEDIN, __( 'IMET Worldwide on LinkedIn', 'imet-theme' ), 'bp-linkedin bp-author-linkedin' );
 		}
 
 		return $this->linkedin_link(
