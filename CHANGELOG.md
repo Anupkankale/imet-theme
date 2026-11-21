@@ -6,7 +6,7 @@ All notable changes to this project are documented in this file. The format is b
 
 ### Changed
 
-- About Us, "What you gain with IMET": the six cards follow the design. Each photo sits on the right at its own shape and fades into the card (grey or navy) from its left edge, with the text running over the faded part; headings fit on one line; 12px corners. The Research publication logos are shown whole and smaller so the heading stays clear. A short gold line under "Gain with IMET", and a narrower intro.
+- About Us, "What you gain with IMET": the six cards follow the design. Each photo sits on the right at its own shape and fades into the card (grey or navy) from its left edge, with the text running over the faded part; headings fit on one line; 12px corners. Research publication: the logo collage sits low on the right, crisp, with the design's "ResearchGate" and "Web of Science" badges added (hidden on phones, where they would cover the text). A short gold line under "Gain with IMET", and a narrower intro.
 
 ## 1.1.87 - 2026-11-21
 
