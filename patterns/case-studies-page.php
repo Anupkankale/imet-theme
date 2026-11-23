@@ -2,7 +2,7 @@
 /**
  * Title: Case Studies Page
  * Slug: imet-theme/case-studies-page
- * Description: Alumni case studies: a light hero with floating alumni avatars on a dashed arc and the latest case study, person cards (photo, name, short text, Read More: posts in the "Case Studies" category, the latest posts until it has one) beside the sticky advisor form, a Related Programs band, more case studies with View More, and a Success Stories banner.
+ * Description: Alumni case studies (Case Study post type from imet-core): a light hero with floating alumni avatars on a dashed arc and a button to the latest case study PDF, person cards (photo, name, summary, Read More opens the PDF) beside the sticky advisor form, a Related Programs band, the other case studies, and a Success Stories banner.
  * Categories: imet-pages
  * Keywords: imet, page, case studies, case study, alumni, stories
  * Block Types: core/post-content
@@ -15,53 +15,78 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-// The case studies are posts in the "Case Studies" category, found by slug (IDs differ from site to site).
-$imet_cs_term = get_category_by_slug( 'case-studies' );
-$imet_cs_link = $imet_cs_term ? get_category_link( $imet_cs_term ) : home_url( '/blog/' );
+// The case studies are the Case Study post type (imet-core): name = title, photo = featured image, summary = excerpt,
+// and a PDF field (imet_case_study_pdf) that Read More opens in a new tab, bound with core/post-meta.
 
 /**
- * The query of a case-studies loop (flagged imetStories: the latest posts while the category is empty).
+ * The query of a case-studies loop.
  *
  * @param int $per_page How many.
  * @param int $offset   How many newest to skip.
  *
  * @return array<string, mixed> Query attribute.
  */
-$imet_cs_query = static function ( int $per_page, int $offset ) use ( $imet_cs_term ): array {
-	$query = array(
-		'perPage'     => $per_page,
-		'pages'       => 1,
-		'offset'      => $offset,
-		'postType'    => 'post',
-		'order'       => 'desc',
-		'orderBy'     => 'date',
-		'author'      => '',
-		'search'      => '',
-		'exclude'     => array(),
-		'sticky'      => '',
-		'inherit'     => false,
-		'imetStories' => true,
+$imet_cs_query = static function ( int $per_page, int $offset ): array {
+	return array(
+		'perPage'  => $per_page,
+		'pages'    => 1,
+		'offset'   => $offset,
+		'postType' => 'imet_case_study',
+		'order'    => 'desc',
+		'orderBy'  => 'date',
+		'author'   => '',
+		'search'   => '',
+		'exclude'  => array(),
+		'sticky'   => '',
+		'inherit'  => false,
 	);
-	if ( $imet_cs_term ) {
-		$query['taxQuery'] = array( 'category' => array( (int) $imet_cs_term->term_id ) );
-	}
-	return $query;
 };
 
 /**
- * A row of person cards: the featured image, the author's name, a short excerpt and Read More.
+ * A button whose link is the case study's PDF (opens in a new tab).
+ *
+ * @param string $label      Button text.
+ * @param string $class_name Button block class.
+ */
+$imet_cs_pdf_button = static function ( string $label, string $class_name ): void {
+	$attrs = array(
+		'className'  => $class_name,
+		'linkTarget' => '_blank',
+		'rel'        => 'noopener',
+		'metadata'   => array(
+			'bindings' => array(
+				'url' => array(
+					'source' => 'core/post-meta',
+					'args'   => array( 'key' => 'imet_case_study_pdf' ),
+				),
+			),
+		),
+	);
+	?>
+<!-- wp:button <?php echo wp_json_encode( $attrs ); ?> -->
+<div class="wp-block-button <?php echo esc_attr( $class_name ); ?>"><a class="wp-block-button__link wp-element-button" target="_blank" rel="noopener"><?php echo esc_html( $label ); ?></a></div>
+<!-- /wp:button -->
+	<?php
+};
+
+/**
+ * A row of person cards: the photo, the name, the summary and Read More (the PDF).
  *
  * @param int $query_id Query ID (unique on the page).
+ * @param int $per_page How many.
  * @param int $offset   How many newest to skip.
  */
-$imet_cs_cards = static function ( int $query_id, int $offset ) use ( $imet_cs_query ): void {
+$imet_cs_cards = static function ( int $query_id, int $per_page, int $offset ) use ( $imet_cs_query, $imet_cs_pdf_button ): void {
 	?>
-<!-- wp:query <?php echo wp_json_encode( array( 'queryId' => $query_id, 'query' => $imet_cs_query( 3, $offset ), 'className' => 'cs-query' ) ); ?> -->
+<!-- wp:query <?php echo wp_json_encode( array( 'queryId' => $query_id, 'query' => $imet_cs_query( $per_page, $offset ), 'className' => 'cs-query' ) ); ?> -->
 <div class="wp-block-query cs-query"><!-- wp:post-template {"className":"cs-grid","layout":{"type":"grid","columnCount":3}} -->
 <!-- wp:group {"className":"cs-card","layout":{"type":"default"}} -->
-<div class="wp-block-group cs-card"><!-- wp:post-featured-image {"isLink":true,"aspectRatio":"236/207","className":"cs-photo"} /-->
-<!-- wp:post-author-name {"className":"cs-name"} /-->
-<!-- wp:post-excerpt {"excerptLength":10,"moreText":"<?php echo esc_attr__( 'Read More', 'imet-theme' ); ?>","className":"cs-text"} /--></div>
+<div class="wp-block-group cs-card"><!-- wp:post-featured-image {"aspectRatio":"236/207","className":"cs-photo"} /-->
+<!-- wp:post-title {"level":3,"className":"cs-name"} /-->
+<!-- wp:post-excerpt {"excerptLength":22,"className":"cs-text"} /-->
+<!-- wp:buttons {"className":"cs-read"} -->
+<div class="wp-block-buttons cs-read"><?php $imet_cs_pdf_button( __( 'Read More', 'imet-theme' ), 'cs-read-btn' ); ?></div>
+<!-- /wp:buttons --></div>
 <!-- /wp:group -->
 <!-- /wp:post-template --></div>
 <!-- /wp:query -->
@@ -93,7 +118,9 @@ $imet_cs_cards = static function ( int $query_id, int $offset ) use ( $imet_cs_q
 <!-- /wp:paragraph -->
 <!-- wp:query <?php echo wp_json_encode( array( 'queryId' => 50, 'query' => $imet_cs_query( 1, 0 ), 'className' => 'bl-latest' ) ); ?> -->
 <div class="wp-block-query bl-latest"><!-- wp:post-template -->
-<!-- wp:read-more {"content":"<?php echo esc_attr__( 'Read Latest Case Study', 'imet-theme' ); ?>","className":"bl-latest-btn"} /-->
+<!-- wp:buttons -->
+<div class="wp-block-buttons"><?php $imet_cs_pdf_button( __( 'Read Latest Case Study', 'imet-theme' ), 'btn-navy btn-lg cs-latest-btn' ); ?></div>
+<!-- /wp:buttons -->
 <!-- /wp:post-template --></div>
 <!-- /wp:query --></div>
 <!-- /wp:group --></section>
@@ -102,7 +129,7 @@ $imet_cs_cards = static function ( int $query_id, int $offset ) use ( $imet_cs_q
 <section id="case-studies" class="wp-block-imet-section alignfull imet-section section imet-blank bl-main ss-main cs-main"><!-- wp:group {"className":"imet-container bl-layout","layout":{"type":"default"}} -->
 <div class="wp-block-group imet-container bl-layout"><!-- wp:group {"className":"bl-posts ss-col","layout":{"type":"default"}} -->
 <div class="wp-block-group bl-posts ss-col">
-<?php $imet_cs_cards( 51, 0 ); ?>
+<?php $imet_cs_cards( 51, 3, 0 ); ?>
 <!-- wp:group {"className":"ss-programs","layout":{"type":"default"}} -->
 <div class="wp-block-group ss-programs"><!-- wp:group {"className":"ss-programs-text","layout":{"type":"default"}} -->
 <div class="wp-block-group ss-programs-text"><!-- wp:paragraph {"className":"eyebrow-line left"} -->
@@ -121,12 +148,7 @@ $imet_cs_cards = static function ( int $query_id, int $offset ) use ( $imet_cs_q
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group -->
-<?php $imet_cs_cards( 52, 3 ); ?>
-<!-- wp:buttons {"className":"bl-more"} -->
-<div class="wp-block-buttons bl-more"><!-- wp:button {"className":"btn-navy btn-md"} -->
-<div class="wp-block-button btn-navy btn-md"><a class="wp-block-button__link wp-element-button" href="<?php echo esc_url( $imet_cs_link ); ?>"><?php esc_html_e( 'View More', 'imet-theme' ); ?></a></div>
-<!-- /wp:button --></div>
-<!-- /wp:buttons -->
+<?php $imet_cs_cards( 52, 100, 3 ); ?>
 <!-- wp:group {"className":"cs-banner","layout":{"type":"default"}} -->
 <div class="wp-block-group cs-banner"><!-- wp:paragraph {"className":"eyebrow-line left"} -->
 <p class="eyebrow-line left"><?php esc_html_e( 'Success Stories', 'imet-theme' ); ?></p>
