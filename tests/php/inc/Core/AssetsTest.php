@@ -81,16 +81,11 @@ class AssetsTest extends TestCase {
 	}
 
 	/**
-	 * Block stylesheets are inlined up to a budget that fits every block on a page, but not the shared base stylesheet.
+	 * Block stylesheets are inlined up to a budget well above WordPress's 20 KB default.
 	 */
-	public function test_inline_budget_fits_the_block_styles_but_not_base(): void {
+	public function test_inline_budget_fits_the_block_styles(): void {
 		$this->assertSame( Assets::INLINE_STYLES_LIMIT, $this->instance->inline_size_limit( 20000 ) );
 		$this->assertGreaterThan( 20000, Assets::INLINE_STYLES_LIMIT );
-
-		$base = IMET_PATH . '/assets/build/blocks/shared/base.css';
-		if ( file_exists( $base ) ) {
-			$this->assertLessThan( (int) filesize( $base ), Assets::INLINE_STYLES_LIMIT, 'base.css is shared by every page: keep it a cached file.' );
-		}
 	}
 
 	/**

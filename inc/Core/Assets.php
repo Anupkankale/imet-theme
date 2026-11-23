@@ -88,8 +88,8 @@ class Assets extends AssetLoader implements Registrable, Shareable {
 	 * WordPress prints a block's stylesheet inline in the page (instead of a separate render-blocking request) while the
 	 * page's total stays under this budget; its default, 20 KB, is used up by the small core block styles, so every
 	 * IMET block stylesheet (2–21 KB each with core Navigation, ~100–140 KB on a program page) was a separate request in the head. Mobile
-	 * Lighthouse showed ~12 of them on the critical path. The shared base.css (~180 KB) stays above the budget, so it
-	 * remains one cached file.
+	 * Lighthouse showed ~12 of them on the critical path. Since 1.1.94 the shared section styles are four small parts
+	 * (~55 KB together) plus the page's own page-*.css (PageStyles), so on most pages they are inlined too.
 	 *
 	 * @since 1.1.93
 	 */
