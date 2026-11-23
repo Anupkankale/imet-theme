@@ -2,6 +2,12 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.95 - 2026-11-24
+
+### Changed
+
+- Case Studies page: lists the new Case Study post type (from the imet-core plugin) instead of blog posts in the "Case Studies" category, which was empty, so the page showed the latest blog posts. Each card shows the photo, the name, the summary and Read More, which opens the case study PDF in a new tab (a Button bound to the PDF field with the core/post-meta block binding); a case study without a PDF shows no Read More. The hero's "Read Latest Case Study" opens the newest case study's PDF. Below the Related Programs band the page lists every other case study (the View More button went: there is no archive page to send it to).
+
 ## 1.1.94 - 2026-11-23
 
 ### Changed
