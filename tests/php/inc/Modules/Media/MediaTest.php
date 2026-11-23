@@ -256,4 +256,84 @@ class MediaTest extends TestCase {
 		$this->assertStringNotContainsString( 'loading="eager"', $tag( 'outside.jpg' ) );
 		$this->assertStringNotContainsString( 'fetchpriority', $html );
 	}
+
+	/**
+	 * Pages that open with a plain IMET Section as their hero (Blog, About, Contact, ...): that first section is on
+	 * screen at load like imet/hero, so its images load eagerly (on the Blog it holds the LCP image); later sections stay lazy.
+	 */
+	public function test_the_opening_section_loads_eagerly_like_the_hero(): void {
+		$html = $this->render_with_fresh_images(
+			'<!-- wp:imet/section {"className":"bl-hero"} --><section>' . $this->image( 'blog-hero.png' ) . '<div>' . $this->image( 'avatar.png' ) . '</div></section><!-- /wp:imet/section -->'
+			. '<!-- wp:imet/section {"className":"bl-list"} --><section>' . $this->image( 'card.jpg' ) . '</section><!-- /wp:imet/section -->'
+			. '<!-- wp:imet/highlights --><div>' . $this->image( 'later.jpg' ) . '</div><!-- /wp:imet/highlights -->'
+		);
+
+		$this->assertStringContainsString( 'loading="eager"', $this->img_tag( $html, 'blog-hero.png' ) );
+		$this->assertStringContainsString( 'loading="eager"', $this->img_tag( $html, 'avatar.png' ) );
+		$this->assertStringContainsString( 'loading="lazy"', $this->img_tag( $html, 'card.jpg' ) );
+		$this->assertStringContainsString( 'loading="lazy"', $this->img_tag( $html, 'later.jpg' ) );
+	}
+
+	/**
+	 * Only the first section opens the page: a hero further down (unusual) doesn't make a second "opening" section,
+	 * and an opening imet/hero still loads eagerly as before.
+	 */
+	public function test_only_the_first_section_is_the_opening_one(): void {
+		$html = $this->render_with_fresh_images(
+			'<!-- wp:imet/hero --><div>' . $this->image( 'hero.jpg' ) . '</div><!-- /wp:imet/hero -->'
+			. '<!-- wp:imet/section --><section>' . $this->image( 'second.jpg' ) . '</section><!-- /wp:imet/section -->'
+		);
+
+		$this->assertStringContainsString( 'loading="eager"', $this->img_tag( $html, 'hero.jpg' ) );
+		$this->assertStringContainsString( 'loading="lazy"', $this->img_tag( $html, 'second.jpg' ) );
+	}
+
+	/**
+	 * Render blocks with a fresh Images instance (fresh per-page state), not the one the theme registered at boot.
+	 *
+	 * @param string $blocks Block markup.
+	 *
+	 * @return string Rendered HTML.
+	 */
+	private function render_with_fresh_images( string $blocks ): string {
+		global $wp_filter;
+
+		foreach ( [ 'render_block_data', 'render_block', 'render_block_core/image' ] as $hook ) {
+			foreach ( $wp_filter[ $hook ]->callbacks ?? [] as $priority => $callbacks ) {
+				foreach ( $callbacks as $callback ) {
+					if ( is_array( $callback['function'] ) && $callback['function'][0] instanceof Images ) {
+						remove_filter( $hook, $callback['function'], $priority );
+					}
+				}
+			}
+		}
+		( new Images() )->register_hooks();
+
+		return do_blocks( $blocks );
+	}
+
+	/**
+	 * A core Image block.
+	 *
+	 * @param string $src Image address.
+	 *
+	 * @return string Block markup.
+	 */
+	private function image( string $src ): string {
+		return '<!-- wp:image --><figure class="wp-block-image"><img src="' . $src . '" alt=""/></figure><!-- /wp:image -->';
+	}
+
+	/**
+	 * The rendered <img> tag for an address.
+	 *
+	 * @param string $html Rendered HTML.
+	 * @param string $src  Image address.
+	 *
+	 * @return string The tag, or ''.
+	 */
+	private function img_tag( string $html, string $src ): string {
+		preg_match( '#<img\b[^>]*src="' . preg_quote( $src, '#' ) . '"[^>]*>#', $html, $match );
+
+		return $match[0] ?? '';
+	}
 }
