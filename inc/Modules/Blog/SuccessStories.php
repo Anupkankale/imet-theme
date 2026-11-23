@@ -15,8 +15,9 @@ use rtCamp\WPPrimitives\Contracts\Interfaces\Registrable;
 /**
  * Class SuccessStories
  *
- * The Success Stories and Case Studies pages list posts in their own category (Query Loops whose `query` attribute
- * has `"imetStories": true`, see patterns/success-stories-page.php and case-studies-page.php). While a loop's category
+ * The Success Stories page lists posts in its own category (Query Loops whose `query` attribute has
+ * `"imetStories": true`, see patterns/success-stories-page.php; the Case Studies page lists the Case Study post type from
+ * imet-core instead). While a loop's category
  * has no published post yet, the loop lists the latest posts instead, so the page keeps its layout; the first post
  * filed in the category takes over.
  *

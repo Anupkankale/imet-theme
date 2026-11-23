@@ -83,11 +83,33 @@
 
 .imet-section .cs-text .wp-block-post-excerpt__excerpt { margin: 0; color: var(--wp--preset--color--grey-light); font-size: var(--wp--preset--font-size--small); line-height: 1.55; }
 
-.imet-section .cs-text .wp-block-post-excerpt__more-text { display: inline; margin: 0 0 0 var(--wp--preset--spacing--4); font-size: var(--wp--preset--font-size--caption); }
+/* Read More: a Button bound to the case study's PDF (opens in a new tab), drawn as the design's underlined text link. */
+.imet-section .cs-card .cs-read { margin: auto var(--wp--preset--spacing--14) 0; padding-top: var(--wp--preset--spacing--8); }
 
-.imet-section .cs-text .wp-block-post-excerpt__more-link { color: var(--wp--preset--color--ink); text-decoration: underline; }
+.imet-section .cs-card .cs-read .wp-block-button__link {
+	min-height: 0;
+	padding: 0;
+	border: 0;
+	background: none;
+	color: var(--wp--preset--color--ink);
+	font-size: var(--wp--preset--font-size--caption);
+	text-decoration: underline;
+}
 
-.imet-section .cs-text p.wp-block-post-excerpt__more-text { display: inline-block; }
+.imet-section .cs-card .cs-read .wp-block-button__link:is(:hover, :focus-visible) { background: none; color: var(--wp--preset--color--gold); }
+
+.imet-section .cs-card .cs-read .wp-block-button__link::after { content: none; } /* no glass flash on a text link (as .btn-link) */
+
+/* A case study with no PDF yet shows no Read More (its link would go nowhere). */
+.imet-section .cs-card .cs-read:has(.wp-block-button__link:not([href]), .wp-block-button__link[href=""]) { display: none; }
+
+/* Hero: the latest case study's PDF, centred under the lead, with the Blog hero's gold arrow (in ::before, moved after
+   the text: ::after is the buttons' glass flash). */
+.imet-section.cs-hero .bl-latest .wp-block-buttons { justify-content: center; }
+
+.imet-section .cs-latest-btn .wp-block-button__link::before { content: "↗"; order: 1; color: var(--wp--preset--color--gold); }
+
+.imet-section .bl-latest:not(:has(.wp-block-button__link[href]:not([href=""]))) { display: none; }
 
 .imet-section .cs-query + .ss-programs,
 .imet-section .ss-programs + .cs-query { margin-top: var(--wp--preset--spacing--20); }
