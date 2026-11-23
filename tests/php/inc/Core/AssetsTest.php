@@ -77,6 +77,27 @@ class AssetsTest extends TestCase {
 		$this->assertGreaterThan( 0, has_action( 'wp_enqueue_scripts', [ $this->instance, 'register_assets' ] ) );
 		$this->assertGreaterThan( 0, has_action( 'wp_enqueue_scripts', [ $this->instance, 'enqueue_assets' ] ) );
 		$this->assertGreaterThan( 0, has_filter( 'render_block', [ $this->instance, 'enqueue_block_specific_assets' ] ) );
+		$this->assertGreaterThan( 0, has_filter( 'styles_inline_size_limit', [ $this->instance, 'inline_size_limit' ] ) );
+	}
+
+	/**
+	 * Block stylesheets are inlined up to a budget that fits every block on a page, but not the shared base stylesheet.
+	 */
+	public function test_inline_budget_fits_the_block_styles_but_not_base(): void {
+		$this->assertSame( Assets::INLINE_STYLES_LIMIT, $this->instance->inline_size_limit( 20000 ) );
+		$this->assertGreaterThan( 20000, Assets::INLINE_STYLES_LIMIT );
+
+		$base = IMET_PATH . '/assets/build/blocks/shared/base.css';
+		if ( file_exists( $base ) ) {
+			$this->assertLessThan( (int) filesize( $base ), Assets::INLINE_STYLES_LIMIT, 'base.css is shared by every page: keep it a cached file.' );
+		}
+	}
+
+	/**
+	 * A larger budget set elsewhere (a plugin or a child theme) is kept.
+	 */
+	public function test_inline_budget_keeps_a_larger_value(): void {
+		$this->assertSame( Assets::INLINE_STYLES_LIMIT + 1, $this->instance->inline_size_limit( Assets::INLINE_STYLES_LIMIT + 1 ) );
 	}
 
 	/**

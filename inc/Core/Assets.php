@@ -79,6 +79,35 @@ class Assets extends AssetLoader implements Registrable, Shareable {
 		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_assets' ] );
 		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_browser_sync' ] );
 		add_filter( 'render_block', [ $this, 'enqueue_block_specific_assets' ], 10, 2 );
+		add_filter( 'styles_inline_size_limit', [ $this, 'inline_size_limit' ] );
+	}
+
+	/**
+	 * Inline budget for block stylesheets, in bytes.
+	 *
+	 * WordPress prints a block's stylesheet inline in the page (instead of a separate render-blocking request) while the
+	 * page's total stays under this budget; its default, 20 KB, is used up by the small core block styles, so every
+	 * IMET block stylesheet (2–21 KB each with core Navigation, ~100–140 KB on a program page) was a separate request in the head. Mobile
+	 * Lighthouse showed ~12 of them on the critical path. The shared base.css (~180 KB) stays above the budget, so it
+	 * remains one cached file.
+	 *
+	 * @since 1.1.93
+	 */
+	public const INLINE_STYLES_LIMIT = 160000;
+
+	/**
+	 * Raise the inline style budget (never lower one set elsewhere).
+	 *
+	 * @since 1.1.93
+	 *
+	 * @param int $limit Budget in bytes.
+	 *
+	 * @return int Budget in bytes.
+	 *
+	 * @filter styles_inline_size_limit
+	 */
+	public function inline_size_limit( int $limit ): int {
+		return max( $limit, self::INLINE_STYLES_LIMIT );
 	}
 
 	/**
@@ -91,6 +120,8 @@ class Assets extends AssetLoader implements Registrable, Shareable {
 	public function register_assets(): void {
 		$this->register_script( $this->handle( 'core-navigation' ), 'js/frontend/core-navigation' );
 		$this->register_style( $this->handle( 'core-navigation' ), 'css/frontend/core-navigation' );
+		// Small (currently empty): with a path WordPress inlines it instead of a render-blocking request.
+		wp_style_add_data( $this->handle( 'core-navigation' ), 'path', IMET_PATH . '/assets/build/css/frontend/core-navigation.css' );
 		$this->register_script( $this->handle( 'footer-accordion' ), 'js/frontend/footer-accordion' );
 		$this->register_script( $this->handle( 'header-scroll' ), 'js/frontend/header-scroll' );
 		$this->register_script( $this->handle( 'gain-orbit' ), 'js/frontend/gain-orbit' );
