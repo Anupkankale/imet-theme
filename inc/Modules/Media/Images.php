@@ -14,10 +14,11 @@ use rtCamp\WPPrimitives\Contracts\Interfaces\Registrable;
 /**
  * Class Images
  *
- * Image loading by position on the page, not by class name. Every page opens with the `imet/hero` section, so the
- * images inside it are visible as soon as the page loads: they load eagerly. No image gets `fetchpriority`: measured on
- * every page pattern, the Largest Contentful Paint element is the hero text (or, on the Home hero at phone width, the
- * section's CSS background), never an image, so a high priority would only compete with the fonts. Images in every other IMET section are further
+ * Image loading by position on the page, not by class name. The section that opens the page (the first IMET block: an
+ * `imet/hero`, or a plain `imet/section` used as the hero on Blog, About, Contact, ...) is on screen as soon as the page
+ * loads, so its images load eagerly; so do the images of any `imet/hero`. On the Blog the opening section's image is the
+ * Largest Contentful Paint element, so a lazy one held LCP back. No image gets `fetchpriority`: it would compete with
+ * the fonts and the stylesheets. Images in every other IMET section are further
  * down and load lazily. Images outside IMET sections, and any image that already has a `loading` attribute, are left
  * alone. WordPress adds its own loading attribute later, and only to images that have none yet.
  *
@@ -43,6 +44,20 @@ class Images implements Registrable {
 	 * @var int
 	 */
 	private int $hero_depth = 0;
+
+	/**
+	 * Whether rendering is inside the section that opens the page.
+	 *
+	 * @var bool
+	 */
+	private bool $in_opening = false;
+
+	/**
+	 * Whether the opening section has been rendered (only the first top-level IMET block opens the page).
+	 *
+	 * @var bool
+	 */
+	private bool $opening_done = false;
 
 	/**
 	 * Register hooks.
@@ -101,7 +116,7 @@ class Images implements Registrable {
 			return $html;
 		}
 
-		$loading = $this->hero_depth > 0 ? 'eager' : 'lazy';
+		$loading = $this->hero_depth > 0 || $this->in_opening ? 'eager' : 'lazy';
 
 		return (string) preg_replace( '#<img\b(?![^>]*\bloading=)#', '<img loading="' . $loading . '"', $html, 1 );
 	}
@@ -117,7 +132,18 @@ class Images implements Registrable {
 			return;
 		}
 
+		// Entering the first top-level IMET block: it opens the page.
+		if ( $delta > 0 && 0 === $this->section_depth && ! $this->opening_done ) {
+			$this->in_opening = true;
+		}
+
 		$this->section_depth = max( 0, $this->section_depth + $delta );
+
+		// Leaving it.
+		if ( $delta < 0 && 0 === $this->section_depth && $this->in_opening ) {
+			$this->in_opening   = false;
+			$this->opening_done = true;
+		}
 
 		if ( self::HERO === $name ) {
 			$this->hero_depth = max( 0, $this->hero_depth + $delta );

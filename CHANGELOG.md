@@ -2,6 +2,13 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.93 - 2026-11-23
+
+### Changed
+
+- Mobile page speed (Largest Contentful Paint): the block stylesheets are now printed inside the page instead of loading as separate files that hold back the first paint. WordPress does this for stylesheets up to a total size, raised from 20 KB to 160 KB (`Assets::INLINE_STYLES_LIMIT`). Every page now links 3 stylesheets (the shared `base.css`, `styles.css` and Contact Form 7's) instead of up to 16. The empty `core-navigation.css` is no longer a request.
+- Images: the section that opens a page loads its images straight away, like the hero. Blog, About, Contact and the other pages that open with a plain IMET Section had their top image set to load lazily; on the Blog that image is the Largest Contentful Paint element.
+
 ## 1.1.92 - 2026-11-22
 
 ### Removed
