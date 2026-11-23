@@ -6,6 +6,10 @@
 /* ---------- Hero: lavender to cream, dashed arc, floating avatars ---------- */
 .imet-section.cs-hero { background: linear-gradient(180deg, var(--wp--preset--color--lavender), var(--wp--preset--color--peach)); }
 
+/* 24px more room under the header than the other pages' heroes, so the breadcrumb and the avatars on the arc breathe
+   (design). Same selector as the page rhythm (_page-rhythm.scss), which sets every section's padding. */
+:is(.wp-block-post-content, .imet-page-content):not(:has(> .imet-section.hero.is-style-home)) > .imet-section.cs-hero.section { padding-top: calc(var(--imet-section-y) + var(--wp--preset--spacing--24)); }
+
 /* No photo behind this hero: a dashed white arc instead of the Blog page's wash. */
 .imet-section.cs-hero::before {
 	inset: calc(-1 * var(--wp--custom--header--clearance)) 4% 0;
@@ -33,17 +37,17 @@
 	background: var(--dot, var(--wp--preset--color--pink));
 }
 
-.imet-section .cs-avatar.is-1 { top: 12%; left: 16%; --dot: var(--wp--preset--color--green); }
+.imet-section .cs-avatar.is-1 { top: 15.4%; left: 21.25%; --dot: var(--wp--preset--color--green); }
 
-.imet-section .cs-avatar.is-2 { top: 28%; left: 2%; --dot: var(--wp--preset--color--gold); }
+.imet-section .cs-avatar.is-2 { top: 43%; left: 5.7%; --dot: var(--wp--preset--color--gold); }
 
-.imet-section .cs-avatar.is-3 { top: 54%; left: 3%; --size: var(--wp--custom--size--62); --dot: var(--wp--preset--color--pink); }
+.imet-section .cs-avatar.is-3 { top: 68%; left: 19.4%; --size: var(--wp--custom--size--62); --dot: var(--wp--preset--color--pink); }
 
-.imet-section .cs-avatar.is-4 { top: 11%; right: 10%; --size: var(--wp--custom--size--62); --dot: var(--wp--preset--color--pink); }
+.imet-section .cs-avatar.is-4 { top: 16.4%; right: 12.25%; --size: var(--wp--custom--size--62); --dot: var(--wp--preset--color--pink); }
 
-.imet-section .cs-avatar.is-5 { top: 12%; right: 0%; --size: var(--wp--custom--size--42); --dot: var(--wp--preset--color--green); }
+.imet-section .cs-avatar.is-5 { top: 30.5%; right: 1.6%; --size: var(--wp--custom--size--42); --dot: var(--wp--preset--color--green); }
 
-.imet-section .cs-avatar.is-6 { top: 46%; right: 2%; --size: var(--wp--custom--size--82); --dot: var(--wp--preset--color--blue); }
+.imet-section .cs-avatar.is-6 { top: 63.3%; right: 16.8%; --size: var(--wp--custom--size--82); --dot: var(--wp--preset--color--blue); }
 
 /* ---------- Person cards ---------- */
 .imet-section .cs-query .wp-block-post-template.cs-grid {
