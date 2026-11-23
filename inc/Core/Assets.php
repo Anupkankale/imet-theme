@@ -89,11 +89,13 @@ class Assets extends AssetLoader implements Registrable, Shareable {
 	 * page's total stays under this budget; its default, 20 KB, is used up by the small core block styles, so every
 	 * IMET block stylesheet (2–21 KB each with core Navigation, ~100–140 KB on a program page) was a separate request in the head. Mobile
 	 * Lighthouse showed ~12 of them on the critical path. Since 1.1.94 the shared section styles are four small parts
-	 * (~55 KB together) plus the page's own page-*.css (PageStyles), so on most pages they are inlined too.
+	 * (~55 KB together) plus the page's own page-*.css (PageStyles), and the budget fits them too: at 160 KB the heaviest
+	 * pages (Home, the program pages, ~250 KB of CSS) still linked 2–3 of them; at 260 KB everything is inline and mobile
+	 * LCP measured ~0.1–0.2 s better on local, for ~5–8 KB more gzipped HTML.
 	 *
 	 * @since 1.1.93
 	 */
-	public const INLINE_STYLES_LIMIT = 160000;
+	public const INLINE_STYLES_LIMIT = 260000;
 
 	/**
 	 * Raise the inline style budget (never lower one set elsewhere).
