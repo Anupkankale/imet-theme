@@ -34,6 +34,24 @@ const config = require('@wordpress/scripts/config/webpack.config');
 const DEFAULT_DEV_SERVER_PORT = 8887;
 
 /**
+ * Page-only stylesheets split out of shared/base (keep in step with PageStyles::STYLES).
+ */
+const PAGE_STYLES = [
+	'contact-page',
+	'alumni-page',
+	'blog-page',
+	'blog-post',
+	'accreditation-page',
+	'text-page',
+	'testimonials-page',
+	'success-stories',
+	'case-studies',
+	'convocation-page',
+	'about-page',
+	'photo-chips',
+];
+
+/**
  * Parse a TCP port from an env value, falling back when it is missing or not a
  * valid port number (1–65535).
  *
@@ -123,7 +141,19 @@ const withImetBlocks = (singleConfig) => {
 	const baseEntry = singleConfig.entry;
 	singleConfig.entry = () => ({
 		...(typeof baseEntry === 'function' ? baseEntry() : baseEntry),
+		// The shared section styles, in four always-loaded parts (start, sections, dba, end) so the page-only styles can
+		// print between them in their original cascade position (inc/Modules/Blocks/PageStyles.php).
 		'shared/base': './src/blocks-shared/base.scss',
+		'shared/base-sections': './src/blocks-shared/base-sections.scss',
+		'shared/base-dba': './src/blocks-shared/_dba-page.scss',
+		'shared/base-end': './src/blocks-shared/base-end.scss',
+		// Page-only styles, loaded only where a page uses them. Same folder as base.css, so their relative url()s still resolve.
+		...Object.fromEntries(
+			PAGE_STYLES.map((name) => [
+				`shared/page-${name}`,
+				`./src/blocks-shared/_${name}.scss`,
+			])
+		),
 		'editor/index': './src/blocks-shared/editor.js',
 	});
 	singleConfig.plugins = [

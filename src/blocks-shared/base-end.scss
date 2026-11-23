@@ -1,0 +1,211 @@
+@use 'sass:meta';
+
+/* The end of the shared IMET section styles (handle imet-base, which every block style depends on). base.scss holds
+   the start; the always-loaded middle parts and the page-only styles print between the two, in the order the single
+   base.scss used to include them (see inc/Modules/Blocks/PageStyles.php). */
+@include meta.load-css('mba-course');
+
+.imet-section .split-head {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 30px;
+	align-items: start;
+}
+
+.imet-section .split-head p {
+	border-left: 1.5px solid #333;
+	padding-left: 30px;
+	font-size: 1.0625rem;
+	line-height: 1.65;
+	font-weight: 400;
+	color: #000;
+}
+
+.imet-section details summary {
+	list-style: none;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	gap: 18px;
+	color: #000;
+}
+
+.imet-section details summary::-webkit-details-marker { display: none; }
+
+.imet-section details summary::marker { content: ""; }
+
+/* No theme focus box after a mouse click on a question (keyboard focus keeps the gold ring) */
+.imet-section details summary:focus:not(:focus-visible) { outline: none; }
+
+.imet-section .sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip-path: inset(50%);
+	white-space: nowrap;
+	border: 0;
+}
+
+.imet-section a:focus-visible,
+.imet-section button:focus-visible,
+.imet-section select:focus-visible,
+.imet-section summary:focus-visible,
+.imet-section [tabindex]:focus-visible {
+	outline: 3px solid var(--gold);
+	outline-offset: 3px;
+	border-radius: 4px;
+}
+
+.imet-section input:focus-visible,
+.imet-section textarea:focus-visible {
+	outline: 2px solid var(--navy);
+	outline-offset: 1px;
+}
+
+section.imet-section[id] { scroll-margin-top: 100px; }
+
+.admin-bar section.imet-section[id] { scroll-margin-top: 132px; }
+
+@media (prefers-reduced-motion: reduce) {
+
+	html:has(.imet-section) { scroll-behavior: auto; }
+
+	.imet-section *,
+	.imet-section *::before,
+	.imet-section *::after {
+		animation-duration: .01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: .01ms !important;
+		scroll-behavior: auto !important;
+	}
+}
+
+@media (max-width: 900px) {
+
+	.imet-section h1,
+	.imet-section h2,
+	.imet-section h3,
+	.imet-section h4 {
+		text-wrap: balance;
+	}
+
+	.imet-section p,
+	.imet-section li {
+		text-wrap: pretty;
+	}
+}
+
+@media (max-width: 900px) {
+
+	.imet-section .split-head { grid-template-columns: 1fr; }
+
+	.imet-section .split-head p { border-left: 0; padding-left: 0; }
+}
+
+@media (max-width: 640px) {
+
+	.imet-section { font-size: 1rem; }
+}
+
+/* Eyebrow: gold label above a section title, one look on every page and device from the theme.json tokens
+   (settings.custom.eyebrow: font, 18px / 16px on phones, weight, colour, and the gap to the heading). The editor's
+   "Eyebrow" block style uses the same tokens (src/css/shared/_components.scss). Centre its parent. */
+.imet-section :is(.eyebrow-line, .alumni-eyebrow) {
+	position: relative;
+	display: block; /* a block, so no line box adds to the gap; the text follows the header's alignment */
+	margin-bottom: var(--wp--preset--spacing--6);
+	color: var(--wp--custom--eyebrow--color);
+	font-family: var(--wp--custom--eyebrow--font-family);
+	font-size: var(--wp--custom--eyebrow--font-size);
+	font-weight: var(--wp--custom--eyebrow--font-weight);
+	line-height: var(--wp--custom--eyebrow--line-height);
+}
+
+@media (max-width: 640px) {
+
+	.imet-section :is(.eyebrow-line, .alumni-eyebrow) { font-size: var(--wp--custom--eyebrow--font-size-mobile); }
+}
+
+/* Eyebrow → heading: the one gap (UI review: it ranged from 0 to 26px, block by block). The section-header rhythm and the
+   blocks that set their own title margin use the same token. */
+.imet-section :is(.eyebrow-line, .alumni-eyebrow):has(+ :is(h1, h2, h3, h4, h5, h6)) { margin-bottom: 0; padding-bottom: 0; }
+
+.imet-section :is(.eyebrow-line, .alumni-eyebrow) + :is(h1, h2, h3, h4, h5, h6) { margin-top: var(--wp--custom--eyebrow--gap); }
+
+/* Wrapper for a centred section header (eyebrow + title + sub) */
+.imet-section .sec-head { text-align: center; }
+
+/* One-column layouts (tablet/phone): left-aligned section headers centre, like every other header. */
+@media (max-width: 900px) {
+
+	.imet-section .title.left { text-align: center; }
+
+	.imet-section .eyebrow-line.left { text-align: center; }
+}
+
+/* Previous / next arrows under a row that scrolls sideways (the Home page rows; buttons are added by view.js) */
+.imet-section .sc-nav { display: flex; justify-content: center; gap: 20px; margin-top: 20px; }
+
+.imet-section .sc-nav button {
+	width: 30px;
+	height: 30px;
+	padding: 0;
+	border: 0;
+	border-radius: 50%;
+	background: #14234b url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M4 12h15m-6-7 7 7-7 7' fill='none' stroke='%23fff' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 16px no-repeat;
+	cursor: pointer;
+}
+
+.imet-section .sc-nav button:first-child { transform: scaleX(-1); }
+
+/* Pause button for every auto-moving row (view-helpers.js pauseButton, WCAG 2.2.2). Its box is an empty,
+   zero-height block after the row, so the layout is exactly what it is without the button. The script picks where the
+   button sits so it covers no content: .is-below (under the rows), .is-above (over them; the script sets the lift) or,
+   when neither side has room, .is-overlay (over the rows' bottom-right corner). Pressed: a play triangle instead of
+   the two pause bars. */
+.imet-section .imet-motion-control { position: relative; height: 0; }
+
+.imet-section .imet-motion-control[hidden] { display: none; }
+
+.imet-section .imet-motion-toggle {
+	position: absolute;
+	right: var(--wp--preset--spacing--8);
+	z-index: 2;
+	display: block;
+	width: var(--wp--preset--spacing--32);
+	height: var(--wp--preset--spacing--32);
+	margin: 0;
+	padding: 0;
+	border: 0;
+	border-radius: 50%;
+	background: var(--card) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M9 6v12M15 6v12' stroke='%2315294e' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E") center / var(--wp--preset--spacing--16) no-repeat;
+	cursor: pointer;
+}
+
+.imet-section .is-below > .imet-motion-toggle { top: var(--wp--preset--spacing--6); }
+
+.imet-section .is-overlay > .imet-motion-toggle { bottom: var(--wp--preset--spacing--8); }
+
+.imet-section .imet-motion-toggle[aria-pressed="true"] {
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M8 5.5v13l10-6.5z' fill='%2315294e'/%3E%3C/svg%3E");
+}
+
+.imet-section .imet-motion-toggle:focus-visible { outline: var(--wp--custom--size--2) solid var(--gold); outline-offset: var(--wp--preset--spacing--2); }
+
+
+/* Utilities last, so they win over the rules above: see _utilities.scss */
+@include meta.load-css('utilities');
+
+/* Home page on phones: 25px titles, as on imetworldwide.com */
+@media (max-width: 640px) {
+
+	.imet-page:has(> .wp-block-imet-hero.is-style-home) { --imet-title-size: 1.5625rem; }
+
+	.imet-page:has(> .wp-block-imet-hero.is-style-home) .imet-section .title { line-height: 1.4; }
+}
+
+/* Last, so the small-screen rules win over the section rules above. */
+@include meta.load-css('responsive');
