@@ -2,6 +2,15 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.94 - 2026-11-23
+
+### Changed
+
+- Mobile page speed: the shared section stylesheet (`base.css`, ~180 KB, on every page) no longer carries the styles of single pages. About, Alumni, Blog, the blog article, Contact, Accreditation, the text pages, Testimonials, Success Stories, Case Studies, Convocation and the photo chips are each their own file (`page-<name>.css`), loaded only on pages whose IMET blocks use that page's class prefix (`ab-`, `bp-`, ...; `Modules\Blocks\PageStyles`). The shared styles are four small parts (~55 KB together).
+- The cascade is unchanged: the shared parts are split at the places where the page styles used to be included, and the `imet-base` handle gets its dependencies in that original order, so each page's styles print exactly where they used to. Checked with before/after screenshots of every page that uses them (desktop and phone): identical apart from animation timing and anti-aliasing.
+- The block editor loads every page stylesheet.
+- The inline stylesheet budget is raised from 160 KB to 260 KB (`Assets::INLINE_STYLES_LIMIT`), so the heaviest pages (Home, the program pages) inline the shared parts too instead of linking 2–3 of them.
+
 ## 1.1.93 - 2026-11-23
 
 ### Changed

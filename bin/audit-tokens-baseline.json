@@ -26,5 +26,6 @@
 	"src/blocks/who-can-join/style.scss": 64,
 	"src/blocks-shared/_buttons.scss": 36,
 	"src/blocks-shared/_utilities.scss": 16,
-	"src/blocks-shared/base.scss": 55
+	"src/blocks-shared/base-end.scss": 25,
+	"src/blocks-shared/base.scss": 30
 }

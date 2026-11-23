@@ -73,13 +73,15 @@ class Blocks implements Registrable {
 	 * @since 1.0.0
 	 */
 	public function register_blocks(): void {
-		$file = IMET_PATH . '/assets/build/blocks/shared/base.css';
+		$file = IMET_PATH . '/assets/build/blocks/shared/base-end.css';
 
 		// Shared section styles: a dependency of every block's style, so it loads once and only on pages that use an IMET block.
+		// The handle is the last of the shared parts; its dependencies print the others first, with the page-only styles
+		// between them where a page uses them (PageStyles sets the final order).
 		wp_register_style(
 			'imet-base',
-			get_theme_file_uri( 'assets/build/blocks/shared/base.css' ),
-			[],
+			get_theme_file_uri( 'assets/build/blocks/shared/base-end.css' ),
+			PageStyles::base_handles(),
 			file_exists( $file ) ? (string) filemtime( $file ) : null
 		);
 		wp_style_add_data( 'imet-base', 'path', $file );
