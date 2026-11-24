@@ -2,6 +2,12 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.100 - 2026-11-25
+
+### Added
+
+- Footer: "Doctorate Programs In Kenya" row (DBA in Kenya, AI Kenya, Project Management Kenya) under West Africa, with its own menu location, "Footer: Doctorate Programs In Kenya", so the links are managed in Appearance > Menus like the other countries. The default menus are at version 4: the first time an administrator opens wp-admin after the update, the Kenya menu is created and assigned; the menus editors already manage are not touched.
+
 ## 1.1.97 - 2026-11-24
 
 ### Fixed

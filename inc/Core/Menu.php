@@ -45,6 +45,7 @@ class Menu implements Registrable {
 				'footer-canada'      => esc_html__( 'Footer: Doctorate Programs In Canada', 'imet-theme' ),
 				'footer-uae'         => esc_html__( 'Footer: Doctorate Programs In UAE', 'imet-theme' ),
 				'footer-west-africa' => esc_html__( 'Footer: Doctorate Programs In West Africa', 'imet-theme' ),
+				'footer-kenya'       => esc_html__( 'Footer: Doctorate Programs In Kenya', 'imet-theme' ),
 				'blog'               => esc_html__( 'Blog: Category bar (single articles)', 'imet-theme' ),
 			]
 		);
