@@ -89,7 +89,12 @@
 .imet-section.bl-hero:has(.bl-latest) .imet-container,
 .imet-section.bl-main:has(.bl-panel) .imet-container { width: min(var(--wp--custom--size--1102), 100% - 2 * var(--wp--preset--spacing--20)); }
 
-.imet-section.bl-main:has(.bl-panel) .bl-layout { grid-template-columns: minmax(0, 1fr) var(--wp--custom--size--313); gap: var(--wp--preset--spacing--26); }
+/* Desktop only: this rule is more specific than the one-column layout below 1100px (Tablet and phone, below), so without
+   the query it kept the 313px sidebar on phones and squeezed the articles into a strip a few pixels wide. */
+@media (min-width: 1101px) {
+
+	.imet-section.bl-main:has(.bl-panel) .bl-layout { grid-template-columns: minmax(0, 1fr) var(--wp--custom--size--313); gap: var(--wp--preset--spacing--26); }
+}
 
 .imet-section.bl-main { padding-block: var(--wp--preset--spacing--24) var(--wp--preset--spacing--54); background: var(--wp--preset--color--card); }
 
