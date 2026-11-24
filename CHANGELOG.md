@@ -2,6 +2,12 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.97 - 2026-11-24
+
+### Fixed
+
+- Blog page on phones and tablets: the articles were squeezed into a strip a few pixels wide beside the full-size sidebar (advisor form, tags), so the tabs and buttons stuck out of the screen and the page ran about 17,000px long on a phone. The Blog page's two-column rule (1.1.90) was more specific than the one-column layout below 1100px; it now applies on desktop only. Phones and tablets show the articles full width, then the advisor form and tags.
+
 ## 1.1.96 - 2026-11-24
 
 ### Changed
