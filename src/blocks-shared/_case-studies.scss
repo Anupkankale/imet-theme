@@ -25,6 +25,18 @@
 
 .imet-section .cs-avatar img { display: block; width: 100%; height: auto; border-radius: 50%; }
 
+/* The circle images breathe: all together, from 90% to full size and back every 2s (the effect the design takes from
+   the Brandfluencer template's hero). Stopped for visitors who ask for reduced motion (base-end.scss). */
+.imet-section .cs-avatar { animation: cs-avatar-pulse 2s ease-in-out infinite; }
+
+@keyframes cs-avatar-pulse {
+
+	0%,
+	100% { transform: scale(.9); }
+
+	50% { transform: scale(1); }
+}
+
 /* A small coloured dot beside each avatar, as in the design. */
 .imet-section .cs-avatar::after {
 	content: "";
