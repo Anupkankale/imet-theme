@@ -73,6 +73,7 @@ class MenuTest extends TestCase {
 		$this->assertArrayHasKey( 'footer-canada', $locations );
 		$this->assertArrayHasKey( 'footer-uae', $locations );
 		$this->assertArrayHasKey( 'footer-west-africa', $locations );
+		$this->assertArrayHasKey( 'footer-kenya', $locations );
 		$this->assertArrayHasKey( 'blog', $locations );
 	}
 }

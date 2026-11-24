@@ -51,6 +51,31 @@ class MenuSeederTest extends WP_UnitTestCase {
 	}
 
 	/**
+	 * A site seeded before the Kenya row existed gets only the new Kenya menu on the next seed (VERSION bumped): the
+	 * menus editors already manage are left as they are.
+	 *
+	 * @since 1.1.100
+	 */
+	public function test_seed_adds_the_kenya_menu_to_a_seeded_site(): void {
+		$seeder = new MenuSeeder();
+		$seeder->seed();
+
+		$locations = (array) get_theme_mod( 'nav_menu_locations' );
+		wp_delete_nav_menu( (int) $locations['footer-kenya'] );
+		unset( $locations['footer-kenya'] );
+		set_theme_mod( 'nav_menu_locations', $locations );
+
+		$this->assertSame( 1, $seeder->seed() );
+
+		$items = wp_get_nav_menu_items( (int) get_theme_mod( 'nav_menu_locations' )['footer-kenya'] );
+		$this->assertSame(
+			[ '/dba-kenya/', '/dba-ai-ml-kenya/', '/dba-project-management-kenya/' ],
+			array_map( static fn ( $item ) => wp_parse_url( $item->url, PHP_URL_PATH ), $items )
+		);
+		$this->assertSame( '4', MenuSeeder::VERSION, 'Bumped so sites seeded with version 3 add the Kenya menu.' );
+	}
+
+	/**
 	 * A menu that already exists under the default name, but is not assigned, is assigned as it is: its items are not
 	 * added a second time (e.g. after someone unassigned it and DefaultMenus::VERSION was bumped).
 	 *
