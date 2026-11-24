@@ -10,18 +10,34 @@
    (design). Same selector as the page rhythm (_page-rhythm.scss), which sets every section's padding. */
 :is(.wp-block-post-content, .imet-page-content):not(:has(> .imet-section.hero.is-style-home)) > .imet-section.cs-hero.section { padding-top: calc(var(--imet-section-y) + var(--wp--preset--spacing--24)); }
 
-/* No photo behind this hero: a dashed white arc instead of the Blog page's wash. */
-.imet-section.cs-hero::before {
-	inset: calc(-1 * var(--wp--custom--header--clearance)) 4% 0;
-	border: var(--wp--custom--size--3) dashed color-mix(in srgb, var(--wp--preset--color--white) 85%, transparent);
-	border-bottom: 0;
-	border-radius: 50% 50% 0 0 / 100% 100% 0 0;
-	background: none;
+/* The design's two dashed circles (Figma "Group 1000004326": Ellipse 378 and 379, white, 3px, 20px dashes): only their
+   lower halves show, a bowl under the text. Drawn in the design's own 1440-wide frame, which sits over the hero so the
+   heading lands where the design has it; narrower screens show its middle. The avatars below
+   are placed in the same frame, each centred on one of the two lines. */
+.imet-section.cs-hero::before,
+.imet-section .cs-avatars {
+	position: absolute;
+	top: calc(var(--wp--preset--spacing--16) - var(--wp--custom--header--clearance));
+	right: auto;
+	bottom: auto;
+	left: 50%;
+	width: var(--wp--custom--size--1440); /* always the design's size, centred like the text column: narrower screens crop its sides */
+	aspect-ratio: 18 / 5; /* the 1440 x 400 design frame */
+	margin: 0;
+	transform: translateX(-50%);
+	pointer-events: none;
 }
 
-.imet-section .cs-avatars { position: absolute; inset: 0 auto 0 50%; z-index: -1; width: min(var(--wp--style--global--wide-size), 100% - var(--wp--preset--spacing--40)); margin: 0; transform: translateX(-50%); pointer-events: none; } /* the text's column, so the avatars keep clear of the text at any width */
+.imet-section.cs-hero::before {
+	border: 0;
+	border-radius: 0;
+	background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 400' fill='none' stroke='%23fff' stroke-width='3' stroke-dasharray='20 20'%3E%3Cellipse cx='709' cy='-77' rx='719' ry='470'/%3E%3Cellipse cx='709' cy='-105' rx='615' ry='402'/%3E%3C/svg%3E") center top / 100% auto no-repeat;
+}
 
-.imet-section .cs-avatar { position: absolute; width: var(--size, var(--wp--custom--size--50)); margin: 0; }
+.imet-section .cs-avatars { z-index: -1; }
+
+/* Each avatar is centred on its point (--x, --y: percent of the design frame). */
+.imet-section .cs-avatar { --size: var(--wp--custom--size--50); position: absolute; top: calc(var(--y) - var(--size) / 2); left: calc(var(--x) - var(--size) / 2); width: var(--size); margin: 0; }
 
 .imet-section .cs-avatar img { display: block; width: 100%; height: auto; border-radius: 50%; }
 
@@ -49,17 +65,19 @@
 	background: var(--dot, var(--wp--preset--color--pink));
 }
 
-.imet-section .cs-avatar.is-1 { top: 15.4%; left: 21.25%; --dot: var(--wp--preset--color--green); }
+/* Points from the design frame (avatar centre / 1440 x 400). Outer line: gold, pink cap, blue, small; inner line: green,
+   magenta. The green one moves up its line a little: the live heading is longer than the design's and would run under it. */
+.imet-section .cs-avatar.is-1 { --x: 19.13%; --y: 45%; --size: var(--wp--custom--size--38); --dot: var(--wp--preset--color--green); }
 
-.imet-section .cs-avatar.is-2 { top: 43%; left: 5.7%; --dot: var(--wp--preset--color--gold); }
+.imet-section .cs-avatar.is-2 { --x: 14.88%; --y: 67.33%; --dot: var(--wp--preset--color--gold); }
 
-.imet-section .cs-avatar.is-3 { top: 68%; left: 19.4%; --size: var(--wp--custom--size--62); --dot: var(--wp--preset--color--pink); }
+.imet-section .cs-avatar.is-3 { --x: 26.88%; --y: 85.5%; --dot: var(--wp--preset--color--pink); }
 
-.imet-section .cs-avatar.is-4 { top: 16.4%; right: 12.25%; --size: var(--wp--custom--size--62); --dot: var(--wp--preset--color--pink); }
+.imet-section .cs-avatar.is-4 { --x: 79.51%; --y: 41.25%; --dot: var(--wp--preset--color--pink); }
 
-.imet-section .cs-avatar.is-5 { top: 30.5%; right: 1.6%; --size: var(--wp--custom--size--42); --dot: var(--wp--preset--color--green); }
+.imet-section .cs-avatar.is-5 { --x: 89.06%; --y: 52.5%; --size: var(--wp--custom--size--42); --dot: var(--wp--preset--color--green); }
 
-.imet-section .cs-avatar.is-6 { top: 63.3%; right: 16.8%; --size: var(--wp--custom--size--82); --dot: var(--wp--preset--color--blue); }
+.imet-section .cs-avatar.is-6 { --x: 74.69%; --y: 81.9%; --size: var(--wp--custom--size--82); --dot: var(--wp--preset--color--blue); }
 
 /* ---------- Person cards ---------- */
 .imet-section .cs-query .wp-block-post-template.cs-grid {
@@ -150,13 +168,15 @@
 /* ---------- Tablets and phones ---------- */
 @media (max-width: 1240px) {
 
-	/* Below the full 1200px column the text spans most of the width: two avatars stay, low in the corners beside the
-	   button. */
+	/* Below the full 1200px column the text spans most of the width: the dashed lines keep their size (sides cropped), and
+	   two avatars stay, low in the corners beside the button (in the text's column). */
+	.imet-section .cs-avatars { top: 0; bottom: 0; width: min(var(--wp--style--global--wide-size), 100% - var(--wp--preset--spacing--40)); aspect-ratio: auto; }
+
 	.imet-section .cs-avatar:not(.is-1, .is-4) { display: none; }
 
 	.imet-section .cs-avatar.is-1 { top: auto; bottom: 10%; left: 2%; }
 
-	.imet-section .cs-avatar.is-4 { top: auto; right: 2%; bottom: 10%; }
+	.imet-section .cs-avatar.is-4 { top: auto; right: 2%; bottom: 10%; left: auto; }
 }
 
 @media (max-width: 900px) {
@@ -166,10 +186,10 @@
 
 @media (max-width: 640px) {
 
-	/* Phones: the text needs the whole width, so the avatars go; the dashed arc stays. */
-	.imet-section .cs-avatars { display: none; }
-
-	.imet-section.cs-hero::before { inset-inline: -20%; }
+	/* Phones: the text needs the whole width and runs much taller, so the avatars and the dashed lines (which would cross
+	   the lead) go. */
+	.imet-section .cs-avatars,
+	.imet-section.cs-hero::before { display: none; }
 
 	.imet-section .cs-query .wp-block-post-template.cs-grid { grid-template-columns: minmax(0, 1fr); }
 }
