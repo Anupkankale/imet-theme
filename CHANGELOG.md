@@ -7,6 +7,7 @@ All notable changes to this project are documented in this file. The format is b
 ### Changed
 
 - Case Studies hero: 24px more room under the header, and the six alumni avatars moved to the design's places around the text. The green one sat on the "Home > Case Studies" breadcrumb; now it sits beside it, and no avatar touches the breadcrumb, heading, lead or button (checked at 1440 and 1280; tablets and phones keep their own layout).
+- Case Studies hero: the circle images gently pulse together (90% to full size and back every 2 seconds), the effect the design takes from the Brandfluencer template. Still for visitors who ask for reduced motion.
 
 ## 1.1.95 - 2026-11-24
 
