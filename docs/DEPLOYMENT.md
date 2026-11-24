@@ -1,8 +1,13 @@
 # Deployment: GitHub → Hostinger
 
-> **Current flow (simplified):** one branch. Every push to `main` builds and deploys to the site whose secrets are in the
-> `staging` GitHub environment. There is no `develop` deploy and no production job; the sections below that mention
-> production or `develop` are history. To roll back, Actions → Deploy → Run workflow with an older tag or commit as `ref`.
+> **Current flow (simplified):** one branch. Every push to `main` builds and deploys to **staging**
+> (papayawhip-rook-726183.hostingersite.com, the `staging` GitHub environment). **Production** (imetworldwide.com, live
+> since 2026-11-24, the `production` environment, limited to `main`) is **manual**: once a version looks right on
+> staging, Actions → Deploy → Run workflow on `main` with environment `production`. It is skipped while the repository
+> variable `PRODUCTION_ENABLED` is not `true`. Both environments set `WP_CLI_PHP=/opt/alt/php83/usr/bin/php` (the sites
+> run PHP 8.3; the server's command line defaults to 8.2). There is no `develop` branch; the sections below that mention
+> `develop` are history. To roll back, Run workflow with an older tag or commit as `ref` (and the environment).
+> Deploys only update the theme's files: content edits made in one site's wp-admin don't reach the other.
 >
 > Merges close together: an automatic deploy checks, right before uploading, that its commit is still the newest on
 > `main`; if not, it skips and the newer run deploys, so an older build can never land on top of a newer one.
