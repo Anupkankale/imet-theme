@@ -319,6 +319,23 @@ class DefaultMenus {
 					],
 				],
 			],
+			'footer-kenya'       => [
+				'name'  => 'Footer: Doctorate Programs In Kenya',
+				'items' => [
+					[
+						'title' => 'Doctorate (DBA) in Kenya',
+						'url'   => '/dba-kenya/',
+					],
+					[
+						'title' => 'Doctorate (DBA) in Artificial Intelligence Kenya',
+						'url'   => '/dba-ai-ml-kenya/',
+					],
+					[
+						'title' => 'Doctorate (DBA) in Project Management Kenya',
+						'url'   => '/dba-project-management-kenya/',
+					],
+				],
+			],
 			'blog' => [
 				'name'  => 'Blog Categories',
 				'items' => [
