@@ -2,6 +2,12 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.101 - 2026-11-25
+
+### Fixed
+
+- Broken links found by a site-wide link check. Blog article bar: Cybersecurity, AI & Data, Career Growth and Leadership pointed to blog categories that don't exist (404); they now open a search for the topic (AI & Data: the AI/ML tag). Footer "Online MBA in Supply Chain Management" pointed to a cut-off address (404); it now opens the article (/blogs/online-mba-supply-chain-management-2025/). Fixed in the template's fallback list, the footer part and the default menus; the live menus were updated separately.
+
 ## 1.1.100 - 2026-11-25
 
 ### Added
