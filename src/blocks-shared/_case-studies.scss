@@ -28,10 +28,20 @@
 	pointer-events: none;
 }
 
+/* The lines run up to the hero's top edge (under the offer bar), as in the design. The hero clears the floating header
+   with a transparent top border, and overflow: hidden would clip everything in that border (the lines stopped under
+   the header), so the hero clips sideways only. The lines' box starts at the hero's top edge and reaches its bottom;
+   the drawing (the frame plus 120 above it: a twelfth of 1440, viewBox y -120) is placed inside it so the frame
+   lines up with the avatars, and nothing is drawn above the hero. */
+.imet-section.cs-hero { overflow: visible; overflow-x: clip; }
+
 .imet-section.cs-hero::before {
+	top: calc(-1 * var(--wp--custom--header--clearance));
+	bottom: 0;
+	aspect-ratio: auto;
 	border: 0;
 	border-radius: 0;
-	background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 400' fill='none' stroke='%23fff' stroke-width='3' stroke-dasharray='20 20'%3E%3Cellipse cx='709' cy='-77' rx='719' ry='470'/%3E%3Cellipse cx='709' cy='-105' rx='615' ry='402'/%3E%3C/svg%3E") center top / 100% auto no-repeat;
+	background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 -120 1440 520' preserveAspectRatio='none' fill='none' stroke='%23fff' stroke-width='3' stroke-dasharray='20 20'%3E%3Cellipse vector-effect='non-scaling-stroke' cx='709' cy='-77' rx='719' ry='470'/%3E%3Cellipse vector-effect='non-scaling-stroke' cx='709' cy='-105' rx='615' ry='402'/%3E%3C/svg%3E") center calc(var(--wp--preset--spacing--16) - var(--wp--custom--size--1440) / 12) / 100% calc(var(--wp--custom--size--1440) * 13 / 36) no-repeat;
 }
 
 .imet-section .cs-avatars { z-index: -1; }
@@ -168,8 +178,12 @@
 /* ---------- Tablets and phones ---------- */
 @media (max-width: 1240px) {
 
-	/* Below the full 1200px column the text spans most of the width: the dashed lines keep their size (sides cropped), and
-	   two avatars stay, low in the corners beside the button (in the text's column). */
+	/* The dashed lines stretch to the screen width (same height), so both rise to the top inside the screen instead of
+	   leaving at the sides halfway down; lines stay 3px (non-scaling stroke). */
+	.imet-section.cs-hero::before { width: 100%; }
+
+	/* Below the full 1200px column the text spans most of the width: two avatars stay, low in the corners beside the
+	   button (in the text's column). */
 	.imet-section .cs-avatars { top: 0; bottom: 0; width: min(var(--wp--style--global--wide-size), 100% - var(--wp--preset--spacing--40)); aspect-ratio: auto; }
 
 	.imet-section .cs-avatar:not(.is-1, .is-4) { display: none; }
