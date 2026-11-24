@@ -2,6 +2,13 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.96 - 2026-11-24
+
+### Changed
+
+- Case Studies hero: the dashed circles now follow the design (Figma "Group 1000004326"): two concentric white dashed ellipses whose lower halves form a bowl under the text (an SVG in the design's 1440 x 400 frame, 3px lines with 20px dashes), replacing the single upward arc. The lines run up to the top edge of the hero, under the offer bar: the hero now clips sideways only (overflow-x: clip), because overflow: hidden cut everything in its transparent top border (the room for the floating header). On tablets the lines stretch to the screen width so both reach the top inside the screen. The six alumni avatars sit on those two lines at the design's points (the green one a little smaller and further up its line, because the live heading is longer than the design's), with 24px more room under the header. No avatar touches the breadcrumb, heading, lead or button from 1241 to 1920px wide; tablets keep two avatars in the corners, and phones show neither avatars nor lines.
+- Case Studies hero: the circle images gently pulse together (90% to full size and back every 2 seconds), the effect the design takes from the Brandfluencer template. Still for visitors who ask for reduced motion.
+
 ## 1.1.95 - 2026-11-24
 
 ### Changed

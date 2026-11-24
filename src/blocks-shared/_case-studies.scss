@@ -6,20 +6,62 @@
 /* ---------- Hero: lavender to cream, dashed arc, floating avatars ---------- */
 .imet-section.cs-hero { background: linear-gradient(180deg, var(--wp--preset--color--lavender), var(--wp--preset--color--peach)); }
 
-/* No photo behind this hero: a dashed white arc instead of the Blog page's wash. */
-.imet-section.cs-hero::before {
-	inset: calc(-1 * var(--wp--custom--header--clearance)) 4% 0;
-	border: var(--wp--custom--size--3) dashed color-mix(in srgb, var(--wp--preset--color--white) 85%, transparent);
-	border-bottom: 0;
-	border-radius: 50% 50% 0 0 / 100% 100% 0 0;
-	background: none;
+/* 24px more room under the header than the other pages' heroes, so the breadcrumb and the avatars on the arc breathe
+   (design). Same selector as the page rhythm (_page-rhythm.scss), which sets every section's padding. */
+:is(.wp-block-post-content, .imet-page-content):not(:has(> .imet-section.hero.is-style-home)) > .imet-section.cs-hero.section { padding-top: calc(var(--imet-section-y) + var(--wp--preset--spacing--24)); }
+
+/* The design's two dashed circles (Figma "Group 1000004326": Ellipse 378 and 379, white, 3px, 20px dashes): only their
+   lower halves show, a bowl under the text. Drawn in the design's own 1440-wide frame, which sits over the hero so the
+   heading lands where the design has it; narrower screens show its middle. The avatars below
+   are placed in the same frame, each centred on one of the two lines. */
+.imet-section.cs-hero::before,
+.imet-section .cs-avatars {
+	position: absolute;
+	top: calc(var(--wp--preset--spacing--16) - var(--wp--custom--header--clearance));
+	right: auto;
+	bottom: auto;
+	left: 50%;
+	width: var(--wp--custom--size--1440); /* always the design's size, centred like the text column: narrower screens crop its sides */
+	aspect-ratio: 18 / 5; /* the 1440 x 400 design frame */
+	margin: 0;
+	transform: translateX(-50%);
+	pointer-events: none;
 }
 
-.imet-section .cs-avatars { position: absolute; inset: 0 auto 0 50%; z-index: -1; width: min(var(--wp--style--global--wide-size), 100% - var(--wp--preset--spacing--40)); margin: 0; transform: translateX(-50%); pointer-events: none; } /* the text's column, so the avatars keep clear of the text at any width */
+/* The lines run up to the hero's top edge (under the offer bar), as in the design. The hero clears the floating header
+   with a transparent top border, and overflow: hidden would clip everything in that border (the lines stopped under
+   the header), so the hero clips sideways only. The lines' box starts at the hero's top edge and reaches its bottom;
+   the drawing (the frame plus 120 above it: a twelfth of 1440, viewBox y -120) is placed inside it so the frame
+   lines up with the avatars, and nothing is drawn above the hero. */
+.imet-section.cs-hero { overflow: visible; overflow-x: clip; }
 
-.imet-section .cs-avatar { position: absolute; width: var(--size, var(--wp--custom--size--50)); margin: 0; }
+.imet-section.cs-hero::before {
+	top: calc(-1 * var(--wp--custom--header--clearance));
+	bottom: 0;
+	aspect-ratio: auto;
+	border: 0;
+	border-radius: 0;
+	background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 -120 1440 520' preserveAspectRatio='none' fill='none' stroke='%23fff' stroke-width='3' stroke-dasharray='20 20'%3E%3Cellipse vector-effect='non-scaling-stroke' cx='709' cy='-77' rx='719' ry='470'/%3E%3Cellipse vector-effect='non-scaling-stroke' cx='709' cy='-105' rx='615' ry='402'/%3E%3C/svg%3E") center calc(var(--wp--preset--spacing--16) - var(--wp--custom--size--1440) / 12) / 100% calc(var(--wp--custom--size--1440) * 13 / 36) no-repeat;
+}
+
+.imet-section .cs-avatars { z-index: -1; }
+
+/* Each avatar is centred on its point (--x, --y: percent of the design frame). */
+.imet-section .cs-avatar { --size: var(--wp--custom--size--50); position: absolute; top: calc(var(--y) - var(--size) / 2); left: calc(var(--x) - var(--size) / 2); width: var(--size); margin: 0; }
 
 .imet-section .cs-avatar img { display: block; width: 100%; height: auto; border-radius: 50%; }
+
+/* The circle images breathe: all together, from 90% to full size and back every 2s (the effect the design takes from
+   the Brandfluencer template's hero). Stopped for visitors who ask for reduced motion (base-end.scss). */
+.imet-section .cs-avatar { animation: cs-avatar-pulse 2s ease-in-out infinite; }
+
+@keyframes cs-avatar-pulse {
+
+	0%,
+	100% { transform: scale(.9); }
+
+	50% { transform: scale(1); }
+}
 
 /* A small coloured dot beside each avatar, as in the design. */
 .imet-section .cs-avatar::after {
@@ -33,17 +75,19 @@
 	background: var(--dot, var(--wp--preset--color--pink));
 }
 
-.imet-section .cs-avatar.is-1 { top: 12%; left: 16%; --dot: var(--wp--preset--color--green); }
+/* Points from the design frame (avatar centre / 1440 x 400). Outer line: gold, pink cap, blue, small; inner line: green,
+   magenta. The green one moves up its line a little: the live heading is longer than the design's and would run under it. */
+.imet-section .cs-avatar.is-1 { --x: 19.13%; --y: 45%; --size: var(--wp--custom--size--38); --dot: var(--wp--preset--color--green); }
 
-.imet-section .cs-avatar.is-2 { top: 28%; left: 2%; --dot: var(--wp--preset--color--gold); }
+.imet-section .cs-avatar.is-2 { --x: 14.88%; --y: 67.33%; --dot: var(--wp--preset--color--gold); }
 
-.imet-section .cs-avatar.is-3 { top: 54%; left: 3%; --size: var(--wp--custom--size--62); --dot: var(--wp--preset--color--pink); }
+.imet-section .cs-avatar.is-3 { --x: 26.88%; --y: 85.5%; --dot: var(--wp--preset--color--pink); }
 
-.imet-section .cs-avatar.is-4 { top: 11%; right: 10%; --size: var(--wp--custom--size--62); --dot: var(--wp--preset--color--pink); }
+.imet-section .cs-avatar.is-4 { --x: 79.51%; --y: 41.25%; --dot: var(--wp--preset--color--pink); }
 
-.imet-section .cs-avatar.is-5 { top: 12%; right: 0%; --size: var(--wp--custom--size--42); --dot: var(--wp--preset--color--green); }
+.imet-section .cs-avatar.is-5 { --x: 89.06%; --y: 52.5%; --size: var(--wp--custom--size--42); --dot: var(--wp--preset--color--green); }
 
-.imet-section .cs-avatar.is-6 { top: 46%; right: 2%; --size: var(--wp--custom--size--82); --dot: var(--wp--preset--color--blue); }
+.imet-section .cs-avatar.is-6 { --x: 74.69%; --y: 81.9%; --size: var(--wp--custom--size--82); --dot: var(--wp--preset--color--blue); }
 
 /* ---------- Person cards ---------- */
 .imet-section .cs-query .wp-block-post-template.cs-grid {
@@ -134,13 +178,19 @@
 /* ---------- Tablets and phones ---------- */
 @media (max-width: 1240px) {
 
+	/* The dashed lines stretch to the screen width (same height), so both rise to the top inside the screen instead of
+	   leaving at the sides halfway down; lines stay 3px (non-scaling stroke). */
+	.imet-section.cs-hero::before { width: 100%; }
+
 	/* Below the full 1200px column the text spans most of the width: two avatars stay, low in the corners beside the
-	   button. */
+	   button (in the text's column). */
+	.imet-section .cs-avatars { top: 0; bottom: 0; width: min(var(--wp--style--global--wide-size), 100% - var(--wp--preset--spacing--40)); aspect-ratio: auto; }
+
 	.imet-section .cs-avatar:not(.is-1, .is-4) { display: none; }
 
 	.imet-section .cs-avatar.is-1 { top: auto; bottom: 10%; left: 2%; }
 
-	.imet-section .cs-avatar.is-4 { top: auto; right: 2%; bottom: 10%; }
+	.imet-section .cs-avatar.is-4 { top: auto; right: 2%; bottom: 10%; left: auto; }
 }
 
 @media (max-width: 900px) {
@@ -150,10 +200,10 @@
 
 @media (max-width: 640px) {
 
-	/* Phones: the text needs the whole width, so the avatars go; the dashed arc stays. */
-	.imet-section .cs-avatars { display: none; }
-
-	.imet-section.cs-hero::before { inset-inline: -20%; }
+	/* Phones: the text needs the whole width and runs much taller, so the avatars and the dashed lines (which would cross
+	   the lead) go. */
+	.imet-section .cs-avatars,
+	.imet-section.cs-hero::before { display: none; }
 
 	.imet-section .cs-query .wp-block-post-template.cs-grid { grid-template-columns: minmax(0, 1fr); }
 }
