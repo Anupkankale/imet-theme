@@ -205,7 +205,7 @@ class DefaultMenus {
 					],
 					[
 						'title' => 'Online MBA in Supply Chain Management',
-						'url'   => '/mba-supply-chain-management-online-programs-career-scope-and-sa/',
+						'url'   => '/blogs/online-mba-supply-chain-management-2025/',
 					],
 				],
 			],
@@ -341,11 +341,11 @@ class DefaultMenus {
 				'items' => [
 					[
 						'title' => 'Cybersecurity',
-						'url'   => '/blogs/category/cybersecurity/',
+						'url'   => '/?s=cybersecurity',
 					],
 					[
 						'title' => 'AI & Data',
-						'url'   => '/blogs/category/ai-data/',
+						'url'   => '/blogs/tag/ai-ml/',
 					],
 					[
 						'title' => 'Doctorate',
@@ -357,11 +357,11 @@ class DefaultMenus {
 					],
 					[
 						'title' => 'Career Growth',
-						'url'   => '/blogs/category/career-growth/',
+						'url'   => '/?s=career',
 					],
 					[
 						'title' => 'Leadership',
-						'url'   => '/blogs/category/leadership/',
+						'url'   => '/?s=leadership',
 					],
 				],
 			],
