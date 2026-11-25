@@ -2,6 +2,12 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.102 - 2026-11-25
+
+### Fixed
+
+- Footer newsletter form ("Get tech news") on the blog category archives, search results and the 404 page: it showed the browser's plain field and button, and at tablet width (1024px) the email field ran out of its column so the page scrolled sideways. The form's styles are part of the shared section styles, which only loaded on pages built with IMET blocks; they now load on every page (`PageStyles::enqueue_base`). Everything else in them is scoped to IMET sections, so those pages are otherwise unchanged; pages that already loaded them are unchanged.
+
 ## 1.1.101 - 2026-11-25
 
 ### Fixed

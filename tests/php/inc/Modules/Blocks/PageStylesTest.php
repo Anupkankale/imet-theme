@@ -51,6 +51,26 @@ class PageStylesTest extends TestCase {
 		$this->assertGreaterThan( 0, has_filter( 'render_block', [ $this->instance, 'collect' ] ) );
 		$this->assertGreaterThan( 0, has_action( 'wp_enqueue_scripts', [ $this->instance, 'enqueue_needed' ] ) );
 		$this->assertGreaterThan( 0, has_action( 'enqueue_block_assets', [ $this->instance, 'enqueue_in_editor' ] ) );
+		$this->assertLessThan( has_action( 'wp_enqueue_scripts', [ $this->instance, 'enqueue_needed' ] ), has_action( 'wp_enqueue_scripts', [ $this->instance, 'enqueue_base' ] ), 'The shared styles are enqueued before the page styles are ordered.' );
+	}
+
+	/**
+	 * The footer (on every page) uses the shared form styles: the shared styles load on pages without IMET blocks too
+	 * (the blog archives, search, 404), where the footer's newsletter form was unstyled and overflowed at 1024px.
+	 */
+	public function test_shared_styles_load_on_every_front_end_page(): void {
+		wp_register_style( 'imet-base', 'https://example.test/base-end.css', PageStyles::base_handles(), '1' );
+		$this->instance->register_styles();
+		wp_dequeue_style( 'imet-base' );
+		$this->assertFalse( wp_style_is( 'imet-base', 'enqueued' ) );
+
+		$this->instance->enqueue_base();
+		$this->instance->enqueue_needed();
+
+		$this->assertTrue( wp_style_is( 'imet-base', 'enqueued' ) );
+		$this->assertSame( PageStyles::base_handles(), wp_styles()->query( 'imet-base' )->deps, 'No page styles on a page without IMET blocks.' );
+
+		wp_dequeue_style( 'imet-base' );
 	}
 
 	/**

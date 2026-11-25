@@ -100,8 +100,21 @@ class PageStyles implements Registrable {
 	public function register_hooks(): void {
 		add_action( 'init', [ $this, 'register_styles' ] );
 		add_filter( 'render_block', [ $this, 'collect' ], 10, 2 );
+		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_base' ], 15 );
 		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_needed' ], 20 );
 		add_action( 'enqueue_block_assets', [ $this, 'enqueue_in_editor' ] );
+	}
+
+	/**
+	 * Load the shared section styles on every front-end page, not only where an IMET block asks for them: the footer
+	 * (on every page) takes its newsletter form's fields from them (_contact-form-7.scss). Without them the blog
+	 * archives, search and 404 showed an unstyled field that ran out of its column at tablet width. Everything else in
+	 * them is scoped to IMET sections, so those pages are otherwise unchanged.
+	 *
+	 * @since 1.1.102
+	 */
+	public function enqueue_base(): void {
+		wp_enqueue_style( 'imet-base' );
 	}
 
 	/**
