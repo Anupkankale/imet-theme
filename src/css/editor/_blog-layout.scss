@@ -1,0 +1,66 @@
+// Blog posts in the editor (classes added by src/blocks-shared/blog-layout.js, editor only, never saved): the writer's
+// TL;DR looks like the box the site shows at the top of the article (_blog-post.scss), and the headings the automatic
+// parts go before carry a dashed label.
+
+// TL;DR: a heading + list, or the pattern's box.
+.imet-bl-tldr-head,
+.imet-bl-tldr-list,
+.imet-bl-tldr-box {
+	border: 1px solid var(--wp--preset--color--sky);
+	background: color-mix(in srgb, var(--wp--preset--color--lavender) 50%, var(--wp--preset--color--white));
+}
+
+.editor-styles-wrapper .imet-bl-tldr-head {
+	margin-bottom: 0;
+	padding: var(--wp--preset--spacing--10) var(--wp--preset--spacing--16) var(--wp--preset--spacing--8);
+	border-bottom: 0;
+	border-radius: var(--wp--preset--border-radius--8) var(--wp--preset--border-radius--8) 0 0;
+	color: var(--wp--preset--color--ink);
+	font-size: var(--wp--preset--font-size--card-title);
+}
+
+.editor-styles-wrapper .imet-bl-tldr-list {
+	margin-top: 0;
+	padding: var(--wp--preset--spacing--8) var(--wp--preset--spacing--16) var(--wp--preset--spacing--16) var(--wp--preset--spacing--36);
+	border-top: 0;
+	border-radius: 0 0 var(--wp--preset--border-radius--8) var(--wp--preset--border-radius--8);
+}
+
+.editor-styles-wrapper .imet-bl-tldr-box {
+	padding: var(--wp--preset--spacing--10) var(--wp--preset--spacing--16) var(--wp--preset--spacing--16);
+	border-radius: var(--wp--preset--border-radius--8);
+}
+
+// The note over the TL;DR: where it shows on the site.
+.imet-bl-tldr-head::before,
+.imet-bl-tldr-box::before {
+	content: "TL;DR box · shown at the top of the article";
+	display: block;
+	margin-bottom: var(--wp--preset--spacing--4);
+	color: var(--wp--preset--color--navy);
+	font-family: var(--wp--preset--font-family--inter);
+	font-size: var(--wp--preset--font-size--caption);
+	font-weight: 600;
+	letter-spacing: .02em;
+	text-transform: uppercase;
+	pointer-events: none;
+	user-select: none;
+}
+
+// A heading an automatic part goes before: the part's name in a dashed box above it.
+.imet-bl-part::before {
+	content: attr(data-imet-part);
+	display: block;
+	margin-bottom: var(--wp--preset--spacing--12);
+	padding: var(--wp--preset--spacing--10) var(--wp--preset--spacing--16);
+	border: 2px dashed var(--wp--preset--color--sky);
+	border-radius: var(--wp--preset--border-radius--8);
+	background: color-mix(in srgb, var(--wp--preset--color--sky) 25%, var(--wp--preset--color--white));
+	color: var(--wp--preset--color--navy);
+	font-family: var(--wp--preset--font-family--inter);
+	font-size: var(--wp--preset--font-size--14);
+	font-weight: 600;
+	line-height: 1.4;
+	pointer-events: none;
+	user-select: none;
+}

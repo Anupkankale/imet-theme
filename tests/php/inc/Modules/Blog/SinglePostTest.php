@@ -75,14 +75,18 @@ class SinglePostTest extends TestCase {
 	 */
 	public function test_article_parts_follow_the_headings(): void {
 		self::factory()->post->create( [ 'post_title' => 'Older article' ] );
-		$post_id = self::factory()->post->create( [ 'post_excerpt' => "First point.\nSecond point." ] );
+		$post_id = self::factory()->post->create( [ 'post_excerpt' => 'The SEO description.' ] );
 		$this->go_to( get_permalink( $post_id ) );
 		$GLOBALS['post'] = get_post( $post_id ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited -- the loop's post in a test.
 
-		$html = $this->instance->article_parts( $this->body( 7 ), [ 'attrs' => [ 'className' => 'bp-content' ] ] );
+		// The writer's TLDR section at the end of the post: it moves to the top as the box, and its heading isn't counted.
+		$body = str_replace( '</div>', '<h2 class="wp-block-heading">TLDR</h2><ul class="wp-block-list"><li>First point.</li><li><strong>Second</strong> point.</li></ul></div>', $this->body( 7 ) );
+		$html = $this->instance->article_parts( $body, [ 'attrs' => [ 'className' => 'bp-content' ] ] );
 
-		$this->assertMatchesRegularExpression( '/^<div[^>]*><div class="wp-block-group bp-tldr">/', $html );
-		$this->assertStringContainsString( '<li>First point.</li><li>Second point.</li>', $html );
+		$this->assertMatchesRegularExpression( '/^<div[^>]*><div class="wp-block-group bp-tldr"><p class="bp-tldr-title">TL;DR<\/p><ol class="wp-block-list"><li>First point.<\/li><li><strong>Second<\/strong> point.<\/li><\/ol><\/div>/', $html );
+		$this->assertSame( 1, substr_count( $html, 'First point.' ) );
+		$this->assertStringNotContainsString( '>TLDR<', $html );
+		$this->assertStringNotContainsString( 'The SEO description.', $html ); // The excerpt stays out of the article.
 		$this->assertLessThan( strpos( $html, 'Heading 2' ), strpos( $html, 'bp-cta-card' ) );
 		$this->assertGreaterThan( strpos( $html, 'Heading 1' ), strpos( $html, 'bp-cta-card' ) );
 		$this->assertLessThan( strpos( $html, 'Heading 4' ), strpos( $html, 'bp-banner' ) );
@@ -106,7 +110,28 @@ class SinglePostTest extends TestCase {
 		$this->assertGreaterThan( strpos( $html, 'Text 1' ), strpos( $html, 'bp-cta-card' ) );
 		$this->assertStringEndsWith( '</div>', $html ); // The parts stay inside the post content wrapper.
 		$this->assertLessThan( strrpos( $html, '</div>' ), strrpos( $html, 'bp-cta-card' ) );
-		$this->assertStringContainsString( '<ol class="wp-block-list"><li>One sentence only.</li></ol>', $html );
+		$this->assertStringNotContainsString( 'bp-tldr', $html ); // No TL;DR written: no box (the excerpt isn't used).
+	}
+
+	/**
+	 * Test the TL;DR box from the pattern moves to the top as it is, and a heading without a list under it stays.
+	 */
+	public function test_tldr_pattern_and_plain_heading(): void {
+		$post_id = self::factory()->post->create();
+		$this->go_to( get_permalink( $post_id ) );
+		$GLOBALS['post'] = get_post( $post_id ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited -- the loop's post in a test.
+
+		$box  = '<div class="wp-block-group bp-tldr is-layout-flow"><p class="bp-tldr-title">TL;DR</p><ol class="wp-block-list"><li>A</li></ol></div>';
+		$html = $this->instance->article_parts( str_replace( '</div>', $box . '</div>', $this->body( 1 ) ), [ 'attrs' => [ 'className' => 'bp-content' ] ] );
+
+		$this->assertMatchesRegularExpression( '/^<div[^>]*>' . preg_quote( $box, '/' ) . '<p>Intro<\/p>/', $html );
+		$this->assertSame( 1, substr_count( $html, 'bp-tldr-title' ) );
+
+		$plain = str_replace( '</div>', '<h3>TL;DR</h3><p>Just text.</p></div>', $this->body( 1 ) );
+		$html  = $this->instance->article_parts( $plain, [ 'attrs' => [ 'className' => 'bp-content' ] ] );
+
+		$this->assertStringContainsString( '<h3>TL;DR</h3><p>Just text.</p>', $html );
+		$this->assertStringNotContainsString( 'bp-tldr', $html );
 	}
 
 	/**
