@@ -110,14 +110,15 @@ class SinglePostTest extends TestCase {
 		$this->assertGreaterThan( strpos( $html, 'Text 1' ), strpos( $html, 'bp-cta-card' ) );
 		$this->assertStringEndsWith( '</div>', $html ); // The parts stay inside the post content wrapper.
 		$this->assertLessThan( strrpos( $html, '</div>' ), strrpos( $html, 'bp-cta-card' ) );
-		$this->assertStringNotContainsString( 'bp-tldr', $html ); // No TL;DR written: no box (the excerpt isn't used).
+		// No TL;DR written: the box comes from the excerpt.
+		$this->assertMatchesRegularExpression( '/^<div[^>]*><div class="wp-block-group bp-tldr"><p class="bp-tldr-title">TL;DR<\/p><ol class="wp-block-list"><li>One sentence only.<\/li><\/ol><\/div>/', $html );
 	}
 
 	/**
 	 * Test the TL;DR box from the pattern moves to the top as it is, and a heading without a list under it stays.
 	 */
 	public function test_tldr_pattern_and_plain_heading(): void {
-		$post_id = self::factory()->post->create();
+		$post_id = self::factory()->post->create( [ 'post_excerpt' => '' ] );
 		$this->go_to( get_permalink( $post_id ) );
 		$GLOBALS['post'] = get_post( $post_id ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited -- the loop's post in a test.
 

@@ -36,6 +36,11 @@ const BlogLayoutPanel = () => {
 		(sel) => sel(editorStore).getEditedPostAttribute('featured_media'),
 		[]
 	);
+	const excerpt = useSelect(
+		(sel) =>
+			(sel(editorStore).getEditedPostAttribute('excerpt') || '').trim(),
+		[]
+	);
 	const layout = useLayout();
 	const { insertBlocks } = useDispatch(blockEditorStore);
 	const { toggleEditorPanelOpened } = useDispatch(editorStore);
@@ -103,15 +108,23 @@ const BlogLayoutPanel = () => {
 			<p>
 				<strong>{__('TL;DR box', 'imet-theme')}</strong>
 				<br />
-				{layout.tldr
-					? __(
-							'Found. On the site it shows as the box at the top of the article (wherever it is in the text).',
-							'imet-theme'
-						)
-					: __(
-							'None yet. Add a heading "TL;DR" with a list right under it (anywhere in the text): the site shows it as the box at the top of the article.',
-							'imet-theme'
-						)}
+				{layout.tldr &&
+					__(
+						'Your TL;DR is used: on the site it shows as the box at the top of the article (wherever it is in the text).',
+						'imet-theme'
+					)}
+				{!layout.tldr &&
+					excerpt &&
+					__(
+						'The box at the top of the article shows the Excerpt, one point per sentence. To write your own points instead, add a heading "TL;DR" with a list right under it.',
+						'imet-theme'
+					)}
+				{!layout.tldr &&
+					!excerpt &&
+					__(
+						'None: the article has no TL;DR box. Add a heading "TL;DR" with a list right under it, or write an Excerpt.',
+						'imet-theme'
+					)}
 			</p>
 			{!layout.tldr && (
 				<p>
@@ -165,7 +178,7 @@ const BlogLayoutPanel = () => {
 				<strong>{__('Excerpt', 'imet-theme')}</strong>
 				<br />
 				{__(
-					'Used for Google (SEO description) and the blog listing cards only. It is not shown in the article.',
+					'Used for Google (SEO description) and the blog listing cards, and as the TL;DR box when the text has no TL;DR of its own.',
 					'imet-theme'
 				)}
 			</p>

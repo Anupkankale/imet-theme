@@ -25,8 +25,8 @@ use rtCamp\WPPrimitives\Contracts\Interfaces\Registrable;
  *   the program card before the 2nd heading, the "Build job-ready skills" banner before the 4th and "Recommended
  *   Blog/Reading" (the newest other post) before the 6th; at the end when the post has fewer headings.
  * - The TL;DR box at the top of the article, from the writer's own TL;DR: a "TL;DR"/"TLDR" heading with a list under
- *   it, or the "Blog: TL;DR box" pattern, wherever it is in the post. A post without one gets no box. The excerpt is
- *   not used: writers keep it as the search/SEO description (the editor's "Blog layout" panel says so).
+ *   it, or the "Blog: TL;DR box" pattern, wherever it is in the post. A post without one gets the box from its excerpt
+ *   (the editor's "Blog layout" panel says which one the article shows).
  * - The tag chips under the title (`.bp-tags`) show the post's categories when it has no tags.
  *
  * @since 1.1.18
@@ -74,7 +74,12 @@ class SinglePost implements Registrable {
 		}
 
 		// The writer's TL;DR comes out first, so its heading isn't counted for the parts below; it goes back in at the top.
+		// Without one, the box is made from the excerpt (as before 1.1.103), so every article keeps its TL;DR.
 		[ $content, $tldr ] = $this->take_tldr( $content );
+
+		if ( '' === $tldr ) {
+			$tldr = $this->excerpt_tldr( $post->post_excerpt );
+		}
 
 		$parts = [
 			'bp-cta-card' => 2,
@@ -155,6 +160,36 @@ class SinglePost implements Registrable {
 		}
 
 		return [ $content, '' ];
+	}
+
+	/**
+	 * The TL;DR box from the excerpt, for a post without its own TL;DR: each line is a point (or each sentence, when it
+	 * is one line).
+	 *
+	 * @param string $excerpt The post's handwritten excerpt.
+	 *
+	 * @return string Markup, or '' without an excerpt.
+	 */
+	private function excerpt_tldr( string $excerpt ): string {
+		$excerpt = trim( wp_strip_all_tags( $excerpt ) );
+
+		if ( '' === $excerpt ) {
+			return '';
+		}
+
+		$points = preg_split( '/\R+/', $excerpt );
+		$points = is_array( $points ) && count( $points ) > 1 ? $points : preg_split( '/(?<=[.!?])\s+(?=\p{Lu})/u', $excerpt );
+		$items  = '';
+
+		foreach ( (array) $points as $point ) {
+			$point = trim( (string) $point );
+
+			if ( '' !== $point ) {
+				$items .= '<li>' . esc_html( $point ) . '</li>';
+			}
+		}
+
+		return '<div class="wp-block-group bp-tldr"><p class="bp-tldr-title">' . esc_html__( 'TL;DR', 'imet-theme' ) . '</p><ol class="wp-block-list">' . $items . '</ol></div>';
 	}
 
 	/**
