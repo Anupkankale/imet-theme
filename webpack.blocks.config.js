@@ -165,6 +165,12 @@ const withImetBlocks = (singleConfig) => {
 					context: 'src/blocks',
 					noErrorOnMissing: true,
 				},
+				// Static files a block loads at run time (the Offices Map's world map).
+				{
+					from: '**/map.svg',
+					context: 'src/blocks',
+					noErrorOnMissing: true,
+				},
 			],
 		}),
 	];

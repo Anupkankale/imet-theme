@@ -62,6 +62,7 @@ class Blocks implements Registrable {
 		add_action( 'init', [ $this, 'register_blocks' ] );
 		add_filter( 'block_categories_all', [ $this, 'add_category' ] );
 		add_filter( 'render_block', [ $this, 'add_alignfull' ], 10, 2 );
+		add_filter( 'render_block_imet/offices-map', [ $this, 'add_map_url' ] );
 		add_action( 'enqueue_block_editor_assets', [ $this, 'enqueue_editor_assets' ] );
 		add_filter( 'style_loader_src', [ $this, 'version_asset' ] );
 		add_filter( 'script_loader_src', [ $this, 'version_asset' ] );
@@ -118,6 +119,32 @@ class Blocks implements Registrable {
 		);
 
 		return $categories;
+	}
+
+	/**
+	 * Tell the Offices Map where its world map is (view.js loads it when the section comes near the screen).
+	 *
+	 * @param string $html Block markup.
+	 *
+	 * @return string Block markup with a `data-map` URL on the section.
+	 */
+	public function add_map_url( string $html ): string {
+		$relative = 'assets/build/' . self::BLOCKS_PATH . '/global/offices-map/map.svg';
+		$file     = get_theme_file_path( $relative );
+
+		if ( ! file_exists( $file ) ) {
+			return $html;
+		}
+
+		$tags = new \WP_HTML_Tag_Processor( $html );
+
+		if ( ! $tags->next_tag() ) {
+			return $html;
+		}
+
+		$tags->set_attribute( 'data-map', add_query_arg( 'ver', (string) filemtime( $file ), get_theme_file_uri( $relative ) ) );
+
+		return $tags->get_updated_html();
 	}
 
 	/**

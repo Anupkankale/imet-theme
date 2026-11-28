@@ -2,7 +2,17 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## 1.1.104 - 2026-11-28
+## 1.1.105 - 2026-11-28
+
+### Added
+
+- New block "IMET Offices Map" (`imet/offices-map`): a world map of the offices with one tab per office (Dubai, USA, India, UK, Germany) and each office's full street address. The chosen office's country turns navy, its pin shows a label and a dashed arc runs to it from Dubai; a card in the lower-left corner shows "0N · Office" and the address. Tabs, pins and countries are clickable, arrow keys move between tabs, and the map tours the offices by itself until someone uses it (not with "reduce motion"). On phones the tabs scroll sideways and the card sits under the map.
+- The office names and addresses are an ordinary editable list in the block (`.om-office.om-<key>`: heading = tab, paragraph = address); the tabs and card are built from it. Without JavaScript, and in the editor, the list shows as cards.
+- The map (`map.svg`, 27 KB gzipped) is a separate file loaded only when the section comes near the screen, so it adds nothing to the page's first load; its space is reserved to avoid a layout shift. `Blocks::add_map_url` puts its URL on the section. `bin/build-world-map.mjs` rebuilds it (needed only for a new office location).
+
+### Changed
+
+- Home pattern: "Affiliated Information Centers" (a static map image) is replaced by the Offices Map, keeping the `#centers` anchor. Existing Home pages keep their saved content: on the live Home page the "Global Map / Study from anywhere" section is to be swapped for the block.
 
 ### Changed
 
