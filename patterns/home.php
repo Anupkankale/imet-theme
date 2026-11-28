@@ -851,21 +851,63 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:group --></section>
 <!-- /wp:imet/testimonials -->
 
-<!-- wp:imet/section {"className":"is-style-home","anchor":"centers"} -->
-<section class="wp-block-imet-section alignfull imet-section section imet-blank is-style-home" id="centers"><!-- wp:group {"className":"imet-container","layout":{"type":"default"}} -->
-<div class="wp-block-group imet-container"><!-- wp:heading {"className":"title"} -->
-<h2 class="wp-block-heading title">Affiliated Information Centers</h2>
-<!-- /wp:heading -->
-
-<!-- wp:paragraph {"className":"sub"} -->
-<p class="sub">We are globally accessible, with affiliations and accreditations across multiple regions.</p>
+<!-- wp:imet/offices-map {"align":"full","anchor":"centers"} -->
+<section class="wp-block-imet-offices-map alignfull imet-section section offices-map" id="centers"><!-- wp:group {"className":"imet-container","layout":{"type":"default"}} -->
+<div class="wp-block-group imet-container"><!-- wp:group {"className":"sec-head","layout":{"type":"default"}} -->
+<div class="wp-block-group sec-head"><!-- wp:paragraph {"className":"eyebrow-line"} -->
+<p class="eyebrow-line">Where We Are</p>
 <!-- /wp:paragraph -->
-
-<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"centres-map"} -->
-<figure class="wp-block-image size-full centres-map"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/imet/home-map.webp' ) ); ?>" alt="Map of IMET Worldwide affiliated information centers across the USA, Europe, Dubai (UAE) and Singapore"/></figure>
-<!-- /wp:image --></div>
+<!-- wp:heading {"className":"title"} -->
+<h2 class="wp-block-heading title">A global presence across 5 countries</h2>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"sub"} -->
+<p class="sub">Choose an office to see where to find us.</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"om-offices","layout":{"type":"default"}} -->
+<div class="wp-block-group om-offices"><!-- wp:group {"className":"om-office om-ae","layout":{"type":"default"}} -->
+<div class="wp-block-group om-office om-ae"><!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">Dubai (UAE)</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph -->
+<p>Bur Dubai, Dubai, UAE</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"om-office om-in","layout":{"type":"default"}} -->
+<div class="wp-block-group om-office om-in"><!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">India</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph -->
+<p>Vashi, Navi Mumbai</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"om-office om-us","layout":{"type":"default"}} -->
+<div class="wp-block-group om-office om-us"><!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">United States</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph -->
+<p>New Jersey, United States</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"om-office om-gb","layout":{"type":"default"}} -->
+<div class="wp-block-group om-office om-gb"><!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">United Kingdom</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph -->
+<p>Fitzrovia, London</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"om-office om-de","layout":{"type":"default"}} -->
+<div class="wp-block-group om-office om-de"><!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">Germany</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph -->
+<p>North Rhine-Westphalia, Düsseldorf, Germany</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group --></div>
+<!-- /wp:group --></div>
 <!-- /wp:group --></section>
-<!-- /wp:imet/section -->
+<!-- /wp:imet/offices-map -->
 
 <?php echo IMET\Theme\Modules\Patterns\SyncedSections::block( 'clients-testimonials' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- block comment built from an ID or a fixed slug. ?>
 

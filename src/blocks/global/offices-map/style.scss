@@ -1,0 +1,222 @@
+/* IMET Offices Map (imet/offices-map). Root element: .imet-section.offices-map
+   A framed card: office tabs on top, the world map below (map.svg, loaded by view.js) with the chosen office's
+   country, pin and arc from Dubai highlighted, and an address card in the lower-left corner. */
+
+.imet-section.offices-map {
+	--om-land: #e4e9f4;
+	--om-land-office: #b3c3e8;
+	--om-accent: var(--navy);
+	--om-arc: #7f93c4;
+}
+
+.imet-section.offices-map .sec-head { margin-bottom: 32px; }
+
+/* The editable list: cards in the editor and without JavaScript; the source of the tabs otherwise. */
+.imet-section .om-offices {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	gap: 16px;
+}
+
+.imet-section .om-office {
+	padding: 18px 20px;
+	border: 1px solid var(--line);
+	border-radius: var(--radius);
+	background: #fff;
+}
+
+.imet-section .om-office h3 { margin: 0 0 6px; color: var(--text-navy); font-family: var(--head); font-size: 1.125rem; font-weight: 700; }
+
+.imet-section .om-office p { margin: 0; color: var(--muted); font-size: .9375rem; line-height: 1.5; }
+
+.imet-section.offices-map.is-enhanced .om-offices { display: none; }
+
+/* Frame */
+.imet-section .om-frame {
+	overflow: hidden;
+	border: 1px solid #dfe4ee;
+	border-radius: 18px;
+	background: #fbfcfe;
+	box-shadow: 0 10px 30px rgba(21, 41, 78, .06);
+}
+
+.imet-section .om-tabs {
+	position: relative; /* the tabs' offsetParent, for keeping the chosen one in view */
+	display: flex;
+	gap: 8px;
+	padding: 14px;
+	overflow-x: auto;
+	border-bottom: 1px solid #e6eaf2;
+	scrollbar-width: none;
+}
+
+.imet-section .om-tabs::-webkit-scrollbar { display: none; }
+
+.imet-section .om-tab {
+	flex-shrink: 0;
+	padding: 9px 18px;
+	border: 0;
+	border-radius: 999px;
+	background: var(--lavender);
+	color: var(--text-navy);
+	font-family: var(--ui);
+	font-size: .9375rem;
+	font-weight: 600;
+	line-height: 1.2;
+	cursor: pointer;
+	transition: background-color .2s, color .2s;
+}
+
+.imet-section .om-tab:hover { background: #dcdffd; }
+
+.imet-section .om-tab.is-active { background: var(--om-accent); color: #fff; }
+
+.imet-section .om-tab:focus-visible { outline: 2px solid var(--om-accent); outline-offset: 2px; }
+
+/* Map stage: the height is reserved before the map arrives (the SVG's viewBox is 1000 × 492). */
+.imet-section .om-stage {
+	position: relative;
+	aspect-ratio: 1000 / 492;
+	padding: 24px 32px;
+}
+
+.imet-section .om-svg {
+	display: block;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	transition: opacity .4s;
+}
+
+.imet-section .om-stage.is-loaded .om-svg { opacity: 1; }
+
+.imet-section .om-svg .om-land {
+	fill: var(--om-land);
+	stroke: #fff;
+	stroke-width: .6;
+	stroke-linejoin: round;
+	transition: fill .35s;
+}
+
+.imet-section .om-svg .om-land.is-office { fill: var(--om-land-office); cursor: pointer; }
+
+.imet-section .om-svg .om-land.is-active { fill: var(--om-accent); }
+
+.imet-section .om-svg .om-arc {
+	fill: none;
+	stroke: var(--om-arc);
+	stroke-width: 1.2;
+	stroke-dasharray: 3 4;
+	opacity: .85;
+	transition: stroke .3s, opacity .3s;
+}
+
+.imet-section .om-svg .om-arc.is-active {
+	stroke: var(--om-accent);
+	stroke-width: 1.6;
+	opacity: 1;
+	animation: om-dash 1s linear infinite;
+}
+
+@keyframes om-dash {
+
+	to { stroke-dashoffset: -14; }
+}
+
+.imet-section .om-svg .om-pin { cursor: pointer; }
+
+.imet-section .om-svg .om-pin-halo { fill: var(--om-accent); opacity: .14; transform-box: fill-box; transform-origin: center; }
+
+.imet-section .om-svg .om-pin-ring { fill: #fff; stroke: var(--om-accent); stroke-width: 1.5; }
+
+.imet-section .om-svg .om-pin-dot { fill: var(--om-accent); }
+
+.imet-section .om-svg .om-pin.is-active .om-pin-halo { opacity: .22; animation: om-pulse 1.8s ease-out infinite; }
+
+@keyframes om-pulse {
+
+	from { transform: scale(.8); opacity: .35; }
+
+	to { transform: scale(2); opacity: 0; }
+}
+
+.imet-section .om-svg .om-pin-label {
+	opacity: 0;
+	fill: var(--text);
+	font-family: var(--ui);
+	font-size: 13px;
+	font-weight: 700;
+	paint-order: stroke;
+	stroke: #fff;
+	stroke-width: 3.5px;
+	stroke-linejoin: round;
+	pointer-events: none;
+	transition: opacity .25s;
+}
+
+.imet-section .om-svg .om-pin.is-active .om-pin-label { opacity: 1; }
+
+/* Address card */
+.imet-section .om-card {
+	position: absolute;
+	left: 20px;
+	bottom: 20px;
+	z-index: 1;
+	max-width: min(340px, calc(100% - 40px));
+	padding: 14px 20px;
+	border: 1px solid #d9dff0;
+	border-radius: 14px;
+	background: #fff;
+	box-shadow: 0 8px 24px rgba(21, 41, 78, .1);
+}
+
+.imet-section .om-card p { margin: 0; }
+
+.imet-section .om-card-kicker {
+	margin-bottom: 4px !important;
+	color: var(--blue);
+	font-family: var(--ui);
+	font-size: .75rem;
+	font-weight: 700;
+	letter-spacing: .06em;
+	text-transform: uppercase;
+}
+
+.imet-section .om-card-title { color: var(--text-navy); font-family: var(--head); font-size: 1.125rem; font-weight: 700; line-height: 1.35; }
+
+@media (prefers-reduced-motion: reduce) {
+
+	.imet-section .om-svg .om-arc.is-active,
+	.imet-section .om-svg .om-pin.is-active .om-pin-halo { animation: none; }
+}
+
+/* Phones and small tablets: the card sits under the map instead of over it. */
+@media (max-width: 700px) {
+
+	.imet-section .om-tabs { padding: 10px; }
+
+	.imet-section .om-tab { padding: 8px 14px; font-size: .875rem; }
+
+	.imet-section .om-stage { aspect-ratio: auto; padding: 12px; }
+
+	.imet-section .om-svg { height: auto; aspect-ratio: 1000 / 492; }
+
+	.imet-section .om-card { position: static; max-width: none; margin-top: 12px; box-shadow: none; }
+
+	/* The map is drawn at about a third of its size here: scale pins and labels back up (around each pin's centre). */
+	.imet-section .om-svg .om-pin > :not(.om-pin-halo) { transform: scale(2.2); }
+
+	.imet-section .om-svg .om-pin-label { stroke-width: 3px; }
+}
+
+@media (max-width: 700px) and (prefers-reduced-motion: no-preference) {
+
+	.imet-section .om-svg .om-pin.is-active .om-pin-halo { animation-name: om-pulse-big; }
+
+	@keyframes om-pulse-big {
+
+		from { transform: scale(1.8); opacity: .35; }
+
+		to { transform: scale(4.4); opacity: 0; }
+	}
+}

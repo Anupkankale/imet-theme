@@ -1,0 +1,42 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "imet/offices-map",
+	"title": "IMET Offices Map",
+	"category": "imet",
+	"icon": "location-alt",
+	"description": "World map of the IMET offices: one tab per office, the country highlighted with an arc from Dubai and a card with the address. Edit the office names and addresses in the list.",
+	"keywords": [
+		"imet",
+		"section",
+		"map",
+		"offices",
+		"locations"
+	],
+	"version": "1.0.0",
+	"textdomain": "imet-theme",
+	"supports": {
+		"anchor": true,
+		"html": false,
+		"align": [
+			"full"
+		]
+	},
+	"attributes": {
+		"align": {
+			"type": "string",
+			"default": "full"
+		}
+	},
+	"imet": {
+		"tagName": "section",
+		"className": "section offices-map",
+		"anchor": "offices"
+	},
+	"editorScript": "file:./index.js",
+	"style": [
+		"imet-base",
+		"file:./style-index.css"
+	],
+	"viewScript": "file:./view.js"
+}
