@@ -289,7 +289,7 @@ export function pauseButton(anchor, onChange, { rows = [anchor] } = {}) {
 }
 
 /**
- * Marquee: the row glides left at `speed` px/s and loops without a jump (the items are repeated once,
+ * Marquee: the row glides left (right with `reverse`) at `speed` px/s and loops without a jump (the items are repeated once,
  * marked .is-clone and hidden from screen readers and the tab order). It only moves while the row actually
  * overflows (so CSS decides per screen size), is on screen and isn't hovered, focused or touched; swiping still
  * works. A pause button after the row stops it until pressed again. Off for "reduce motion". `alwaysMove` keeps it gliding even when the items exactly fit the row (the copies
@@ -300,12 +300,13 @@ export function pauseButton(anchor, onChange, { rows = [anchor] } = {}) {
  * @param {number}    options.speed      Pixels per second.
  * @param {boolean}   options.alwaysMove Keep gliding when the items exactly fit.
  * @param {boolean}   options.control    Add the row's own pause button; false when one button controls several rows.
+ * @param {boolean}   options.reverse    Glide right instead of left (e.g. every other row of a logo wall).
  * @return {{setStopped: (stop: boolean) => void}|null} Stops and restarts the row; null when nothing moves.
  */
 export function marquee(
 	row,
 	items,
-	{ speed = 40, alwaysMove = false, control = true } = {}
+	{ speed = 40, alwaysMove = false, control = true, reverse = false } = {}
 ) {
 	if (reduceMotion() || items.length < 2) {
 		return null;
@@ -360,9 +361,18 @@ export function marquee(
 			}
 			return;
 		}
-		pos += (speed * dt) / 1000;
-		if (pos >= w) {
-			pos -= w;
+		const step = (speed * dt) / 1000;
+		if (reverse) {
+			// Right: count down through one loop (the copies sit after the originals, so w..0 looks the same as 0..w).
+			pos -= step;
+			if (pos <= 0) {
+				pos += w;
+			}
+		} else {
+			pos += step;
+			if (pos >= w) {
+				pos -= w;
+			}
 		}
 		row.scrollLeft = pos;
 	};

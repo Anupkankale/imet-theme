@@ -2,6 +2,12 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.104 - 2026-11-28
+
+### Changed
+
+- Home page, "Our Alumni Network": the second row of logos now glides the opposite way to the first (first left, second right), so the two rails cross instead of moving together. `marquee()` (`src/blocks-shared/view-helpers.js`) has a new `reverse` option, off by default, so every other gliding row on the site is unchanged; the section's one pause button, hover/touch pause and "reduce motion" work as before.
+
 ## 1.1.103 - 2026-11-27
 
 ### Fixed
