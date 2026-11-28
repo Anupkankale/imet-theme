@@ -206,9 +206,9 @@
 	right: 0;
 	bottom: 0;
 	left: 0;
-	padding: var(--wp--preset--spacing--36) var(--wp--preset--spacing--26) var(--wp--preset--spacing--14);
-	background: linear-gradient(180deg, transparent, rgb(0 0 0 / .55) var(--wp--preset--spacing--36), rgb(0 0 0 / .8) 70%, var(--wp--preset--color--ink));
-	text-shadow: 0 1px 3px rgb(0 0 0 / .6);
+	padding: var(--wp--preset--spacing--20) var(--wp--preset--spacing--26) var(--wp--preset--spacing--14);
+	background: linear-gradient(180deg, transparent, rgb(0 0 0 / .35) var(--wp--preset--spacing--20), rgb(0 0 0 / .6) 65%, rgb(0 0 0 / .8));
+	text-shadow: 0 1px 2px rgb(0 0 0 / .8), 0 0 8px rgb(0 0 0 / .5);
 }
 
 .imet-section.step-cards.is-style-home.is-cases .step-card h3 { margin: 0; padding: 0; color: #fff; font-size: 1rem; line-height: 1.3; }
