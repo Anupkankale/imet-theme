@@ -867,10 +867,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- wp:group {"className":"om-offices","layout":{"type":"default"}} -->
 <div class="wp-block-group om-offices"><!-- wp:group {"className":"om-office om-ae","layout":{"type":"default"}} -->
 <div class="wp-block-group om-office om-ae"><!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading">Dubai (UAE)</h3>
+<h3 class="wp-block-heading">Dubai</h3>
 <!-- /wp:heading -->
 <!-- wp:paragraph -->
-<p>Bur Dubai, Dubai, UAE</p>
+<p>7th Floor, Al Fahidi Heights, Al Musallah Tower, Khalid Bin Al Waleed Road, Bur Dubai, Dubai, UAE</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"om-office om-us","layout":{"type":"default"}} -->
+<div class="wp-block-group om-office om-us"><!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">USA</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph -->
+<p>101 Hampshire Drive, Plainsboro Township, New Jersey 08536, United States</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 <!-- wp:group {"className":"om-office om-in","layout":{"type":"default"}} -->
@@ -878,23 +886,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 <h3 class="wp-block-heading">India</h3>
 <!-- /wp:heading -->
 <!-- wp:paragraph -->
-<p>Vashi, Navi Mumbai</p>
-<!-- /wp:paragraph --></div>
-<!-- /wp:group -->
-<!-- wp:group {"className":"om-office om-us","layout":{"type":"default"}} -->
-<div class="wp-block-group om-office om-us"><!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading">United States</h3>
-<!-- /wp:heading -->
-<!-- wp:paragraph -->
-<p>New Jersey, United States</p>
+<p>BSEL Tech Park, Opp. Vashi Station, Opp. Inorbit Mall, Sector 30A, Vashi, Navi Mumbai, Maharashtra 400703, India</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 <!-- wp:group {"className":"om-office om-gb","layout":{"type":"default"}} -->
 <div class="wp-block-group om-office om-gb"><!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading">United Kingdom</h3>
+<h3 class="wp-block-heading">UK</h3>
 <!-- /wp:heading -->
 <!-- wp:paragraph -->
-<p>Fitzrovia, London</p>
+<p>60 Tottenham Court Rd, Area 1/1, Fitzrovia, London, W1T 2EW, United Kingdom</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 <!-- wp:group {"className":"om-office om-de","layout":{"type":"default"}} -->
@@ -902,7 +902,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <h3 class="wp-block-heading">Germany</h3>
 <!-- /wp:heading -->
 <!-- wp:paragraph -->
-<p>North Rhine-Westphalia, Düsseldorf, Germany</p>
+<p>Businesscenter Heerdt, Monschauer Str. 12, 40549, Meerbusch, North Rhine-Westphalia, Düsseldorf, Germany</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group --></div>
