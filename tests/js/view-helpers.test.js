@@ -172,6 +172,46 @@ describe('marquee', () => {
 		expect(row.classList.contains('is-stopped')).toBe(false);
 	});
 
+	describe('direction', () => {
+		// One loop is 100px (the first copy starts 100px after the first item); the row is on screen.
+		const run = (options) => {
+			const frames = [];
+			window.requestAnimationFrame = jest.fn((fn) => frames.push(fn));
+			window.IntersectionObserver = class {
+				constructor(callback) {
+					this.callback = callback;
+				}
+				observe() {
+					this.callback([{ isIntersecting: true }]);
+				}
+			};
+			const row = document.querySelector('.row');
+			const items = [...row.querySelectorAll('.item')];
+			marquee(row, items, { alwaysMove: true, speed: 100, ...options });
+			const copy = row.children[items.length];
+			Object.defineProperty(items[0], 'offsetLeft', { value: 0 });
+			Object.defineProperty(copy, 'offsetLeft', { value: 100 });
+			const tick = (now) => frames.pop()(now);
+			return { row, tick };
+		};
+
+		test('glides left by default', () => {
+			const { row, tick } = run();
+			tick(1000); // the first frame only sets the clock
+			tick(1100); // 100 ms at 100 px/s: 10px
+			expect(row.scrollLeft).toBe(10);
+		});
+
+		test('reverse glides right, looping without a jump', () => {
+			const { row, tick } = run({ reverse: true });
+			tick(1000);
+			tick(1100); // from the start it wraps to the copy: 100 - 10
+			expect(row.scrollLeft).toBe(90);
+			tick(1200);
+			expect(row.scrollLeft).toBe(80);
+		});
+	});
+
 	test('does nothing for reduced motion or a single item', () => {
 		window.matchMedia = jest.fn(() => ({ matches: true }));
 

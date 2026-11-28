@@ -2,6 +2,13 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.104 - 2026-11-28
+
+### Changed
+
+- Home page, "Our Alumni Network": the second row of logos now glides the opposite way to the first (first left, second right), so the two rails cross instead of moving together. `marquee()` (`src/blocks-shared/view-helpers.js`) has a new `reverse` option, off by default, so every other gliding row on the site is unchanged; the section's one pause button, hover/touch pause and "reduce motion" work as before.
+- Home page, "Case Studies of Doctorate Alumni" cards: the dark shade behind the name and quote no longer covers the faces. It now starts right at the name and is much lighter (35% black at the top, 80% only at the bottom, behind "Read More"); it was 85% black from 54px above the text, which covered chins and mouths on cards with a three-line quote. A text shadow keeps the white text readable.
+
 ## 1.1.103 - 2026-11-27
 
 ### Fixed
