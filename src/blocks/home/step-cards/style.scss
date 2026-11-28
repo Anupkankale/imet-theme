@@ -196,16 +196,19 @@
 
 .imet-section.step-cards.is-style-home.is-cases .sc-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center top; }
 
-/* The dark fade travels with the text (UI review): however many lines the name and quote take, they sit on black, at
-   every card size and on phones. */
+/* The dark fade travels with the text (UI review): however many lines the name and quote take, they sit on a dark
+   backdrop, at every card size and on phones. It starts just above the name and stays light at first, so it doesn't
+   climb over the faces (the old 70px lead-in, 85% dark after 54px, covered chins and mouths on three-line cards); the
+   text shadow keeps the white text readable where the shade is still light. */
 .imet-section.step-cards.is-style-home.is-cases .sc-text {
 	position: absolute;
 	z-index: 1;
 	right: 0;
 	bottom: 0;
 	left: 0;
-	padding: var(--wp--preset--spacing--70) var(--wp--preset--spacing--26) var(--wp--preset--spacing--14);
-	background: linear-gradient(180deg, transparent, rgb(0 0 0 / .85) var(--wp--preset--spacing--54), var(--wp--preset--color--ink));
+	padding: var(--wp--preset--spacing--36) var(--wp--preset--spacing--26) var(--wp--preset--spacing--14);
+	background: linear-gradient(180deg, transparent, rgb(0 0 0 / .55) var(--wp--preset--spacing--36), rgb(0 0 0 / .8) 70%, var(--wp--preset--color--ink));
+	text-shadow: 0 1px 3px rgb(0 0 0 / .6);
 }
 
 .imet-section.step-cards.is-style-home.is-cases .step-card h3 { margin: 0; padding: 0; color: #fff; font-size: 1rem; line-height: 1.3; }
