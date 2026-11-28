@@ -2,6 +2,16 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.1.103 - 2026-11-27
+
+### Fixed
+
+- Blog posts: the TL;DR box at the top of the article now comes from the writer's own TL;DR when the post has one, a "TL;DR"/"TLDR" heading with a list under it, or the "Blog: TL;DR box" pattern, wherever it is in the post (`SinglePost::take_tldr`); that section moves into the box instead of showing twice. Posts without one keep the box made from the excerpt, as before. Twelve live posts showed two TL;DRs: the excerpt's box at the top and the writer's TLDR section further down.
+
+### Added
+
+- Blog post editor: a "Blog layout" panel in the Post sidebar (opens by itself the first time). It says the top image is the Featured image, where the TL;DR box comes from (the writer's TL;DR or the excerpt, with an "Add TL;DR at the top" button), before which headings the program card, the "Build job-ready skills" banner and "Recommended Blog/Reading" appear on the site, and what the excerpt is used for. In the text, the TL;DR looks like the box and those headings carry a dashed label. Editor only: nothing is saved into the posts (`src/blocks-shared/blog-layout.js`, `src/css/editor/_blog-layout.scss`).
+
 ## 1.1.102 - 2026-11-25
 
 ### Fixed

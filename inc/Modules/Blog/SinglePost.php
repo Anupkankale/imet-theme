@@ -22,9 +22,11 @@ use rtCamp\WPPrimitives\Contracts\Interfaces\Registrable;
  * - "Our Related Blogs": a Query Loop whose `query` attribute has `"imetRelated": true` lists posts from the current
  *   post's categories, without the post itself (the latest posts when no other post shares a category).
  * - The article parts of the design, added to every post's body (`.bp-content`) unless the post already has its own:
- *   the TL;DR box from the excerpt at the top, the program card before the 2nd heading, the "Build job-ready skills"
- *   banner before the 4th and "Recommended Blog/Reading" (the newest other post) before the 6th; at the end when the
- *   post has fewer headings.
+ *   the program card before the 2nd heading, the "Build job-ready skills" banner before the 4th and "Recommended
+ *   Blog/Reading" (the newest other post) before the 6th; at the end when the post has fewer headings.
+ * - The TL;DR box at the top of the article, from the writer's own TL;DR: a "TL;DR"/"TLDR" heading with a list under
+ *   it, or the "Blog: TL;DR box" pattern, wherever it is in the post. A post without one gets the box from its excerpt
+ *   (the editor's "Blog layout" panel says which one the article shows).
  * - The tag chips under the title (`.bp-tags`) show the post's categories when it has no tags.
  *
  * @since 1.1.18
@@ -71,6 +73,14 @@ class SinglePost implements Registrable {
 			return $content;
 		}
 
+		// The writer's TL;DR comes out first, so its heading isn't counted for the parts below; it goes back in at the top.
+		// Without one, the box is made from the excerpt (as before 1.1.103), so every article keeps its TL;DR.
+		[ $content, $tldr ] = $this->take_tldr( $content );
+
+		if ( '' === $tldr ) {
+			$tldr = $this->excerpt_tldr( $post->post_excerpt );
+		}
+
 		$parts = [
 			'bp-cta-card' => 2,
 			'bp-banner'   => 4,
@@ -93,16 +103,117 @@ class SinglePost implements Registrable {
 
 		$content = $this->insert_before_headings( $content, $inserts );
 
-		if ( ! str_contains( $content, 'bp-tldr' ) ) {
-			$tldr = $this->tldr( $post->post_excerpt );
-
-			// First thing inside the post content wrapper.
-			if ( '' !== $tldr && 1 === preg_match( '/^\s*<div\b[^>]*>/', $content, $wrapper ) ) {
-				$content = substr_replace( $content, $tldr, strlen( $wrapper[0] ), 0 );
-			}
+		// First thing inside the post content wrapper.
+		if ( '' !== $tldr && 1 === preg_match( '/^\s*<div\b[^>]*>/', $content, $wrapper ) ) {
+			$content = substr_replace( $content, $tldr, strlen( $wrapper[0] ), 0 );
 		}
 
 		return $content;
+	}
+
+	/**
+	 * Takes the writer's TL;DR out of the post body: the "Blog: TL;DR box" pattern as it is, or a heading that reads
+	 * "TL;DR" (also "TLDR", "TL DR", "TL:DR") with a list right under it, made into the box.
+	 *
+	 * @since 1.1.103
+	 *
+	 * @param string $content The rendered post content.
+	 *
+	 * @return array{0: string, 1: string} The content without the TL;DR, and the box ('' when the post has none).
+	 */
+	private function take_tldr( string $content ): array {
+		// The pattern's box.
+		if ( 1 === preg_match( '/<div\b[^>]*\bclass="[^"]*\bbp-tldr\b[^"]*"[^>]*>/', $content, $box, PREG_OFFSET_CAPTURE ) ) {
+			$start = (int) $box[0][1];
+			$end   = $this->element_end( $content, $start, 'div' );
+
+			if ( null !== $end ) {
+				return [ substr_replace( $content, '', $start, $end - $start ), substr( $content, $start, $end - $start ) ];
+			}
+		}
+
+		// A TL;DR heading and the list under it.
+		preg_match_all( '/<h([2-4])\b[^>]*>(.*?)<\/h\1>\s*/is', $content, $headings, PREG_SET_ORDER | PREG_OFFSET_CAPTURE );
+
+		foreach ( $headings as $heading ) {
+			if ( 1 !== preg_match( '/^\W*TL\W{0,2}DR\b/i', trim( html_entity_decode( wp_strip_all_tags( $heading[2][0] ) ) ) ) ) {
+				continue;
+			}
+
+			$start = (int) $heading[0][1];
+			$after = $start + strlen( $heading[0][0] );
+
+			if ( 1 !== preg_match( '/\G<(ul|ol)\b[^>]*>/i', $content, $list, 0, $after ) ) {
+				continue;
+			}
+
+			$end = $this->element_end( $content, $after, strtolower( $list[1] ) );
+
+			if ( null === $end ) {
+				continue;
+			}
+
+			$items = substr( $content, $after + strlen( $list[0] ), $end - $after - strlen( $list[0] ) - strlen( '</' . $list[1] . '>' ) );
+			$box   = '<div class="wp-block-group bp-tldr"><p class="bp-tldr-title">' . esc_html__( 'TL;DR', 'imet-theme' ) . '</p><ol class="wp-block-list">' . $items . '</ol></div>';
+
+			return [ substr_replace( $content, '', $start, $end - $start ), $box ];
+		}
+
+		return [ $content, '' ];
+	}
+
+	/**
+	 * The TL;DR box from the excerpt, for a post without its own TL;DR: each line is a point (or each sentence, when it
+	 * is one line).
+	 *
+	 * @param string $excerpt The post's handwritten excerpt.
+	 *
+	 * @return string Markup, or '' without an excerpt.
+	 */
+	private function excerpt_tldr( string $excerpt ): string {
+		$excerpt = trim( wp_strip_all_tags( $excerpt ) );
+
+		if ( '' === $excerpt ) {
+			return '';
+		}
+
+		$points = preg_split( '/\R+/', $excerpt );
+		$points = is_array( $points ) && count( $points ) > 1 ? $points : preg_split( '/(?<=[.!?])\s+(?=\p{Lu})/u', $excerpt );
+		$items  = '';
+
+		foreach ( (array) $points as $point ) {
+			$point = trim( (string) $point );
+
+			if ( '' !== $point ) {
+				$items .= '<li>' . esc_html( $point ) . '</li>';
+			}
+		}
+
+		return '<div class="wp-block-group bp-tldr"><p class="bp-tldr-title">' . esc_html__( 'TL;DR', 'imet-theme' ) . '</p><ol class="wp-block-list">' . $items . '</ol></div>';
+	}
+
+	/**
+	 * Where an element ends (just after its closing tag), counting the same tags nested inside it.
+	 *
+	 * @param string $html  Markup.
+	 * @param int    $start Offset of the element's opening tag.
+	 * @param string $tag   Tag name.
+	 *
+	 * @return int|null Offset after the closing tag, or null when it isn't closed.
+	 */
+	private function element_end( string $html, int $start, string $tag ): ?int {
+		preg_match_all( '/<(\/?)' . $tag . '\b[^>]*>/i', $html, $tags, PREG_SET_ORDER | PREG_OFFSET_CAPTURE, $start );
+		$depth = 0;
+
+		foreach ( $tags as $found ) {
+			$depth += '' === $found[1][0] ? 1 : -1;
+
+			if ( 0 === $depth ) {
+				return (int) $found[0][1] + strlen( $found[0][0] );
+			}
+		}
+
+		return null;
 	}
 
 	/**
@@ -282,35 +393,6 @@ class SinglePost implements Registrable {
 		$end = strrpos( $content, '</div>' );
 
 		return false === $end ? $content . $tail : substr_replace( $content, $tail, $end, 0 );
-	}
-
-	/**
-	 * The TL;DR box: each line of the excerpt is a point (or each sentence, when it is one line).
-	 *
-	 * @param string $excerpt The post's handwritten excerpt.
-	 *
-	 * @return string Markup, or '' without an excerpt.
-	 */
-	private function tldr( string $excerpt ): string {
-		$excerpt = trim( wp_strip_all_tags( $excerpt ) );
-
-		if ( '' === $excerpt ) {
-			return '';
-		}
-
-		$points = preg_split( '/\R+/', $excerpt );
-		$points = is_array( $points ) && count( $points ) > 1 ? $points : preg_split( '/(?<=[.!?])\s+(?=\p{Lu})/u', $excerpt );
-		$items  = '';
-
-		foreach ( (array) $points as $point ) {
-			$point = trim( (string) $point );
-
-			if ( '' !== $point ) {
-				$items .= '<li>' . esc_html( $point ) . '</li>';
-			}
-		}
-
-		return '<div class="wp-block-group bp-tldr"><p class="bp-tldr-title">' . esc_html__( 'TL;DR', 'imet-theme' ) . '</p><ol class="wp-block-list">' . $items . '</ol></div>';
 	}
 
 	/**

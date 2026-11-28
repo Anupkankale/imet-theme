@@ -3,6 +3,7 @@
 @use "../shared/header-footer";
 @use "../shared/design-system";
 @use "../shared/components";
+@use "blog-layout";
 
 // Core pins the open submenu in the canvas with !important rules on the selected state
 // (.wp-block-navigation .has-child.is-selected > ...), which wraps the labels. The long selector and !important

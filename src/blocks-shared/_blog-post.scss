@@ -462,7 +462,7 @@ body:has(.wp-site-blocks > header.is-hidden) .imet-section .bp-aside {
 
 .imet-section .bp-tldr li + li { margin-top: 0; }
 
-/* A one-point TL;DR (a one-sentence excerpt, templates/single.html via SinglePost) runs the full width. */
+/* A one-point TL;DR (the writer listed one point; templates/single.html via SinglePost) runs the full width. */
 .imet-section .bp-tldr ol:has(> li:only-child) { grid-template-columns: minmax(0, 1fr); }
 
 /* Program card (pattern blog-program-cta): text on a light blue panel beside a photo. */
